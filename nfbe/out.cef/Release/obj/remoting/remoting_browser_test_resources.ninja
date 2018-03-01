@@ -1,0 +1,51 @@
+build remoting/browser_test_resources/browser_test.js: copy $
+    ../../remoting/webapp/browser_test/browser_test.js
+build remoting/browser_test_resources/bump_scroll_browser_test.js: copy $
+    ../../remoting/webapp/browser_test/bump_scroll_browser_test.js
+build remoting/browser_test_resources/cancel_pin_browser_test.js: copy $
+    ../../remoting/webapp/browser_test/cancel_pin_browser_test.js
+build remoting/browser_test_resources/invalid_pin_browser_test.js: copy $
+    ../../remoting/webapp/browser_test/invalid_pin_browser_test.js
+build remoting/browser_test_resources/it2me_browser_test.js: copy $
+    ../../remoting/webapp/browser_test/it2me_browser_test.js
+build remoting/browser_test_resources/me2me_browser_test.js: copy $
+    ../../remoting/webapp/browser_test/me2me_browser_test.js
+build remoting/browser_test_resources/scrollbar_browser_test.js: copy $
+    ../../remoting/webapp/browser_test/scrollbar_browser_test.js
+build remoting/browser_test_resources/timeout_waiter.js: copy $
+    ../../remoting/webapp/browser_test/timeout_waiter.js
+build remoting/browser_test_resources/unauthenticated_browser_test.js: copy $
+    ../../remoting/webapp/browser_test/unauthenticated_browser_test.js
+build remoting/browser_test_resources/update_pin_browser_test.js: copy $
+    ../../remoting/webapp/browser_test/update_pin_browser_test.js
+build remoting/browser_test_resources/mock_client_plugin.js: copy $
+    ../../remoting/webapp/crd/js/mock_client_plugin.js
+build remoting/browser_test_resources/mock_host_list_api.js: copy $
+    ../../remoting/webapp/crd/js/mock_host_list_api.js
+build remoting/browser_test_resources/mock_identity.js: copy $
+    ../../remoting/webapp/crd/js/mock_identity.js
+build remoting/browser_test_resources/mock_oauth2_api.js: copy $
+    ../../remoting/webapp/crd/js/mock_oauth2_api.js
+build remoting/browser_test_resources/mock_signal_strategy.js: copy $
+    ../../remoting/webapp/crd/js/mock_signal_strategy.js
+build remoting/browser_test_resources/sinon.js: copy $
+    ../../third_party/sinonjs/src/sinon.js
+build $
+    obj/remoting/remoting_browser_test_resources.actions_rules_copies.stamp: $
+    stamp remoting/browser_test_resources/browser_test.js $
+    remoting/browser_test_resources/bump_scroll_browser_test.js $
+    remoting/browser_test_resources/cancel_pin_browser_test.js $
+    remoting/browser_test_resources/invalid_pin_browser_test.js $
+    remoting/browser_test_resources/it2me_browser_test.js $
+    remoting/browser_test_resources/me2me_browser_test.js $
+    remoting/browser_test_resources/scrollbar_browser_test.js $
+    remoting/browser_test_resources/timeout_waiter.js $
+    remoting/browser_test_resources/unauthenticated_browser_test.js $
+    remoting/browser_test_resources/update_pin_browser_test.js $
+    remoting/browser_test_resources/mock_client_plugin.js $
+    remoting/browser_test_resources/mock_host_list_api.js $
+    remoting/browser_test_resources/mock_identity.js $
+    remoting/browser_test_resources/mock_oauth2_api.js $
+    remoting/browser_test_resources/mock_signal_strategy.js $
+    remoting/browser_test_resources/sinon.js
+

@@ -1,0 +1,33 @@
+rule $
+    cached_jinja_templates_target_cache_jinja_templates_b1215cd39cc850ed819a09aad1d7d580
+  command = cd ../../third_party/WebKit/Source/bindings/scripts; python $
+      code_generator_v8.py $
+      ../../../../../out.cef/Release/gen/blink/bindings/scripts $
+      ../../../../../out.cef/Release/gen/blink/bindings/scripts/cached_jinja_templates.stamp
+  description = ACTION Caching bytecode of Jinja templates
+  restat = 1
+
+build gen/blink/bindings/scripts/cached_jinja_templates.stamp: $
+    cached_jinja_templates_target_cache_jinja_templates_b1215cd39cc850ed819a09aad1d7d580 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/bindings/scripts/code_generator_v8.py $
+    ../../third_party/WebKit/Source/bindings/templates/attributes.cpp $
+    ../../third_party/WebKit/Source/bindings/templates/callback_interface.cpp $
+    ../../third_party/WebKit/Source/bindings/templates/callback_interface.h $
+    ../../third_party/WebKit/Source/bindings/templates/constants.cpp $
+    ../../third_party/WebKit/Source/bindings/templates/utilities.cpp $
+    ../../third_party/WebKit/Source/bindings/templates/copyright_block.txt $
+    ../../third_party/WebKit/Source/bindings/templates/dictionary_impl.cpp $
+    ../../third_party/WebKit/Source/bindings/templates/dictionary_impl.h $
+    ../../third_party/WebKit/Source/bindings/templates/dictionary_v8.cpp $
+    ../../third_party/WebKit/Source/bindings/templates/dictionary_v8.h $
+    ../../third_party/WebKit/Source/bindings/templates/interface_base.cpp $
+    ../../third_party/WebKit/Source/bindings/templates/interface.cpp $
+    ../../third_party/WebKit/Source/bindings/templates/interface.h $
+    ../../third_party/WebKit/Source/bindings/templates/methods.cpp $
+    ../../third_party/WebKit/Source/bindings/templates/partial_interface.cpp $
+    ../../third_party/WebKit/Source/bindings/templates/partial_interface.h $
+    ../../third_party/WebKit/Source/bindings/templates/union.cpp $
+    ../../third_party/WebKit/Source/bindings/templates/union.h
+

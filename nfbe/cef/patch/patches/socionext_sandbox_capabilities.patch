@@ -1,0 +1,13 @@
+diff --git credentials.cc credentials.cc
+index 0e569fa..98fa5a8 100644
+--- credentials.cc
++++ credentials.cc
+@@ -328,7 +328,7 @@ pid_t Credentials::ForkAndDropCapabilitiesInChild() {
+   }
+ 
+   // Since we just forked, we are single threaded.
+-  PCHECK(DropAllCapabilitiesOnCurrentThread());
++  //PCHECK(DropAllCapabilitiesOnCurrentThread());
+   return 0;
+ }
+ 

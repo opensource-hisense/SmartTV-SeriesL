@@ -1,0 +1,40 @@
+diff --git common.gypi common.gypi
+index 8e75c04..0731110 100644
+--- common.gypi
++++ common.gypi
+@@ -2681,6 +2681,10 @@
+         # TODO(thakis): Enable this, crbug.com/507717
+         '-Wno-shift-negative-value',
+       ],
++
++      # for Socio (LD6b/LD11)
++      'ozone_platform_ld6b%': 0,
++      'ozone_platform_ld11%': 0,
+     },
+     'includes': [ 'set_clang_warning_flags.gypi', ],
+     'defines': [
+@@ -4171,6 +4175,24 @@
+                   }],
+                 ],
+               }],
++              ['ozone_platform_ld6b==1', {
++                'defines': [
++                  'NFBE_DTV_SOCIO',
++                  'NFBE_DTV_SOCIO_DL6B',
++                ],
++                'cflags_cc': [
++                  '-Wno-literal-suffix',
++                ],
++              }],
++              ['ozone_platform_ld11==1', {
++                'defines': [
++                  'NFBE_DTV_SOCIO',
++                  'NFBE_DTV_SOCIO_DL11',
++                ],
++                'cflags_cc': [
++                  '-Wno-literal-suffix',
++                ],
++              }],
+             ],
+           }],
+           ['target_arch=="arm64"', {

@@ -1,0 +1,804 @@
+build obj/content/content_common.actions_depends.stamp: stamp $
+    obj/content/content_resources.actions_rules_copies.stamp $
+    lib/libbase.so.TOC obj/gpu/gpu.actions_depends.stamp $
+    obj/ipc/mojo/libipc_mojo.a obj/mojo/libmojo_application_bindings.a $
+    lib/libnet.so.TOC obj/skia/skia.actions_depends.stamp $
+    obj/third_party/WebKit/public/blink.actions_depends.stamp $
+    obj/third_party/WebKit/Source/platform/libblink_platform.a $
+    obj/ui/accessibility/libaccessibility.a $
+    obj/ui/accessibility/libax_gen.a lib/liburl_lib.so.TOC $
+    gen/content/public/common/features.h $
+    obj/content/libcontent_common_mojo_bindings.a
+
+build obj/content/content_common.compile_depends.stamp: stamp $
+    obj/content/content_resources.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp obj/gpu/gpu.compile_depends.stamp $
+    obj/ipc/mojo/ipc_mojo.actions_rules_copies.stamp $
+    obj/mojo/mojo_application_bindings_mojom.actions_rules_copies.stamp $
+    obj/net/net.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/third_party/WebKit/public/blink.compile_depends.stamp $
+    obj/third_party/WebKit/Source/platform/blink_platform.compile_depends.stamp $
+    obj/ui/accessibility/accessibility.compile_depends.stamp $
+    obj/ui/accessibility/ax_gen.actions_rules_copies.stamp $
+    obj/url/url_lib.compile_depends.stamp $
+    gen/content/public/common/features.h $
+    obj/content/content_common_mojo_bindings_mojom.actions_rules_copies.stamp
+
+rule $
+    content_common_target_generate_webkit_version_c20a0de8b6d0417ab345b5595f86dd02
+  command = cd ../../content; python ../build/util/version.py -f $
+      ../build/util/LASTCHANGE.blink ../build/util/webkit_version.h.in $
+      ../out.cef/Release/gen/build/util/webkit_version.h
+  description = ACTION content_common: $
+      generate_webkit_version_c20a0de8b6d0417ab345b5595f86dd02
+  restat = 1
+
+build gen/build/util/webkit_version.h: $
+    content_common_target_generate_webkit_version_c20a0de8b6d0417ab345b5595f86dd02 $
+    ../../build/util/version.py ../../build/util/LASTCHANGE.blink $
+    ../../build/util/webkit_version.h.in || $
+    obj/content/content_common.actions_depends.stamp
+
+defines = -DCONTENT_IMPLEMENTATION -DV8_DEPRECATION_WARNINGS $
+    -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 -DDISABLE_NACL -DCHROMIUM_BUILD $
+    -DCR_CLANG_REVISION=264915-1 -DUI_COMPOSITOR_IMAGE_TRANSPORT $
+    -DUSE_AURA=1 -DUSE_OZONE=1 -DUSE_DEFAULT_RENDER_THEME=1 $
+    -DUSE_LIBJPEG_TURBO=1 -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS $
+    -DENABLE_BROWSER_CDMS -DENABLE_TOPCHROME_MD=1 $
+    -DFIELDTRIAL_TESTING_ENABLED -DENABLE_TASK_MANAGER=1 $
+    -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 -DENABLE_SESSION_SERVICE=1 $
+    -DENABLE_AUTOFILL_DIALOG=1 -DENABLE_PRINTING=1 $
+    -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_SECCOMP_BPF $
+    -DMOJO_USE_SYSTEM_IMPL -DOPUS_FIXED_POINT -DSK_SUPPORT_GPU=1 $
+    -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS -DCHROME_PNG_WRITE_SUPPORT $
+    -DPNG_USER_CONFIG -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 $
+    -DU_NOEXCEPT= -DU_STATIC_IMPLEMENTATION -DMESA_EGL_NO_X11_HEADERS $
+    -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 $
+    -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../third_party/khronos -I../../gpu $
+    -I../../skia/config -Igen/angle -I../../third_party/WebKit/Source $
+    -I../../ipc -I../../third_party/opus/src/include $
+    -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../third_party/WebKit -I../../v8/include $
+    -I../../third_party/libpng -I../../third_party/zlib $
+    -I../../third_party/libwebp -I../../third_party/ots/include $
+    -I../../third_party/qcms/src -I../../third_party/iccjpeg $
+    -I../../third_party/libjpeg_turbo -I../../third_party/WebKit $
+    -Igen/third_party/WebKit -I../../third_party/boringssl/src/include $
+    -I../../third_party/icu/source/common $
+    -I../../third_party/icu/source/i18n -I../../third_party/mesa/src/include
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/content/public/common/content_common.browser_plugin_guest_mode.o: $
+    cxx ../../content/public/common/browser_plugin_guest_mode.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/public/common/content_common.browser_side_navigation_policy.o: $
+    cxx ../../content/public/common/browser_side_navigation_policy.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/public/common/content_common.child_process_host_delegate.o: $
+    cxx ../../content/public/common/child_process_host_delegate.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.color_suggestion.o: cxx $
+    ../../content/public/common/color_suggestion.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.common_param_traits.o: cxx $
+    ../../content/public/common/common_param_traits.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.content_client.o: cxx $
+    ../../content/public/common/content_client.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.content_constants.o: cxx $
+    ../../content/public/common/content_constants.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.content_features.o: cxx $
+    ../../content/public/common/content_features.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.content_switches.o: cxx $
+    ../../content/public/common/content_switches.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.context_menu_params.o: cxx $
+    ../../content/public/common/context_menu_params.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.drop_data.o: cxx $
+    ../../content/public/common/drop_data.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.favicon_url.o: cxx $
+    ../../content/public/common/favicon_url.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.file_chooser_file_info.o: $
+    cxx ../../content/public/common/file_chooser_file_info.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.file_chooser_params.o: cxx $
+    ../../content/public/common/file_chooser_params.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.frame_navigate_params.o: cxx $
+    ../../content/public/common/frame_navigate_params.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.geoposition.o: cxx $
+    ../../content/public/common/geoposition.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.manifest.o: cxx $
+    ../../content/public/common/manifest.cc || gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.media_metadata.o: cxx $
+    ../../content/public/common/media_metadata.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.media_stream_request.o: cxx $
+    ../../content/public/common/media_stream_request.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.menu_item.o: cxx $
+    ../../content/public/common/menu_item.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.message_port_types.o: cxx $
+    ../../content/public/common/message_port_types.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.mojo_channel_switches.o: cxx $
+    ../../content/public/common/mojo_channel_switches.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.notification_resources.o: $
+    cxx ../../content/public/common/notification_resources.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.page_state.o: cxx $
+    ../../content/public/common/page_state.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.pepper_plugin_info.o: cxx $
+    ../../content/public/common/pepper_plugin_info.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/public/common/content_common.platform_notification_data.o: $
+    cxx ../../content/public/common/platform_notification_data.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.presentation_constants.o: $
+    cxx ../../content/public/common/presentation_constants.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.push_messaging_status.o: cxx $
+    ../../content/public/common/push_messaging_status.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.referrer.o: cxx $
+    ../../content/public/common/referrer.cc || gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.renderer_preferences.o: cxx $
+    ../../content/public/common/renderer_preferences.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.resource_devtools_info.o: $
+    cxx ../../content/public/common/resource_devtools_info.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.resource_response.o: cxx $
+    ../../content/public/common/resource_response.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.resource_response_info.o: $
+    cxx ../../content/public/common/resource_response_info.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.resource_type.o: cxx $
+    ../../content/public/common/resource_type.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/public/common/content_common.sandboxed_process_launcher_delegate.o: $
+    cxx ../../content/public/common/sandboxed_process_launcher_delegate.cc $
+    || gen/build/util/webkit_version.h
+build $
+    obj/content/public/common/content_common.signed_certificate_timestamp_id_and_status.o: $
+    cxx $
+    ../../content/public/common/signed_certificate_timestamp_id_and_status.cc $
+    || gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.speech_recognition_result.o: $
+    cxx ../../content/public/common/speech_recognition_result.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.ssl_status.o: cxx $
+    ../../content/public/common/ssl_status.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.url_constants.o: cxx $
+    ../../content/public/common/url_constants.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.url_utils.o: cxx $
+    ../../content/public/common/url_utils.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.web_preferences.o: cxx $
+    ../../content/public/common/web_preferences.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.webplugininfo.o: cxx $
+    ../../content/public/common/webplugininfo.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/public/common/content_common.window_container_type.o: cxx $
+    ../../content/public/common/window_container_type.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.appcache_interfaces.o: cxx $
+    ../../content/common/appcache_interfaces.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.ax_content_node_data.o: cxx $
+    ../../content/common/ax_content_node_data.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/bluetooth/content_common.bluetooth_device.o: cxx $
+    ../../content/common/bluetooth/bluetooth_device.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/bluetooth/content_common.bluetooth_scan_filter.o: $
+    cxx ../../content/common/bluetooth/bluetooth_scan_filter.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/browser_plugin/content_common.browser_plugin_constants.o: $
+    cxx ../../content/common/browser_plugin/browser_plugin_constants.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/cache_storage/content_common.cache_storage_types.o: $
+    cxx ../../content/common/cache_storage/cache_storage_types.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.cc_messages.o: cxx $
+    ../../content/common/cc_messages.cc || gen/build/util/webkit_version.h
+build obj/content/common/content_common.child_process_host_impl.o: cxx $
+    ../../content/common/child_process_host_impl.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/content_common.child_process_sandbox_support_impl_linux.o: $
+    cxx ../../content/common/child_process_sandbox_support_impl_linux.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/content_common.child_process_sandbox_support_impl_shm_linux.o: $
+    cxx $
+    ../../content/common/child_process_sandbox_support_impl_shm_linux.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.content_constants_internal.o: cxx $
+    ../../content/common/content_constants_internal.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.content_ipc_logging.o: cxx $
+    ../../content/common/content_ipc_logging.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.content_message_generator.o: cxx $
+    ../../content/common/content_message_generator.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.content_param_traits.o: cxx $
+    ../../content/common/content_param_traits.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.content_paths.o: cxx $
+    ../../content/common/content_paths.cc || gen/build/util/webkit_version.h
+build obj/content/common/content_common.content_switches_internal.o: cxx $
+    ../../content/common/content_switches_internal.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.cross_site_document_classifier.o: $
+    cxx ../../content/common/cross_site_document_classifier.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/cursors/content_common.webcursor.o: cxx $
+    ../../content/common/cursors/webcursor.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/cursors/content_common.webcursor_aura.o: cxx $
+    ../../content/common/cursors/webcursor_aura.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/cursors/content_common.webcursor_ozone.o: cxx $
+    ../../content/common/cursors/webcursor_ozone.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.discardable_shared_memory_heap.o: $
+    cxx ../../content/common/discardable_shared_memory_heap.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/dom_storage/content_common.dom_storage_map.o: cxx $
+    ../../content/common/dom_storage/dom_storage_map.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.establish_channel_params.o: cxx $
+    ../../content/common/establish_channel_params.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.font_config_ipc_linux.o: cxx $
+    ../../content/common/font_config_ipc_linux.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.font_list.o: cxx $
+    ../../content/common/font_list.cc || gen/build/util/webkit_version.h
+build obj/content/common/content_common.font_list_ozone.o: cxx $
+    ../../content/common/font_list_ozone.cc || gen/build/util/webkit_version.h
+build obj/content/common/content_common.frame_replication_state.o: cxx $
+    ../../content/common/frame_replication_state.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.gamepad_param_traits.o: cxx $
+    ../../content/common/gamepad_param_traits.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.gamepad_user_gesture.o: cxx $
+    ../../content/common/gamepad_user_gesture.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/content_common.generic_shared_memory_id_generator.o: $
+    cxx ../../content/common/generic_shared_memory_id_generator.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.geofencing_types.o: cxx $
+    ../../content/common/geofencing_types.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/gpu/client/content_common.command_buffer_metrics.o: $
+    cxx ../../content/common/gpu/client/command_buffer_metrics.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/gpu/client/content_common.context_provider_command_buffer.o: $
+    cxx ../../content/common/gpu/client/context_provider_command_buffer.cc $
+    || gen/build/util/webkit_version.h
+build $
+    obj/content/common/gpu/client/content_common.grcontext_for_gles2_interface.o: $
+    cxx ../../content/common/gpu/client/grcontext_for_gles2_interface.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/gpu/client/content_common.webgraphicscontext3d_command_buffer_impl.o: $
+    cxx $
+    ../../content/common/gpu/client/webgraphicscontext3d_command_buffer_impl.cc $
+    || gen/build/util/webkit_version.h
+build $
+    obj/content/common/gpu/media/content_common.fake_video_decode_accelerator.o: $
+    cxx ../../content/common/gpu/media/fake_video_decode_accelerator.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/gpu/media/content_common.gpu_jpeg_decode_accelerator.o: $
+    cxx ../../content/common/gpu/media/gpu_jpeg_decode_accelerator.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/gpu/media/content_common.gpu_video_decode_accelerator.o: $
+    cxx ../../content/common/gpu/media/gpu_video_decode_accelerator.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/gpu/media/content_common.gpu_video_decode_accelerator_factory_impl.o: $
+    cxx $
+    ../../content/common/gpu/media/gpu_video_decode_accelerator_factory_impl.cc $
+    || gen/build/util/webkit_version.h
+build $
+    obj/content/common/gpu/media/content_common.gpu_video_encode_accelerator.o: $
+    cxx ../../content/common/gpu/media/gpu_video_encode_accelerator.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/gpu/media/content_common.media_channel.o: cxx $
+    ../../content/common/gpu/media/media_channel.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/gpu/media/content_common.media_service.o: cxx $
+    ../../content/common/gpu/media/media_service.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/gpu/media/content_common.shared_memory_region.o: $
+    cxx ../../content/common/gpu/media/shared_memory_region.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/content_common.host_discardable_shared_memory_manager.o: $
+    cxx ../../content/common/host_discardable_shared_memory_manager.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.host_shared_bitmap_manager.o: cxx $
+    ../../content/common/host_shared_bitmap_manager.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.in_process_child_thread_params.o: $
+    cxx ../../content/common/in_process_child_thread_params.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/indexed_db/content_common.indexed_db_key.o: cxx $
+    ../../content/common/indexed_db/indexed_db_key.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/indexed_db/content_common.indexed_db_key_path.o: $
+    cxx ../../content/common/indexed_db/indexed_db_key_path.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/indexed_db/content_common.indexed_db_key_range.o: $
+    cxx ../../content/common/indexed_db/indexed_db_key_range.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/indexed_db/content_common.indexed_db_param_traits.o: $
+    cxx ../../content/common/indexed_db/indexed_db_param_traits.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/input/content_common.did_overscroll_params.o: cxx $
+    ../../content/common/input/did_overscroll_params.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/input/content_common.gesture_event_stream_validator.o: $
+    cxx ../../content/common/input/gesture_event_stream_validator.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/input/content_common.input_event.o: cxx $
+    ../../content/common/input/input_event.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/input/content_common.input_event_ack.o: cxx $
+    ../../content/common/input/input_event_ack.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/input/content_common.input_event_stream_validator.o: $
+    cxx ../../content/common/input/input_event_stream_validator.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/input/content_common.input_event_utils.o: cxx $
+    ../../content/common/input/input_event_utils.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/input/content_common.input_param_traits.o: cxx $
+    ../../content/common/input/input_param_traits.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/input/content_common.scoped_web_input_event.o: cxx $
+    ../../content/common/input/scoped_web_input_event.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/input/content_common.synthetic_gesture_packet.o: $
+    cxx ../../content/common/input/synthetic_gesture_packet.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/input/content_common.synthetic_gesture_params.o: $
+    cxx ../../content/common/input/synthetic_gesture_params.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/input/content_common.synthetic_pinch_gesture_params.o: $
+    cxx ../../content/common/input/synthetic_pinch_gesture_params.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/input/content_common.synthetic_pointer_action_params.o: $
+    cxx ../../content/common/input/synthetic_pointer_action_params.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/input/content_common.synthetic_smooth_drag_gesture_params.o: $
+    cxx ../../content/common/input/synthetic_smooth_drag_gesture_params.cc $
+    || gen/build/util/webkit_version.h
+build $
+    obj/content/common/input/content_common.synthetic_smooth_scroll_gesture_params.o: $
+    cxx $
+    ../../content/common/input/synthetic_smooth_scroll_gesture_params.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/input/content_common.synthetic_tap_gesture_params.o: $
+    cxx ../../content/common/input/synthetic_tap_gesture_params.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/input/content_common.synthetic_web_input_event_builders.o: $
+    cxx ../../content/common/input/synthetic_web_input_event_builders.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/input/content_common.touch_event_stream_validator.o: $
+    cxx ../../content/common/input/touch_event_stream_validator.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/input/content_common.web_input_event_traits.o: cxx $
+    ../../content/common/input/web_input_event_traits.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/input/content_common.web_touch_event_traits.o: cxx $
+    ../../content/common/input/web_touch_event_traits.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/content_common.inter_process_time_ticks_converter.o: $
+    cxx ../../content/common/inter_process_time_ticks_converter.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/media/content_common.media_param_traits.o: cxx $
+    ../../content/common/media/media_param_traits.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/media/content_common.media_stream_options.o: cxx $
+    ../../content/common/media/media_stream_options.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/mojo/content_common.channel_init.o: cxx $
+    ../../content/common/mojo/channel_init.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/mojo/content_common.current_thread_loader.o: cxx $
+    ../../content/common/mojo/current_thread_loader.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/mojo/content_common.mojo_shell_connection_impl.o: $
+    cxx ../../content/common/mojo/mojo_shell_connection_impl.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/mojo/content_common.service_registry_impl.o: cxx $
+    ../../content/common/mojo/service_registry_impl.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/mojo/content_common.static_loader.o: cxx $
+    ../../content/common/mojo/static_loader.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.navigation_params.o: cxx $
+    ../../content/common/navigation_params.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/net/content_common.url_fetcher.o: cxx $
+    ../../content/common/net/url_fetcher.cc || gen/build/util/webkit_version.h
+build $
+    obj/content/common/net/content_common.url_request_service_worker_data.o: $
+    cxx ../../content/common/net/url_request_service_worker_data.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/net/content_common.url_request_user_data.o: cxx $
+    ../../content/common/net/url_request_user_data.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.one_writer_seqlock.o: cxx $
+    ../../content/common/one_writer_seqlock.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/origin_trials/content_common.trial_token.o: cxx $
+    ../../content/common/origin_trials/trial_token.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/origin_trials/content_common.trial_token_validator.o: $
+    cxx ../../content/common/origin_trials/trial_token_validator.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.origin_util.o: cxx $
+    ../../content/common/origin_util.cc || gen/build/util/webkit_version.h
+build obj/content/common/content_common.page_state_serialization.o: cxx $
+    ../../content/common/page_state_serialization.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.page_zoom.o: cxx $
+    ../../content/common/page_zoom.cc || gen/build/util/webkit_version.h
+build obj/content/common/content_common.pepper_file_util.o: cxx $
+    ../../content/common/pepper_file_util.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.pepper_plugin_list.o: cxx $
+    ../../content/common/pepper_plugin_list.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.pepper_renderer_instance_data.o: $
+    cxx ../../content/common/pepper_renderer_instance_data.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.plugin_list.o: cxx $
+    ../../content/common/plugin_list.cc || gen/build/util/webkit_version.h
+build obj/content/common/content_common.process_type.o: cxx $
+    ../../content/common/process_type.cc || gen/build/util/webkit_version.h
+build obj/content/common/content_common.resize_params.o: cxx $
+    ../../content/common/resize_params.cc || gen/build/util/webkit_version.h
+build obj/content/common/content_common.resource_messages.o: cxx $
+    ../../content/common/resource_messages.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.resource_request_body.o: cxx $
+    ../../content/common/resource_request_body.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/sandbox_linux/content_common.bpf_cros_arm_gpu_policy_linux.o: $
+    cxx ../../content/common/sandbox_linux/bpf_cros_arm_gpu_policy_linux.cc $
+    || gen/build/util/webkit_version.h
+build $
+    obj/content/common/sandbox_linux/content_common.bpf_gpu_policy_linux.o: $
+    cxx ../../content/common/sandbox_linux/bpf_gpu_policy_linux.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/sandbox_linux/content_common.bpf_ppapi_policy_linux.o: $
+    cxx ../../content/common/sandbox_linux/bpf_ppapi_policy_linux.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/sandbox_linux/content_common.bpf_renderer_policy_linux.o: $
+    cxx ../../content/common/sandbox_linux/bpf_renderer_policy_linux.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/sandbox_linux/content_common.bpf_utility_policy_linux.o: $
+    cxx ../../content/common/sandbox_linux/bpf_utility_policy_linux.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/sandbox_linux/content_common.sandbox_bpf_base_policy_linux.o: $
+    cxx ../../content/common/sandbox_linux/sandbox_bpf_base_policy_linux.cc $
+    || gen/build/util/webkit_version.h
+build $
+    obj/content/common/sandbox_linux/content_common.sandbox_debug_handling_linux.o: $
+    cxx ../../content/common/sandbox_linux/sandbox_debug_handling_linux.cc $
+    || gen/build/util/webkit_version.h
+build obj/content/common/sandbox_linux/content_common.sandbox_init_linux.o: $
+    cxx ../../content/common/sandbox_linux/sandbox_init_linux.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/sandbox_linux/content_common.sandbox_linux.o: cxx $
+    ../../content/common/sandbox_linux/sandbox_linux.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/sandbox_linux/content_common.sandbox_seccomp_bpf_linux.o: $
+    cxx ../../content/common/sandbox_linux/sandbox_seccomp_bpf_linux.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.sandbox_util.o: cxx $
+    ../../content/common/sandbox_util.cc || gen/build/util/webkit_version.h
+build obj/content/common/content_common.savable_url_schemes.o: cxx $
+    ../../content/common/savable_url_schemes.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.send_zygote_child_ping_linux.o: cxx $
+    ../../content/common/send_zygote_child_ping_linux.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/service_worker/content_common.service_worker_client_info.o: $
+    cxx ../../content/common/service_worker/service_worker_client_info.cc $
+    || gen/build/util/webkit_version.h
+build $
+    obj/content/common/service_worker/content_common.service_worker_status_code.o: $
+    cxx ../../content/common/service_worker/service_worker_status_code.cc $
+    || gen/build/util/webkit_version.h
+build $
+    obj/content/common/service_worker/content_common.service_worker_type_converters.o: $
+    cxx $
+    ../../content/common/service_worker/service_worker_type_converters.cc $
+    || gen/build/util/webkit_version.h
+build $
+    obj/content/common/service_worker/content_common.service_worker_types.o: $
+    cxx ../../content/common/service_worker/service_worker_types.cc || $
+    gen/build/util/webkit_version.h
+build $
+    obj/content/common/service_worker/content_common.service_worker_utils.o: $
+    cxx ../../content/common/service_worker/service_worker_utils.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.set_process_title.o: cxx $
+    ../../content/common/set_process_title.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.set_process_title_linux.o: cxx $
+    ../../content/common/set_process_title_linux.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.site_isolation_policy.o: cxx $
+    ../../content/common/site_isolation_policy.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.ssl_status_serialization.o: cxx $
+    ../../content/common/ssl_status_serialization.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.swapped_out_messages.o: cxx $
+    ../../content/common/swapped_out_messages.cc || $
+    gen/build/util/webkit_version.h
+build obj/content/common/content_common.url_schemes.o: cxx $
+    ../../content/common/url_schemes.cc || gen/build/util/webkit_version.h
+build obj/content/common/content_common.user_agent.o: cxx $
+    ../../content/common/user_agent.cc || gen/build/util/webkit_version.h
+build obj/content/common/content_common.websocket.o: cxx $
+    ../../content/common/websocket.cc || gen/build/util/webkit_version.h
+
+build obj/content/libcontent_common.a: alink_thin $
+    obj/content/public/common/content_common.browser_plugin_guest_mode.o $
+    obj/content/public/common/content_common.browser_side_navigation_policy.o $
+    obj/content/public/common/content_common.child_process_host_delegate.o $
+    obj/content/public/common/content_common.color_suggestion.o $
+    obj/content/public/common/content_common.common_param_traits.o $
+    obj/content/public/common/content_common.content_client.o $
+    obj/content/public/common/content_common.content_constants.o $
+    obj/content/public/common/content_common.content_features.o $
+    obj/content/public/common/content_common.content_switches.o $
+    obj/content/public/common/content_common.context_menu_params.o $
+    obj/content/public/common/content_common.drop_data.o $
+    obj/content/public/common/content_common.favicon_url.o $
+    obj/content/public/common/content_common.file_chooser_file_info.o $
+    obj/content/public/common/content_common.file_chooser_params.o $
+    obj/content/public/common/content_common.frame_navigate_params.o $
+    obj/content/public/common/content_common.geoposition.o $
+    obj/content/public/common/content_common.manifest.o $
+    obj/content/public/common/content_common.media_metadata.o $
+    obj/content/public/common/content_common.media_stream_request.o $
+    obj/content/public/common/content_common.menu_item.o $
+    obj/content/public/common/content_common.message_port_types.o $
+    obj/content/public/common/content_common.mojo_channel_switches.o $
+    obj/content/public/common/content_common.notification_resources.o $
+    obj/content/public/common/content_common.page_state.o $
+    obj/content/public/common/content_common.pepper_plugin_info.o $
+    obj/content/public/common/content_common.platform_notification_data.o $
+    obj/content/public/common/content_common.presentation_constants.o $
+    obj/content/public/common/content_common.push_messaging_status.o $
+    obj/content/public/common/content_common.referrer.o $
+    obj/content/public/common/content_common.renderer_preferences.o $
+    obj/content/public/common/content_common.resource_devtools_info.o $
+    obj/content/public/common/content_common.resource_response.o $
+    obj/content/public/common/content_common.resource_response_info.o $
+    obj/content/public/common/content_common.resource_type.o $
+    obj/content/public/common/content_common.sandboxed_process_launcher_delegate.o $
+    obj/content/public/common/content_common.signed_certificate_timestamp_id_and_status.o $
+    obj/content/public/common/content_common.speech_recognition_result.o $
+    obj/content/public/common/content_common.ssl_status.o $
+    obj/content/public/common/content_common.url_constants.o $
+    obj/content/public/common/content_common.url_utils.o $
+    obj/content/public/common/content_common.web_preferences.o $
+    obj/content/public/common/content_common.webplugininfo.o $
+    obj/content/public/common/content_common.window_container_type.o $
+    obj/content/common/content_common.appcache_interfaces.o $
+    obj/content/common/content_common.ax_content_node_data.o $
+    obj/content/common/bluetooth/content_common.bluetooth_device.o $
+    obj/content/common/bluetooth/content_common.bluetooth_scan_filter.o $
+    obj/content/common/browser_plugin/content_common.browser_plugin_constants.o $
+    obj/content/common/cache_storage/content_common.cache_storage_types.o $
+    obj/content/common/content_common.cc_messages.o $
+    obj/content/common/content_common.child_process_host_impl.o $
+    obj/content/common/content_common.child_process_sandbox_support_impl_linux.o $
+    obj/content/common/content_common.child_process_sandbox_support_impl_shm_linux.o $
+    obj/content/common/content_common.content_constants_internal.o $
+    obj/content/common/content_common.content_ipc_logging.o $
+    obj/content/common/content_common.content_message_generator.o $
+    obj/content/common/content_common.content_param_traits.o $
+    obj/content/common/content_common.content_paths.o $
+    obj/content/common/content_common.content_switches_internal.o $
+    obj/content/common/content_common.cross_site_document_classifier.o $
+    obj/content/common/cursors/content_common.webcursor.o $
+    obj/content/common/cursors/content_common.webcursor_aura.o $
+    obj/content/common/cursors/content_common.webcursor_ozone.o $
+    obj/content/common/content_common.discardable_shared_memory_heap.o $
+    obj/content/common/dom_storage/content_common.dom_storage_map.o $
+    obj/content/common/content_common.establish_channel_params.o $
+    obj/content/common/content_common.font_config_ipc_linux.o $
+    obj/content/common/content_common.font_list.o $
+    obj/content/common/content_common.font_list_ozone.o $
+    obj/content/common/content_common.frame_replication_state.o $
+    obj/content/common/content_common.gamepad_param_traits.o $
+    obj/content/common/content_common.gamepad_user_gesture.o $
+    obj/content/common/content_common.generic_shared_memory_id_generator.o $
+    obj/content/common/content_common.geofencing_types.o $
+    obj/content/common/gpu/client/content_common.command_buffer_metrics.o $
+    obj/content/common/gpu/client/content_common.context_provider_command_buffer.o $
+    obj/content/common/gpu/client/content_common.grcontext_for_gles2_interface.o $
+    obj/content/common/gpu/client/content_common.webgraphicscontext3d_command_buffer_impl.o $
+    obj/content/common/gpu/media/content_common.fake_video_decode_accelerator.o $
+    obj/content/common/gpu/media/content_common.gpu_jpeg_decode_accelerator.o $
+    obj/content/common/gpu/media/content_common.gpu_video_decode_accelerator.o $
+    obj/content/common/gpu/media/content_common.gpu_video_decode_accelerator_factory_impl.o $
+    obj/content/common/gpu/media/content_common.gpu_video_encode_accelerator.o $
+    obj/content/common/gpu/media/content_common.media_channel.o $
+    obj/content/common/gpu/media/content_common.media_service.o $
+    obj/content/common/gpu/media/content_common.shared_memory_region.o $
+    obj/content/common/content_common.host_discardable_shared_memory_manager.o $
+    obj/content/common/content_common.host_shared_bitmap_manager.o $
+    obj/content/common/content_common.in_process_child_thread_params.o $
+    obj/content/common/indexed_db/content_common.indexed_db_key.o $
+    obj/content/common/indexed_db/content_common.indexed_db_key_path.o $
+    obj/content/common/indexed_db/content_common.indexed_db_key_range.o $
+    obj/content/common/indexed_db/content_common.indexed_db_param_traits.o $
+    obj/content/common/input/content_common.did_overscroll_params.o $
+    obj/content/common/input/content_common.gesture_event_stream_validator.o $
+    obj/content/common/input/content_common.input_event.o $
+    obj/content/common/input/content_common.input_event_ack.o $
+    obj/content/common/input/content_common.input_event_stream_validator.o $
+    obj/content/common/input/content_common.input_event_utils.o $
+    obj/content/common/input/content_common.input_param_traits.o $
+    obj/content/common/input/content_common.scoped_web_input_event.o $
+    obj/content/common/input/content_common.synthetic_gesture_packet.o $
+    obj/content/common/input/content_common.synthetic_gesture_params.o $
+    obj/content/common/input/content_common.synthetic_pinch_gesture_params.o $
+    obj/content/common/input/content_common.synthetic_pointer_action_params.o $
+    obj/content/common/input/content_common.synthetic_smooth_drag_gesture_params.o $
+    obj/content/common/input/content_common.synthetic_smooth_scroll_gesture_params.o $
+    obj/content/common/input/content_common.synthetic_tap_gesture_params.o $
+    obj/content/common/input/content_common.synthetic_web_input_event_builders.o $
+    obj/content/common/input/content_common.touch_event_stream_validator.o $
+    obj/content/common/input/content_common.web_input_event_traits.o $
+    obj/content/common/input/content_common.web_touch_event_traits.o $
+    obj/content/common/content_common.inter_process_time_ticks_converter.o $
+    obj/content/common/media/content_common.media_param_traits.o $
+    obj/content/common/media/content_common.media_stream_options.o $
+    obj/content/common/mojo/content_common.channel_init.o $
+    obj/content/common/mojo/content_common.current_thread_loader.o $
+    obj/content/common/mojo/content_common.mojo_shell_connection_impl.o $
+    obj/content/common/mojo/content_common.service_registry_impl.o $
+    obj/content/common/mojo/content_common.static_loader.o $
+    obj/content/common/content_common.navigation_params.o $
+    obj/content/common/net/content_common.url_fetcher.o $
+    obj/content/common/net/content_common.url_request_service_worker_data.o $
+    obj/content/common/net/content_common.url_request_user_data.o $
+    obj/content/common/content_common.one_writer_seqlock.o $
+    obj/content/common/origin_trials/content_common.trial_token.o $
+    obj/content/common/origin_trials/content_common.trial_token_validator.o $
+    obj/content/common/content_common.origin_util.o $
+    obj/content/common/content_common.page_state_serialization.o $
+    obj/content/common/content_common.page_zoom.o $
+    obj/content/common/content_common.pepper_file_util.o $
+    obj/content/common/content_common.pepper_plugin_list.o $
+    obj/content/common/content_common.pepper_renderer_instance_data.o $
+    obj/content/common/content_common.plugin_list.o $
+    obj/content/common/content_common.process_type.o $
+    obj/content/common/content_common.resize_params.o $
+    obj/content/common/content_common.resource_messages.o $
+    obj/content/common/content_common.resource_request_body.o $
+    obj/content/common/sandbox_linux/content_common.bpf_cros_arm_gpu_policy_linux.o $
+    obj/content/common/sandbox_linux/content_common.bpf_gpu_policy_linux.o $
+    obj/content/common/sandbox_linux/content_common.bpf_ppapi_policy_linux.o $
+    obj/content/common/sandbox_linux/content_common.bpf_renderer_policy_linux.o $
+    obj/content/common/sandbox_linux/content_common.bpf_utility_policy_linux.o $
+    obj/content/common/sandbox_linux/content_common.sandbox_bpf_base_policy_linux.o $
+    obj/content/common/sandbox_linux/content_common.sandbox_debug_handling_linux.o $
+    obj/content/common/sandbox_linux/content_common.sandbox_init_linux.o $
+    obj/content/common/sandbox_linux/content_common.sandbox_linux.o $
+    obj/content/common/sandbox_linux/content_common.sandbox_seccomp_bpf_linux.o $
+    obj/content/common/content_common.sandbox_util.o $
+    obj/content/common/content_common.savable_url_schemes.o $
+    obj/content/common/content_common.send_zygote_child_ping_linux.o $
+    obj/content/common/service_worker/content_common.service_worker_client_info.o $
+    obj/content/common/service_worker/content_common.service_worker_status_code.o $
+    obj/content/common/service_worker/content_common.service_worker_type_converters.o $
+    obj/content/common/service_worker/content_common.service_worker_types.o $
+    obj/content/common/service_worker/content_common.service_worker_utils.o $
+    obj/content/common/content_common.set_process_title.o $
+    obj/content/common/content_common.set_process_title_linux.o $
+    obj/content/common/content_common.site_isolation_policy.o $
+    obj/content/common/content_common.ssl_status_serialization.o $
+    obj/content/common/content_common.swapped_out_messages.o $
+    obj/content/common/content_common.url_schemes.o $
+    obj/content/common/content_common.user_agent.o $
+    obj/content/common/content_common.websocket.o || $
+    gen/build/util/webkit_version.h

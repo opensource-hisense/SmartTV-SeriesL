@@ -1,0 +1,901 @@
+build obj/cc/cc.actions_depends.stamp: stamp obj/cc/libcc_proto.a $
+    lib/libbase.so.TOC obj/gpu/gpu.actions_depends.stamp $
+    obj/skia/skia.actions_depends.stamp
+
+build obj/cc/cc.compile_depends.stamp: stamp $
+    obj/cc/cc_proto.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp obj/gpu/gpu.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DCC_IMPLEMENTATION=1 $
+    -DOPUS_FIXED_POINT -DSK_SUPPORT_GPU=1 $
+    -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS -DPROTOBUF_USE_DLLS $
+    -DGOOGLE_PROTOBUF_NO_RTTI -DGOOGLE_PROTOBUF_NO_STATIC_INITIALIZER $
+    -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= $
+    -DU_STATIC_IMPLEMENTATION -DMESA_EGL_NO_X11_HEADERS -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS $
+    -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../../third_party/khronos -I../../gpu -I../.. $
+    -I../../skia/config -Igen/angle -Igen/protoc_out $
+    -I../../third_party/opus/src/include $
+    -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../third_party/protobuf -I../../third_party/protobuf/src $
+    -I../../third_party/icu/source/i18n $
+    -I../../third_party/icu/source/common -I../../third_party/mesa/src/include
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/cc/animation/cc.animation.o: cxx ../../cc/animation/animation.cc $
+    || obj/cc/cc.compile_depends.stamp
+build obj/cc/animation/cc.animation_curve.o: cxx $
+    ../../cc/animation/animation_curve.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/animation/cc.animation_events.o: cxx $
+    ../../cc/animation/animation_events.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/animation/cc.animation_host.o: cxx $
+    ../../cc/animation/animation_host.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/animation/cc.animation_id_provider.o: cxx $
+    ../../cc/animation/animation_id_provider.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/animation/cc.animation_player.o: cxx $
+    ../../cc/animation/animation_player.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/animation/cc.animation_registrar.o: cxx $
+    ../../cc/animation/animation_registrar.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/animation/cc.animation_timeline.o: cxx $
+    ../../cc/animation/animation_timeline.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/animation/cc.element_animations.o: cxx $
+    ../../cc/animation/element_animations.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/animation/cc.keyframed_animation_curve.o: cxx $
+    ../../cc/animation/keyframed_animation_curve.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/animation/cc.layer_animation_controller.o: cxx $
+    ../../cc/animation/layer_animation_controller.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/animation/cc.scroll_offset_animation_curve.o: cxx $
+    ../../cc/animation/scroll_offset_animation_curve.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/animation/cc.target_property.o: cxx $
+    ../../cc/animation/target_property.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/animation/cc.timing_function.o: cxx $
+    ../../cc/animation/timing_function.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/animation/cc.transform_operation.o: cxx $
+    ../../cc/animation/transform_operation.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/animation/cc.transform_operations.o: cxx $
+    ../../cc/animation/transform_operations.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/base/cc.contiguous_container.o: cxx $
+    ../../cc/base/contiguous_container.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/base/cc.delayed_unique_notifier.o: cxx $
+    ../../cc/base/delayed_unique_notifier.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/base/cc.histograms.o: cxx ../../cc/base/histograms.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/base/cc.invalidation_region.o: cxx $
+    ../../cc/base/invalidation_region.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/base/cc.list_container_helper.o: cxx $
+    ../../cc/base/list_container_helper.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/base/cc.math_util.o: cxx ../../cc/base/math_util.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/base/cc.region.o: cxx ../../cc/base/region.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/base/cc.rolling_time_delta_history.o: cxx $
+    ../../cc/base/rolling_time_delta_history.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/base/cc.rtree.o: cxx ../../cc/base/rtree.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/base/cc.simple_enclosed_region.o: cxx $
+    ../../cc/base/simple_enclosed_region.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/base/cc.switches.o: cxx ../../cc/base/switches.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/base/cc.tiling_data.o: cxx ../../cc/base/tiling_data.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/base/cc.unique_notifier.o: cxx $
+    ../../cc/base/unique_notifier.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/debug/cc.benchmark_instrumentation.o: cxx $
+    ../../cc/debug/benchmark_instrumentation.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/debug/cc.debug_colors.o: cxx ../../cc/debug/debug_colors.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/debug/cc.debug_rect_history.o: cxx $
+    ../../cc/debug/debug_rect_history.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/debug/cc.frame_rate_counter.o: cxx $
+    ../../cc/debug/frame_rate_counter.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/debug/cc.frame_timing_request.o: cxx $
+    ../../cc/debug/frame_timing_request.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/debug/cc.frame_timing_tracker.o: cxx $
+    ../../cc/debug/frame_timing_tracker.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/debug/cc.frame_viewer_instrumentation.o: cxx $
+    ../../cc/debug/frame_viewer_instrumentation.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/debug/cc.invalidation_benchmark.o: cxx $
+    ../../cc/debug/invalidation_benchmark.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/debug/cc.lap_timer.o: cxx ../../cc/debug/lap_timer.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/debug/cc.layer_tree_debug_state.o: cxx $
+    ../../cc/debug/layer_tree_debug_state.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/debug/cc.micro_benchmark.o: cxx $
+    ../../cc/debug/micro_benchmark.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/debug/cc.micro_benchmark_controller.o: cxx $
+    ../../cc/debug/micro_benchmark_controller.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/debug/cc.micro_benchmark_controller_impl.o: cxx $
+    ../../cc/debug/micro_benchmark_controller_impl.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/debug/cc.micro_benchmark_impl.o: cxx $
+    ../../cc/debug/micro_benchmark_impl.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/debug/cc.picture_debug_util.o: cxx $
+    ../../cc/debug/picture_debug_util.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/debug/cc.rasterize_and_record_benchmark.o: cxx $
+    ../../cc/debug/rasterize_and_record_benchmark.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/debug/cc.rasterize_and_record_benchmark_impl.o: cxx $
+    ../../cc/debug/rasterize_and_record_benchmark_impl.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/debug/cc.rendering_stats.o: cxx $
+    ../../cc/debug/rendering_stats.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/debug/cc.rendering_stats_instrumentation.o: cxx $
+    ../../cc/debug/rendering_stats_instrumentation.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/debug/cc.traced_display_item_list.o: cxx $
+    ../../cc/debug/traced_display_item_list.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/debug/cc.traced_value.o: cxx ../../cc/debug/traced_value.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/debug/cc.unittest_only_benchmark.o: cxx $
+    ../../cc/debug/unittest_only_benchmark.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/debug/cc.unittest_only_benchmark_impl.o: cxx $
+    ../../cc/debug/unittest_only_benchmark_impl.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/input/cc.input_handler.o: cxx ../../cc/input/input_handler.cc $
+    || obj/cc/cc.compile_depends.stamp
+build obj/cc/input/cc.layer_selection_bound.o: cxx $
+    ../../cc/input/layer_selection_bound.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/input/cc.page_scale_animation.o: cxx $
+    ../../cc/input/page_scale_animation.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/input/cc.scroll_elasticity_helper.o: cxx $
+    ../../cc/input/scroll_elasticity_helper.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/input/cc.scroll_state.o: cxx ../../cc/input/scroll_state.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/input/cc.scroll_state_data.o: cxx $
+    ../../cc/input/scroll_state_data.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/input/cc.scrollbar_animation_controller.o: cxx $
+    ../../cc/input/scrollbar_animation_controller.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/input/cc.scrollbar_animation_controller_linear_fade.o: cxx $
+    ../../cc/input/scrollbar_animation_controller_linear_fade.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/input/cc.scrollbar_animation_controller_thinning.o: cxx $
+    ../../cc/input/scrollbar_animation_controller_thinning.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/input/cc.top_controls_manager.o: cxx $
+    ../../cc/input/top_controls_manager.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.draw_properties.o: cxx $
+    ../../cc/layers/draw_properties.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.empty_content_layer_client.o: cxx $
+    ../../cc/layers/empty_content_layer_client.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.heads_up_display_layer.o: cxx $
+    ../../cc/layers/heads_up_display_layer.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.heads_up_display_layer_impl.o: cxx $
+    ../../cc/layers/heads_up_display_layer_impl.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.io_surface_layer.o: cxx $
+    ../../cc/layers/io_surface_layer.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.io_surface_layer_impl.o: cxx $
+    ../../cc/layers/io_surface_layer_impl.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.layer.o: cxx ../../cc/layers/layer.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.layer_impl.o: cxx ../../cc/layers/layer_impl.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.layer_list_iterator.o: cxx $
+    ../../cc/layers/layer_list_iterator.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.layer_position_constraint.o: cxx $
+    ../../cc/layers/layer_position_constraint.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.layer_proto_converter.o: cxx $
+    ../../cc/layers/layer_proto_converter.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.layer_utils.o: cxx ../../cc/layers/layer_utils.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.nine_patch_layer.o: cxx $
+    ../../cc/layers/nine_patch_layer.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.nine_patch_layer_impl.o: cxx $
+    ../../cc/layers/nine_patch_layer_impl.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.painted_scrollbar_layer.o: cxx $
+    ../../cc/layers/painted_scrollbar_layer.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.painted_scrollbar_layer_impl.o: cxx $
+    ../../cc/layers/painted_scrollbar_layer_impl.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.picture_image_layer.o: cxx $
+    ../../cc/layers/picture_image_layer.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.picture_image_layer_impl.o: cxx $
+    ../../cc/layers/picture_image_layer_impl.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.picture_layer.o: cxx $
+    ../../cc/layers/picture_layer.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.picture_layer_impl.o: cxx $
+    ../../cc/layers/picture_layer_impl.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.render_surface_impl.o: cxx $
+    ../../cc/layers/render_surface_impl.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.scrollbar_layer_impl_base.o: cxx $
+    ../../cc/layers/scrollbar_layer_impl_base.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.solid_color_layer.o: cxx $
+    ../../cc/layers/solid_color_layer.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.solid_color_layer_impl.o: cxx $
+    ../../cc/layers/solid_color_layer_impl.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.solid_color_scrollbar_layer.o: cxx $
+    ../../cc/layers/solid_color_scrollbar_layer.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.solid_color_scrollbar_layer_impl.o: cxx $
+    ../../cc/layers/solid_color_scrollbar_layer_impl.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.surface_layer.o: cxx $
+    ../../cc/layers/surface_layer.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.surface_layer_impl.o: cxx $
+    ../../cc/layers/surface_layer_impl.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.texture_layer.o: cxx $
+    ../../cc/layers/texture_layer.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.texture_layer_impl.o: cxx $
+    ../../cc/layers/texture_layer_impl.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.ui_resource_layer.o: cxx $
+    ../../cc/layers/ui_resource_layer.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.ui_resource_layer_impl.o: cxx $
+    ../../cc/layers/ui_resource_layer_impl.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.video_frame_provider_client_impl.o: cxx $
+    ../../cc/layers/video_frame_provider_client_impl.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.video_layer.o: cxx ../../cc/layers/video_layer.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.video_layer_impl.o: cxx $
+    ../../cc/layers/video_layer_impl.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/layers/cc.viewport.o: cxx ../../cc/layers/viewport.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.begin_frame_args.o: cxx $
+    ../../cc/output/begin_frame_args.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.bsp_tree.o: cxx ../../cc/output/bsp_tree.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.bsp_walk_action.o: cxx $
+    ../../cc/output/bsp_walk_action.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.ca_layer_overlay.o: cxx $
+    ../../cc/output/ca_layer_overlay.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.compositor_frame.o: cxx $
+    ../../cc/output/compositor_frame.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.compositor_frame_ack.o: cxx $
+    ../../cc/output/compositor_frame_ack.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.compositor_frame_metadata.o: cxx $
+    ../../cc/output/compositor_frame_metadata.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.context_provider.o: cxx $
+    ../../cc/output/context_provider.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.copy_output_request.o: cxx $
+    ../../cc/output/copy_output_request.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.copy_output_result.o: cxx $
+    ../../cc/output/copy_output_result.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.delegated_frame_data.o: cxx $
+    ../../cc/output/delegated_frame_data.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.delegating_renderer.o: cxx $
+    ../../cc/output/delegating_renderer.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.direct_renderer.o: cxx $
+    ../../cc/output/direct_renderer.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.dynamic_geometry_binding.o: cxx $
+    ../../cc/output/dynamic_geometry_binding.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.filter_operation.o: cxx $
+    ../../cc/output/filter_operation.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.filter_operations.o: cxx $
+    ../../cc/output/filter_operations.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.geometry_binding.o: cxx $
+    ../../cc/output/geometry_binding.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.gl_frame_data.o: cxx $
+    ../../cc/output/gl_frame_data.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.gl_renderer.o: cxx ../../cc/output/gl_renderer.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.gl_renderer_draw_cache.o: cxx $
+    ../../cc/output/gl_renderer_draw_cache.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.latency_info_swap_promise.o: cxx $
+    ../../cc/output/latency_info_swap_promise.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.layer_quad.o: cxx ../../cc/output/layer_quad.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.managed_memory_policy.o: cxx $
+    ../../cc/output/managed_memory_policy.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.output_surface.o: cxx $
+    ../../cc/output/output_surface.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.overlay_candidate.o: cxx $
+    ../../cc/output/overlay_candidate.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.overlay_processor.o: cxx $
+    ../../cc/output/overlay_processor.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.overlay_strategy_single_on_top.o: cxx $
+    ../../cc/output/overlay_strategy_single_on_top.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.overlay_strategy_underlay.o: cxx $
+    ../../cc/output/overlay_strategy_underlay.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.program_binding.o: cxx $
+    ../../cc/output/program_binding.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.render_surface_filters.o: cxx $
+    ../../cc/output/render_surface_filters.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.renderer.o: cxx ../../cc/output/renderer.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.renderer_capabilities.o: cxx $
+    ../../cc/output/renderer_capabilities.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.renderer_settings.o: cxx $
+    ../../cc/output/renderer_settings.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.shader.o: cxx ../../cc/output/shader.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.software_output_device.o: cxx $
+    ../../cc/output/software_output_device.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.software_renderer.o: cxx $
+    ../../cc/output/software_renderer.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.static_geometry_binding.o: cxx $
+    ../../cc/output/static_geometry_binding.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.texture_mailbox_deleter.o: cxx $
+    ../../cc/output/texture_mailbox_deleter.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/output/cc.viewport_selection_bound.o: cxx $
+    ../../cc/output/viewport_selection_bound.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/playback/cc.clip_display_item.o: cxx $
+    ../../cc/playback/clip_display_item.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/playback/cc.clip_path_display_item.o: cxx $
+    ../../cc/playback/clip_path_display_item.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/playback/cc.compositing_display_item.o: cxx $
+    ../../cc/playback/compositing_display_item.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/playback/cc.discardable_image_map.o: cxx $
+    ../../cc/playback/discardable_image_map.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/playback/cc.display_item.o: cxx $
+    ../../cc/playback/display_item.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/playback/cc.display_item_list.o: cxx $
+    ../../cc/playback/display_item_list.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/playback/cc.display_item_list_settings.o: cxx $
+    ../../cc/playback/display_item_list_settings.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/playback/cc.display_item_proto_factory.o: cxx $
+    ../../cc/playback/display_item_proto_factory.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/playback/cc.draw_image.o: cxx ../../cc/playback/draw_image.cc $
+    || obj/cc/cc.compile_depends.stamp
+build obj/cc/playback/cc.drawing_display_item.o: cxx $
+    ../../cc/playback/drawing_display_item.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/playback/cc.filter_display_item.o: cxx $
+    ../../cc/playback/filter_display_item.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/playback/cc.float_clip_display_item.o: cxx $
+    ../../cc/playback/float_clip_display_item.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/playback/cc.image_hijack_canvas.o: cxx $
+    ../../cc/playback/image_hijack_canvas.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/playback/cc.largest_display_item.o: cxx $
+    ../../cc/playback/largest_display_item.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/playback/cc.raster_source.o: cxx $
+    ../../cc/playback/raster_source.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/playback/cc.recording_source.o: cxx $
+    ../../cc/playback/recording_source.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/playback/cc.skip_image_canvas.o: cxx $
+    ../../cc/playback/skip_image_canvas.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/playback/cc.transform_display_item.o: cxx $
+    ../../cc/playback/transform_display_item.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/proto/cc.base_conversions.o: cxx $
+    ../../cc/proto/base_conversions.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/proto/cc.cc_conversions.o: cxx $
+    ../../cc/proto/cc_conversions.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/proto/cc.gfx_conversions.o: cxx $
+    ../../cc/proto/gfx_conversions.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/proto/cc.gpu_conversions.o: cxx $
+    ../../cc/proto/gpu_conversions.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/proto/cc.skia_conversions.o: cxx $
+    ../../cc/proto/skia_conversions.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/proto/cc.synced_property_conversions.o: cxx $
+    ../../cc/proto/synced_property_conversions.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/quads/cc.content_draw_quad_base.o: cxx $
+    ../../cc/quads/content_draw_quad_base.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/quads/cc.debug_border_draw_quad.o: cxx $
+    ../../cc/quads/debug_border_draw_quad.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/quads/cc.draw_polygon.o: cxx ../../cc/quads/draw_polygon.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/quads/cc.draw_quad.o: cxx ../../cc/quads/draw_quad.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/quads/cc.io_surface_draw_quad.o: cxx $
+    ../../cc/quads/io_surface_draw_quad.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/quads/cc.largest_draw_quad.o: cxx $
+    ../../cc/quads/largest_draw_quad.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/quads/cc.picture_draw_quad.o: cxx $
+    ../../cc/quads/picture_draw_quad.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/quads/cc.render_pass.o: cxx ../../cc/quads/render_pass.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/quads/cc.render_pass_draw_quad.o: cxx $
+    ../../cc/quads/render_pass_draw_quad.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/quads/cc.render_pass_id.o: cxx $
+    ../../cc/quads/render_pass_id.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/quads/cc.shared_quad_state.o: cxx $
+    ../../cc/quads/shared_quad_state.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/quads/cc.solid_color_draw_quad.o: cxx $
+    ../../cc/quads/solid_color_draw_quad.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/quads/cc.stream_video_draw_quad.o: cxx $
+    ../../cc/quads/stream_video_draw_quad.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/quads/cc.surface_draw_quad.o: cxx $
+    ../../cc/quads/surface_draw_quad.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/quads/cc.texture_draw_quad.o: cxx $
+    ../../cc/quads/texture_draw_quad.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/quads/cc.tile_draw_quad.o: cxx $
+    ../../cc/quads/tile_draw_quad.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/quads/cc.yuv_video_draw_quad.o: cxx $
+    ../../cc/quads/yuv_video_draw_quad.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/raster/cc.bitmap_tile_task_worker_pool.o: cxx $
+    ../../cc/raster/bitmap_tile_task_worker_pool.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/raster/cc.gpu_rasterizer.o: cxx $
+    ../../cc/raster/gpu_rasterizer.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/raster/cc.gpu_tile_task_worker_pool.o: cxx $
+    ../../cc/raster/gpu_tile_task_worker_pool.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/raster/cc.one_copy_tile_task_worker_pool.o: cxx $
+    ../../cc/raster/one_copy_tile_task_worker_pool.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/raster/cc.raster_buffer.o: cxx $
+    ../../cc/raster/raster_buffer.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/raster/cc.scoped_gpu_raster.o: cxx $
+    ../../cc/raster/scoped_gpu_raster.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/raster/cc.single_thread_task_graph_runner.o: cxx $
+    ../../cc/raster/single_thread_task_graph_runner.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/raster/cc.staging_buffer_pool.o: cxx $
+    ../../cc/raster/staging_buffer_pool.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/raster/cc.synchronous_task_graph_runner.o: cxx $
+    ../../cc/raster/synchronous_task_graph_runner.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/raster/cc.task_graph_runner.o: cxx $
+    ../../cc/raster/task_graph_runner.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/raster/cc.task_graph_work_queue.o: cxx $
+    ../../cc/raster/task_graph_work_queue.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/raster/cc.texture_compressor.o: cxx $
+    ../../cc/raster/texture_compressor.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/raster/cc.texture_compressor_etc1.o: cxx $
+    ../../cc/raster/texture_compressor_etc1.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/raster/cc.tile_task_runner.o: cxx $
+    ../../cc/raster/tile_task_runner.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/raster/cc.tile_task_worker_pool.o: cxx $
+    ../../cc/raster/tile_task_worker_pool.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/raster/cc.zero_copy_tile_task_worker_pool.o: cxx $
+    ../../cc/raster/zero_copy_tile_task_worker_pool.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/resources/cc.memory_history.o: cxx $
+    ../../cc/resources/memory_history.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/resources/cc.resource_format.o: cxx $
+    ../../cc/resources/resource_format.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/resources/cc.resource_pool.o: cxx $
+    ../../cc/resources/resource_pool.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/resources/cc.resource_provider.o: cxx $
+    ../../cc/resources/resource_provider.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/resources/cc.scoped_resource.o: cxx $
+    ../../cc/resources/scoped_resource.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/resources/cc.scoped_ui_resource.o: cxx $
+    ../../cc/resources/scoped_ui_resource.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/resources/cc.shared_bitmap.o: cxx $
+    ../../cc/resources/shared_bitmap.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/resources/cc.single_release_callback.o: cxx $
+    ../../cc/resources/single_release_callback.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/resources/cc.single_release_callback_impl.o: cxx $
+    ../../cc/resources/single_release_callback_impl.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/resources/cc.texture_mailbox.o: cxx $
+    ../../cc/resources/texture_mailbox.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/resources/cc.transferable_resource.o: cxx $
+    ../../cc/resources/transferable_resource.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/resources/cc.ui_resource_bitmap.o: cxx $
+    ../../cc/resources/ui_resource_bitmap.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/resources/cc.ui_resource_request.o: cxx $
+    ../../cc/resources/ui_resource_request.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/resources/cc.video_resource_updater.o: cxx $
+    ../../cc/resources/video_resource_updater.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/scheduler/cc.begin_frame_source.o: cxx $
+    ../../cc/scheduler/begin_frame_source.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/scheduler/cc.begin_frame_tracker.o: cxx $
+    ../../cc/scheduler/begin_frame_tracker.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/scheduler/cc.commit_earlyout_reason.o: cxx $
+    ../../cc/scheduler/commit_earlyout_reason.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/scheduler/cc.compositor_timing_history.o: cxx $
+    ../../cc/scheduler/compositor_timing_history.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/scheduler/cc.delay_based_time_source.o: cxx $
+    ../../cc/scheduler/delay_based_time_source.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/scheduler/cc.scheduler.o: cxx ../../cc/scheduler/scheduler.cc $
+    || obj/cc/cc.compile_depends.stamp
+build obj/cc/scheduler/cc.scheduler_settings.o: cxx $
+    ../../cc/scheduler/scheduler_settings.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/scheduler/cc.scheduler_state_machine.o: cxx $
+    ../../cc/scheduler/scheduler_state_machine.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/tiles/cc.eviction_tile_priority_queue.o: cxx $
+    ../../cc/tiles/eviction_tile_priority_queue.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/tiles/cc.gpu_image_decode_controller.o: cxx $
+    ../../cc/tiles/gpu_image_decode_controller.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/tiles/cc.picture_layer_tiling.o: cxx $
+    ../../cc/tiles/picture_layer_tiling.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/tiles/cc.picture_layer_tiling_set.o: cxx $
+    ../../cc/tiles/picture_layer_tiling_set.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/tiles/cc.prioritized_tile.o: cxx $
+    ../../cc/tiles/prioritized_tile.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/tiles/cc.raster_tile_priority_queue_all.o: cxx $
+    ../../cc/tiles/raster_tile_priority_queue_all.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/tiles/cc.raster_tile_priority_queue.o: cxx $
+    ../../cc/tiles/raster_tile_priority_queue.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/tiles/cc.raster_tile_priority_queue_required.o: cxx $
+    ../../cc/tiles/raster_tile_priority_queue_required.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/tiles/cc.software_image_decode_controller.o: cxx $
+    ../../cc/tiles/software_image_decode_controller.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/tiles/cc.tile.o: cxx ../../cc/tiles/tile.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/tiles/cc.tile_draw_info.o: cxx $
+    ../../cc/tiles/tile_draw_info.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/tiles/cc.tile_manager.o: cxx ../../cc/tiles/tile_manager.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/tiles/cc.tile_priority.o: cxx ../../cc/tiles/tile_priority.cc $
+    || obj/cc/cc.compile_depends.stamp
+build obj/cc/tiles/cc.tiling_set_eviction_queue.o: cxx $
+    ../../cc/tiles/tiling_set_eviction_queue.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/tiles/cc.tiling_set_raster_queue_all.o: cxx $
+    ../../cc/tiles/tiling_set_raster_queue_all.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/tiles/cc.tiling_set_raster_queue_required.o: cxx $
+    ../../cc/tiles/tiling_set_raster_queue_required.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/trees/cc.blocking_task_runner.o: cxx $
+    ../../cc/trees/blocking_task_runner.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/trees/cc.damage_tracker.o: cxx $
+    ../../cc/trees/damage_tracker.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/trees/cc.draw_property_utils.o: cxx $
+    ../../cc/trees/draw_property_utils.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/trees/cc.latency_info_swap_promise_monitor.o: cxx $
+    ../../cc/trees/latency_info_swap_promise_monitor.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/trees/cc.layer_tree_host.o: cxx $
+    ../../cc/trees/layer_tree_host.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/trees/cc.layer_tree_host_common.o: cxx $
+    ../../cc/trees/layer_tree_host_common.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/trees/cc.layer_tree_host_impl.o: cxx $
+    ../../cc/trees/layer_tree_host_impl.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/trees/cc.layer_tree_impl.o: cxx $
+    ../../cc/trees/layer_tree_impl.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/trees/cc.layer_tree_settings.o: cxx $
+    ../../cc/trees/layer_tree_settings.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/trees/cc.occlusion.o: cxx ../../cc/trees/occlusion.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/trees/cc.occlusion_tracker.o: cxx $
+    ../../cc/trees/occlusion_tracker.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/trees/cc.property_tree.o: cxx ../../cc/trees/property_tree.cc $
+    || obj/cc/cc.compile_depends.stamp
+build obj/cc/trees/cc.property_tree_builder.o: cxx $
+    ../../cc/trees/property_tree_builder.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/trees/cc.proxy_common.o: cxx ../../cc/trees/proxy_common.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/trees/cc.proxy_impl.o: cxx ../../cc/trees/proxy_impl.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/trees/cc.proxy_main.o: cxx ../../cc/trees/proxy_main.cc || $
+    obj/cc/cc.compile_depends.stamp
+build obj/cc/trees/cc.remote_channel_impl.o: cxx $
+    ../../cc/trees/remote_channel_impl.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/trees/cc.remote_channel_main.o: cxx $
+    ../../cc/trees/remote_channel_main.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/trees/cc.single_thread_proxy.o: cxx $
+    ../../cc/trees/single_thread_proxy.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/trees/cc.swap_promise_monitor.o: cxx $
+    ../../cc/trees/swap_promise_monitor.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/trees/cc.task_runner_provider.o: cxx $
+    ../../cc/trees/task_runner_provider.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/trees/cc.threaded_channel.o: cxx $
+    ../../cc/trees/threaded_channel.cc || obj/cc/cc.compile_depends.stamp
+build obj/cc/trees/cc.tree_synchronizer.o: cxx $
+    ../../cc/trees/tree_synchronizer.cc || obj/cc/cc.compile_depends.stamp
+
+build obj/cc/libcc.a: alink_thin obj/cc/animation/cc.animation.o $
+    obj/cc/animation/cc.animation_curve.o $
+    obj/cc/animation/cc.animation_events.o $
+    obj/cc/animation/cc.animation_host.o $
+    obj/cc/animation/cc.animation_id_provider.o $
+    obj/cc/animation/cc.animation_player.o $
+    obj/cc/animation/cc.animation_registrar.o $
+    obj/cc/animation/cc.animation_timeline.o $
+    obj/cc/animation/cc.element_animations.o $
+    obj/cc/animation/cc.keyframed_animation_curve.o $
+    obj/cc/animation/cc.layer_animation_controller.o $
+    obj/cc/animation/cc.scroll_offset_animation_curve.o $
+    obj/cc/animation/cc.target_property.o $
+    obj/cc/animation/cc.timing_function.o $
+    obj/cc/animation/cc.transform_operation.o $
+    obj/cc/animation/cc.transform_operations.o $
+    obj/cc/base/cc.contiguous_container.o $
+    obj/cc/base/cc.delayed_unique_notifier.o obj/cc/base/cc.histograms.o $
+    obj/cc/base/cc.invalidation_region.o $
+    obj/cc/base/cc.list_container_helper.o obj/cc/base/cc.math_util.o $
+    obj/cc/base/cc.region.o obj/cc/base/cc.rolling_time_delta_history.o $
+    obj/cc/base/cc.rtree.o obj/cc/base/cc.simple_enclosed_region.o $
+    obj/cc/base/cc.switches.o obj/cc/base/cc.tiling_data.o $
+    obj/cc/base/cc.unique_notifier.o $
+    obj/cc/debug/cc.benchmark_instrumentation.o $
+    obj/cc/debug/cc.debug_colors.o obj/cc/debug/cc.debug_rect_history.o $
+    obj/cc/debug/cc.frame_rate_counter.o $
+    obj/cc/debug/cc.frame_timing_request.o $
+    obj/cc/debug/cc.frame_timing_tracker.o $
+    obj/cc/debug/cc.frame_viewer_instrumentation.o $
+    obj/cc/debug/cc.invalidation_benchmark.o obj/cc/debug/cc.lap_timer.o $
+    obj/cc/debug/cc.layer_tree_debug_state.o $
+    obj/cc/debug/cc.micro_benchmark.o $
+    obj/cc/debug/cc.micro_benchmark_controller.o $
+    obj/cc/debug/cc.micro_benchmark_controller_impl.o $
+    obj/cc/debug/cc.micro_benchmark_impl.o $
+    obj/cc/debug/cc.picture_debug_util.o $
+    obj/cc/debug/cc.rasterize_and_record_benchmark.o $
+    obj/cc/debug/cc.rasterize_and_record_benchmark_impl.o $
+    obj/cc/debug/cc.rendering_stats.o $
+    obj/cc/debug/cc.rendering_stats_instrumentation.o $
+    obj/cc/debug/cc.traced_display_item_list.o $
+    obj/cc/debug/cc.traced_value.o $
+    obj/cc/debug/cc.unittest_only_benchmark.o $
+    obj/cc/debug/cc.unittest_only_benchmark_impl.o $
+    obj/cc/input/cc.input_handler.o obj/cc/input/cc.layer_selection_bound.o $
+    obj/cc/input/cc.page_scale_animation.o $
+    obj/cc/input/cc.scroll_elasticity_helper.o $
+    obj/cc/input/cc.scroll_state.o obj/cc/input/cc.scroll_state_data.o $
+    obj/cc/input/cc.scrollbar_animation_controller.o $
+    obj/cc/input/cc.scrollbar_animation_controller_linear_fade.o $
+    obj/cc/input/cc.scrollbar_animation_controller_thinning.o $
+    obj/cc/input/cc.top_controls_manager.o $
+    obj/cc/layers/cc.draw_properties.o $
+    obj/cc/layers/cc.empty_content_layer_client.o $
+    obj/cc/layers/cc.heads_up_display_layer.o $
+    obj/cc/layers/cc.heads_up_display_layer_impl.o $
+    obj/cc/layers/cc.io_surface_layer.o $
+    obj/cc/layers/cc.io_surface_layer_impl.o obj/cc/layers/cc.layer.o $
+    obj/cc/layers/cc.layer_impl.o obj/cc/layers/cc.layer_list_iterator.o $
+    obj/cc/layers/cc.layer_position_constraint.o $
+    obj/cc/layers/cc.layer_proto_converter.o obj/cc/layers/cc.layer_utils.o $
+    obj/cc/layers/cc.nine_patch_layer.o $
+    obj/cc/layers/cc.nine_patch_layer_impl.o $
+    obj/cc/layers/cc.painted_scrollbar_layer.o $
+    obj/cc/layers/cc.painted_scrollbar_layer_impl.o $
+    obj/cc/layers/cc.picture_image_layer.o $
+    obj/cc/layers/cc.picture_image_layer_impl.o $
+    obj/cc/layers/cc.picture_layer.o obj/cc/layers/cc.picture_layer_impl.o $
+    obj/cc/layers/cc.render_surface_impl.o $
+    obj/cc/layers/cc.scrollbar_layer_impl_base.o $
+    obj/cc/layers/cc.solid_color_layer.o $
+    obj/cc/layers/cc.solid_color_layer_impl.o $
+    obj/cc/layers/cc.solid_color_scrollbar_layer.o $
+    obj/cc/layers/cc.solid_color_scrollbar_layer_impl.o $
+    obj/cc/layers/cc.surface_layer.o obj/cc/layers/cc.surface_layer_impl.o $
+    obj/cc/layers/cc.texture_layer.o obj/cc/layers/cc.texture_layer_impl.o $
+    obj/cc/layers/cc.ui_resource_layer.o $
+    obj/cc/layers/cc.ui_resource_layer_impl.o $
+    obj/cc/layers/cc.video_frame_provider_client_impl.o $
+    obj/cc/layers/cc.video_layer.o obj/cc/layers/cc.video_layer_impl.o $
+    obj/cc/layers/cc.viewport.o obj/cc/output/cc.begin_frame_args.o $
+    obj/cc/output/cc.bsp_tree.o obj/cc/output/cc.bsp_walk_action.o $
+    obj/cc/output/cc.ca_layer_overlay.o obj/cc/output/cc.compositor_frame.o $
+    obj/cc/output/cc.compositor_frame_ack.o $
+    obj/cc/output/cc.compositor_frame_metadata.o $
+    obj/cc/output/cc.context_provider.o $
+    obj/cc/output/cc.copy_output_request.o $
+    obj/cc/output/cc.copy_output_result.o $
+    obj/cc/output/cc.delegated_frame_data.o $
+    obj/cc/output/cc.delegating_renderer.o $
+    obj/cc/output/cc.direct_renderer.o $
+    obj/cc/output/cc.dynamic_geometry_binding.o $
+    obj/cc/output/cc.filter_operation.o $
+    obj/cc/output/cc.filter_operations.o $
+    obj/cc/output/cc.geometry_binding.o obj/cc/output/cc.gl_frame_data.o $
+    obj/cc/output/cc.gl_renderer.o $
+    obj/cc/output/cc.gl_renderer_draw_cache.o $
+    obj/cc/output/cc.latency_info_swap_promise.o $
+    obj/cc/output/cc.layer_quad.o obj/cc/output/cc.managed_memory_policy.o $
+    obj/cc/output/cc.output_surface.o obj/cc/output/cc.overlay_candidate.o $
+    obj/cc/output/cc.overlay_processor.o $
+    obj/cc/output/cc.overlay_strategy_single_on_top.o $
+    obj/cc/output/cc.overlay_strategy_underlay.o $
+    obj/cc/output/cc.program_binding.o $
+    obj/cc/output/cc.render_surface_filters.o obj/cc/output/cc.renderer.o $
+    obj/cc/output/cc.renderer_capabilities.o $
+    obj/cc/output/cc.renderer_settings.o obj/cc/output/cc.shader.o $
+    obj/cc/output/cc.software_output_device.o $
+    obj/cc/output/cc.software_renderer.o $
+    obj/cc/output/cc.static_geometry_binding.o $
+    obj/cc/output/cc.texture_mailbox_deleter.o $
+    obj/cc/output/cc.viewport_selection_bound.o $
+    obj/cc/playback/cc.clip_display_item.o $
+    obj/cc/playback/cc.clip_path_display_item.o $
+    obj/cc/playback/cc.compositing_display_item.o $
+    obj/cc/playback/cc.discardable_image_map.o $
+    obj/cc/playback/cc.display_item.o $
+    obj/cc/playback/cc.display_item_list.o $
+    obj/cc/playback/cc.display_item_list_settings.o $
+    obj/cc/playback/cc.display_item_proto_factory.o $
+    obj/cc/playback/cc.draw_image.o $
+    obj/cc/playback/cc.drawing_display_item.o $
+    obj/cc/playback/cc.filter_display_item.o $
+    obj/cc/playback/cc.float_clip_display_item.o $
+    obj/cc/playback/cc.image_hijack_canvas.o $
+    obj/cc/playback/cc.largest_display_item.o $
+    obj/cc/playback/cc.raster_source.o $
+    obj/cc/playback/cc.recording_source.o $
+    obj/cc/playback/cc.skip_image_canvas.o $
+    obj/cc/playback/cc.transform_display_item.o $
+    obj/cc/proto/cc.base_conversions.o obj/cc/proto/cc.cc_conversions.o $
+    obj/cc/proto/cc.gfx_conversions.o obj/cc/proto/cc.gpu_conversions.o $
+    obj/cc/proto/cc.skia_conversions.o $
+    obj/cc/proto/cc.synced_property_conversions.o $
+    obj/cc/quads/cc.content_draw_quad_base.o $
+    obj/cc/quads/cc.debug_border_draw_quad.o obj/cc/quads/cc.draw_polygon.o $
+    obj/cc/quads/cc.draw_quad.o obj/cc/quads/cc.io_surface_draw_quad.o $
+    obj/cc/quads/cc.largest_draw_quad.o obj/cc/quads/cc.picture_draw_quad.o $
+    obj/cc/quads/cc.render_pass.o obj/cc/quads/cc.render_pass_draw_quad.o $
+    obj/cc/quads/cc.render_pass_id.o obj/cc/quads/cc.shared_quad_state.o $
+    obj/cc/quads/cc.solid_color_draw_quad.o $
+    obj/cc/quads/cc.stream_video_draw_quad.o $
+    obj/cc/quads/cc.surface_draw_quad.o obj/cc/quads/cc.texture_draw_quad.o $
+    obj/cc/quads/cc.tile_draw_quad.o obj/cc/quads/cc.yuv_video_draw_quad.o $
+    obj/cc/raster/cc.bitmap_tile_task_worker_pool.o $
+    obj/cc/raster/cc.gpu_rasterizer.o $
+    obj/cc/raster/cc.gpu_tile_task_worker_pool.o $
+    obj/cc/raster/cc.one_copy_tile_task_worker_pool.o $
+    obj/cc/raster/cc.raster_buffer.o obj/cc/raster/cc.scoped_gpu_raster.o $
+    obj/cc/raster/cc.single_thread_task_graph_runner.o $
+    obj/cc/raster/cc.staging_buffer_pool.o $
+    obj/cc/raster/cc.synchronous_task_graph_runner.o $
+    obj/cc/raster/cc.task_graph_runner.o $
+    obj/cc/raster/cc.task_graph_work_queue.o $
+    obj/cc/raster/cc.texture_compressor.o $
+    obj/cc/raster/cc.texture_compressor_etc1.o $
+    obj/cc/raster/cc.tile_task_runner.o $
+    obj/cc/raster/cc.tile_task_worker_pool.o $
+    obj/cc/raster/cc.zero_copy_tile_task_worker_pool.o $
+    obj/cc/resources/cc.memory_history.o $
+    obj/cc/resources/cc.resource_format.o $
+    obj/cc/resources/cc.resource_pool.o $
+    obj/cc/resources/cc.resource_provider.o $
+    obj/cc/resources/cc.scoped_resource.o $
+    obj/cc/resources/cc.scoped_ui_resource.o $
+    obj/cc/resources/cc.shared_bitmap.o $
+    obj/cc/resources/cc.single_release_callback.o $
+    obj/cc/resources/cc.single_release_callback_impl.o $
+    obj/cc/resources/cc.texture_mailbox.o $
+    obj/cc/resources/cc.transferable_resource.o $
+    obj/cc/resources/cc.ui_resource_bitmap.o $
+    obj/cc/resources/cc.ui_resource_request.o $
+    obj/cc/resources/cc.video_resource_updater.o $
+    obj/cc/scheduler/cc.begin_frame_source.o $
+    obj/cc/scheduler/cc.begin_frame_tracker.o $
+    obj/cc/scheduler/cc.commit_earlyout_reason.o $
+    obj/cc/scheduler/cc.compositor_timing_history.o $
+    obj/cc/scheduler/cc.delay_based_time_source.o $
+    obj/cc/scheduler/cc.scheduler.o $
+    obj/cc/scheduler/cc.scheduler_settings.o $
+    obj/cc/scheduler/cc.scheduler_state_machine.o $
+    obj/cc/tiles/cc.eviction_tile_priority_queue.o $
+    obj/cc/tiles/cc.gpu_image_decode_controller.o $
+    obj/cc/tiles/cc.picture_layer_tiling.o $
+    obj/cc/tiles/cc.picture_layer_tiling_set.o $
+    obj/cc/tiles/cc.prioritized_tile.o $
+    obj/cc/tiles/cc.raster_tile_priority_queue_all.o $
+    obj/cc/tiles/cc.raster_tile_priority_queue.o $
+    obj/cc/tiles/cc.raster_tile_priority_queue_required.o $
+    obj/cc/tiles/cc.software_image_decode_controller.o $
+    obj/cc/tiles/cc.tile.o obj/cc/tiles/cc.tile_draw_info.o $
+    obj/cc/tiles/cc.tile_manager.o obj/cc/tiles/cc.tile_priority.o $
+    obj/cc/tiles/cc.tiling_set_eviction_queue.o $
+    obj/cc/tiles/cc.tiling_set_raster_queue_all.o $
+    obj/cc/tiles/cc.tiling_set_raster_queue_required.o $
+    obj/cc/trees/cc.blocking_task_runner.o obj/cc/trees/cc.damage_tracker.o $
+    obj/cc/trees/cc.draw_property_utils.o $
+    obj/cc/trees/cc.latency_info_swap_promise_monitor.o $
+    obj/cc/trees/cc.layer_tree_host.o $
+    obj/cc/trees/cc.layer_tree_host_common.o $
+    obj/cc/trees/cc.layer_tree_host_impl.o $
+    obj/cc/trees/cc.layer_tree_impl.o obj/cc/trees/cc.layer_tree_settings.o $
+    obj/cc/trees/cc.occlusion.o obj/cc/trees/cc.occlusion_tracker.o $
+    obj/cc/trees/cc.property_tree.o obj/cc/trees/cc.property_tree_builder.o $
+    obj/cc/trees/cc.proxy_common.o obj/cc/trees/cc.proxy_impl.o $
+    obj/cc/trees/cc.proxy_main.o obj/cc/trees/cc.remote_channel_impl.o $
+    obj/cc/trees/cc.remote_channel_main.o $
+    obj/cc/trees/cc.single_thread_proxy.o $
+    obj/cc/trees/cc.swap_promise_monitor.o $
+    obj/cc/trees/cc.task_runner_provider.o $
+    obj/cc/trees/cc.threaded_channel.o obj/cc/trees/cc.tree_synchronizer.o $
+    || obj/cc/cc.actions_depends.stamp

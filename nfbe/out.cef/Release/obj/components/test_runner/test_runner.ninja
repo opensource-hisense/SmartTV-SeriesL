@@ -1,0 +1,241 @@
+build obj/components/test_runner/test_runner.actions_depends.stamp: stamp $
+    lib/libbase.so.TOC obj/gpu/gpu.actions_depends.stamp lib/libnet.so.TOC $
+    obj/skia/skia.actions_depends.stamp $
+    obj/third_party/WebKit/public/blink.actions_depends.stamp $
+    obj/third_party/WebKit/Source/platform/libblink_platform.a $
+    lib/liburl_lib.so.TOC $
+    obj/v8/tools/gyp/v8_maybe_snapshot.actions_depends.stamp
+
+build obj/components/test_runner/test_runner.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp obj/gpu/gpu.compile_depends.stamp $
+    obj/net/net.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/third_party/WebKit/public/blink.compile_depends.stamp $
+    obj/third_party/WebKit/Source/platform/blink_platform.compile_depends.stamp $
+    obj/url/url_lib.compile_depends.stamp snapshot_blob.bin
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DTEST_RUNNER_IMPLEMENTATION $
+    -DMOJO_USE_SYSTEM_IMPL -DGTEST_HAS_POSIX_RE=0 -DGTEST_LANG_CXX11=0 $
+    -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= $
+    -DU_STATIC_IMPLEMENTATION -DSK_SUPPORT_GPU=1 $
+    -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS -DCHROME_PNG_WRITE_SUPPORT $
+    -DPNG_USER_CONFIG -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS $
+    -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../../components -I../../third_party/khronos -I../../gpu $
+    -I../.. -I../../skia/config -Igen/angle $
+    -I../../third_party/WebKit/Source -I../../third_party/icu/source/common $
+    -I../../third_party/icu/source/i18n $
+    -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../third_party/WebKit -I../../third_party/libpng $
+    -I../../third_party/zlib -I../../third_party/libwebp $
+    -I../../third_party/ots/include -I../../third_party/qcms/src $
+    -I../../third_party/iccjpeg -I../../third_party/libjpeg_turbo $
+    -I../../v8/include
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/components/test_runner/test_runner.accessibility_controller.o: $
+    cxx ../../components/test_runner/accessibility_controller.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.app_banner_client.o: cxx $
+    ../../components/test_runner/app_banner_client.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.event_sender.o: cxx $
+    ../../components/test_runner/event_sender.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.gamepad_controller.o: cxx $
+    ../../components/test_runner/gamepad_controller.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.gc_controller.o: cxx $
+    ../../components/test_runner/gc_controller.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.layout_dump.o: cxx $
+    ../../components/test_runner/layout_dump.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.layout_test_runtime_flags.o: $
+    cxx ../../components/test_runner/layout_test_runtime_flags.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.mock_color_chooser.o: cxx $
+    ../../components/test_runner/mock_color_chooser.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build $
+    obj/components/test_runner/test_runner.mock_credential_manager_client.o: $
+    cxx ../../components/test_runner/mock_credential_manager_client.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.mock_grammar_check.o: cxx $
+    ../../components/test_runner/mock_grammar_check.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build $
+    obj/components/test_runner/test_runner.mock_screen_orientation_client.o: $
+    cxx ../../components/test_runner/mock_screen_orientation_client.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.mock_spell_check.o: cxx $
+    ../../components/test_runner/mock_spell_check.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.mock_web_audio_device.o: cxx $
+    ../../components/test_runner/mock_web_audio_device.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build $
+    obj/components/test_runner/test_runner.mock_web_media_stream_center.o: $
+    cxx ../../components/test_runner/mock_web_media_stream_center.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.mock_web_midi_accessor.o: cxx $
+    ../../components/test_runner/mock_web_midi_accessor.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.mock_web_speech_recognizer.o: $
+    cxx ../../components/test_runner/mock_web_speech_recognizer.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.mock_web_theme_engine.o: cxx $
+    ../../components/test_runner/mock_web_theme_engine.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.mock_web_user_media_client.o: $
+    cxx ../../components/test_runner/mock_web_user_media_client.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build $
+    obj/components/test_runner/test_runner.mock_webrtc_data_channel_handler.o: $
+    cxx ../../components/test_runner/mock_webrtc_data_channel_handler.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build $
+    obj/components/test_runner/test_runner.mock_webrtc_dtmf_sender_handler.o: $
+    cxx ../../components/test_runner/mock_webrtc_dtmf_sender_handler.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build $
+    obj/components/test_runner/test_runner.mock_webrtc_peer_connection_handler.o: $
+    cxx ../../components/test_runner/mock_webrtc_peer_connection_handler.cc $
+    || obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.pixel_dump.o: cxx $
+    ../../components/test_runner/pixel_dump.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.spell_check_client.o: cxx $
+    ../../components/test_runner/spell_check_client.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.test_common.o: cxx $
+    ../../components/test_runner/test_common.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.test_interfaces.o: cxx $
+    ../../components/test_runner/test_interfaces.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.test_plugin.o: cxx $
+    ../../components/test_runner/test_plugin.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.test_preferences.o: cxx $
+    ../../components/test_runner/test_preferences.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.test_runner.o: cxx $
+    ../../components/test_runner/test_runner.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.text_input_controller.o: cxx $
+    ../../components/test_runner/text_input_controller.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.tracked_dictionary.o: cxx $
+    ../../components/test_runner/tracked_dictionary.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.web_ax_object_proxy.o: cxx $
+    ../../components/test_runner/web_ax_object_proxy.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.web_content_settings.o: cxx $
+    ../../components/test_runner/web_content_settings.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.web_frame_test_client.o: cxx $
+    ../../components/test_runner/web_frame_test_client.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.web_frame_test_proxy.o: cxx $
+    ../../components/test_runner/web_frame_test_proxy.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.web_view_test_client.o: cxx $
+    ../../components/test_runner/web_view_test_client.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.web_task.o: cxx $
+    ../../components/test_runner/web_task.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.web_test_interfaces.o: cxx $
+    ../../components/test_runner/web_test_interfaces.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+build obj/components/test_runner/test_runner.web_test_proxy.o: cxx $
+    ../../components/test_runner/web_test_proxy.cc || $
+    obj/components/test_runner/test_runner.compile_depends.stamp
+
+build obj/components/test_runner/libtest_runner.a: alink_thin $
+    obj/components/test_runner/test_runner.accessibility_controller.o $
+    obj/components/test_runner/test_runner.app_banner_client.o $
+    obj/components/test_runner/test_runner.event_sender.o $
+    obj/components/test_runner/test_runner.gamepad_controller.o $
+    obj/components/test_runner/test_runner.gc_controller.o $
+    obj/components/test_runner/test_runner.layout_dump.o $
+    obj/components/test_runner/test_runner.layout_test_runtime_flags.o $
+    obj/components/test_runner/test_runner.mock_color_chooser.o $
+    obj/components/test_runner/test_runner.mock_credential_manager_client.o $
+    obj/components/test_runner/test_runner.mock_grammar_check.o $
+    obj/components/test_runner/test_runner.mock_screen_orientation_client.o $
+    obj/components/test_runner/test_runner.mock_spell_check.o $
+    obj/components/test_runner/test_runner.mock_web_audio_device.o $
+    obj/components/test_runner/test_runner.mock_web_media_stream_center.o $
+    obj/components/test_runner/test_runner.mock_web_midi_accessor.o $
+    obj/components/test_runner/test_runner.mock_web_speech_recognizer.o $
+    obj/components/test_runner/test_runner.mock_web_theme_engine.o $
+    obj/components/test_runner/test_runner.mock_web_user_media_client.o $
+    obj/components/test_runner/test_runner.mock_webrtc_data_channel_handler.o $
+    obj/components/test_runner/test_runner.mock_webrtc_dtmf_sender_handler.o $
+    obj/components/test_runner/test_runner.mock_webrtc_peer_connection_handler.o $
+    obj/components/test_runner/test_runner.pixel_dump.o $
+    obj/components/test_runner/test_runner.spell_check_client.o $
+    obj/components/test_runner/test_runner.test_common.o $
+    obj/components/test_runner/test_runner.test_interfaces.o $
+    obj/components/test_runner/test_runner.test_plugin.o $
+    obj/components/test_runner/test_runner.test_preferences.o $
+    obj/components/test_runner/test_runner.test_runner.o $
+    obj/components/test_runner/test_runner.text_input_controller.o $
+    obj/components/test_runner/test_runner.tracked_dictionary.o $
+    obj/components/test_runner/test_runner.web_ax_object_proxy.o $
+    obj/components/test_runner/test_runner.web_content_settings.o $
+    obj/components/test_runner/test_runner.web_frame_test_client.o $
+    obj/components/test_runner/test_runner.web_frame_test_proxy.o $
+    obj/components/test_runner/test_runner.web_view_test_client.o $
+    obj/components/test_runner/test_runner.web_task.o $
+    obj/components/test_runner/test_runner.web_test_interfaces.o $
+    obj/components/test_runner/test_runner.web_test_proxy.o || $
+    obj/components/test_runner/test_runner.actions_depends.stamp

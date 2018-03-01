@@ -1,0 +1,110 @@
+defines = -DOPJ_STATIC -DPNG_PREFIX -DPNG_USE_READ_MACROS $
+    -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -I../.. -I../../third_party/pdfium $
+    -I../../third_party/pdfium/third_party/freetype/include $
+    -I../../third_party/pdfium/third_party/freetype/include/freetype -Igen
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-abi $
+    -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+build obj/third_party/pdfium/fpdfsdk/pdfium.fpdfdoc.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/fpdfdoc.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfium.fpdfeditimg.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/fpdfeditimg.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfium.fpdfeditpage.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/fpdfeditpage.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfium.fpdfformfill.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/fpdfformfill.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfium.fpdfppo.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/fpdfppo.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfium.fpdfsave.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/fpdfsave.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfium.fpdftext.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/fpdftext.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfium.fpdfview.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/fpdfview.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfium.fpdf_dataavail.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/fpdf_dataavail.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfium.fpdf_ext.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/fpdf_ext.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfium.fpdf_flatten.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/fpdf_flatten.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfium.fpdf_progressive.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/fpdf_progressive.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfium.fpdf_searchex.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/fpdf_searchex.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfium.fpdf_sysfontinfo.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/fpdf_sysfontinfo.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfium.fpdf_transformpage.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/fpdf_transformpage.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfium.fsdk_actionhandler.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/fsdk_actionhandler.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfium.fsdk_annothandler.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/fsdk_annothandler.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfium.fsdk_baseannot.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/fsdk_baseannot.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfium.fsdk_baseform.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/fsdk_baseform.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfium.fsdk_mgr.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/fsdk_mgr.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfium.fsdk_rendercontext.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/fsdk_rendercontext.cpp
+
+build obj/third_party/pdfium/libpdfium.a: alink_thin $
+    obj/third_party/pdfium/fpdfsdk/pdfium.fpdfdoc.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium.fpdfeditimg.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium.fpdfeditpage.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium.fpdfformfill.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium.fpdfppo.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium.fpdfsave.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium.fpdftext.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium.fpdfview.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium.fpdf_dataavail.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium.fpdf_ext.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium.fpdf_flatten.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium.fpdf_progressive.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium.fpdf_searchex.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium.fpdf_sysfontinfo.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium.fpdf_transformpage.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium.fsdk_actionhandler.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium.fsdk_annothandler.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium.fsdk_baseannot.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium.fsdk_baseform.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium.fsdk_mgr.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium.fsdk_rendercontext.o

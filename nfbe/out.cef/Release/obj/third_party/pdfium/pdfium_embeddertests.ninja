@@ -1,0 +1,192 @@
+build obj/third_party/pdfium/pdfium_embeddertests.actions_depends.stamp: $
+    stamp obj/testing/libgmock.a obj/testing/libgtest.a $
+    obj/third_party/pdfium/libpdfium.a $
+    obj/third_party/pdfium/libtest_support.a $
+    obj/third_party/pdfium/third_party/libbigint.a $
+    obj/third_party/pdfium/libfdrm.a obj/third_party/pdfium/libfpdfdoc.a $
+    obj/third_party/pdfium/libfpdfapi.a $
+    obj/third_party/pdfium/libfpdftext.a $
+    obj/third_party/pdfium/libformfiller.a $
+    obj/third_party/pdfium/libfxcodec.a $
+    obj/third_party/libjpeg_turbo/libjpeg_turbo.a $
+    obj/third_party/pdfium/third_party/libfx_lcms2.a $
+    obj/third_party/pdfium/third_party/libfx_libopenjpeg.a $
+    obj/third_party/pdfium/third_party/libfx_zlib.a $
+    obj/third_party/pdfium/libfxcrt.a obj/third_party/pdfium/libfxedit.a $
+    obj/third_party/pdfium/libfxge.a $
+    obj/third_party/pdfium/third_party/libfx_agg.a $
+    obj/third_party/pdfium/libjavascript.a $
+    obj/third_party/pdfium/libpdfwindow.a
+
+defines = -DOPJ_STATIC -DPNG_PREFIX -DPNG_USE_READ_MACROS $
+    -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DGTEST_HAS_POSIX_RE=0 $
+    -DGTEST_LANG_CXX11=0 -DUNIT_TEST -DGTEST_HAS_RTTI=0 -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -I../.. -I../../third_party/pdfium $
+    -I../../third_party/pdfium/third_party/freetype/include $
+    -I../../third_party/pdfium/third_party/freetype/include/freetype -Igen $
+    -I../../testing/gmock/include -I../../testing/gtest/include
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-abi $
+    -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/pdfium_embeddertests.fpdf_page_func_embeddertest.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_page/fpdf_page_func_embeddertest.cpp $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/pdfium_embeddertests.cpdf_parser_embeddertest.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_parser/cpdf_parser_embeddertest.cpp $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/pdfium_embeddertests.fpdf_parser_decode_embeddertest.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_parser/fpdf_parser_decode_embeddertest.cpp $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_render/pdfium_embeddertests.fpdf_render_loadimage_embeddertest.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_render/fpdf_render_loadimage_embeddertest.cpp $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_render/pdfium_embeddertests.fpdf_render_pattern_embeddertest.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_render/fpdf_render_pattern_embeddertest.cpp $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj/third_party/pdfium/core/fxge/ge/pdfium_embeddertests.fx_ge_text_embeddertest.o: $
+    cxx ../../third_party/pdfium/core/fxge/ge/fx_ge_text_embeddertest.cpp $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj/third_party/pdfium/fpdfsdk/pdfium_embeddertests.fpdf_dataavail_embeddertest.o: $
+    cxx ../../third_party/pdfium/fpdfsdk/fpdf_dataavail_embeddertest.cpp || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj/third_party/pdfium/fpdfsdk/pdfium_embeddertests.fpdfdoc_embeddertest.o: $
+    cxx ../../third_party/pdfium/fpdfsdk/fpdfdoc_embeddertest.cpp || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj/third_party/pdfium/fpdfsdk/pdfium_embeddertests.fpdfedit_embeddertest.o: $
+    cxx ../../third_party/pdfium/fpdfsdk/fpdfedit_embeddertest.cpp || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj/third_party/pdfium/fpdfsdk/pdfium_embeddertests.fpdfext_embeddertest.o: $
+    cxx ../../third_party/pdfium/fpdfsdk/fpdfext_embeddertest.cpp || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj/third_party/pdfium/fpdfsdk/pdfium_embeddertests.fpdfformfill_embeddertest.o: $
+    cxx ../../third_party/pdfium/fpdfsdk/fpdfformfill_embeddertest.cpp || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj/third_party/pdfium/fpdfsdk/pdfium_embeddertests.fpdfsave_embeddertest.o: $
+    cxx ../../third_party/pdfium/fpdfsdk/fpdfsave_embeddertest.cpp || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj/third_party/pdfium/fpdfsdk/pdfium_embeddertests.fpdftext_embeddertest.o: $
+    cxx ../../third_party/pdfium/fpdfsdk/fpdftext_embeddertest.cpp || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj/third_party/pdfium/fpdfsdk/pdfium_embeddertests.fpdfview_c_api_test.o: $
+    cc ../../third_party/pdfium/fpdfsdk/fpdfview_c_api_test.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj/third_party/pdfium/fpdfsdk/pdfium_embeddertests.fpdfview_embeddertest.o: $
+    cxx ../../third_party/pdfium/fpdfsdk/fpdfview_embeddertest.cpp || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj/third_party/pdfium/fpdfsdk/pdfium_embeddertests.fsdk_baseform_embeddertest.o: $
+    cxx ../../third_party/pdfium/fpdfsdk/fsdk_baseform_embeddertest.cpp || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/pdfium/testing/pdfium_embeddertests.embedder_test.o: $
+    cxx ../../third_party/pdfium/testing/embedder_test.cpp || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+
+ldflags = -L/work/bsp/sc1400/usr/local/lib -L/work/bsp/sc1400/lib $
+    -L/work/bsp/sc1400/usr/lib -Wl,-z,now -Wl,-z,relro -Wl,-z,defs -pthread $
+    -Wl,-z,noexecstack -fPIC -Wl,--disable-new-dtags $
+    --sysroot=/work/bsp/sc1400 -L/work/bsp/sc1400/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/lib/ -L/work/bsp/sc1400/usr/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/lib/ $
+    -L/work/bsp/sc1400/usr/dtvrec/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/dtvrec/lib/ $
+    -L/work/bsp/sc1400/usr/local/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/local/lib/ $
+    -L/work/bsp/sc1400/usr/local/netfrontbe/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/local/netfrontbe/lib/ -Wl,-O1 $
+    -Wl,--as-needed -Wl,--gc-sections
+libs =  -lfreetype
+build pdfium_embeddertests: link $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/pdfium_embeddertests.fpdf_page_func_embeddertest.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/pdfium_embeddertests.cpdf_parser_embeddertest.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/pdfium_embeddertests.fpdf_parser_decode_embeddertest.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_render/pdfium_embeddertests.fpdf_render_loadimage_embeddertest.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_render/pdfium_embeddertests.fpdf_render_pattern_embeddertest.o $
+    obj/third_party/pdfium/core/fxge/ge/pdfium_embeddertests.fx_ge_text_embeddertest.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium_embeddertests.fpdf_dataavail_embeddertest.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium_embeddertests.fpdfdoc_embeddertest.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium_embeddertests.fpdfedit_embeddertest.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium_embeddertests.fpdfext_embeddertest.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium_embeddertests.fpdfformfill_embeddertest.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium_embeddertests.fpdfsave_embeddertest.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium_embeddertests.fpdftext_embeddertest.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium_embeddertests.fpdfview_c_api_test.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium_embeddertests.fpdfview_embeddertest.o $
+    obj/third_party/pdfium/fpdfsdk/pdfium_embeddertests.fsdk_baseform_embeddertest.o $
+    obj/third_party/pdfium/testing/pdfium_embeddertests.embedder_test.o $
+    obj/testing/libgmock.a obj/testing/libgtest.a $
+    obj/third_party/pdfium/libpdfium.a $
+    obj/third_party/pdfium/libtest_support.a $
+    obj/third_party/pdfium/third_party/libbigint.a $
+    obj/third_party/pdfium/libfdrm.a obj/third_party/pdfium/libfpdfdoc.a $
+    obj/third_party/pdfium/libfpdfapi.a $
+    obj/third_party/pdfium/libfpdftext.a $
+    obj/third_party/pdfium/libformfiller.a $
+    obj/third_party/pdfium/libfxcodec.a $
+    obj/third_party/libjpeg_turbo/libjpeg_turbo.a $
+    obj/third_party/pdfium/third_party/libfx_lcms2.a $
+    obj/third_party/pdfium/third_party/libfx_libopenjpeg.a $
+    obj/third_party/pdfium/third_party/libfx_zlib.a $
+    obj/third_party/pdfium/libfxcrt.a obj/third_party/pdfium/libfxedit.a $
+    obj/third_party/pdfium/libfxge.a $
+    obj/third_party/pdfium/third_party/libfx_agg.a $
+    obj/third_party/pdfium/libjavascript.a $
+    obj/third_party/pdfium/libpdfwindow.a || $
+    obj/third_party/pdfium/pdfium_embeddertests.actions_depends.stamp
+  ld = $ldxx

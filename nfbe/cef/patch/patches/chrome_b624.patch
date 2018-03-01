@@ -1,0 +1,22 @@
+diff --git chrome_tests.gypi chrome_tests.gypi
+index a11a90e..31820c0 100644
+--- chrome_tests.gypi
++++ chrome_tests.gypi
+@@ -2173,7 +2173,7 @@
+         '../device/serial/serial.gyp:device_serial_test_util',
+         '../extensions/common/api/api.gyp:extensions_api',
+         '../google_apis/google_apis.gyp:google_apis_test_support',
+-        '../media/cast/cast.gyp:cast_test_utility',
++#        '../media/cast/cast.gyp:cast_test_utility',
+         '../media/media.gyp:media',
+         '../net/net.gyp:net',
+         '../net/net.gyp:net_test_support',
+@@ -2724,7 +2724,7 @@
+         '../base/base.gyp:test_support_base',
+         '../components/components.gyp:autofill_content_test_support',
+         '../content/content_shell_and_tests.gyp:content_browser_test_base',
+-        '../media/cast/cast.gyp:cast_test_utility',
++#        '../media/cast/cast.gyp:cast_test_utility',
+         '../net/net.gyp:net',
+         '../net/net.gyp:net_test_support',
+         '../skia/skia.gyp:skia',

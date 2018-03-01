@@ -1,0 +1,33 @@
+diff --git common.gypi common.gypi
+index 82e1fdb..96e449c 100644
+--- common.gypi
++++ common.gypi
+@@ -2641,7 +2641,7 @@
+         }],
+       ],
+       'clang_warning_flags': [
+-        '-Wheader-hygiene',
++        #'-Wheader-hygiene',
+ 
+         # TODO(thakis): Consider -Wloop-analysis (turns on
+         # -Wrange-loop-analysis too).
+@@ -2660,7 +2660,7 @@
+         '-Wno-covered-switch-default',
+ 
+         # Warns when a const char[] is converted to bool.
+-        '-Wstring-conversion',
++        #'-Wstring-conversion',
+ 
+         # C++11-related flags:
+ 
+@@ -6093,8 +6093,8 @@
+       # Set default ARM cross tools on linux.  These can be overridden
+       # using CC,CXX,CC.host and CXX.host environment variables.
+       'make_global_settings': [
+-        ['CC', '<!(which arm-linux-gnueabihf-gcc)'],
+-        ['CXX', '<!(which arm-linux-gnueabihf-g++)'],
++        #['CC', '<!(which arm-linux-gnueabihf-gcc)'],
++        #['CXX', '<!(which arm-linux-gnueabihf-g++)'],
+         ['CC.host', '<(host_cc)'],
+         ['CXX.host', '<(host_cxx)'],
+       ],

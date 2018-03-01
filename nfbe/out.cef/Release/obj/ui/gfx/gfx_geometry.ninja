@@ -1,0 +1,118 @@
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DGFX_IMPLEMENTATION $
+    -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 $
+    -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../..
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/ui/gfx/geometry/gfx_geometry.box_f.o: cxx $
+    ../../ui/gfx/geometry/box_f.cc || obj/base/base.compile_depends.stamp
+build obj/ui/gfx/geometry/gfx_geometry.cubic_bezier.o: cxx $
+    ../../ui/gfx/geometry/cubic_bezier.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/ui/gfx/geometry/gfx_geometry.dip_util.o: cxx $
+    ../../ui/gfx/geometry/dip_util.cc || obj/base/base.compile_depends.stamp
+build obj/ui/gfx/geometry/gfx_geometry.insets.o: cxx $
+    ../../ui/gfx/geometry/insets.cc || obj/base/base.compile_depends.stamp
+build obj/ui/gfx/geometry/gfx_geometry.insets_f.o: cxx $
+    ../../ui/gfx/geometry/insets_f.cc || obj/base/base.compile_depends.stamp
+build obj/ui/gfx/geometry/gfx_geometry.matrix3_f.o: cxx $
+    ../../ui/gfx/geometry/matrix3_f.cc || obj/base/base.compile_depends.stamp
+build obj/ui/gfx/geometry/gfx_geometry.point.o: cxx $
+    ../../ui/gfx/geometry/point.cc || obj/base/base.compile_depends.stamp
+build obj/ui/gfx/geometry/gfx_geometry.point3_f.o: cxx $
+    ../../ui/gfx/geometry/point3_f.cc || obj/base/base.compile_depends.stamp
+build obj/ui/gfx/geometry/gfx_geometry.point_conversions.o: cxx $
+    ../../ui/gfx/geometry/point_conversions.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/ui/gfx/geometry/gfx_geometry.point_f.o: cxx $
+    ../../ui/gfx/geometry/point_f.cc || obj/base/base.compile_depends.stamp
+build obj/ui/gfx/geometry/gfx_geometry.quad_f.o: cxx $
+    ../../ui/gfx/geometry/quad_f.cc || obj/base/base.compile_depends.stamp
+build obj/ui/gfx/geometry/gfx_geometry.rect.o: cxx $
+    ../../ui/gfx/geometry/rect.cc || obj/base/base.compile_depends.stamp
+build obj/ui/gfx/geometry/gfx_geometry.rect_conversions.o: cxx $
+    ../../ui/gfx/geometry/rect_conversions.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/ui/gfx/geometry/gfx_geometry.rect_f.o: cxx $
+    ../../ui/gfx/geometry/rect_f.cc || obj/base/base.compile_depends.stamp
+build obj/ui/gfx/geometry/gfx_geometry.scroll_offset.o: cxx $
+    ../../ui/gfx/geometry/scroll_offset.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/ui/gfx/geometry/gfx_geometry.size.o: cxx $
+    ../../ui/gfx/geometry/size.cc || obj/base/base.compile_depends.stamp
+build obj/ui/gfx/geometry/gfx_geometry.size_conversions.o: cxx $
+    ../../ui/gfx/geometry/size_conversions.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/ui/gfx/geometry/gfx_geometry.size_f.o: cxx $
+    ../../ui/gfx/geometry/size_f.cc || obj/base/base.compile_depends.stamp
+build obj/ui/gfx/geometry/gfx_geometry.vector2d.o: cxx $
+    ../../ui/gfx/geometry/vector2d.cc || obj/base/base.compile_depends.stamp
+build obj/ui/gfx/geometry/gfx_geometry.vector2d_conversions.o: cxx $
+    ../../ui/gfx/geometry/vector2d_conversions.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/ui/gfx/geometry/gfx_geometry.vector2d_f.o: cxx $
+    ../../ui/gfx/geometry/vector2d_f.cc || obj/base/base.compile_depends.stamp
+build obj/ui/gfx/geometry/gfx_geometry.vector3d_f.o: cxx $
+    ../../ui/gfx/geometry/vector3d_f.cc || obj/base/base.compile_depends.stamp
+
+build obj/ui/gfx/libgfx_geometry.a: alink_thin $
+    obj/ui/gfx/geometry/gfx_geometry.box_f.o $
+    obj/ui/gfx/geometry/gfx_geometry.cubic_bezier.o $
+    obj/ui/gfx/geometry/gfx_geometry.dip_util.o $
+    obj/ui/gfx/geometry/gfx_geometry.insets.o $
+    obj/ui/gfx/geometry/gfx_geometry.insets_f.o $
+    obj/ui/gfx/geometry/gfx_geometry.matrix3_f.o $
+    obj/ui/gfx/geometry/gfx_geometry.point.o $
+    obj/ui/gfx/geometry/gfx_geometry.point3_f.o $
+    obj/ui/gfx/geometry/gfx_geometry.point_conversions.o $
+    obj/ui/gfx/geometry/gfx_geometry.point_f.o $
+    obj/ui/gfx/geometry/gfx_geometry.quad_f.o $
+    obj/ui/gfx/geometry/gfx_geometry.rect.o $
+    obj/ui/gfx/geometry/gfx_geometry.rect_conversions.o $
+    obj/ui/gfx/geometry/gfx_geometry.rect_f.o $
+    obj/ui/gfx/geometry/gfx_geometry.scroll_offset.o $
+    obj/ui/gfx/geometry/gfx_geometry.size.o $
+    obj/ui/gfx/geometry/gfx_geometry.size_conversions.o $
+    obj/ui/gfx/geometry/gfx_geometry.size_f.o $
+    obj/ui/gfx/geometry/gfx_geometry.vector2d.o $
+    obj/ui/gfx/geometry/gfx_geometry.vector2d_conversions.o $
+    obj/ui/gfx/geometry/gfx_geometry.vector2d_f.o $
+    obj/ui/gfx/geometry/gfx_geometry.vector3d_f.o || lib/libbase.so.TOC

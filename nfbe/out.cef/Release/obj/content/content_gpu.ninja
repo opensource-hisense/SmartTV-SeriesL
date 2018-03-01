@@ -1,0 +1,103 @@
+build obj/content/content_gpu.actions_depends.stamp: stamp $
+    obj/mojo/libmojo_application_bindings.a $
+    obj/ui/accessibility/libax_gen.a lib/libbase.so.TOC $
+    obj/gpu/gpu.actions_depends.stamp obj/skia/skia.actions_depends.stamp $
+    obj/content/libcontent_common_mojo_bindings.a
+
+build obj/content/content_gpu.compile_depends.stamp: stamp $
+    obj/mojo/mojo_application_bindings_mojom.actions_rules_copies.stamp $
+    obj/ui/accessibility/ax_gen.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp obj/gpu/gpu.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/content/content_common_mojo_bindings_mojom.actions_rules_copies.stamp
+
+defines = -DCONTENT_IMPLEMENTATION -DV8_DEPRECATION_WARNINGS $
+    -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 -DDISABLE_NACL -DCHROMIUM_BUILD $
+    -DCR_CLANG_REVISION=264915-1 -DUI_COMPOSITOR_IMAGE_TRANSPORT $
+    -DUSE_AURA=1 -DUSE_OZONE=1 -DUSE_DEFAULT_RENDER_THEME=1 $
+    -DUSE_LIBJPEG_TURBO=1 -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS $
+    -DENABLE_BROWSER_CDMS -DENABLE_TOPCHROME_MD=1 $
+    -DFIELDTRIAL_TESTING_ENABLED -DENABLE_TASK_MANAGER=1 $
+    -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 -DENABLE_SESSION_SERVICE=1 $
+    -DENABLE_AUTOFILL_DIALOG=1 -DENABLE_PRINTING=1 $
+    -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DMOJO_USE_SYSTEM_IMPL $
+    -DSK_SUPPORT_GPU=1 -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS $
+    -DMESA_EGL_NO_X11_HEADERS -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS $
+    -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../third_party/khronos -I../../gpu $
+    -I../../skia/config -Igen/angle -I../../third_party/WebKit/Source $
+    -I../../third_party/WebKit -Igen/third_party/WebKit $
+    -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../third_party/mesa/src/include
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/content/gpu/content_gpu.gpu_child_thread.o: cxx $
+    ../../content/gpu/gpu_child_thread.cc || $
+    obj/content/content_gpu.compile_depends.stamp
+build obj/content/gpu/content_gpu.gpu_main.o: cxx $
+    ../../content/gpu/gpu_main.cc || $
+    obj/content/content_gpu.compile_depends.stamp
+build obj/content/gpu/content_gpu.gpu_process.o: cxx $
+    ../../content/gpu/gpu_process.cc || $
+    obj/content/content_gpu.compile_depends.stamp
+build obj/content/gpu/content_gpu.gpu_process_control_impl.o: cxx $
+    ../../content/gpu/gpu_process_control_impl.cc || $
+    obj/content/content_gpu.compile_depends.stamp
+build obj/content/gpu/content_gpu.gpu_watchdog_thread.o: cxx $
+    ../../content/gpu/gpu_watchdog_thread.cc || $
+    obj/content/content_gpu.compile_depends.stamp
+build obj/content/gpu/content_gpu.in_process_gpu_thread.o: cxx $
+    ../../content/gpu/in_process_gpu_thread.cc || $
+    obj/content/content_gpu.compile_depends.stamp
+build $
+    obj/content/public/gpu/content_gpu.gpu_video_decode_accelerator_factory.o: $
+    cxx ../../content/public/gpu/gpu_video_decode_accelerator_factory.cc || $
+    obj/content/content_gpu.compile_depends.stamp
+
+build obj/content/libcontent_gpu.a: alink_thin $
+    obj/content/gpu/content_gpu.gpu_child_thread.o $
+    obj/content/gpu/content_gpu.gpu_main.o $
+    obj/content/gpu/content_gpu.gpu_process.o $
+    obj/content/gpu/content_gpu.gpu_process_control_impl.o $
+    obj/content/gpu/content_gpu.gpu_watchdog_thread.o $
+    obj/content/gpu/content_gpu.in_process_gpu_thread.o $
+    obj/content/public/gpu/content_gpu.gpu_video_decode_accelerator_factory.o $
+    || obj/content/content_gpu.actions_depends.stamp

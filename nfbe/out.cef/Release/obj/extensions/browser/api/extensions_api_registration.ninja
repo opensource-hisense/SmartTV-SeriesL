@@ -1,0 +1,194 @@
+build $
+    obj/extensions/browser/api/extensions_api_registration.actions_depends.stamp: $
+    stamp obj/device/serial/device_serial_mojo.actions_rules_copies.stamp $
+    obj/extensions/common/api/libcast_channel_proto.a $
+    obj/extensions/common/api/libextensions_api.a $
+    obj/skia/skia.actions_depends.stamp
+
+build $
+    obj/extensions/browser/api/extensions_api_registration.compile_depends.stamp: $
+    stamp obj/device/serial/device_serial_mojo.actions_rules_copies.stamp $
+    obj/extensions/common/api/cast_channel_proto.actions_rules_copies.stamp $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp
+
+rule $
+    extensions_api_registration_target_genapi_bundle_registration_ffad435e7b5f42c2be34f392f612ea10
+  command = cd ../../extensions/browser/api; python $
+      ../../../tools/json_schema_compiler/compiler.py "--root=../../.." $
+      "--destdir=../../../out.cef/Release/gen" $
+      "--namespace=extensions::api::%(namespace)s" "--bundle-name=" $
+      "--generator=cpp-bundle-registration" $
+      "--impl-dir=extensions/browser/api" ../../common/api/alarms.idl $
+      ../../common/api/app_current_window_internal.idl $
+      ../../common/api/app_runtime.idl $
+      ../../common/api/app_view_guest_internal.json $
+      ../../common/api/app_window.idl ../../common/api/audio.idl $
+      ../../common/api/bluetooth.idl ../../common/api/bluetooth_private.idl $
+      ../../common/api/bluetooth_socket.idl $
+      ../../common/api/cast_channel.idl ../../common/api/document_scan.idl $
+      ../../common/api/display_source.idl ../../common/api/dns.idl $
+      ../../common/api/events.json $
+      ../../common/api/extensions_manifest_types.json $
+      ../../common/api/extension_options_internal.idl $
+      ../../common/api/extension_view_internal.json $
+      ../../common/api/extension_types.json $
+      ../../common/api/guest_view_internal.json $
+      ../../common/api/management.json ../../common/api/hid.idl $
+      ../../common/api/idle.json ../../common/api/mime_handler_private.idl $
+      ../../common/api/mime_handler_view_guest_internal.json $
+      ../../common/api/mojo_private.idl $
+      ../../common/api/networking_private.idl ../../common/api/power.idl $
+      ../../common/api/printer_provider.idl $
+      ../../common/api/printer_provider_internal.idl $
+      ../../common/api/runtime.json ../../common/api/serial.idl $
+      ../../common/api/socket.idl ../../common/api/sockets_tcp.idl $
+      ../../common/api/sockets_tcp_server.idl $
+      ../../common/api/sockets_udp.idl ../../common/api/storage.json $
+      ../../common/api/system_cpu.idl ../../common/api/system_display.idl $
+      ../../common/api/system_memory.idl $
+      ../../common/api/system_network.idl $
+      ../../common/api/system_storage.idl ../../common/api/test.json $
+      ../../common/api/usb.idl $
+      ../../common/api/virtual_keyboard_private.json $
+      ../../common/api/web_request.json $
+      ../../common/api/web_view_internal.json $
+      ../../common/api/web_request_internal.json
+  description = ACTION Generating C++ API bundle code for function $
+      registration
+  restat = 1
+
+build gen/extensions/browser/api/generated_api_registration.h $
+    gen/extensions/browser/api/generated_api_registration.cc: $
+    extensions_api_registration_target_genapi_bundle_registration_ffad435e7b5f42c2be34f392f612ea10 $
+    ../../tools/json_schema_compiler/cc_generator.py $
+    ../../tools/json_schema_compiler/code.py $
+    ../../tools/json_schema_compiler/compiler.py $
+    ../../tools/json_schema_compiler/cpp_bundle_generator.py $
+    ../../tools/json_schema_compiler/cpp_type_generator.py $
+    ../../tools/json_schema_compiler/cpp_util.py $
+    ../../tools/json_schema_compiler/h_generator.py $
+    ../../tools/json_schema_compiler/idl_schema.py $
+    ../../tools/json_schema_compiler/json_schema.py $
+    ../../tools/json_schema_compiler/model.py $
+    ../../tools/json_schema_compiler/util_cc_helper.py $
+    ../../extensions/common/api/alarms.idl $
+    ../../extensions/common/api/app_current_window_internal.idl $
+    ../../extensions/common/api/app_runtime.idl $
+    ../../extensions/common/api/app_view_guest_internal.json $
+    ../../extensions/common/api/app_window.idl $
+    ../../extensions/common/api/audio.idl $
+    ../../extensions/common/api/bluetooth.idl $
+    ../../extensions/common/api/bluetooth_private.idl $
+    ../../extensions/common/api/bluetooth_socket.idl $
+    ../../extensions/common/api/cast_channel.idl $
+    ../../extensions/common/api/document_scan.idl $
+    ../../extensions/common/api/display_source.idl $
+    ../../extensions/common/api/dns.idl $
+    ../../extensions/common/api/events.json $
+    ../../extensions/common/api/extensions_manifest_types.json $
+    ../../extensions/common/api/extension_options_internal.idl $
+    ../../extensions/common/api/extension_view_internal.json $
+    ../../extensions/common/api/extension_types.json $
+    ../../extensions/common/api/guest_view_internal.json $
+    ../../extensions/common/api/management.json $
+    ../../extensions/common/api/hid.idl $
+    ../../extensions/common/api/idle.json $
+    ../../extensions/common/api/mime_handler_private.idl $
+    ../../extensions/common/api/mime_handler_view_guest_internal.json $
+    ../../extensions/common/api/mojo_private.idl $
+    ../../extensions/common/api/networking_private.idl $
+    ../../extensions/common/api/power.idl $
+    ../../extensions/common/api/printer_provider.idl $
+    ../../extensions/common/api/printer_provider_internal.idl $
+    ../../extensions/common/api/runtime.json $
+    ../../extensions/common/api/serial.idl $
+    ../../extensions/common/api/socket.idl $
+    ../../extensions/common/api/sockets_tcp.idl $
+    ../../extensions/common/api/sockets_tcp_server.idl $
+    ../../extensions/common/api/sockets_udp.idl $
+    ../../extensions/common/api/storage.json $
+    ../../extensions/common/api/system_cpu.idl $
+    ../../extensions/common/api/system_display.idl $
+    ../../extensions/common/api/system_memory.idl $
+    ../../extensions/common/api/system_network.idl $
+    ../../extensions/common/api/system_storage.idl $
+    ../../extensions/common/api/test.json $
+    ../../extensions/common/api/usb.idl $
+    ../../extensions/common/api/virtual_keyboard_private.json $
+    ../../extensions/common/api/web_request.json $
+    ../../extensions/common/api/web_view_internal.json $
+    ../../extensions/common/api/web_request_internal.json || $
+    obj/extensions/browser/api/extensions_api_registration.actions_depends.stamp
+
+build $
+    obj/extensions/browser/api/extensions_api_registration.actions_rules_copies.stamp: $
+    stamp gen/extensions/browser/api/generated_api_registration.h $
+    gen/extensions/browser/api/generated_api_registration.cc
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DPROTOBUF_USE_DLLS $
+    -DGOOGLE_PROTOBUF_NO_RTTI -DGOOGLE_PROTOBUF_NO_STATIC_INITIALIZER $
+    -DSK_SUPPORT_GPU=1 -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS $
+    -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 $
+    -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../skia/config -Igen/protoc_out $
+    -I../../third_party/protobuf -I../../third_party/protobuf/src $
+    -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/extensions/browser/api/gen/extensions/browser/api/extensions_api_registration.generated_api_registration.o: $
+    cxx gen/extensions/browser/api/generated_api_registration.cc || $
+    obj/extensions/browser/api/extensions_api_registration.actions_rules_copies.stamp
+
+build obj/extensions/browser/api/libextensions_api_registration.a: $
+    alink_thin $
+    obj/extensions/browser/api/gen/extensions/browser/api/extensions_api_registration.generated_api_registration.o $
+    || $
+    obj/extensions/browser/api/extensions_api_registration.actions_rules_copies.stamp

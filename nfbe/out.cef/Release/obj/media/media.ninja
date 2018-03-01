@@ -1,0 +1,991 @@
+build obj/media/media.actions_depends.stamp: stamp $
+    gen/media/media_features.h lib/libbase.so.TOC $
+    obj/skia/skia.actions_depends.stamp lib/liburl_lib.so.TOC $
+    lib/libffmpeg.so.TOC
+
+build obj/media/media.compile_depends.stamp: stamp $
+    gen/media/media_features.h obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/url/url_lib.compile_depends.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DMEDIA_IMPLEMENTATION -DUSE_NEON $
+    -DDISABLE_USER_INPUT_MONITOR -DU_USING_ICU_NAMESPACE=0 $
+    -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= -DU_STATIC_IMPLEMENTATION $
+    -DSK_SUPPORT_GPU=1 -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS $
+    -DOPUS_FIXED_POINT -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS $
+    -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../third_party/khronos -I../../gpu $
+    -I../../skia/config -I../../third_party/icu/source/common $
+    -I../../third_party/icu/source/i18n $
+    -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../third_party/libyuv/include -I../../third_party/libyuv $
+    -I../../third_party/opus/src/include $
+    -I../../third_party/ffmpeg/chromium/config/Chrome/linux/arm-neon $
+    -I../../third_party/ffmpeg -I../../third_party/libvpx/source/libvpx
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -I/work/bsp/sc1400/usr/include/nss3 $
+    -I/work/bsp/sc1400/usr/include/nspr -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/media/capture/content/media.animated_content_sampler.o: cxx $
+    ../../media/capture/content/animated_content_sampler.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/capture/content/media.capture_resolution_chooser.o: cxx $
+    ../../media/capture/content/capture_resolution_chooser.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/capture/content/media.feedback_signal_accumulator.o: cxx $
+    ../../media/capture/content/feedback_signal_accumulator.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/capture/content/media.screen_capture_device_core.o: cxx $
+    ../../media/capture/content/screen_capture_device_core.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/capture/content/media.thread_safe_capture_oracle.o: cxx $
+    ../../media/capture/content/thread_safe_capture_oracle.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/capture/content/media.smooth_event_sampler.o: cxx $
+    ../../media/capture/content/smooth_event_sampler.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/capture/content/media.video_capture_oracle.o: cxx $
+    ../../media/capture/content/video_capture_oracle.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/capture/video/media.fake_video_capture_device.o: cxx $
+    ../../media/capture/video/fake_video_capture_device.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/capture/video/media.fake_video_capture_device_factory.o: $
+    cxx ../../media/capture/video/fake_video_capture_device_factory.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/capture/video/media.file_video_capture_device.o: cxx $
+    ../../media/capture/video/file_video_capture_device.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/capture/video/media.file_video_capture_device_factory.o: $
+    cxx ../../media/capture/video/file_video_capture_device_factory.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/capture/video/linux/media.v4l2_capture_delegate.o: cxx $
+    ../../media/capture/video/linux/v4l2_capture_delegate.cc || $
+    obj/media/media.compile_depends.stamp
+build $
+    obj/media/capture/video/linux/media.video_capture_device_factory_linux.o: $
+    cxx $
+    ../../media/capture/video/linux/video_capture_device_factory_linux.cc $
+    || obj/media/media.compile_depends.stamp
+build obj/media/capture/video/linux/media.video_capture_device_linux.o: cxx $
+    ../../media/capture/video/linux/video_capture_device_linux.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/capture/video/media.video_capture_device.o: cxx $
+    ../../media/capture/video/video_capture_device.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/capture/video/media.video_capture_device_factory.o: cxx $
+    ../../media/capture/video/video_capture_device_factory.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/capture/video/media.video_capture_device_info.o: cxx $
+    ../../media/capture/video/video_capture_device_info.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.audio_device_name.o: cxx $
+    ../../media/audio/audio_device_name.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.audio_device_thread.o: cxx $
+    ../../media/audio/audio_device_thread.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.audio_input_controller.o: cxx $
+    ../../media/audio/audio_input_controller.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.audio_input_device.o: cxx $
+    ../../media/audio/audio_input_device.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.audio_input_ipc.o: cxx $
+    ../../media/audio/audio_input_ipc.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.audio_manager.o: cxx $
+    ../../media/audio/audio_manager.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.audio_manager_base.o: cxx $
+    ../../media/audio/audio_manager_base.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.audio_output_controller.o: cxx $
+    ../../media/audio/audio_output_controller.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.audio_output_device.o: cxx $
+    ../../media/audio/audio_output_device.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.audio_output_dispatcher.o: cxx $
+    ../../media/audio/audio_output_dispatcher.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.audio_output_dispatcher_impl.o: cxx $
+    ../../media/audio/audio_output_dispatcher_impl.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.audio_output_ipc.o: cxx $
+    ../../media/audio/audio_output_ipc.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.audio_output_proxy.o: cxx $
+    ../../media/audio/audio_output_proxy.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.audio_output_resampler.o: cxx $
+    ../../media/audio/audio_output_resampler.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.audio_output_stream_sink.o: cxx $
+    ../../media/audio/audio_output_stream_sink.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.audio_power_monitor.o: cxx $
+    ../../media/audio/audio_power_monitor.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.audio_streams_tracker.o: cxx $
+    ../../media/audio/audio_streams_tracker.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.clockless_audio_sink.o: cxx $
+    ../../media/audio/clockless_audio_sink.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.fake_audio_input_stream.o: cxx $
+    ../../media/audio/fake_audio_input_stream.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.fake_audio_log_factory.o: cxx $
+    ../../media/audio/fake_audio_log_factory.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.fake_audio_manager.o: cxx $
+    ../../media/audio/fake_audio_manager.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.fake_audio_output_stream.o: cxx $
+    ../../media/audio/fake_audio_output_stream.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.fake_audio_worker.o: cxx $
+    ../../media/audio/fake_audio_worker.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/linux/media.audio_manager_linux.o: cxx $
+    ../../media/audio/linux/audio_manager_linux.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.null_audio_sink.o: cxx $
+    ../../media/audio/null_audio_sink.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.sample_rates.o: cxx $
+    ../../media/audio/sample_rates.cc || obj/media/media.compile_depends.stamp
+build obj/media/audio/media.scoped_task_runner_observer.o: cxx $
+    ../../media/audio/scoped_task_runner_observer.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.simple_sources.o: cxx $
+    ../../media/audio/simple_sources.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/sounds/media.audio_stream_handler.o: cxx $
+    ../../media/audio/sounds/audio_stream_handler.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/sounds/media.sounds_manager.o: cxx $
+    ../../media/audio/sounds/sounds_manager.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/sounds/media.wav_audio_handler.o: cxx $
+    ../../media/audio/sounds/wav_audio_handler.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.virtual_audio_input_stream.o: cxx $
+    ../../media/audio/virtual_audio_input_stream.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/audio/media.virtual_audio_output_stream.o: cxx $
+    ../../media/audio/virtual_audio_output_stream.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.audio_block_fifo.o: cxx $
+    ../../media/base/audio_block_fifo.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.audio_buffer.o: cxx $
+    ../../media/base/audio_buffer.cc || obj/media/media.compile_depends.stamp
+build obj/media/base/media.audio_buffer_converter.o: cxx $
+    ../../media/base/audio_buffer_converter.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.audio_buffer_queue.o: cxx $
+    ../../media/base/audio_buffer_queue.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.audio_codecs.o: cxx $
+    ../../media/base/audio_codecs.cc || obj/media/media.compile_depends.stamp
+build obj/media/base/media.audio_converter.o: cxx $
+    ../../media/base/audio_converter.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.audio_decoder.o: cxx $
+    ../../media/base/audio_decoder.cc || obj/media/media.compile_depends.stamp
+build obj/media/base/media.audio_decoder_config.o: cxx $
+    ../../media/base/audio_decoder_config.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.audio_discard_helper.o: cxx $
+    ../../media/base/audio_discard_helper.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.audio_fifo.o: cxx ../../media/base/audio_fifo.cc $
+    || obj/media/media.compile_depends.stamp
+build obj/media/base/media.audio_hardware_config.o: cxx $
+    ../../media/base/audio_hardware_config.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.audio_hash.o: cxx ../../media/base/audio_hash.cc $
+    || obj/media/media.compile_depends.stamp
+build obj/media/base/media.audio_pull_fifo.o: cxx $
+    ../../media/base/audio_pull_fifo.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.audio_push_fifo.o: cxx $
+    ../../media/base/audio_push_fifo.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.audio_renderer.o: cxx $
+    ../../media/base/audio_renderer.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.audio_renderer_mixer.o: cxx $
+    ../../media/base/audio_renderer_mixer.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.audio_renderer_mixer_input.o: cxx $
+    ../../media/base/audio_renderer_mixer_input.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.audio_shifter.o: cxx $
+    ../../media/base/audio_shifter.cc || obj/media/media.compile_depends.stamp
+build obj/media/base/media.audio_splicer.o: cxx $
+    ../../media/base/audio_splicer.cc || obj/media/media.compile_depends.stamp
+build obj/media/base/media.audio_timestamp_helper.o: cxx $
+    ../../media/base/audio_timestamp_helper.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.audio_video_metadata_extractor.o: cxx $
+    ../../media/base/audio_video_metadata_extractor.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.bit_reader.o: cxx ../../media/base/bit_reader.cc $
+    || obj/media/media.compile_depends.stamp
+build obj/media/base/media.bit_reader_core.o: cxx $
+    ../../media/base/bit_reader_core.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.bitstream_buffer.o: cxx $
+    ../../media/base/bitstream_buffer.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.byte_queue.o: cxx ../../media/base/byte_queue.cc $
+    || obj/media/media.compile_depends.stamp
+build obj/media/base/media.cdm_callback_promise.o: cxx $
+    ../../media/base/cdm_callback_promise.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.cdm_context.o: cxx $
+    ../../media/base/cdm_context.cc || obj/media/media.compile_depends.stamp
+build obj/media/base/media.cdm_factory.o: cxx $
+    ../../media/base/cdm_factory.cc || obj/media/media.compile_depends.stamp
+build obj/media/base/media.cdm_initialized_promise.o: cxx $
+    ../../media/base/cdm_initialized_promise.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.cdm_key_information.o: cxx $
+    ../../media/base/cdm_key_information.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.cdm_promise.o: cxx $
+    ../../media/base/cdm_promise.cc || obj/media/media.compile_depends.stamp
+build obj/media/base/media.cdm_promise_adapter.o: cxx $
+    ../../media/base/cdm_promise_adapter.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.channel_mixer.o: cxx $
+    ../../media/base/channel_mixer.cc || obj/media/media.compile_depends.stamp
+build obj/media/base/media.channel_mixing_matrix.o: cxx $
+    ../../media/base/channel_mixing_matrix.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.container_names.o: cxx $
+    ../../media/base/container_names.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.data_buffer.o: cxx $
+    ../../media/base/data_buffer.cc || obj/media/media.compile_depends.stamp
+build obj/media/base/media.data_source.o: cxx $
+    ../../media/base/data_source.cc || obj/media/media.compile_depends.stamp
+build obj/media/base/media.decode_status.o: cxx $
+    ../../media/base/decode_status.cc || obj/media/media.compile_depends.stamp
+build obj/media/base/media.decoder_buffer.o: cxx $
+    ../../media/base/decoder_buffer.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.decoder_buffer_queue.o: cxx $
+    ../../media/base/decoder_buffer_queue.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.decoder_factory.o: cxx $
+    ../../media/base/decoder_factory.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.decrypt_config.o: cxx $
+    ../../media/base/decrypt_config.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.decryptor.o: cxx ../../media/base/decryptor.cc $
+    || obj/media/media.compile_depends.stamp
+build obj/media/base/media.demuxer.o: cxx ../../media/base/demuxer.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.demuxer_stream.o: cxx $
+    ../../media/base/demuxer_stream.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.demuxer_stream_provider.o: cxx $
+    ../../media/base/demuxer_stream_provider.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.djb2.o: cxx ../../media/base/djb2.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.encryption_scheme.o: cxx $
+    ../../media/base/encryption_scheme.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.key_system_info.o: cxx $
+    ../../media/base/key_system_info.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.key_systems.o: cxx $
+    ../../media/base/key_systems.cc || obj/media/media.compile_depends.stamp
+build obj/media/base/media.keyboard_event_counter.o: cxx $
+    ../../media/base/keyboard_event_counter.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.loopback_audio_converter.o: cxx $
+    ../../media/base/loopback_audio_converter.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.media.o: cxx ../../media/base/media.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.media_client.o: cxx $
+    ../../media/base/media_client.cc || obj/media/media.compile_depends.stamp
+build obj/media/base/media.media_file_checker.o: cxx $
+    ../../media/base/media_file_checker.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.media_keys.o: cxx ../../media/base/media_keys.cc $
+    || obj/media/media.compile_depends.stamp
+build obj/media/base/media.media_log.o: cxx ../../media/base/media_log.cc $
+    || obj/media/media.compile_depends.stamp
+build obj/media/base/media.media_permission.o: cxx $
+    ../../media/base/media_permission.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.media_resources.o: cxx $
+    ../../media/base/media_resources.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.media_switches.o: cxx $
+    ../../media/base/media_switches.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.media_track.o: cxx $
+    ../../media/base/media_track.cc || obj/media/media.compile_depends.stamp
+build obj/media/base/media.media_tracks.o: cxx $
+    ../../media/base/media_tracks.cc || obj/media/media.compile_depends.stamp
+build obj/media/base/media.media_util.o: cxx ../../media/base/media_util.cc $
+    || obj/media/media.compile_depends.stamp
+build obj/media/base/media.mime_util.o: cxx ../../media/base/mime_util.cc $
+    || obj/media/media.compile_depends.stamp
+build obj/media/base/media.mime_util_internal.o: cxx $
+    ../../media/base/mime_util_internal.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.moving_average.o: cxx $
+    ../../media/base/moving_average.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.multi_channel_resampler.o: cxx $
+    ../../media/base/multi_channel_resampler.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.null_video_sink.o: cxx $
+    ../../media/base/null_video_sink.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.output_device_info.o: cxx $
+    ../../media/base/output_device_info.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.pipeline_impl.o: cxx $
+    ../../media/base/pipeline_impl.cc || obj/media/media.compile_depends.stamp
+build obj/media/base/media.player_tracker.o: cxx $
+    ../../media/base/player_tracker.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.ranges.o: cxx ../../media/base/ranges.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.renderer.o: cxx ../../media/base/renderer.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.renderer_factory.o: cxx $
+    ../../media/base/renderer_factory.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.sample_format.o: cxx $
+    ../../media/base/sample_format.cc || obj/media/media.compile_depends.stamp
+build obj/media/base/media.seekable_buffer.o: cxx $
+    ../../media/base/seekable_buffer.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.serial_runner.o: cxx $
+    ../../media/base/serial_runner.cc || obj/media/media.compile_depends.stamp
+build obj/media/base/simd/media.convert_rgb_to_yuv_c.o: cxx $
+    ../../media/base/simd/convert_rgb_to_yuv_c.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/simd/media.convert_yuv_to_rgb_c.o: cxx $
+    ../../media/base/simd/convert_yuv_to_rgb_c.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/simd/media.filter_yuv_c.o: cxx $
+    ../../media/base/simd/filter_yuv_c.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.sinc_resampler.o: cxx $
+    ../../media/base/sinc_resampler.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.stream_parser.o: cxx $
+    ../../media/base/stream_parser.cc || obj/media/media.compile_depends.stamp
+build obj/media/base/media.stream_parser_buffer.o: cxx $
+    ../../media/base/stream_parser_buffer.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.text_cue.o: cxx ../../media/base/text_cue.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.text_ranges.o: cxx $
+    ../../media/base/text_ranges.cc || obj/media/media.compile_depends.stamp
+build obj/media/base/media.text_renderer.o: cxx $
+    ../../media/base/text_renderer.cc || obj/media/media.compile_depends.stamp
+build obj/media/base/media.text_track_config.o: cxx $
+    ../../media/base/text_track_config.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.time_delta_interpolator.o: cxx $
+    ../../media/base/time_delta_interpolator.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.user_input_monitor.o: cxx $
+    ../../media/base/user_input_monitor.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.video_capture_types.o: cxx $
+    ../../media/base/video_capture_types.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.video_capturer_source.o: cxx $
+    ../../media/base/video_capturer_source.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.video_codecs.o: cxx $
+    ../../media/base/video_codecs.cc || obj/media/media.compile_depends.stamp
+build obj/media/base/media.video_decoder.o: cxx $
+    ../../media/base/video_decoder.cc || obj/media/media.compile_depends.stamp
+build obj/media/base/media.video_decoder_config.o: cxx $
+    ../../media/base/video_decoder_config.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.video_frame.o: cxx $
+    ../../media/base/video_frame.cc || obj/media/media.compile_depends.stamp
+build obj/media/base/media.video_frame_metadata.o: cxx $
+    ../../media/base/video_frame_metadata.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.video_frame_pool.o: cxx $
+    ../../media/base/video_frame_pool.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.video_renderer.o: cxx $
+    ../../media/base/video_renderer.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.video_types.o: cxx $
+    ../../media/base/video_types.cc || obj/media/media.compile_depends.stamp
+build obj/media/base/media.video_util.o: cxx ../../media/base/video_util.cc $
+    || obj/media/media.compile_depends.stamp
+build obj/media/base/media.wall_clock_time_source.o: cxx $
+    ../../media/base/wall_clock_time_source.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/base/media.yuv_convert.o: cxx $
+    ../../media/base/yuv_convert.cc || obj/media/media.compile_depends.stamp
+build obj/media/cdm/media.aes_decryptor.o: cxx $
+    ../../media/cdm/aes_decryptor.cc || obj/media/media.compile_depends.stamp
+build obj/media/cdm/media.cdm_adapter.o: cxx ../../media/cdm/cdm_adapter.cc $
+    || obj/media/media.compile_depends.stamp
+build obj/media/cdm/media.cdm_allocator.o: cxx $
+    ../../media/cdm/cdm_allocator.cc || obj/media/media.compile_depends.stamp
+build obj/media/cdm/media.cdm_helpers.o: cxx ../../media/cdm/cdm_helpers.cc $
+    || obj/media/media.compile_depends.stamp
+build obj/media/cdm/media.default_cdm_factory.o: cxx $
+    ../../media/cdm/default_cdm_factory.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/cdm/media.json_web_key.o: cxx $
+    ../../media/cdm/json_web_key.cc || obj/media/media.compile_depends.stamp
+build obj/media/cdm/media.key_system_names.o: cxx $
+    ../../media/cdm/key_system_names.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/cdm/media.player_tracker_impl.o: cxx $
+    ../../media/cdm/player_tracker_impl.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/cdm/media.supported_cdm_versions.o: cxx $
+    ../../media/cdm/supported_cdm_versions.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/ffmpeg/media.ffmpeg_common.o: cxx $
+    ../../media/ffmpeg/ffmpeg_common.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.audio_clock.o: cxx $
+    ../../media/filters/audio_clock.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.audio_file_reader.o: cxx $
+    ../../media/filters/audio_file_reader.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.audio_renderer_algorithm.o: cxx $
+    ../../media/filters/audio_renderer_algorithm.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.blocking_url_protocol.o: cxx $
+    ../../media/filters/blocking_url_protocol.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.chunk_demuxer.o: cxx $
+    ../../media/filters/chunk_demuxer.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.decoder_selector.o: cxx $
+    ../../media/filters/decoder_selector.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.decoder_stream.o: cxx $
+    ../../media/filters/decoder_stream.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.decoder_stream_traits.o: cxx $
+    ../../media/filters/decoder_stream_traits.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.decrypting_audio_decoder.o: cxx $
+    ../../media/filters/decrypting_audio_decoder.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.decrypting_demuxer_stream.o: cxx $
+    ../../media/filters/decrypting_demuxer_stream.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.decrypting_video_decoder.o: cxx $
+    ../../media/filters/decrypting_video_decoder.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.default_media_permission.o: cxx $
+    ../../media/filters/default_media_permission.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.ffmpeg_audio_decoder.o: cxx $
+    ../../media/filters/ffmpeg_audio_decoder.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.ffmpeg_demuxer.o: cxx $
+    ../../media/filters/ffmpeg_demuxer.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.ffmpeg_glue.o: cxx $
+    ../../media/filters/ffmpeg_glue.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.ffmpeg_video_decoder.o: cxx $
+    ../../media/filters/ffmpeg_video_decoder.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.file_data_source.o: cxx $
+    ../../media/filters/file_data_source.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.frame_processor.o: cxx $
+    ../../media/filters/frame_processor.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.gpu_video_decoder.o: cxx $
+    ../../media/filters/gpu_video_decoder.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.h264_bit_reader.o: cxx $
+    ../../media/filters/h264_bit_reader.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.h264_parser.o: cxx $
+    ../../media/filters/h264_parser.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.in_memory_url_protocol.o: cxx $
+    ../../media/filters/in_memory_url_protocol.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.ivf_parser.o: cxx $
+    ../../media/filters/ivf_parser.cc || obj/media/media.compile_depends.stamp
+build obj/media/filters/media.jpeg_parser.o: cxx $
+    ../../media/filters/jpeg_parser.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.media_source_state.o: cxx $
+    ../../media/filters/media_source_state.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.memory_data_source.o: cxx $
+    ../../media/filters/memory_data_source.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.opus_audio_decoder.o: cxx $
+    ../../media/filters/opus_audio_decoder.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.opus_constants.o: cxx $
+    ../../media/filters/opus_constants.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.pipeline_controller.o: cxx $
+    ../../media/filters/pipeline_controller.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.source_buffer_range.o: cxx $
+    ../../media/filters/source_buffer_range.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.source_buffer_stream.o: cxx $
+    ../../media/filters/source_buffer_stream.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.stream_parser_factory.o: cxx $
+    ../../media/filters/stream_parser_factory.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.video_cadence_estimator.o: cxx $
+    ../../media/filters/video_cadence_estimator.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.video_renderer_algorithm.o: cxx $
+    ../../media/filters/video_renderer_algorithm.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.vp8_bool_decoder.o: cxx $
+    ../../media/filters/vp8_bool_decoder.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.vp8_parser.o: cxx $
+    ../../media/filters/vp8_parser.cc || obj/media/media.compile_depends.stamp
+build obj/media/filters/media.vp9_parser.o: cxx $
+    ../../media/filters/vp9_parser.cc || obj/media/media.compile_depends.stamp
+build obj/media/filters/media.vp9_raw_bits_reader.o: cxx $
+    ../../media/filters/vp9_raw_bits_reader.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.vpx_video_decoder.o: cxx $
+    ../../media/filters/vpx_video_decoder.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.wsola_internals.o: cxx $
+    ../../media/filters/wsola_internals.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/formats/common/media.offset_byte_queue.o: cxx $
+    ../../media/formats/common/offset_byte_queue.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/formats/webm/media.webm_audio_client.o: cxx $
+    ../../media/formats/webm/webm_audio_client.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/formats/webm/media.webm_cluster_parser.o: cxx $
+    ../../media/formats/webm/webm_cluster_parser.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/formats/webm/media.webm_constants.o: cxx $
+    ../../media/formats/webm/webm_constants.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/formats/webm/media.webm_content_encodings.o: cxx $
+    ../../media/formats/webm/webm_content_encodings.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/formats/webm/media.webm_content_encodings_client.o: cxx $
+    ../../media/formats/webm/webm_content_encodings_client.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/formats/webm/media.webm_crypto_helpers.o: cxx $
+    ../../media/formats/webm/webm_crypto_helpers.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/formats/webm/media.webm_info_parser.o: cxx $
+    ../../media/formats/webm/webm_info_parser.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/formats/webm/media.webm_parser.o: cxx $
+    ../../media/formats/webm/webm_parser.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/formats/webm/media.webm_stream_parser.o: cxx $
+    ../../media/formats/webm/webm_stream_parser.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/formats/webm/media.webm_tracks_parser.o: cxx $
+    ../../media/formats/webm/webm_tracks_parser.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/formats/webm/media.webm_video_client.o: cxx $
+    ../../media/formats/webm/webm_video_client.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/formats/webm/media.webm_webvtt_parser.o: cxx $
+    ../../media/formats/webm/webm_webvtt_parser.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/muxers/media.webm_muxer.o: cxx $
+    ../../media/muxers/webm_muxer.cc || obj/media/media.compile_depends.stamp
+build obj/media/renderers/media.audio_renderer_impl.o: cxx $
+    ../../media/renderers/audio_renderer_impl.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/renderers/media.default_renderer_factory.o: cxx $
+    ../../media/renderers/default_renderer_factory.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/renderers/media.renderer_impl.o: cxx $
+    ../../media/renderers/renderer_impl.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/renderers/media.skcanvas_video_renderer.o: cxx $
+    ../../media/renderers/skcanvas_video_renderer.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/renderers/media.video_renderer_impl.o: cxx $
+    ../../media/renderers/video_renderer_impl.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/video/media.fake_video_encode_accelerator.o: cxx $
+    ../../media/video/fake_video_encode_accelerator.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/video/media.gpu_memory_buffer_video_frame_pool.o: cxx $
+    ../../media/video/gpu_memory_buffer_video_frame_pool.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/video/media.h264_poc.o: cxx ../../media/video/h264_poc.cc $
+    || obj/media/media.compile_depends.stamp
+build obj/media/video/media.jpeg_decode_accelerator.o: cxx $
+    ../../media/video/jpeg_decode_accelerator.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/video/media.picture.o: cxx ../../media/video/picture.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/video/media.video_decode_accelerator.o: cxx $
+    ../../media/video/video_decode_accelerator.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/video/media.video_encode_accelerator.o: cxx $
+    ../../media/video/video_encode_accelerator.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/cdm/media.cenc_utils.o: cxx ../../media/cdm/cenc_utils.cc $
+    || obj/media/media.compile_depends.stamp
+build obj/media/filters/media.ffmpeg_aac_bitstream_converter.o: cxx $
+    ../../media/filters/ffmpeg_aac_bitstream_converter.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.ffmpeg_h264_to_annex_b_bitstream_converter.o: $
+    cxx ../../media/filters/ffmpeg_h264_to_annex_b_bitstream_converter.cc $
+    || obj/media/media.compile_depends.stamp
+build obj/media/filters/media.h264_to_annex_b_bitstream_converter.o: cxx $
+    ../../media/filters/h264_to_annex_b_bitstream_converter.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/formats/mp4/media.aac.o: cxx ../../media/formats/mp4/aac.cc $
+    || obj/media/media.compile_depends.stamp
+build obj/media/formats/mp4/media.avc.o: cxx ../../media/formats/mp4/avc.cc $
+    || obj/media/media.compile_depends.stamp
+build obj/media/formats/mp4/media.bitstream_converter.o: cxx $
+    ../../media/formats/mp4/bitstream_converter.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/formats/mp4/media.box_definitions.o: cxx $
+    ../../media/formats/mp4/box_definitions.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/formats/mp4/media.box_reader.o: cxx $
+    ../../media/formats/mp4/box_reader.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/formats/mp4/media.es_descriptor.o: cxx $
+    ../../media/formats/mp4/es_descriptor.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/formats/mp4/media.mp4_stream_parser.o: cxx $
+    ../../media/formats/mp4/mp4_stream_parser.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/formats/mp4/media.sample_to_group_iterator.o: cxx $
+    ../../media/formats/mp4/sample_to_group_iterator.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/formats/mp4/media.track_run_iterator.o: cxx $
+    ../../media/formats/mp4/track_run_iterator.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/formats/mpeg/media.adts_constants.o: cxx $
+    ../../media/formats/mpeg/adts_constants.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/formats/mpeg/media.adts_header_parser.o: cxx $
+    ../../media/formats/mpeg/adts_header_parser.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/formats/mpeg/media.adts_stream_parser.o: cxx $
+    ../../media/formats/mpeg/adts_stream_parser.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/formats/mpeg/media.mpeg1_audio_stream_parser.o: cxx $
+    ../../media/formats/mpeg/mpeg1_audio_stream_parser.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/formats/mpeg/media.mpeg_audio_stream_parser_base.o: cxx $
+    ../../media/formats/mpeg/mpeg_audio_stream_parser_base.cc || $
+    obj/media/media.compile_depends.stamp
+build obj/media/filters/media.source_buffer_platform.o: cxx $
+    ../../media/filters/source_buffer_platform.cc || $
+    obj/media/media.compile_depends.stamp
+
+build obj/media/libmedia.a: alink_thin $
+    obj/media/capture/content/media.animated_content_sampler.o $
+    obj/media/capture/content/media.capture_resolution_chooser.o $
+    obj/media/capture/content/media.feedback_signal_accumulator.o $
+    obj/media/capture/content/media.screen_capture_device_core.o $
+    obj/media/capture/content/media.thread_safe_capture_oracle.o $
+    obj/media/capture/content/media.smooth_event_sampler.o $
+    obj/media/capture/content/media.video_capture_oracle.o $
+    obj/media/capture/video/media.fake_video_capture_device.o $
+    obj/media/capture/video/media.fake_video_capture_device_factory.o $
+    obj/media/capture/video/media.file_video_capture_device.o $
+    obj/media/capture/video/media.file_video_capture_device_factory.o $
+    obj/media/capture/video/linux/media.v4l2_capture_delegate.o $
+    obj/media/capture/video/linux/media.video_capture_device_factory_linux.o $
+    obj/media/capture/video/linux/media.video_capture_device_linux.o $
+    obj/media/capture/video/media.video_capture_device.o $
+    obj/media/capture/video/media.video_capture_device_factory.o $
+    obj/media/capture/video/media.video_capture_device_info.o $
+    obj/media/audio/media.audio_device_name.o $
+    obj/media/audio/media.audio_device_thread.o $
+    obj/media/audio/media.audio_input_controller.o $
+    obj/media/audio/media.audio_input_device.o $
+    obj/media/audio/media.audio_input_ipc.o $
+    obj/media/audio/media.audio_manager.o $
+    obj/media/audio/media.audio_manager_base.o $
+    obj/media/audio/media.audio_output_controller.o $
+    obj/media/audio/media.audio_output_device.o $
+    obj/media/audio/media.audio_output_dispatcher.o $
+    obj/media/audio/media.audio_output_dispatcher_impl.o $
+    obj/media/audio/media.audio_output_ipc.o $
+    obj/media/audio/media.audio_output_proxy.o $
+    obj/media/audio/media.audio_output_resampler.o $
+    obj/media/audio/media.audio_output_stream_sink.o $
+    obj/media/audio/media.audio_power_monitor.o $
+    obj/media/audio/media.audio_streams_tracker.o $
+    obj/media/audio/media.clockless_audio_sink.o $
+    obj/media/audio/media.fake_audio_input_stream.o $
+    obj/media/audio/media.fake_audio_log_factory.o $
+    obj/media/audio/media.fake_audio_manager.o $
+    obj/media/audio/media.fake_audio_output_stream.o $
+    obj/media/audio/media.fake_audio_worker.o $
+    obj/media/audio/linux/media.audio_manager_linux.o $
+    obj/media/audio/media.null_audio_sink.o $
+    obj/media/audio/media.sample_rates.o $
+    obj/media/audio/media.scoped_task_runner_observer.o $
+    obj/media/audio/media.simple_sources.o $
+    obj/media/audio/sounds/media.audio_stream_handler.o $
+    obj/media/audio/sounds/media.sounds_manager.o $
+    obj/media/audio/sounds/media.wav_audio_handler.o $
+    obj/media/audio/media.virtual_audio_input_stream.o $
+    obj/media/audio/media.virtual_audio_output_stream.o $
+    obj/media/base/media.audio_block_fifo.o $
+    obj/media/base/media.audio_buffer.o $
+    obj/media/base/media.audio_buffer_converter.o $
+    obj/media/base/media.audio_buffer_queue.o $
+    obj/media/base/media.audio_codecs.o $
+    obj/media/base/media.audio_converter.o $
+    obj/media/base/media.audio_decoder.o $
+    obj/media/base/media.audio_decoder_config.o $
+    obj/media/base/media.audio_discard_helper.o $
+    obj/media/base/media.audio_fifo.o $
+    obj/media/base/media.audio_hardware_config.o $
+    obj/media/base/media.audio_hash.o $
+    obj/media/base/media.audio_pull_fifo.o $
+    obj/media/base/media.audio_push_fifo.o $
+    obj/media/base/media.audio_renderer.o $
+    obj/media/base/media.audio_renderer_mixer.o $
+    obj/media/base/media.audio_renderer_mixer_input.o $
+    obj/media/base/media.audio_shifter.o $
+    obj/media/base/media.audio_splicer.o $
+    obj/media/base/media.audio_timestamp_helper.o $
+    obj/media/base/media.audio_video_metadata_extractor.o $
+    obj/media/base/media.bit_reader.o $
+    obj/media/base/media.bit_reader_core.o $
+    obj/media/base/media.bitstream_buffer.o $
+    obj/media/base/media.byte_queue.o $
+    obj/media/base/media.cdm_callback_promise.o $
+    obj/media/base/media.cdm_context.o obj/media/base/media.cdm_factory.o $
+    obj/media/base/media.cdm_initialized_promise.o $
+    obj/media/base/media.cdm_key_information.o $
+    obj/media/base/media.cdm_promise.o $
+    obj/media/base/media.cdm_promise_adapter.o $
+    obj/media/base/media.channel_mixer.o $
+    obj/media/base/media.channel_mixing_matrix.o $
+    obj/media/base/media.container_names.o $
+    obj/media/base/media.data_buffer.o obj/media/base/media.data_source.o $
+    obj/media/base/media.decode_status.o $
+    obj/media/base/media.decoder_buffer.o $
+    obj/media/base/media.decoder_buffer_queue.o $
+    obj/media/base/media.decoder_factory.o $
+    obj/media/base/media.decrypt_config.o obj/media/base/media.decryptor.o $
+    obj/media/base/media.demuxer.o obj/media/base/media.demuxer_stream.o $
+    obj/media/base/media.demuxer_stream_provider.o $
+    obj/media/base/media.djb2.o obj/media/base/media.encryption_scheme.o $
+    obj/media/base/media.key_system_info.o $
+    obj/media/base/media.key_systems.o $
+    obj/media/base/media.keyboard_event_counter.o $
+    obj/media/base/media.loopback_audio_converter.o $
+    obj/media/base/media.media.o obj/media/base/media.media_client.o $
+    obj/media/base/media.media_file_checker.o $
+    obj/media/base/media.media_keys.o obj/media/base/media.media_log.o $
+    obj/media/base/media.media_permission.o $
+    obj/media/base/media.media_resources.o $
+    obj/media/base/media.media_switches.o $
+    obj/media/base/media.media_track.o obj/media/base/media.media_tracks.o $
+    obj/media/base/media.media_util.o obj/media/base/media.mime_util.o $
+    obj/media/base/media.mime_util_internal.o $
+    obj/media/base/media.moving_average.o $
+    obj/media/base/media.multi_channel_resampler.o $
+    obj/media/base/media.null_video_sink.o $
+    obj/media/base/media.output_device_info.o $
+    obj/media/base/media.pipeline_impl.o $
+    obj/media/base/media.player_tracker.o obj/media/base/media.ranges.o $
+    obj/media/base/media.renderer.o obj/media/base/media.renderer_factory.o $
+    obj/media/base/media.sample_format.o $
+    obj/media/base/media.seekable_buffer.o $
+    obj/media/base/media.serial_runner.o $
+    obj/media/base/simd/media.convert_rgb_to_yuv_c.o $
+    obj/media/base/simd/media.convert_yuv_to_rgb_c.o $
+    obj/media/base/simd/media.filter_yuv_c.o $
+    obj/media/base/media.sinc_resampler.o $
+    obj/media/base/media.stream_parser.o $
+    obj/media/base/media.stream_parser_buffer.o $
+    obj/media/base/media.text_cue.o obj/media/base/media.text_ranges.o $
+    obj/media/base/media.text_renderer.o $
+    obj/media/base/media.text_track_config.o $
+    obj/media/base/media.time_delta_interpolator.o $
+    obj/media/base/media.user_input_monitor.o $
+    obj/media/base/media.video_capture_types.o $
+    obj/media/base/media.video_capturer_source.o $
+    obj/media/base/media.video_codecs.o $
+    obj/media/base/media.video_decoder.o $
+    obj/media/base/media.video_decoder_config.o $
+    obj/media/base/media.video_frame.o $
+    obj/media/base/media.video_frame_metadata.o $
+    obj/media/base/media.video_frame_pool.o $
+    obj/media/base/media.video_renderer.o $
+    obj/media/base/media.video_types.o obj/media/base/media.video_util.o $
+    obj/media/base/media.wall_clock_time_source.o $
+    obj/media/base/media.yuv_convert.o obj/media/cdm/media.aes_decryptor.o $
+    obj/media/cdm/media.cdm_adapter.o obj/media/cdm/media.cdm_allocator.o $
+    obj/media/cdm/media.cdm_helpers.o $
+    obj/media/cdm/media.default_cdm_factory.o $
+    obj/media/cdm/media.json_web_key.o $
+    obj/media/cdm/media.key_system_names.o $
+    obj/media/cdm/media.player_tracker_impl.o $
+    obj/media/cdm/media.supported_cdm_versions.o $
+    obj/media/ffmpeg/media.ffmpeg_common.o $
+    obj/media/filters/media.audio_clock.o $
+    obj/media/filters/media.audio_file_reader.o $
+    obj/media/filters/media.audio_renderer_algorithm.o $
+    obj/media/filters/media.blocking_url_protocol.o $
+    obj/media/filters/media.chunk_demuxer.o $
+    obj/media/filters/media.decoder_selector.o $
+    obj/media/filters/media.decoder_stream.o $
+    obj/media/filters/media.decoder_stream_traits.o $
+    obj/media/filters/media.decrypting_audio_decoder.o $
+    obj/media/filters/media.decrypting_demuxer_stream.o $
+    obj/media/filters/media.decrypting_video_decoder.o $
+    obj/media/filters/media.default_media_permission.o $
+    obj/media/filters/media.ffmpeg_audio_decoder.o $
+    obj/media/filters/media.ffmpeg_demuxer.o $
+    obj/media/filters/media.ffmpeg_glue.o $
+    obj/media/filters/media.ffmpeg_video_decoder.o $
+    obj/media/filters/media.file_data_source.o $
+    obj/media/filters/media.frame_processor.o $
+    obj/media/filters/media.gpu_video_decoder.o $
+    obj/media/filters/media.h264_bit_reader.o $
+    obj/media/filters/media.h264_parser.o $
+    obj/media/filters/media.in_memory_url_protocol.o $
+    obj/media/filters/media.ivf_parser.o $
+    obj/media/filters/media.jpeg_parser.o $
+    obj/media/filters/media.media_source_state.o $
+    obj/media/filters/media.memory_data_source.o $
+    obj/media/filters/media.opus_audio_decoder.o $
+    obj/media/filters/media.opus_constants.o $
+    obj/media/filters/media.pipeline_controller.o $
+    obj/media/filters/media.source_buffer_range.o $
+    obj/media/filters/media.source_buffer_stream.o $
+    obj/media/filters/media.stream_parser_factory.o $
+    obj/media/filters/media.video_cadence_estimator.o $
+    obj/media/filters/media.video_renderer_algorithm.o $
+    obj/media/filters/media.vp8_bool_decoder.o $
+    obj/media/filters/media.vp8_parser.o $
+    obj/media/filters/media.vp9_parser.o $
+    obj/media/filters/media.vp9_raw_bits_reader.o $
+    obj/media/filters/media.vpx_video_decoder.o $
+    obj/media/filters/media.wsola_internals.o $
+    obj/media/formats/common/media.offset_byte_queue.o $
+    obj/media/formats/webm/media.webm_audio_client.o $
+    obj/media/formats/webm/media.webm_cluster_parser.o $
+    obj/media/formats/webm/media.webm_constants.o $
+    obj/media/formats/webm/media.webm_content_encodings.o $
+    obj/media/formats/webm/media.webm_content_encodings_client.o $
+    obj/media/formats/webm/media.webm_crypto_helpers.o $
+    obj/media/formats/webm/media.webm_info_parser.o $
+    obj/media/formats/webm/media.webm_parser.o $
+    obj/media/formats/webm/media.webm_stream_parser.o $
+    obj/media/formats/webm/media.webm_tracks_parser.o $
+    obj/media/formats/webm/media.webm_video_client.o $
+    obj/media/formats/webm/media.webm_webvtt_parser.o $
+    obj/media/muxers/media.webm_muxer.o $
+    obj/media/renderers/media.audio_renderer_impl.o $
+    obj/media/renderers/media.default_renderer_factory.o $
+    obj/media/renderers/media.renderer_impl.o $
+    obj/media/renderers/media.skcanvas_video_renderer.o $
+    obj/media/renderers/media.video_renderer_impl.o $
+    obj/media/video/media.fake_video_encode_accelerator.o $
+    obj/media/video/media.gpu_memory_buffer_video_frame_pool.o $
+    obj/media/video/media.h264_poc.o $
+    obj/media/video/media.jpeg_decode_accelerator.o $
+    obj/media/video/media.picture.o $
+    obj/media/video/media.video_decode_accelerator.o $
+    obj/media/video/media.video_encode_accelerator.o $
+    obj/media/cdm/media.cenc_utils.o $
+    obj/media/filters/media.ffmpeg_aac_bitstream_converter.o $
+    obj/media/filters/media.ffmpeg_h264_to_annex_b_bitstream_converter.o $
+    obj/media/filters/media.h264_to_annex_b_bitstream_converter.o $
+    obj/media/formats/mp4/media.aac.o obj/media/formats/mp4/media.avc.o $
+    obj/media/formats/mp4/media.bitstream_converter.o $
+    obj/media/formats/mp4/media.box_definitions.o $
+    obj/media/formats/mp4/media.box_reader.o $
+    obj/media/formats/mp4/media.es_descriptor.o $
+    obj/media/formats/mp4/media.mp4_stream_parser.o $
+    obj/media/formats/mp4/media.sample_to_group_iterator.o $
+    obj/media/formats/mp4/media.track_run_iterator.o $
+    obj/media/formats/mpeg/media.adts_constants.o $
+    obj/media/formats/mpeg/media.adts_header_parser.o $
+    obj/media/formats/mpeg/media.adts_stream_parser.o $
+    obj/media/formats/mpeg/media.mpeg1_audio_stream_parser.o $
+    obj/media/formats/mpeg/media.mpeg_audio_stream_parser_base.o $
+    obj/media/filters/media.source_buffer_platform.o || $
+    obj/media/media.actions_depends.stamp

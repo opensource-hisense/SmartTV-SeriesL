@@ -1,0 +1,563 @@
+build obj/extensions/extensions_common.actions_depends.stamp: stamp $
+    obj/mojo/libmojo_application_bindings.a $
+    obj/ui/accessibility/libax_gen.a $
+    obj/device/serial/device_serial_mojo.actions_rules_copies.stamp $
+    lib/libnet.so.TOC lib/liburl_lib.so.TOC $
+    obj/extensions/common/api/libextensions_api.a $
+    obj/extensions/extensions_resources.actions_rules_copies.stamp $
+    obj/extensions/extensions_strings.actions_rules_copies.stamp $
+    obj/extensions/extensions_common_mojo.actions_rules_copies.stamp
+
+build obj/extensions/extensions_common.compile_depends.stamp: stamp $
+    obj/mojo/mojo_application_bindings_mojom.actions_rules_copies.stamp $
+    obj/ui/accessibility/ax_gen.actions_rules_copies.stamp $
+    obj/device/serial/device_serial_mojo.actions_rules_copies.stamp $
+    obj/net/net.compile_depends.stamp obj/url/url_lib.compile_depends.stamp $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp $
+    obj/extensions/extensions_resources.actions_rules_copies.stamp $
+    obj/extensions/extensions_strings.actions_rules_copies.stamp $
+    obj/extensions/extensions_common_mojo.actions_rules_copies.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DMOJO_USE_SYSTEM_IMPL $
+    -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= $
+    -DU_STATIC_IMPLEMENTATION -DSK_SUPPORT_GPU=1 $
+    -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS -DLIBXML_STATIC $
+    -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 $
+    -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -Iobj/extensions/extensions_common.gen $
+    -I../../third_party/khronos -I../../gpu -I../../skia/config -Igen/angle $
+    -I../../third_party/WebKit/Source -I../../third_party/WebKit $
+    -Igen/third_party/WebKit -I../../third_party/icu/source/common $
+    -I../../third_party/re2/src -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../third_party/icu/source/i18n $
+    -I../../third_party/boringssl/src/include $
+    -I../../third_party/libxml/linux/include $
+    -I../../third_party/libxml/src/include -Igen/extensions $
+    -Igen/extensions/strings
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -I/work/bsp/sc1400/usr/include/nss3 $
+    -I/work/bsp/sc1400/usr/include/nspr -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/extensions/common/api/bluetooth/extensions_common.bluetooth_manifest_data.o: $
+    cxx ../../extensions/common/api/bluetooth/bluetooth_manifest_data.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/api/bluetooth/extensions_common.bluetooth_manifest_handler.o: $
+    cxx ../../extensions/common/api/bluetooth/bluetooth_manifest_handler.cc $
+    || obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/api/bluetooth/extensions_common.bluetooth_manifest_permission.o: $
+    cxx $
+    ../../extensions/common/api/bluetooth/bluetooth_manifest_permission.cc $
+    || obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/api/declarative/extensions_common.declarative_manifest_data.o: $
+    cxx $
+    ../../extensions/common/api/declarative/declarative_manifest_data.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/api/declarative/extensions_common.declarative_manifest_handler.o: $
+    cxx $
+    ../../extensions/common/api/declarative/declarative_manifest_handler.cc $
+    || obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/api/printer_provider/extensions_common.usb_printer_manifest_data.o: $
+    cxx $
+    ../../extensions/common/api/printer_provider/usb_printer_manifest_data.cc $
+    || obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/api/printer_provider/extensions_common.usb_printer_manifest_handler.o: $
+    cxx $
+    ../../extensions/common/api/printer_provider/usb_printer_manifest_handler.cc $
+    || obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/api/sockets/extensions_common.sockets_manifest_data.o: $
+    cxx ../../extensions/common/api/sockets/sockets_manifest_data.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/api/sockets/extensions_common.sockets_manifest_handler.o: $
+    cxx ../../extensions/common/api/sockets/sockets_manifest_handler.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/api/sockets/extensions_common.sockets_manifest_permission.o: $
+    cxx ../../extensions/common/api/sockets/sockets_manifest_permission.cc $
+    || obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/cast/extensions_common.cast_cert_validator.o: $
+    cxx ../../extensions/common/cast/cast_cert_validator.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.common_manifest_handlers.o: $
+    cxx ../../extensions/common/common_manifest_handlers.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.csp_validator.o: cxx $
+    ../../extensions/common/csp_validator.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.draggable_region.o: cxx $
+    ../../extensions/common/draggable_region.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.error_utils.o: cxx $
+    ../../extensions/common/error_utils.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.event_filter.o: cxx $
+    ../../extensions/common/event_filter.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.event_filtering_info.o: cxx $
+    ../../extensions/common/event_filtering_info.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.event_matcher.o: cxx $
+    ../../extensions/common/event_matcher.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.extension.o: cxx $
+    ../../extensions/common/extension.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.extension_api.o: cxx $
+    ../../extensions/common/extension_api.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.extension_icon_set.o: cxx $
+    ../../extensions/common/extension_icon_set.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.extension_l10n_util.o: cxx $
+    ../../extensions/common/extension_l10n_util.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/extensions_common.extension_message_generator.o: $
+    cxx ../../extensions/common/extension_message_generator.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.extension_messages.o: cxx $
+    ../../extensions/common/extension_messages.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.extension_paths.o: cxx $
+    ../../extensions/common/extension_paths.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.extension_resource.o: cxx $
+    ../../extensions/common/extension_resource.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.extension_set.o: cxx $
+    ../../extensions/common/extension_set.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.extension_urls.o: cxx $
+    ../../extensions/common/extension_urls.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.extensions_client.o: cxx $
+    ../../extensions/common/extensions_client.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.feature_switch.o: cxx $
+    ../../extensions/common/feature_switch.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/features/extensions_common.api_feature.o: cxx $
+    ../../extensions/common/features/api_feature.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/features/extensions_common.base_feature_provider.o: $
+    cxx ../../extensions/common/features/base_feature_provider.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/features/extensions_common.behavior_feature.o: $
+    cxx ../../extensions/common/features/behavior_feature.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/features/extensions_common.complex_feature.o: $
+    cxx ../../extensions/common/features/complex_feature.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/features/extensions_common.feature.o: cxx $
+    ../../extensions/common/features/feature.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/features/extensions_common.feature_provider.o: $
+    cxx ../../extensions/common/features/feature_provider.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/features/extensions_common.json_feature_provider_source.o: $
+    cxx ../../extensions/common/features/json_feature_provider_source.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/features/extensions_common.manifest_feature.o: $
+    cxx ../../extensions/common/features/manifest_feature.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/features/extensions_common.permission_feature.o: $
+    cxx ../../extensions/common/features/permission_feature.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/features/extensions_common.simple_feature.o: $
+    cxx ../../extensions/common/features/simple_feature.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/features/extensions_common.simple_feature_filter.o: $
+    cxx ../../extensions/common/features/simple_feature_filter.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.file_util.o: cxx $
+    ../../extensions/common/file_util.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.host_id.o: cxx $
+    ../../extensions/common/host_id.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.image_util.o: cxx $
+    ../../extensions/common/image_util.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.install_warning.o: cxx $
+    ../../extensions/common/install_warning.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.manifest.o: cxx $
+    ../../extensions/common/manifest.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.manifest_constants.o: cxx $
+    ../../extensions/common/manifest_constants.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.manifest_handler.o: cxx $
+    ../../extensions/common/manifest_handler.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.manifest_handler_helpers.o: $
+    cxx ../../extensions/common/manifest_handler_helpers.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/manifest_handlers/extensions_common.app_isolation_info.o: $
+    cxx ../../extensions/common/manifest_handlers/app_isolation_info.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/manifest_handlers/extensions_common.background_info.o: $
+    cxx ../../extensions/common/manifest_handlers/background_info.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/manifest_handlers/extensions_common.content_capabilities_handler.o: $
+    cxx $
+    ../../extensions/common/manifest_handlers/content_capabilities_handler.cc $
+    || obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/manifest_handlers/extensions_common.csp_info.o: $
+    cxx ../../extensions/common/manifest_handlers/csp_info.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/manifest_handlers/extensions_common.default_locale_handler.o: $
+    cxx ../../extensions/common/manifest_handlers/default_locale_handler.cc $
+    || obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/manifest_handlers/extensions_common.externally_connectable.o: $
+    cxx ../../extensions/common/manifest_handlers/externally_connectable.cc $
+    || obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/manifest_handlers/extensions_common.file_handler_info.o: $
+    cxx ../../extensions/common/manifest_handlers/file_handler_info.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/manifest_handlers/extensions_common.icons_handler.o: $
+    cxx ../../extensions/common/manifest_handlers/icons_handler.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/manifest_handlers/extensions_common.incognito_info.o: $
+    cxx ../../extensions/common/manifest_handlers/incognito_info.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/manifest_handlers/extensions_common.kiosk_mode_info.o: $
+    cxx ../../extensions/common/manifest_handlers/kiosk_mode_info.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/manifest_handlers/extensions_common.launcher_page_info.o: $
+    cxx ../../extensions/common/manifest_handlers/launcher_page_info.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/manifest_handlers/extensions_common.mime_types_handler.o: $
+    cxx ../../extensions/common/manifest_handlers/mime_types_handler.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/manifest_handlers/extensions_common.oauth2_manifest_handler.o: $
+    cxx $
+    ../../extensions/common/manifest_handlers/oauth2_manifest_handler.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/manifest_handlers/extensions_common.offline_enabled_info.o: $
+    cxx ../../extensions/common/manifest_handlers/offline_enabled_info.cc $
+    || obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/manifest_handlers/extensions_common.options_page_info.o: $
+    cxx ../../extensions/common/manifest_handlers/options_page_info.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/manifest_handlers/extensions_common.permissions_parser.o: $
+    cxx ../../extensions/common/manifest_handlers/permissions_parser.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/manifest_handlers/extensions_common.requirements_info.o: $
+    cxx ../../extensions/common/manifest_handlers/requirements_info.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/manifest_handlers/extensions_common.sandboxed_page_info.o: $
+    cxx ../../extensions/common/manifest_handlers/sandboxed_page_info.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/manifest_handlers/extensions_common.shared_module_info.o: $
+    cxx ../../extensions/common/manifest_handlers/shared_module_info.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/manifest_handlers/extensions_common.web_accessible_resources_info.o: $
+    cxx $
+    ../../extensions/common/manifest_handlers/web_accessible_resources_info.cc $
+    || obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/manifest_handlers/extensions_common.webview_info.o: $
+    cxx ../../extensions/common/manifest_handlers/webview_info.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.manifest_url_handlers.o: cxx $
+    ../../extensions/common/manifest_url_handlers.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.message_bundle.o: cxx $
+    ../../extensions/common/message_bundle.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.one_shot_event.o: cxx $
+    ../../extensions/common/one_shot_event.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/permissions/extensions_common.api_permission.o: $
+    cxx ../../extensions/common/permissions/api_permission.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/permissions/extensions_common.api_permission_set.o: $
+    cxx ../../extensions/common/permissions/api_permission_set.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/permissions/extensions_common.extensions_api_permissions.o: $
+    cxx ../../extensions/common/permissions/extensions_api_permissions.cc $
+    || obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/permissions/extensions_common.manifest_permission.o: $
+    cxx ../../extensions/common/permissions/manifest_permission.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/permissions/extensions_common.manifest_permission_set.o: $
+    cxx ../../extensions/common/permissions/manifest_permission_set.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/permissions/extensions_common.media_galleries_permission.o: $
+    cxx ../../extensions/common/permissions/media_galleries_permission.cc $
+    || obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/permissions/extensions_common.media_galleries_permission_data.o: $
+    cxx $
+    ../../extensions/common/permissions/media_galleries_permission_data.cc $
+    || obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/permissions/extensions_common.permission_message.o: $
+    cxx ../../extensions/common/permissions/permission_message.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/permissions/extensions_common.permission_message_provider.o: $
+    cxx ../../extensions/common/permissions/permission_message_provider.cc $
+    || obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/permissions/extensions_common.permission_message_util.o: $
+    cxx ../../extensions/common/permissions/permission_message_util.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/permissions/extensions_common.permission_set.o: $
+    cxx ../../extensions/common/permissions/permission_set.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/permissions/extensions_common.permissions_data.o: $
+    cxx ../../extensions/common/permissions/permissions_data.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/permissions/extensions_common.permissions_info.o: $
+    cxx ../../extensions/common/permissions/permissions_info.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/permissions/extensions_common.settings_override_permission.o: $
+    cxx ../../extensions/common/permissions/settings_override_permission.cc $
+    || obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/permissions/extensions_common.socket_permission.o: $
+    cxx ../../extensions/common/permissions/socket_permission.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/permissions/extensions_common.socket_permission_data.o: $
+    cxx ../../extensions/common/permissions/socket_permission_data.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/permissions/extensions_common.socket_permission_entry.o: $
+    cxx ../../extensions/common/permissions/socket_permission_entry.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/permissions/extensions_common.usb_device_permission.o: $
+    cxx ../../extensions/common/permissions/usb_device_permission.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/common/permissions/extensions_common.usb_device_permission_data.o: $
+    cxx ../../extensions/common/permissions/usb_device_permission_data.cc $
+    || obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.stack_frame.o: cxx $
+    ../../extensions/common/stack_frame.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.switches.o: cxx $
+    ../../extensions/common/switches.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.update_manifest.o: cxx $
+    ../../extensions/common/update_manifest.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.url_pattern.o: cxx $
+    ../../extensions/common/url_pattern.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.url_pattern_set.o: cxx $
+    ../../extensions/common/url_pattern_set.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.user_script.o: cxx $
+    ../../extensions/common/user_script.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.value_builder.o: cxx $
+    ../../extensions/common/value_builder.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.value_counter.o: cxx $
+    ../../extensions/common/value_counter.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build obj/extensions/common/extensions_common.view_type.o: cxx $
+    ../../extensions/common/view_type.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/gen/extensions/common/mojo/extensions_common.keep_alive.mojom.o: $
+    cxx gen/extensions/common/mojo/keep_alive.mojom.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+build $
+    obj/extensions/gen/extensions/common/mojo/extensions_common.stash.mojom.o: $
+    cxx gen/extensions/common/mojo/stash.mojom.cc || $
+    obj/extensions/extensions_common.compile_depends.stamp
+
+build obj/extensions/libextensions_common.a: alink_thin $
+    obj/extensions/common/api/bluetooth/extensions_common.bluetooth_manifest_data.o $
+    obj/extensions/common/api/bluetooth/extensions_common.bluetooth_manifest_handler.o $
+    obj/extensions/common/api/bluetooth/extensions_common.bluetooth_manifest_permission.o $
+    obj/extensions/common/api/declarative/extensions_common.declarative_manifest_data.o $
+    obj/extensions/common/api/declarative/extensions_common.declarative_manifest_handler.o $
+    obj/extensions/common/api/printer_provider/extensions_common.usb_printer_manifest_data.o $
+    obj/extensions/common/api/printer_provider/extensions_common.usb_printer_manifest_handler.o $
+    obj/extensions/common/api/sockets/extensions_common.sockets_manifest_data.o $
+    obj/extensions/common/api/sockets/extensions_common.sockets_manifest_handler.o $
+    obj/extensions/common/api/sockets/extensions_common.sockets_manifest_permission.o $
+    obj/extensions/common/cast/extensions_common.cast_cert_validator.o $
+    obj/extensions/common/extensions_common.common_manifest_handlers.o $
+    obj/extensions/common/extensions_common.csp_validator.o $
+    obj/extensions/common/extensions_common.draggable_region.o $
+    obj/extensions/common/extensions_common.error_utils.o $
+    obj/extensions/common/extensions_common.event_filter.o $
+    obj/extensions/common/extensions_common.event_filtering_info.o $
+    obj/extensions/common/extensions_common.event_matcher.o $
+    obj/extensions/common/extensions_common.extension.o $
+    obj/extensions/common/extensions_common.extension_api.o $
+    obj/extensions/common/extensions_common.extension_icon_set.o $
+    obj/extensions/common/extensions_common.extension_l10n_util.o $
+    obj/extensions/common/extensions_common.extension_message_generator.o $
+    obj/extensions/common/extensions_common.extension_messages.o $
+    obj/extensions/common/extensions_common.extension_paths.o $
+    obj/extensions/common/extensions_common.extension_resource.o $
+    obj/extensions/common/extensions_common.extension_set.o $
+    obj/extensions/common/extensions_common.extension_urls.o $
+    obj/extensions/common/extensions_common.extensions_client.o $
+    obj/extensions/common/extensions_common.feature_switch.o $
+    obj/extensions/common/features/extensions_common.api_feature.o $
+    obj/extensions/common/features/extensions_common.base_feature_provider.o $
+    obj/extensions/common/features/extensions_common.behavior_feature.o $
+    obj/extensions/common/features/extensions_common.complex_feature.o $
+    obj/extensions/common/features/extensions_common.feature.o $
+    obj/extensions/common/features/extensions_common.feature_provider.o $
+    obj/extensions/common/features/extensions_common.json_feature_provider_source.o $
+    obj/extensions/common/features/extensions_common.manifest_feature.o $
+    obj/extensions/common/features/extensions_common.permission_feature.o $
+    obj/extensions/common/features/extensions_common.simple_feature.o $
+    obj/extensions/common/features/extensions_common.simple_feature_filter.o $
+    obj/extensions/common/extensions_common.file_util.o $
+    obj/extensions/common/extensions_common.host_id.o $
+    obj/extensions/common/extensions_common.image_util.o $
+    obj/extensions/common/extensions_common.install_warning.o $
+    obj/extensions/common/extensions_common.manifest.o $
+    obj/extensions/common/extensions_common.manifest_constants.o $
+    obj/extensions/common/extensions_common.manifest_handler.o $
+    obj/extensions/common/extensions_common.manifest_handler_helpers.o $
+    obj/extensions/common/manifest_handlers/extensions_common.app_isolation_info.o $
+    obj/extensions/common/manifest_handlers/extensions_common.background_info.o $
+    obj/extensions/common/manifest_handlers/extensions_common.content_capabilities_handler.o $
+    obj/extensions/common/manifest_handlers/extensions_common.csp_info.o $
+    obj/extensions/common/manifest_handlers/extensions_common.default_locale_handler.o $
+    obj/extensions/common/manifest_handlers/extensions_common.externally_connectable.o $
+    obj/extensions/common/manifest_handlers/extensions_common.file_handler_info.o $
+    obj/extensions/common/manifest_handlers/extensions_common.icons_handler.o $
+    obj/extensions/common/manifest_handlers/extensions_common.incognito_info.o $
+    obj/extensions/common/manifest_handlers/extensions_common.kiosk_mode_info.o $
+    obj/extensions/common/manifest_handlers/extensions_common.launcher_page_info.o $
+    obj/extensions/common/manifest_handlers/extensions_common.mime_types_handler.o $
+    obj/extensions/common/manifest_handlers/extensions_common.oauth2_manifest_handler.o $
+    obj/extensions/common/manifest_handlers/extensions_common.offline_enabled_info.o $
+    obj/extensions/common/manifest_handlers/extensions_common.options_page_info.o $
+    obj/extensions/common/manifest_handlers/extensions_common.permissions_parser.o $
+    obj/extensions/common/manifest_handlers/extensions_common.requirements_info.o $
+    obj/extensions/common/manifest_handlers/extensions_common.sandboxed_page_info.o $
+    obj/extensions/common/manifest_handlers/extensions_common.shared_module_info.o $
+    obj/extensions/common/manifest_handlers/extensions_common.web_accessible_resources_info.o $
+    obj/extensions/common/manifest_handlers/extensions_common.webview_info.o $
+    obj/extensions/common/extensions_common.manifest_url_handlers.o $
+    obj/extensions/common/extensions_common.message_bundle.o $
+    obj/extensions/common/extensions_common.one_shot_event.o $
+    obj/extensions/common/permissions/extensions_common.api_permission.o $
+    obj/extensions/common/permissions/extensions_common.api_permission_set.o $
+    obj/extensions/common/permissions/extensions_common.extensions_api_permissions.o $
+    obj/extensions/common/permissions/extensions_common.manifest_permission.o $
+    obj/extensions/common/permissions/extensions_common.manifest_permission_set.o $
+    obj/extensions/common/permissions/extensions_common.media_galleries_permission.o $
+    obj/extensions/common/permissions/extensions_common.media_galleries_permission_data.o $
+    obj/extensions/common/permissions/extensions_common.permission_message.o $
+    obj/extensions/common/permissions/extensions_common.permission_message_provider.o $
+    obj/extensions/common/permissions/extensions_common.permission_message_util.o $
+    obj/extensions/common/permissions/extensions_common.permission_set.o $
+    obj/extensions/common/permissions/extensions_common.permissions_data.o $
+    obj/extensions/common/permissions/extensions_common.permissions_info.o $
+    obj/extensions/common/permissions/extensions_common.settings_override_permission.o $
+    obj/extensions/common/permissions/extensions_common.socket_permission.o $
+    obj/extensions/common/permissions/extensions_common.socket_permission_data.o $
+    obj/extensions/common/permissions/extensions_common.socket_permission_entry.o $
+    obj/extensions/common/permissions/extensions_common.usb_device_permission.o $
+    obj/extensions/common/permissions/extensions_common.usb_device_permission_data.o $
+    obj/extensions/common/extensions_common.stack_frame.o $
+    obj/extensions/common/extensions_common.switches.o $
+    obj/extensions/common/extensions_common.update_manifest.o $
+    obj/extensions/common/extensions_common.url_pattern.o $
+    obj/extensions/common/extensions_common.url_pattern_set.o $
+    obj/extensions/common/extensions_common.user_script.o $
+    obj/extensions/common/extensions_common.value_builder.o $
+    obj/extensions/common/extensions_common.value_counter.o $
+    obj/extensions/common/extensions_common.view_type.o $
+    obj/extensions/gen/extensions/common/mojo/extensions_common.keep_alive.mojom.o $
+    obj/extensions/gen/extensions/common/mojo/extensions_common.stash.mojom.o $
+    || obj/extensions/extensions_common.actions_depends.stamp

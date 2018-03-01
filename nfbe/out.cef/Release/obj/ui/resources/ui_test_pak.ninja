@@ -1,0 +1,47 @@
+build obj/ui/resources/ui_test_pak.actions_depends.stamp: stamp $
+    obj/ui/strings/ui_strings.actions_rules_copies.stamp $
+    obj/ui/resources/ui_resources.actions_rules_copies.stamp
+
+build obj/ui/resources/ui_test_pak.compile_depends.stamp: stamp $
+    obj/ui/strings/ui_strings.actions_rules_copies.stamp $
+    obj/ui/resources/ui_resources.actions_rules_copies.stamp
+
+rule ui_test_pak_target_repack_ui_test_pack_7a1e4cf455386671e1b80761627ff117
+  command = cd ../../ui/resources; python $
+      ../../tools/grit/grit/format/repack.py $
+      ../../out.cef/Release/ui_test.pak $
+      ../../out.cef/Release/gen/ui/resources/ui_resources_100_percent.pak $
+      ../../out.cef/Release/gen/ui/resources/webui_resources.pak $
+      ../../out.cef/Release/gen/ui/strings/app_locale_settings_en-US.pak $
+      ../../out.cef/Release/gen/ui/strings/ui_strings_en-US.pak $
+      ../../out.cef/Release/gen/ui/app_list/resources/app_list_resources_100_percent.pak
+  description = ACTION ui_test_pak: $
+      repack_ui_test_pack_7a1e4cf455386671e1b80761627ff117
+  restat = 1
+
+build ui_test.pak: $
+    ui_test_pak_target_repack_ui_test_pack_7a1e4cf455386671e1b80761627ff117 $
+    ../../tools/grit/grit/format/repack.py $
+    gen/ui/resources/ui_resources_100_percent.pak $
+    gen/ui/resources/webui_resources.pak $
+    gen/ui/strings/app_locale_settings_en-US.pak $
+    gen/ui/strings/ui_strings_en-US.pak $
+    gen/ui/app_list/resources/app_list_resources_100_percent.pak || $
+    obj/ui/resources/ui_test_pak.actions_depends.stamp
+
+rule ui_test_pak_target_copy_ui_test_pak_7a1e4cf455386671e1b80761627ff117
+  command = cd ../../ui/resources; python ../../build/cp.py $
+      ../../out.cef/Release/ui_test.pak ../../out.cef/Release/ui/en-US.pak
+  description = ACTION Copying ui_test.pak into en-US.pak
+  restat = 1
+
+build ui/en-US.pak: $
+    ui_test_pak_target_copy_ui_test_pak_7a1e4cf455386671e1b80761627ff117 $
+    ui_test.pak || obj/ui/resources/ui_test_pak.actions_depends.stamp
+
+build ui/ui_resources_100_percent.pak: copy $
+    gen/ui/resources/ui_resources_100_percent.pak || $
+    obj/ui/resources/ui_test_pak.actions_depends.stamp
+build obj/ui/resources/ui_test_pak.actions_rules_copies.stamp: stamp $
+    ui_test.pak ui/en-US.pak ui/ui_resources_100_percent.pak
+

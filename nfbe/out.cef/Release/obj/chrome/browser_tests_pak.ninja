@@ -1,0 +1,25 @@
+build obj/chrome/browser_tests_pak.actions_depends.stamp: stamp $
+    obj/chrome/options_test_resources.actions_rules_copies.stamp $
+    obj/chrome/webui_test_resources.actions_rules_copies.stamp
+
+build obj/chrome/browser_tests_pak.compile_depends.stamp: stamp $
+    obj/chrome/options_test_resources.actions_rules_copies.stamp $
+    obj/chrome/webui_test_resources.actions_rules_copies.stamp
+
+rule $
+    browser_tests_pak_target_repack_browser_tests_pak_8ed2ec7d4560baf9062005c7e837fac0
+  command = cd ../../chrome; python ../tools/grit/grit/format/repack.py $
+      ../out.cef/Release/browser_tests.pak $
+      ../out.cef/Release/gen/chrome/options_test_resources.pak $
+      ../out.cef/Release/gen/chrome/webui_test_resources.pak
+  description = ACTION browser_tests_pak: $
+      repack_browser_tests_pak_8ed2ec7d4560baf9062005c7e837fac0
+  restat = 1
+
+build browser_tests.pak: $
+    browser_tests_pak_target_repack_browser_tests_pak_8ed2ec7d4560baf9062005c7e837fac0 $
+    ../../tools/grit/grit/format/repack.py $
+    gen/chrome/options_test_resources.pak $
+    gen/chrome/webui_test_resources.pak || $
+    obj/chrome/browser_tests_pak.actions_depends.stamp
+

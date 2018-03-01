@@ -1,0 +1,13 @@
+rule ui_features_target_buildflag_header_11e803e2bdf7b2066f38ff02c2fa171d
+  command = cd ../../ui/base; python ../../build/write_buildflag_header.py $
+      --output ui/base/ui_features.h --rulename ui_features --gen-dir $
+      ../../out.cef/Release/gen --definitions $
+      ../../out.cef/ui/base/ui_features_buildflag_header.rsp
+  description = ACTION Generating build header.
+  restat = 1
+
+build gen/ui/base/ui_features.h: $
+    ui_features_target_buildflag_header_11e803e2bdf7b2066f38ff02c2fa171d $
+    ../../build/write_buildflag_header.py $
+    ../../out.cef/ui/base/ui_features_buildflag_header.rsp
+

@@ -1,0 +1,476 @@
+#include <linux/io.h>
+
+#include "../init.h"
+
+#define UMC_BASE 0x5b800000
+#define UMC_BASE_(ch)  (UMC_BASE + 0x00200000 * (ch) )
+#define UMC_CA_BASE(ch) (UMC_BASE_(ch) + 0x10000)
+#define UMC_BASE_SBUS 0x5b600000
+
+#define UMC_COMSIZE_1D_L1_(ch)	(UMC_CA_BASE(ch) + 0xFD0)
+#define UMC_COMSIZE_1D_L2_(ch)	(UMC_CA_BASE(ch) + 0xFD4)
+#define UMC_COMSIZE_1D_L3_(ch)	(UMC_CA_BASE(ch) + 0xFD8)
+#define UMC_COMSIZE_1D_L4_(ch)	(UMC_CA_BASE(ch) + 0xFDC)
+#define UMC_COMSIZE_1D_L5_(ch)	(UMC_CA_BASE(ch) + 0xFE0)
+#define UMC_COMSIZE_1D_L6_(ch)	(UMC_CA_BASE(ch) + 0xFE4)
+#define UMC_COMSIZE_1D_L7_(ch)	(UMC_CA_BASE(ch) + 0xFE8)
+#define UMC_COMSIZE_1D_L8_(ch)	(UMC_CA_BASE(ch) + 0xFEC)
+
+#define UMC_RATECONT_ICS(ch) (UMC_CA_BASE(ch) + 0x0)
+#define UMC_RATECONT_ICA(ch) (UMC_CA_BASE(ch) + 0x4)
+#define UMC_RATECONT_VH1(ch) (UMC_CA_BASE(ch) + 0x8)
+#define UMC_RATECONT_VG1(ch) (UMC_CA_BASE(ch) + 0xC)
+#define UMC_RATECONT_VG2(ch) (UMC_CA_BASE(ch) + 0x10)
+#define UMC_RATECONT_SIO(ch) (UMC_CA_BASE(ch) + 0x14)
+#define UMC_RATECONT_GIO(ch) (UMC_CA_BASE(ch) + 0x18)
+#define UMC_RATECONT_VO0(ch) (UMC_CA_BASE(ch) + 0x1C)
+#define UMC_RATECONT_VO1(ch) (UMC_CA_BASE(ch) + 0x20)
+#define UMC_RATECONT_VPE(ch) (UMC_CA_BASE(ch) + 0x24)
+#define UMC_RATECONT_VPD(ch) (UMC_CA_BASE(ch) + 0x28)
+#define UMC_RATECONT_GR(ch) (UMC_CA_BASE(ch) + 0x2C)
+#define UMC_RATECONT_PCI(ch) (UMC_CA_BASE(ch) + 0x30)
+#define UMC_RATECONT_A2D(ch) (UMC_CA_BASE(ch) + 0x34)
+#define UMC_RATECONT_DMD(ch) (UMC_CA_BASE(ch) + 0x38)
+#define UMC_RATECONT_REF(ch) (UMC_CA_BASE(ch) + 0x3C)
+#define UMC_RATECONT_IDS(ch) (UMC_CA_BASE(ch) + 0x40)
+#define UMC_RATECONT_ID2(ch) (UMC_CA_BASE(ch) + 0x44)
+#define UMC_RATECONT_AR0(ch) (UMC_CA_BASE(ch) + 0x48)
+#define UMC_RATECONT_AR1(ch) (UMC_CA_BASE(ch) + 0x4C)
+#define UMC_RATECONT_S2D(ch) (UMC_CA_BASE(ch) + 0x50)
+#define UMC_RATECONT_I2D(ch) (UMC_CA_BASE(ch) + 0x54)
+
+#define UMC_MASTEROPTION_ICS(ch) (UMC_CA_BASE(ch) + 0x200)
+#define UMC_MASTEROPTION_ICA(ch) (UMC_CA_BASE(ch) + 0x204)
+#define UMC_MASTEROPTION_VH1(ch) (UMC_CA_BASE(ch) + 0x208)
+#define UMC_MASTEROPTION_VG1(ch) (UMC_CA_BASE(ch) + 0x20C)
+#define UMC_MASTEROPTION_VG2(ch) (UMC_CA_BASE(ch) + 0x210)
+#define UMC_MASTEROPTION_SIO(ch) (UMC_CA_BASE(ch) + 0x214)
+#define UMC_MASTEROPTION_GIO(ch) (UMC_CA_BASE(ch) + 0x218)
+#define UMC_MASTEROPTION_VO0(ch) (UMC_CA_BASE(ch) + 0x21C)
+#define UMC_MASTEROPTION_VO1(ch) (UMC_CA_BASE(ch) + 0x220)
+#define UMC_MASTEROPTION_VPE(ch) (UMC_CA_BASE(ch) + 0x224)
+#define UMC_MASTEROPTION_VPD(ch) (UMC_CA_BASE(ch) + 0x228)
+#define UMC_MASTEROPTION_GR(ch) (UMC_CA_BASE(ch) + 0x22C)
+#define UMC_MASTEROPTION_PCI(ch) (UMC_CA_BASE(ch) + 0x230)
+#define UMC_MASTEROPTION_A2D(ch) (UMC_CA_BASE(ch) + 0x234)
+#define UMC_MASTEROPTION_DMD(ch) (UMC_CA_BASE(ch) + 0x238)
+#define UMC_MASTEROPTION_REF(ch) (UMC_CA_BASE(ch) + 0x23C)
+#define UMC_MASTEROPTION_IDS(ch) (UMC_CA_BASE(ch) + 0x240)
+#define UMC_MASTEROPTION_ID2(ch) (UMC_CA_BASE(ch) + 0x244)
+#define UMC_MASTEROPTION_AR0(ch) (UMC_CA_BASE(ch) + 0x248)
+#define UMC_MASTEROPTION_AR1(ch) (UMC_CA_BASE(ch) + 0x24C)
+#define UMC_MASTEROPTION_S2D(ch) (UMC_CA_BASE(ch) + 0x250)
+#define UMC_MASTEROPTION_I2D(ch) (UMC_CA_BASE(ch) + 0x254)
+
+#define UMC_PRIORITY_ICS(ch) (UMC_CA_BASE(ch) + 0x400)
+#define UMC_PRIORITY_ICA(ch) (UMC_CA_BASE(ch) + 0x404)
+#define UMC_PRIORITY_VH1(ch) (UMC_CA_BASE(ch) + 0x408)
+#define UMC_PRIORITY_VG1(ch) (UMC_CA_BASE(ch) + 0x40C)
+#define UMC_PRIORITY_VG2(ch) (UMC_CA_BASE(ch) + 0x410)
+#define UMC_PRIORITY_SIO(ch) (UMC_CA_BASE(ch) + 0x414)
+#define UMC_PRIORITY_GIO(ch) (UMC_CA_BASE(ch) + 0x418)
+#define UMC_PRIORITY_VO0(ch) (UMC_CA_BASE(ch) + 0x41C)
+#define UMC_PRIORITY_VO1(ch) (UMC_CA_BASE(ch) + 0x420)
+#define UMC_PRIORITY_VPE(ch) (UMC_CA_BASE(ch) + 0x424)
+#define UMC_PRIORITY_VPD(ch) (UMC_CA_BASE(ch) + 0x428)
+#define UMC_PRIORITY_GR(ch) (UMC_CA_BASE(ch) + 0x42C)
+#define UMC_PRIORITY_PCI(ch) (UMC_CA_BASE(ch) + 0x430)
+#define UMC_PRIORITY_A2D(ch) (UMC_CA_BASE(ch) + 0x434)
+#define UMC_PRIORITY_DMD(ch) (UMC_CA_BASE(ch) + 0x438)
+#define UMC_PRIORITY_REF(ch) (UMC_CA_BASE(ch) + 0x43C)
+#define UMC_PRIORITY_IDS(ch) (UMC_CA_BASE(ch) + 0x440)
+#define UMC_PRIORITY_ID2(ch) (UMC_CA_BASE(ch) + 0x444)
+#define UMC_PRIORITY_AR0(ch) (UMC_CA_BASE(ch) + 0x448)
+#define UMC_PRIORITY_AR1(ch) (UMC_CA_BASE(ch) + 0x44C)
+#define UMC_PRIORITY_S2D(ch) (UMC_CA_BASE(ch) + 0x450)
+#define UMC_PRIORITY_I2D(ch) (UMC_CA_BASE(ch) + 0x454)
+
+#define UMC_RATE_CHANGE(ch) (UMC_CA_BASE(ch) + 0xA00)
+#define UMC_DIR_ARB(ch)      (UMC_CA_BASE(ch) + 0xA90)
+#define UMC_BNK_ARB_MODE(ch) (UMC_CA_BASE(ch) + 0xA94)
+
+#define UMC_CHSEL_DMD (UMC_BASE_SBUS + 0x3854)
+
+#define UMC_FUNC_DATA_END (0xffff)
+
+#define TOTAL_CH 3
+
+typedef struct _umc_addrdata_t{
+  u32 addr;
+  u32 data;
+} umc_addrdata_t;
+
+static const umc_addrdata_t UMC_FUNC_CORETEST[] = {
+    { UMC_MASTEROPTION_ICS(0),    0x00000004},
+    { UMC_MASTEROPTION_ICA(0),    0x00000004},
+    { UMC_MASTEROPTION_VH1(0),    0x00000010},
+    { UMC_MASTEROPTION_VG1(0),    0x00000010},
+    { UMC_MASTEROPTION_VG2(0),    0x00000010},
+    { UMC_MASTEROPTION_SIO(0),    0x00000010},
+    { UMC_MASTEROPTION_GIO(0),    0x00000010},
+    { UMC_MASTEROPTION_VO0(0),    0x00000010},
+    { UMC_MASTEROPTION_VO1(0),    0x00000010},
+    { UMC_MASTEROPTION_VPE(0),    0x00000010},
+    { UMC_MASTEROPTION_VPD(0),    0x00000010},
+    { UMC_MASTEROPTION_GR(0),    0x00000010},
+    { UMC_MASTEROPTION_PCI(0),    0x00000010},
+    { UMC_MASTEROPTION_A2D(0),    0x00000010},
+    { UMC_MASTEROPTION_DMD(0),    0x00000010},
+    { UMC_MASTEROPTION_REF(0),    0x00000010},
+    { UMC_MASTEROPTION_IDS(0),    0x00000010},
+    { UMC_MASTEROPTION_ID2(0),    0x00000010},
+    { UMC_MASTEROPTION_AR0(0),    0x00000004},
+    { UMC_MASTEROPTION_AR1(0),    0x00000004},
+    { UMC_MASTEROPTION_S2D(0),    0x00000010},
+    { UMC_MASTEROPTION_I2D(0),    0x00000010},
+    { UMC_MASTEROPTION_ICS(1),    0x00000004},
+    { UMC_MASTEROPTION_ICA(1),    0x00000004},
+    { UMC_MASTEROPTION_VH1(1),    0x00000010},
+    { UMC_MASTEROPTION_VG1(1),    0x00000010},
+    { UMC_MASTEROPTION_VG2(1),    0x00000010},
+    { UMC_MASTEROPTION_SIO(1),    0x00000010},
+    { UMC_MASTEROPTION_GIO(1),    0x00000010},
+    { UMC_MASTEROPTION_VO0(1),    0x00000010},
+    { UMC_MASTEROPTION_VO1(1),    0x00000010},
+    { UMC_MASTEROPTION_VPE(1),    0x00000010},
+    { UMC_MASTEROPTION_VPD(1),    0x00000010},
+    { UMC_MASTEROPTION_GR(1),    0x00000010},
+    { UMC_MASTEROPTION_PCI(1),    0x00000010},
+    { UMC_MASTEROPTION_A2D(1),    0x00000010},
+    { UMC_MASTEROPTION_DMD(1),    0x00000010},
+    { UMC_MASTEROPTION_REF(1),    0x00000010},
+    { UMC_MASTEROPTION_IDS(1),    0x00000010},
+    { UMC_MASTEROPTION_ID2(1),    0x00000010},
+    { UMC_MASTEROPTION_AR0(1),    0x00000004},
+    { UMC_MASTEROPTION_AR1(1),    0x00000004},
+    { UMC_MASTEROPTION_S2D(1),    0x00000010},
+    { UMC_MASTEROPTION_I2D(1),    0x00000010},
+    { UMC_MASTEROPTION_ICS(2),    0x00000004},
+    { UMC_MASTEROPTION_ICA(2),    0x00000004},
+    { UMC_MASTEROPTION_VH1(2),    0x00000010},
+    { UMC_MASTEROPTION_VG1(2),    0x00000010},
+    { UMC_MASTEROPTION_VG2(2),    0x00000010},
+    { UMC_MASTEROPTION_SIO(2),    0x00000010},
+    { UMC_MASTEROPTION_GIO(2),    0x00000010},
+    { UMC_MASTEROPTION_VO0(2),    0x00000010},
+    { UMC_MASTEROPTION_VO1(2),    0x00000010},
+    { UMC_MASTEROPTION_VPE(2),    0x00000010},
+    { UMC_MASTEROPTION_VPD(2),    0x00000010},
+    { UMC_MASTEROPTION_GR(2),    0x00000010},
+    { UMC_MASTEROPTION_PCI(2),    0x00000010},
+    { UMC_MASTEROPTION_A2D(2),    0x00000010},
+    { UMC_MASTEROPTION_DMD(2),    0x00000010},
+    { UMC_MASTEROPTION_REF(2),    0x00000010},
+    { UMC_MASTEROPTION_IDS(2),    0x00000010},
+    { UMC_MASTEROPTION_ID2(2),    0x00000010},
+    { UMC_MASTEROPTION_AR0(2),    0x00000004},
+    { UMC_MASTEROPTION_AR1(2),    0x00000004},
+    { UMC_MASTEROPTION_S2D(2),    0x00000010},
+    { UMC_MASTEROPTION_I2D(2),    0x00000010},
+    { UMC_PRIORITY_ICS(0),    0x00030000},
+    { UMC_PRIORITY_ICA(0),    0x01020000},
+    { UMC_PRIORITY_VH1(0),    0x02000000},
+    { UMC_PRIORITY_VG1(0),    0x03000001},
+    { UMC_PRIORITY_VG2(0),    0x04000002},
+    { UMC_PRIORITY_SIO(0),    0x05000003},
+    { UMC_PRIORITY_GIO(0),    0x06000004},
+    { UMC_PRIORITY_VO0(0),    0x07000005},
+    { UMC_PRIORITY_VO1(0),    0x08000006},
+    { UMC_PRIORITY_VPE(0),    0x09000007},
+    { UMC_PRIORITY_VPD(0),    0x0A000008},
+    { UMC_PRIORITY_GR(0),    0x0B000009},
+    { UMC_PRIORITY_PCI(0),    0x0C00000A},
+    { UMC_PRIORITY_A2D(0),    0x0D00000B},
+    { UMC_PRIORITY_DMD(0),    0x0E00000C},
+    { UMC_PRIORITY_REF(0),    0x0F00000D},
+    { UMC_PRIORITY_IDS(0),    0x1000000E},
+    { UMC_PRIORITY_ID2(0),    0x1100000F},
+    { UMC_PRIORITY_AR0(0),    0x12000000},
+    { UMC_PRIORITY_AR1(0),    0x13010000},
+    { UMC_PRIORITY_S2D(0),    0x14000010},
+    { UMC_PRIORITY_I2D(0),    0x15000011},
+    { UMC_PRIORITY_ICS(1),    0x00030000},
+    { UMC_PRIORITY_ICA(1),    0x01020000},
+    { UMC_PRIORITY_VH1(1),    0x02000000},
+    { UMC_PRIORITY_VG1(1),    0x03000001},
+    { UMC_PRIORITY_VG2(1),    0x04000002},
+    { UMC_PRIORITY_SIO(1),    0x05000003},
+    { UMC_PRIORITY_GIO(1),    0x06000004},
+    { UMC_PRIORITY_VO0(1),    0x07000005},
+    { UMC_PRIORITY_VO1(1),    0x08000006},
+    { UMC_PRIORITY_VPE(1),    0x09000007},
+    { UMC_PRIORITY_VPD(1),    0x0A000008},
+    { UMC_PRIORITY_GR(1),    0x0B000009},
+    { UMC_PRIORITY_PCI(1),    0x0C00000A},
+    { UMC_PRIORITY_A2D(1),    0x0D00000B},
+    { UMC_PRIORITY_DMD(1),    0x0E00000C},
+    { UMC_PRIORITY_REF(1),    0x0F00000D},
+    { UMC_PRIORITY_IDS(1),    0x1000000E},
+    { UMC_PRIORITY_ID2(1),    0x1100000F},
+    { UMC_PRIORITY_AR0(1),    0x12000000},
+    { UMC_PRIORITY_AR1(1),    0x13010000},
+    { UMC_PRIORITY_S2D(1),    0x14000010},
+    { UMC_PRIORITY_I2D(1),    0x15000011},
+    { UMC_PRIORITY_ICS(2),    0x00030000},
+    { UMC_PRIORITY_ICA(2),    0x01020000},
+    { UMC_PRIORITY_VH1(2),    0x02000000},
+    { UMC_PRIORITY_VG1(2),    0x03000001},
+    { UMC_PRIORITY_VG2(2),    0x04000002},
+    { UMC_PRIORITY_SIO(2),    0x05000003},
+    { UMC_PRIORITY_GIO(2),    0x06000004},
+    { UMC_PRIORITY_VO0(2),    0x07000005},
+    { UMC_PRIORITY_VO1(2),    0x08000006},
+    { UMC_PRIORITY_VPE(2),    0x09000007},
+    { UMC_PRIORITY_VPD(2),    0x0A000008},
+    { UMC_PRIORITY_GR(2),    0x0B000009},
+    { UMC_PRIORITY_PCI(2),    0x0C00000A},
+    { UMC_PRIORITY_A2D(2),    0x0D00000B},
+    { UMC_PRIORITY_DMD(2),    0x0E00000C},
+    { UMC_PRIORITY_REF(2),    0x0F00000D},
+    { UMC_PRIORITY_IDS(2),    0x1000000E},
+    { UMC_PRIORITY_ID2(2),    0x1100000F},
+    { UMC_PRIORITY_AR0(2),    0x12000000},
+    { UMC_PRIORITY_AR1(2),    0x13010000},
+    { UMC_PRIORITY_S2D(2),    0x14000010},
+    { UMC_PRIORITY_I2D(2),    0x15000011},
+    { UMC_CHSEL_DMD,    0x03000100 },
+    { UMC_FUNC_DATA_END, 0 }
+};
+
+const umc_addrdata_t UMC_FUNC_MAXLOAD_COMMON[] = {
+    { UMC_RATECONT_ICA(0),    0x04AA41AA},
+    { UMC_RATECONT_SIO(0),    0x072F442F},
+    { UMC_RATECONT_VO0(0),    0x03384038},
+    { UMC_RATECONT_VO1(0),    0x03394039},
+    { UMC_RATECONT_VPE(0),    0x03214021},
+    { UMC_RATECONT_A2D(0),    0x0E3B4B3B},
+    { UMC_RATECONT_DMD(0),    0x07404440},
+    { UMC_RATECONT_REF(0),    0x0A1E471E},
+    { UMC_RATECONT_VG1(1),    0x035E405E},
+    { UMC_RATECONT_VG2(1),    0x031C401C},
+    { UMC_RATECONT_VO0(1),    0x034B404B},
+    { UMC_RATECONT_VPE(1),    0x03494049},
+    { UMC_RATECONT_VPD(1),    0x03544054},
+    { UMC_RATECONT_A2D(1),    0x0E3B4B3B},
+    { UMC_RATECONT_REF(1),    0x0A1E471E},
+    { UMC_RATECONT_REF(2),    0x0A1E471E},
+    { UMC_MASTEROPTION_ICS(0),    0x00000804},
+    { UMC_MASTEROPTION_ICA(0),    0x00000805},
+    { UMC_MASTEROPTION_VH1(0),    0x00000810},
+    { UMC_MASTEROPTION_VG1(0),    0x00000810},
+    { UMC_MASTEROPTION_VG2(0),    0x00000810},
+    { UMC_MASTEROPTION_SIO(0),    0x00000011},
+    { UMC_MASTEROPTION_GIO(0),    0x00000010},
+    { UMC_MASTEROPTION_VO0(0),    0x00000801},
+    { UMC_MASTEROPTION_VO1(0),    0x00000811},
+    { UMC_MASTEROPTION_VPE(0),    0x00000811},
+    { UMC_MASTEROPTION_VPD(0),    0x00000810},
+    { UMC_MASTEROPTION_GR(0),    0x00000810},
+    { UMC_MASTEROPTION_PCI(0),    0x00001810},
+    { UMC_MASTEROPTION_A2D(0),    0x00000011},
+    { UMC_MASTEROPTION_DMD(0),    0x00000001},
+    { UMC_MASTEROPTION_REF(0),    0x00000001},
+    { UMC_MASTEROPTION_IDS(0),    0x00001010},
+    { UMC_MASTEROPTION_ID2(0),    0x00001010},
+    { UMC_MASTEROPTION_AR0(0),    0x00001804},
+    { UMC_MASTEROPTION_AR1(0),    0x00000804},
+    { UMC_MASTEROPTION_S2D(0),    0x00000010},
+    { UMC_MASTEROPTION_I2D(0),    0x00000010},
+    { UMC_MASTEROPTION_ICS(1),    0x00000804},
+    { UMC_MASTEROPTION_ICA(1),    0x00000804},
+    { UMC_MASTEROPTION_VH1(1),    0x00000810},
+    { UMC_MASTEROPTION_VG1(1),    0x00000811},
+    { UMC_MASTEROPTION_VG2(1),    0x00000811},
+    { UMC_MASTEROPTION_SIO(1),    0x00000010},
+    { UMC_MASTEROPTION_GIO(1),    0x00000010},
+    { UMC_MASTEROPTION_VO0(1),    0x00000801},
+    { UMC_MASTEROPTION_VO1(1),    0x00000810},
+    { UMC_MASTEROPTION_VPE(1),    0x00000811},
+    { UMC_MASTEROPTION_VPD(1),    0x00000811},
+    { UMC_MASTEROPTION_GR(1),    0x00000810},
+    { UMC_MASTEROPTION_PCI(1),    0x00001810},
+    { UMC_MASTEROPTION_A2D(1),    0x00000011},
+    { UMC_MASTEROPTION_DMD(1),    0x00000010},
+    { UMC_MASTEROPTION_REF(1),    0x00000001},
+    { UMC_MASTEROPTION_IDS(1),    0x00001010},
+    { UMC_MASTEROPTION_ID2(1),    0x00001010},
+    { UMC_MASTEROPTION_AR0(1),    0x00001804},
+    { UMC_MASTEROPTION_AR1(1),    0x00000804},
+    { UMC_MASTEROPTION_S2D(1),    0x00000010},
+    { UMC_MASTEROPTION_I2D(1),    0x00000010},
+    { UMC_MASTEROPTION_ICS(2),    0x00000804},
+    { UMC_MASTEROPTION_ICA(2),    0x00000804},
+    { UMC_MASTEROPTION_VH1(2),    0x00000810},
+    { UMC_MASTEROPTION_VG1(2),    0x00000810},
+    { UMC_MASTEROPTION_VG2(2),    0x00000810},
+    { UMC_MASTEROPTION_SIO(2),    0x00000010},
+    { UMC_MASTEROPTION_GIO(2),    0x00000010},
+    { UMC_MASTEROPTION_VO0(2),    0x00000810},
+    { UMC_MASTEROPTION_VO1(2),    0x00000810},
+    { UMC_MASTEROPTION_VPE(2),    0x00000810},
+    { UMC_MASTEROPTION_VPD(2),    0x00000810},
+    { UMC_MASTEROPTION_GR(2),    0x00000810},
+    { UMC_MASTEROPTION_PCI(2),    0x00001810},
+    { UMC_MASTEROPTION_A2D(2),    0x00000010},
+    { UMC_MASTEROPTION_DMD(2),    0x00000010},
+    { UMC_MASTEROPTION_REF(2),    0x00000001},
+    { UMC_MASTEROPTION_IDS(2),    0x00001010},
+    { UMC_MASTEROPTION_ID2(2),    0x00001010},
+    { UMC_MASTEROPTION_AR0(2),    0x00001804},
+    { UMC_MASTEROPTION_AR1(2),    0x00000804},
+    { UMC_MASTEROPTION_S2D(2),    0x00000010},
+    { UMC_MASTEROPTION_I2D(2),    0x00000010},
+    { UMC_PRIORITY_ICS(0),    0x00030000},
+    { UMC_PRIORITY_ICA(0),    0x01020000},
+    { UMC_PRIORITY_VH1(0),    0x02000002},
+    { UMC_PRIORITY_VG1(0),    0x03000003},
+    { UMC_PRIORITY_VG2(0),    0x04000004},
+    { UMC_PRIORITY_SIO(0),    0x05000005},
+    { UMC_PRIORITY_GIO(0),    0x06000006},
+    { UMC_PRIORITY_VO0(0),    0x07000007},
+    { UMC_PRIORITY_VO1(0),    0x08000008},
+    { UMC_PRIORITY_VPE(0),    0x09000009},
+    { UMC_PRIORITY_VPD(0),    0x0A00000A},
+    { UMC_PRIORITY_GR(0),    0x0B000001},
+    { UMC_PRIORITY_PCI(0),    0x0C00000B},
+    { UMC_PRIORITY_A2D(0),    0x0D00000C},
+    { UMC_PRIORITY_DMD(0),    0x0E00000D},
+    { UMC_PRIORITY_REF(0),    0x0F000000},
+    { UMC_PRIORITY_IDS(0),    0x1000000E},
+    { UMC_PRIORITY_ID2(0),    0x1100000F},
+    { UMC_PRIORITY_AR0(0),    0x12000000},
+    { UMC_PRIORITY_AR1(0),    0x13010000},
+    { UMC_PRIORITY_S2D(0),    0x14000010},
+    { UMC_PRIORITY_I2D(0),    0x15000011},
+    { UMC_PRIORITY_ICS(1),    0x00030000},
+    { UMC_PRIORITY_ICA(1),    0x01020000},
+    { UMC_PRIORITY_VH1(1),    0x02000002},
+    { UMC_PRIORITY_VG1(1),    0x03000003},
+    { UMC_PRIORITY_VG2(1),    0x04000004},
+    { UMC_PRIORITY_SIO(1),    0x05000005},
+    { UMC_PRIORITY_GIO(1),    0x06000006},
+    { UMC_PRIORITY_VO0(1),    0x07000007},
+    { UMC_PRIORITY_VO1(1),    0x08000008},
+    { UMC_PRIORITY_VPE(1),    0x09000009},
+    { UMC_PRIORITY_VPD(1),    0x0A00000A},
+    { UMC_PRIORITY_GR(1),    0x0B000001},
+    { UMC_PRIORITY_PCI(1),    0x0C00000B},
+    { UMC_PRIORITY_A2D(1),    0x0D00000C},
+    { UMC_PRIORITY_DMD(1),    0x0E00000D},
+    { UMC_PRIORITY_REF(1),    0x0F000000},
+    { UMC_PRIORITY_IDS(1),    0x1000000E},
+    { UMC_PRIORITY_ID2(1),    0x1100000F},
+    { UMC_PRIORITY_AR0(1),    0x12000000},
+    { UMC_PRIORITY_AR1(1),    0x13010000},
+    { UMC_PRIORITY_S2D(1),    0x14000010},
+    { UMC_PRIORITY_I2D(1),    0x15000011},
+    { UMC_PRIORITY_ICS(2),    0x00030000},
+    { UMC_PRIORITY_ICA(2),    0x01020000},
+    { UMC_PRIORITY_VH1(2),    0x02000002},
+    { UMC_PRIORITY_VG1(2),    0x03000003},
+    { UMC_PRIORITY_VG2(2),    0x04000004},
+    { UMC_PRIORITY_SIO(2),    0x05000005},
+    { UMC_PRIORITY_GIO(2),    0x06000006},
+    { UMC_PRIORITY_VO0(2),    0x07000007},
+    { UMC_PRIORITY_VO1(2),    0x08000008},
+    { UMC_PRIORITY_VPE(2),    0x09000009},
+    { UMC_PRIORITY_VPD(2),    0x0A00000A},
+    { UMC_PRIORITY_GR(2),    0x0B000001},
+    { UMC_PRIORITY_PCI(2),    0x0C00000B},
+    { UMC_PRIORITY_A2D(2),    0x0D00000C},
+    { UMC_PRIORITY_DMD(2),    0x0E00000D},
+    { UMC_PRIORITY_REF(2),    0x0F000000},
+    { UMC_PRIORITY_IDS(2),    0x1000000E},
+    { UMC_PRIORITY_ID2(2),    0x1100000F},
+    { UMC_PRIORITY_AR0(2),    0x12000000},
+    { UMC_PRIORITY_AR1(2),    0x13010000},
+    { UMC_PRIORITY_S2D(2),    0x14000010},
+    { UMC_PRIORITY_I2D(2),    0x15000011},
+    { UMC_CHSEL_DMD,    0x03000100 },
+    { UMC_FUNC_DATA_END, 0 }
+};
+
+static const umc_addrdata_t comsize_table_ld10[] = {
+	/*** For DDR3-CH0 ***/
+	{UMC_COMSIZE_1D_L1_(0),     0x01001002}, /*lsz=01, cls=00, pin=0, ett=0, dir=w, CH=1, oh=32 (=> setval=2)*/
+	{UMC_COMSIZE_1D_L2_(0),     0x02001004}, /*lsz=02, cls=00, pin=0, ett=0, dir=w, CH=1, oh=64 (=> setval=4)*/
+	{UMC_COMSIZE_1D_L3_(0),     0x03001006}, /*lsz=03, cls=00, pin=0, ett=0, dir=w, CH=1, oh=96 (=> setval=6)*/
+	{UMC_COMSIZE_1D_L4_(0),     0x04001008}, /*lsz=04, cls=00, pin=0, ett=0, dir=w, CH=1, oh=128 (=> setval=8)*/
+	{UMC_COMSIZE_1D_L5_(0),     0x0600100C}, /*lsz=06, cls=00, pin=0, ett=0, dir=w, CH=1, oh=192 (=> setval=12)*/
+	{UMC_COMSIZE_1D_L6_(0),     0x08001010}, /*lsz=08, cls=00, pin=0, ett=0, dir=w, CH=1, oh=256 (=> setval=16)*/
+	{UMC_COMSIZE_1D_L7_(0),     0x0c001018}, /*lsz=12, cls=00, pin=0, ett=0, dir=w, CH=1, oh=384 (=> setval=24)*/
+	{UMC_COMSIZE_1D_L8_(0),     0x10001020}, /*lsz=16, cls=00, pin=0, ett=0, dir=w, CH=1, oh=512 (=> setval=32)*/
+	
+	/*** For DDR3-CH1 ***/
+	{UMC_COMSIZE_1D_L1_(1),     0x01001002}, /*lsz=01, cls=00, pin=0, ett=0, dir=w, CH=1, oh=32 (=> setval=2)*/
+	{UMC_COMSIZE_1D_L2_(1),     0x02001004}, /*lsz=02, cls=00, pin=0, ett=0, dir=w, CH=1, oh=64 (=> setval=4)*/
+	{UMC_COMSIZE_1D_L3_(1),     0x03001006}, /*lsz=03, cls=00, pin=0, ett=0, dir=w, CH=1, oh=96 (=> setval=6)*/
+	{UMC_COMSIZE_1D_L4_(1),     0x04001008}, /*lsz=04, cls=00, pin=0, ett=0, dir=w, CH=1, oh=128 (=> setval=8)*/
+	{UMC_COMSIZE_1D_L5_(1),     0x0600100C}, /*lsz=06, cls=00, pin=0, ett=0, dir=w, CH=1, oh=192 (=> setval=12)*/
+	{UMC_COMSIZE_1D_L6_(1),     0x08001010}, /*lsz=08, cls=00, pin=0, ett=0, dir=w, CH=1, oh=256 (=> setval=16)*/
+	{UMC_COMSIZE_1D_L7_(1),     0x0c001018}, /*lsz=12, cls=00, pin=0, ett=0, dir=w, CH=1, oh=384 (=> setval=24)*/
+	{UMC_COMSIZE_1D_L8_(1),     0x10001020}, /*lsz=16, cls=00, pin=0, ett=0, dir=w, CH=1, oh=512 (=> setval=32)*/
+	
+	/*** For DDR3-CH2 ***/
+	{UMC_COMSIZE_1D_L1_(2),     0x01001002}, /*lsz=01, cls=00, pin=0, ett=0, dir=w, CH=1, oh=32 (=> setval=2)*/
+	{UMC_COMSIZE_1D_L2_(2),     0x02001004}, /*lsz=02, cls=00, pin=0, ett=0, dir=w, CH=1, oh=64 (=> setval=4)*/
+	{UMC_COMSIZE_1D_L3_(2),     0x03001006}, /*lsz=03, cls=00, pin=0, ett=0, dir=w, CH=1, oh=96 (=> setval=6)*/
+	{UMC_COMSIZE_1D_L4_(2),     0x04001008}, /*lsz=04, cls=00, pin=0, ett=0, dir=w, CH=1, oh=128 (=> setval=8)*/
+	{UMC_COMSIZE_1D_L5_(2),     0x0600100C}, /*lsz=06, cls=00, pin=0, ett=0, dir=w, CH=1, oh=192 (=> setval=12)*/
+	{UMC_COMSIZE_1D_L6_(2),     0x08001010}, /*lsz=08, cls=00, pin=0, ett=0, dir=w, CH=1, oh=256 (=> setval=16)*/
+	{UMC_COMSIZE_1D_L7_(2),     0x0c001018}, /*lsz=12, cls=00, pin=0, ett=0, dir=w, CH=1, oh=384 (=> setval=24)*/
+	{UMC_COMSIZE_1D_L8_(2),     0x10001020}, /*lsz=16, cls=00, pin=0, ett=0, dir=w, CH=1, oh=512 (=> setval=32)*/
+	
+	{UMC_FUNC_DATA_END, 0x0 }
+};
+
+static inline void write32(u32 addr, u32 data)
+{
+	writel(data, (void __iomem *)(u64)addr);
+}
+
+static inline u32 read32(u32 addr)
+{
+	return readl((void __iomem *)(u64)addr);
+}
+
+void uniphier_ld20_umc_funcsel(void)
+{
+
+	const umc_addrdata_t *p;
+	int ch;
+
+	/* set table for command size rate control */
+	for(p = comsize_table_ld10; p->addr != UMC_FUNC_DATA_END; p++) {
+		write32(p->addr, p->data);
+	}
+
+	/* set table for bandwidth setting */
+	for(p = UMC_FUNC_MAXLOAD_COMMON; p->addr != UMC_FUNC_DATA_END; p++) {
+		write32(p->addr, p->data);
+	}
+	//	/* Write Funcsel Index */
+	//write32(UMCDEBUGD(TOTAL_CH - 1), p->data);
+
+	/* set rate change register */
+	for(ch = 0; ch < TOTAL_CH; ch++){
+		write32(UMC_RATE_CHANGE(ch), 0x00000001);
+	}
+
+	/* register polling ( wait until UMC_RATE_CHANGE is 0x00000000 ) */
+	for(ch = 0; ch < TOTAL_CH; ch++){
+		while(read32(UMC_RATE_CHANGE(ch)))
+			;
+	}
+
+	/* direction history arbitration mode off (temporary) */
+	for(ch = 0; ch < TOTAL_CH; ch++){
+		write32(UMC_DIR_ARB(ch), 0x00000000);
+	}
+
+	/* bank history arbitration mode off (temporary) */
+	for(ch = 0; ch < TOTAL_CH; ch++){
+		write32(UMC_BNK_ARB_MODE(ch), 0x00000000);
+	}
+
+}

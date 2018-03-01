@@ -1,0 +1,271 @@
+rule $
+    content_strings_target_generate_content_strings_c0089808c1fc30eabe795698f1ad6ed1
+  command = cd ../../content/app/strings; python $
+      ../../../tools/grit/grit.py -i content_strings.grd build -f $
+      ../../../tools/gritsettings/resource_ids -o $
+      ../../../out.cef/Release/gen/content/app/strings "--write-only-new=1" $
+      -D _chromium -E "CHROMIUM_BUILD=chromium" -D desktop_linux -D $
+      use_aura -D use_nss_certs -D use_nss_verifier -D use_ozone -D $
+      enable_extensions -D enable_plugins -D enable_printing -D $
+      enable_themes -D enable_app_list -D enable_settings_app -D $
+      use_concatenated_impulse_responses -D enable_media_router -D $
+      enable_task_manager -D enable_topchrome_md -D enable_service_discovery
+  description = ACTION Generating resources from content_strings.grd
+  restat = 1
+
+build gen/content/app/strings/grit/content_strings.h $
+    gen/content/app/strings/content_strings_am.pak $
+    gen/content/app/strings/content_strings_ar.pak $
+    gen/content/app/strings/content_strings_bg.pak $
+    gen/content/app/strings/content_strings_bn.pak $
+    gen/content/app/strings/content_strings_ca.pak $
+    gen/content/app/strings/content_strings_cs.pak $
+    gen/content/app/strings/content_strings_da.pak $
+    gen/content/app/strings/content_strings_de.pak $
+    gen/content/app/strings/content_strings_el.pak $
+    gen/content/app/strings/content_strings_en-GB.pak $
+    gen/content/app/strings/content_strings_en-US.pak $
+    gen/content/app/strings/content_strings_es.pak $
+    gen/content/app/strings/content_strings_es-419.pak $
+    gen/content/app/strings/content_strings_et.pak $
+    gen/content/app/strings/content_strings_fa.pak $
+    gen/content/app/strings/content_strings_fake-bidi.pak $
+    gen/content/app/strings/content_strings_fi.pak $
+    gen/content/app/strings/content_strings_fil.pak $
+    gen/content/app/strings/content_strings_fr.pak $
+    gen/content/app/strings/content_strings_gu.pak $
+    gen/content/app/strings/content_strings_he.pak $
+    gen/content/app/strings/content_strings_hi.pak $
+    gen/content/app/strings/content_strings_hr.pak $
+    gen/content/app/strings/content_strings_hu.pak $
+    gen/content/app/strings/content_strings_id.pak $
+    gen/content/app/strings/content_strings_it.pak $
+    gen/content/app/strings/content_strings_ja.pak $
+    gen/content/app/strings/content_strings_kn.pak $
+    gen/content/app/strings/content_strings_ko.pak $
+    gen/content/app/strings/content_strings_lt.pak $
+    gen/content/app/strings/content_strings_lv.pak $
+    gen/content/app/strings/content_strings_ml.pak $
+    gen/content/app/strings/content_strings_mr.pak $
+    gen/content/app/strings/content_strings_ms.pak $
+    gen/content/app/strings/content_strings_nl.pak $
+    gen/content/app/strings/content_strings_nb.pak $
+    gen/content/app/strings/content_strings_pl.pak $
+    gen/content/app/strings/content_strings_pt-BR.pak $
+    gen/content/app/strings/content_strings_pt-PT.pak $
+    gen/content/app/strings/content_strings_ro.pak $
+    gen/content/app/strings/content_strings_ru.pak $
+    gen/content/app/strings/content_strings_sk.pak $
+    gen/content/app/strings/content_strings_sl.pak $
+    gen/content/app/strings/content_strings_sr.pak $
+    gen/content/app/strings/content_strings_sv.pak $
+    gen/content/app/strings/content_strings_sw.pak $
+    gen/content/app/strings/content_strings_ta.pak $
+    gen/content/app/strings/content_strings_te.pak $
+    gen/content/app/strings/content_strings_th.pak $
+    gen/content/app/strings/content_strings_tr.pak $
+    gen/content/app/strings/content_strings_uk.pak $
+    gen/content/app/strings/content_strings_vi.pak $
+    gen/content/app/strings/content_strings_zh-CN.pak $
+    gen/content/app/strings/content_strings_zh-TW.pak: $
+    content_strings_target_generate_content_strings_c0089808c1fc30eabe795698f1ad6ed1 $
+    ../../tools/gritsettings/resource_ids $
+    ../../content/app/strings/content_strings.grd $
+    ../../content/app/strings/translations/content_strings_am.xtb $
+    ../../content/app/strings/translations/content_strings_ar.xtb $
+    ../../content/app/strings/translations/content_strings_bg.xtb $
+    ../../content/app/strings/translations/content_strings_bn.xtb $
+    ../../content/app/strings/translations/content_strings_ca.xtb $
+    ../../content/app/strings/translations/content_strings_cs.xtb $
+    ../../content/app/strings/translations/content_strings_da.xtb $
+    ../../content/app/strings/translations/content_strings_de.xtb $
+    ../../content/app/strings/translations/content_strings_el.xtb $
+    ../../content/app/strings/translations/content_strings_en-GB.xtb $
+    ../../content/app/strings/translations/content_strings_es-419.xtb $
+    ../../content/app/strings/translations/content_strings_es.xtb $
+    ../../content/app/strings/translations/content_strings_et.xtb $
+    ../../content/app/strings/translations/content_strings_fa.xtb $
+    ../../content/app/strings/translations/content_strings_fi.xtb $
+    ../../content/app/strings/translations/content_strings_fil.xtb $
+    ../../content/app/strings/translations/content_strings_fr.xtb $
+    ../../content/app/strings/translations/content_strings_gu.xtb $
+    ../../content/app/strings/translations/content_strings_hi.xtb $
+    ../../content/app/strings/translations/content_strings_hr.xtb $
+    ../../content/app/strings/translations/content_strings_hu.xtb $
+    ../../content/app/strings/translations/content_strings_id.xtb $
+    ../../content/app/strings/translations/content_strings_it.xtb $
+    ../../content/app/strings/translations/content_strings_iw.xtb $
+    ../../content/app/strings/translations/content_strings_ja.xtb $
+    ../../content/app/strings/translations/content_strings_kn.xtb $
+    ../../content/app/strings/translations/content_strings_ko.xtb $
+    ../../content/app/strings/translations/content_strings_lt.xtb $
+    ../../content/app/strings/translations/content_strings_lv.xtb $
+    ../../content/app/strings/translations/content_strings_ml.xtb $
+    ../../content/app/strings/translations/content_strings_mr.xtb $
+    ../../content/app/strings/translations/content_strings_ms.xtb $
+    ../../content/app/strings/translations/content_strings_nl.xtb $
+    ../../content/app/strings/translations/content_strings_no.xtb $
+    ../../content/app/strings/translations/content_strings_pl.xtb $
+    ../../content/app/strings/translations/content_strings_pt-BR.xtb $
+    ../../content/app/strings/translations/content_strings_pt-PT.xtb $
+    ../../content/app/strings/translations/content_strings_ro.xtb $
+    ../../content/app/strings/translations/content_strings_ru.xtb $
+    ../../content/app/strings/translations/content_strings_sk.xtb $
+    ../../content/app/strings/translations/content_strings_sl.xtb $
+    ../../content/app/strings/translations/content_strings_sr.xtb $
+    ../../content/app/strings/translations/content_strings_sv.xtb $
+    ../../content/app/strings/translations/content_strings_sw.xtb $
+    ../../content/app/strings/translations/content_strings_ta.xtb $
+    ../../content/app/strings/translations/content_strings_te.xtb $
+    ../../content/app/strings/translations/content_strings_th.xtb $
+    ../../content/app/strings/translations/content_strings_tr.xtb $
+    ../../content/app/strings/translations/content_strings_uk.xtb $
+    ../../content/app/strings/translations/content_strings_vi.xtb $
+    ../../content/app/strings/translations/content_strings_zh-CN.xtb $
+    ../../content/app/strings/translations/content_strings_zh-TW.xtb $
+    ../../tools/grit/PRESUBMIT.py ../../tools/grit/grit.py $
+    ../../tools/grit/grit/__init__.py ../../tools/grit/grit/clique.py $
+    ../../tools/grit/grit/constants.py ../../tools/grit/grit/exception.py $
+    ../../tools/grit/grit/extern/BogoFP.py $
+    ../../tools/grit/grit/extern/FP.py $
+    ../../tools/grit/grit/extern/__init__.py $
+    ../../tools/grit/grit/extern/tclib.py $
+    ../../tools/grit/grit/format/__init__.py $
+    ../../tools/grit/grit/format/android_xml.py $
+    ../../tools/grit/grit/format/c_format.py $
+    ../../tools/grit/grit/format/chrome_messages_json.py $
+    ../../tools/grit/grit/format/data_pack.py $
+    ../../tools/grit/grit/format/html_inline.py $
+    ../../tools/grit/grit/format/js_map_format.py $
+    ../../tools/grit/grit/format/policy_templates/PRESUBMIT.py $
+    ../../tools/grit/grit/format/policy_templates/__init__.py $
+    ../../tools/grit/grit/format/policy_templates/policy_template_generator.py $
+    ../../tools/grit/grit/format/policy_templates/template_formatter.py $
+    ../../tools/grit/grit/format/policy_templates/writer_configuration.py $
+    ../../tools/grit/grit/format/policy_templates/writers/__init__.py $
+    ../../tools/grit/grit/format/policy_templates/writers/adm_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/adml_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/admx_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/android_policy_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/doc_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/ios_plist_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/json_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/mock_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/plist_helper.py $
+    ../../tools/grit/grit/format/policy_templates/writers/plist_strings_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/plist_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/reg_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/template_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/writer_unittest_common.py $
+    ../../tools/grit/grit/format/policy_templates/writers/xml_formatted_writer.py $
+    ../../tools/grit/grit/format/rc.py $
+    ../../tools/grit/grit/format/rc_header.py $
+    ../../tools/grit/grit/format/repack.py $
+    ../../tools/grit/grit/format/resource_map.py $
+    ../../tools/grit/grit/gather/__init__.py $
+    ../../tools/grit/grit/gather/admin_template.py $
+    ../../tools/grit/grit/gather/chrome_html.py $
+    ../../tools/grit/grit/gather/chrome_scaled_image.py $
+    ../../tools/grit/grit/gather/igoogle_strings.py $
+    ../../tools/grit/grit/gather/interface.py $
+    ../../tools/grit/grit/gather/json_loader.py $
+    ../../tools/grit/grit/gather/muppet_strings.py $
+    ../../tools/grit/grit/gather/policy_json.py $
+    ../../tools/grit/grit/gather/rc.py $
+    ../../tools/grit/grit/gather/regexp.py $
+    ../../tools/grit/grit/gather/skeleton_gatherer.py $
+    ../../tools/grit/grit/gather/tr_html.py $
+    ../../tools/grit/grit/gather/txt.py ../../tools/grit/grit/grd_reader.py $
+    ../../tools/grit/grit/grit_runner.py ../../tools/grit/grit/lazy_re.py $
+    ../../tools/grit/grit/node/__init__.py $
+    ../../tools/grit/grit/node/base.py $
+    ../../tools/grit/grit/node/custom/__init__.py $
+    ../../tools/grit/grit/node/custom/filename.py $
+    ../../tools/grit/grit/node/empty.py $
+    ../../tools/grit/grit/node/include.py ../../tools/grit/grit/node/io.py $
+    ../../tools/grit/grit/node/mapping.py $
+    ../../tools/grit/grit/node/message.py $
+    ../../tools/grit/grit/node/misc.py $
+    ../../tools/grit/grit/node/structure.py $
+    ../../tools/grit/grit/node/variant.py ../../tools/grit/grit/pseudo.py $
+    ../../tools/grit/grit/pseudo_rtl.py ../../tools/grit/grit/scons.py $
+    ../../tools/grit/grit/shortcuts.py $
+    ../../tools/grit/grit/shortcuts_unittests.py $
+    ../../tools/grit/grit/tclib.py ../../tools/grit/grit/test_suite_all.py $
+    ../../tools/grit/grit/tool/__init__.py $
+    ../../tools/grit/grit/tool/android2grd.py $
+    ../../tools/grit/grit/tool/build.py $
+    ../../tools/grit/grit/tool/buildinfo.py $
+    ../../tools/grit/grit/tool/count.py $
+    ../../tools/grit/grit/tool/diff_structures.py $
+    ../../tools/grit/grit/tool/interface.py $
+    ../../tools/grit/grit/tool/menu_from_parts.py $
+    ../../tools/grit/grit/tool/newgrd.py $
+    ../../tools/grit/grit/tool/postprocess_interface.py $
+    ../../tools/grit/grit/tool/preprocess_interface.py $
+    ../../tools/grit/grit/tool/rc2grd.py $
+    ../../tools/grit/grit/tool/resize.py ../../tools/grit/grit/tool/test.py $
+    ../../tools/grit/grit/tool/toolbar_postprocess.py $
+    ../../tools/grit/grit/tool/toolbar_preprocess.py $
+    ../../tools/grit/grit/tool/transl2tc.py $
+    ../../tools/grit/grit/tool/unit.py ../../tools/grit/grit/tool/xmb.py $
+    ../../tools/grit/grit/util.py ../../tools/grit/grit/xtb_reader.py $
+    ../../tools/grit/grit_info.py ../../tools/grit/stamp_grit_sources.py
+
+build obj/content/app/strings/content_strings.actions_rules_copies.stamp: $
+    stamp gen/content/app/strings/grit/content_strings.h $
+    gen/content/app/strings/content_strings_am.pak $
+    gen/content/app/strings/content_strings_ar.pak $
+    gen/content/app/strings/content_strings_bg.pak $
+    gen/content/app/strings/content_strings_bn.pak $
+    gen/content/app/strings/content_strings_ca.pak $
+    gen/content/app/strings/content_strings_cs.pak $
+    gen/content/app/strings/content_strings_da.pak $
+    gen/content/app/strings/content_strings_de.pak $
+    gen/content/app/strings/content_strings_el.pak $
+    gen/content/app/strings/content_strings_en-GB.pak $
+    gen/content/app/strings/content_strings_en-US.pak $
+    gen/content/app/strings/content_strings_es.pak $
+    gen/content/app/strings/content_strings_es-419.pak $
+    gen/content/app/strings/content_strings_et.pak $
+    gen/content/app/strings/content_strings_fa.pak $
+    gen/content/app/strings/content_strings_fake-bidi.pak $
+    gen/content/app/strings/content_strings_fi.pak $
+    gen/content/app/strings/content_strings_fil.pak $
+    gen/content/app/strings/content_strings_fr.pak $
+    gen/content/app/strings/content_strings_gu.pak $
+    gen/content/app/strings/content_strings_he.pak $
+    gen/content/app/strings/content_strings_hi.pak $
+    gen/content/app/strings/content_strings_hr.pak $
+    gen/content/app/strings/content_strings_hu.pak $
+    gen/content/app/strings/content_strings_id.pak $
+    gen/content/app/strings/content_strings_it.pak $
+    gen/content/app/strings/content_strings_ja.pak $
+    gen/content/app/strings/content_strings_kn.pak $
+    gen/content/app/strings/content_strings_ko.pak $
+    gen/content/app/strings/content_strings_lt.pak $
+    gen/content/app/strings/content_strings_lv.pak $
+    gen/content/app/strings/content_strings_ml.pak $
+    gen/content/app/strings/content_strings_mr.pak $
+    gen/content/app/strings/content_strings_ms.pak $
+    gen/content/app/strings/content_strings_nl.pak $
+    gen/content/app/strings/content_strings_nb.pak $
+    gen/content/app/strings/content_strings_pl.pak $
+    gen/content/app/strings/content_strings_pt-BR.pak $
+    gen/content/app/strings/content_strings_pt-PT.pak $
+    gen/content/app/strings/content_strings_ro.pak $
+    gen/content/app/strings/content_strings_ru.pak $
+    gen/content/app/strings/content_strings_sk.pak $
+    gen/content/app/strings/content_strings_sl.pak $
+    gen/content/app/strings/content_strings_sr.pak $
+    gen/content/app/strings/content_strings_sv.pak $
+    gen/content/app/strings/content_strings_sw.pak $
+    gen/content/app/strings/content_strings_ta.pak $
+    gen/content/app/strings/content_strings_te.pak $
+    gen/content/app/strings/content_strings_th.pak $
+    gen/content/app/strings/content_strings_tr.pak $
+    gen/content/app/strings/content_strings_uk.pak $
+    gen/content/app/strings/content_strings_vi.pak $
+    gen/content/app/strings/content_strings_zh-CN.pak $
+    gen/content/app/strings/content_strings_zh-TW.pak
+

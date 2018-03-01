@@ -1,0 +1,384 @@
+build obj/components/autofill_core_browser.actions_depends.stamp: stamp $
+    lib/libbase.so.TOC lib/libnet.so.TOC $
+    obj/skia/skia.actions_depends.stamp obj/sync/sync.actions_depends.stamp $
+    obj/sync/libsync_proto.a $
+    obj/third_party/libphonenumber/libphonenumber_without_metadata.a $
+    obj/ui/gfx/libgfx_vector_icons.a lib/liburl_lib.so.TOC $
+    obj/components/libautofill_server_proto.a $
+    obj/components/components_resources.actions_rules_copies.stamp $
+    obj/components/components_strings.actions_rules_copies.stamp $
+    obj/components/librappor.a obj/components/libcomponent_metrics_proto.a
+
+build obj/components/autofill_core_browser.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp obj/net/net.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/sync/sync.compile_depends.stamp $
+    obj/sync/sync_proto.actions_rules_copies.stamp $
+    obj/third_party/libphonenumber/libphonenumber_without_metadata.actions_rules_copies.stamp $
+    obj/ui/gfx/gfx_vector_icons.actions_rules_copies.stamp $
+    obj/url/url_lib.compile_depends.stamp $
+    obj/components/autofill_server_proto.actions_rules_copies.stamp $
+    obj/components/components_resources.actions_rules_copies.stamp $
+    obj/components/components_strings.actions_rules_copies.stamp $
+    obj/components/rappor.actions_rules_copies.stamp $
+    obj/components/component_metrics_proto.actions_rules_copies.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DSK_SUPPORT_GPU=1 $
+    -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS -DPROTOBUF_USE_DLLS $
+    -DGOOGLE_PROTOBUF_NO_RTTI -DGOOGLE_PROTOBUF_NO_STATIC_INITIALIZER $
+    -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= $
+    -DU_STATIC_IMPLEMENTATION -DI18N_ADDRESSINPUT_USE_BASICTYPES_OVERRIDE=1 $
+    -DI18N_PHONENUMBERS_USE_ALTERNATE_FORMATS=1 $
+    -DI18N_PHONENUMBERS_USE_ICU_REGEXP=1 $
+    -DI18N_PHONENUMBERS_NO_THREAD_SAFETY=1 -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS $
+    -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../skia/config $
+    -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -Igen/protoc_out -I../../third_party/protobuf $
+    -I../../third_party/protobuf/src -I../../third_party/fips181 $
+    -I../../third_party/icu/source/i18n $
+    -I../../third_party/icu/source/common $
+    -I../../third_party/libaddressinput/chromium/override $
+    -I../../third_party/libaddressinput/src/cpp/include $
+    -Igen/third_party/libaddressinput/ $
+    -Igen/protoc_out/third_party/libphonenumber $
+    -I../../third_party/libphonenumber/dist/cpp/src $
+    -I../../third_party/re2/src -Igen/components -Igen/components/strings $
+    -I../../third_party/cacheinvalidation/overrides $
+    -I../../third_party/cacheinvalidation/src
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/components/autofill/core/browser/autofill_core_browser.address.o: $
+    cxx ../../components/autofill/core/browser/address.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.address_field.o: $
+    cxx ../../components/autofill/core/browser/address_field.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.address_i18n.o: $
+    cxx ../../components/autofill/core/browser/address_i18n.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.autocomplete_history_manager.o: $
+    cxx $
+    ../../components/autofill/core/browser/autocomplete_history_manager.cc $
+    || obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_country.o: $
+    cxx ../../components/autofill/core/browser/autofill_country.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_data_model.o: $
+    cxx ../../components/autofill/core/browser/autofill_data_model.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_data_util.o: $
+    cxx ../../components/autofill/core/browser/autofill_data_util.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_download_manager.o: $
+    cxx ../../components/autofill/core/browser/autofill_download_manager.cc $
+    || obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_experiments.o: $
+    cxx ../../components/autofill/core/browser/autofill_experiments.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_external_delegate.o: $
+    cxx $
+    ../../components/autofill/core/browser/autofill_external_delegate.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_field.o: $
+    cxx ../../components/autofill/core/browser/autofill_field.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_manager.o: $
+    cxx ../../components/autofill/core/browser/autofill_manager.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_metrics.o: $
+    cxx ../../components/autofill/core/browser/autofill_metrics.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_profile.o: $
+    cxx ../../components/autofill/core/browser/autofill_profile.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_regex_constants.o: $
+    cxx ../../components/autofill/core/browser/autofill_regex_constants.cc $
+    || obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_scanner.o: $
+    cxx ../../components/autofill/core/browser/autofill_scanner.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_sync_constants.o: $
+    cxx ../../components/autofill/core/browser/autofill_sync_constants.cc $
+    || obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_type.o: $
+    cxx ../../components/autofill/core/browser/autofill_type.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_wallet_data_type_controller.o: $
+    cxx $
+    ../../components/autofill/core/browser/autofill_wallet_data_type_controller.cc $
+    || obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.card_unmask_delegate.o: $
+    cxx ../../components/autofill/core/browser/card_unmask_delegate.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.contact_info.o: $
+    cxx ../../components/autofill/core/browser/contact_info.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.country_data.o: $
+    cxx ../../components/autofill/core/browser/country_data.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.country_names.o: $
+    cxx ../../components/autofill/core/browser/country_names.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.credit_card.o: $
+    cxx ../../components/autofill/core/browser/credit_card.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.credit_card_field.o: $
+    cxx ../../components/autofill/core/browser/credit_card_field.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.detail_input.o: $
+    cxx ../../components/autofill/core/browser/detail_input.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.email_field.o: $
+    cxx ../../components/autofill/core/browser/email_field.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.field_candidates.o: $
+    cxx ../../components/autofill/core/browser/field_candidates.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.form_field.o: $
+    cxx ../../components/autofill/core/browser/form_field.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.form_group.o: $
+    cxx ../../components/autofill/core/browser/form_group.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.form_structure.o: $
+    cxx ../../components/autofill/core/browser/form_structure.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.legal_message_line.o: $
+    cxx ../../components/autofill/core/browser/legal_message_line.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.name_field.o: $
+    cxx ../../components/autofill/core/browser/name_field.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.password_generator.o: $
+    cxx ../../components/autofill/core/browser/password_generator.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/payments/autofill_core_browser.payments_client.o: $
+    cxx ../../components/autofill/core/browser/payments/payments_client.cc $
+    || obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.personal_data_manager.o: $
+    cxx ../../components/autofill/core/browser/personal_data_manager.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.phone_field.o: $
+    cxx ../../components/autofill/core/browser/phone_field.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.phone_number.o: $
+    cxx ../../components/autofill/core/browser/phone_number.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.phone_number_i18n.o: $
+    cxx ../../components/autofill/core/browser/phone_number_i18n.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.server_field_types_util.o: $
+    cxx ../../components/autofill/core/browser/server_field_types_util.cc $
+    || obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.state_names.o: $
+    cxx ../../components/autofill/core/browser/state_names.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.suggestion.o: $
+    cxx ../../components/autofill/core/browser/suggestion.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/ui/autofill_core_browser.card_unmask_prompt_controller_impl.o: $
+    cxx $
+    ../../components/autofill/core/browser/ui/card_unmask_prompt_controller_impl.cc $
+    || obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/autofill_core_browser.validation.o: $
+    cxx ../../components/autofill/core/browser/validation.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/webdata/autofill_core_browser.autocomplete_syncable_service.o: $
+    cxx $
+    ../../components/autofill/core/browser/webdata/autocomplete_syncable_service.cc $
+    || obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/webdata/autofill_core_browser.autofill_change.o: $
+    cxx ../../components/autofill/core/browser/webdata/autofill_change.cc $
+    || obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/webdata/autofill_core_browser.autofill_data_type_controller.o: $
+    cxx $
+    ../../components/autofill/core/browser/webdata/autofill_data_type_controller.cc $
+    || obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/webdata/autofill_core_browser.autofill_entry.o: $
+    cxx ../../components/autofill/core/browser/webdata/autofill_entry.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/webdata/autofill_core_browser.autofill_profile_data_type_controller.o: $
+    cxx $
+    ../../components/autofill/core/browser/webdata/autofill_profile_data_type_controller.cc $
+    || obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/webdata/autofill_core_browser.autofill_profile_syncable_service.o: $
+    cxx $
+    ../../components/autofill/core/browser/webdata/autofill_profile_syncable_service.cc $
+    || obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/webdata/autofill_core_browser.autofill_table.o: $
+    cxx ../../components/autofill/core/browser/webdata/autofill_table.cc || $
+    obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/webdata/autofill_core_browser.autofill_wallet_metadata_syncable_service.o: $
+    cxx $
+    ../../components/autofill/core/browser/webdata/autofill_wallet_metadata_syncable_service.cc $
+    || obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/webdata/autofill_core_browser.autofill_wallet_syncable_service.o: $
+    cxx $
+    ../../components/autofill/core/browser/webdata/autofill_wallet_syncable_service.cc $
+    || obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/webdata/autofill_core_browser.autofill_webdata_backend_impl.o: $
+    cxx $
+    ../../components/autofill/core/browser/webdata/autofill_webdata_backend_impl.cc $
+    || obj/components/autofill_core_browser.compile_depends.stamp
+build $
+    obj/components/autofill/core/browser/webdata/autofill_core_browser.autofill_webdata_service.o: $
+    cxx $
+    ../../components/autofill/core/browser/webdata/autofill_webdata_service.cc $
+    || obj/components/autofill_core_browser.compile_depends.stamp
+
+build obj/components/libautofill_core_browser.a: alink_thin $
+    obj/components/autofill/core/browser/autofill_core_browser.address.o $
+    obj/components/autofill/core/browser/autofill_core_browser.address_field.o $
+    obj/components/autofill/core/browser/autofill_core_browser.address_i18n.o $
+    obj/components/autofill/core/browser/autofill_core_browser.autocomplete_history_manager.o $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_country.o $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_data_model.o $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_data_util.o $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_download_manager.o $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_experiments.o $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_external_delegate.o $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_field.o $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_manager.o $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_metrics.o $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_profile.o $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_regex_constants.o $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_scanner.o $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_sync_constants.o $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_type.o $
+    obj/components/autofill/core/browser/autofill_core_browser.autofill_wallet_data_type_controller.o $
+    obj/components/autofill/core/browser/autofill_core_browser.card_unmask_delegate.o $
+    obj/components/autofill/core/browser/autofill_core_browser.contact_info.o $
+    obj/components/autofill/core/browser/autofill_core_browser.country_data.o $
+    obj/components/autofill/core/browser/autofill_core_browser.country_names.o $
+    obj/components/autofill/core/browser/autofill_core_browser.credit_card.o $
+    obj/components/autofill/core/browser/autofill_core_browser.credit_card_field.o $
+    obj/components/autofill/core/browser/autofill_core_browser.detail_input.o $
+    obj/components/autofill/core/browser/autofill_core_browser.email_field.o $
+    obj/components/autofill/core/browser/autofill_core_browser.field_candidates.o $
+    obj/components/autofill/core/browser/autofill_core_browser.form_field.o $
+    obj/components/autofill/core/browser/autofill_core_browser.form_group.o $
+    obj/components/autofill/core/browser/autofill_core_browser.form_structure.o $
+    obj/components/autofill/core/browser/autofill_core_browser.legal_message_line.o $
+    obj/components/autofill/core/browser/autofill_core_browser.name_field.o $
+    obj/components/autofill/core/browser/autofill_core_browser.password_generator.o $
+    obj/components/autofill/core/browser/payments/autofill_core_browser.payments_client.o $
+    obj/components/autofill/core/browser/autofill_core_browser.personal_data_manager.o $
+    obj/components/autofill/core/browser/autofill_core_browser.phone_field.o $
+    obj/components/autofill/core/browser/autofill_core_browser.phone_number.o $
+    obj/components/autofill/core/browser/autofill_core_browser.phone_number_i18n.o $
+    obj/components/autofill/core/browser/autofill_core_browser.server_field_types_util.o $
+    obj/components/autofill/core/browser/autofill_core_browser.state_names.o $
+    obj/components/autofill/core/browser/autofill_core_browser.suggestion.o $
+    obj/components/autofill/core/browser/ui/autofill_core_browser.card_unmask_prompt_controller_impl.o $
+    obj/components/autofill/core/browser/autofill_core_browser.validation.o $
+    obj/components/autofill/core/browser/webdata/autofill_core_browser.autocomplete_syncable_service.o $
+    obj/components/autofill/core/browser/webdata/autofill_core_browser.autofill_change.o $
+    obj/components/autofill/core/browser/webdata/autofill_core_browser.autofill_data_type_controller.o $
+    obj/components/autofill/core/browser/webdata/autofill_core_browser.autofill_entry.o $
+    obj/components/autofill/core/browser/webdata/autofill_core_browser.autofill_profile_data_type_controller.o $
+    obj/components/autofill/core/browser/webdata/autofill_core_browser.autofill_profile_syncable_service.o $
+    obj/components/autofill/core/browser/webdata/autofill_core_browser.autofill_table.o $
+    obj/components/autofill/core/browser/webdata/autofill_core_browser.autofill_wallet_metadata_syncable_service.o $
+    obj/components/autofill/core/browser/webdata/autofill_core_browser.autofill_wallet_syncable_service.o $
+    obj/components/autofill/core/browser/webdata/autofill_core_browser.autofill_webdata_backend_impl.o $
+    obj/components/autofill/core/browser/webdata/autofill_core_browser.autofill_webdata_service.o $
+    || obj/components/autofill_core_browser.actions_depends.stamp

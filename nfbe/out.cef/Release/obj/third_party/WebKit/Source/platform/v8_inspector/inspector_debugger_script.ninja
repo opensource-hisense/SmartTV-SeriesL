@@ -1,0 +1,14 @@
+rule $
+    inspector_debugger_script_target_ConvertFileToHeaderWithCharacterArray_43f8835522fb2b8597bf2dac14c4d36f
+  command = cd ../../third_party/WebKit/Source/platform/v8_inspector; $
+      python build/xxd.py DebuggerScript_js DebuggerScript.js $
+      ../../../../../out.cef/Release/gen/blink/platform/v8_inspector/DebuggerScript.h
+  description = ACTION inspector_debugger_script: $
+      ConvertFileToHeaderWithCharacterArray_43f8835522fb2b8597bf2dac14c4d36f
+  restat = 1
+
+build gen/blink/platform/v8_inspector/DebuggerScript.h: $
+    inspector_debugger_script_target_ConvertFileToHeaderWithCharacterArray_43f8835522fb2b8597bf2dac14c4d36f $
+    ../../third_party/WebKit/Source/platform/v8_inspector/build/xxd.py $
+    ../../third_party/WebKit/Source/platform/v8_inspector/DebuggerScript.js
+

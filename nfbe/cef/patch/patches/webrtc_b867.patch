@@ -1,0 +1,12 @@
+diff --git modules/video_coding/codecs/h264/h264.gypi modules/video_coding/codecs/h264/h264.gypi
+index 9cb58a8..8aab1b4 100644
+--- modules/video_coding/codecs/h264/h264.gypi
++++ modules/video_coding/codecs/h264/h264.gypi
+@@ -41,6 +41,7 @@
+             '<(DEPTH)/third_party/ffmpeg/ffmpeg.gyp:ffmpeg',
+             '<(DEPTH)/third_party/openh264/openh264.gyp:openh264_encoder',
+             '<(webrtc_root)/common_video/common_video.gyp:common_video',
++            '<(webrtc_root)/system_wrappers/system_wrappers.gyp:metrics_default',
+           ],
+           'sources': [
+             'h264_decoder_impl.cc',

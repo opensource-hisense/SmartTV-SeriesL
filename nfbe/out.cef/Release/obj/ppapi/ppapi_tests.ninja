@@ -1,0 +1,538 @@
+build obj/ppapi/ppapi_tests.actions_depends.stamp: stamp $
+    obj/ppapi/libppapi_cpp.a obj/ppapi/libppapi_shared.a $
+    obj/ppapi/libppapi_cpp_objects.a lib/libbase.so.TOC $
+    obj/base/libbase_i18n.a $
+    obj/base/third_party/dynamic_annotations/libdynamic_annotations.a $
+    obj/third_party/icu/libicui18n.a obj/third_party/icu/libicuuc.a $
+    icudtl.dat icudtl.dat obj/gpu/command_buffer/libgles2_utils.a $
+    obj/gpu/libcommand_buffer_client.a obj/gpu/libcommand_buffer_common.a $
+    obj/gpu/libgles2_implementation.a obj/ui/gfx/libgfx_geometry.a $
+    obj/ui/gl/libgl_wrapper.a obj/skia/skia.actions_depends.stamp $
+    obj/skia/libskia_library.a obj/skia/libskia_opts.a $
+    obj/skia/libskia_opts_neon.a obj/third_party/zlib/libchrome_zlib.a $
+    obj/third_party/zlib/libzlib_x86_simd.a $
+    obj/third_party/sfntly/libsfntly.a $
+    obj/third_party/fontconfig/libfontconfig.a $
+    obj/third_party/fontconfig/libfontconfig.a $
+    obj/third_party/libxml/libxml2.a obj/skia/libskia_chrome.a $
+    obj/ui/base/libui_base.a obj/ui/base/libui_data_pack.a $
+    gen/ui/base/ui_features.h obj/base/libbase_static.a lib/libnet.so.TOC $
+    lib/liburl_lib.so.TOC obj/ui/events/libevents.a obj/ui/gfx/libgfx.a $
+    obj/third_party/harfbuzz-ng/libharfbuzz-ng.a $
+    obj/third_party/libpng/libpng.a $
+    obj/third_party/libjpeg_turbo/libjpeg_turbo.a $
+    obj/ui/events/libdom_keycode_converter.a obj/ui/events/libevents_base.a $
+    obj/ui/events/libgesture_detection.a $
+    obj/ui/events/ozone/libevents_ozone_layout.a $
+    obj/ui/events/platform/libevents_platform.a $
+    obj/ui/resources/ui_resources.actions_rules_copies.stamp $
+    obj/ui/strings/ui_strings.actions_rules_copies.stamp $
+    obj/ui/events/devices/libevents_devices.a $
+    obj/ui/events/ozone/libevents_ozone_evdev.a $
+    obj/ui/ozone/libozone_base.a obj/ipc/libipc.a $
+    obj/ui/display/libdisplay_types.a obj/ui/display/libdisplay_util.a $
+    obj/ui/gfx/ipc/libgfx_ipc.a obj/ui/gfx/ipc/skia/libgfx_ipc_skia.a $
+    obj/ui/events/ozone/libevents_ozone.a obj/ui/ozone/libozone.a $
+    obj/ui/ozone/libozone_platform.a $
+    obj/ui/ozone/libozone_platform_egltest.a obj/ui/ozone/libozone_common.a $
+    obj/ui/ozone/libeglplatform_shim.a $
+    obj/ui/ozone/libozone_platform_headless.a obj/gpu/libgles2_cmd_helper.a $
+    obj/media/libshared_memory_support.a obj/ui/surface/libsurface.a
+
+build obj/ppapi/ppapi_tests.compile_depends.stamp: stamp $
+    obj/ppapi/ppapi_shared.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    icudtl.dat icudtl.dat icudtl.dat obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/ui/gl/gl.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/ui/base/ui_base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp gen/ui/base/ui_features.h $
+    obj/net/net.compile_depends.stamp obj/url/url_lib.compile_depends.stamp $
+    obj/ui/events/events.compile_depends.stamp $
+    obj/ui/gfx/gfx.compile_depends.stamp $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/ui/events/events_base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/ui/resources/ui_resources.actions_rules_copies.stamp $
+    obj/ui/strings/ui_strings.actions_rules_copies.stamp $
+    obj/ui/events/devices/events_devices.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/ui/ozone/ozone_base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/ui/gfx/ipc/skia/gfx_ipc_skia.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/ui/ozone/ozone_platform.actions_rules_copies.stamp $
+    obj/ui/ozone/ozone_platform_egltest.compile_depends.stamp $
+    obj/ui/ozone/ozone_common.compile_depends.stamp $
+    obj/ui/ozone/eglplatform_shim.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/ui/surface/surface.compile_depends.stamp
+
+build test_case.html: copy ../../ppapi/tests/test_case.html || $
+    obj/ppapi/ppapi_tests.actions_depends.stamp
+build test_case.html.mock-http-headers: copy $
+    ../../ppapi/tests/test_case.html.mock-http-headers || $
+    obj/ppapi/ppapi_tests.actions_depends.stamp
+build test_page.css: copy ../../ppapi/tests/test_page.css || $
+    obj/ppapi/ppapi_tests.actions_depends.stamp
+build test_page.css.mock-http-headers: copy $
+    ../../ppapi/tests/test_page.css.mock-http-headers || $
+    obj/ppapi/ppapi_tests.actions_depends.stamp
+build ppapi_nacl_tests_newlib.nmf: copy $
+    ../../ppapi/tests/ppapi_nacl_tests_newlib.nmf || $
+    obj/ppapi/ppapi_tests.actions_depends.stamp
+build test_url_loader_data/hello.txt: copy $
+    ../../ppapi/tests/test_url_loader_data/hello.txt || $
+    obj/ppapi/ppapi_tests.actions_depends.stamp
+build obj/ppapi/ppapi_tests.actions_rules_copies.stamp: stamp $
+    test_case.html test_case.html.mock-http-headers test_page.css $
+    test_page.css.mock-http-headers ppapi_nacl_tests_newlib.nmf $
+    test_url_loader_data/hello.txt
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DGL_GLEXT_PROTOTYPES $
+    -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 $
+    -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../../ppapi/lib/gl/include -I../.. $
+    -I../../third_party/khronos -I../../gpu -I../../skia/config
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -fPIC -fvisibility=hidden -march=armv8-a $
+    -mtune=cortex-a53 -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/ppapi/lib/gl/gles2/ppapi_tests.gl2ext_ppapi.o: cc $
+    ../../ppapi/lib/gl/gles2/gl2ext_ppapi.c || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/lib/gl/gles2/ppapi_tests.gles2.o: cc $
+    ../../ppapi/lib/gl/gles2/gles2.c || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_audio.o: cxx $
+    ../../ppapi/tests/test_audio.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_audio_config.o: cxx $
+    ../../ppapi/tests/test_audio_config.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_audio_encoder.o: cxx $
+    ../../ppapi/tests/test_audio_encoder.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_case.o: cxx $
+    ../../ppapi/tests/test_case.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_compositor.o: cxx $
+    ../../ppapi/tests/test_compositor.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_console.o: cxx $
+    ../../ppapi/tests/test_console.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_core.o: cxx $
+    ../../ppapi/tests/test_core.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_cursor_control.o: cxx $
+    ../../ppapi/tests/test_cursor_control.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_empty.o: cxx $
+    ../../ppapi/tests/test_empty.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_file_io.o: cxx $
+    ../../ppapi/tests/test_file_io.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_file_ref.o: cxx $
+    ../../ppapi/tests/test_file_ref.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_file_system.o: cxx $
+    ../../ppapi/tests/test_file_system.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_fullscreen.o: cxx $
+    ../../ppapi/tests/test_fullscreen.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_graphics_2d.o: cxx $
+    ../../ppapi/tests/test_graphics_2d.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_graphics_3d.o: cxx $
+    ../../ppapi/tests/test_graphics_3d.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_host_resolver.o: cxx $
+    ../../ppapi/tests/test_host_resolver.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_host_resolver_private.o: cxx $
+    ../../ppapi/tests/test_host_resolver_private.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_host_resolver_private_disallowed.o: $
+    cxx ../../ppapi/tests/test_host_resolver_private_disallowed.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_image_data.o: cxx $
+    ../../ppapi/tests/test_image_data.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_ime_input_event.o: cxx $
+    ../../ppapi/tests/test_ime_input_event.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_input_event.o: cxx $
+    ../../ppapi/tests/test_input_event.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_media_stream_audio_track.o: cxx $
+    ../../ppapi/tests/test_media_stream_audio_track.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_media_stream_video_track.o: cxx $
+    ../../ppapi/tests/test_media_stream_video_track.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_memory.o: cxx $
+    ../../ppapi/tests/test_memory.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_message_handler.o: cxx $
+    ../../ppapi/tests/test_message_handler.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_message_loop.o: cxx $
+    ../../ppapi/tests/test_message_loop.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_mouse_cursor.o: cxx $
+    ../../ppapi/tests/test_mouse_cursor.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_mouse_lock.o: cxx $
+    ../../ppapi/tests/test_mouse_lock.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_net_address.o: cxx $
+    ../../ppapi/tests/test_net_address.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_net_address_private_untrusted.o: cxx $
+    ../../ppapi/tests/test_net_address_private_untrusted.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_network_monitor.o: cxx $
+    ../../ppapi/tests/test_network_monitor.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_network_proxy.o: cxx $
+    ../../ppapi/tests/test_network_proxy.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_output_protection_private.o: cxx $
+    ../../ppapi/tests/test_output_protection_private.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_paint_aggregator.o: cxx $
+    ../../ppapi/tests/test_paint_aggregator.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_post_message.o: cxx $
+    ../../ppapi/tests/test_post_message.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_printing.o: cxx $
+    ../../ppapi/tests/test_printing.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_tcp_server_socket_private.o: cxx $
+    ../../ppapi/tests/test_tcp_server_socket_private.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_tcp_socket.o: cxx $
+    ../../ppapi/tests/test_tcp_socket.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_tcp_socket_private.o: cxx $
+    ../../ppapi/tests/test_tcp_socket_private.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_test_internals.o: cxx $
+    ../../ppapi/tests/test_test_internals.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_trace_event.o: cxx $
+    ../../ppapi/tests/test_trace_event.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_truetype_font.o: cxx $
+    ../../ppapi/tests/test_truetype_font.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_udp_socket.o: cxx $
+    ../../ppapi/tests/test_udp_socket.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_udp_socket_private.o: cxx $
+    ../../ppapi/tests/test_udp_socket_private.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_uma.o: cxx $
+    ../../ppapi/tests/test_uma.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_url_loader.o: cxx $
+    ../../ppapi/tests/test_url_loader.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_url_request.o: cxx $
+    ../../ppapi/tests/test_url_request.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_utils.o: cxx $
+    ../../ppapi/tests/test_utils.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_var.o: cxx $
+    ../../ppapi/tests/test_var.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_var_resource.o: cxx $
+    ../../ppapi/tests/test_var_resource.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_video_decoder.o: cxx $
+    ../../ppapi/tests/test_video_decoder.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_video_destination.o: cxx $
+    ../../ppapi/tests/test_video_destination.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_video_encoder.o: cxx $
+    ../../ppapi/tests/test_video_encoder.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_video_source.o: cxx $
+    ../../ppapi/tests/test_video_source.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_view.o: cxx $
+    ../../ppapi/tests/test_view.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_websocket.o: cxx $
+    ../../ppapi/tests/test_websocket.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.testing_instance.o: cxx $
+    ../../ppapi/tests/testing_instance.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_c_includes.o: cc $
+    ../../ppapi/tests/test_c_includes.c || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_cpp_includes.o: cxx $
+    ../../ppapi/tests/test_cpp_includes.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_struct_sizes.o: cc $
+    ../../ppapi/tests/test_struct_sizes.c || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_broker.o: cxx $
+    ../../ppapi/tests/test_broker.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_browser_font.o: cxx $
+    ../../ppapi/tests/test_browser_font.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_buffer.o: cxx $
+    ../../ppapi/tests/test_buffer.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_char_set.o: cxx $
+    ../../ppapi/tests/test_char_set.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_crypto.o: cxx $
+    ../../ppapi/tests/test_crypto.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_file_chooser.o: cxx $
+    ../../ppapi/tests/test_file_chooser.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_flash.o: cxx $
+    ../../ppapi/tests/test_flash.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_flash_clipboard.o: cxx $
+    ../../ppapi/tests/test_flash_clipboard.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_flash_drm.o: cxx $
+    ../../ppapi/tests/test_flash_drm.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_flash_file.o: cxx $
+    ../../ppapi/tests/test_flash_file.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_flash_fullscreen.o: cxx $
+    ../../ppapi/tests/test_flash_fullscreen.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_flash_fullscreen_for_browser_ui.o: $
+    cxx ../../ppapi/tests/test_flash_fullscreen_for_browser_ui.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_flash_message_loop.o: cxx $
+    ../../ppapi/tests/test_flash_message_loop.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_net_address_private.o: cxx $
+    ../../ppapi/tests/test_net_address_private.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_pdf.o: cxx $
+    ../../ppapi/tests/test_pdf.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_platform_verification_private.o: cxx $
+    ../../ppapi/tests/test_platform_verification_private.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_tcp_socket_private_trusted.o: cxx $
+    ../../ppapi/tests/test_tcp_socket_private_trusted.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_url_util.o: cxx $
+    ../../ppapi/tests/test_url_util.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_video_decoder_dev.o: cxx $
+    ../../ppapi/tests/test_video_decoder_dev.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_x509_certificate_private.o: cxx $
+    ../../ppapi/tests/test_x509_certificate_private.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_instance_deprecated.o: cxx $
+    ../../ppapi/tests/test_instance_deprecated.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+build obj/ppapi/tests/ppapi_tests.test_var_deprecated.o: cxx $
+    ../../ppapi/tests/test_var_deprecated.cc || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+
+ldflags = -L/work/bsp/sc1400/usr/local/lib -L/work/bsp/sc1400/lib $
+    -L/work/bsp/sc1400/usr/lib -Wl,-z,now -Wl,-z,relro -Wl,-z,defs -pthread $
+    -Wl,-z,noexecstack -fPIC -Wl,--disable-new-dtags $
+    -L/work/bsp/sc1400/usr/lib --sysroot=/work/bsp/sc1400 $
+    -L/work/bsp/sc1400/lib/ -Wl,-rpath-link=/work/bsp/sc1400/lib/ $
+    -L/work/bsp/sc1400/usr/lib/ -Wl,-rpath-link=/work/bsp/sc1400/usr/lib/ $
+    -L/work/bsp/sc1400/usr/dtvrec/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/dtvrec/lib/ $
+    -L/work/bsp/sc1400/usr/local/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/local/lib/ $
+    -L/work/bsp/sc1400/usr/local/netfrontbe/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/local/netfrontbe/lib/ -Wl,-O1 $
+    -Wl,--as-needed -Wl,--gc-sections
+libs =  -lrt -ldl -latomic -lfreetype -lm -lexpat
+build libppapi_tests.so libppapi_tests.so.TOC: solink_module $
+    obj/ppapi/lib/gl/gles2/ppapi_tests.gl2ext_ppapi.o $
+    obj/ppapi/lib/gl/gles2/ppapi_tests.gles2.o $
+    obj/ppapi/tests/ppapi_tests.test_audio.o $
+    obj/ppapi/tests/ppapi_tests.test_audio_config.o $
+    obj/ppapi/tests/ppapi_tests.test_audio_encoder.o $
+    obj/ppapi/tests/ppapi_tests.test_case.o $
+    obj/ppapi/tests/ppapi_tests.test_compositor.o $
+    obj/ppapi/tests/ppapi_tests.test_console.o $
+    obj/ppapi/tests/ppapi_tests.test_core.o $
+    obj/ppapi/tests/ppapi_tests.test_cursor_control.o $
+    obj/ppapi/tests/ppapi_tests.test_empty.o $
+    obj/ppapi/tests/ppapi_tests.test_file_io.o $
+    obj/ppapi/tests/ppapi_tests.test_file_ref.o $
+    obj/ppapi/tests/ppapi_tests.test_file_system.o $
+    obj/ppapi/tests/ppapi_tests.test_fullscreen.o $
+    obj/ppapi/tests/ppapi_tests.test_graphics_2d.o $
+    obj/ppapi/tests/ppapi_tests.test_graphics_3d.o $
+    obj/ppapi/tests/ppapi_tests.test_host_resolver.o $
+    obj/ppapi/tests/ppapi_tests.test_host_resolver_private.o $
+    obj/ppapi/tests/ppapi_tests.test_host_resolver_private_disallowed.o $
+    obj/ppapi/tests/ppapi_tests.test_image_data.o $
+    obj/ppapi/tests/ppapi_tests.test_ime_input_event.o $
+    obj/ppapi/tests/ppapi_tests.test_input_event.o $
+    obj/ppapi/tests/ppapi_tests.test_media_stream_audio_track.o $
+    obj/ppapi/tests/ppapi_tests.test_media_stream_video_track.o $
+    obj/ppapi/tests/ppapi_tests.test_memory.o $
+    obj/ppapi/tests/ppapi_tests.test_message_handler.o $
+    obj/ppapi/tests/ppapi_tests.test_message_loop.o $
+    obj/ppapi/tests/ppapi_tests.test_mouse_cursor.o $
+    obj/ppapi/tests/ppapi_tests.test_mouse_lock.o $
+    obj/ppapi/tests/ppapi_tests.test_net_address.o $
+    obj/ppapi/tests/ppapi_tests.test_net_address_private_untrusted.o $
+    obj/ppapi/tests/ppapi_tests.test_network_monitor.o $
+    obj/ppapi/tests/ppapi_tests.test_network_proxy.o $
+    obj/ppapi/tests/ppapi_tests.test_output_protection_private.o $
+    obj/ppapi/tests/ppapi_tests.test_paint_aggregator.o $
+    obj/ppapi/tests/ppapi_tests.test_post_message.o $
+    obj/ppapi/tests/ppapi_tests.test_printing.o $
+    obj/ppapi/tests/ppapi_tests.test_tcp_server_socket_private.o $
+    obj/ppapi/tests/ppapi_tests.test_tcp_socket.o $
+    obj/ppapi/tests/ppapi_tests.test_tcp_socket_private.o $
+    obj/ppapi/tests/ppapi_tests.test_test_internals.o $
+    obj/ppapi/tests/ppapi_tests.test_trace_event.o $
+    obj/ppapi/tests/ppapi_tests.test_truetype_font.o $
+    obj/ppapi/tests/ppapi_tests.test_udp_socket.o $
+    obj/ppapi/tests/ppapi_tests.test_udp_socket_private.o $
+    obj/ppapi/tests/ppapi_tests.test_uma.o $
+    obj/ppapi/tests/ppapi_tests.test_url_loader.o $
+    obj/ppapi/tests/ppapi_tests.test_url_request.o $
+    obj/ppapi/tests/ppapi_tests.test_utils.o $
+    obj/ppapi/tests/ppapi_tests.test_var.o $
+    obj/ppapi/tests/ppapi_tests.test_var_resource.o $
+    obj/ppapi/tests/ppapi_tests.test_video_decoder.o $
+    obj/ppapi/tests/ppapi_tests.test_video_destination.o $
+    obj/ppapi/tests/ppapi_tests.test_video_encoder.o $
+    obj/ppapi/tests/ppapi_tests.test_video_source.o $
+    obj/ppapi/tests/ppapi_tests.test_view.o $
+    obj/ppapi/tests/ppapi_tests.test_websocket.o $
+    obj/ppapi/tests/ppapi_tests.testing_instance.o $
+    obj/ppapi/tests/ppapi_tests.test_c_includes.o $
+    obj/ppapi/tests/ppapi_tests.test_cpp_includes.o $
+    obj/ppapi/tests/ppapi_tests.test_struct_sizes.o $
+    obj/ppapi/tests/ppapi_tests.test_broker.o $
+    obj/ppapi/tests/ppapi_tests.test_browser_font.o $
+    obj/ppapi/tests/ppapi_tests.test_buffer.o $
+    obj/ppapi/tests/ppapi_tests.test_char_set.o $
+    obj/ppapi/tests/ppapi_tests.test_crypto.o $
+    obj/ppapi/tests/ppapi_tests.test_file_chooser.o $
+    obj/ppapi/tests/ppapi_tests.test_flash.o $
+    obj/ppapi/tests/ppapi_tests.test_flash_clipboard.o $
+    obj/ppapi/tests/ppapi_tests.test_flash_drm.o $
+    obj/ppapi/tests/ppapi_tests.test_flash_file.o $
+    obj/ppapi/tests/ppapi_tests.test_flash_fullscreen.o $
+    obj/ppapi/tests/ppapi_tests.test_flash_fullscreen_for_browser_ui.o $
+    obj/ppapi/tests/ppapi_tests.test_flash_message_loop.o $
+    obj/ppapi/tests/ppapi_tests.test_net_address_private.o $
+    obj/ppapi/tests/ppapi_tests.test_pdf.o $
+    obj/ppapi/tests/ppapi_tests.test_platform_verification_private.o $
+    obj/ppapi/tests/ppapi_tests.test_tcp_socket_private_trusted.o $
+    obj/ppapi/tests/ppapi_tests.test_url_util.o $
+    obj/ppapi/tests/ppapi_tests.test_video_decoder_dev.o $
+    obj/ppapi/tests/ppapi_tests.test_x509_certificate_private.o $
+    obj/ppapi/tests/ppapi_tests.test_instance_deprecated.o $
+    obj/ppapi/tests/ppapi_tests.test_var_deprecated.o $
+    obj/ppapi/libppapi_cpp.a obj/ppapi/libppapi_shared.a $
+    obj/ppapi/libppapi_cpp_objects.a obj/base/libbase_i18n.a $
+    obj/base/third_party/dynamic_annotations/libdynamic_annotations.a $
+    obj/third_party/icu/libicui18n.a obj/third_party/icu/libicuuc.a $
+    obj/gpu/command_buffer/libgles2_utils.a $
+    obj/gpu/libcommand_buffer_client.a obj/gpu/libcommand_buffer_common.a $
+    obj/gpu/libgles2_implementation.a obj/ui/gfx/libgfx_geometry.a $
+    obj/ui/gl/libgl_wrapper.a obj/skia/libskia_library.a $
+    obj/skia/libskia_opts.a obj/skia/libskia_opts_neon.a $
+    obj/third_party/zlib/libchrome_zlib.a $
+    obj/third_party/zlib/libzlib_x86_simd.a $
+    obj/third_party/sfntly/libsfntly.a $
+    obj/third_party/fontconfig/libfontconfig.a $
+    obj/third_party/libxml/libxml2.a obj/skia/libskia_chrome.a $
+    obj/ui/base/libui_base.a obj/ui/base/libui_data_pack.a $
+    obj/base/libbase_static.a obj/ui/events/libevents.a obj/ui/gfx/libgfx.a $
+    obj/third_party/harfbuzz-ng/libharfbuzz-ng.a $
+    obj/third_party/libpng/libpng.a $
+    obj/third_party/libjpeg_turbo/libjpeg_turbo.a $
+    obj/ui/events/libdom_keycode_converter.a obj/ui/events/libevents_base.a $
+    obj/ui/events/libgesture_detection.a $
+    obj/ui/events/ozone/libevents_ozone_layout.a $
+    obj/ui/events/platform/libevents_platform.a $
+    obj/ui/events/devices/libevents_devices.a $
+    obj/ui/events/ozone/libevents_ozone_evdev.a $
+    obj/ui/ozone/libozone_base.a obj/ipc/libipc.a $
+    obj/ui/display/libdisplay_types.a obj/ui/display/libdisplay_util.a $
+    obj/ui/gfx/ipc/libgfx_ipc.a obj/ui/gfx/ipc/skia/libgfx_ipc_skia.a $
+    obj/ui/events/ozone/libevents_ozone.a obj/ui/ozone/libozone.a $
+    obj/ui/ozone/libozone_platform.a $
+    obj/ui/ozone/libozone_platform_egltest.a obj/ui/ozone/libozone_common.a $
+    obj/ui/ozone/libeglplatform_shim.a $
+    obj/ui/ozone/libozone_platform_headless.a obj/gpu/libgles2_cmd_helper.a $
+    obj/media/libshared_memory_support.a obj/ui/surface/libsurface.a | $
+    gen/ui/base/ui_features.h icudtl.dat lib/libbase.so.TOC $
+    lib/libnet.so.TOC lib/liburl_lib.so.TOC $
+    obj/skia/skia.actions_depends.stamp $
+    obj/third_party/fontconfig/libfontconfig.a $
+    obj/ui/resources/ui_resources.actions_rules_copies.stamp $
+    obj/ui/strings/ui_strings.actions_rules_copies.stamp || $
+    obj/ppapi/ppapi_tests.actions_rules_copies.stamp
+  ld = $ldxx
+  soname = libppapi_tests.so
+  lib = libppapi_tests.so
+  link_file_list = libppapi_tests.so.rsp
+  solibs = lib/libbase.so lib/libnet.so lib/liburl_lib.so

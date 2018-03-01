@@ -1,0 +1,351 @@
+build obj/remoting/remoting_webapp.actions_depends.stamp: stamp $
+    obj/remoting/remoting_resources.actions_rules_copies.stamp $
+    obj/remoting/remoting_webapp_html.actions_rules_copies.stamp
+
+build obj/remoting/remoting_webapp.compile_depends.stamp: stamp $
+    obj/remoting/remoting_resources.actions_rules_copies.stamp $
+    obj/remoting/remoting_webapp_html.actions_rules_copies.stamp
+
+rule $
+    remoting_webapp_target_Build_Remoting_locales_listfile_09c97659f0337db42282097d6bbe4db9
+  command = cd ../../remoting; python tools/build/remoting_localize.py $
+      --locale_output $
+      "\"../out.cef/Release/gen/remoting/webapp/_locales/@{json_suffix}/messages.json\"" $
+      --locales_listfile ../out.cef/Release/gen/remoting_webapp_locales.txt $
+      am ar bg bn ca cs da de el en en-GB es es-419 et fa fake-bidi fi fil $
+      fr gu he hi hr hu id it ja kn ko lt lv ml mr ms nb nl pl pt-BR pt-PT $
+      ro ru sk sl sr sv sw ta te th tr uk vi zh-CN zh-TW
+  description = ACTION remoting_webapp: Build Remoting locales $
+      listfile_09c97659f0337db42282097d6bbe4db9
+  restat = 1
+
+build gen/remoting_webapp_locales.txt: $
+    remoting_webapp_target_Build_Remoting_locales_listfile_09c97659f0337db42282097d6bbe4db9 $
+    ../../remoting/tools/build/remoting_localize.py || $
+    obj/remoting/remoting_webapp.actions_depends.stamp
+
+rule $
+    remoting_webapp_target_Build_Remoting_WebApp_09c97659f0337db42282097d6bbe4db9
+  command = cd ../../remoting; python webapp/build-webapp.py Dev $
+      51.0.2704.29 ../out.cef/Release/remoting/remoting.webapp.v2 $
+      ../out.cef/Release/remoting-webapp.v2.zip $
+      webapp/crd/manifest.json.jinja2 $
+      ../out.cef/Release/gen/remoting/background.html $
+      ../out.cef/Release/gen/remoting/credits.html $
+      ../out.cef/Release/gen/remoting/message_window.html $
+      ../out.cef/Release/gen/remoting/wcs_sandbox.html $
+      ../out.cef/Release/gen/remoting/public_session.html $
+      ../out.cef/Release/gen/remoting/main.html resources/chromoting16.webp $
+      resources/chromoting48.webp resources/chromoting128.webp $
+      webapp/base/js/application.js webapp/base/js/base.js $
+      webapp/base/js/callstack.js webapp/base/js/console_wrapper.js $
+      webapp/base/js/ipc.js webapp/base/js/modal_dialogs.js $
+      webapp/base/js/platform.js $
+      webapp/base/js/protocol_extension_manager.js $
+      webapp/base/js/protocol_extension.js webapp/base/js/error.js $
+      webapp/base/js/network_connectivity_detector.js $
+      webapp/base/js/plugin_settings.js webapp/base/js/suspend_detector.js $
+      webapp/base/js/typecheck.js webapp/base/js/xhr_event_writer.js $
+      webapp/base/js/window_message_dispatcher.js webapp/base/js/xhr.js $
+      webapp/base/js/auth_init.js webapp/base/js/identity.js $
+      webapp/base/js/oauth2.js webapp/base/js/oauth2_api.js $
+      webapp/base/js/oauth2_api_impl.js webapp/base/js/activity.js $
+      webapp/base/js/client_plugin.js $
+      webapp/base/js/client_plugin_host_desktop_impl.js $
+      webapp/base/js/client_plugin_impl.js webapp/base/js/client_session.js $
+      webapp/base/js/client_session_factory.js webapp/base/js/clipboard.js $
+      webapp/base/js/connected_view.js webapp/base/js/connection_info.js $
+      webapp/base/js/credentials_provider.js webapp/base/js/experiments.js $
+      webapp/base/js/host_desktop.js $
+      webapp/base/js/telemetry_event_writer.js $
+      webapp/base/js/xmpp_error_cache.js webapp/base/js/host.js $
+      webapp/base/js/host_options.js webapp/base/js/chromoting_event.js $
+      webapp/base/js/format_iq.js webapp/base/js/session_logger.js $
+      webapp/base/js/stats_accumulator.js $
+      webapp/base/js/dns_blackhole_checker.js $
+      webapp/base/js/fallback_signal_strategy.js $
+      webapp/base/js/signal_strategy.js webapp/base/js/tcp_socket.js $
+      webapp/base/js/wcs_adapter.js webapp/base/js/wcs_sandbox_container.js $
+      webapp/base/js/xmpp_connection.js $
+      webapp/base/js/xmpp_login_handler.js $
+      webapp/base/js/xmpp_stream_parser.js $
+      webapp/base/js/connection_dropped_dialog.js $
+      webapp/base/js/connection_stats.js webapp/base/js/l10n.js $
+      webapp/base/js/ui_mode.js webapp/base/js/viewport.js $
+      webapp/base/js/window_shape.js $
+      webapp/crd/js/third_party_host_permissions.js $
+      webapp/crd/js/third_party_token_fetcher.js $
+      webapp/crd/js/apps_v2_migration.js webapp/crd/js/event_handlers.js $
+      webapp/crd/js/gcd_client.js webapp/crd/js/gnubby_auth_handler.js $
+      webapp/crd/js/host_controller.js webapp/crd/js/host_daemon_facade.js $
+      webapp/crd/js/host_screen.js webapp/crd/js/host_session.js $
+      webapp/crd/js/host_setup_dialog.js $
+      webapp/crd/js/host_install_dialog.js webapp/crd/js/host_installer.js $
+      webapp/crd/js/it2me_host_facade.js $
+      webapp/crd/js/native_message_host_log_message_handler.js $
+      webapp/crd/js/paired_client_manager.js webapp/crd/js/host_list.js $
+      webapp/crd/js/host_list_api.js webapp/crd/js/host_table_entry.js $
+      webapp/crd/js/local_host_section.js $
+      webapp/crd/js/combined_host_list_api.js $
+      webapp/crd/js/gcd_host_list_api.js $
+      webapp/crd/js/legacy_host_list_api.js $
+      webapp/crd/js/activation_handler.js webapp/crd/js/app_launcher.js $
+      webapp/crd/js/background.js webapp/base/js/message_window.js $
+      webapp/crd/js/wcs.js webapp/crd/js/wcs_loader.js $
+      webapp/crd/js/wcs_sandbox_content.js webapp/crd/js/xhr_proxy.js $
+      webapp/crd/js/cs_third_party_auth_trampoline.js $
+      webapp/crd/js/cs_oauth2_trampoline.js webapp/crd/js/bump_scroller.js $
+      webapp/crd/js/butter_bar.js webapp/crd/js/crd_auth_dialog.js $
+      webapp/crd/js/crd_event_handlers.js webapp/crd/js/crd_experimental.js $
+      webapp/crd/js/desktop_connected_view.js $
+      webapp/crd/js/desktop_remoting.js $
+      webapp/crd/js/desktop_remoting_activity.js $
+      webapp/crd/js/desktop_viewport.js webapp/crd/js/feedback.js $
+      webapp/crd/js/fullscreen.js webapp/crd/js/fullscreen_v1.js $
+      webapp/crd/js/fullscreen_v2.js webapp/crd/js/it2me_activity.js $
+      webapp/crd/js/me2me_activity.js webapp/crd/js/menu_button.js $
+      webapp/crd/js/options_menu.js webapp/crd/js/toolbar.js $
+      webapp/crd/js/window_frame.js webapp/crd/js/crd_main.js $
+      webapp/base/js/credits_js.js webapp/crd/js/public_session_main.js $
+      resources/disclosure_arrow_down.webp $
+      resources/disclosure_arrow_right.webp resources/drag.webp $
+      resources/host_setup_instructions.webp resources/icon_close.webp $
+      resources/icon_cross.webp resources/icon_disconnect.webp $
+      resources/icon_fullscreen.webp resources/icon_host.webp $
+      resources/icon_maximize_restore.webp resources/icon_minimize.webp $
+      resources/icon_options.webp resources/icon_pencil.webp $
+      resources/icon_warning.webp resources/infographic_my_computers.webp $
+      resources/infographic_remote_assistance.webp resources/plus.webp $
+      resources/reload.webp resources/tick.webp $
+      webapp/base/html/connection_stats.css $
+      webapp/base/html/credits_css.css webapp/base/html/main.css $
+      webapp/base/html/message_window.css $
+      webapp/base/resources/open_sans.css $
+      webapp/base/resources/open_sans.woff $
+      webapp/base/resources/spinner.gif webapp/crd/html/butter_bar.css $
+      webapp/crd/html/crd_main.css webapp/crd/html/toolbar.css $
+      webapp/crd/html/menu_button.css webapp/crd/html/public_session.css $
+      webapp/crd/html/window_frame.css $
+      webapp/crd/resources/scale-to-fit.webp $
+      webapp/crd/remoting_client_pnacl.nmf.jinja2 --locales_listfile $
+      ../out.cef/Release/gen/remoting_webapp_locales.txt --use_gcd 0
+  description = ACTION remoting_webapp: Build Remoting $
+      WebApp_09c97659f0337db42282097d6bbe4db9
+  restat = 1
+
+build remoting/remoting.webapp.v2 remoting-webapp.v2.zip: $
+    remoting_webapp_target_Build_Remoting_WebApp_09c97659f0337db42282097d6bbe4db9 $
+    ../../remoting/webapp/build-webapp.py $
+    ../../remoting/webapp/crd/manifest.json.jinja2 ../../chrome/VERSION $
+    ../../remoting/VERSION gen/remoting_webapp_locales.txt $
+    gen/remoting/background.html gen/remoting/credits.html $
+    gen/remoting/message_window.html gen/remoting/wcs_sandbox.html $
+    gen/remoting/public_session.html gen/remoting/main.html $
+    ../../remoting/resources/chromoting16.webp $
+    ../../remoting/resources/chromoting48.webp $
+    ../../remoting/resources/chromoting128.webp $
+    ../../remoting/webapp/base/js/application.js $
+    ../../remoting/webapp/base/js/base.js $
+    ../../remoting/webapp/base/js/callstack.js $
+    ../../remoting/webapp/base/js/console_wrapper.js $
+    ../../remoting/webapp/base/js/ipc.js $
+    ../../remoting/webapp/base/js/modal_dialogs.js $
+    ../../remoting/webapp/base/js/platform.js $
+    ../../remoting/webapp/base/js/protocol_extension_manager.js $
+    ../../remoting/webapp/base/js/protocol_extension.js $
+    ../../remoting/webapp/base/js/error.js $
+    ../../remoting/webapp/base/js/network_connectivity_detector.js $
+    ../../remoting/webapp/base/js/plugin_settings.js $
+    ../../remoting/webapp/base/js/suspend_detector.js $
+    ../../remoting/webapp/base/js/typecheck.js $
+    ../../remoting/webapp/base/js/xhr_event_writer.js $
+    ../../remoting/webapp/base/js/window_message_dispatcher.js $
+    ../../remoting/webapp/base/js/xhr.js $
+    ../../remoting/webapp/base/js/auth_init.js $
+    ../../remoting/webapp/base/js/identity.js $
+    ../../remoting/webapp/base/js/oauth2.js $
+    ../../remoting/webapp/base/js/oauth2_api.js $
+    ../../remoting/webapp/base/js/oauth2_api_impl.js $
+    ../../remoting/webapp/base/js/activity.js $
+    ../../remoting/webapp/base/js/client_plugin.js $
+    ../../remoting/webapp/base/js/client_plugin_host_desktop_impl.js $
+    ../../remoting/webapp/base/js/client_plugin_impl.js $
+    ../../remoting/webapp/base/js/client_session.js $
+    ../../remoting/webapp/base/js/client_session_factory.js $
+    ../../remoting/webapp/base/js/clipboard.js $
+    ../../remoting/webapp/base/js/connected_view.js $
+    ../../remoting/webapp/base/js/connection_info.js $
+    ../../remoting/webapp/base/js/credentials_provider.js $
+    ../../remoting/webapp/base/js/experiments.js $
+    ../../remoting/webapp/base/js/host_desktop.js $
+    ../../remoting/webapp/base/js/telemetry_event_writer.js $
+    ../../remoting/webapp/base/js/xmpp_error_cache.js $
+    ../../remoting/webapp/base/js/host.js $
+    ../../remoting/webapp/base/js/host_options.js $
+    ../../remoting/webapp/base/js/chromoting_event.js $
+    ../../remoting/webapp/base/js/format_iq.js $
+    ../../remoting/webapp/base/js/session_logger.js $
+    ../../remoting/webapp/base/js/stats_accumulator.js $
+    ../../remoting/webapp/base/js/dns_blackhole_checker.js $
+    ../../remoting/webapp/base/js/fallback_signal_strategy.js $
+    ../../remoting/webapp/base/js/signal_strategy.js $
+    ../../remoting/webapp/base/js/tcp_socket.js $
+    ../../remoting/webapp/base/js/wcs_adapter.js $
+    ../../remoting/webapp/base/js/wcs_sandbox_container.js $
+    ../../remoting/webapp/base/js/xmpp_connection.js $
+    ../../remoting/webapp/base/js/xmpp_login_handler.js $
+    ../../remoting/webapp/base/js/xmpp_stream_parser.js $
+    ../../remoting/webapp/base/js/connection_dropped_dialog.js $
+    ../../remoting/webapp/base/js/connection_stats.js $
+    ../../remoting/webapp/base/js/l10n.js $
+    ../../remoting/webapp/base/js/ui_mode.js $
+    ../../remoting/webapp/base/js/viewport.js $
+    ../../remoting/webapp/base/js/window_shape.js $
+    ../../remoting/webapp/crd/js/third_party_host_permissions.js $
+    ../../remoting/webapp/crd/js/third_party_token_fetcher.js $
+    ../../remoting/webapp/crd/js/apps_v2_migration.js $
+    ../../remoting/webapp/crd/js/event_handlers.js $
+    ../../remoting/webapp/crd/js/gcd_client.js $
+    ../../remoting/webapp/crd/js/gnubby_auth_handler.js $
+    ../../remoting/webapp/crd/js/host_controller.js $
+    ../../remoting/webapp/crd/js/host_daemon_facade.js $
+    ../../remoting/webapp/crd/js/host_screen.js $
+    ../../remoting/webapp/crd/js/host_session.js $
+    ../../remoting/webapp/crd/js/host_setup_dialog.js $
+    ../../remoting/webapp/crd/js/host_install_dialog.js $
+    ../../remoting/webapp/crd/js/host_installer.js $
+    ../../remoting/webapp/crd/js/it2me_host_facade.js $
+    ../../remoting/webapp/crd/js/native_message_host_log_message_handler.js $
+    ../../remoting/webapp/crd/js/paired_client_manager.js $
+    ../../remoting/webapp/crd/js/host_list.js $
+    ../../remoting/webapp/crd/js/host_list_api.js $
+    ../../remoting/webapp/crd/js/host_table_entry.js $
+    ../../remoting/webapp/crd/js/local_host_section.js $
+    ../../remoting/webapp/crd/js/combined_host_list_api.js $
+    ../../remoting/webapp/crd/js/gcd_host_list_api.js $
+    ../../remoting/webapp/crd/js/legacy_host_list_api.js $
+    ../../remoting/webapp/crd/js/activation_handler.js $
+    ../../remoting/webapp/crd/js/app_launcher.js $
+    ../../remoting/webapp/crd/js/background.js $
+    ../../remoting/webapp/base/js/message_window.js $
+    ../../remoting/webapp/crd/js/wcs.js $
+    ../../remoting/webapp/crd/js/wcs_loader.js $
+    ../../remoting/webapp/crd/js/wcs_sandbox_content.js $
+    ../../remoting/webapp/crd/js/xhr_proxy.js $
+    ../../remoting/webapp/crd/js/cs_third_party_auth_trampoline.js $
+    ../../remoting/webapp/crd/js/cs_oauth2_trampoline.js $
+    ../../remoting/webapp/crd/js/bump_scroller.js $
+    ../../remoting/webapp/crd/js/butter_bar.js $
+    ../../remoting/webapp/crd/js/crd_auth_dialog.js $
+    ../../remoting/webapp/crd/js/crd_event_handlers.js $
+    ../../remoting/webapp/crd/js/crd_experimental.js $
+    ../../remoting/webapp/crd/js/desktop_connected_view.js $
+    ../../remoting/webapp/crd/js/desktop_remoting.js $
+    ../../remoting/webapp/crd/js/desktop_remoting_activity.js $
+    ../../remoting/webapp/crd/js/desktop_viewport.js $
+    ../../remoting/webapp/crd/js/feedback.js $
+    ../../remoting/webapp/crd/js/fullscreen.js $
+    ../../remoting/webapp/crd/js/fullscreen_v1.js $
+    ../../remoting/webapp/crd/js/fullscreen_v2.js $
+    ../../remoting/webapp/crd/js/it2me_activity.js $
+    ../../remoting/webapp/crd/js/me2me_activity.js $
+    ../../remoting/webapp/crd/js/menu_button.js $
+    ../../remoting/webapp/crd/js/options_menu.js $
+    ../../remoting/webapp/crd/js/toolbar.js $
+    ../../remoting/webapp/crd/js/window_frame.js $
+    ../../remoting/webapp/crd/js/crd_main.js $
+    ../../remoting/webapp/base/js/credits_js.js $
+    ../../remoting/webapp/crd/js/public_session_main.js $
+    ../../remoting/resources/disclosure_arrow_down.webp $
+    ../../remoting/resources/disclosure_arrow_right.webp $
+    ../../remoting/resources/drag.webp $
+    ../../remoting/resources/host_setup_instructions.webp $
+    ../../remoting/resources/icon_close.webp $
+    ../../remoting/resources/icon_cross.webp $
+    ../../remoting/resources/icon_disconnect.webp $
+    ../../remoting/resources/icon_fullscreen.webp $
+    ../../remoting/resources/icon_host.webp $
+    ../../remoting/resources/icon_maximize_restore.webp $
+    ../../remoting/resources/icon_minimize.webp $
+    ../../remoting/resources/icon_options.webp $
+    ../../remoting/resources/icon_pencil.webp $
+    ../../remoting/resources/icon_warning.webp $
+    ../../remoting/resources/infographic_my_computers.webp $
+    ../../remoting/resources/infographic_remote_assistance.webp $
+    ../../remoting/resources/plus.webp ../../remoting/resources/reload.webp $
+    ../../remoting/resources/tick.webp $
+    ../../remoting/webapp/base/html/connection_stats.css $
+    ../../remoting/webapp/base/html/credits_css.css $
+    ../../remoting/webapp/base/html/main.css $
+    ../../remoting/webapp/base/html/message_window.css $
+    ../../remoting/webapp/base/resources/open_sans.css $
+    ../../remoting/webapp/base/resources/open_sans.woff $
+    ../../remoting/webapp/base/resources/spinner.gif $
+    ../../remoting/webapp/crd/html/butter_bar.css $
+    ../../remoting/webapp/crd/html/crd_main.css $
+    ../../remoting/webapp/crd/html/toolbar.css $
+    ../../remoting/webapp/crd/html/menu_button.css $
+    ../../remoting/webapp/crd/html/public_session.css $
+    ../../remoting/webapp/crd/html/window_frame.css $
+    ../../remoting/webapp/crd/resources/scale-to-fit.webp $
+    gen/remoting/webapp/_locales/am/messages.json $
+    gen/remoting/webapp/_locales/ar/messages.json $
+    gen/remoting/webapp/_locales/bg/messages.json $
+    gen/remoting/webapp/_locales/bn/messages.json $
+    gen/remoting/webapp/_locales/ca/messages.json $
+    gen/remoting/webapp/_locales/cs/messages.json $
+    gen/remoting/webapp/_locales/da/messages.json $
+    gen/remoting/webapp/_locales/de/messages.json $
+    gen/remoting/webapp/_locales/el/messages.json $
+    gen/remoting/webapp/_locales/en/messages.json $
+    gen/remoting/webapp/_locales/en_GB/messages.json $
+    gen/remoting/webapp/_locales/es/messages.json $
+    gen/remoting/webapp/_locales/es_419/messages.json $
+    gen/remoting/webapp/_locales/et/messages.json $
+    gen/remoting/webapp/_locales/fa/messages.json $
+    gen/remoting/webapp/_locales/fake_bidi/messages.json $
+    gen/remoting/webapp/_locales/fi/messages.json $
+    gen/remoting/webapp/_locales/fil/messages.json $
+    gen/remoting/webapp/_locales/fr/messages.json $
+    gen/remoting/webapp/_locales/gu/messages.json $
+    gen/remoting/webapp/_locales/he/messages.json $
+    gen/remoting/webapp/_locales/hi/messages.json $
+    gen/remoting/webapp/_locales/hr/messages.json $
+    gen/remoting/webapp/_locales/hu/messages.json $
+    gen/remoting/webapp/_locales/id/messages.json $
+    gen/remoting/webapp/_locales/it/messages.json $
+    gen/remoting/webapp/_locales/ja/messages.json $
+    gen/remoting/webapp/_locales/kn/messages.json $
+    gen/remoting/webapp/_locales/ko/messages.json $
+    gen/remoting/webapp/_locales/lt/messages.json $
+    gen/remoting/webapp/_locales/lv/messages.json $
+    gen/remoting/webapp/_locales/ml/messages.json $
+    gen/remoting/webapp/_locales/mr/messages.json $
+    gen/remoting/webapp/_locales/ms/messages.json $
+    gen/remoting/webapp/_locales/nb/messages.json $
+    gen/remoting/webapp/_locales/nl/messages.json $
+    gen/remoting/webapp/_locales/pl/messages.json $
+    gen/remoting/webapp/_locales/pt_BR/messages.json $
+    gen/remoting/webapp/_locales/pt_PT/messages.json $
+    gen/remoting/webapp/_locales/ro/messages.json $
+    gen/remoting/webapp/_locales/ru/messages.json $
+    gen/remoting/webapp/_locales/sk/messages.json $
+    gen/remoting/webapp/_locales/sl/messages.json $
+    gen/remoting/webapp/_locales/sr/messages.json $
+    gen/remoting/webapp/_locales/sv/messages.json $
+    gen/remoting/webapp/_locales/sw/messages.json $
+    gen/remoting/webapp/_locales/ta/messages.json $
+    gen/remoting/webapp/_locales/te/messages.json $
+    gen/remoting/webapp/_locales/th/messages.json $
+    gen/remoting/webapp/_locales/tr/messages.json $
+    gen/remoting/webapp/_locales/uk/messages.json $
+    gen/remoting/webapp/_locales/vi/messages.json $
+    gen/remoting/webapp/_locales/zh_CN/messages.json $
+    gen/remoting/webapp/_locales/zh_TW/messages.json $
+    ../../remoting/webapp/crd/remoting_client_pnacl.nmf.jinja2 || $
+    obj/remoting/remoting_webapp.actions_depends.stamp
+
+build obj/remoting/remoting_webapp.actions_rules_copies.stamp: stamp $
+    gen/remoting_webapp_locales.txt remoting/remoting.webapp.v2 $
+    remoting-webapp.v2.zip
+

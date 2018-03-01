@@ -1,0 +1,1425 @@
+build obj/extensions/extensions_browser.actions_depends.stamp: stamp $
+    lib/libbase.so.TOC obj/components/libvariations.a $
+    obj/mojo/libmojo_application_bindings.a $
+    obj/ui/accessibility/libax_gen.a $
+    obj/content/libcontent_common_mojo_bindings.a $
+    obj/skia/skia.actions_depends.stamp $
+    obj/extensions/browser/api/libextensions_api_registration.a $
+    obj/extensions/common/api/libcast_channel_proto.a $
+    obj/extensions/common/api/libextensions_api.a $
+    obj/extensions/extensions_resources.actions_rules_copies.stamp $
+    obj/extensions/extensions_strings.actions_rules_copies.stamp
+
+build obj/extensions/extensions_browser.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/components/variations.actions_rules_copies.stamp $
+    obj/mojo/mojo_application_bindings_mojom.actions_rules_copies.stamp $
+    obj/ui/accessibility/ax_gen.actions_rules_copies.stamp $
+    obj/content/content_common_mojo_bindings_mojom.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/extensions/browser/api/extensions_api_registration.actions_rules_copies.stamp $
+    obj/extensions/common/api/cast_channel_proto.actions_rules_copies.stamp $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp $
+    obj/extensions/extensions_resources.actions_rules_copies.stamp $
+    obj/extensions/extensions_strings.actions_rules_copies.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DMOJO_USE_SYSTEM_IMPL $
+    -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= $
+    -DU_STATIC_IMPLEMENTATION -DPROTOBUF_USE_DLLS -DGOOGLE_PROTOBUF_NO_RTTI $
+    -DGOOGLE_PROTOBUF_NO_STATIC_INITIALIZER -DSK_SUPPORT_GPU=1 $
+    -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS $
+    -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -Iobj/extensions/extensions_browser.gen $
+    -I../../third_party/khronos -I../../gpu -I../../skia/config -Igen/angle $
+    -I../../third_party/WebKit/Source -I../../third_party/icu/source/common $
+    -I../../third_party/icu/source/i18n -Igen/protoc_out $
+    -I../../third_party/protobuf -I../../third_party/protobuf/src $
+    -I../../third_party/WebKit -Igen/third_party/WebKit $
+    -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../third_party/leveldatabase/src/include $
+    -I../../third_party/leveldatabase/src -I../../third_party/leveldatabase $
+    -I../../third_party/re2/src -Igen/extensions -Igen/extensions/strings
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/lib/dbus-1.0/include -march=armv8-a $
+    -mtune=cortex-a53 -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/extensions/browser/api/activity_log/extensions_browser.web_request_constants.o: $
+    cxx ../../extensions/browser/api/activity_log/web_request_constants.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/api/alarms/extensions_browser.alarm_manager.o: $
+    cxx ../../extensions/browser/api/alarms/alarm_manager.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/api/alarms/extensions_browser.alarms_api.o: $
+    cxx ../../extensions/browser/api/alarms/alarms_api.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/api/extensions_browser.api_resource.o: cxx $
+    ../../extensions/browser/api/api_resource.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/app_current_window_internal/extensions_browser.app_current_window_internal_api.o: $
+    cxx $
+    ../../extensions/browser/api/app_current_window_internal/app_current_window_internal_api.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/app_runtime/extensions_browser.app_runtime_api.o: $
+    cxx ../../extensions/browser/api/app_runtime/app_runtime_api.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/app_window/extensions_browser.app_window_api.o: $
+    cxx ../../extensions/browser/api/app_window/app_window_api.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/api/extensions_browser.async_api_function.o: $
+    cxx ../../extensions/browser/api/async_api_function.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/api/audio/extensions_browser.audio_api.o: cxx $
+    ../../extensions/browser/api/audio/audio_api.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/bluetooth/extensions_browser.bluetooth_api.o: $
+    cxx ../../extensions/browser/api/bluetooth/bluetooth_api.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/bluetooth/extensions_browser.bluetooth_api_pairing_delegate.o: $
+    cxx $
+    ../../extensions/browser/api/bluetooth/bluetooth_api_pairing_delegate.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/bluetooth/extensions_browser.bluetooth_api_utils.o: $
+    cxx ../../extensions/browser/api/bluetooth/bluetooth_api_utils.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/bluetooth/extensions_browser.bluetooth_event_router.o: $
+    cxx ../../extensions/browser/api/bluetooth/bluetooth_event_router.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/bluetooth/extensions_browser.bluetooth_extension_function.o: $
+    cxx $
+    ../../extensions/browser/api/bluetooth/bluetooth_extension_function.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/bluetooth/extensions_browser.bluetooth_private_api.o: $
+    cxx ../../extensions/browser/api/bluetooth/bluetooth_private_api.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/bluetooth_socket/extensions_browser.bluetooth_api_socket.o: $
+    cxx $
+    ../../extensions/browser/api/bluetooth_socket/bluetooth_api_socket.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/bluetooth_socket/extensions_browser.bluetooth_socket_api.o: $
+    cxx $
+    ../../extensions/browser/api/bluetooth_socket/bluetooth_socket_api.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/bluetooth_socket/extensions_browser.bluetooth_socket_event_dispatcher.o: $
+    cxx $
+    ../../extensions/browser/api/bluetooth_socket/bluetooth_socket_event_dispatcher.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/cast_channel/extensions_browser.cast_auth_util.o: $
+    cxx ../../extensions/browser/api/cast_channel/cast_auth_util.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/cast_channel/extensions_browser.cast_channel_api.o: $
+    cxx ../../extensions/browser/api/cast_channel/cast_channel_api.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/cast_channel/extensions_browser.cast_framer.o: $
+    cxx ../../extensions/browser/api/cast_channel/cast_framer.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/cast_channel/extensions_browser.cast_message_util.o: $
+    cxx ../../extensions/browser/api/cast_channel/cast_message_util.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/cast_channel/extensions_browser.cast_socket.o: $
+    cxx ../../extensions/browser/api/cast_channel/cast_socket.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/cast_channel/extensions_browser.cast_transport.o: $
+    cxx ../../extensions/browser/api/cast_channel/cast_transport.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/cast_channel/extensions_browser.keep_alive_delegate.o: $
+    cxx ../../extensions/browser/api/cast_channel/keep_alive_delegate.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/api/cast_channel/extensions_browser.logger.o: $
+    cxx ../../extensions/browser/api/cast_channel/logger.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/cast_channel/extensions_browser.logger_util.o: $
+    cxx ../../extensions/browser/api/cast_channel/logger_util.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/declarative/extensions_browser.declarative_api.o: $
+    cxx ../../extensions/browser/api/declarative/declarative_api.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/declarative/extensions_browser.rules_cache_delegate.o: $
+    cxx ../../extensions/browser/api/declarative/rules_cache_delegate.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/declarative/extensions_browser.rules_registry.o: $
+    cxx ../../extensions/browser/api/declarative/rules_registry.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/declarative/extensions_browser.rules_registry_service.o: $
+    cxx ../../extensions/browser/api/declarative/rules_registry_service.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/declarative/extensions_browser.test_rules_registry.o: $
+    cxx ../../extensions/browser/api/declarative/test_rules_registry.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/declarative_webrequest/extensions_browser.request_stage.o: $
+    cxx $
+    ../../extensions/browser/api/declarative_webrequest/request_stage.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/declarative_webrequest/extensions_browser.webrequest_action.o: $
+    cxx $
+    ../../extensions/browser/api/declarative_webrequest/webrequest_action.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/declarative_webrequest/extensions_browser.webrequest_condition.o: $
+    cxx $
+    ../../extensions/browser/api/declarative_webrequest/webrequest_condition.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/declarative_webrequest/extensions_browser.webrequest_condition_attribute.o: $
+    cxx $
+    ../../extensions/browser/api/declarative_webrequest/webrequest_condition_attribute.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/declarative_webrequest/extensions_browser.webrequest_constants.o: $
+    cxx $
+    ../../extensions/browser/api/declarative_webrequest/webrequest_constants.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/declarative_webrequest/extensions_browser.webrequest_rules_registry.o: $
+    cxx $
+    ../../extensions/browser/api/declarative_webrequest/webrequest_rules_registry.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/extensions_browser.device_permissions_manager.o: $
+    cxx ../../extensions/browser/api/device_permissions_manager.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/extensions_browser.device_permissions_prompt.o: $
+    cxx ../../extensions/browser/api/device_permissions_prompt.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/display_source/extensions_browser.display_source_api.o: $
+    cxx ../../extensions/browser/api/display_source/display_source_api.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/display_source/extensions_browser.display_source_connection_delegate.o: $
+    cxx $
+    ../../extensions/browser/api/display_source/display_source_connection_delegate.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/display_source/extensions_browser.display_source_connection_delegate_factory.o: $
+    cxx $
+    ../../extensions/browser/api/display_source/display_source_connection_delegate_factory.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/display_source/extensions_browser.display_source_event_router.o: $
+    cxx $
+    ../../extensions/browser/api/display_source/display_source_event_router.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/display_source/extensions_browser.display_source_event_router_factory.o: $
+    cxx $
+    ../../extensions/browser/api/display_source/display_source_event_router_factory.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/api/dns/extensions_browser.dns_api.o: cxx $
+    ../../extensions/browser/api/dns/dns_api.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/dns/extensions_browser.host_resolver_wrapper.o: $
+    cxx ../../extensions/browser/api/dns/host_resolver_wrapper.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/document_scan/extensions_browser.document_scan_api.o: $
+    cxx ../../extensions/browser/api/document_scan/document_scan_api.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/document_scan/extensions_browser.document_scan_interface.o: $
+    cxx $
+    ../../extensions/browser/api/document_scan/document_scan_interface.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/extensions_browser.execute_code_function.o: $
+    cxx ../../extensions/browser/api/execute_code_function.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/extensions_browser.extensions_api_client.o: $
+    cxx ../../extensions/browser/api/extensions_api_client.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/guest_view/app_view/extensions_browser.app_view_guest_internal_api.o: $
+    cxx $
+    ../../extensions/browser/api/guest_view/app_view/app_view_guest_internal_api.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/guest_view/extension_view/extensions_browser.extension_view_internal_api.o: $
+    cxx $
+    ../../extensions/browser/api/guest_view/extension_view/extension_view_internal_api.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/guest_view/extensions_browser.guest_view_internal_api.o: $
+    cxx ../../extensions/browser/api/guest_view/guest_view_internal_api.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/guest_view/web_view/extensions_browser.web_view_internal_api.o: $
+    cxx $
+    ../../extensions/browser/api/guest_view/web_view/web_view_internal_api.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/api/hid/extensions_browser.hid_api.o: cxx $
+    ../../extensions/browser/api/hid/hid_api.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/hid/extensions_browser.hid_connection_resource.o: $
+    cxx ../../extensions/browser/api/hid/hid_connection_resource.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/hid/extensions_browser.hid_device_manager.o: $
+    cxx ../../extensions/browser/api/hid/hid_device_manager.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/api/idle/extensions_browser.idle_api.o: cxx $
+    ../../extensions/browser/api/idle/idle_api.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/idle/extensions_browser.idle_api_constants.o: $
+    cxx ../../extensions/browser/api/idle/idle_api_constants.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/api/idle/extensions_browser.idle_manager.o: $
+    cxx ../../extensions/browser/api/idle/idle_manager.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/idle/extensions_browser.idle_manager_factory.o: $
+    cxx ../../extensions/browser/api/idle/idle_manager_factory.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/management/extensions_browser.management_api.o: $
+    cxx ../../extensions/browser/api/management/management_api.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/management/extensions_browser.management_api_constants.o: $
+    cxx ../../extensions/browser/api/management/management_api_constants.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/messaging/extensions_browser.native_message_host.o: $
+    cxx ../../extensions/browser/api/messaging/native_message_host.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/mime_handler_private/extensions_browser.mime_handler_private.o: $
+    cxx $
+    ../../extensions/browser/api/mime_handler_private/mime_handler_private.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/networking_private/extensions_browser.networking_private_api.o: $
+    cxx $
+    ../../extensions/browser/api/networking_private/networking_private_api.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/networking_private/extensions_browser.networking_private_delegate.o: $
+    cxx $
+    ../../extensions/browser/api/networking_private/networking_private_delegate.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/networking_private/extensions_browser.networking_private_delegate_factory.o: $
+    cxx $
+    ../../extensions/browser/api/networking_private/networking_private_delegate_factory.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/networking_private/extensions_browser.networking_private_event_router_factory.o: $
+    cxx $
+    ../../extensions/browser/api/networking_private/networking_private_event_router_factory.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/api/power/extensions_browser.power_api.o: cxx $
+    ../../extensions/browser/api/power/power_api.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/printer_provider/extensions_browser.printer_provider_api.o: $
+    cxx $
+    ../../extensions/browser/api/printer_provider/printer_provider_api.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/printer_provider/extensions_browser.printer_provider_api_factory.o: $
+    cxx $
+    ../../extensions/browser/api/printer_provider/printer_provider_api_factory.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/printer_provider/extensions_browser.printer_provider_print_job.o: $
+    cxx $
+    ../../extensions/browser/api/printer_provider/printer_provider_print_job.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/printer_provider_internal/extensions_browser.printer_provider_internal_api.o: $
+    cxx $
+    ../../extensions/browser/api/printer_provider_internal/printer_provider_internal_api.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/api/runtime/extensions_browser.runtime_api.o: $
+    cxx ../../extensions/browser/api/runtime/runtime_api.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/runtime/extensions_browser.runtime_api_delegate.o: $
+    cxx ../../extensions/browser/api/runtime/runtime_api_delegate.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/api/serial/extensions_browser.serial_api.o: $
+    cxx ../../extensions/browser/api/serial/serial_api.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/serial/extensions_browser.serial_connection.o: $
+    cxx ../../extensions/browser/api/serial/serial_connection.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/serial/extensions_browser.serial_event_dispatcher.o: $
+    cxx ../../extensions/browser/api/serial/serial_event_dispatcher.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/serial/extensions_browser.serial_service_factory.o: $
+    cxx ../../extensions/browser/api/serial/serial_service_factory.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/api/socket/extensions_browser.socket.o: cxx $
+    ../../extensions/browser/api/socket/socket.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/api/socket/extensions_browser.socket_api.o: $
+    cxx ../../extensions/browser/api/socket/socket_api.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/api/socket/extensions_browser.tcp_socket.o: $
+    cxx ../../extensions/browser/api/socket/tcp_socket.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/api/socket/extensions_browser.tls_socket.o: $
+    cxx ../../extensions/browser/api/socket/tls_socket.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/api/socket/extensions_browser.udp_socket.o: $
+    cxx ../../extensions/browser/api/socket/udp_socket.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/sockets_tcp/extensions_browser.sockets_tcp_api.o: $
+    cxx ../../extensions/browser/api/sockets_tcp/sockets_tcp_api.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/sockets_tcp/extensions_browser.tcp_socket_event_dispatcher.o: $
+    cxx $
+    ../../extensions/browser/api/sockets_tcp/tcp_socket_event_dispatcher.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/sockets_tcp_server/extensions_browser.sockets_tcp_server_api.o: $
+    cxx $
+    ../../extensions/browser/api/sockets_tcp_server/sockets_tcp_server_api.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/sockets_tcp_server/extensions_browser.tcp_server_socket_event_dispatcher.o: $
+    cxx $
+    ../../extensions/browser/api/sockets_tcp_server/tcp_server_socket_event_dispatcher.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/sockets_udp/extensions_browser.sockets_udp_api.o: $
+    cxx ../../extensions/browser/api/sockets_udp/sockets_udp_api.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/sockets_udp/extensions_browser.udp_socket_event_dispatcher.o: $
+    cxx $
+    ../../extensions/browser/api/sockets_udp/udp_socket_event_dispatcher.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/storage/extensions_browser.local_value_store_cache.o: $
+    cxx ../../extensions/browser/api/storage/local_value_store_cache.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/storage/extensions_browser.settings_namespace.o: $
+    cxx ../../extensions/browser/api/storage/settings_namespace.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/storage/extensions_browser.settings_storage_quota_enforcer.o: $
+    cxx $
+    ../../extensions/browser/api/storage/settings_storage_quota_enforcer.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/api/storage/extensions_browser.storage_api.o: $
+    cxx ../../extensions/browser/api/storage/storage_api.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/storage/extensions_browser.storage_frontend.o: $
+    cxx ../../extensions/browser/api/storage/storage_frontend.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/storage/extensions_browser.value_store_cache.o: $
+    cxx ../../extensions/browser/api/storage/value_store_cache.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/storage/extensions_browser.weak_unlimited_settings_storage.o: $
+    cxx $
+    ../../extensions/browser/api/storage/weak_unlimited_settings_storage.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/system_cpu/extensions_browser.cpu_info_provider.o: $
+    cxx ../../extensions/browser/api/system_cpu/cpu_info_provider.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/system_cpu/extensions_browser.cpu_info_provider_linux.o: $
+    cxx ../../extensions/browser/api/system_cpu/cpu_info_provider_linux.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/system_cpu/extensions_browser.system_cpu_api.o: $
+    cxx ../../extensions/browser/api/system_cpu/system_cpu_api.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/system_display/extensions_browser.display_info_provider.o: $
+    cxx $
+    ../../extensions/browser/api/system_display/display_info_provider.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/system_display/extensions_browser.system_display_api.o: $
+    cxx ../../extensions/browser/api/system_display/system_display_api.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/system_info/extensions_browser.system_info_api.o: $
+    cxx ../../extensions/browser/api/system_info/system_info_api.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/system_info/extensions_browser.system_info_provider.o: $
+    cxx ../../extensions/browser/api/system_info/system_info_provider.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/system_memory/extensions_browser.memory_info_provider.o: $
+    cxx ../../extensions/browser/api/system_memory/memory_info_provider.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/system_memory/extensions_browser.system_memory_api.o: $
+    cxx ../../extensions/browser/api/system_memory/system_memory_api.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/system_network/extensions_browser.system_network_api.o: $
+    cxx ../../extensions/browser/api/system_network/system_network_api.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/system_storage/extensions_browser.storage_info_provider.o: $
+    cxx $
+    ../../extensions/browser/api/system_storage/storage_info_provider.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/system_storage/extensions_browser.system_storage_api.o: $
+    cxx ../../extensions/browser/api/system_storage/system_storage_api.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/api/test/extensions_browser.test_api.o: cxx $
+    ../../extensions/browser/api/test/test_api.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/api/usb/extensions_browser.usb_api.o: cxx $
+    ../../extensions/browser/api/usb/usb_api.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/usb/extensions_browser.usb_device_resource.o: $
+    cxx ../../extensions/browser/api/usb/usb_device_resource.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/api/usb/extensions_browser.usb_event_router.o: $
+    cxx ../../extensions/browser/api/usb/usb_event_router.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/api/usb/extensions_browser.usb_guid_map.o: cxx $
+    ../../extensions/browser/api/usb/usb_guid_map.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/virtual_keyboard_private/extensions_browser.virtual_keyboard_private_api.o: $
+    cxx $
+    ../../extensions/browser/api/virtual_keyboard_private/virtual_keyboard_private_api.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/extensions_browser.web_contents_capture_client.o: $
+    cxx ../../extensions/browser/api/web_contents_capture_client.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/web_request/extensions_browser.form_data_parser.o: $
+    cxx ../../extensions/browser/api/web_request/form_data_parser.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/web_request/extensions_browser.upload_data_presenter.o: $
+    cxx ../../extensions/browser/api/web_request/upload_data_presenter.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/web_request/extensions_browser.web_request_api.o: $
+    cxx ../../extensions/browser/api/web_request/web_request_api.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/web_request/extensions_browser.web_request_api_constants.o: $
+    cxx $
+    ../../extensions/browser/api/web_request/web_request_api_constants.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/web_request/extensions_browser.web_request_api_helpers.o: $
+    cxx ../../extensions/browser/api/web_request/web_request_api_helpers.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/web_request/extensions_browser.web_request_event_details.o: $
+    cxx $
+    ../../extensions/browser/api/web_request/web_request_event_details.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/web_request/extensions_browser.web_request_event_router_delegate.o: $
+    cxx $
+    ../../extensions/browser/api/web_request/web_request_event_router_delegate.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/web_request/extensions_browser.web_request_permissions.o: $
+    cxx ../../extensions/browser/api/web_request/web_request_permissions.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/web_request/extensions_browser.web_request_time_tracker.o: $
+    cxx $
+    ../../extensions/browser/api/web_request/web_request_time_tracker.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/app_window/extensions_browser.app_web_contents_helper.o: $
+    cxx ../../extensions/browser/app_window/app_web_contents_helper.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/app_window/extensions_browser.app_window.o: $
+    cxx ../../extensions/browser/app_window/app_window.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/app_window/extensions_browser.app_window_client.o: $
+    cxx ../../extensions/browser/app_window/app_window_client.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/app_window/extensions_browser.app_window_contents.o: $
+    cxx ../../extensions/browser/app_window/app_window_contents.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/app_window/extensions_browser.app_window_geometry_cache.o: $
+    cxx ../../extensions/browser/app_window/app_window_geometry_cache.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/app_window/extensions_browser.app_window_registry.o: $
+    cxx ../../extensions/browser/app_window/app_window_registry.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/app_window/extensions_browser.size_constraints.o: $
+    cxx ../../extensions/browser/app_window/size_constraints.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.bad_message.o: cxx $
+    ../../extensions/browser/bad_message.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.blob_holder.o: cxx $
+    ../../extensions/browser/blob_holder.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_browser.browser_context_keyed_service_factories.o: $
+    cxx ../../extensions/browser/browser_context_keyed_service_factories.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.computed_hashes.o: cxx $
+    ../../extensions/browser/computed_hashes.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.content_hash_fetcher.o: cxx $
+    ../../extensions/browser/content_hash_fetcher.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.content_hash_reader.o: cxx $
+    ../../extensions/browser/content_hash_reader.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.content_hash_tree.o: cxx $
+    ../../extensions/browser/content_hash_tree.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.content_verifier.o: cxx $
+    ../../extensions/browser/content_verifier.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.content_verifier_io_data.o: $
+    cxx ../../extensions/browser/content_verifier_io_data.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.content_verify_job.o: cxx $
+    ../../extensions/browser/content_verify_job.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.crx_file_info.o: cxx $
+    ../../extensions/browser/crx_file_info.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_browser.declarative_user_script_manager.o: $
+    cxx ../../extensions/browser/declarative_user_script_manager.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_browser.declarative_user_script_manager_factory.o: $
+    cxx ../../extensions/browser/declarative_user_script_manager_factory.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_browser.declarative_user_script_master.o: $
+    cxx ../../extensions/browser/declarative_user_script_master.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.error_map.o: cxx $
+    ../../extensions/browser/error_map.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.event_listener_map.o: cxx $
+    ../../extensions/browser/event_listener_map.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.event_router.o: cxx $
+    ../../extensions/browser/event_router.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.event_router_factory.o: cxx $
+    ../../extensions/browser/event_router_factory.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_browser.extension_api_frame_id_map.o: $
+    cxx ../../extensions/browser/extension_api_frame_id_map.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_browser.extension_dialog_auto_confirm.o: $
+    cxx ../../extensions/browser/extension_dialog_auto_confirm.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.extension_error.o: cxx $
+    ../../extensions/browser/extension_error.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.extension_function.o: cxx $
+    ../../extensions/browser/extension_function.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_browser.extension_function_dispatcher.o: $
+    cxx ../../extensions/browser/extension_function_dispatcher.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_browser.extension_function_registry.o: $
+    cxx ../../extensions/browser/extension_function_registry.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.extension_host.o: cxx $
+    ../../extensions/browser/extension_host.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.extension_icon_image.o: cxx $
+    ../../extensions/browser/extension_icon_image.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_browser.extension_icon_placeholder.o: $
+    cxx ../../extensions/browser/extension_icon_placeholder.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.extension_message_filter.o: $
+    cxx ../../extensions/browser/extension_message_filter.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.extension_pref_store.o: cxx $
+    ../../extensions/browser/extension_pref_store.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.extension_pref_value_map.o: $
+    cxx ../../extensions/browser/extension_pref_value_map.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_browser.extension_pref_value_map_factory.o: $
+    cxx ../../extensions/browser/extension_pref_value_map_factory.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.extension_prefs.o: cxx $
+    ../../extensions/browser/extension_prefs.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.extension_prefs_factory.o: $
+    cxx ../../extensions/browser/extension_prefs_factory.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.extension_protocols.o: cxx $
+    ../../extensions/browser/extension_protocols.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.extension_registry.o: cxx $
+    ../../extensions/browser/extension_registry.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_browser.extension_registry_factory.o: $
+    cxx ../../extensions/browser/extension_registry_factory.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_browser.extension_request_limiting_throttle.o: $
+    cxx ../../extensions/browser/extension_request_limiting_throttle.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.extension_system.o: cxx $
+    ../../extensions/browser/extension_system.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_browser.extension_system_provider.o: $
+    cxx ../../extensions/browser/extension_system_provider.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.extension_throttle_entry.o: $
+    cxx ../../extensions/browser/extension_throttle_entry.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_browser.extension_throttle_manager.o: $
+    cxx ../../extensions/browser/extension_throttle_manager.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_browser.extension_user_script_loader.o: $
+    cxx ../../extensions/browser/extension_user_script_loader.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.extension_util.o: cxx $
+    ../../extensions/browser/extension_util.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_browser.extension_web_contents_observer.o: $
+    cxx ../../extensions/browser/extension_web_contents_observer.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_browser.extension_zoom_request_client.o: $
+    cxx ../../extensions/browser/extension_zoom_request_client.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_browser.extensions_browser_client.o: $
+    cxx ../../extensions/browser/extensions_browser_client.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.external_install_info.o: $
+    cxx ../../extensions/browser/external_install_info.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.file_highlighter.o: cxx $
+    ../../extensions/browser/file_highlighter.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.file_reader.o: cxx $
+    ../../extensions/browser/file_reader.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.granted_file_entry.o: cxx $
+    ../../extensions/browser/granted_file_entry.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/guest_view/app_view/extensions_browser.app_view_constants.o: $
+    cxx ../../extensions/browser/guest_view/app_view/app_view_constants.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/guest_view/app_view/extensions_browser.app_view_guest.o: $
+    cxx ../../extensions/browser/guest_view/app_view/app_view_guest.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/guest_view/app_view/extensions_browser.app_view_guest_delegate.o: $
+    cxx $
+    ../../extensions/browser/guest_view/app_view/app_view_guest_delegate.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/guest_view/extension_options/extensions_browser.extension_options_constants.o: $
+    cxx $
+    ../../extensions/browser/guest_view/extension_options/extension_options_constants.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/guest_view/extension_options/extensions_browser.extension_options_guest.o: $
+    cxx $
+    ../../extensions/browser/guest_view/extension_options/extension_options_guest.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/guest_view/extension_options/extensions_browser.extension_options_guest_delegate.o: $
+    cxx $
+    ../../extensions/browser/guest_view/extension_options/extension_options_guest_delegate.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/guest_view/extension_view/extensions_browser.extension_view_constants.o: $
+    cxx $
+    ../../extensions/browser/guest_view/extension_view/extension_view_constants.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/guest_view/extension_view/extensions_browser.extension_view_guest.o: $
+    cxx $
+    ../../extensions/browser/guest_view/extension_view/extension_view_guest.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/guest_view/extension_view/whitelist/extensions_browser.extension_view_whitelist.o: $
+    cxx $
+    ../../extensions/browser/guest_view/extension_view/whitelist/extension_view_whitelist.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/guest_view/extensions_browser.extensions_guest_view_manager_delegate.o: $
+    cxx $
+    ../../extensions/browser/guest_view/extensions_guest_view_manager_delegate.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/guest_view/extensions_browser.extensions_guest_view_message_filter.o: $
+    cxx $
+    ../../extensions/browser/guest_view/extensions_guest_view_message_filter.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/guest_view/extensions_browser.guest_view_events.o: $
+    cxx ../../extensions/browser/guest_view/guest_view_events.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/guest_view/mime_handler_view/extensions_browser.mime_handler_stream_manager.o: $
+    cxx $
+    ../../extensions/browser/guest_view/mime_handler_view/mime_handler_stream_manager.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/guest_view/mime_handler_view/extensions_browser.mime_handler_view_constants.o: $
+    cxx $
+    ../../extensions/browser/guest_view/mime_handler_view/mime_handler_view_constants.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/guest_view/mime_handler_view/extensions_browser.mime_handler_view_guest.o: $
+    cxx $
+    ../../extensions/browser/guest_view/mime_handler_view/mime_handler_view_guest.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/guest_view/mime_handler_view/extensions_browser.mime_handler_view_guest_delegate.o: $
+    cxx $
+    ../../extensions/browser/guest_view/mime_handler_view/mime_handler_view_guest_delegate.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/guest_view/web_view/extensions_browser.javascript_dialog_helper.o: $
+    cxx $
+    ../../extensions/browser/guest_view/web_view/javascript_dialog_helper.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/guest_view/web_view/web_ui/extensions_browser.web_ui_url_fetcher.o: $
+    cxx $
+    ../../extensions/browser/guest_view/web_view/web_ui/web_ui_url_fetcher.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/guest_view/web_view/extensions_browser.web_view_constants.o: $
+    cxx ../../extensions/browser/guest_view/web_view/web_view_constants.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/guest_view/web_view/extensions_browser.web_view_content_script_manager.o: $
+    cxx $
+    ../../extensions/browser/guest_view/web_view/web_view_content_script_manager.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/guest_view/web_view/extensions_browser.web_view_find_helper.o: $
+    cxx $
+    ../../extensions/browser/guest_view/web_view/web_view_find_helper.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/guest_view/web_view/extensions_browser.web_view_guest.o: $
+    cxx ../../extensions/browser/guest_view/web_view/web_view_guest.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/guest_view/web_view/extensions_browser.web_view_permission_helper.o: $
+    cxx $
+    ../../extensions/browser/guest_view/web_view/web_view_permission_helper.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/guest_view/web_view/extensions_browser.web_view_permission_helper_delegate.o: $
+    cxx $
+    ../../extensions/browser/guest_view/web_view/web_view_permission_helper_delegate.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/guest_view/web_view/extensions_browser.web_view_renderer_state.o: $
+    cxx $
+    ../../extensions/browser/guest_view/web_view/web_view_renderer_state.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.image_loader.o: cxx $
+    ../../extensions/browser/image_loader.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.image_loader_factory.o: cxx $
+    ../../extensions/browser/image_loader_factory.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.info_map.o: cxx $
+    ../../extensions/browser/info_map.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/install/extensions_browser.extension_install_ui.o: $
+    cxx ../../extensions/browser/install/extension_install_ui.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_browser.io_thread_extension_message_filter.o: $
+    cxx ../../extensions/browser/io_thread_extension_message_filter.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_browser.lazy_background_task_queue.o: $
+    cxx ../../extensions/browser/lazy_background_task_queue.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_browser.lazy_background_task_queue_factory.o: $
+    cxx ../../extensions/browser/lazy_background_task_queue_factory.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_browser.load_monitoring_extension_host_queue.o: $
+    cxx ../../extensions/browser/load_monitoring_extension_host_queue.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.management_policy.o: cxx $
+    ../../extensions/browser/management_policy.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/mojo/extensions_browser.keep_alive_impl.o: cxx $
+    ../../extensions/browser/mojo/keep_alive_impl.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/mojo/extensions_browser.service_registration.o: $
+    cxx ../../extensions/browser/mojo/service_registration.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/mojo/extensions_browser.stash_backend.o: cxx $
+    ../../extensions/browser/mojo/stash_backend.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.notification_types.o: cxx $
+    ../../extensions/browser/notification_types.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.null_app_sorting.o: cxx $
+    ../../extensions/browser/null_app_sorting.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.pref_names.o: cxx $
+    ../../extensions/browser/pref_names.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.process_manager.o: cxx $
+    ../../extensions/browser/process_manager.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.process_manager_factory.o: $
+    cxx ../../extensions/browser/process_manager_factory.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.process_map.o: cxx $
+    ../../extensions/browser/process_map.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.process_map_factory.o: cxx $
+    ../../extensions/browser/process_map_factory.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.quota_service.o: cxx $
+    ../../extensions/browser/quota_service.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.renderer_startup_helper.o: $
+    cxx ../../extensions/browser/renderer_startup_helper.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.runtime_data.o: cxx $
+    ../../extensions/browser/runtime_data.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.sandboxed_unpacker.o: cxx $
+    ../../extensions/browser/sandboxed_unpacker.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.script_executor.o: cxx $
+    ../../extensions/browser/script_executor.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_browser.serial_extension_host_queue.o: $
+    cxx ../../extensions/browser/serial_extension_host_queue.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.service_worker_manager.o: $
+    cxx ../../extensions/browser/service_worker_manager.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.state_store.o: cxx $
+    ../../extensions/browser/state_store.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.suggest_permission_util.o: $
+    cxx ../../extensions/browser/suggest_permission_util.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.uninstall_ping_sender.o: $
+    cxx ../../extensions/browser/uninstall_ping_sender.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/updater/extensions_browser.extension_downloader.o: $
+    cxx ../../extensions/browser/updater/extension_downloader.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/updater/extensions_browser.extension_downloader_delegate.o: $
+    cxx ../../extensions/browser/updater/extension_downloader_delegate.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/updater/extensions_browser.manifest_fetch_data.o: $
+    cxx ../../extensions/browser/updater/manifest_fetch_data.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/updater/extensions_browser.null_extension_cache.o: $
+    cxx ../../extensions/browser/updater/null_extension_cache.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/updater/extensions_browser.safe_manifest_parser.o: $
+    cxx ../../extensions/browser/updater/safe_manifest_parser.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/updater/extensions_browser.update_client_config.o: $
+    cxx ../../extensions/browser/updater/update_client_config.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/updater/extensions_browser.update_data_provider.o: $
+    cxx ../../extensions/browser/updater/update_data_provider.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/updater/extensions_browser.update_install_shim.o: $
+    cxx ../../extensions/browser/updater/update_install_shim.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/updater/extensions_browser.update_service.o: $
+    cxx ../../extensions/browser/updater/update_service.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/updater/extensions_browser.update_service_factory.o: $
+    cxx ../../extensions/browser/updater/update_service_factory.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.url_request_util.o: cxx $
+    ../../extensions/browser/url_request_util.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.user_script_loader.o: cxx $
+    ../../extensions/browser/user_script_loader.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/value_store/extensions_browser.lazy_leveldb.o: $
+    cxx ../../extensions/browser/value_store/lazy_leveldb.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/value_store/extensions_browser.legacy_value_store_factory.o: $
+    cxx ../../extensions/browser/value_store/legacy_value_store_factory.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/value_store/extensions_browser.leveldb_scoped_database.o: $
+    cxx ../../extensions/browser/value_store/leveldb_scoped_database.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/value_store/extensions_browser.leveldb_value_store.o: $
+    cxx ../../extensions/browser/value_store/leveldb_value_store.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/value_store/extensions_browser.test_value_store_factory.o: $
+    cxx ../../extensions/browser/value_store/test_value_store_factory.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/value_store/extensions_browser.testing_value_store.o: $
+    cxx ../../extensions/browser/value_store/testing_value_store.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/value_store/extensions_browser.value_store.o: $
+    cxx ../../extensions/browser/value_store/value_store.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/value_store/extensions_browser.value_store_change.o: $
+    cxx ../../extensions/browser/value_store/value_store_change.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/value_store/extensions_browser.value_store_factory_impl.o: $
+    cxx ../../extensions/browser/value_store/value_store_factory_impl.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/value_store/extensions_browser.value_store_frontend.o: $
+    cxx ../../extensions/browser/value_store/value_store_frontend.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.verified_contents.o: cxx $
+    ../../extensions/browser/verified_contents.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.view_type_utils.o: cxx $
+    ../../extensions/browser/view_type_utils.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.warning_service.o: cxx $
+    ../../extensions/browser/warning_service.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.warning_service_factory.o: $
+    cxx ../../extensions/browser/warning_service_factory.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/extensions_browser.warning_set.o: cxx $
+    ../../extensions/browser/warning_set.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_browser.web_ui_user_script_loader.o: $
+    cxx ../../extensions/browser/web_ui_user_script_loader.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build obj/extensions/browser/api/audio/extensions_browser.audio_service.o: $
+    cxx ../../extensions/browser/api/audio/audio_service.cc || $
+    obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/document_scan/extensions_browser.document_scan_interface_nonchromeos.o: $
+    cxx $
+    ../../extensions/browser/api/document_scan/document_scan_interface_nonchromeos.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/networking_private/extensions_browser.network_config_dbus_constants_linux.o: $
+    cxx $
+    ../../extensions/browser/api/networking_private/network_config_dbus_constants_linux.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/networking_private/extensions_browser.networking_private_event_router_nonchromeos.o: $
+    cxx $
+    ../../extensions/browser/api/networking_private/networking_private_event_router_nonchromeos.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+build $
+    obj/extensions/browser/api/networking_private/extensions_browser.networking_private_linux.o: $
+    cxx $
+    ../../extensions/browser/api/networking_private/networking_private_linux.cc $
+    || obj/extensions/extensions_browser.compile_depends.stamp
+
+build obj/extensions/libextensions_browser.a: alink_thin $
+    obj/extensions/browser/api/activity_log/extensions_browser.web_request_constants.o $
+    obj/extensions/browser/api/alarms/extensions_browser.alarm_manager.o $
+    obj/extensions/browser/api/alarms/extensions_browser.alarms_api.o $
+    obj/extensions/browser/api/extensions_browser.api_resource.o $
+    obj/extensions/browser/api/app_current_window_internal/extensions_browser.app_current_window_internal_api.o $
+    obj/extensions/browser/api/app_runtime/extensions_browser.app_runtime_api.o $
+    obj/extensions/browser/api/app_window/extensions_browser.app_window_api.o $
+    obj/extensions/browser/api/extensions_browser.async_api_function.o $
+    obj/extensions/browser/api/audio/extensions_browser.audio_api.o $
+    obj/extensions/browser/api/bluetooth/extensions_browser.bluetooth_api.o $
+    obj/extensions/browser/api/bluetooth/extensions_browser.bluetooth_api_pairing_delegate.o $
+    obj/extensions/browser/api/bluetooth/extensions_browser.bluetooth_api_utils.o $
+    obj/extensions/browser/api/bluetooth/extensions_browser.bluetooth_event_router.o $
+    obj/extensions/browser/api/bluetooth/extensions_browser.bluetooth_extension_function.o $
+    obj/extensions/browser/api/bluetooth/extensions_browser.bluetooth_private_api.o $
+    obj/extensions/browser/api/bluetooth_socket/extensions_browser.bluetooth_api_socket.o $
+    obj/extensions/browser/api/bluetooth_socket/extensions_browser.bluetooth_socket_api.o $
+    obj/extensions/browser/api/bluetooth_socket/extensions_browser.bluetooth_socket_event_dispatcher.o $
+    obj/extensions/browser/api/cast_channel/extensions_browser.cast_auth_util.o $
+    obj/extensions/browser/api/cast_channel/extensions_browser.cast_channel_api.o $
+    obj/extensions/browser/api/cast_channel/extensions_browser.cast_framer.o $
+    obj/extensions/browser/api/cast_channel/extensions_browser.cast_message_util.o $
+    obj/extensions/browser/api/cast_channel/extensions_browser.cast_socket.o $
+    obj/extensions/browser/api/cast_channel/extensions_browser.cast_transport.o $
+    obj/extensions/browser/api/cast_channel/extensions_browser.keep_alive_delegate.o $
+    obj/extensions/browser/api/cast_channel/extensions_browser.logger.o $
+    obj/extensions/browser/api/cast_channel/extensions_browser.logger_util.o $
+    obj/extensions/browser/api/declarative/extensions_browser.declarative_api.o $
+    obj/extensions/browser/api/declarative/extensions_browser.rules_cache_delegate.o $
+    obj/extensions/browser/api/declarative/extensions_browser.rules_registry.o $
+    obj/extensions/browser/api/declarative/extensions_browser.rules_registry_service.o $
+    obj/extensions/browser/api/declarative/extensions_browser.test_rules_registry.o $
+    obj/extensions/browser/api/declarative_webrequest/extensions_browser.request_stage.o $
+    obj/extensions/browser/api/declarative_webrequest/extensions_browser.webrequest_action.o $
+    obj/extensions/browser/api/declarative_webrequest/extensions_browser.webrequest_condition.o $
+    obj/extensions/browser/api/declarative_webrequest/extensions_browser.webrequest_condition_attribute.o $
+    obj/extensions/browser/api/declarative_webrequest/extensions_browser.webrequest_constants.o $
+    obj/extensions/browser/api/declarative_webrequest/extensions_browser.webrequest_rules_registry.o $
+    obj/extensions/browser/api/extensions_browser.device_permissions_manager.o $
+    obj/extensions/browser/api/extensions_browser.device_permissions_prompt.o $
+    obj/extensions/browser/api/display_source/extensions_browser.display_source_api.o $
+    obj/extensions/browser/api/display_source/extensions_browser.display_source_connection_delegate.o $
+    obj/extensions/browser/api/display_source/extensions_browser.display_source_connection_delegate_factory.o $
+    obj/extensions/browser/api/display_source/extensions_browser.display_source_event_router.o $
+    obj/extensions/browser/api/display_source/extensions_browser.display_source_event_router_factory.o $
+    obj/extensions/browser/api/dns/extensions_browser.dns_api.o $
+    obj/extensions/browser/api/dns/extensions_browser.host_resolver_wrapper.o $
+    obj/extensions/browser/api/document_scan/extensions_browser.document_scan_api.o $
+    obj/extensions/browser/api/document_scan/extensions_browser.document_scan_interface.o $
+    obj/extensions/browser/api/extensions_browser.execute_code_function.o $
+    obj/extensions/browser/api/extensions_browser.extensions_api_client.o $
+    obj/extensions/browser/api/guest_view/app_view/extensions_browser.app_view_guest_internal_api.o $
+    obj/extensions/browser/api/guest_view/extension_view/extensions_browser.extension_view_internal_api.o $
+    obj/extensions/browser/api/guest_view/extensions_browser.guest_view_internal_api.o $
+    obj/extensions/browser/api/guest_view/web_view/extensions_browser.web_view_internal_api.o $
+    obj/extensions/browser/api/hid/extensions_browser.hid_api.o $
+    obj/extensions/browser/api/hid/extensions_browser.hid_connection_resource.o $
+    obj/extensions/browser/api/hid/extensions_browser.hid_device_manager.o $
+    obj/extensions/browser/api/idle/extensions_browser.idle_api.o $
+    obj/extensions/browser/api/idle/extensions_browser.idle_api_constants.o $
+    obj/extensions/browser/api/idle/extensions_browser.idle_manager.o $
+    obj/extensions/browser/api/idle/extensions_browser.idle_manager_factory.o $
+    obj/extensions/browser/api/management/extensions_browser.management_api.o $
+    obj/extensions/browser/api/management/extensions_browser.management_api_constants.o $
+    obj/extensions/browser/api/messaging/extensions_browser.native_message_host.o $
+    obj/extensions/browser/api/mime_handler_private/extensions_browser.mime_handler_private.o $
+    obj/extensions/browser/api/networking_private/extensions_browser.networking_private_api.o $
+    obj/extensions/browser/api/networking_private/extensions_browser.networking_private_delegate.o $
+    obj/extensions/browser/api/networking_private/extensions_browser.networking_private_delegate_factory.o $
+    obj/extensions/browser/api/networking_private/extensions_browser.networking_private_event_router_factory.o $
+    obj/extensions/browser/api/power/extensions_browser.power_api.o $
+    obj/extensions/browser/api/printer_provider/extensions_browser.printer_provider_api.o $
+    obj/extensions/browser/api/printer_provider/extensions_browser.printer_provider_api_factory.o $
+    obj/extensions/browser/api/printer_provider/extensions_browser.printer_provider_print_job.o $
+    obj/extensions/browser/api/printer_provider_internal/extensions_browser.printer_provider_internal_api.o $
+    obj/extensions/browser/api/runtime/extensions_browser.runtime_api.o $
+    obj/extensions/browser/api/runtime/extensions_browser.runtime_api_delegate.o $
+    obj/extensions/browser/api/serial/extensions_browser.serial_api.o $
+    obj/extensions/browser/api/serial/extensions_browser.serial_connection.o $
+    obj/extensions/browser/api/serial/extensions_browser.serial_event_dispatcher.o $
+    obj/extensions/browser/api/serial/extensions_browser.serial_service_factory.o $
+    obj/extensions/browser/api/socket/extensions_browser.socket.o $
+    obj/extensions/browser/api/socket/extensions_browser.socket_api.o $
+    obj/extensions/browser/api/socket/extensions_browser.tcp_socket.o $
+    obj/extensions/browser/api/socket/extensions_browser.tls_socket.o $
+    obj/extensions/browser/api/socket/extensions_browser.udp_socket.o $
+    obj/extensions/browser/api/sockets_tcp/extensions_browser.sockets_tcp_api.o $
+    obj/extensions/browser/api/sockets_tcp/extensions_browser.tcp_socket_event_dispatcher.o $
+    obj/extensions/browser/api/sockets_tcp_server/extensions_browser.sockets_tcp_server_api.o $
+    obj/extensions/browser/api/sockets_tcp_server/extensions_browser.tcp_server_socket_event_dispatcher.o $
+    obj/extensions/browser/api/sockets_udp/extensions_browser.sockets_udp_api.o $
+    obj/extensions/browser/api/sockets_udp/extensions_browser.udp_socket_event_dispatcher.o $
+    obj/extensions/browser/api/storage/extensions_browser.local_value_store_cache.o $
+    obj/extensions/browser/api/storage/extensions_browser.settings_namespace.o $
+    obj/extensions/browser/api/storage/extensions_browser.settings_storage_quota_enforcer.o $
+    obj/extensions/browser/api/storage/extensions_browser.storage_api.o $
+    obj/extensions/browser/api/storage/extensions_browser.storage_frontend.o $
+    obj/extensions/browser/api/storage/extensions_browser.value_store_cache.o $
+    obj/extensions/browser/api/storage/extensions_browser.weak_unlimited_settings_storage.o $
+    obj/extensions/browser/api/system_cpu/extensions_browser.cpu_info_provider.o $
+    obj/extensions/browser/api/system_cpu/extensions_browser.cpu_info_provider_linux.o $
+    obj/extensions/browser/api/system_cpu/extensions_browser.system_cpu_api.o $
+    obj/extensions/browser/api/system_display/extensions_browser.display_info_provider.o $
+    obj/extensions/browser/api/system_display/extensions_browser.system_display_api.o $
+    obj/extensions/browser/api/system_info/extensions_browser.system_info_api.o $
+    obj/extensions/browser/api/system_info/extensions_browser.system_info_provider.o $
+    obj/extensions/browser/api/system_memory/extensions_browser.memory_info_provider.o $
+    obj/extensions/browser/api/system_memory/extensions_browser.system_memory_api.o $
+    obj/extensions/browser/api/system_network/extensions_browser.system_network_api.o $
+    obj/extensions/browser/api/system_storage/extensions_browser.storage_info_provider.o $
+    obj/extensions/browser/api/system_storage/extensions_browser.system_storage_api.o $
+    obj/extensions/browser/api/test/extensions_browser.test_api.o $
+    obj/extensions/browser/api/usb/extensions_browser.usb_api.o $
+    obj/extensions/browser/api/usb/extensions_browser.usb_device_resource.o $
+    obj/extensions/browser/api/usb/extensions_browser.usb_event_router.o $
+    obj/extensions/browser/api/usb/extensions_browser.usb_guid_map.o $
+    obj/extensions/browser/api/virtual_keyboard_private/extensions_browser.virtual_keyboard_private_api.o $
+    obj/extensions/browser/api/extensions_browser.web_contents_capture_client.o $
+    obj/extensions/browser/api/web_request/extensions_browser.form_data_parser.o $
+    obj/extensions/browser/api/web_request/extensions_browser.upload_data_presenter.o $
+    obj/extensions/browser/api/web_request/extensions_browser.web_request_api.o $
+    obj/extensions/browser/api/web_request/extensions_browser.web_request_api_constants.o $
+    obj/extensions/browser/api/web_request/extensions_browser.web_request_api_helpers.o $
+    obj/extensions/browser/api/web_request/extensions_browser.web_request_event_details.o $
+    obj/extensions/browser/api/web_request/extensions_browser.web_request_event_router_delegate.o $
+    obj/extensions/browser/api/web_request/extensions_browser.web_request_permissions.o $
+    obj/extensions/browser/api/web_request/extensions_browser.web_request_time_tracker.o $
+    obj/extensions/browser/app_window/extensions_browser.app_web_contents_helper.o $
+    obj/extensions/browser/app_window/extensions_browser.app_window.o $
+    obj/extensions/browser/app_window/extensions_browser.app_window_client.o $
+    obj/extensions/browser/app_window/extensions_browser.app_window_contents.o $
+    obj/extensions/browser/app_window/extensions_browser.app_window_geometry_cache.o $
+    obj/extensions/browser/app_window/extensions_browser.app_window_registry.o $
+    obj/extensions/browser/app_window/extensions_browser.size_constraints.o $
+    obj/extensions/browser/extensions_browser.bad_message.o $
+    obj/extensions/browser/extensions_browser.blob_holder.o $
+    obj/extensions/browser/extensions_browser.browser_context_keyed_service_factories.o $
+    obj/extensions/browser/extensions_browser.computed_hashes.o $
+    obj/extensions/browser/extensions_browser.content_hash_fetcher.o $
+    obj/extensions/browser/extensions_browser.content_hash_reader.o $
+    obj/extensions/browser/extensions_browser.content_hash_tree.o $
+    obj/extensions/browser/extensions_browser.content_verifier.o $
+    obj/extensions/browser/extensions_browser.content_verifier_io_data.o $
+    obj/extensions/browser/extensions_browser.content_verify_job.o $
+    obj/extensions/browser/extensions_browser.crx_file_info.o $
+    obj/extensions/browser/extensions_browser.declarative_user_script_manager.o $
+    obj/extensions/browser/extensions_browser.declarative_user_script_manager_factory.o $
+    obj/extensions/browser/extensions_browser.declarative_user_script_master.o $
+    obj/extensions/browser/extensions_browser.error_map.o $
+    obj/extensions/browser/extensions_browser.event_listener_map.o $
+    obj/extensions/browser/extensions_browser.event_router.o $
+    obj/extensions/browser/extensions_browser.event_router_factory.o $
+    obj/extensions/browser/extensions_browser.extension_api_frame_id_map.o $
+    obj/extensions/browser/extensions_browser.extension_dialog_auto_confirm.o $
+    obj/extensions/browser/extensions_browser.extension_error.o $
+    obj/extensions/browser/extensions_browser.extension_function.o $
+    obj/extensions/browser/extensions_browser.extension_function_dispatcher.o $
+    obj/extensions/browser/extensions_browser.extension_function_registry.o $
+    obj/extensions/browser/extensions_browser.extension_host.o $
+    obj/extensions/browser/extensions_browser.extension_icon_image.o $
+    obj/extensions/browser/extensions_browser.extension_icon_placeholder.o $
+    obj/extensions/browser/extensions_browser.extension_message_filter.o $
+    obj/extensions/browser/extensions_browser.extension_pref_store.o $
+    obj/extensions/browser/extensions_browser.extension_pref_value_map.o $
+    obj/extensions/browser/extensions_browser.extension_pref_value_map_factory.o $
+    obj/extensions/browser/extensions_browser.extension_prefs.o $
+    obj/extensions/browser/extensions_browser.extension_prefs_factory.o $
+    obj/extensions/browser/extensions_browser.extension_protocols.o $
+    obj/extensions/browser/extensions_browser.extension_registry.o $
+    obj/extensions/browser/extensions_browser.extension_registry_factory.o $
+    obj/extensions/browser/extensions_browser.extension_request_limiting_throttle.o $
+    obj/extensions/browser/extensions_browser.extension_system.o $
+    obj/extensions/browser/extensions_browser.extension_system_provider.o $
+    obj/extensions/browser/extensions_browser.extension_throttle_entry.o $
+    obj/extensions/browser/extensions_browser.extension_throttle_manager.o $
+    obj/extensions/browser/extensions_browser.extension_user_script_loader.o $
+    obj/extensions/browser/extensions_browser.extension_util.o $
+    obj/extensions/browser/extensions_browser.extension_web_contents_observer.o $
+    obj/extensions/browser/extensions_browser.extension_zoom_request_client.o $
+    obj/extensions/browser/extensions_browser.extensions_browser_client.o $
+    obj/extensions/browser/extensions_browser.external_install_info.o $
+    obj/extensions/browser/extensions_browser.file_highlighter.o $
+    obj/extensions/browser/extensions_browser.file_reader.o $
+    obj/extensions/browser/extensions_browser.granted_file_entry.o $
+    obj/extensions/browser/guest_view/app_view/extensions_browser.app_view_constants.o $
+    obj/extensions/browser/guest_view/app_view/extensions_browser.app_view_guest.o $
+    obj/extensions/browser/guest_view/app_view/extensions_browser.app_view_guest_delegate.o $
+    obj/extensions/browser/guest_view/extension_options/extensions_browser.extension_options_constants.o $
+    obj/extensions/browser/guest_view/extension_options/extensions_browser.extension_options_guest.o $
+    obj/extensions/browser/guest_view/extension_options/extensions_browser.extension_options_guest_delegate.o $
+    obj/extensions/browser/guest_view/extension_view/extensions_browser.extension_view_constants.o $
+    obj/extensions/browser/guest_view/extension_view/extensions_browser.extension_view_guest.o $
+    obj/extensions/browser/guest_view/extension_view/whitelist/extensions_browser.extension_view_whitelist.o $
+    obj/extensions/browser/guest_view/extensions_browser.extensions_guest_view_manager_delegate.o $
+    obj/extensions/browser/guest_view/extensions_browser.extensions_guest_view_message_filter.o $
+    obj/extensions/browser/guest_view/extensions_browser.guest_view_events.o $
+    obj/extensions/browser/guest_view/mime_handler_view/extensions_browser.mime_handler_stream_manager.o $
+    obj/extensions/browser/guest_view/mime_handler_view/extensions_browser.mime_handler_view_constants.o $
+    obj/extensions/browser/guest_view/mime_handler_view/extensions_browser.mime_handler_view_guest.o $
+    obj/extensions/browser/guest_view/mime_handler_view/extensions_browser.mime_handler_view_guest_delegate.o $
+    obj/extensions/browser/guest_view/web_view/extensions_browser.javascript_dialog_helper.o $
+    obj/extensions/browser/guest_view/web_view/web_ui/extensions_browser.web_ui_url_fetcher.o $
+    obj/extensions/browser/guest_view/web_view/extensions_browser.web_view_constants.o $
+    obj/extensions/browser/guest_view/web_view/extensions_browser.web_view_content_script_manager.o $
+    obj/extensions/browser/guest_view/web_view/extensions_browser.web_view_find_helper.o $
+    obj/extensions/browser/guest_view/web_view/extensions_browser.web_view_guest.o $
+    obj/extensions/browser/guest_view/web_view/extensions_browser.web_view_permission_helper.o $
+    obj/extensions/browser/guest_view/web_view/extensions_browser.web_view_permission_helper_delegate.o $
+    obj/extensions/browser/guest_view/web_view/extensions_browser.web_view_renderer_state.o $
+    obj/extensions/browser/extensions_browser.image_loader.o $
+    obj/extensions/browser/extensions_browser.image_loader_factory.o $
+    obj/extensions/browser/extensions_browser.info_map.o $
+    obj/extensions/browser/install/extensions_browser.extension_install_ui.o $
+    obj/extensions/browser/extensions_browser.io_thread_extension_message_filter.o $
+    obj/extensions/browser/extensions_browser.lazy_background_task_queue.o $
+    obj/extensions/browser/extensions_browser.lazy_background_task_queue_factory.o $
+    obj/extensions/browser/extensions_browser.load_monitoring_extension_host_queue.o $
+    obj/extensions/browser/extensions_browser.management_policy.o $
+    obj/extensions/browser/mojo/extensions_browser.keep_alive_impl.o $
+    obj/extensions/browser/mojo/extensions_browser.service_registration.o $
+    obj/extensions/browser/mojo/extensions_browser.stash_backend.o $
+    obj/extensions/browser/extensions_browser.notification_types.o $
+    obj/extensions/browser/extensions_browser.null_app_sorting.o $
+    obj/extensions/browser/extensions_browser.pref_names.o $
+    obj/extensions/browser/extensions_browser.process_manager.o $
+    obj/extensions/browser/extensions_browser.process_manager_factory.o $
+    obj/extensions/browser/extensions_browser.process_map.o $
+    obj/extensions/browser/extensions_browser.process_map_factory.o $
+    obj/extensions/browser/extensions_browser.quota_service.o $
+    obj/extensions/browser/extensions_browser.renderer_startup_helper.o $
+    obj/extensions/browser/extensions_browser.runtime_data.o $
+    obj/extensions/browser/extensions_browser.sandboxed_unpacker.o $
+    obj/extensions/browser/extensions_browser.script_executor.o $
+    obj/extensions/browser/extensions_browser.serial_extension_host_queue.o $
+    obj/extensions/browser/extensions_browser.service_worker_manager.o $
+    obj/extensions/browser/extensions_browser.state_store.o $
+    obj/extensions/browser/extensions_browser.suggest_permission_util.o $
+    obj/extensions/browser/extensions_browser.uninstall_ping_sender.o $
+    obj/extensions/browser/updater/extensions_browser.extension_downloader.o $
+    obj/extensions/browser/updater/extensions_browser.extension_downloader_delegate.o $
+    obj/extensions/browser/updater/extensions_browser.manifest_fetch_data.o $
+    obj/extensions/browser/updater/extensions_browser.null_extension_cache.o $
+    obj/extensions/browser/updater/extensions_browser.safe_manifest_parser.o $
+    obj/extensions/browser/updater/extensions_browser.update_client_config.o $
+    obj/extensions/browser/updater/extensions_browser.update_data_provider.o $
+    obj/extensions/browser/updater/extensions_browser.update_install_shim.o $
+    obj/extensions/browser/updater/extensions_browser.update_service.o $
+    obj/extensions/browser/updater/extensions_browser.update_service_factory.o $
+    obj/extensions/browser/extensions_browser.url_request_util.o $
+    obj/extensions/browser/extensions_browser.user_script_loader.o $
+    obj/extensions/browser/value_store/extensions_browser.lazy_leveldb.o $
+    obj/extensions/browser/value_store/extensions_browser.legacy_value_store_factory.o $
+    obj/extensions/browser/value_store/extensions_browser.leveldb_scoped_database.o $
+    obj/extensions/browser/value_store/extensions_browser.leveldb_value_store.o $
+    obj/extensions/browser/value_store/extensions_browser.test_value_store_factory.o $
+    obj/extensions/browser/value_store/extensions_browser.testing_value_store.o $
+    obj/extensions/browser/value_store/extensions_browser.value_store.o $
+    obj/extensions/browser/value_store/extensions_browser.value_store_change.o $
+    obj/extensions/browser/value_store/extensions_browser.value_store_factory_impl.o $
+    obj/extensions/browser/value_store/extensions_browser.value_store_frontend.o $
+    obj/extensions/browser/extensions_browser.verified_contents.o $
+    obj/extensions/browser/extensions_browser.view_type_utils.o $
+    obj/extensions/browser/extensions_browser.warning_service.o $
+    obj/extensions/browser/extensions_browser.warning_service_factory.o $
+    obj/extensions/browser/extensions_browser.warning_set.o $
+    obj/extensions/browser/extensions_browser.web_ui_user_script_loader.o $
+    obj/extensions/browser/api/audio/extensions_browser.audio_service.o $
+    obj/extensions/browser/api/document_scan/extensions_browser.document_scan_interface_nonchromeos.o $
+    obj/extensions/browser/api/networking_private/extensions_browser.network_config_dbus_constants_linux.o $
+    obj/extensions/browser/api/networking_private/extensions_browser.networking_private_event_router_nonchromeos.o $
+    obj/extensions/browser/api/networking_private/extensions_browser.networking_private_linux.o $
+    || obj/extensions/extensions_browser.actions_depends.stamp

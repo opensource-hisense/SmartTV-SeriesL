@@ -1,0 +1,13 @@
+rule $
+    about_credits_target_generate_about_credits_30ed6d7b3b28fb70438500558aec2898
+  command = cd ../../components; python ../tools/licenses.py $
+      "--target-os=linux" credits ../out.cef/Release/gen/about_credits.html
+  description = ACTION Generating about:credits
+  restat = 1
+
+build gen/about_credits.html: $
+    about_credits_target_generate_about_credits_30ed6d7b3b28fb70438500558aec2898 $
+    ../../tools/licenses.py $
+    ../../components/about_ui/resources/about_credits.tmpl $
+    ../../components/about_ui/resources/about_credits_entry.tmpl
+

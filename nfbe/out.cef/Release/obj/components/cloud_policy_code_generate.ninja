@@ -1,0 +1,32 @@
+rule $
+    cloud_policy_code_generate_target_generate_policy_source_8ac4daef834409b177211292a9aeba1a
+  command = cd ../../components; python $
+      policy/tools/generate_policy_source.py $
+      "--policy-constants-header=../out.cef/Release/gen/policy/policy/policy_constants.h" $
+      "--policy-constants-source=../out.cef/Release/gen/policy/policy/policy_constants.cc" $
+      "--chrome-settings-protobuf=../out.cef/Release/gen/policy/policy/chrome_settings.proto" $
+      "--cloud-policy-protobuf=../out.cef/Release/gen/policy/policy/cloud_policy.proto" $
+      "--cloud-policy-decoder=../out.cef/Release/gen/policy/policy/cloud_policy_generated.cc" $
+      "--app-restrictions-definition=../out.cef/Release/gen/policy/app_restrictions.xml" $
+      "--risk-tag-header=../out.cef/Release/gen/policy/risk_tag.h" $
+      ../chrome/VERSION linux 0 policy/resources/policy_templates.json
+  description = ACTION Generating policy source
+  restat = 1
+
+build gen/policy/policy/policy_constants.h $
+    gen/policy/policy/policy_constants.cc $
+    gen/policy/policy/cloud_policy_generated.cc $
+    gen/policy/policy/chrome_settings.proto $
+    gen/policy/policy/cloud_policy.proto gen/policy/risk_tag.h: $
+    cloud_policy_code_generate_target_generate_policy_source_8ac4daef834409b177211292a9aeba1a $
+    ../../components/policy/resources/policy_templates.json $
+    ../../chrome/VERSION $
+    ../../components/policy/tools/generate_policy_source.py
+
+build obj/components/cloud_policy_code_generate.actions_rules_copies.stamp: $
+    stamp gen/policy/policy/policy_constants.h $
+    gen/policy/policy/policy_constants.cc $
+    gen/policy/policy/cloud_policy_generated.cc $
+    gen/policy/policy/chrome_settings.proto $
+    gen/policy/policy/cloud_policy.proto gen/policy/risk_tag.h
+

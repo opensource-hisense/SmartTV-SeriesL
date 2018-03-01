@@ -1,0 +1,206 @@
+rule js2c_js2c_b24b4109284f12ab319754651a20ab38
+  command = cd ../../v8/tools/gyp; python ../../tools/js2c.py $
+      ../../../out.cef/Release/gen/libraries.cc CORE ../../src/js/macros.py $
+      ../../src/messages.h ../../src/js/prologue.js ../../src/js/runtime.js $
+      ../../src/js/v8natives.js ../../src/js/symbol.js $
+      ../../src/js/array.js ../../src/js/string.js ../../src/js/uri.js $
+      ../../src/js/math.js ../../src/third_party/fdlibm/fdlibm.js $
+      ../../src/js/regexp.js ../../src/js/arraybuffer.js $
+      ../../src/js/typedarray.js ../../src/js/iterator-prototype.js $
+      ../../src/js/generator.js ../../src/js/object-observe.js $
+      ../../src/js/collection.js ../../src/js/weak-collection.js $
+      ../../src/js/collection-iterator.js ../../src/js/promise.js $
+      ../../src/js/messages.js ../../src/js/json.js $
+      ../../src/js/array-iterator.js ../../src/js/string-iterator.js $
+      ../../src/js/templates.js ../../src/js/spread.js $
+      ../../src/js/proxy.js ../../src/debug/mirrors.js $
+      ../../src/debug/debug.js ../../src/debug/liveedit.js $
+      ../../src/js/i18n.js
+  description = ACTION(host) js2c: js2c_b24b4109284f12ab319754651a20ab38
+  restat = 1
+
+build gen/libraries.cc: js2c_js2c_b24b4109284f12ab319754651a20ab38 $
+    ../../v8/tools/js2c.py ../../v8/src/js/macros.py $
+    ../../v8/src/messages.h ../../v8/src/js/prologue.js $
+    ../../v8/src/js/runtime.js ../../v8/src/js/v8natives.js $
+    ../../v8/src/js/symbol.js ../../v8/src/js/array.js $
+    ../../v8/src/js/string.js ../../v8/src/js/uri.js $
+    ../../v8/src/js/math.js ../../v8/src/third_party/fdlibm/fdlibm.js $
+    ../../v8/src/js/regexp.js ../../v8/src/js/arraybuffer.js $
+    ../../v8/src/js/typedarray.js ../../v8/src/js/iterator-prototype.js $
+    ../../v8/src/js/generator.js ../../v8/src/js/object-observe.js $
+    ../../v8/src/js/collection.js ../../v8/src/js/weak-collection.js $
+    ../../v8/src/js/collection-iterator.js ../../v8/src/js/promise.js $
+    ../../v8/src/js/messages.js ../../v8/src/js/json.js $
+    ../../v8/src/js/array-iterator.js ../../v8/src/js/string-iterator.js $
+    ../../v8/src/js/templates.js ../../v8/src/js/spread.js $
+    ../../v8/src/js/proxy.js ../../v8/src/debug/mirrors.js $
+    ../../v8/src/debug/debug.js ../../v8/src/debug/liveedit.js $
+    ../../v8/src/js/i18n.js
+
+rule js2c_js2c_bin_b24b4109284f12ab319754651a20ab38
+  command = cd ../../v8/tools/gyp; python ../../tools/js2c.py $
+      ../../../out.cef/Release/gen/libraries.cc CORE ../../src/js/macros.py $
+      ../../src/messages.h ../../src/js/prologue.js ../../src/js/runtime.js $
+      ../../src/js/v8natives.js ../../src/js/symbol.js $
+      ../../src/js/array.js ../../src/js/string.js ../../src/js/uri.js $
+      ../../src/js/math.js ../../src/third_party/fdlibm/fdlibm.js $
+      ../../src/js/regexp.js ../../src/js/arraybuffer.js $
+      ../../src/js/typedarray.js ../../src/js/iterator-prototype.js $
+      ../../src/js/generator.js ../../src/js/object-observe.js $
+      ../../src/js/collection.js ../../src/js/weak-collection.js $
+      ../../src/js/collection-iterator.js ../../src/js/promise.js $
+      ../../src/js/messages.js ../../src/js/json.js $
+      ../../src/js/array-iterator.js ../../src/js/string-iterator.js $
+      ../../src/js/templates.js ../../src/js/spread.js $
+      ../../src/js/proxy.js ../../src/debug/mirrors.js $
+      ../../src/debug/debug.js ../../src/debug/liveedit.js $
+      ../../src/js/i18n.js --startup_blob $
+      ../../../out.cef/Release/gen/libraries.bin --nojs
+  description = ACTION(host) js2c: js2c_bin_b24b4109284f12ab319754651a20ab38
+  restat = 1
+
+build gen/libraries.bin: js2c_js2c_bin_b24b4109284f12ab319754651a20ab38 $
+    ../../v8/tools/js2c.py ../../v8/src/js/macros.py $
+    ../../v8/src/messages.h ../../v8/src/js/prologue.js $
+    ../../v8/src/js/runtime.js ../../v8/src/js/v8natives.js $
+    ../../v8/src/js/symbol.js ../../v8/src/js/array.js $
+    ../../v8/src/js/string.js ../../v8/src/js/uri.js $
+    ../../v8/src/js/math.js ../../v8/src/third_party/fdlibm/fdlibm.js $
+    ../../v8/src/js/regexp.js ../../v8/src/js/arraybuffer.js $
+    ../../v8/src/js/typedarray.js ../../v8/src/js/iterator-prototype.js $
+    ../../v8/src/js/generator.js ../../v8/src/js/object-observe.js $
+    ../../v8/src/js/collection.js ../../v8/src/js/weak-collection.js $
+    ../../v8/src/js/collection-iterator.js ../../v8/src/js/promise.js $
+    ../../v8/src/js/messages.js ../../v8/src/js/json.js $
+    ../../v8/src/js/array-iterator.js ../../v8/src/js/string-iterator.js $
+    ../../v8/src/js/templates.js ../../v8/src/js/spread.js $
+    ../../v8/src/js/proxy.js ../../v8/src/debug/mirrors.js $
+    ../../v8/src/debug/debug.js ../../v8/src/debug/liveedit.js $
+    ../../v8/src/js/i18n.js
+
+rule js2c_js2c_experimental_b24b4109284f12ab319754651a20ab38
+  command = cd ../../v8/tools/gyp; python ../../tools/js2c.py $
+      ../../../out.cef/Release/gen/experimental-libraries.cc EXPERIMENTAL $
+      ../../src/js/macros.py ../../src/messages.h ../../src/js/generator.js $
+      ../../src/js/harmony-atomics.js ../../src/js/harmony-regexp-exec.js $
+      ../../src/js/harmony-object-observe.js $
+      ../../src/js/harmony-sharedarraybuffer.js $
+      ../../src/js/harmony-simd.js ../../src/js/harmony-species.js $
+      ../../src/js/harmony-unicode-regexps.js $
+      ../../src/js/harmony-string-padding.js ../../src/js/promise-extra.js
+  description = ACTION(host) js2c: $
+      js2c_experimental_b24b4109284f12ab319754651a20ab38
+  restat = 1
+
+build gen/experimental-libraries.cc: $
+    js2c_js2c_experimental_b24b4109284f12ab319754651a20ab38 $
+    ../../v8/tools/js2c.py ../../v8/src/js/macros.py $
+    ../../v8/src/messages.h ../../v8/src/js/generator.js $
+    ../../v8/src/js/harmony-atomics.js $
+    ../../v8/src/js/harmony-regexp-exec.js $
+    ../../v8/src/js/harmony-object-observe.js $
+    ../../v8/src/js/harmony-sharedarraybuffer.js $
+    ../../v8/src/js/harmony-simd.js ../../v8/src/js/harmony-species.js $
+    ../../v8/src/js/harmony-unicode-regexps.js $
+    ../../v8/src/js/harmony-string-padding.js ../../v8/src/js/promise-extra.js
+
+rule js2c_js2c_experimental_bin_b24b4109284f12ab319754651a20ab38
+  command = cd ../../v8/tools/gyp; python ../../tools/js2c.py $
+      ../../../out.cef/Release/gen/experimental-libraries.cc EXPERIMENTAL $
+      ../../src/js/macros.py ../../src/messages.h ../../src/js/generator.js $
+      ../../src/js/harmony-atomics.js ../../src/js/harmony-regexp-exec.js $
+      ../../src/js/harmony-object-observe.js $
+      ../../src/js/harmony-sharedarraybuffer.js $
+      ../../src/js/harmony-simd.js ../../src/js/harmony-species.js $
+      ../../src/js/harmony-unicode-regexps.js $
+      ../../src/js/harmony-string-padding.js ../../src/js/promise-extra.js $
+      --startup_blob $
+      ../../../out.cef/Release/gen/libraries-experimental.bin --nojs
+  description = ACTION(host) js2c: $
+      js2c_experimental_bin_b24b4109284f12ab319754651a20ab38
+  restat = 1
+
+build gen/libraries-experimental.bin: $
+    js2c_js2c_experimental_bin_b24b4109284f12ab319754651a20ab38 $
+    ../../v8/tools/js2c.py ../../v8/src/js/macros.py $
+    ../../v8/src/messages.h ../../v8/src/js/generator.js $
+    ../../v8/src/js/harmony-atomics.js $
+    ../../v8/src/js/harmony-regexp-exec.js $
+    ../../v8/src/js/harmony-object-observe.js $
+    ../../v8/src/js/harmony-sharedarraybuffer.js $
+    ../../v8/src/js/harmony-simd.js ../../v8/src/js/harmony-species.js $
+    ../../v8/src/js/harmony-unicode-regexps.js $
+    ../../v8/src/js/harmony-string-padding.js ../../v8/src/js/promise-extra.js
+
+rule js2c_js2c_extras_b24b4109284f12ab319754651a20ab38
+  command = cd ../../v8/tools/gyp; python ../../tools/js2c.py $
+      ../../../out.cef/Release/gen/extras-libraries.cc EXTRAS $
+      ../../../third_party/WebKit/Source/core/streams/ReadableStreamTempStub.js
+  description = ACTION(host) js2c: $
+      js2c_extras_b24b4109284f12ab319754651a20ab38
+  restat = 1
+
+build gen/extras-libraries.cc: $
+    js2c_js2c_extras_b24b4109284f12ab319754651a20ab38 $
+    ../../v8/tools/js2c.py $
+    ../../third_party/WebKit/Source/core/streams/ReadableStreamTempStub.js
+
+rule js2c_js2c_extras_bin_b24b4109284f12ab319754651a20ab38
+  command = cd ../../v8/tools/gyp; python ../../tools/js2c.py $
+      ../../../out.cef/Release/gen/extras-libraries.cc EXTRAS $
+      ../../../third_party/WebKit/Source/core/streams/ReadableStreamTempStub.js $
+      --startup_blob ../../../out.cef/Release/gen/libraries-extras.bin --nojs
+  description = ACTION(host) js2c: $
+      js2c_extras_bin_b24b4109284f12ab319754651a20ab38
+  restat = 1
+
+build gen/libraries-extras.bin: $
+    js2c_js2c_extras_bin_b24b4109284f12ab319754651a20ab38 $
+    ../../v8/tools/js2c.py $
+    ../../third_party/WebKit/Source/core/streams/ReadableStreamTempStub.js
+
+rule js2c_js2c_experimental_extras_b24b4109284f12ab319754651a20ab38
+  command = cd ../../v8/tools/gyp; python ../../tools/js2c.py $
+      ../../../out.cef/Release/gen/experimental-extras-libraries.cc $
+      EXPERIMENTAL_EXTRAS $
+      ../../../third_party/WebKit/Source/core/streams/ByteLengthQueuingStrategy.js $
+      ../../../third_party/WebKit/Source/core/streams/CountQueuingStrategy.js $
+      ../../../third_party/WebKit/Source/core/streams/ReadableStream.js
+  description = ACTION(host) js2c: $
+      js2c_experimental_extras_b24b4109284f12ab319754651a20ab38
+  restat = 1
+
+build gen/experimental-extras-libraries.cc: $
+    js2c_js2c_experimental_extras_b24b4109284f12ab319754651a20ab38 $
+    ../../v8/tools/js2c.py $
+    ../../third_party/WebKit/Source/core/streams/ByteLengthQueuingStrategy.js $
+    ../../third_party/WebKit/Source/core/streams/CountQueuingStrategy.js $
+    ../../third_party/WebKit/Source/core/streams/ReadableStream.js
+
+rule js2c_js2c_experimental_extras_bin_b24b4109284f12ab319754651a20ab38
+  command = cd ../../v8/tools/gyp; python ../../tools/js2c.py $
+      ../../../out.cef/Release/gen/experimental-extras-libraries.cc $
+      EXPERIMENTAL_EXTRAS $
+      ../../../third_party/WebKit/Source/core/streams/ByteLengthQueuingStrategy.js $
+      ../../../third_party/WebKit/Source/core/streams/CountQueuingStrategy.js $
+      ../../../third_party/WebKit/Source/core/streams/ReadableStream.js $
+      --startup_blob $
+      ../../../out.cef/Release/gen/libraries-experimental-extras.bin --nojs
+  description = ACTION(host) js2c: $
+      js2c_experimental_extras_bin_b24b4109284f12ab319754651a20ab38
+  restat = 1
+
+build gen/libraries-experimental-extras.bin: $
+    js2c_js2c_experimental_extras_bin_b24b4109284f12ab319754651a20ab38 $
+    ../../v8/tools/js2c.py $
+    ../../third_party/WebKit/Source/core/streams/ByteLengthQueuingStrategy.js $
+    ../../third_party/WebKit/Source/core/streams/CountQueuingStrategy.js $
+    ../../third_party/WebKit/Source/core/streams/ReadableStream.js
+
+build obj.host/v8/tools/gyp/js2c.actions_rules_copies.stamp: stamp $
+    gen/libraries.cc gen/libraries.bin gen/experimental-libraries.cc $
+    gen/libraries-experimental.bin gen/extras-libraries.cc $
+    gen/libraries-extras.bin gen/experimental-extras-libraries.cc $
+    gen/libraries-experimental-extras.bin
+

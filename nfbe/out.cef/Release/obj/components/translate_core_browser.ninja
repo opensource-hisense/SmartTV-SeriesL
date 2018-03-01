@@ -1,0 +1,140 @@
+build obj/components/translate_core_browser.actions_depends.stamp: stamp $
+    lib/libbase.so.TOC lib/libnet.so.TOC lib/liburl_lib.so.TOC $
+    obj/components/components_resources.actions_rules_copies.stamp $
+    obj/components/components_strings.actions_rules_copies.stamp
+
+build obj/components/translate_core_browser.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp obj/net/net.compile_depends.stamp $
+    obj/url/url_lib.compile_depends.stamp $
+    obj/components/components_resources.actions_rules_copies.stamp $
+    obj/components/components_strings.actions_rules_copies.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DU_USING_ICU_NAMESPACE=0 $
+    -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= -DU_STATIC_IMPLEMENTATION $
+    -DSK_SUPPORT_GPU=1 -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS $
+    -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 $
+    -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../skia/config $
+    -I../../third_party/icu/source/common $
+    -I../../third_party/icu/source/i18n $
+    -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -Igen/components -Igen/components/strings
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/components/translate/core/browser/translate_core_browser.language_state.o: $
+    cxx ../../components/translate/core/browser/language_state.cc || $
+    obj/components/translate_core_browser.compile_depends.stamp
+build $
+    obj/components/translate/core/browser/translate_core_browser.translate_accept_languages.o: $
+    cxx $
+    ../../components/translate/core/browser/translate_accept_languages.cc $
+    || obj/components/translate_core_browser.compile_depends.stamp
+build $
+    obj/components/translate/core/browser/translate_core_browser.translate_browser_metrics.o: $
+    cxx $
+    ../../components/translate/core/browser/translate_browser_metrics.cc || $
+    obj/components/translate_core_browser.compile_depends.stamp
+build $
+    obj/components/translate/core/browser/translate_core_browser.translate_download_manager.o: $
+    cxx $
+    ../../components/translate/core/browser/translate_download_manager.cc $
+    || obj/components/translate_core_browser.compile_depends.stamp
+build $
+    obj/components/translate/core/browser/translate_core_browser.translate_event_details.o: $
+    cxx ../../components/translate/core/browser/translate_event_details.cc $
+    || obj/components/translate_core_browser.compile_depends.stamp
+build $
+    obj/components/translate/core/browser/translate_core_browser.translate_experiment.o: $
+    cxx ../../components/translate/core/browser/translate_experiment.cc || $
+    obj/components/translate_core_browser.compile_depends.stamp
+build $
+    obj/components/translate/core/browser/translate_core_browser.translate_language_list.o: $
+    cxx ../../components/translate/core/browser/translate_language_list.cc $
+    || obj/components/translate_core_browser.compile_depends.stamp
+build $
+    obj/components/translate/core/browser/translate_core_browser.translate_manager.o: $
+    cxx ../../components/translate/core/browser/translate_manager.cc || $
+    obj/components/translate_core_browser.compile_depends.stamp
+build $
+    obj/components/translate/core/browser/translate_core_browser.translate_prefs.o: $
+    cxx ../../components/translate/core/browser/translate_prefs.cc || $
+    obj/components/translate_core_browser.compile_depends.stamp
+build $
+    obj/components/translate/core/browser/translate_core_browser.translate_script.o: $
+    cxx ../../components/translate/core/browser/translate_script.cc || $
+    obj/components/translate_core_browser.compile_depends.stamp
+build $
+    obj/components/translate/core/browser/translate_core_browser.translate_ui_delegate.o: $
+    cxx ../../components/translate/core/browser/translate_ui_delegate.cc || $
+    obj/components/translate_core_browser.compile_depends.stamp
+build $
+    obj/components/translate/core/browser/translate_core_browser.translate_url_fetcher.o: $
+    cxx ../../components/translate/core/browser/translate_url_fetcher.cc || $
+    obj/components/translate_core_browser.compile_depends.stamp
+build $
+    obj/components/translate/core/browser/translate_core_browser.translate_url_util.o: $
+    cxx ../../components/translate/core/browser/translate_url_util.cc || $
+    obj/components/translate_core_browser.compile_depends.stamp
+
+build obj/components/libtranslate_core_browser.a: alink_thin $
+    obj/components/translate/core/browser/translate_core_browser.language_state.o $
+    obj/components/translate/core/browser/translate_core_browser.translate_accept_languages.o $
+    obj/components/translate/core/browser/translate_core_browser.translate_browser_metrics.o $
+    obj/components/translate/core/browser/translate_core_browser.translate_download_manager.o $
+    obj/components/translate/core/browser/translate_core_browser.translate_event_details.o $
+    obj/components/translate/core/browser/translate_core_browser.translate_experiment.o $
+    obj/components/translate/core/browser/translate_core_browser.translate_language_list.o $
+    obj/components/translate/core/browser/translate_core_browser.translate_manager.o $
+    obj/components/translate/core/browser/translate_core_browser.translate_prefs.o $
+    obj/components/translate/core/browser/translate_core_browser.translate_script.o $
+    obj/components/translate/core/browser/translate_core_browser.translate_ui_delegate.o $
+    obj/components/translate/core/browser/translate_core_browser.translate_url_fetcher.o $
+    obj/components/translate/core/browser/translate_core_browser.translate_url_util.o $
+    || obj/components/translate_core_browser.actions_depends.stamp

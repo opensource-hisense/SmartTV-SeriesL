@@ -1,0 +1,110 @@
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -Igen -I../../third_party/libwebp
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -O2 -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-abi $
+    -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+build obj/third_party/libwebp/enc/libwebp_enc.alpha.o: cc $
+    ../../third_party/libwebp/enc/alpha.c
+build obj/third_party/libwebp/enc/libwebp_enc.analysis.o: cc $
+    ../../third_party/libwebp/enc/analysis.c
+build obj/third_party/libwebp/enc/libwebp_enc.backward_references.o: cc $
+    ../../third_party/libwebp/enc/backward_references.c
+build obj/third_party/libwebp/enc/libwebp_enc.config.o: cc $
+    ../../third_party/libwebp/enc/config.c
+build obj/third_party/libwebp/enc/libwebp_enc.cost.o: cc $
+    ../../third_party/libwebp/enc/cost.c
+build obj/third_party/libwebp/enc/libwebp_enc.delta_palettization.o: cc $
+    ../../third_party/libwebp/enc/delta_palettization.c
+build obj/third_party/libwebp/enc/libwebp_enc.filter.o: cc $
+    ../../third_party/libwebp/enc/filter.c
+build obj/third_party/libwebp/enc/libwebp_enc.frame.o: cc $
+    ../../third_party/libwebp/enc/frame.c
+build obj/third_party/libwebp/enc/libwebp_enc.histogram.o: cc $
+    ../../third_party/libwebp/enc/histogram.c
+build obj/third_party/libwebp/enc/libwebp_enc.iterator.o: cc $
+    ../../third_party/libwebp/enc/iterator.c
+build obj/third_party/libwebp/enc/libwebp_enc.near_lossless.o: cc $
+    ../../third_party/libwebp/enc/near_lossless.c
+build obj/third_party/libwebp/enc/libwebp_enc.picture.o: cc $
+    ../../third_party/libwebp/enc/picture.c
+build obj/third_party/libwebp/enc/libwebp_enc.picture_csp.o: cc $
+    ../../third_party/libwebp/enc/picture_csp.c
+build obj/third_party/libwebp/enc/libwebp_enc.picture_psnr.o: cc $
+    ../../third_party/libwebp/enc/picture_psnr.c
+build obj/third_party/libwebp/enc/libwebp_enc.picture_rescale.o: cc $
+    ../../third_party/libwebp/enc/picture_rescale.c
+build obj/third_party/libwebp/enc/libwebp_enc.picture_tools.o: cc $
+    ../../third_party/libwebp/enc/picture_tools.c
+build obj/third_party/libwebp/enc/libwebp_enc.quant.o: cc $
+    ../../third_party/libwebp/enc/quant.c
+build obj/third_party/libwebp/enc/libwebp_enc.syntax.o: cc $
+    ../../third_party/libwebp/enc/syntax.c
+build obj/third_party/libwebp/enc/libwebp_enc.token.o: cc $
+    ../../third_party/libwebp/enc/token.c
+build obj/third_party/libwebp/enc/libwebp_enc.tree.o: cc $
+    ../../third_party/libwebp/enc/tree.c
+build obj/third_party/libwebp/enc/libwebp_enc.vp8l.o: cc $
+    ../../third_party/libwebp/enc/vp8l.c
+build obj/third_party/libwebp/enc/libwebp_enc.webpenc.o: cc $
+    ../../third_party/libwebp/enc/webpenc.c
+
+build obj/third_party/libwebp/libwebp_enc.a: alink_thin $
+    obj/third_party/libwebp/enc/libwebp_enc.alpha.o $
+    obj/third_party/libwebp/enc/libwebp_enc.analysis.o $
+    obj/third_party/libwebp/enc/libwebp_enc.backward_references.o $
+    obj/third_party/libwebp/enc/libwebp_enc.config.o $
+    obj/third_party/libwebp/enc/libwebp_enc.cost.o $
+    obj/third_party/libwebp/enc/libwebp_enc.delta_palettization.o $
+    obj/third_party/libwebp/enc/libwebp_enc.filter.o $
+    obj/third_party/libwebp/enc/libwebp_enc.frame.o $
+    obj/third_party/libwebp/enc/libwebp_enc.histogram.o $
+    obj/third_party/libwebp/enc/libwebp_enc.iterator.o $
+    obj/third_party/libwebp/enc/libwebp_enc.near_lossless.o $
+    obj/third_party/libwebp/enc/libwebp_enc.picture.o $
+    obj/third_party/libwebp/enc/libwebp_enc.picture_csp.o $
+    obj/third_party/libwebp/enc/libwebp_enc.picture_psnr.o $
+    obj/third_party/libwebp/enc/libwebp_enc.picture_rescale.o $
+    obj/third_party/libwebp/enc/libwebp_enc.picture_tools.o $
+    obj/third_party/libwebp/enc/libwebp_enc.quant.o $
+    obj/third_party/libwebp/enc/libwebp_enc.syntax.o $
+    obj/third_party/libwebp/enc/libwebp_enc.token.o $
+    obj/third_party/libwebp/enc/libwebp_enc.tree.o $
+    obj/third_party/libwebp/enc/libwebp_enc.vp8l.o $
+    obj/third_party/libwebp/enc/libwebp_enc.webpenc.o

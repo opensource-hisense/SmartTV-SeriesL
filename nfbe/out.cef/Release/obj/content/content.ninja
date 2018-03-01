@@ -1,0 +1,15 @@
+build obj/content/content.actions_depends.stamp: stamp $
+    obj/content/libcontent_browser.a obj/content/libcontent_child.a $
+    obj/content/libcontent_common.a obj/content/libcontent_gpu.a $
+    obj/content/libcontent_ppapi_plugin.a obj/content/libcontent_renderer.a $
+    obj/content/libcontent_utility.a
+
+build obj/content/content.compile_depends.stamp: stamp $
+    obj/content/content_browser.compile_depends.stamp $
+    obj/content/content_child.compile_depends.stamp $
+    gen/build/util/webkit_version.h $
+    obj/content/content_gpu.compile_depends.stamp $
+    obj/content/content_ppapi_plugin.compile_depends.stamp $
+    obj/content/content_renderer.compile_depends.stamp $
+    obj/content/content_utility.compile_depends.stamp
+

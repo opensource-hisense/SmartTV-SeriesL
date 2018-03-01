@@ -1,0 +1,121 @@
+build obj/device/usb/device_usb.actions_depends.stamp: stamp $
+    obj/device/usb/libdevice_usb_mojo_bindings.a lib/libnet.so.TOC $
+    lib/libusb.so.TOC
+
+build obj/device/usb/device_usb.compile_depends.stamp: stamp $
+    obj/device/usb/device_usb_mojo_bindings.actions_rules_copies.stamp $
+    obj/net/net.compile_depends.stamp
+
+rule device_usb_target_generate_usb_ids_a625a52449ffe4fc5752a446b0b8b01f
+  command = cd ../../device/usb; python tools/usb_ids.py -i $
+      ../../third_party/usb_ids/usb.ids -o $
+      ../../out.cef/Release/gen/device/usb/usb_ids_gen.cc
+  description = ACTION device_usb: $
+      generate_usb_ids_a625a52449ffe4fc5752a446b0b8b01f
+  restat = 1
+
+build gen/device/usb/usb_ids_gen.cc: $
+    device_usb_target_generate_usb_ids_a625a52449ffe4fc5752a446b0b8b01f $
+    ../../third_party/usb_ids/usb.ids ../../device/usb/tools/usb_ids.py || $
+    obj/device/usb/device_usb.actions_depends.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS $
+    -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../third_party/libusb/src/libusb
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/device/usb/gen/device/usb/device_usb.usb_ids_gen.o: cxx $
+    gen/device/usb/usb_ids_gen.cc || gen/device/usb/usb_ids_gen.cc
+build obj/device/usb/mojo/device_usb.device_impl.o: cxx $
+    ../../device/usb/mojo/device_impl.cc || gen/device/usb/usb_ids_gen.cc
+build obj/device/usb/mojo/device_usb.device_manager_impl.o: cxx $
+    ../../device/usb/mojo/device_manager_impl.cc || $
+    gen/device/usb/usb_ids_gen.cc
+build obj/device/usb/mojo/device_usb.type_converters.o: cxx $
+    ../../device/usb/mojo/type_converters.cc || gen/device/usb/usb_ids_gen.cc
+build obj/device/usb/mojo/device_usb.permission_provider.o: cxx $
+    ../../device/usb/mojo/permission_provider.cc || $
+    gen/device/usb/usb_ids_gen.cc
+build obj/device/usb/device_usb.usb_context.o: cxx $
+    ../../device/usb/usb_context.cc || gen/device/usb/usb_ids_gen.cc
+build obj/device/usb/device_usb.usb_descriptors.o: cxx $
+    ../../device/usb/usb_descriptors.cc || gen/device/usb/usb_ids_gen.cc
+build obj/device/usb/device_usb.usb_device_impl.o: cxx $
+    ../../device/usb/usb_device_impl.cc || gen/device/usb/usb_ids_gen.cc
+build obj/device/usb/device_usb.usb_device.o: cxx $
+    ../../device/usb/usb_device.cc || gen/device/usb/usb_ids_gen.cc
+build obj/device/usb/device_usb.usb_device_filter.o: cxx $
+    ../../device/usb/usb_device_filter.cc || gen/device/usb/usb_ids_gen.cc
+build obj/device/usb/device_usb.usb_device_handle_impl.o: cxx $
+    ../../device/usb/usb_device_handle_impl.cc || $
+    gen/device/usb/usb_ids_gen.cc
+build obj/device/usb/device_usb.usb_device_handle.o: cxx $
+    ../../device/usb/usb_device_handle.cc || gen/device/usb/usb_ids_gen.cc
+build obj/device/usb/device_usb.usb_error.o: cxx $
+    ../../device/usb/usb_error.cc || gen/device/usb/usb_ids_gen.cc
+build obj/device/usb/device_usb.usb_ids.o: cxx ../../device/usb/usb_ids.cc $
+    || gen/device/usb/usb_ids_gen.cc
+build obj/device/usb/device_usb.usb_service.o: cxx $
+    ../../device/usb/usb_service.cc || gen/device/usb/usb_ids_gen.cc
+build obj/device/usb/device_usb.usb_service_impl.o: cxx $
+    ../../device/usb/usb_service_impl.cc || gen/device/usb/usb_ids_gen.cc
+build obj/device/usb/device_usb.webusb_descriptors.o: cxx $
+    ../../device/usb/webusb_descriptors.cc || gen/device/usb/usb_ids_gen.cc
+
+build obj/device/usb/libdevice_usb.a: alink_thin $
+    obj/device/usb/gen/device/usb/device_usb.usb_ids_gen.o $
+    obj/device/usb/mojo/device_usb.device_impl.o $
+    obj/device/usb/mojo/device_usb.device_manager_impl.o $
+    obj/device/usb/mojo/device_usb.type_converters.o $
+    obj/device/usb/mojo/device_usb.permission_provider.o $
+    obj/device/usb/device_usb.usb_context.o $
+    obj/device/usb/device_usb.usb_descriptors.o $
+    obj/device/usb/device_usb.usb_device_impl.o $
+    obj/device/usb/device_usb.usb_device.o $
+    obj/device/usb/device_usb.usb_device_filter.o $
+    obj/device/usb/device_usb.usb_device_handle_impl.o $
+    obj/device/usb/device_usb.usb_device_handle.o $
+    obj/device/usb/device_usb.usb_error.o $
+    obj/device/usb/device_usb.usb_ids.o $
+    obj/device/usb/device_usb.usb_service.o $
+    obj/device/usb/device_usb.usb_service_impl.o $
+    obj/device/usb/device_usb.webusb_descriptors.o || $
+    gen/device/usb/usb_ids_gen.cc

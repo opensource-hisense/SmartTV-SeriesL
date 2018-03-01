@@ -1,0 +1,260 @@
+build $
+    obj/third_party/WebKit/Source/core/webcore_testing.actions_depends.stamp: $
+    stamp $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.actions_depends.stamp $
+    lib/libwebcore_shared.so.TOC $
+    obj/third_party/WebKit/Source/platform/libblink_platform.a
+
+build $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp: $
+    stamp $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp $
+    obj/third_party/WebKit/Source/core/webcore_shared.compile_depends.stamp $
+    obj/third_party/WebKit/Source/platform/blink_platform.compile_depends.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DCOMPONENT_BUILD -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 $
+    -DUSE_OZONE=1 -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DBLINK_IMPLEMENTATION=1 $
+    -DINSIDE_BLINK -DMOJO_USE_SYSTEM_IMPL $
+    -DENABLE_LAYOUT_UNIT_IN_INLINE_BOXES=0 -DENABLE_OILPAN=1 $
+    -DWTF_USE_CONCATENATED_IMPULSE_RESPONSES=1 $
+    -DENABLE_INPUT_MULTIPLE_FIELDS_UI=1 -DWTF_USE_ICCJPEG=1 $
+    -DWTF_USE_QCMSLIB=1 -DWTF_USE_WEBAUDIO_FFMPEG=1 $
+    -DWTF_USE_DEFAULT_RENDER_THEME=1 -DU_USING_ICU_NAMESPACE=0 $
+    -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= -DU_STATIC_IMPLEMENTATION $
+    -DSK_SUPPORT_GPU=1 -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS $
+    -DCHROME_PNG_WRITE_SUPPORT -DPNG_USER_CONFIG -DLIBXML_STATIC $
+    -DLIBXSLT_STATIC -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 $
+    -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../../third_party/WebKit/Source/core/testing $
+    -I../../third_party/WebKit/Source/core/testing/v8 -I../.. $
+    -I../../skia/config -I../../third_party/WebKit/Source $
+    -I../../third_party/khronos -I../../gpu -Igen/angle $
+    -I../../third_party/WebKit -Igen/third_party/WebKit -Igen/blink $
+    -I../../third_party/angle/include -I../../third_party/ffmpeg $
+    -I../../third_party/icu/source/i18n $
+    -I../../third_party/icu/source/common $
+    -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../third_party/iccjpeg -I../../third_party/libpng $
+    -I../../third_party/libwebp -I../../third_party/libxml/linux/include $
+    -I../../third_party/libxml/src/include -I../../third_party/libxslt $
+    -I../../third_party/ots/include -I../../third_party/qcms/src $
+    -I../../third_party/zlib -I../../v8/include $
+    -I../../third_party/libjpeg_turbo
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/testing/webcore_testing.InternalDictionary.o: $
+    cxx gen/blink/core/testing/InternalDictionary.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/testing/webcore_testing.InternalDictionaryDerived.o: $
+    cxx gen/blink/core/testing/InternalDictionaryDerived.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/testing/webcore_testing.InternalSettingsGenerated.o: $
+    cxx gen/blink/core/testing/InternalSettingsGenerated.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/origin_trials/testing/webcore_testing.InternalsFrobulate.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/origin_trials/testing/InternalsFrobulate.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/testing/webcore_testing.DictionaryTest.o: $
+    cxx ../../third_party/WebKit/Source/core/testing/DictionaryTest.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/testing/webcore_testing.DummyPageHolder.o: $
+    cxx ../../third_party/WebKit/Source/core/testing/DummyPageHolder.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/testing/webcore_testing.GCObservation.o: $
+    cxx ../../third_party/WebKit/Source/core/testing/GCObservation.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/testing/webcore_testing.GarbageCollectedScriptWrappable.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/testing/GarbageCollectedScriptWrappable.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/testing/webcore_testing.InternalSettings.o: $
+    cxx ../../third_party/WebKit/Source/core/testing/InternalSettings.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/testing/webcore_testing.Internals.o: $
+    cxx ../../third_party/WebKit/Source/core/testing/Internals.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/testing/webcore_testing.LayerRectList.o: $
+    cxx ../../third_party/WebKit/Source/core/testing/LayerRectList.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/testing/webcore_testing.NullExecutionContext.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/testing/NullExecutionContext.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/testing/webcore_testing.PrivateScriptTest.o: $
+    cxx ../../third_party/WebKit/Source/core/testing/PrivateScriptTest.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/testing/webcore_testing.RefCountedScriptWrappable.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/testing/RefCountedScriptWrappable.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/testing/webcore_testing.UnionTypesTest.o: $
+    cxx ../../third_party/WebKit/Source/core/testing/UnionTypesTest.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/testing/v8/webcore_testing.WebCoreTestSupport.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/testing/v8/WebCoreTestSupport.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8DictionaryTest.o: $
+    cxx gen/blink/bindings/core/v8/V8DictionaryTest.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8GarbageCollectedScriptWrappable.o: $
+    cxx gen/blink/bindings/core/v8/V8GarbageCollectedScriptWrappable.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8GCObservation.o: $
+    cxx gen/blink/bindings/core/v8/V8GCObservation.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8PrivateScriptTest.o: $
+    cxx gen/blink/bindings/core/v8/V8PrivateScriptTest.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8TypeConversions.o: $
+    cxx gen/blink/bindings/core/v8/V8TypeConversions.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8UnionTypesTest.o: $
+    cxx gen/blink/bindings/core/v8/V8UnionTypesTest.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8Internals.o: $
+    cxx gen/blink/bindings/core/v8/V8Internals.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8InternalSettings.o: $
+    cxx gen/blink/bindings/core/v8/V8InternalSettings.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8InternalSettingsGenerated.o: $
+    cxx gen/blink/bindings/core/v8/V8InternalSettingsGenerated.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8InternalRuntimeFlags.o: $
+    cxx gen/blink/bindings/core/v8/V8InternalRuntimeFlags.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8LayerRect.o: $
+    cxx gen/blink/bindings/core/v8/V8LayerRect.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8LayerRectList.o: $
+    cxx gen/blink/bindings/core/v8/V8LayerRectList.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8RefCountedScriptWrappable.o: $
+    cxx gen/blink/bindings/core/v8/V8RefCountedScriptWrappable.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8InternalDictionary.o: $
+    cxx gen/blink/bindings/core/v8/V8InternalDictionary.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8InternalDictionaryDerived.o: $
+    cxx gen/blink/bindings/core/v8/V8InternalDictionaryDerived.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_testing.compile_depends.stamp
+
+build obj/third_party/WebKit/Source/core/libwebcore_testing.a: alink_thin $
+    obj/third_party/WebKit/Source/core/gen/blink/core/testing/webcore_testing.InternalDictionary.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/testing/webcore_testing.InternalDictionaryDerived.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/testing/webcore_testing.InternalSettingsGenerated.o $
+    obj/third_party/WebKit/Source/core/origin_trials/testing/webcore_testing.InternalsFrobulate.o $
+    obj/third_party/WebKit/Source/core/testing/webcore_testing.DictionaryTest.o $
+    obj/third_party/WebKit/Source/core/testing/webcore_testing.DummyPageHolder.o $
+    obj/third_party/WebKit/Source/core/testing/webcore_testing.GCObservation.o $
+    obj/third_party/WebKit/Source/core/testing/webcore_testing.GarbageCollectedScriptWrappable.o $
+    obj/third_party/WebKit/Source/core/testing/webcore_testing.InternalSettings.o $
+    obj/third_party/WebKit/Source/core/testing/webcore_testing.Internals.o $
+    obj/third_party/WebKit/Source/core/testing/webcore_testing.LayerRectList.o $
+    obj/third_party/WebKit/Source/core/testing/webcore_testing.NullExecutionContext.o $
+    obj/third_party/WebKit/Source/core/testing/webcore_testing.PrivateScriptTest.o $
+    obj/third_party/WebKit/Source/core/testing/webcore_testing.RefCountedScriptWrappable.o $
+    obj/third_party/WebKit/Source/core/testing/webcore_testing.UnionTypesTest.o $
+    obj/third_party/WebKit/Source/core/testing/v8/webcore_testing.WebCoreTestSupport.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8DictionaryTest.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8GarbageCollectedScriptWrappable.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8GCObservation.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8PrivateScriptTest.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8TypeConversions.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8UnionTypesTest.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8Internals.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8InternalSettings.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8InternalSettingsGenerated.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8InternalRuntimeFlags.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8LayerRect.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8LayerRectList.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8RefCountedScriptWrappable.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8InternalDictionary.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_testing.V8InternalDictionaryDerived.o $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_testing.actions_depends.stamp

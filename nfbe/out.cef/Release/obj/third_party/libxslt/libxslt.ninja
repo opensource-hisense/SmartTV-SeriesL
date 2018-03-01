@@ -1,0 +1,106 @@
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DLIBXSLT_STATIC -DLIBXML_STATIC $
+    -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= $
+    -DU_STATIC_IMPLEMENTATION -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -Igen -I../../third_party/libxslt/linux $
+    -I../../third_party/libxslt -I../../third_party/libxml/linux/include $
+    -I../../third_party/libxml/src/include $
+    -I../../third_party/icu/source/common
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-abi $
+    -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+build obj/third_party/libxslt/libxslt/libxslt.attributes.o: cc $
+    ../../third_party/libxslt/libxslt/attributes.c
+build obj/third_party/libxslt/libxslt/libxslt.attrvt.o: cc $
+    ../../third_party/libxslt/libxslt/attrvt.c
+build obj/third_party/libxslt/libxslt/libxslt.documents.o: cc $
+    ../../third_party/libxslt/libxslt/documents.c
+build obj/third_party/libxslt/libxslt/libxslt.extensions.o: cc $
+    ../../third_party/libxslt/libxslt/extensions.c
+build obj/third_party/libxslt/libxslt/libxslt.extra.o: cc $
+    ../../third_party/libxslt/libxslt/extra.c
+build obj/third_party/libxslt/libxslt/libxslt.functions.o: cc $
+    ../../third_party/libxslt/libxslt/functions.c
+build obj/third_party/libxslt/libxslt/libxslt.imports.o: cc $
+    ../../third_party/libxslt/libxslt/imports.c
+build obj/third_party/libxslt/libxslt/libxslt.keys.o: cc $
+    ../../third_party/libxslt/libxslt/keys.c
+build obj/third_party/libxslt/libxslt/libxslt.namespaces.o: cc $
+    ../../third_party/libxslt/libxslt/namespaces.c
+build obj/third_party/libxslt/libxslt/libxslt.numbers.o: cc $
+    ../../third_party/libxslt/libxslt/numbers.c
+build obj/third_party/libxslt/libxslt/libxslt.pattern.o: cc $
+    ../../third_party/libxslt/libxslt/pattern.c
+build obj/third_party/libxslt/libxslt/libxslt.preproc.o: cc $
+    ../../third_party/libxslt/libxslt/preproc.c
+build obj/third_party/libxslt/libxslt/libxslt.security.o: cc $
+    ../../third_party/libxslt/libxslt/security.c
+build obj/third_party/libxslt/libxslt/libxslt.templates.o: cc $
+    ../../third_party/libxslt/libxslt/templates.c
+build obj/third_party/libxslt/libxslt/libxslt.transform.o: cc $
+    ../../third_party/libxslt/libxslt/transform.c
+build obj/third_party/libxslt/libxslt/libxslt.variables.o: cc $
+    ../../third_party/libxslt/libxslt/variables.c
+build obj/third_party/libxslt/libxslt/libxslt.xslt.o: cc $
+    ../../third_party/libxslt/libxslt/xslt.c
+build obj/third_party/libxslt/libxslt/libxslt.xsltlocale.o: cc $
+    ../../third_party/libxslt/libxslt/xsltlocale.c
+build obj/third_party/libxslt/libxslt/libxslt.xsltutils.o: cc $
+    ../../third_party/libxslt/libxslt/xsltutils.c
+
+build obj/third_party/libxslt/libxslt.a: alink_thin $
+    obj/third_party/libxslt/libxslt/libxslt.attributes.o $
+    obj/third_party/libxslt/libxslt/libxslt.attrvt.o $
+    obj/third_party/libxslt/libxslt/libxslt.documents.o $
+    obj/third_party/libxslt/libxslt/libxslt.extensions.o $
+    obj/third_party/libxslt/libxslt/libxslt.extra.o $
+    obj/third_party/libxslt/libxslt/libxslt.functions.o $
+    obj/third_party/libxslt/libxslt/libxslt.imports.o $
+    obj/third_party/libxslt/libxslt/libxslt.keys.o $
+    obj/third_party/libxslt/libxslt/libxslt.namespaces.o $
+    obj/third_party/libxslt/libxslt/libxslt.numbers.o $
+    obj/third_party/libxslt/libxslt/libxslt.pattern.o $
+    obj/third_party/libxslt/libxslt/libxslt.preproc.o $
+    obj/third_party/libxslt/libxslt/libxslt.security.o $
+    obj/third_party/libxslt/libxslt/libxslt.templates.o $
+    obj/third_party/libxslt/libxslt/libxslt.transform.o $
+    obj/third_party/libxslt/libxslt/libxslt.variables.o $
+    obj/third_party/libxslt/libxslt/libxslt.xslt.o $
+    obj/third_party/libxslt/libxslt/libxslt.xsltlocale.o $
+    obj/third_party/libxslt/libxslt/libxslt.xsltutils.o

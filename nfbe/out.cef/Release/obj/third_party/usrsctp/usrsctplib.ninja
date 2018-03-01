@@ -1,0 +1,143 @@
+defines = -DSCTP_PROCESS_LEVEL_LOCKS -DSCTP_SIMPLE_ALLOCATOR $
+    -DSCTP_USE_OPENSSL_SHA1 -D__Userspace__ -DV8_DEPRECATION_WARNINGS $
+    -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 -DDISABLE_NACL -DCHROMIUM_BUILD $
+    -DCR_CLANG_REVISION=264915-1 -DUI_COMPOSITOR_IMAGE_TRANSPORT $
+    -DUSE_AURA=1 -DUSE_OZONE=1 -DUSE_DEFAULT_RENDER_THEME=1 $
+    -DUSE_LIBJPEG_TURBO=1 -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS $
+    -DENABLE_BROWSER_CDMS -DENABLE_TOPCHROME_MD=1 $
+    -DFIELDTRIAL_TESTING_ENABLED -DENABLE_TASK_MANAGER=1 $
+    -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 -DENABLE_SESSION_SERVICE=1 $
+    -DENABLE_AUTOFILL_DIALOG=1 -DENABLE_PRINTING=1 $
+    -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -D__Userspace_os_Linux $
+    -D_GNU_SOURCE -DNON_WINDOWS_DEFINE -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -I../../third_party/usrsctp/usrsctplib/usrsctplib $
+    -I../../third_party/usrsctp/usrsctplib/usrsctplib/netinet -Igen $
+    -I../../third_party/boringssl/src/include
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -w -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-abi $
+    -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+build $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_asconf.o: $
+    cc ../../third_party/usrsctp/usrsctplib/usrsctplib/netinet/sctp_asconf.c
+build $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_auth.o: $
+    cc ../../third_party/usrsctp/usrsctplib/usrsctplib/netinet/sctp_auth.c
+build $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_bsd_addr.o: $
+    cc ../../third_party/usrsctp/usrsctplib/usrsctplib/netinet/sctp_bsd_addr.c
+build $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_callout.o: $
+    cc ../../third_party/usrsctp/usrsctplib/usrsctplib/netinet/sctp_callout.c
+build $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_cc_functions.o: $
+    cc $
+    ../../third_party/usrsctp/usrsctplib/usrsctplib/netinet/sctp_cc_functions.c
+build $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_crc32.o: $
+    cc ../../third_party/usrsctp/usrsctplib/usrsctplib/netinet/sctp_crc32.c
+build $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_indata.o: $
+    cc ../../third_party/usrsctp/usrsctplib/usrsctplib/netinet/sctp_indata.c
+build $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_input.o: $
+    cc ../../third_party/usrsctp/usrsctplib/usrsctplib/netinet/sctp_input.c
+build $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_output.o: $
+    cc ../../third_party/usrsctp/usrsctplib/usrsctplib/netinet/sctp_output.c
+build $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_pcb.o: $
+    cc ../../third_party/usrsctp/usrsctplib/usrsctplib/netinet/sctp_pcb.c
+build $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_peeloff.o: $
+    cc ../../third_party/usrsctp/usrsctplib/usrsctplib/netinet/sctp_peeloff.c
+build $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_sha1.o: $
+    cc ../../third_party/usrsctp/usrsctplib/usrsctplib/netinet/sctp_sha1.c
+build $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_ss_functions.o: $
+    cc $
+    ../../third_party/usrsctp/usrsctplib/usrsctplib/netinet/sctp_ss_functions.c
+build $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_sysctl.o: $
+    cc ../../third_party/usrsctp/usrsctplib/usrsctplib/netinet/sctp_sysctl.c
+build $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_timer.o: $
+    cc ../../third_party/usrsctp/usrsctplib/usrsctplib/netinet/sctp_timer.c
+build $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_userspace.o: $
+    cc $
+    ../../third_party/usrsctp/usrsctplib/usrsctplib/netinet/sctp_userspace.c
+build $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_usrreq.o: $
+    cc ../../third_party/usrsctp/usrsctplib/usrsctplib/netinet/sctp_usrreq.c
+build $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctputil.o: $
+    cc ../../third_party/usrsctp/usrsctplib/usrsctplib/netinet/sctputil.c
+build $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet6/usrsctplib.sctp6_usrreq.o: $
+    cc ../../third_party/usrsctp/usrsctplib/usrsctplib/netinet6/sctp6_usrreq.c
+build $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/usrsctplib.user_environment.o: $
+    cc ../../third_party/usrsctp/usrsctplib/usrsctplib/user_environment.c
+build obj/third_party/usrsctp/usrsctplib/usrsctplib/usrsctplib.user_mbuf.o: $
+    cc ../../third_party/usrsctp/usrsctplib/usrsctplib/user_mbuf.c
+build $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/usrsctplib.user_recv_thread.o: $
+    cc ../../third_party/usrsctp/usrsctplib/usrsctplib/user_recv_thread.c
+build $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/usrsctplib.user_socket.o: $
+    cc ../../third_party/usrsctp/usrsctplib/usrsctplib/user_socket.c
+
+build obj/third_party/usrsctp/libusrsctplib.a: alink_thin $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_asconf.o $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_auth.o $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_bsd_addr.o $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_callout.o $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_cc_functions.o $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_crc32.o $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_indata.o $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_input.o $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_output.o $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_pcb.o $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_peeloff.o $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_sha1.o $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_ss_functions.o $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_sysctl.o $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_timer.o $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_userspace.o $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctp_usrreq.o $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet/usrsctplib.sctputil.o $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/netinet6/usrsctplib.sctp6_usrreq.o $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/usrsctplib.user_environment.o $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/usrsctplib.user_mbuf.o $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/usrsctplib.user_recv_thread.o $
+    obj/third_party/usrsctp/usrsctplib/usrsctplib/usrsctplib.user_socket.o

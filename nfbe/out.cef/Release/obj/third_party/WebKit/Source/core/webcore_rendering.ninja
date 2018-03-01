@@ -1,0 +1,1027 @@
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DCOMPONENT_BUILD -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 $
+    -DUSE_OZONE=1 -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DMOJO_USE_SYSTEM_IMPL $
+    -DBLINK_IMPLEMENTATION=1 -DINSIDE_BLINK $
+    -DENABLE_LAYOUT_UNIT_IN_INLINE_BOXES=0 -DENABLE_OILPAN=1 $
+    -DWTF_USE_CONCATENATED_IMPULSE_RESPONSES=1 $
+    -DENABLE_INPUT_MULTIPLE_FIELDS_UI=1 -DWTF_USE_ICCJPEG=1 $
+    -DWTF_USE_QCMSLIB=1 -DWTF_USE_WEBAUDIO_FFMPEG=1 $
+    -DWTF_USE_DEFAULT_RENDER_THEME=1 -DU_USING_ICU_NAMESPACE=0 $
+    -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= -DU_STATIC_IMPLEMENTATION $
+    -DSK_SUPPORT_GPU=1 -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS $
+    -DCHROME_PNG_WRITE_SUPPORT -DPNG_USER_CONFIG -DLIBXML_STATIC $
+    -DLIBXSLT_STATIC -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 $
+    -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../skia/config $
+    -I../../third_party/WebKit/Source -I../../third_party/khronos $
+    -I../../gpu -Igen/angle -Igen/blink -I../../third_party/angle/include $
+    -I../../third_party/ffmpeg -I../../third_party/icu/source/i18n $
+    -I../../third_party/icu/source/common -I../../third_party/WebKit $
+    -Igen/third_party/WebKit -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../third_party/iccjpeg -I../../third_party/libpng $
+    -I../../third_party/libwebp -I../../third_party/libxml/linux/include $
+    -I../../third_party/libxml/src/include -I../../third_party/libxslt $
+    -I../../third_party/ots/include -I../../third_party/qcms/src $
+    -I../../third_party/zlib -I../../v8/include
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.BidiRunForLine.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/BidiRunForLine.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.ClipRect.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/ClipRect.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.ColumnBalancer.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/ColumnBalancer.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.CounterNode.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/CounterNode.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.DepthOrderedLayoutObjectList.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/DepthOrderedLayoutObjectList.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.FloatingObjects.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/FloatingObjects.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.HitTestCache.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/HitTestCache.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.HitTestLocation.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/HitTestLocation.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.HitTestResult.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/HitTestResult.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.HitTestingTransformState.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/HitTestingTransformState.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.ImageQualityController.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/ImageQualityController.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutState.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutState.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.OrderIterator.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/OrderIterator.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.PaintInvalidationState.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/PaintInvalidationState.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.PointerEventsHitRules.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/PointerEventsHitRules.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutDeprecatedFlexibleBox.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/LayoutDeprecatedFlexibleBox.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutAnalyzer.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutAnalyzer.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutBlock.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutBlock.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutBlockFlow.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutBlockFlow.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutBlockFlowLine.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutBlockFlowLine.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutBox.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutBox.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutBoxModelObject.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/LayoutBoxModelObject.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutBR.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutBR.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutButton.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutButton.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutCounter.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutCounter.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutDetailsMarker.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutDetailsMarker.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutEmbeddedObject.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/LayoutEmbeddedObject.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutFlexibleBox.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutFlexibleBox.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutFieldset.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutFieldset.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutFileUploadControl.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/LayoutFileUploadControl.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutFlowThread.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutFlowThread.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutFrame.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutFrame.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutFrameSet.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutFrameSet.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutFullScreen.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutFullScreen.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutGeometryMap.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutGeometryMap.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutGrid.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutGrid.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutHTMLCanvas.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutHTMLCanvas.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutIFrame.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutIFrame.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutImage.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutImage.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutImageResource.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutImageResource.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutImageResourceStyleImage.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/LayoutImageResourceStyleImage.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutInline.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutInline.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutListBox.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutListBox.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutListItem.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutListItem.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutListMarker.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutListMarker.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutMedia.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutMedia.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutMenuList.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutMenuList.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutMultiColumnFlowThread.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/LayoutMultiColumnFlowThread.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutMultiColumnSet.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/LayoutMultiColumnSet.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutMultiColumnSpannerPlaceholder.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/LayoutMultiColumnSpannerPlaceholder.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutObject.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutObject.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutObjectChildList.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/LayoutObjectChildList.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutPagedFlowThread.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/LayoutPagedFlowThread.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutPart.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutPart.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutProgress.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutProgress.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutQuote.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutQuote.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutReplaced.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutReplaced.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutReplica.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutReplica.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutRuby.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutRuby.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutRubyBase.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutRubyBase.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutRubyRun.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutRubyRun.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutRubyText.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutRubyText.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutScrollbar.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutScrollbar.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutScrollbarPart.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutScrollbarPart.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutScrollbarTheme.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/LayoutScrollbarTheme.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutSearchField.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutSearchField.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutSlider.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutSlider.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutSliderContainer.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/LayoutSliderContainer.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutSliderThumb.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutSliderThumb.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutText.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutText.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTextCombine.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutTextCombine.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTextFragment.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutTextFragment.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTable.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutTable.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTableCaption.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutTableCaption.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTableCell.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutTableCell.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTableCol.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutTableCol.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTableRow.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutTableRow.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTableSection.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutTableSection.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTextControl.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutTextControl.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTextControlMultiLine.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/LayoutTextControlMultiLine.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTextControlSingleLine.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/LayoutTextControlSingleLine.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTextTrackContainer.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/LayoutTextTrackContainer.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTheme.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutTheme.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutThemeDefault.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutThemeDefault.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutThemeFontProvider.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/LayoutThemeFontProvider.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutThemeFontProviderDefault.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/LayoutThemeFontProviderDefault.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutThemeLinux.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutThemeLinux.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutThemeMobile.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutThemeMobile.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTreeAsText.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutTreeAsText.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutVTTCue.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutVTTCue.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutVideo.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutVideo.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutView.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutView.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutWordBreak.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/LayoutWordBreak.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.ListMarkerText.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/ListMarkerText.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.MultiColumnFragmentainerGroup.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/MultiColumnFragmentainerGroup.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.ScrollAnchor.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/ScrollAnchor.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.ScrollAlignment.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/ScrollAlignment.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.SubtreeLayoutScope.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/SubtreeLayoutScope.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.TableLayoutAlgorithmAuto.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/TableLayoutAlgorithmAuto.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.TableLayoutAlgorithmFixed.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/TableLayoutAlgorithmFixed.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.TextAutosizer.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/TextAutosizer.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.TextRunConstructor.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/TextRunConstructor.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.TracedLayoutObject.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/TracedLayoutObject.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.ViewFragmentationContext.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/ViewFragmentationContext.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/compositing/webcore_rendering.CompositedLayerMapping.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/compositing/CompositedLayerMapping.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/compositing/webcore_rendering.CompositingInputsUpdater.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/compositing/CompositingInputsUpdater.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/compositing/webcore_rendering.CompositingLayerAssigner.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/compositing/CompositingLayerAssigner.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/compositing/webcore_rendering.CompositingReasonFinder.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/compositing/CompositingReasonFinder.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/compositing/webcore_rendering.CompositingRequirementsUpdater.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/compositing/CompositingRequirementsUpdater.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/compositing/webcore_rendering.PaintLayerCompositor.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/compositing/PaintLayerCompositor.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/compositing/webcore_rendering.GraphicsLayerTreeBuilder.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/compositing/GraphicsLayerTreeBuilder.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/compositing/webcore_rendering.GraphicsLayerUpdater.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/compositing/GraphicsLayerUpdater.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/line/webcore_rendering.AbstractInlineTextBox.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/line/AbstractInlineTextBox.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/line/webcore_rendering.BreakingContext.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/line/BreakingContext.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/line/webcore_rendering.EllipsisBox.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/line/EllipsisBox.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/line/webcore_rendering.InlineBox.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/line/InlineBox.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/line/webcore_rendering.InlineFlowBox.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/line/InlineFlowBox.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/line/webcore_rendering.InlineTextBox.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/line/InlineTextBox.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/line/webcore_rendering.LineBoxList.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/line/LineBoxList.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/line/webcore_rendering.LineBreaker.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/line/LineBreaker.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/line/webcore_rendering.LineWidth.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/line/LineWidth.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/line/webcore_rendering.RootInlineBox.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/line/RootInlineBox.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/line/webcore_rendering.TrailingObjects.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/line/TrailingObjects.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/shapes/webcore_rendering.BoxShape.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/shapes/BoxShape.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/shapes/webcore_rendering.PolygonShape.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/shapes/PolygonShape.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/shapes/webcore_rendering.RasterShape.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/shapes/RasterShape.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/shapes/webcore_rendering.RectangleShape.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/shapes/RectangleShape.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/shapes/webcore_rendering.Shape.o: $
+    cxx ../../third_party/WebKit/Source/core/layout/shapes/Shape.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/shapes/webcore_rendering.ShapeOutsideInfo.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/shapes/ShapeOutsideInfo.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.AppliedTextDecoration.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/style/AppliedTextDecoration.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.BasicShapes.o: $
+    cxx ../../third_party/WebKit/Source/core/style/BasicShapes.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.BorderEdge.o: $
+    cxx ../../third_party/WebKit/Source/core/style/BorderEdge.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.ContentData.o: $
+    cxx ../../third_party/WebKit/Source/core/style/ContentData.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.CounterDirectives.o: $
+    cxx ../../third_party/WebKit/Source/core/style/CounterDirectives.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.FillLayer.o: $
+    cxx ../../third_party/WebKit/Source/core/style/FillLayer.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.GridPositionsResolver.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/style/GridPositionsResolver.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.ComputedStyle.o: $
+    cxx ../../third_party/WebKit/Source/core/style/ComputedStyle.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.NinePieceImage.o: $
+    cxx ../../third_party/WebKit/Source/core/style/NinePieceImage.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.QuotesData.o: $
+    cxx ../../third_party/WebKit/Source/core/style/QuotesData.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.ShadowData.o: $
+    cxx ../../third_party/WebKit/Source/core/style/ShadowData.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.ShadowList.o: $
+    cxx ../../third_party/WebKit/Source/core/style/ShadowList.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleBackgroundData.o: $
+    cxx ../../third_party/WebKit/Source/core/style/StyleBackgroundData.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleBoxData.o: $
+    cxx ../../third_party/WebKit/Source/core/style/StyleBoxData.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleDeprecatedFlexibleBoxData.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/style/StyleDeprecatedFlexibleBoxData.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleImage.o: $
+    cxx ../../third_party/WebKit/Source/core/style/StyleImage.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleFetchedImage.o: $
+    cxx ../../third_party/WebKit/Source/core/style/StyleFetchedImage.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleFetchedImageSet.o: $
+    cxx ../../third_party/WebKit/Source/core/style/StyleFetchedImageSet.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleFilterData.o: $
+    cxx ../../third_party/WebKit/Source/core/style/StyleFilterData.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleFlexibleBoxData.o: $
+    cxx ../../third_party/WebKit/Source/core/style/StyleFlexibleBoxData.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleGeneratedImage.o: $
+    cxx ../../third_party/WebKit/Source/core/style/StyleGeneratedImage.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleGridData.o: $
+    cxx ../../third_party/WebKit/Source/core/style/StyleGridData.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleGridItemData.o: $
+    cxx ../../third_party/WebKit/Source/core/style/StyleGridItemData.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleInheritedData.o: $
+    cxx ../../third_party/WebKit/Source/core/style/StyleInheritedData.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleMotionData.o: $
+    cxx ../../third_party/WebKit/Source/core/style/StyleMotionData.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleMultiColData.o: $
+    cxx ../../third_party/WebKit/Source/core/style/StyleMultiColData.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StylePath.o: $
+    cxx ../../third_party/WebKit/Source/core/style/StylePath.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleRareInheritedData.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/style/StyleRareInheritedData.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleRareNonInheritedData.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/style/StyleRareNonInheritedData.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleScrollSnapData.o: $
+    cxx ../../third_party/WebKit/Source/core/style/StyleScrollSnapData.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleSurroundData.o: $
+    cxx ../../third_party/WebKit/Source/core/style/StyleSurroundData.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleTransformData.o: $
+    cxx ../../third_party/WebKit/Source/core/style/StyleTransformData.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleVariableData.o: $
+    cxx ../../third_party/WebKit/Source/core/style/StyleVariableData.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleVisualData.o: $
+    cxx ../../third_party/WebKit/Source/core/style/StyleVisualData.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleWillChangeData.o: $
+    cxx ../../third_party/WebKit/Source/core/style/StyleWillChangeData.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/svg/line/webcore_rendering.SVGInlineFlowBox.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/svg/line/SVGInlineFlowBox.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/svg/line/webcore_rendering.SVGInlineTextBox.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/svg/line/SVGInlineTextBox.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/layout/svg/line/webcore_rendering.SVGRootInlineBox.o: $
+    cxx $
+    ../../third_party/WebKit/Source/core/layout/svg/line/SVGRootInlineBox.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp
+
+build obj/third_party/WebKit/Source/core/libwebcore_rendering.a: alink_thin $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.BidiRunForLine.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.ClipRect.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.ColumnBalancer.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.CounterNode.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.DepthOrderedLayoutObjectList.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.FloatingObjects.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.HitTestCache.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.HitTestLocation.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.HitTestResult.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.HitTestingTransformState.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.ImageQualityController.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutState.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.OrderIterator.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.PaintInvalidationState.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.PointerEventsHitRules.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutDeprecatedFlexibleBox.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutAnalyzer.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutBlock.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutBlockFlow.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutBlockFlowLine.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutBox.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutBoxModelObject.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutBR.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutButton.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutCounter.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutDetailsMarker.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutEmbeddedObject.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutFlexibleBox.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutFieldset.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutFileUploadControl.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutFlowThread.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutFrame.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutFrameSet.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutFullScreen.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutGeometryMap.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutGrid.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutHTMLCanvas.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutIFrame.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutImage.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutImageResource.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutImageResourceStyleImage.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutInline.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutListBox.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutListItem.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutListMarker.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutMedia.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutMenuList.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutMultiColumnFlowThread.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutMultiColumnSet.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutMultiColumnSpannerPlaceholder.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutObject.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutObjectChildList.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutPagedFlowThread.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutPart.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutProgress.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutQuote.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutReplaced.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutReplica.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutRuby.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutRubyBase.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutRubyRun.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutRubyText.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutScrollbar.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutScrollbarPart.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutScrollbarTheme.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutSearchField.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutSlider.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutSliderContainer.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutSliderThumb.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutText.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTextCombine.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTextFragment.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTable.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTableCaption.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTableCell.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTableCol.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTableRow.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTableSection.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTextControl.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTextControlMultiLine.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTextControlSingleLine.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTextTrackContainer.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTheme.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutThemeDefault.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutThemeFontProvider.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutThemeFontProviderDefault.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutThemeLinux.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutThemeMobile.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutTreeAsText.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutVTTCue.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutVideo.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutView.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.LayoutWordBreak.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.ListMarkerText.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.MultiColumnFragmentainerGroup.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.ScrollAnchor.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.ScrollAlignment.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.SubtreeLayoutScope.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.TableLayoutAlgorithmAuto.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.TableLayoutAlgorithmFixed.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.TextAutosizer.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.TextRunConstructor.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.TracedLayoutObject.o $
+    obj/third_party/WebKit/Source/core/layout/webcore_rendering.ViewFragmentationContext.o $
+    obj/third_party/WebKit/Source/core/layout/compositing/webcore_rendering.CompositedLayerMapping.o $
+    obj/third_party/WebKit/Source/core/layout/compositing/webcore_rendering.CompositingInputsUpdater.o $
+    obj/third_party/WebKit/Source/core/layout/compositing/webcore_rendering.CompositingLayerAssigner.o $
+    obj/third_party/WebKit/Source/core/layout/compositing/webcore_rendering.CompositingReasonFinder.o $
+    obj/third_party/WebKit/Source/core/layout/compositing/webcore_rendering.CompositingRequirementsUpdater.o $
+    obj/third_party/WebKit/Source/core/layout/compositing/webcore_rendering.PaintLayerCompositor.o $
+    obj/third_party/WebKit/Source/core/layout/compositing/webcore_rendering.GraphicsLayerTreeBuilder.o $
+    obj/third_party/WebKit/Source/core/layout/compositing/webcore_rendering.GraphicsLayerUpdater.o $
+    obj/third_party/WebKit/Source/core/layout/line/webcore_rendering.AbstractInlineTextBox.o $
+    obj/third_party/WebKit/Source/core/layout/line/webcore_rendering.BreakingContext.o $
+    obj/third_party/WebKit/Source/core/layout/line/webcore_rendering.EllipsisBox.o $
+    obj/third_party/WebKit/Source/core/layout/line/webcore_rendering.InlineBox.o $
+    obj/third_party/WebKit/Source/core/layout/line/webcore_rendering.InlineFlowBox.o $
+    obj/third_party/WebKit/Source/core/layout/line/webcore_rendering.InlineTextBox.o $
+    obj/third_party/WebKit/Source/core/layout/line/webcore_rendering.LineBoxList.o $
+    obj/third_party/WebKit/Source/core/layout/line/webcore_rendering.LineBreaker.o $
+    obj/third_party/WebKit/Source/core/layout/line/webcore_rendering.LineWidth.o $
+    obj/third_party/WebKit/Source/core/layout/line/webcore_rendering.RootInlineBox.o $
+    obj/third_party/WebKit/Source/core/layout/line/webcore_rendering.TrailingObjects.o $
+    obj/third_party/WebKit/Source/core/layout/shapes/webcore_rendering.BoxShape.o $
+    obj/third_party/WebKit/Source/core/layout/shapes/webcore_rendering.PolygonShape.o $
+    obj/third_party/WebKit/Source/core/layout/shapes/webcore_rendering.RasterShape.o $
+    obj/third_party/WebKit/Source/core/layout/shapes/webcore_rendering.RectangleShape.o $
+    obj/third_party/WebKit/Source/core/layout/shapes/webcore_rendering.Shape.o $
+    obj/third_party/WebKit/Source/core/layout/shapes/webcore_rendering.ShapeOutsideInfo.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.AppliedTextDecoration.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.BasicShapes.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.BorderEdge.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.ContentData.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.CounterDirectives.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.FillLayer.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.GridPositionsResolver.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.ComputedStyle.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.NinePieceImage.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.QuotesData.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.ShadowData.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.ShadowList.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleBackgroundData.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleBoxData.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleDeprecatedFlexibleBoxData.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleImage.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleFetchedImage.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleFetchedImageSet.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleFilterData.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleFlexibleBoxData.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleGeneratedImage.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleGridData.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleGridItemData.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleInheritedData.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleMotionData.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleMultiColData.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StylePath.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleRareInheritedData.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleRareNonInheritedData.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleScrollSnapData.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleSurroundData.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleTransformData.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleVariableData.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleVisualData.o $
+    obj/third_party/WebKit/Source/core/style/webcore_rendering.StyleWillChangeData.o $
+    obj/third_party/WebKit/Source/core/layout/svg/line/webcore_rendering.SVGInlineFlowBox.o $
+    obj/third_party/WebKit/Source/core/layout/svg/line/webcore_rendering.SVGInlineTextBox.o $
+    obj/third_party/WebKit/Source/core/layout/svg/line/webcore_rendering.SVGRootInlineBox.o $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.actions_depends.stamp

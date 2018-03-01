@@ -1,0 +1,12 @@
+build obj/access/content/oipf.actions_depends.stamp: stamp $
+    lib/libbase.so.TOC $
+    obj/third_party/WebKit/public/blink.actions_depends.stamp $
+    obj/third_party/WebKit/Source/platform/libblink_platform.a
+
+build obj/access/content/oipf.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/third_party/WebKit/public/blink.compile_depends.stamp $
+    obj/third_party/WebKit/Source/platform/blink_platform.compile_depends.stamp
+
+build obj/access/content/liboipf.a: alink_thin || $
+    obj/access/content/oipf.actions_depends.stamp

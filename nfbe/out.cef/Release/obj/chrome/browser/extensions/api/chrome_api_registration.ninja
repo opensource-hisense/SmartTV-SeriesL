@@ -1,0 +1,295 @@
+build $
+    obj/chrome/browser/extensions/api/chrome_api_registration.actions_depends.stamp: $
+    stamp obj/chrome/common/extensions/api/libchrome_api.a $
+    obj/mojo/libmojo_application_bindings.a $
+    obj/content/libcontent_common_mojo_bindings.a $
+    obj/components/libcomponent_metrics_proto.a $
+    obj/components/libcopresence_proto.a $
+    obj/skia/skia.actions_depends.stamp obj/sync/sync.actions_depends.stamp $
+    obj/sync/libsync_proto.a obj/ui/accessibility/libax_gen.a
+
+build $
+    obj/chrome/browser/extensions/api/chrome_api_registration.compile_depends.stamp: $
+    stamp $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp $
+    obj/mojo/mojo_application_bindings_mojom.actions_rules_copies.stamp $
+    obj/content/content_common_mojo_bindings_mojom.actions_rules_copies.stamp $
+    obj/components/component_metrics_proto.actions_rules_copies.stamp $
+    obj/components/copresence_proto.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp obj/sync/sync.compile_depends.stamp $
+    obj/sync/sync_proto.actions_rules_copies.stamp $
+    obj/ui/accessibility/ax_gen.actions_rules_copies.stamp
+
+rule $
+    chrome_api_registration_target_genapi_bundle_registration_2b2c9c9f04ddd4446bbe1a22c2a9c72b
+  command = cd ../../chrome/browser/extensions/api; python $
+      ../../../../tools/json_schema_compiler/compiler.py $
+      "--root=../../../.." "--destdir=../../../../out.cef/Release/gen" $
+      "--namespace=extensions::api::%(namespace)s" "--bundle-name=Chrome" $
+      "--generator=cpp-bundle-registration" $
+      "--impl-dir=chrome/browser/extensions/api" $
+      ../../../common/extensions/api/accessibility_features.json $
+      ../../../common/extensions/api/accessibility_private.json $
+      ../../../common/extensions/api/activity_log_private.json $
+      ../../../common/extensions/api/audio_modem.idl $
+      ../../../common/extensions/api/autofill_private.idl $
+      ../../../common/extensions/api/automation.idl $
+      ../../../common/extensions/api/automation_internal.idl $
+      ../../../common/extensions/api/autotest_private.idl $
+      ../../../common/extensions/api/bluetooth_low_energy.idl $
+      ../../../common/extensions/api/bookmark_manager_private.json $
+      ../../../common/extensions/api/bookmarks.json $
+      ../../../common/extensions/api/braille_display_private.idl $
+      ../../../common/extensions/api/browser.idl $
+      ../../../common/extensions/api/chrome_web_view_internal.json $
+      ../../../common/extensions/api/cloud_print_private.json $
+      ../../../common/extensions/api/command_line_private.json $
+      ../../../common/extensions/api/content_settings.json $
+      ../../../common/extensions/api/context_menus_internal.json $
+      ../../../common/extensions/api/context_menus.json $
+      ../../../common/extensions/api/cookies.json $
+      ../../../common/extensions/api/copresence.idl $
+      ../../../common/extensions/api/copresence_private.idl $
+      ../../../common/extensions/api/cryptotoken_private.idl $
+      ../../../common/extensions/api/dashboard_private.json $
+      ../../../common/extensions/api/data_reduction_proxy.json $
+      ../../../common/extensions/api/debugger.json $
+      ../../../common/extensions/api/desktop_capture.json $
+      ../../../common/extensions/api/developer_private.idl $
+      ../../../common/extensions/api/dial.idl $
+      ../../../common/extensions/api/downloads.idl $
+      ../../../common/extensions/api/downloads_internal.idl $
+      ../../../common/extensions/api/easy_unlock_private.idl $
+      ../../../common/extensions/api/experience_sampling_private.json $
+      ../../../common/extensions/api/feedback_private.idl $
+      ../../../common/extensions/api/file_system.idl $
+      ../../../common/extensions/api/font_settings.json $
+      ../../../common/extensions/api/gcm.json $
+      ../../../common/extensions/api/hangouts_private.idl $
+      ../../../common/extensions/api/history.json $
+      ../../../common/extensions/api/hotword_private.idl $
+      ../../../common/extensions/api/i18n.json $
+      ../../../common/extensions/api/identity.idl $
+      ../../../common/extensions/api/identity_private.idl $
+      ../../../common/extensions/api/image_writer_private.idl $
+      ../../../common/extensions/api/inline_install_private.idl $
+      ../../../common/extensions/api/instance_id.json $
+      ../../../common/extensions/api/language_settings_private.idl $
+      ../../../common/extensions/api/launcher_page.idl $
+      ../../../common/extensions/api/manifest_types.json $
+      ../../../common/extensions/api/media_galleries.idl $
+      ../../../common/extensions/api/metrics_private.json $
+      ../../../common/extensions/api/notification_provider.idl $
+      ../../../common/extensions/api/notifications.idl $
+      ../../../common/extensions/api/omnibox.json $
+      ../../../common/extensions/api/page_capture.json $
+      ../../../common/extensions/api/passwords_private.idl $
+      ../../../common/extensions/api/permissions.json $
+      ../../../common/extensions/api/preferences_private.json $
+      ../../../common/extensions/api/resources_private.idl $
+      ../../../common/extensions/api/screenlock_private.idl $
+      ../../../common/extensions/api/sessions.json $
+      ../../../common/extensions/api/settings_private.idl $
+      ../../../common/extensions/api/signed_in_devices.idl $
+      ../../../common/extensions/api/streams_private.idl $
+      ../../../common/extensions/api/sync_file_system.idl $
+      ../../../common/extensions/api/system_indicator.idl $
+      ../../../common/extensions/api/system_private.json $
+      ../../../common/extensions/api/tab_capture.idl $
+      ../../../common/extensions/api/tabs.json $
+      ../../../common/extensions/api/types.json $
+      ../../../common/extensions/api/web_navigation.json $
+      ../../../common/extensions/api/webrtc_audio_private.idl $
+      ../../../common/extensions/api/webrtc_desktop_capture_private.idl $
+      ../../../common/extensions/api/webrtc_logging_private.idl $
+      ../../../common/extensions/api/webstore_private.json $
+      ../../../common/extensions/api/webstore_widget_private.idl $
+      ../../../common/extensions/api/windows.json $
+      ../../../common/extensions/api/processes.idl $
+      ../../../common/extensions/api/input_ime.json $
+      ../../../common/extensions/api/gcd_private.idl $
+      ../../../common/extensions/api/mdns.idl $
+      ../../../common/extensions/api/browsing_data.json $
+      ../../../common/extensions/api/extension.json $
+      ../../../common/extensions/api/idltest.idl $
+      ../../../common/extensions/api/music_manager_private.idl $
+      ../../../common/extensions/api/top_sites.json
+  description = ACTION Generating C++ API bundle code for function $
+      registration
+  restat = 1
+
+build gen/chrome/browser/extensions/api/generated_api_registration.h $
+    gen/chrome/browser/extensions/api/generated_api_registration.cc: $
+    chrome_api_registration_target_genapi_bundle_registration_2b2c9c9f04ddd4446bbe1a22c2a9c72b $
+    ../../tools/json_schema_compiler/cc_generator.py $
+    ../../tools/json_schema_compiler/code.py $
+    ../../tools/json_schema_compiler/compiler.py $
+    ../../tools/json_schema_compiler/cpp_bundle_generator.py $
+    ../../tools/json_schema_compiler/cpp_type_generator.py $
+    ../../tools/json_schema_compiler/cpp_util.py $
+    ../../tools/json_schema_compiler/h_generator.py $
+    ../../tools/json_schema_compiler/idl_schema.py $
+    ../../tools/json_schema_compiler/json_schema.py $
+    ../../tools/json_schema_compiler/model.py $
+    ../../tools/json_schema_compiler/util_cc_helper.py $
+    ../../chrome/common/extensions/api/accessibility_features.json $
+    ../../chrome/common/extensions/api/accessibility_private.json $
+    ../../chrome/common/extensions/api/activity_log_private.json $
+    ../../chrome/common/extensions/api/audio_modem.idl $
+    ../../chrome/common/extensions/api/autofill_private.idl $
+    ../../chrome/common/extensions/api/automation.idl $
+    ../../chrome/common/extensions/api/automation_internal.idl $
+    ../../chrome/common/extensions/api/autotest_private.idl $
+    ../../chrome/common/extensions/api/bluetooth_low_energy.idl $
+    ../../chrome/common/extensions/api/bookmark_manager_private.json $
+    ../../chrome/common/extensions/api/bookmarks.json $
+    ../../chrome/common/extensions/api/braille_display_private.idl $
+    ../../chrome/common/extensions/api/browser.idl $
+    ../../chrome/common/extensions/api/chrome_web_view_internal.json $
+    ../../chrome/common/extensions/api/cloud_print_private.json $
+    ../../chrome/common/extensions/api/command_line_private.json $
+    ../../chrome/common/extensions/api/content_settings.json $
+    ../../chrome/common/extensions/api/context_menus_internal.json $
+    ../../chrome/common/extensions/api/context_menus.json $
+    ../../chrome/common/extensions/api/cookies.json $
+    ../../chrome/common/extensions/api/copresence.idl $
+    ../../chrome/common/extensions/api/copresence_private.idl $
+    ../../chrome/common/extensions/api/cryptotoken_private.idl $
+    ../../chrome/common/extensions/api/dashboard_private.json $
+    ../../chrome/common/extensions/api/data_reduction_proxy.json $
+    ../../chrome/common/extensions/api/debugger.json $
+    ../../chrome/common/extensions/api/desktop_capture.json $
+    ../../chrome/common/extensions/api/developer_private.idl $
+    ../../chrome/common/extensions/api/dial.idl $
+    ../../chrome/common/extensions/api/downloads.idl $
+    ../../chrome/common/extensions/api/downloads_internal.idl $
+    ../../chrome/common/extensions/api/easy_unlock_private.idl $
+    ../../chrome/common/extensions/api/experience_sampling_private.json $
+    ../../chrome/common/extensions/api/feedback_private.idl $
+    ../../chrome/common/extensions/api/file_system.idl $
+    ../../chrome/common/extensions/api/font_settings.json $
+    ../../chrome/common/extensions/api/gcm.json $
+    ../../chrome/common/extensions/api/hangouts_private.idl $
+    ../../chrome/common/extensions/api/history.json $
+    ../../chrome/common/extensions/api/hotword_private.idl $
+    ../../chrome/common/extensions/api/i18n.json $
+    ../../chrome/common/extensions/api/identity.idl $
+    ../../chrome/common/extensions/api/identity_private.idl $
+    ../../chrome/common/extensions/api/image_writer_private.idl $
+    ../../chrome/common/extensions/api/inline_install_private.idl $
+    ../../chrome/common/extensions/api/instance_id.json $
+    ../../chrome/common/extensions/api/language_settings_private.idl $
+    ../../chrome/common/extensions/api/launcher_page.idl $
+    ../../chrome/common/extensions/api/manifest_types.json $
+    ../../chrome/common/extensions/api/media_galleries.idl $
+    ../../chrome/common/extensions/api/metrics_private.json $
+    ../../chrome/common/extensions/api/notification_provider.idl $
+    ../../chrome/common/extensions/api/notifications.idl $
+    ../../chrome/common/extensions/api/omnibox.json $
+    ../../chrome/common/extensions/api/page_capture.json $
+    ../../chrome/common/extensions/api/passwords_private.idl $
+    ../../chrome/common/extensions/api/permissions.json $
+    ../../chrome/common/extensions/api/preferences_private.json $
+    ../../chrome/common/extensions/api/resources_private.idl $
+    ../../chrome/common/extensions/api/screenlock_private.idl $
+    ../../chrome/common/extensions/api/sessions.json $
+    ../../chrome/common/extensions/api/settings_private.idl $
+    ../../chrome/common/extensions/api/signed_in_devices.idl $
+    ../../chrome/common/extensions/api/streams_private.idl $
+    ../../chrome/common/extensions/api/sync_file_system.idl $
+    ../../chrome/common/extensions/api/system_indicator.idl $
+    ../../chrome/common/extensions/api/system_private.json $
+    ../../chrome/common/extensions/api/tab_capture.idl $
+    ../../chrome/common/extensions/api/tabs.json $
+    ../../chrome/common/extensions/api/types.json $
+    ../../chrome/common/extensions/api/web_navigation.json $
+    ../../chrome/common/extensions/api/webrtc_audio_private.idl $
+    ../../chrome/common/extensions/api/webrtc_desktop_capture_private.idl $
+    ../../chrome/common/extensions/api/webrtc_logging_private.idl $
+    ../../chrome/common/extensions/api/webstore_private.json $
+    ../../chrome/common/extensions/api/webstore_widget_private.idl $
+    ../../chrome/common/extensions/api/windows.json $
+    ../../chrome/common/extensions/api/processes.idl $
+    ../../chrome/common/extensions/api/input_ime.json $
+    ../../chrome/common/extensions/api/gcd_private.idl $
+    ../../chrome/common/extensions/api/mdns.idl $
+    ../../chrome/common/extensions/api/browsing_data.json $
+    ../../chrome/common/extensions/api/extension.json $
+    ../../chrome/common/extensions/api/idltest.idl $
+    ../../chrome/common/extensions/api/music_manager_private.idl $
+    ../../chrome/common/extensions/api/top_sites.json || $
+    obj/chrome/browser/extensions/api/chrome_api_registration.actions_depends.stamp
+
+build $
+    obj/chrome/browser/extensions/api/chrome_api_registration.actions_rules_copies.stamp: $
+    stamp gen/chrome/browser/extensions/api/generated_api_registration.h $
+    gen/chrome/browser/extensions/api/generated_api_registration.cc
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DMOJO_USE_SYSTEM_IMPL $
+    -DPROTOBUF_USE_DLLS -DGOOGLE_PROTOBUF_NO_RTTI $
+    -DGOOGLE_PROTOBUF_NO_STATIC_INITIALIZER -DSK_SUPPORT_GPU=1 $
+    -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS $
+    -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../third_party/khronos -I../../gpu $
+    -I../../skia/config -Igen/angle -I../../third_party/WebKit/Source $
+    -I../../third_party/WebKit -Igen/third_party/WebKit -Igen/protoc_out $
+    -I../../third_party/protobuf -I../../third_party/protobuf/src $
+    -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/chrome/browser/extensions/api/gen/chrome/browser/extensions/api/chrome_api_registration.generated_api_registration.o: $
+    cxx gen/chrome/browser/extensions/api/generated_api_registration.cc || $
+    obj/chrome/browser/extensions/api/chrome_api_registration.actions_rules_copies.stamp
+
+build obj/chrome/browser/extensions/api/libchrome_api_registration.a: $
+    alink_thin $
+    obj/chrome/browser/extensions/api/gen/chrome/browser/extensions/api/chrome_api_registration.generated_api_registration.o $
+    || $
+    obj/chrome/browser/extensions/api/chrome_api_registration.actions_rules_copies.stamp

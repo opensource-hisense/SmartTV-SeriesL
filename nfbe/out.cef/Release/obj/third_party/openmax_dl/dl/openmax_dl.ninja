@@ -1,0 +1,110 @@
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DDL_ARM_NEON -DCHROMIUM_BUILD $
+    -DCR_CLANG_REVISION=264915-1 -DUI_COMPOSITOR_IMAGE_TRANSPORT $
+    -DUSE_AURA=1 -DUSE_OZONE=1 -DUSE_DEFAULT_RENDER_THEME=1 $
+    -DUSE_LIBJPEG_TURBO=1 -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS $
+    -DENABLE_BROWSER_CDMS -DENABLE_TOPCHROME_MD=1 $
+    -DFIELDTRIAL_TESTING_ENABLED -DENABLE_TASK_MANAGER=1 $
+    -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 -DENABLE_SESSION_SERVICE=1 $
+    -DENABLE_AUTOFILL_DIALOG=1 -DENABLE_PRINTING=1 $
+    -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DBIG_FFT_TABLE -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -I../../third_party/openmax_dl -Igen
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-abi $
+    -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+build $
+    obj/third_party/openmax_dl/dl/sp/src/openmax_dl.armSP_FFT_F32TwiddleTable.o: $
+    cc ../../third_party/openmax_dl/dl/sp/src/armSP_FFT_F32TwiddleTable.c
+build $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.armSP_FFT_S32TwiddleTable.o: $
+    cc ../../third_party/openmax_dl/dl/sp/src/arm/armSP_FFT_S32TwiddleTable.c
+build $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTGetBufSize_C_FC32.o: $
+    cc ../../third_party/openmax_dl/dl/sp/src/arm/omxSP_FFTGetBufSize_C_FC32.c
+build $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTGetBufSize_C_SC32.o: $
+    cc ../../third_party/openmax_dl/dl/sp/src/arm/omxSP_FFTGetBufSize_C_SC32.c
+build $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTGetBufSize_R_F32.o: $
+    cc ../../third_party/openmax_dl/dl/sp/src/arm/omxSP_FFTGetBufSize_R_F32.c
+build $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTGetBufSize_R_S32.o: $
+    cc ../../third_party/openmax_dl/dl/sp/src/arm/omxSP_FFTGetBufSize_R_S32.c
+build $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTInit_C_FC32.o: $
+    cc ../../third_party/openmax_dl/dl/sp/src/arm/omxSP_FFTInit_C_FC32.c
+build $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTInit_R_F32.o: $
+    cc ../../third_party/openmax_dl/dl/sp/src/arm/omxSP_FFTInit_R_F32.c
+build $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTGetBufSize_C_SC16.o: $
+    cc ../../third_party/openmax_dl/dl/sp/src/arm/omxSP_FFTGetBufSize_C_SC16.c
+build $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTGetBufSize_R_S16.o: $
+    cc ../../third_party/openmax_dl/dl/sp/src/arm/omxSP_FFTGetBufSize_R_S16.c
+build $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTGetBufSize_R_S16S32.o: $
+    cc $
+    ../../third_party/openmax_dl/dl/sp/src/arm/omxSP_FFTGetBufSize_R_S16S32.c
+build $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTInit_C_SC16.o: $
+    cc ../../third_party/openmax_dl/dl/sp/src/arm/omxSP_FFTInit_C_SC16.c
+build $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTInit_C_SC32.o: $
+    cc ../../third_party/openmax_dl/dl/sp/src/arm/omxSP_FFTInit_C_SC32.c
+build $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTInit_R_S16.o: $
+    cc ../../third_party/openmax_dl/dl/sp/src/arm/omxSP_FFTInit_R_S16.c
+build $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTInit_R_S16S32.o: $
+    cc ../../third_party/openmax_dl/dl/sp/src/arm/omxSP_FFTInit_R_S16S32.c
+build $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTInit_R_S32.o: $
+    cc ../../third_party/openmax_dl/dl/sp/src/arm/omxSP_FFTInit_R_S32.c
+
+build obj/third_party/openmax_dl/dl/libopenmax_dl.a: alink_thin $
+    obj/third_party/openmax_dl/dl/sp/src/openmax_dl.armSP_FFT_F32TwiddleTable.o $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.armSP_FFT_S32TwiddleTable.o $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTGetBufSize_C_FC32.o $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTGetBufSize_C_SC32.o $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTGetBufSize_R_F32.o $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTGetBufSize_R_S32.o $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTInit_C_FC32.o $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTInit_R_F32.o $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTGetBufSize_C_SC16.o $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTGetBufSize_R_S16.o $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTGetBufSize_R_S16S32.o $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTInit_C_SC16.o $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTInit_C_SC32.o $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTInit_R_S16.o $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTInit_R_S16S32.o $
+    obj/third_party/openmax_dl/dl/sp/src/arm/openmax_dl.omxSP_FFTInit_R_S32.o

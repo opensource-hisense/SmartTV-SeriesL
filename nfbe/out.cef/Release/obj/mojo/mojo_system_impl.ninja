@@ -1,0 +1,208 @@
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DMOJO_SYSTEM_IMPL_IMPLEMENTATION $
+    -DMOJO_SYSTEM_IMPLEMENTATION -DMOJO_USE_SYSTEM_IMPL -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS $
+    -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -I../.. -Igen
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -I/work/bsp/sc1400/usr/include/nss3 $
+    -I/work/bsp/sc1400/usr/include/nspr -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/mojo/edk/embedder/mojo_system_impl.embedder.o: cxx $
+    ../../mojo/edk/embedder/embedder.cc || obj/base/base.compile_depends.stamp
+build obj/mojo/edk/embedder/mojo_system_impl.entrypoints.o: cxx $
+    ../../mojo/edk/embedder/entrypoints.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/embedder/mojo_system_impl.platform_channel_pair.o: cxx $
+    ../../mojo/edk/embedder/platform_channel_pair.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/embedder/mojo_system_impl.platform_channel_pair_posix.o: $
+    cxx ../../mojo/edk/embedder/platform_channel_pair_posix.cc || $
+    obj/base/base.compile_depends.stamp
+build $
+    obj/mojo/edk/embedder/mojo_system_impl.platform_channel_utils_posix.o: $
+    cxx ../../mojo/edk/embedder/platform_channel_utils_posix.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/embedder/mojo_system_impl.platform_handle.o: cxx $
+    ../../mojo/edk/embedder/platform_handle.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/embedder/mojo_system_impl.platform_handle_utils_posix.o: $
+    cxx ../../mojo/edk/embedder/platform_handle_utils_posix.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/embedder/mojo_system_impl.platform_shared_buffer.o: cxx $
+    ../../mojo/edk/embedder/platform_shared_buffer.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/mojo_system_impl.awakable_list.o: cxx $
+    ../../mojo/edk/system/awakable_list.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/mojo_system_impl.async_waiter.o: cxx $
+    ../../mojo/edk/system/async_waiter.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/mojo_system_impl.broker_host_posix.o: cxx $
+    ../../mojo/edk/system/broker_host_posix.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/mojo_system_impl.broker_posix.o: cxx $
+    ../../mojo/edk/system/broker_posix.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/mojo_system_impl.channel.o: cxx $
+    ../../mojo/edk/system/channel.cc || obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/mojo_system_impl.channel_posix.o: cxx $
+    ../../mojo/edk/system/channel_posix.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/mojo_system_impl.configuration.o: cxx $
+    ../../mojo/edk/system/configuration.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/mojo_system_impl.core.o: cxx $
+    ../../mojo/edk/system/core.cc || obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/mojo_system_impl.data_pipe_consumer_dispatcher.o: $
+    cxx ../../mojo/edk/system/data_pipe_consumer_dispatcher.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/mojo_system_impl.data_pipe_control_message.o: cxx $
+    ../../mojo/edk/system/data_pipe_control_message.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/mojo_system_impl.data_pipe_producer_dispatcher.o: $
+    cxx ../../mojo/edk/system/data_pipe_producer_dispatcher.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/mojo_system_impl.dispatcher.o: cxx $
+    ../../mojo/edk/system/dispatcher.cc || obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/mojo_system_impl.handle_table.o: cxx $
+    ../../mojo/edk/system/handle_table.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/mojo_system_impl.mapping_table.o: cxx $
+    ../../mojo/edk/system/mapping_table.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/mojo_system_impl.message_pipe_dispatcher.o: cxx $
+    ../../mojo/edk/system/message_pipe_dispatcher.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/mojo_system_impl.node_channel.o: cxx $
+    ../../mojo/edk/system/node_channel.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/mojo_system_impl.node_controller.o: cxx $
+    ../../mojo/edk/system/node_controller.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/mojo_system_impl.platform_handle_dispatcher.o: $
+    cxx ../../mojo/edk/system/platform_handle_dispatcher.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/ports/mojo_system_impl.event.o: cxx $
+    ../../mojo/edk/system/ports/event.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/ports/mojo_system_impl.message.o: cxx $
+    ../../mojo/edk/system/ports/message.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/ports/mojo_system_impl.message_queue.o: cxx $
+    ../../mojo/edk/system/ports/message_queue.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/ports/mojo_system_impl.name.o: cxx $
+    ../../mojo/edk/system/ports/name.cc || obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/ports/mojo_system_impl.node.o: cxx $
+    ../../mojo/edk/system/ports/node.cc || obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/ports/mojo_system_impl.port.o: cxx $
+    ../../mojo/edk/system/ports/port.cc || obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/ports/mojo_system_impl.port_ref.o: cxx $
+    ../../mojo/edk/system/ports/port_ref.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/mojo_system_impl.ports_message.o: cxx $
+    ../../mojo/edk/system/ports_message.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/mojo_system_impl.remote_message_pipe_bootstrap.o: $
+    cxx ../../mojo/edk/system/remote_message_pipe_bootstrap.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/mojo_system_impl.request_context.o: cxx $
+    ../../mojo/edk/system/request_context.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/mojo_system_impl.shared_buffer_dispatcher.o: cxx $
+    ../../mojo/edk/system/shared_buffer_dispatcher.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/mojo_system_impl.wait_set_dispatcher.o: cxx $
+    ../../mojo/edk/system/wait_set_dispatcher.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/mojo_system_impl.waiter.o: cxx $
+    ../../mojo/edk/system/waiter.cc || obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/mojo_system_impl.watcher.o: cxx $
+    ../../mojo/edk/system/watcher.cc || obj/base/base.compile_depends.stamp
+build obj/mojo/edk/system/mojo_system_impl.watcher_set.o: cxx $
+    ../../mojo/edk/system/watcher_set.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/mojo/edk/embedder/mojo_system_impl.test_embedder.o: cxx $
+    ../../mojo/edk/embedder/test_embedder.cc || $
+    obj/base/base.compile_depends.stamp
+
+build obj/mojo/libmojo_system_impl.a: alink_thin $
+    obj/mojo/edk/embedder/mojo_system_impl.embedder.o $
+    obj/mojo/edk/embedder/mojo_system_impl.entrypoints.o $
+    obj/mojo/edk/embedder/mojo_system_impl.platform_channel_pair.o $
+    obj/mojo/edk/embedder/mojo_system_impl.platform_channel_pair_posix.o $
+    obj/mojo/edk/embedder/mojo_system_impl.platform_channel_utils_posix.o $
+    obj/mojo/edk/embedder/mojo_system_impl.platform_handle.o $
+    obj/mojo/edk/embedder/mojo_system_impl.platform_handle_utils_posix.o $
+    obj/mojo/edk/embedder/mojo_system_impl.platform_shared_buffer.o $
+    obj/mojo/edk/system/mojo_system_impl.awakable_list.o $
+    obj/mojo/edk/system/mojo_system_impl.async_waiter.o $
+    obj/mojo/edk/system/mojo_system_impl.broker_host_posix.o $
+    obj/mojo/edk/system/mojo_system_impl.broker_posix.o $
+    obj/mojo/edk/system/mojo_system_impl.channel.o $
+    obj/mojo/edk/system/mojo_system_impl.channel_posix.o $
+    obj/mojo/edk/system/mojo_system_impl.configuration.o $
+    obj/mojo/edk/system/mojo_system_impl.core.o $
+    obj/mojo/edk/system/mojo_system_impl.data_pipe_consumer_dispatcher.o $
+    obj/mojo/edk/system/mojo_system_impl.data_pipe_control_message.o $
+    obj/mojo/edk/system/mojo_system_impl.data_pipe_producer_dispatcher.o $
+    obj/mojo/edk/system/mojo_system_impl.dispatcher.o $
+    obj/mojo/edk/system/mojo_system_impl.handle_table.o $
+    obj/mojo/edk/system/mojo_system_impl.mapping_table.o $
+    obj/mojo/edk/system/mojo_system_impl.message_pipe_dispatcher.o $
+    obj/mojo/edk/system/mojo_system_impl.node_channel.o $
+    obj/mojo/edk/system/mojo_system_impl.node_controller.o $
+    obj/mojo/edk/system/mojo_system_impl.platform_handle_dispatcher.o $
+    obj/mojo/edk/system/ports/mojo_system_impl.event.o $
+    obj/mojo/edk/system/ports/mojo_system_impl.message.o $
+    obj/mojo/edk/system/ports/mojo_system_impl.message_queue.o $
+    obj/mojo/edk/system/ports/mojo_system_impl.name.o $
+    obj/mojo/edk/system/ports/mojo_system_impl.node.o $
+    obj/mojo/edk/system/ports/mojo_system_impl.port.o $
+    obj/mojo/edk/system/ports/mojo_system_impl.port_ref.o $
+    obj/mojo/edk/system/mojo_system_impl.ports_message.o $
+    obj/mojo/edk/system/mojo_system_impl.remote_message_pipe_bootstrap.o $
+    obj/mojo/edk/system/mojo_system_impl.request_context.o $
+    obj/mojo/edk/system/mojo_system_impl.shared_buffer_dispatcher.o $
+    obj/mojo/edk/system/mojo_system_impl.wait_set_dispatcher.o $
+    obj/mojo/edk/system/mojo_system_impl.waiter.o $
+    obj/mojo/edk/system/mojo_system_impl.watcher.o $
+    obj/mojo/edk/system/mojo_system_impl.watcher_set.o $
+    obj/mojo/edk/embedder/mojo_system_impl.test_embedder.o || $
+    lib/libbase.so.TOC

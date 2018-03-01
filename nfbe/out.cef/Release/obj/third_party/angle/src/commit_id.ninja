@@ -1,0 +1,14 @@
+rule $
+    commit_id_target_Generate_ANGLE_Commit_ID_Header_16cbaf49fb1715475839e9745f1c82e1
+  command = cd ../../third_party/angle/src; python $
+      ../../../out.cef/Release/gen/angle/commit_id.py gen $
+      ../../../third_party/angle $
+      ../../../out.cef/Release/gen/angle/id/commit.h
+  description = ACTION Generating ANGLE Commit ID
+  restat = 1
+
+build gen/angle/id/commit.h: $
+    commit_id_target_Generate_ANGLE_Commit_ID_Header_16cbaf49fb1715475839e9745f1c82e1 $
+    gen/angle/commit_id.py ../../third_party/angle/.git/index || $
+    obj/third_party/angle/src/copy_scripts.actions_rules_copies.stamp
+

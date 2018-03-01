@@ -1,0 +1,115 @@
+defines = -DHAVE_CONFIG_H -DHAVE_STDLIB_H -DHAVE_STRING_H -DTESTAPP_SOURCE $
+    -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DOPENSSL -DHAVE_INT16_T -DHAVE_INT32_T -DHAVE_INT8_T $
+    -DHAVE_UINT16_T -DHAVE_UINT32_T -DHAVE_UINT64_T -DHAVE_UINT8_T $
+    -DHAVE_STDINT_H -DHAVE_INTTYPES_H -DHAVE_NETINET_IN_H $
+    -DHAVE_ARPA_INET_H -DHAVE_UNISTD_H -DCPU_CISC -DFORCE_64BIT_ALIGN $
+    -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -I../../third_party/libsrtp/config $
+    -I../../third_party/libsrtp/srtp/include $
+    -I../../third_party/libsrtp/srtp/crypto/include -Igen $
+    -I../../third_party/boringssl/src/include
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -Wno-unused-variable -march=armv8-a $
+    -mtune=cortex-a53 -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-abi $
+    -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+build obj/third_party/libsrtp/srtp/srtp/libsrtp.ekt.o: cc $
+    ../../third_party/libsrtp/srtp/srtp/ekt.c
+build obj/third_party/libsrtp/srtp/srtp/libsrtp.srtp.o: cc $
+    ../../third_party/libsrtp/srtp/srtp/srtp.c
+build obj/third_party/libsrtp/srtp/crypto/cipher/libsrtp.aes.o: cc $
+    ../../third_party/libsrtp/srtp/crypto/cipher/aes.c
+build obj/third_party/libsrtp/srtp/crypto/cipher/libsrtp.cipher.o: cc $
+    ../../third_party/libsrtp/srtp/crypto/cipher/cipher.c
+build obj/third_party/libsrtp/srtp/crypto/cipher/libsrtp.null_cipher.o: cc $
+    ../../third_party/libsrtp/srtp/crypto/cipher/null_cipher.c
+build obj/third_party/libsrtp/srtp/crypto/hash/libsrtp.auth.o: cc $
+    ../../third_party/libsrtp/srtp/crypto/hash/auth.c
+build obj/third_party/libsrtp/srtp/crypto/hash/libsrtp.null_auth.o: cc $
+    ../../third_party/libsrtp/srtp/crypto/hash/null_auth.c
+build obj/third_party/libsrtp/srtp/crypto/kernel/libsrtp.alloc.o: cc $
+    ../../third_party/libsrtp/srtp/crypto/kernel/alloc.c
+build obj/third_party/libsrtp/srtp/crypto/kernel/libsrtp.crypto_kernel.o: $
+    cc ../../third_party/libsrtp/srtp/crypto/kernel/crypto_kernel.c
+build obj/third_party/libsrtp/srtp/crypto/kernel/libsrtp.err.o: cc $
+    ../../third_party/libsrtp/srtp/crypto/kernel/err.c
+build obj/third_party/libsrtp/srtp/crypto/kernel/libsrtp.key.o: cc $
+    ../../third_party/libsrtp/srtp/crypto/kernel/key.c
+build obj/third_party/libsrtp/srtp/crypto/math/libsrtp.datatypes.o: cc $
+    ../../third_party/libsrtp/srtp/crypto/math/datatypes.c
+build obj/third_party/libsrtp/srtp/crypto/math/libsrtp.gf2_8.o: cc $
+    ../../third_party/libsrtp/srtp/crypto/math/gf2_8.c
+build obj/third_party/libsrtp/srtp/crypto/math/libsrtp.stat.o: cc $
+    ../../third_party/libsrtp/srtp/crypto/math/stat.c
+build obj/third_party/libsrtp/srtp/crypto/replay/libsrtp.rdb.o: cc $
+    ../../third_party/libsrtp/srtp/crypto/replay/rdb.c
+build obj/third_party/libsrtp/srtp/crypto/replay/libsrtp.rdbx.o: cc $
+    ../../third_party/libsrtp/srtp/crypto/replay/rdbx.c
+build obj/third_party/libsrtp/srtp/crypto/replay/libsrtp.ut_sim.o: cc $
+    ../../third_party/libsrtp/srtp/crypto/replay/ut_sim.c
+build obj/third_party/libsrtp/srtp/crypto/cipher/libsrtp.aes_gcm_ossl.o: cc $
+    ../../third_party/libsrtp/srtp/crypto/cipher/aes_gcm_ossl.c
+build obj/third_party/libsrtp/srtp/crypto/cipher/libsrtp.aes_icm_ossl.o: cc $
+    ../../third_party/libsrtp/srtp/crypto/cipher/aes_icm_ossl.c
+build obj/third_party/libsrtp/srtp/crypto/hash/libsrtp.hmac_ossl.o: cc $
+    ../../third_party/libsrtp/srtp/crypto/hash/hmac_ossl.c
+build obj/third_party/libsrtp/srtp/crypto/rng/libsrtp.rand_source_ossl.o: $
+    cc ../../third_party/libsrtp/srtp/crypto/rng/rand_source_ossl.c
+
+build obj/third_party/libsrtp/libsrtp.a: alink_thin $
+    obj/third_party/libsrtp/srtp/srtp/libsrtp.ekt.o $
+    obj/third_party/libsrtp/srtp/srtp/libsrtp.srtp.o $
+    obj/third_party/libsrtp/srtp/crypto/cipher/libsrtp.aes.o $
+    obj/third_party/libsrtp/srtp/crypto/cipher/libsrtp.cipher.o $
+    obj/third_party/libsrtp/srtp/crypto/cipher/libsrtp.null_cipher.o $
+    obj/third_party/libsrtp/srtp/crypto/hash/libsrtp.auth.o $
+    obj/third_party/libsrtp/srtp/crypto/hash/libsrtp.null_auth.o $
+    obj/third_party/libsrtp/srtp/crypto/kernel/libsrtp.alloc.o $
+    obj/third_party/libsrtp/srtp/crypto/kernel/libsrtp.crypto_kernel.o $
+    obj/third_party/libsrtp/srtp/crypto/kernel/libsrtp.err.o $
+    obj/third_party/libsrtp/srtp/crypto/kernel/libsrtp.key.o $
+    obj/third_party/libsrtp/srtp/crypto/math/libsrtp.datatypes.o $
+    obj/third_party/libsrtp/srtp/crypto/math/libsrtp.gf2_8.o $
+    obj/third_party/libsrtp/srtp/crypto/math/libsrtp.stat.o $
+    obj/third_party/libsrtp/srtp/crypto/replay/libsrtp.rdb.o $
+    obj/third_party/libsrtp/srtp/crypto/replay/libsrtp.rdbx.o $
+    obj/third_party/libsrtp/srtp/crypto/replay/libsrtp.ut_sim.o $
+    obj/third_party/libsrtp/srtp/crypto/cipher/libsrtp.aes_gcm_ossl.o $
+    obj/third_party/libsrtp/srtp/crypto/cipher/libsrtp.aes_icm_ossl.o $
+    obj/third_party/libsrtp/srtp/crypto/hash/libsrtp.hmac_ossl.o $
+    obj/third_party/libsrtp/srtp/crypto/rng/libsrtp.rand_source_ossl.o

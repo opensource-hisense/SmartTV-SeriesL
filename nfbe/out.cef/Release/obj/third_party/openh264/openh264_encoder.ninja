@@ -1,0 +1,186 @@
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -I../../third_party/openh264/src/codec/api/svc $
+    -I../../third_party/openh264/src/codec/common/inc $
+    -I../../third_party/openh264/src/codec/common/src $
+    -I../../third_party/openh264/src/codec/encoder/core/inc $
+    -I../../third_party/openh264/src/codec/encoder/core/src $
+    -I../../third_party/openh264/src/codec/encoder/plus/inc $
+    -I../../third_party/openh264/src/codec/encoder/plus/src $
+    -I../../third_party/openh264/src/codec/processing/interface -Igen
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -Wno-format -Wno-unused-value -march=armv8-a $
+    -mtune=cortex-a53 -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-abi $
+    -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.au_set.o: $
+    cxx ../../third_party/openh264/src/codec/encoder/core/src/au_set.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.deblocking.o: $
+    cxx ../../third_party/openh264/src/codec/encoder/core/src/deblocking.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.decode_mb_aux.o: $
+    cxx $
+    ../../third_party/openh264/src/codec/encoder/core/src/decode_mb_aux.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.encode_mb_aux.o: $
+    cxx $
+    ../../third_party/openh264/src/codec/encoder/core/src/encode_mb_aux.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.encoder.o: $
+    cxx ../../third_party/openh264/src/codec/encoder/core/src/encoder.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.encoder_data_tables.o: $
+    cxx $
+    ../../third_party/openh264/src/codec/encoder/core/src/encoder_data_tables.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.encoder_ext.o: $
+    cxx ../../third_party/openh264/src/codec/encoder/core/src/encoder_ext.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.get_intra_predictor.o: $
+    cxx $
+    ../../third_party/openh264/src/codec/encoder/core/src/get_intra_predictor.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.md.o: $
+    cxx ../../third_party/openh264/src/codec/encoder/core/src/md.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.mv_pred.o: $
+    cxx ../../third_party/openh264/src/codec/encoder/core/src/mv_pred.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.nal_encap.o: $
+    cxx ../../third_party/openh264/src/codec/encoder/core/src/nal_encap.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.picture_handle.o: $
+    cxx $
+    ../../third_party/openh264/src/codec/encoder/core/src/picture_handle.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.property.o: $
+    cxx ../../third_party/openh264/src/codec/encoder/core/src/property.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.ratectl.o: $
+    cxx ../../third_party/openh264/src/codec/encoder/core/src/ratectl.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.ref_list_mgr_svc.o: $
+    cxx $
+    ../../third_party/openh264/src/codec/encoder/core/src/ref_list_mgr_svc.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.sample.o: $
+    cxx ../../third_party/openh264/src/codec/encoder/core/src/sample.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.set_mb_syn_cabac.o: $
+    cxx $
+    ../../third_party/openh264/src/codec/encoder/core/src/set_mb_syn_cabac.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.set_mb_syn_cavlc.o: $
+    cxx $
+    ../../third_party/openh264/src/codec/encoder/core/src/set_mb_syn_cavlc.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.slice_multi_threading.o: $
+    cxx $
+    ../../third_party/openh264/src/codec/encoder/core/src/slice_multi_threading.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.svc_base_layer_md.o: $
+    cxx $
+    ../../third_party/openh264/src/codec/encoder/core/src/svc_base_layer_md.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.svc_enc_slice_segment.o: $
+    cxx $
+    ../../third_party/openh264/src/codec/encoder/core/src/svc_enc_slice_segment.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.svc_encode_mb.o: $
+    cxx $
+    ../../third_party/openh264/src/codec/encoder/core/src/svc_encode_mb.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.svc_encode_slice.o: $
+    cxx $
+    ../../third_party/openh264/src/codec/encoder/core/src/svc_encode_slice.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.svc_mode_decision.o: $
+    cxx $
+    ../../third_party/openh264/src/codec/encoder/core/src/svc_mode_decision.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.svc_motion_estimate.o: $
+    cxx $
+    ../../third_party/openh264/src/codec/encoder/core/src/svc_motion_estimate.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.svc_set_mb_syn_cabac.o: $
+    cxx $
+    ../../third_party/openh264/src/codec/encoder/core/src/svc_set_mb_syn_cabac.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.svc_set_mb_syn_cavlc.o: $
+    cxx $
+    ../../third_party/openh264/src/codec/encoder/core/src/svc_set_mb_syn_cavlc.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.wels_preprocess.o: $
+    cxx $
+    ../../third_party/openh264/src/codec/encoder/core/src/wels_preprocess.cpp
+build $
+    obj/third_party/openh264/src/codec/encoder/plus/src/openh264_encoder.welsEncoderExt.o: $
+    cxx $
+    ../../third_party/openh264/src/codec/encoder/plus/src/welsEncoderExt.cpp
+
+build obj/third_party/openh264/libopenh264_encoder.a: alink_thin $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.au_set.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.deblocking.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.decode_mb_aux.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.encode_mb_aux.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.encoder.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.encoder_data_tables.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.encoder_ext.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.get_intra_predictor.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.md.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.mv_pred.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.nal_encap.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.picture_handle.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.property.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.ratectl.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.ref_list_mgr_svc.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.sample.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.set_mb_syn_cabac.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.set_mb_syn_cavlc.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.slice_multi_threading.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.svc_base_layer_md.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.svc_enc_slice_segment.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.svc_encode_mb.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.svc_encode_slice.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.svc_mode_decision.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.svc_motion_estimate.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.svc_set_mb_syn_cabac.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.svc_set_mb_syn_cavlc.o $
+    obj/third_party/openh264/src/codec/encoder/core/src/openh264_encoder.wels_preprocess.o $
+    obj/third_party/openh264/src/codec/encoder/plus/src/openh264_encoder.welsEncoderExt.o

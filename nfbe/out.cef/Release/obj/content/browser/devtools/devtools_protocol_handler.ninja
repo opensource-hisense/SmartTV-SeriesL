@@ -1,0 +1,26 @@
+rule $
+    devtools_protocol_handler_target_devtools_protocol_handler_36f8428ee4472f39570262b6abf9543a
+  command = cd ../../content/browser/devtools; python $
+      protocol/devtools_protocol_handler_generator.py $
+      ../../../third_party/WebKit/Source/devtools/protocol.json $
+      browser_protocol.json $
+      ../../../out.cef/Release/gen/content/browser/devtools/protocol/devtools_protocol_dispatcher.cc $
+      ../../../out.cef/Release/gen/content/browser/devtools/protocol/devtools_protocol_dispatcher.h
+  description = ACTION Generating DevTools protocol browser-side handlers $
+      from ../../../third_party/WebKit/Source/devtools/protocol.json and $
+      browser_protocol.json
+  restat = 1
+
+build gen/content/browser/devtools/protocol/devtools_protocol_dispatcher.cc $
+    gen/content/browser/devtools/protocol/devtools_protocol_dispatcher.h: $
+    devtools_protocol_handler_target_devtools_protocol_handler_36f8428ee4472f39570262b6abf9543a $
+    ../../third_party/WebKit/Source/devtools/protocol.json $
+    ../../content/browser/devtools/browser_protocol.json $
+    ../../content/browser/devtools/protocol/devtools_protocol_handler_generator.py
+
+build $
+    obj/content/browser/devtools/devtools_protocol_handler.actions_rules_copies.stamp: $
+    stamp $
+    gen/content/browser/devtools/protocol/devtools_protocol_dispatcher.cc $
+    gen/content/browser/devtools/protocol/devtools_protocol_dispatcher.h
+

@@ -1,0 +1,80 @@
+build obj/content/content_shell_mojo_bindings_mojom.actions_depends.stamp: $
+    stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    lib/libbase.so.TOC $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp
+
+build obj/content/content_shell_mojo_bindings_mojom.compile_depends.stamp: $
+    stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp
+
+rule $
+    content_shell_mojo_bindings_mojom_target_content_shell_mojo_bindings_mojom_mojom_bindings_stamp_40348c0ecc2fc841e298f0c5660abb7b
+  command = cd ../../content; python ../build/rmdir_and_stamp.py $
+      ../out.cef/Release/java_mojo/content_shell_mojo_bindings_mojom/src $
+      ../out.cef/Release/java_mojo/content_shell_mojo_bindings_mojom/content_shell_mojo_bindings_mojom.stamp
+  description = ACTION content_shell_mojo_bindings_mojom: $
+      content_shell_mojo_bindings_mojom_mojom_bindings_stamp_40348c0ecc2fc841e298f0c5660abb7b
+  restat = 1
+
+build $
+    java_mojo/content_shell_mojo_bindings_mojom/content_shell_mojo_bindings_mojom.stamp: $
+    content_shell_mojo_bindings_mojom_target_content_shell_mojo_bindings_mojom_mojom_bindings_stamp_40348c0ecc2fc841e298f0c5660abb7b $
+    ../../content/shell/common/layout_test/layout_test_bluetooth_fake_adapter_setter.mojom $
+    || obj/content/content_shell_mojo_bindings_mojom.actions_depends.stamp
+
+rule $
+    content_shell_mojo_bindings_mojom_target_content_shell_mojo_bindings_mojom_mojom_bindings_generator_40348c0ecc2fc841e298f0c5660abb7b
+  command = cd ../../content; python $
+      ../mojo/public/tools/bindings/mojom_bindings_generator.py $
+      --use_bundled_pylibs generate $
+      shell/common/layout_test/layout_test_bluetooth_fake_adapter_setter.mojom $
+      -d .. -I.. -I../mojo/services -I.. -o ../out.cef/Release/gen $
+      "--java_output_directory=../out.cef/Release/java_mojo/content_shell_mojo_bindings_mojom/src" $
+      --variant none -g c++,javascript,java --bytecode_path $
+      ../out.cef/Release/gen/mojo/public/tools/bindings
+  description = ACTION Generating Mojo bindings from $
+      shell/common/layout_test/layout_test_bluetooth_fake_adapter_setter.mojom
+  restat = 1
+
+build $
+    gen/content/shell/common/layout_test/layout_test_bluetooth_fake_adapter_setter.mojom.cc $
+    gen/content/shell/common/layout_test/layout_test_bluetooth_fake_adapter_setter.mojom.h $
+    gen/content/shell/common/layout_test/layout_test_bluetooth_fake_adapter_setter.mojom-internal.h $
+    gen/content/shell/common/layout_test/layout_test_bluetooth_fake_adapter_setter.mojom.js: $
+    content_shell_mojo_bindings_mojom_target_content_shell_mojo_bindings_mojom_mojom_bindings_generator_40348c0ecc2fc841e298f0c5660abb7b $
+    ../../mojo/public/tools/bindings/mojom_bindings_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_cpp_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_java_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_js_generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/error.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/data.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/module.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/pack.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/template_expander.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/ast.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/lexer.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/parser.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/translate.py $
+    ../../content/shell/common/layout_test/layout_test_bluetooth_fake_adapter_setter.mojom $
+    java_mojo/content_shell_mojo_bindings_mojom/content_shell_mojo_bindings_mojom.stamp $
+    gen/mojo/public/tools/bindings/cpp_templates.zip $
+    gen/mojo/public/tools/bindings/java_templates.zip $
+    gen/mojo/public/tools/bindings/js_templates.zip || $
+    obj/content/content_shell_mojo_bindings_mojom.actions_depends.stamp
+
+build $
+    obj/content/content_shell_mojo_bindings_mojom.actions_rules_copies.stamp: $
+    stamp $
+    java_mojo/content_shell_mojo_bindings_mojom/content_shell_mojo_bindings_mojom.stamp $
+    gen/content/shell/common/layout_test/layout_test_bluetooth_fake_adapter_setter.mojom.cc $
+    gen/content/shell/common/layout_test/layout_test_bluetooth_fake_adapter_setter.mojom.h $
+    gen/content/shell/common/layout_test/layout_test_bluetooth_fake_adapter_setter.mojom-internal.h $
+    gen/content/shell/common/layout_test/layout_test_bluetooth_fake_adapter_setter.mojom.js
+

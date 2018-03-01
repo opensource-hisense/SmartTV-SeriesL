@@ -1,0 +1,167 @@
+build obj/components/drive_chromeos.actions_depends.stamp: stamp $
+    obj/components/libdrive_proto.a lib/libbase.so.TOC lib/libnet.so.TOC
+
+build obj/components/drive_chromeos.compile_depends.stamp: stamp $
+    obj/components/drive_proto.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp obj/net/net.compile_depends.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DMOJO_USE_SYSTEM_IMPL $
+    -DPROTOBUF_USE_DLLS -DGOOGLE_PROTOBUF_NO_RTTI $
+    -DGOOGLE_PROTOBUF_NO_STATIC_INITIALIZER -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS $
+    -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../third_party/khronos -I../../gpu $
+    -I../../skia/config -Igen/angle -I../../third_party/WebKit/Source $
+    -Igen/protoc_out -I../../third_party/protobuf $
+    -I../../third_party/protobuf/src
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/components/drive/drive_chromeos.change_list_loader.o: cxx $
+    ../../components/drive/change_list_loader.cc || $
+    obj/components/drive_chromeos.compile_depends.stamp
+build obj/components/drive/drive_chromeos.change_list_processor.o: cxx $
+    ../../components/drive/change_list_processor.cc || $
+    obj/components/drive_chromeos.compile_depends.stamp
+build obj/components/drive/drive_chromeos.directory_loader.o: cxx $
+    ../../components/drive/directory_loader.cc || $
+    obj/components/drive_chromeos.compile_depends.stamp
+build obj/components/drive/drive_chromeos.file_cache.o: cxx $
+    ../../components/drive/file_cache.cc || $
+    obj/components/drive_chromeos.compile_depends.stamp
+build obj/components/drive/drive_chromeos.file_system.o: cxx $
+    ../../components/drive/file_system.cc || $
+    obj/components/drive_chromeos.compile_depends.stamp
+build obj/components/drive/drive_chromeos.file_system_interface.o: cxx $
+    ../../components/drive/file_system_interface.cc || $
+    obj/components/drive_chromeos.compile_depends.stamp
+build obj/components/drive/file_system/drive_chromeos.copy_operation.o: cxx $
+    ../../components/drive/file_system/copy_operation.cc || $
+    obj/components/drive_chromeos.compile_depends.stamp
+build $
+    obj/components/drive/file_system/drive_chromeos.create_directory_operation.o: $
+    cxx ../../components/drive/file_system/create_directory_operation.cc || $
+    obj/components/drive_chromeos.compile_depends.stamp
+build $
+    obj/components/drive/file_system/drive_chromeos.create_file_operation.o: $
+    cxx ../../components/drive/file_system/create_file_operation.cc || $
+    obj/components/drive_chromeos.compile_depends.stamp
+build obj/components/drive/file_system/drive_chromeos.download_operation.o: $
+    cxx ../../components/drive/file_system/download_operation.cc || $
+    obj/components/drive_chromeos.compile_depends.stamp
+build $
+    obj/components/drive/file_system/drive_chromeos.get_file_for_saving_operation.o: $
+    cxx ../../components/drive/file_system/get_file_for_saving_operation.cc $
+    || obj/components/drive_chromeos.compile_depends.stamp
+build obj/components/drive/file_system/drive_chromeos.move_operation.o: cxx $
+    ../../components/drive/file_system/move_operation.cc || $
+    obj/components/drive_chromeos.compile_depends.stamp
+build $
+    obj/components/drive/file_system/drive_chromeos.open_file_operation.o: $
+    cxx ../../components/drive/file_system/open_file_operation.cc || $
+    obj/components/drive_chromeos.compile_depends.stamp
+build obj/components/drive/file_system/drive_chromeos.operation_delegate.o: $
+    cxx ../../components/drive/file_system/operation_delegate.cc || $
+    obj/components/drive_chromeos.compile_depends.stamp
+build obj/components/drive/file_system/drive_chromeos.remove_operation.o: $
+    cxx ../../components/drive/file_system/remove_operation.cc || $
+    obj/components/drive_chromeos.compile_depends.stamp
+build obj/components/drive/file_system/drive_chromeos.search_operation.o: $
+    cxx ../../components/drive/file_system/search_operation.cc || $
+    obj/components/drive_chromeos.compile_depends.stamp
+build $
+    obj/components/drive/file_system/drive_chromeos.set_property_operation.o: $
+    cxx ../../components/drive/file_system/set_property_operation.cc || $
+    obj/components/drive_chromeos.compile_depends.stamp
+build obj/components/drive/file_system/drive_chromeos.touch_operation.o: $
+    cxx ../../components/drive/file_system/touch_operation.cc || $
+    obj/components/drive_chromeos.compile_depends.stamp
+build obj/components/drive/file_system/drive_chromeos.truncate_operation.o: $
+    cxx ../../components/drive/file_system/truncate_operation.cc || $
+    obj/components/drive_chromeos.compile_depends.stamp
+build obj/components/drive/drive_chromeos.remove_stale_cache_files.o: cxx $
+    ../../components/drive/remove_stale_cache_files.cc || $
+    obj/components/drive_chromeos.compile_depends.stamp
+build obj/components/drive/drive_chromeos.resource_metadata.o: cxx $
+    ../../components/drive/resource_metadata.cc || $
+    obj/components/drive_chromeos.compile_depends.stamp
+build obj/components/drive/drive_chromeos.search_metadata.o: cxx $
+    ../../components/drive/search_metadata.cc || $
+    obj/components/drive_chromeos.compile_depends.stamp
+build obj/components/drive/drive_chromeos.sync_client.o: cxx $
+    ../../components/drive/sync_client.cc || $
+    obj/components/drive_chromeos.compile_depends.stamp
+build obj/components/drive/sync/drive_chromeos.entry_revert_performer.o: $
+    cxx ../../components/drive/sync/entry_revert_performer.cc || $
+    obj/components/drive_chromeos.compile_depends.stamp
+build obj/components/drive/sync/drive_chromeos.entry_update_performer.o: $
+    cxx ../../components/drive/sync/entry_update_performer.cc || $
+    obj/components/drive_chromeos.compile_depends.stamp
+build obj/components/drive/sync/drive_chromeos.remove_performer.o: cxx $
+    ../../components/drive/sync/remove_performer.cc || $
+    obj/components/drive_chromeos.compile_depends.stamp
+
+build obj/components/libdrive_chromeos.a: alink_thin $
+    obj/components/drive/drive_chromeos.change_list_loader.o $
+    obj/components/drive/drive_chromeos.change_list_processor.o $
+    obj/components/drive/drive_chromeos.directory_loader.o $
+    obj/components/drive/drive_chromeos.file_cache.o $
+    obj/components/drive/drive_chromeos.file_system.o $
+    obj/components/drive/drive_chromeos.file_system_interface.o $
+    obj/components/drive/file_system/drive_chromeos.copy_operation.o $
+    obj/components/drive/file_system/drive_chromeos.create_directory_operation.o $
+    obj/components/drive/file_system/drive_chromeos.create_file_operation.o $
+    obj/components/drive/file_system/drive_chromeos.download_operation.o $
+    obj/components/drive/file_system/drive_chromeos.get_file_for_saving_operation.o $
+    obj/components/drive/file_system/drive_chromeos.move_operation.o $
+    obj/components/drive/file_system/drive_chromeos.open_file_operation.o $
+    obj/components/drive/file_system/drive_chromeos.operation_delegate.o $
+    obj/components/drive/file_system/drive_chromeos.remove_operation.o $
+    obj/components/drive/file_system/drive_chromeos.search_operation.o $
+    obj/components/drive/file_system/drive_chromeos.set_property_operation.o $
+    obj/components/drive/file_system/drive_chromeos.touch_operation.o $
+    obj/components/drive/file_system/drive_chromeos.truncate_operation.o $
+    obj/components/drive/drive_chromeos.remove_stale_cache_files.o $
+    obj/components/drive/drive_chromeos.resource_metadata.o $
+    obj/components/drive/drive_chromeos.search_metadata.o $
+    obj/components/drive/drive_chromeos.sync_client.o $
+    obj/components/drive/sync/drive_chromeos.entry_revert_performer.o $
+    obj/components/drive/sync/drive_chromeos.entry_update_performer.o $
+    obj/components/drive/sync/drive_chromeos.remove_performer.o || $
+    obj/components/drive_chromeos.actions_depends.stamp

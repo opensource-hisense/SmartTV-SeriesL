@@ -1,0 +1,80 @@
+build obj/net/content_decoder_tool.actions_depends.stamp: stamp $
+    lib/libbase.so.TOC lib/liburl_lib.so.TOC lib/libnet.so.TOC
+
+build obj/net/content_decoder_tool.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/url/url_lib.compile_depends.stamp obj/net/net.compile_depends.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DCOMPONENT_BUILD -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 $
+    -DUSE_OZONE=1 -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS $
+    -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../..
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/net/filter/content_decoder_tool.mock_filter_context.o: cxx $
+    ../../net/filter/mock_filter_context.cc || $
+    obj/net/content_decoder_tool.compile_depends.stamp
+build $
+    obj/net/tools/content_decoder_tool/content_decoder_tool.content_decoder_tool.o: $
+    cxx ../../net/tools/content_decoder_tool/content_decoder_tool.cc || $
+    obj/net/content_decoder_tool.compile_depends.stamp
+
+ldflags = -L/work/bsp/sc1400/usr/local/lib -L/work/bsp/sc1400/lib $
+    -L/work/bsp/sc1400/usr/lib -Wl,-z,now -Wl,-z,relro -Wl,-z,defs -pthread $
+    -Wl,-z,noexecstack -fPIC -Wl,--disable-new-dtags $
+    --sysroot=/work/bsp/sc1400 -L/work/bsp/sc1400/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/lib/ -L/work/bsp/sc1400/usr/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/lib/ $
+    -L/work/bsp/sc1400/usr/dtvrec/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/dtvrec/lib/ $
+    -L/work/bsp/sc1400/usr/local/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/local/lib/ $
+    -L/work/bsp/sc1400/usr/local/netfrontbe/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/local/netfrontbe/lib/ -Wl,-O1 $
+    -Wl,--as-needed -Wl,--gc-sections -Wl,-rpath=\$$ORIGIN/lib/ $
+    -Wl,-rpath-link=lib/
+libs =  -lrt -ldl -latomic
+build content_decoder_tool: link $
+    obj/net/filter/content_decoder_tool.mock_filter_context.o $
+    obj/net/tools/content_decoder_tool/content_decoder_tool.content_decoder_tool.o $
+    | lib/libbase.so.TOC lib/libnet.so.TOC lib/liburl_lib.so.TOC || $
+    obj/net/content_decoder_tool.actions_depends.stamp
+  ld = $ldxx
+  solibs = lib/libbase.so lib/libnet.so lib/liburl_lib.so

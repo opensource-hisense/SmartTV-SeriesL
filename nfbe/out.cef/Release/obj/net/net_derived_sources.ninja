@@ -1,0 +1,129 @@
+rule net_derived_sources_target_dafsa_e756cc91bcd4a8db238e4c25f7324008
+  command = cd ../../net; python tools/dafsa/make_dafsa.py "${source}" $
+      "../out.cef/Release/gen/net/${dirname}/${root}-inc.cc"
+  description = RULE net_derived_sources: $
+      dafsa_e756cc91bcd4a8db238e4c25f7324008 ${source}
+  restat = 1
+
+build gen/net/base/registry_controlled_domains/effective_tld_names-inc.cc: $
+    net_derived_sources_target_dafsa_e756cc91bcd4a8db238e4c25f7324008 $
+    ../../net/base/registry_controlled_domains/effective_tld_names.gperf | $
+    ../../net/tools/dafsa/make_dafsa.py
+  dirname = base/registry_controlled_domains
+  root = effective_tld_names
+  source = base/registry_controlled_domains/effective_tld_names.gperf
+build $
+    gen/net/base/registry_controlled_domains/effective_tld_names_unittest1-inc.cc: $
+    net_derived_sources_target_dafsa_e756cc91bcd4a8db238e4c25f7324008 $
+    ../../net/base/registry_controlled_domains/effective_tld_names_unittest1.gperf $
+    | ../../net/tools/dafsa/make_dafsa.py
+  dirname = base/registry_controlled_domains
+  root = effective_tld_names_unittest1
+  source = $
+      base/registry_controlled_domains/effective_tld_names_unittest1.gperf
+build $
+    gen/net/base/registry_controlled_domains/effective_tld_names_unittest2-inc.cc: $
+    net_derived_sources_target_dafsa_e756cc91bcd4a8db238e4c25f7324008 $
+    ../../net/base/registry_controlled_domains/effective_tld_names_unittest2.gperf $
+    | ../../net/tools/dafsa/make_dafsa.py
+  dirname = base/registry_controlled_domains
+  root = effective_tld_names_unittest2
+  source = $
+      base/registry_controlled_domains/effective_tld_names_unittest2.gperf
+build $
+    gen/net/base/registry_controlled_domains/effective_tld_names_unittest3-inc.cc: $
+    net_derived_sources_target_dafsa_e756cc91bcd4a8db238e4c25f7324008 $
+    ../../net/base/registry_controlled_domains/effective_tld_names_unittest3.gperf $
+    | ../../net/tools/dafsa/make_dafsa.py
+  dirname = base/registry_controlled_domains
+  root = effective_tld_names_unittest3
+  source = $
+      base/registry_controlled_domains/effective_tld_names_unittest3.gperf
+build $
+    gen/net/base/registry_controlled_domains/effective_tld_names_unittest4-inc.cc: $
+    net_derived_sources_target_dafsa_e756cc91bcd4a8db238e4c25f7324008 $
+    ../../net/base/registry_controlled_domains/effective_tld_names_unittest4.gperf $
+    | ../../net/tools/dafsa/make_dafsa.py
+  dirname = base/registry_controlled_domains
+  root = effective_tld_names_unittest4
+  source = $
+      base/registry_controlled_domains/effective_tld_names_unittest4.gperf
+build $
+    gen/net/base/registry_controlled_domains/effective_tld_names_unittest5-inc.cc: $
+    net_derived_sources_target_dafsa_e756cc91bcd4a8db238e4c25f7324008 $
+    ../../net/base/registry_controlled_domains/effective_tld_names_unittest5.gperf $
+    | ../../net/tools/dafsa/make_dafsa.py
+  dirname = base/registry_controlled_domains
+  root = effective_tld_names_unittest5
+  source = $
+      base/registry_controlled_domains/effective_tld_names_unittest5.gperf
+build $
+    gen/net/base/registry_controlled_domains/effective_tld_names_unittest6-inc.cc: $
+    net_derived_sources_target_dafsa_e756cc91bcd4a8db238e4c25f7324008 $
+    ../../net/base/registry_controlled_domains/effective_tld_names_unittest6.gperf $
+    | ../../net/tools/dafsa/make_dafsa.py
+  dirname = base/registry_controlled_domains
+  root = effective_tld_names_unittest6
+  source = $
+      base/registry_controlled_domains/effective_tld_names_unittest6.gperf
+build gen/net/base/stale_while_revalidate_experiment_domains-inc.cc: $
+    net_derived_sources_target_dafsa_e756cc91bcd4a8db238e4c25f7324008 $
+    ../../net/base/stale_while_revalidate_experiment_domains.gperf | $
+    ../../net/tools/dafsa/make_dafsa.py
+  dirname = base
+  root = stale_while_revalidate_experiment_domains
+  source = base/stale_while_revalidate_experiment_domains.gperf
+build obj/net/net_derived_sources.actions_rules_copies.stamp: stamp $
+    gen/net/base/registry_controlled_domains/effective_tld_names-inc.cc $
+    gen/net/base/registry_controlled_domains/effective_tld_names_unittest1-inc.cc $
+    gen/net/base/registry_controlled_domains/effective_tld_names_unittest2-inc.cc $
+    gen/net/base/registry_controlled_domains/effective_tld_names_unittest3-inc.cc $
+    gen/net/base/registry_controlled_domains/effective_tld_names_unittest4-inc.cc $
+    gen/net/base/registry_controlled_domains/effective_tld_names_unittest5-inc.cc $
+    gen/net/base/registry_controlled_domains/effective_tld_names_unittest6-inc.cc $
+    gen/net/base/stale_while_revalidate_experiment_domains-inc.cc
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DCOMPONENT_BUILD -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 $
+    -DUSE_OZONE=1 -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS $
+    -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+

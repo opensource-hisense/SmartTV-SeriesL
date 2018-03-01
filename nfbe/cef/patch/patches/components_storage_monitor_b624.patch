@@ -1,0 +1,16 @@
+diff --git storage_monitor.cc storage_monitor.cc
+index e571dd2..8ee55ae 100644
+--- storage_monitor.cc
++++ storage_monitor.cc
+@@ -52,7 +52,11 @@ void StorageMonitor::ReceiverImpl::MarkInitialized() {
+ // static
+ void StorageMonitor::Create() {
+   delete g_storage_monitor;
++#if !defined(USE_AURA)
+   g_storage_monitor = CreateInternal();
++#else
++  g_storage_monitor = NULL;
++#endif
+ }
+ 
+ // static

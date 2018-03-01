@@ -1,0 +1,113 @@
+build $
+    obj/components/filesystem/filesystem_bindings_mojom.actions_depends.stamp: $
+    stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    lib/libbase.so.TOC $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp
+
+build $
+    obj/components/filesystem/filesystem_bindings_mojom.compile_depends.stamp: $
+    stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp
+
+rule $
+    filesystem_bindings_mojom_target_filesystem_bindings_mojom_mojom_bindings_stamp_3c073573ac8849419121ab1253db6657
+  command = cd ../../components/filesystem; python $
+      ../../build/rmdir_and_stamp.py $
+      ../../out.cef/Release/java_mojo/filesystem_bindings_mojom/src $
+      ../../out.cef/Release/java_mojo/filesystem_bindings_mojom/filesystem_bindings_mojom.stamp
+  description = ACTION filesystem_bindings_mojom: $
+      filesystem_bindings_mojom_mojom_bindings_stamp_3c073573ac8849419121ab1253db6657
+  restat = 1
+
+build java_mojo/filesystem_bindings_mojom/filesystem_bindings_mojom.stamp: $
+    filesystem_bindings_mojom_target_filesystem_bindings_mojom_mojom_bindings_stamp_3c073573ac8849419121ab1253db6657 $
+    ../../components/filesystem/public/interfaces/directory.mojom $
+    ../../components/filesystem/public/interfaces/file.mojom $
+    ../../components/filesystem/public/interfaces/file_system.mojom $
+    ../../components/filesystem/public/interfaces/types.mojom || $
+    obj/components/filesystem/filesystem_bindings_mojom.actions_depends.stamp
+
+rule $
+    filesystem_bindings_mojom_target_filesystem_bindings_mojom_mojom_bindings_generator_3c073573ac8849419121ab1253db6657
+  command = cd ../../components/filesystem; python $
+      ../../mojo/public/tools/bindings/mojom_bindings_generator.py $
+      --use_bundled_pylibs generate public/interfaces/directory.mojom $
+      public/interfaces/file.mojom public/interfaces/file_system.mojom $
+      public/interfaces/types.mojom -d ../.. -I../.. -I../../mojo/services $
+      -I../.. -o ../../out.cef/Release/gen $
+      "--java_output_directory=../../out.cef/Release/java_mojo/filesystem_bindings_mojom/src" $
+      --variant none -g c++,javascript,java --bytecode_path $
+      ../../out.cef/Release/gen/mojo/public/tools/bindings
+  description = ACTION Generating Mojo bindings from $
+      public/interfaces/directory.mojom public/interfaces/file.mojom $
+      public/interfaces/file_system.mojom public/interfaces/types.mojom
+  restat = 1
+
+build gen/components/filesystem/public/interfaces/directory.mojom.cc $
+    gen/components/filesystem/public/interfaces/directory.mojom.h $
+    gen/components/filesystem/public/interfaces/directory.mojom-internal.h $
+    gen/components/filesystem/public/interfaces/directory.mojom.js $
+    gen/components/filesystem/public/interfaces/file.mojom.cc $
+    gen/components/filesystem/public/interfaces/file.mojom.h $
+    gen/components/filesystem/public/interfaces/file.mojom-internal.h $
+    gen/components/filesystem/public/interfaces/file.mojom.js $
+    gen/components/filesystem/public/interfaces/file_system.mojom.cc $
+    gen/components/filesystem/public/interfaces/file_system.mojom.h $
+    gen/components/filesystem/public/interfaces/file_system.mojom-internal.h $
+    gen/components/filesystem/public/interfaces/file_system.mojom.js $
+    gen/components/filesystem/public/interfaces/types.mojom.cc $
+    gen/components/filesystem/public/interfaces/types.mojom.h $
+    gen/components/filesystem/public/interfaces/types.mojom-internal.h $
+    gen/components/filesystem/public/interfaces/types.mojom.js: $
+    filesystem_bindings_mojom_target_filesystem_bindings_mojom_mojom_bindings_generator_3c073573ac8849419121ab1253db6657 $
+    ../../mojo/public/tools/bindings/mojom_bindings_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_cpp_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_java_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_js_generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/error.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/data.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/module.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/pack.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/template_expander.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/ast.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/lexer.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/parser.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/translate.py $
+    ../../components/filesystem/public/interfaces/directory.mojom $
+    ../../components/filesystem/public/interfaces/file.mojom $
+    ../../components/filesystem/public/interfaces/file_system.mojom $
+    ../../components/filesystem/public/interfaces/types.mojom $
+    java_mojo/filesystem_bindings_mojom/filesystem_bindings_mojom.stamp $
+    gen/mojo/public/tools/bindings/cpp_templates.zip $
+    gen/mojo/public/tools/bindings/java_templates.zip $
+    gen/mojo/public/tools/bindings/js_templates.zip || $
+    obj/components/filesystem/filesystem_bindings_mojom.actions_depends.stamp
+
+build $
+    obj/components/filesystem/filesystem_bindings_mojom.actions_rules_copies.stamp: $
+    stamp $
+    java_mojo/filesystem_bindings_mojom/filesystem_bindings_mojom.stamp $
+    gen/components/filesystem/public/interfaces/directory.mojom.cc $
+    gen/components/filesystem/public/interfaces/directory.mojom.h $
+    gen/components/filesystem/public/interfaces/directory.mojom-internal.h $
+    gen/components/filesystem/public/interfaces/directory.mojom.js $
+    gen/components/filesystem/public/interfaces/file.mojom.cc $
+    gen/components/filesystem/public/interfaces/file.mojom.h $
+    gen/components/filesystem/public/interfaces/file.mojom-internal.h $
+    gen/components/filesystem/public/interfaces/file.mojom.js $
+    gen/components/filesystem/public/interfaces/file_system.mojom.cc $
+    gen/components/filesystem/public/interfaces/file_system.mojom.h $
+    gen/components/filesystem/public/interfaces/file_system.mojom-internal.h $
+    gen/components/filesystem/public/interfaces/file_system.mojom.js $
+    gen/components/filesystem/public/interfaces/types.mojom.cc $
+    gen/components/filesystem/public/interfaces/types.mojom.h $
+    gen/components/filesystem/public/interfaces/types.mojom-internal.h $
+    gen/components/filesystem/public/interfaces/types.mojom.js
+

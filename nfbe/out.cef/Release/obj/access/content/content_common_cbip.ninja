@@ -1,0 +1,2 @@
+build obj/access/content/libcontent_common_cbip.a: alink_thin || $
+    lib/libbase.so.TOC

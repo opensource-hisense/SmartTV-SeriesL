@@ -1,0 +1,8 @@
+build obj/sandbox/sandbox.actions_depends.stamp: stamp $
+    obj/sandbox/libsandbox_services.a obj/sandbox/libsuid_sandbox_client.a $
+    obj/sandbox/libseccomp_bpf.a obj/sandbox/libseccomp_bpf_helpers.a
+
+build obj/sandbox/sandbox.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp
+

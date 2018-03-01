@@ -1,0 +1,284 @@
+build obj/content/content_common_mojo_bindings_mojom.actions_depends.stamp: $
+    stamp $
+    obj/components/leveldb/leveldb_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/libmojo_application_bindings.a obj/mojo/libmojo_cpp_bindings.a $
+    obj/skia/libskia_mojo.a $
+    obj/third_party/WebKit/public/libmojo_bindings.a $
+    obj/ui/mojo/geometry/libmojo_geometry_bindings.a $
+    obj/url/url_interfaces_mojom.actions_rules_copies.stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    lib/libbase.so.TOC $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp
+
+build obj/content/content_common_mojo_bindings_mojom.compile_depends.stamp: $
+    stamp $
+    obj/components/leveldb/leveldb_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_application_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_cpp_bindings.compile_depends.stamp $
+    obj/skia/skia_mojo.actions_rules_copies.stamp $
+    obj/third_party/WebKit/public/mojo_bindings.compile_depends.stamp $
+    obj/ui/mojo/geometry/mojo_geometry_bindings_mojom.actions_rules_copies.stamp $
+    obj/url/url_interfaces_mojom.actions_rules_copies.stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp
+
+rule $
+    content_common_mojo_bindings_mojom_target_content_common_mojo_bindings_mojom_mojom_bindings_stamp_8eef5e0e613aee3d0a95c814c49802b6
+  command = cd ../../content; python ../build/rmdir_and_stamp.py $
+      ../out.cef/Release/java_mojo/content_common_mojo_bindings_mojom/src $
+      ../out.cef/Release/java_mojo/content_common_mojo_bindings_mojom/content_common_mojo_bindings_mojom.stamp
+  description = ACTION content_common_mojo_bindings_mojom: $
+      content_common_mojo_bindings_mojom_mojom_bindings_stamp_8eef5e0e613aee3d0a95c814c49802b6
+  restat = 1
+
+build $
+    java_mojo/content_common_mojo_bindings_mojom/content_common_mojo_bindings_mojom.stamp: $
+    content_common_mojo_bindings_mojom_target_content_common_mojo_bindings_mojom_mojom_bindings_stamp_8eef5e0e613aee3d0a95c814c49802b6 $
+    ../../content/common/application_setup.mojom $
+    ../../content/common/background_sync_service.mojom $
+    ../../content/common/image_downloader/image_downloader.mojom $
+    ../../content/common/leveldb_wrapper.mojom $
+    ../../content/common/presentation/presentation_service.mojom $
+    ../../content/common/process_control.mojom $
+    ../../content/common/render_frame_setup.mojom $
+    ../../content/common/service_worker/embedded_worker_setup.mojom $
+    ../../content/common/storage_partition_service.mojom $
+    ../../content/common/vr_service.mojom $
+    ../../content/common/wake_lock_service.mojom $
+    ../../content/public/common/background_sync.mojom $
+    ../../content/public/common/service_worker_event_status.mojom || $
+    obj/content/content_common_mojo_bindings_mojom.actions_depends.stamp
+
+rule $
+    content_common_mojo_bindings_mojom_target_content_common_mojo_bindings_mojom_mojom_bindings_generator_8eef5e0e613aee3d0a95c814c49802b6
+  command = cd ../../content; python $
+      ../mojo/public/tools/bindings/mojom_bindings_generator.py $
+      --use_bundled_pylibs generate common/application_setup.mojom $
+      common/background_sync_service.mojom $
+      common/image_downloader/image_downloader.mojom $
+      common/leveldb_wrapper.mojom $
+      common/presentation/presentation_service.mojom $
+      common/process_control.mojom common/render_frame_setup.mojom $
+      common/service_worker/embedded_worker_setup.mojom $
+      common/storage_partition_service.mojom common/vr_service.mojom $
+      common/wake_lock_service.mojom public/common/background_sync.mojom $
+      public/common/service_worker_event_status.mojom -d .. -I.. $
+      -I../mojo/services -I.. -o ../out.cef/Release/gen $
+      "--java_output_directory=../out.cef/Release/java_mojo/content_common_mojo_bindings_mojom/src" $
+      --variant none -g c++,javascript,java --typemap $
+      ../url/mojo/origin.typemap --typemap ../url/mojo/gurl.typemap $
+      --bytecode_path ../out.cef/Release/gen/mojo/public/tools/bindings
+  description = ACTION Generating Mojo bindings from $
+      common/application_setup.mojom common/background_sync_service.mojom $
+      common/image_downloader/image_downloader.mojom $
+      common/leveldb_wrapper.mojom $
+      common/presentation/presentation_service.mojom $
+      common/process_control.mojom common/render_frame_setup.mojom $
+      common/service_worker/embedded_worker_setup.mojom $
+      common/storage_partition_service.mojom common/vr_service.mojom $
+      common/wake_lock_service.mojom public/common/background_sync.mojom $
+      public/common/service_worker_event_status.mojom
+  restat = 1
+
+build gen/content/common/application_setup.mojom.cc $
+    gen/content/common/application_setup.mojom.h $
+    gen/content/common/application_setup.mojom-internal.h $
+    gen/content/common/application_setup.mojom.js $
+    gen/content/common/background_sync_service.mojom.cc $
+    gen/content/common/background_sync_service.mojom.h $
+    gen/content/common/background_sync_service.mojom-internal.h $
+    gen/content/common/background_sync_service.mojom.js $
+    gen/content/common/image_downloader/image_downloader.mojom.cc $
+    gen/content/common/image_downloader/image_downloader.mojom.h $
+    gen/content/common/image_downloader/image_downloader.mojom-internal.h $
+    gen/content/common/image_downloader/image_downloader.mojom.js $
+    gen/content/common/leveldb_wrapper.mojom.cc $
+    gen/content/common/leveldb_wrapper.mojom.h $
+    gen/content/common/leveldb_wrapper.mojom-internal.h $
+    gen/content/common/leveldb_wrapper.mojom.js $
+    gen/content/common/presentation/presentation_service.mojom.cc $
+    gen/content/common/presentation/presentation_service.mojom.h $
+    gen/content/common/presentation/presentation_service.mojom-internal.h $
+    gen/content/common/presentation/presentation_service.mojom.js $
+    gen/content/common/process_control.mojom.cc $
+    gen/content/common/process_control.mojom.h $
+    gen/content/common/process_control.mojom-internal.h $
+    gen/content/common/process_control.mojom.js $
+    gen/content/common/render_frame_setup.mojom.cc $
+    gen/content/common/render_frame_setup.mojom.h $
+    gen/content/common/render_frame_setup.mojom-internal.h $
+    gen/content/common/render_frame_setup.mojom.js $
+    gen/content/common/service_worker/embedded_worker_setup.mojom.cc $
+    gen/content/common/service_worker/embedded_worker_setup.mojom.h $
+    gen/content/common/service_worker/embedded_worker_setup.mojom-internal.h $
+    gen/content/common/service_worker/embedded_worker_setup.mojom.js $
+    gen/content/common/storage_partition_service.mojom.cc $
+    gen/content/common/storage_partition_service.mojom.h $
+    gen/content/common/storage_partition_service.mojom-internal.h $
+    gen/content/common/storage_partition_service.mojom.js $
+    gen/content/common/vr_service.mojom.cc $
+    gen/content/common/vr_service.mojom.h $
+    gen/content/common/vr_service.mojom-internal.h $
+    gen/content/common/vr_service.mojom.js $
+    gen/content/common/wake_lock_service.mojom.cc $
+    gen/content/common/wake_lock_service.mojom.h $
+    gen/content/common/wake_lock_service.mojom-internal.h $
+    gen/content/common/wake_lock_service.mojom.js $
+    gen/content/public/common/background_sync.mojom.cc $
+    gen/content/public/common/background_sync.mojom.h $
+    gen/content/public/common/background_sync.mojom-internal.h $
+    gen/content/public/common/background_sync.mojom.js $
+    gen/content/public/common/service_worker_event_status.mojom.cc $
+    gen/content/public/common/service_worker_event_status.mojom.h $
+    gen/content/public/common/service_worker_event_status.mojom-internal.h $
+    gen/content/public/common/service_worker_event_status.mojom.js: $
+    content_common_mojo_bindings_mojom_target_content_common_mojo_bindings_mojom_mojom_bindings_generator_8eef5e0e613aee3d0a95c814c49802b6 $
+    ../../mojo/public/tools/bindings/mojom_bindings_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_cpp_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_java_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_js_generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/error.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/data.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/module.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/pack.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/template_expander.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/ast.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/lexer.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/parser.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/translate.py $
+    ../../content/common/application_setup.mojom $
+    ../../content/common/background_sync_service.mojom $
+    ../../content/common/image_downloader/image_downloader.mojom $
+    ../../content/common/leveldb_wrapper.mojom $
+    ../../content/common/presentation/presentation_service.mojom $
+    ../../content/common/process_control.mojom $
+    ../../content/common/render_frame_setup.mojom $
+    ../../content/common/service_worker/embedded_worker_setup.mojom $
+    ../../content/common/storage_partition_service.mojom $
+    ../../content/common/vr_service.mojom $
+    ../../content/common/wake_lock_service.mojom $
+    ../../content/public/common/background_sync.mojom $
+    ../../content/public/common/service_worker_event_status.mojom $
+    java_mojo/content_common_mojo_bindings_mojom/content_common_mojo_bindings_mojom.stamp $
+    gen/mojo/public/tools/bindings/cpp_templates.zip $
+    gen/mojo/public/tools/bindings/java_templates.zip $
+    gen/mojo/public/tools/bindings/js_templates.zip || $
+    obj/content/content_common_mojo_bindings_mojom.actions_depends.stamp
+
+build $
+    obj/content/content_common_mojo_bindings_mojom.actions_rules_copies.stamp: $
+    stamp $
+    java_mojo/content_common_mojo_bindings_mojom/content_common_mojo_bindings_mojom.stamp $
+    gen/content/common/application_setup.mojom.cc $
+    gen/content/common/application_setup.mojom.h $
+    gen/content/common/application_setup.mojom-internal.h $
+    gen/content/common/application_setup.mojom.js $
+    gen/content/common/background_sync_service.mojom.cc $
+    gen/content/common/background_sync_service.mojom.h $
+    gen/content/common/background_sync_service.mojom-internal.h $
+    gen/content/common/background_sync_service.mojom.js $
+    gen/content/common/image_downloader/image_downloader.mojom.cc $
+    gen/content/common/image_downloader/image_downloader.mojom.h $
+    gen/content/common/image_downloader/image_downloader.mojom-internal.h $
+    gen/content/common/image_downloader/image_downloader.mojom.js $
+    gen/content/common/leveldb_wrapper.mojom.cc $
+    gen/content/common/leveldb_wrapper.mojom.h $
+    gen/content/common/leveldb_wrapper.mojom-internal.h $
+    gen/content/common/leveldb_wrapper.mojom.js $
+    gen/content/common/presentation/presentation_service.mojom.cc $
+    gen/content/common/presentation/presentation_service.mojom.h $
+    gen/content/common/presentation/presentation_service.mojom-internal.h $
+    gen/content/common/presentation/presentation_service.mojom.js $
+    gen/content/common/process_control.mojom.cc $
+    gen/content/common/process_control.mojom.h $
+    gen/content/common/process_control.mojom-internal.h $
+    gen/content/common/process_control.mojom.js $
+    gen/content/common/render_frame_setup.mojom.cc $
+    gen/content/common/render_frame_setup.mojom.h $
+    gen/content/common/render_frame_setup.mojom-internal.h $
+    gen/content/common/render_frame_setup.mojom.js $
+    gen/content/common/service_worker/embedded_worker_setup.mojom.cc $
+    gen/content/common/service_worker/embedded_worker_setup.mojom.h $
+    gen/content/common/service_worker/embedded_worker_setup.mojom-internal.h $
+    gen/content/common/service_worker/embedded_worker_setup.mojom.js $
+    gen/content/common/storage_partition_service.mojom.cc $
+    gen/content/common/storage_partition_service.mojom.h $
+    gen/content/common/storage_partition_service.mojom-internal.h $
+    gen/content/common/storage_partition_service.mojom.js $
+    gen/content/common/vr_service.mojom.cc $
+    gen/content/common/vr_service.mojom.h $
+    gen/content/common/vr_service.mojom-internal.h $
+    gen/content/common/vr_service.mojom.js $
+    gen/content/common/wake_lock_service.mojom.cc $
+    gen/content/common/wake_lock_service.mojom.h $
+    gen/content/common/wake_lock_service.mojom-internal.h $
+    gen/content/common/wake_lock_service.mojom.js $
+    gen/content/public/common/background_sync.mojom.cc $
+    gen/content/public/common/background_sync.mojom.h $
+    gen/content/public/common/background_sync.mojom-internal.h $
+    gen/content/public/common/background_sync.mojom.js $
+    gen/content/public/common/service_worker_event_status.mojom.cc $
+    gen/content/public/common/service_worker_event_status.mojom.h $
+    gen/content/public/common/service_worker_event_status.mojom-internal.h $
+    gen/content/public/common/service_worker_event_status.mojom.js
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -Igen -I../.. -I../../skia/config
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-abi $
+    -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+build $
+    obj/content/gen/components/leveldb/public/interfaces/content_common_mojo_bindings_mojom.leveldb.mojom.o: $
+    cxx gen/components/leveldb/public/interfaces/leveldb.mojom.cc || $
+    obj/content/content_common_mojo_bindings_mojom.actions_rules_copies.stamp
+build $
+    obj/content/gen/url/mojo/content_common_mojo_bindings_mojom.origin.mojom.o: $
+    cxx gen/url/mojo/origin.mojom.cc || $
+    obj/content/content_common_mojo_bindings_mojom.actions_rules_copies.stamp
+build $
+    obj/content/gen/url/mojo/content_common_mojo_bindings_mojom.url.mojom.o: $
+    cxx gen/url/mojo/url.mojom.cc || $
+    obj/content/content_common_mojo_bindings_mojom.actions_rules_copies.stamp
+

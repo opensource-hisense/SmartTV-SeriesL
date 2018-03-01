@@ -1,0 +1,9 @@
+build obj/mojo/mojo_public.actions_depends.stamp: stamp $
+    obj/mojo/libmojo_js_bindings.a $
+    obj/mojo/libmojo_public_test_interfaces.a $
+    obj/mojo/libmojo_public_test_utils.a obj/mojo/libmojo_system.a
+
+build obj/mojo/mojo_public.compile_depends.stamp: stamp $
+    obj/mojo/mojo_public_test_interfaces_mojom.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp
+

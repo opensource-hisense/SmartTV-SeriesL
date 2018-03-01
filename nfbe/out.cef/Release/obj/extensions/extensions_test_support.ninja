@@ -1,0 +1,215 @@
+build obj/extensions/extensions_test_support.actions_depends.stamp: stamp $
+    lib/libbase.so.TOC obj/ui/accessibility/libax_gen.a $
+    obj/content/libcontent_common_mojo_bindings.a $
+    obj/mojo/libmojo_application_bindings.a $
+    obj/third_party/WebKit/Source/platform/libblink_platform.a $
+    obj/extensions/browser/api/libextensions_api_registration.a $
+    obj/extensions/common/api/libcast_channel_proto.a $
+    obj/extensions/common/api/libextensions_api.a $
+    obj/extensions/extensions_resources.actions_rules_copies.stamp
+
+build obj/extensions/extensions_test_support.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/ui/accessibility/ax_gen.actions_rules_copies.stamp $
+    obj/content/content_common_mojo_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_application_bindings_mojom.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/platform/blink_platform.compile_depends.stamp $
+    obj/extensions/browser/api/extensions_api_registration.actions_rules_copies.stamp $
+    obj/extensions/common/api/cast_channel_proto.actions_rules_copies.stamp $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp $
+    obj/extensions/extensions_resources.actions_rules_copies.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DGTEST_HAS_POSIX_RE=0 $
+    -DGTEST_LANG_CXX11=0 -DMOJO_USE_SYSTEM_IMPL -DSK_SUPPORT_GPU=1 $
+    -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS -DU_USING_ICU_NAMESPACE=0 $
+    -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= -DU_STATIC_IMPLEMENTATION $
+    -DCHROME_PNG_WRITE_SUPPORT -DPNG_USER_CONFIG -DUNIT_TEST $
+    -DGTEST_HAS_RTTI=0 -DPROTOBUF_USE_DLLS -DGOOGLE_PROTOBUF_NO_RTTI $
+    -DGOOGLE_PROTOBUF_NO_STATIC_INITIALIZER -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS $
+    -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../third_party/khronos -I../../gpu $
+    -I../../skia/config -Igen/angle -I../../third_party/WebKit/Source $
+    -I../../third_party/WebKit -Igen/third_party/WebKit $
+    -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../third_party/WebKit -I../../third_party/icu/source/common $
+    -I../../v8/include -I../../third_party/libpng -I../../third_party/zlib $
+    -I../../third_party/libwebp -I../../third_party/ots/include $
+    -I../../third_party/qcms/src -I../../third_party/iccjpeg $
+    -I../../third_party/libjpeg_turbo -I../../testing/gmock/include $
+    -I../../testing/gtest/include -Igen/protoc_out $
+    -I../../third_party/protobuf -I../../third_party/protobuf/src $
+    -Igen/extensions
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -I/work/bsp/sc1400/usr/include/nss3 $
+    -I/work/bsp/sc1400/usr/include/nspr -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/extensions/browser/api/cast_channel/extensions_test_support.cast_test_util.o: $
+    cxx ../../extensions/browser/api/cast_channel/cast_test_util.cc || $
+    obj/extensions/extensions_test_support.compile_depends.stamp
+build $
+    obj/extensions/browser/api/dns/extensions_test_support.mock_host_resolver_creator.o: $
+    cxx ../../extensions/browser/api/dns/mock_host_resolver_creator.cc || $
+    obj/extensions/extensions_test_support.compile_depends.stamp
+build $
+    obj/extensions/browser/api/storage/extensions_test_support.settings_test_util.o: $
+    cxx ../../extensions/browser/api/storage/settings_test_util.cc || $
+    obj/extensions/extensions_test_support.compile_depends.stamp
+build obj/extensions/browser/extensions_test_support.api_test_utils.o: cxx $
+    ../../extensions/browser/api_test_utils.cc || $
+    obj/extensions/extensions_test_support.compile_depends.stamp
+build obj/extensions/browser/extensions_test_support.api_unittest.o: cxx $
+    ../../extensions/browser/api_unittest.cc || $
+    obj/extensions/extensions_test_support.compile_depends.stamp
+build $
+    obj/extensions/browser/app_window/extensions_test_support.test_app_window_contents.o: $
+    cxx ../../extensions/browser/app_window/test_app_window_contents.cc || $
+    obj/extensions/extensions_test_support.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_test_support.extension_error_test_util.o: $
+    cxx ../../extensions/browser/extension_error_test_util.cc || $
+    obj/extensions/extensions_test_support.compile_depends.stamp
+build obj/extensions/browser/extensions_test_support.extensions_test.o: cxx $
+    ../../extensions/browser/extensions_test.cc || $
+    obj/extensions/extensions_test_support.compile_depends.stamp
+build $
+    obj/extensions/browser/guest_view/mime_handler_view/extensions_test_support.test_mime_handler_view_guest.o: $
+    cxx $
+    ../../extensions/browser/guest_view/mime_handler_view/test_mime_handler_view_guest.cc $
+    || obj/extensions/extensions_test_support.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_test_support.mock_extension_system.o: $
+    cxx ../../extensions/browser/mock_extension_system.cc || $
+    obj/extensions/extensions_test_support.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_test_support.test_extension_registry_observer.o: $
+    cxx ../../extensions/browser/test_extension_registry_observer.cc || $
+    obj/extensions/extensions_test_support.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_test_support.test_extensions_browser_client.o: $
+    cxx ../../extensions/browser/test_extensions_browser_client.cc || $
+    obj/extensions/extensions_test_support.compile_depends.stamp
+build obj/extensions/browser/extensions_test_support.test_image_loader.o: $
+    cxx ../../extensions/browser/test_image_loader.cc || $
+    obj/extensions/extensions_test_support.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_test_support.test_management_policy.o: $
+    cxx ../../extensions/browser/test_management_policy.cc || $
+    obj/extensions/extensions_test_support.compile_depends.stamp
+build $
+    obj/extensions/browser/extensions_test_support.test_runtime_api_delegate.o: $
+    cxx ../../extensions/browser/test_runtime_api_delegate.cc || $
+    obj/extensions/extensions_test_support.compile_depends.stamp
+build obj/extensions/common/extensions_test_support.extension_builder.o: $
+    cxx ../../extensions/common/extension_builder.cc || $
+    obj/extensions/extensions_test_support.compile_depends.stamp
+build obj/extensions/common/extensions_test_support.manifest_test.o: cxx $
+    ../../extensions/common/manifest_test.cc || $
+    obj/extensions/extensions_test_support.compile_depends.stamp
+build $
+    obj/extensions/common/permissions/extensions_test_support.permission_message_test_util.o: $
+    cxx ../../extensions/common/permissions/permission_message_test_util.cc $
+    || obj/extensions/extensions_test_support.compile_depends.stamp
+build obj/extensions/common/extensions_test_support.test_util.o: cxx $
+    ../../extensions/common/test_util.cc || $
+    obj/extensions/extensions_test_support.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_test_support.test_extensions_renderer_client.o: $
+    cxx ../../extensions/renderer/test_extensions_renderer_client.cc || $
+    obj/extensions/extensions_test_support.compile_depends.stamp
+build $
+    obj/extensions/test/extensions_test_support.background_page_watcher.o: $
+    cxx ../../extensions/test/background_page_watcher.cc || $
+    obj/extensions/extensions_test_support.compile_depends.stamp
+build $
+    obj/extensions/test/extensions_test_support.extension_test_message_listener.o: $
+    cxx ../../extensions/test/extension_test_message_listener.cc || $
+    obj/extensions/extensions_test_support.compile_depends.stamp
+build obj/extensions/test/extensions_test_support.result_catcher.o: cxx $
+    ../../extensions/test/result_catcher.cc || $
+    obj/extensions/extensions_test_support.compile_depends.stamp
+build $
+    obj/extensions/test/extensions_test_support.test_content_utility_client.o: $
+    cxx ../../extensions/test/test_content_utility_client.cc || $
+    obj/extensions/extensions_test_support.compile_depends.stamp
+build obj/extensions/test/extensions_test_support.test_extensions_client.o: $
+    cxx ../../extensions/test/test_extensions_client.cc || $
+    obj/extensions/extensions_test_support.compile_depends.stamp
+build $
+    obj/extensions/test/extensions_test_support.test_permission_message_provider.o: $
+    cxx ../../extensions/test/test_permission_message_provider.cc || $
+    obj/extensions/extensions_test_support.compile_depends.stamp
+
+build obj/extensions/libextensions_test_support.a: alink_thin $
+    obj/extensions/browser/api/cast_channel/extensions_test_support.cast_test_util.o $
+    obj/extensions/browser/api/dns/extensions_test_support.mock_host_resolver_creator.o $
+    obj/extensions/browser/api/storage/extensions_test_support.settings_test_util.o $
+    obj/extensions/browser/extensions_test_support.api_test_utils.o $
+    obj/extensions/browser/extensions_test_support.api_unittest.o $
+    obj/extensions/browser/app_window/extensions_test_support.test_app_window_contents.o $
+    obj/extensions/browser/extensions_test_support.extension_error_test_util.o $
+    obj/extensions/browser/extensions_test_support.extensions_test.o $
+    obj/extensions/browser/guest_view/mime_handler_view/extensions_test_support.test_mime_handler_view_guest.o $
+    obj/extensions/browser/extensions_test_support.mock_extension_system.o $
+    obj/extensions/browser/extensions_test_support.test_extension_registry_observer.o $
+    obj/extensions/browser/extensions_test_support.test_extensions_browser_client.o $
+    obj/extensions/browser/extensions_test_support.test_image_loader.o $
+    obj/extensions/browser/extensions_test_support.test_management_policy.o $
+    obj/extensions/browser/extensions_test_support.test_runtime_api_delegate.o $
+    obj/extensions/common/extensions_test_support.extension_builder.o $
+    obj/extensions/common/extensions_test_support.manifest_test.o $
+    obj/extensions/common/permissions/extensions_test_support.permission_message_test_util.o $
+    obj/extensions/common/extensions_test_support.test_util.o $
+    obj/extensions/renderer/extensions_test_support.test_extensions_renderer_client.o $
+    obj/extensions/test/extensions_test_support.background_page_watcher.o $
+    obj/extensions/test/extensions_test_support.extension_test_message_listener.o $
+    obj/extensions/test/extensions_test_support.result_catcher.o $
+    obj/extensions/test/extensions_test_support.test_content_utility_client.o $
+    obj/extensions/test/extensions_test_support.test_extensions_client.o $
+    obj/extensions/test/extensions_test_support.test_permission_message_provider.o $
+    || obj/extensions/extensions_test_support.actions_depends.stamp

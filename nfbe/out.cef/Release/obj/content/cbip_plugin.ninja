@@ -1,0 +1,13 @@
+build obj/content/cbip_plugin.actions_depends.stamp: stamp $
+    lib/libbase.so.TOC obj/mojo/libmojo_application_bindings.a $
+    obj/third_party/WebKit/public/blink.actions_depends.stamp $
+    obj/third_party/WebKit/Source/platform/libblink_platform.a
+
+build obj/content/cbip_plugin.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/mojo/mojo_application_bindings_mojom.actions_rules_copies.stamp $
+    obj/third_party/WebKit/public/blink.compile_depends.stamp $
+    obj/third_party/WebKit/Source/platform/blink_platform.compile_depends.stamp
+
+build obj/content/libcbip_plugin.a: alink_thin || $
+    obj/content/cbip_plugin.actions_depends.stamp

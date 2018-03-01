@@ -1,0 +1,126 @@
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS $
+    -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../third_party/lzma_sdk
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/courgette/courgette_lib.adjustment_method.o: cxx $
+    ../../courgette/adjustment_method.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/courgette/courgette_lib.adjustment_method_2.o: cxx $
+    ../../courgette/adjustment_method_2.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/courgette/courgette_lib.assembly_program.o: cxx $
+    ../../courgette/assembly_program.cc || obj/base/base.compile_depends.stamp
+build obj/courgette/courgette_lib.crc.o: cxx ../../courgette/crc.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/courgette/courgette_lib.difference_estimator.o: cxx $
+    ../../courgette/difference_estimator.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/courgette/courgette_lib.disassembler.o: cxx $
+    ../../courgette/disassembler.cc || obj/base/base.compile_depends.stamp
+build obj/courgette/courgette_lib.disassembler_elf_32.o: cxx $
+    ../../courgette/disassembler_elf_32.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/courgette/courgette_lib.disassembler_elf_32_arm.o: cxx $
+    ../../courgette/disassembler_elf_32_arm.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/courgette/courgette_lib.disassembler_elf_32_x86.o: cxx $
+    ../../courgette/disassembler_elf_32_x86.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/courgette/courgette_lib.disassembler_win32_x86.o: cxx $
+    ../../courgette/disassembler_win32_x86.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/courgette/courgette_lib.disassembler_win32_x64.o: cxx $
+    ../../courgette/disassembler_win32_x64.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/courgette/courgette_lib.encoded_program.o: cxx $
+    ../../courgette/encoded_program.cc || obj/base/base.compile_depends.stamp
+build obj/courgette/courgette_lib.ensemble.o: cxx $
+    ../../courgette/ensemble.cc || obj/base/base.compile_depends.stamp
+build obj/courgette/courgette_lib.ensemble_apply.o: cxx $
+    ../../courgette/ensemble_apply.cc || obj/base/base.compile_depends.stamp
+build obj/courgette/courgette_lib.ensemble_create.o: cxx $
+    ../../courgette/ensemble_create.cc || obj/base/base.compile_depends.stamp
+build obj/courgette/courgette_lib.label_manager.o: cxx $
+    ../../courgette/label_manager.cc || obj/base/base.compile_depends.stamp
+build obj/courgette/courgette_lib.memory_allocator.o: cxx $
+    ../../courgette/memory_allocator.cc || obj/base/base.compile_depends.stamp
+build obj/courgette/courgette_lib.program_detector.o: cxx $
+    ../../courgette/program_detector.cc || obj/base/base.compile_depends.stamp
+build obj/courgette/courgette_lib.rel32_finder_win32_x86.o: cxx $
+    ../../courgette/rel32_finder_win32_x86.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/courgette/courgette_lib.simple_delta.o: cxx $
+    ../../courgette/simple_delta.cc || obj/base/base.compile_depends.stamp
+build obj/courgette/courgette_lib.streams.o: cxx ../../courgette/streams.cc $
+    || obj/base/base.compile_depends.stamp
+build obj/courgette/third_party/courgette_lib.bsdiff_apply.o: cxx $
+    ../../courgette/third_party/bsdiff_apply.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/courgette/third_party/courgette_lib.bsdiff_create.o: cxx $
+    ../../courgette/third_party/bsdiff_create.cc || $
+    obj/base/base.compile_depends.stamp
+
+build obj/courgette/libcourgette_lib.a: alink_thin $
+    obj/courgette/courgette_lib.adjustment_method.o $
+    obj/courgette/courgette_lib.adjustment_method_2.o $
+    obj/courgette/courgette_lib.assembly_program.o $
+    obj/courgette/courgette_lib.crc.o $
+    obj/courgette/courgette_lib.difference_estimator.o $
+    obj/courgette/courgette_lib.disassembler.o $
+    obj/courgette/courgette_lib.disassembler_elf_32.o $
+    obj/courgette/courgette_lib.disassembler_elf_32_arm.o $
+    obj/courgette/courgette_lib.disassembler_elf_32_x86.o $
+    obj/courgette/courgette_lib.disassembler_win32_x86.o $
+    obj/courgette/courgette_lib.disassembler_win32_x64.o $
+    obj/courgette/courgette_lib.encoded_program.o $
+    obj/courgette/courgette_lib.ensemble.o $
+    obj/courgette/courgette_lib.ensemble_apply.o $
+    obj/courgette/courgette_lib.ensemble_create.o $
+    obj/courgette/courgette_lib.label_manager.o $
+    obj/courgette/courgette_lib.memory_allocator.o $
+    obj/courgette/courgette_lib.program_detector.o $
+    obj/courgette/courgette_lib.rel32_finder_win32_x86.o $
+    obj/courgette/courgette_lib.simple_delta.o $
+    obj/courgette/courgette_lib.streams.o $
+    obj/courgette/third_party/courgette_lib.bsdiff_apply.o $
+    obj/courgette/third_party/courgette_lib.bsdiff_create.o || $
+    lib/libbase.so.TOC

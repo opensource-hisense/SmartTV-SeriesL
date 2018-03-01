@@ -1,0 +1,119 @@
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS $
+    -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../third_party/ots/include $
+    -I../../third_party/zlib
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/third_party/ots/src/ots.cff.o: cxx ../../third_party/ots/src/cff.cc
+build obj/third_party/ots/src/ots.cff_type2_charstring.o: cxx $
+    ../../third_party/ots/src/cff_type2_charstring.cc
+build obj/third_party/ots/src/ots.cmap.o: cxx $
+    ../../third_party/ots/src/cmap.cc
+build obj/third_party/ots/src/ots.cvt.o: cxx ../../third_party/ots/src/cvt.cc
+build obj/third_party/ots/src/ots.fpgm.o: cxx $
+    ../../third_party/ots/src/fpgm.cc
+build obj/third_party/ots/src/ots.gasp.o: cxx $
+    ../../third_party/ots/src/gasp.cc
+build obj/third_party/ots/src/ots.gdef.o: cxx $
+    ../../third_party/ots/src/gdef.cc
+build obj/third_party/ots/src/ots.glyf.o: cxx $
+    ../../third_party/ots/src/glyf.cc
+build obj/third_party/ots/src/ots.gpos.o: cxx $
+    ../../third_party/ots/src/gpos.cc
+build obj/third_party/ots/src/ots.gsub.o: cxx $
+    ../../third_party/ots/src/gsub.cc
+build obj/third_party/ots/src/ots.hdmx.o: cxx $
+    ../../third_party/ots/src/hdmx.cc
+build obj/third_party/ots/src/ots.head.o: cxx $
+    ../../third_party/ots/src/head.cc
+build obj/third_party/ots/src/ots.hhea.o: cxx $
+    ../../third_party/ots/src/hhea.cc
+build obj/third_party/ots/src/ots.hmtx.o: cxx $
+    ../../third_party/ots/src/hmtx.cc
+build obj/third_party/ots/src/ots.kern.o: cxx $
+    ../../third_party/ots/src/kern.cc
+build obj/third_party/ots/src/ots.layout.o: cxx $
+    ../../third_party/ots/src/layout.cc
+build obj/third_party/ots/src/ots.loca.o: cxx $
+    ../../third_party/ots/src/loca.cc
+build obj/third_party/ots/src/ots.ltsh.o: cxx $
+    ../../third_party/ots/src/ltsh.cc
+build obj/third_party/ots/src/ots.maxp.o: cxx $
+    ../../third_party/ots/src/maxp.cc
+build obj/third_party/ots/src/ots.math.o: cxx $
+    ../../third_party/ots/src/math.cc
+build obj/third_party/ots/src/ots.metrics.o: cxx $
+    ../../third_party/ots/src/metrics.cc
+build obj/third_party/ots/src/ots.name.o: cxx $
+    ../../third_party/ots/src/name.cc
+build obj/third_party/ots/src/ots.os2.o: cxx ../../third_party/ots/src/os2.cc
+build obj/third_party/ots/src/ots.ots.o: cxx ../../third_party/ots/src/ots.cc
+build obj/third_party/ots/src/ots.post.o: cxx $
+    ../../third_party/ots/src/post.cc
+build obj/third_party/ots/src/ots.prep.o: cxx $
+    ../../third_party/ots/src/prep.cc
+build obj/third_party/ots/src/ots.vdmx.o: cxx $
+    ../../third_party/ots/src/vdmx.cc
+build obj/third_party/ots/src/ots.vhea.o: cxx $
+    ../../third_party/ots/src/vhea.cc
+build obj/third_party/ots/src/ots.vmtx.o: cxx $
+    ../../third_party/ots/src/vmtx.cc
+build obj/third_party/ots/src/ots.vorg.o: cxx $
+    ../../third_party/ots/src/vorg.cc
+
+build obj/third_party/ots/libots.a: alink_thin $
+    obj/third_party/ots/src/ots.cff.o $
+    obj/third_party/ots/src/ots.cff_type2_charstring.o $
+    obj/third_party/ots/src/ots.cmap.o obj/third_party/ots/src/ots.cvt.o $
+    obj/third_party/ots/src/ots.fpgm.o obj/third_party/ots/src/ots.gasp.o $
+    obj/third_party/ots/src/ots.gdef.o obj/third_party/ots/src/ots.glyf.o $
+    obj/third_party/ots/src/ots.gpos.o obj/third_party/ots/src/ots.gsub.o $
+    obj/third_party/ots/src/ots.hdmx.o obj/third_party/ots/src/ots.head.o $
+    obj/third_party/ots/src/ots.hhea.o obj/third_party/ots/src/ots.hmtx.o $
+    obj/third_party/ots/src/ots.kern.o obj/third_party/ots/src/ots.layout.o $
+    obj/third_party/ots/src/ots.loca.o obj/third_party/ots/src/ots.ltsh.o $
+    obj/third_party/ots/src/ots.maxp.o obj/third_party/ots/src/ots.math.o $
+    obj/third_party/ots/src/ots.metrics.o $
+    obj/third_party/ots/src/ots.name.o obj/third_party/ots/src/ots.os2.o $
+    obj/third_party/ots/src/ots.ots.o obj/third_party/ots/src/ots.post.o $
+    obj/third_party/ots/src/ots.prep.o obj/third_party/ots/src/ots.vdmx.o $
+    obj/third_party/ots/src/ots.vhea.o obj/third_party/ots/src/ots.vmtx.o $
+    obj/third_party/ots/src/ots.vorg.o

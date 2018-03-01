@@ -1,0 +1,40 @@
+rule bpf_dsl_golden_target_generate_73b5977f09a36619499ea3fbb3245ad1
+  command = cd ../../sandbox; python linux/bpf_dsl/golden/generate.py $
+      ../out.cef/Release/gen/sandbox/linux/bpf_dsl/golden/golden_files.h $
+      linux/bpf_dsl/golden/i386/ArgSizePolicy.txt $
+      linux/bpf_dsl/golden/i386/BasicPolicy.txt $
+      linux/bpf_dsl/golden/i386/ElseIfPolicy.txt $
+      linux/bpf_dsl/golden/i386/MaskingPolicy.txt $
+      linux/bpf_dsl/golden/i386/MoreBooleanLogicPolicy.txt $
+      linux/bpf_dsl/golden/i386/NegativeConstantsPolicy.txt $
+      linux/bpf_dsl/golden/i386/SwitchPolicy.txt $
+      linux/bpf_dsl/golden/x86-64/ArgSizePolicy.txt $
+      linux/bpf_dsl/golden/x86-64/BasicPolicy.txt $
+      linux/bpf_dsl/golden/x86-64/BooleanLogicPolicy.txt $
+      linux/bpf_dsl/golden/x86-64/ElseIfPolicy.txt $
+      linux/bpf_dsl/golden/x86-64/MaskingPolicy.txt $
+      linux/bpf_dsl/golden/x86-64/MoreBooleanLogicPolicy.txt $
+      linux/bpf_dsl/golden/x86-64/NegativeConstantsPolicy.txt $
+      linux/bpf_dsl/golden/x86-64/SwitchPolicy.txt
+  description = ACTION Generating header from golden files ...
+  restat = 1
+
+build gen/sandbox/linux/bpf_dsl/golden/golden_files.h: $
+    bpf_dsl_golden_target_generate_73b5977f09a36619499ea3fbb3245ad1 $
+    ../../sandbox/linux/bpf_dsl/golden/generate.py $
+    ../../sandbox/linux/bpf_dsl/golden/i386/ArgSizePolicy.txt $
+    ../../sandbox/linux/bpf_dsl/golden/i386/BasicPolicy.txt $
+    ../../sandbox/linux/bpf_dsl/golden/i386/ElseIfPolicy.txt $
+    ../../sandbox/linux/bpf_dsl/golden/i386/MaskingPolicy.txt $
+    ../../sandbox/linux/bpf_dsl/golden/i386/MoreBooleanLogicPolicy.txt $
+    ../../sandbox/linux/bpf_dsl/golden/i386/NegativeConstantsPolicy.txt $
+    ../../sandbox/linux/bpf_dsl/golden/i386/SwitchPolicy.txt $
+    ../../sandbox/linux/bpf_dsl/golden/x86-64/ArgSizePolicy.txt $
+    ../../sandbox/linux/bpf_dsl/golden/x86-64/BasicPolicy.txt $
+    ../../sandbox/linux/bpf_dsl/golden/x86-64/BooleanLogicPolicy.txt $
+    ../../sandbox/linux/bpf_dsl/golden/x86-64/ElseIfPolicy.txt $
+    ../../sandbox/linux/bpf_dsl/golden/x86-64/MaskingPolicy.txt $
+    ../../sandbox/linux/bpf_dsl/golden/x86-64/MoreBooleanLogicPolicy.txt $
+    ../../sandbox/linux/bpf_dsl/golden/x86-64/NegativeConstantsPolicy.txt $
+    ../../sandbox/linux/bpf_dsl/golden/x86-64/SwitchPolicy.txt
+

@@ -1,0 +1,164 @@
+build $
+    obj/third_party/WebKit/Source/devtools/generate_devtools_grd.actions_depends.stamp: $
+    stamp resources/inspector/devtools_extension_api.js $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_rules_copies.stamp
+
+build $
+    obj/third_party/WebKit/Source/devtools/generate_devtools_grd.compile_depends.stamp: $
+    stamp resources/inspector/devtools_extension_api.js $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_rules_copies.stamp
+
+rule $
+    generate_devtools_grd_target_generate_devtools_grd_c7402f4706432af4f97456d841ae6155
+  command = cd ../../third_party/WebKit/Source/devtools; python $
+      scripts/generate_devtools_grd.py $
+      ../../../../out.cef/Release/resources/inspector/inspector.html $
+      ../../../../out.cef/Release/resources/inspector/inspector.js $
+      ../../../../out.cef/Release/resources/inspector/toolbox.html $
+      ../../../../out.cef/Release/resources/inspector/toolbox.js $
+      ../../../../out.cef/Release/resources/inspector/accessibility_module.js $
+      ../../../../out.cef/Release/resources/inspector/animation_module.js $
+      ../../../../out.cef/Release/resources/inspector/audits_module.js $
+      ../../../../out.cef/Release/resources/inspector/components_lazy_module.js $
+      ../../../../out.cef/Release/resources/inspector/console_module.js $
+      ../../../../out.cef/Release/resources/inspector/devices_module.js $
+      ../../../../out.cef/Release/resources/inspector/diff_module.js $
+      ../../../../out.cef/Release/resources/inspector/elements_module.js $
+      ../../../../out.cef/Release/resources/inspector/es_tree_module.js $
+      ../../../../out.cef/Release/resources/inspector/heap_snapshot_worker_module.js $
+      ../../../../out.cef/Release/resources/inspector/layers_module.js $
+      ../../../../out.cef/Release/resources/inspector/network_module.js $
+      ../../../../out.cef/Release/resources/inspector/profiler_module.js $
+      ../../../../out.cef/Release/resources/inspector/resources_module.js $
+      ../../../../out.cef/Release/resources/inspector/sass_module.js $
+      ../../../../out.cef/Release/resources/inspector/security_module.js $
+      ../../../../out.cef/Release/resources/inspector/formatter_worker_module.js $
+      ../../../../out.cef/Release/resources/inspector/settings_module.js $
+      ../../../../out.cef/Release/resources/inspector/snippets_module.js $
+      ../../../../out.cef/Release/resources/inspector/source_frame_module.js $
+      ../../../../out.cef/Release/resources/inspector/sources_module.js $
+      ../../../../out.cef/Release/resources/inspector/temp_storage_shared_worker_module.js $
+      ../../../../out.cef/Release/resources/inspector/timeline_module.js $
+      ../../../../out.cef/Release/resources/inspector/ui_lazy_module.js $
+      ../../../../out.cef/Release/resources/inspector/devtools_extension_api.js $
+      front_end/devtools.js front_end/Tests.js --static_files_list $
+      ../../../../out.cef/third_party/WebKit/Source/devtools/devtools_static_grd_files.tmp $
+      --relative_path_dirs ../../../../out.cef/Release/resources/inspector $
+      front_end --images front_end/Images --output $
+      ../../../../out.cef/Release/gen/devtools/devtools_resources.grd
+  description = ACTION generate_devtools_grd: $
+      generate_devtools_grd_c7402f4706432af4f97456d841ae6155
+  restat = 1
+
+build gen/devtools/devtools_resources.grd: $
+    generate_devtools_grd_target_generate_devtools_grd_c7402f4706432af4f97456d841ae6155 $
+    ../../third_party/WebKit/Source/devtools/scripts/generate_devtools_grd.py $
+    ../../third_party/WebKit/Source/devtools/front_end/devtools.js $
+    ../../third_party/WebKit/Source/devtools/front_end/Tests.js $
+    resources/inspector/inspector.html resources/inspector/inspector.js $
+    resources/inspector/toolbox.html resources/inspector/toolbox.js $
+    resources/inspector/accessibility_module.js $
+    resources/inspector/animation_module.js $
+    resources/inspector/audits_module.js $
+    resources/inspector/components_lazy_module.js $
+    resources/inspector/console_module.js $
+    resources/inspector/devices_module.js $
+    resources/inspector/diff_module.js $
+    resources/inspector/elements_module.js $
+    resources/inspector/es_tree_module.js $
+    resources/inspector/heap_snapshot_worker_module.js $
+    resources/inspector/layers_module.js $
+    resources/inspector/network_module.js $
+    resources/inspector/profiler_module.js $
+    resources/inspector/resources_module.js $
+    resources/inspector/sass_module.js $
+    resources/inspector/security_module.js $
+    resources/inspector/formatter_worker_module.js $
+    resources/inspector/settings_module.js $
+    resources/inspector/snippets_module.js $
+    resources/inspector/source_frame_module.js $
+    resources/inspector/sources_module.js $
+    resources/inspector/temp_storage_shared_worker_module.js $
+    resources/inspector/timeline_module.js $
+    resources/inspector/ui_lazy_module.js $
+    resources/inspector/devtools_extension_api.js $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/applicationCache.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/breakpoint.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/breakpoint_2x.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/breakpointConditional.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/breakpointConditional_2x.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/checker.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/cookie.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/chromeDisabledSelect.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/chromeDisabledSelect_2x.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/chromeLeft.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/chromeMiddle.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/chromeRight.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/chromeSelect.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/chromeSelect_2x.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/database.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/databaseTable.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/deleteIcon.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/domain.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/errorWave.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/errorWave_2x.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/fileSystem.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/forward.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/frame.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/graphLabelCalloutLeft.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/graphLabelCalloutRight.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/ic_info_black_18dp.svg $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/ic_warning_black_18dp.svg $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/indexedDB.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/indexedDBIndex.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/indexedDBObjectStore.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/localStorage.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/navigationControls.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/navigationControls_2x.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/paneAddButtons.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/paneFilterButtons.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/paneRefreshButtons.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/popoverArrows.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/profileGroupIcon.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/profileIcon.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/profileSmallIcon.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/radioDot.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/resizeDiagonal.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/resizeDiagonal_2x.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/resizeHorizontal.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/resizeHorizontal_2x.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/resizeVertical.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/resizeVertical_2x.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/resourceCSSIcon.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/resourceDocumentIcon.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/resourceDocumentIconSmall.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/resourceJSIcon.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/resourcePlainIcon.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/resourcePlainIconSmall.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/resourcesTimeGraphIcon.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/searchNext.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/searchPrev.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/securityPropertyInfo.svg $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/securityPropertyInsecure.svg $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/securityPropertySecure.svg $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/securityPropertyWarning.svg $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/securityPropertyUnknown.svg $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/securityStateInsecure.svg $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/securityStateNeutral.svg $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/securityStateSecure.svg $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/serviceWorker.svg $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/sessionStorage.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/settingsListRemove.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/settingsListRemove_2x.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/speech.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/toolbarButtonGlyphs.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/toolbarButtonGlyphs_2x.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/toolbarResizerHorizontal.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/toolbarResizerVertical.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/toolbarItemSelected.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/touchCursor.png $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/touchCursor_2x.png $
+    ../../out.cef/third_party/WebKit/Source/devtools/devtools_static_grd_files.tmp $
+    || $
+    obj/third_party/WebKit/Source/devtools/generate_devtools_grd.actions_depends.stamp
+

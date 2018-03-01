@@ -1,0 +1,566 @@
+build $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp: $
+    stamp resources/inspector/SupportedCSSProperties.js $
+    resources/inspector/InspectorBackendCommands.js $
+    obj/third_party/WebKit/Source/devtools/build_applications.actions_rules_copies.stamp
+
+build $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.compile_depends.stamp: $
+    stamp resources/inspector/SupportedCSSProperties.js $
+    resources/inspector/InspectorBackendCommands.js $
+    obj/third_party/WebKit/Source/devtools/build_applications.actions_rules_copies.stamp
+
+build resources/inspector/Images/applicationCache.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/applicationCache.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/breakpoint.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/breakpoint.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/breakpoint_2x.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/breakpoint_2x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/breakpointConditional.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/breakpointConditional.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/breakpointConditional_2x.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/breakpointConditional_2x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/checker.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/checker.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/cookie.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/cookie.png || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/chromeDisabledSelect.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/chromeDisabledSelect.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/chromeDisabledSelect_2x.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/chromeDisabledSelect_2x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/chromeLeft.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/chromeLeft.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/chromeMiddle.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/chromeMiddle.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/chromeRight.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/chromeRight.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/chromeSelect.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/chromeSelect.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/chromeSelect_2x.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/chromeSelect_2x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/database.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/database.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/databaseTable.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/databaseTable.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/deleteIcon.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/deleteIcon.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/domain.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/domain.png || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/errorWave.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/errorWave.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/errorWave_2x.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/errorWave_2x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/fileSystem.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/fileSystem.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/forward.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/forward.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/frame.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/frame.png || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/graphLabelCalloutLeft.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/graphLabelCalloutLeft.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/graphLabelCalloutRight.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/graphLabelCalloutRight.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/ic_info_black_18dp.svg: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/ic_info_black_18dp.svg $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/ic_warning_black_18dp.svg: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/ic_warning_black_18dp.svg $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/indexedDB.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/indexedDB.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/indexedDBIndex.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/indexedDBIndex.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/indexedDBObjectStore.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/indexedDBObjectStore.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/localStorage.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/localStorage.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/navigationControls.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/navigationControls.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/navigationControls_2x.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/navigationControls_2x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/paneAddButtons.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/paneAddButtons.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/paneFilterButtons.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/paneFilterButtons.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/paneRefreshButtons.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/paneRefreshButtons.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/popoverArrows.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/popoverArrows.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/profileGroupIcon.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/profileGroupIcon.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/profileIcon.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/profileIcon.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/profileSmallIcon.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/profileSmallIcon.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/radioDot.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/radioDot.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/resizeDiagonal.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/resizeDiagonal.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/resizeDiagonal_2x.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/resizeDiagonal_2x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/resizeHorizontal.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/resizeHorizontal.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/resizeHorizontal_2x.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/resizeHorizontal_2x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/resizeVertical.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/resizeVertical.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/resizeVertical_2x.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/resizeVertical_2x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/resourceCSSIcon.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/resourceCSSIcon.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/resourceDocumentIcon.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/resourceDocumentIcon.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/resourceDocumentIconSmall.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/resourceDocumentIconSmall.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/resourceJSIcon.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/resourceJSIcon.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/resourcePlainIcon.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/resourcePlainIcon.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/resourcePlainIconSmall.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/resourcePlainIconSmall.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/resourcesTimeGraphIcon.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/resourcesTimeGraphIcon.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/searchNext.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/searchNext.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/searchPrev.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/searchPrev.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/securityPropertyInfo.svg: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/securityPropertyInfo.svg $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/securityPropertyInsecure.svg: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/securityPropertyInsecure.svg $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/securityPropertySecure.svg: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/securityPropertySecure.svg $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/securityPropertyWarning.svg: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/securityPropertyWarning.svg $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/securityPropertyUnknown.svg: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/securityPropertyUnknown.svg $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/securityStateInsecure.svg: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/securityStateInsecure.svg $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/securityStateNeutral.svg: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/securityStateNeutral.svg $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/securityStateSecure.svg: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/securityStateSecure.svg $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/serviceWorker.svg: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/serviceWorker.svg $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/sessionStorage.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/sessionStorage.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/settingsListRemove.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/settingsListRemove.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/settingsListRemove_2x.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/settingsListRemove_2x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/speech.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/speech.png || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/toolbarButtonGlyphs.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/toolbarButtonGlyphs.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/toolbarButtonGlyphs_2x.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/toolbarButtonGlyphs_2x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/toolbarResizerHorizontal.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/toolbarResizerHorizontal.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/toolbarResizerVertical.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/toolbarResizerVertical.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/toolbarItemSelected.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/toolbarItemSelected.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/touchCursor.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/touchCursor.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Images/touchCursor_2x.png: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Images/touchCursor_2x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build $
+    resources/inspector/emulated_devices/google-nexus-5-horizontal-default-1x.png: $
+    copy $
+    ../../third_party/WebKit/Source/devtools/front_end/emulated_devices/google-nexus-5-horizontal-default-1x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build $
+    resources/inspector/emulated_devices/google-nexus-5-horizontal-default-2x.png: $
+    copy $
+    ../../third_party/WebKit/Source/devtools/front_end/emulated_devices/google-nexus-5-horizontal-default-2x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build $
+    resources/inspector/emulated_devices/google-nexus-5-horizontal-keyboard-1x.png: $
+    copy $
+    ../../third_party/WebKit/Source/devtools/front_end/emulated_devices/google-nexus-5-horizontal-keyboard-1x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build $
+    resources/inspector/emulated_devices/google-nexus-5-horizontal-keyboard-2x.png: $
+    copy $
+    ../../third_party/WebKit/Source/devtools/front_end/emulated_devices/google-nexus-5-horizontal-keyboard-2x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build $
+    resources/inspector/emulated_devices/google-nexus-5-horizontal-navigation-1x.png: $
+    copy $
+    ../../third_party/WebKit/Source/devtools/front_end/emulated_devices/google-nexus-5-horizontal-navigation-1x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build $
+    resources/inspector/emulated_devices/google-nexus-5-horizontal-navigation-2x.png: $
+    copy $
+    ../../third_party/WebKit/Source/devtools/front_end/emulated_devices/google-nexus-5-horizontal-navigation-2x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build $
+    resources/inspector/emulated_devices/google-nexus-5-vertical-default-1x.png: $
+    copy $
+    ../../third_party/WebKit/Source/devtools/front_end/emulated_devices/google-nexus-5-vertical-default-1x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build $
+    resources/inspector/emulated_devices/google-nexus-5-vertical-default-2x.png: $
+    copy $
+    ../../third_party/WebKit/Source/devtools/front_end/emulated_devices/google-nexus-5-vertical-default-2x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build $
+    resources/inspector/emulated_devices/google-nexus-5-vertical-keyboard-1x.png: $
+    copy $
+    ../../third_party/WebKit/Source/devtools/front_end/emulated_devices/google-nexus-5-vertical-keyboard-1x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build $
+    resources/inspector/emulated_devices/google-nexus-5-vertical-keyboard-2x.png: $
+    copy $
+    ../../third_party/WebKit/Source/devtools/front_end/emulated_devices/google-nexus-5-vertical-keyboard-2x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build $
+    resources/inspector/emulated_devices/google-nexus-5-vertical-navigation-1x.png: $
+    copy $
+    ../../third_party/WebKit/Source/devtools/front_end/emulated_devices/google-nexus-5-vertical-navigation-1x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build $
+    resources/inspector/emulated_devices/google-nexus-5-vertical-navigation-2x.png: $
+    copy $
+    ../../third_party/WebKit/Source/devtools/front_end/emulated_devices/google-nexus-5-vertical-navigation-2x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build $
+    resources/inspector/emulated_devices/google-nexus-5x-horizontal-default-1x.png: $
+    copy $
+    ../../third_party/WebKit/Source/devtools/front_end/emulated_devices/google-nexus-5x-horizontal-default-1x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build $
+    resources/inspector/emulated_devices/google-nexus-5x-horizontal-default-2x.png: $
+    copy $
+    ../../third_party/WebKit/Source/devtools/front_end/emulated_devices/google-nexus-5x-horizontal-default-2x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build $
+    resources/inspector/emulated_devices/google-nexus-5x-horizontal-keyboard-1x.png: $
+    copy $
+    ../../third_party/WebKit/Source/devtools/front_end/emulated_devices/google-nexus-5x-horizontal-keyboard-1x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build $
+    resources/inspector/emulated_devices/google-nexus-5x-horizontal-keyboard-2x.png: $
+    copy $
+    ../../third_party/WebKit/Source/devtools/front_end/emulated_devices/google-nexus-5x-horizontal-keyboard-2x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build $
+    resources/inspector/emulated_devices/google-nexus-5x-horizontal-navigation-1x.png: $
+    copy $
+    ../../third_party/WebKit/Source/devtools/front_end/emulated_devices/google-nexus-5x-horizontal-navigation-1x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build $
+    resources/inspector/emulated_devices/google-nexus-5x-horizontal-navigation-2x.png: $
+    copy $
+    ../../third_party/WebKit/Source/devtools/front_end/emulated_devices/google-nexus-5x-horizontal-navigation-2x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build $
+    resources/inspector/emulated_devices/google-nexus-5x-vertical-default-1x.png: $
+    copy $
+    ../../third_party/WebKit/Source/devtools/front_end/emulated_devices/google-nexus-5x-vertical-default-1x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build $
+    resources/inspector/emulated_devices/google-nexus-5x-vertical-default-2x.png: $
+    copy $
+    ../../third_party/WebKit/Source/devtools/front_end/emulated_devices/google-nexus-5x-vertical-default-2x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build $
+    resources/inspector/emulated_devices/google-nexus-5x-vertical-keyboard-1x.png: $
+    copy $
+    ../../third_party/WebKit/Source/devtools/front_end/emulated_devices/google-nexus-5x-vertical-keyboard-1x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build $
+    resources/inspector/emulated_devices/google-nexus-5x-vertical-keyboard-2x.png: $
+    copy $
+    ../../third_party/WebKit/Source/devtools/front_end/emulated_devices/google-nexus-5x-vertical-keyboard-2x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build $
+    resources/inspector/emulated_devices/google-nexus-5x-vertical-navigation-1x.png: $
+    copy $
+    ../../third_party/WebKit/Source/devtools/front_end/emulated_devices/google-nexus-5x-vertical-navigation-1x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build $
+    resources/inspector/emulated_devices/google-nexus-5x-vertical-navigation-2x.png: $
+    copy $
+    ../../third_party/WebKit/Source/devtools/front_end/emulated_devices/google-nexus-5x-vertical-navigation-2x.png $
+    || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/devtools.js: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/devtools.js || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build resources/inspector/Tests.js: copy $
+    ../../third_party/WebKit/Source/devtools/front_end/Tests.js || $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_depends.stamp
+build $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_rules_copies.stamp: $
+    stamp resources/inspector/Images/applicationCache.png $
+    resources/inspector/Images/breakpoint.png $
+    resources/inspector/Images/breakpoint_2x.png $
+    resources/inspector/Images/breakpointConditional.png $
+    resources/inspector/Images/breakpointConditional_2x.png $
+    resources/inspector/Images/checker.png $
+    resources/inspector/Images/cookie.png $
+    resources/inspector/Images/chromeDisabledSelect.png $
+    resources/inspector/Images/chromeDisabledSelect_2x.png $
+    resources/inspector/Images/chromeLeft.png $
+    resources/inspector/Images/chromeMiddle.png $
+    resources/inspector/Images/chromeRight.png $
+    resources/inspector/Images/chromeSelect.png $
+    resources/inspector/Images/chromeSelect_2x.png $
+    resources/inspector/Images/database.png $
+    resources/inspector/Images/databaseTable.png $
+    resources/inspector/Images/deleteIcon.png $
+    resources/inspector/Images/domain.png $
+    resources/inspector/Images/errorWave.png $
+    resources/inspector/Images/errorWave_2x.png $
+    resources/inspector/Images/fileSystem.png $
+    resources/inspector/Images/forward.png $
+    resources/inspector/Images/frame.png $
+    resources/inspector/Images/graphLabelCalloutLeft.png $
+    resources/inspector/Images/graphLabelCalloutRight.png $
+    resources/inspector/Images/ic_info_black_18dp.svg $
+    resources/inspector/Images/ic_warning_black_18dp.svg $
+    resources/inspector/Images/indexedDB.png $
+    resources/inspector/Images/indexedDBIndex.png $
+    resources/inspector/Images/indexedDBObjectStore.png $
+    resources/inspector/Images/localStorage.png $
+    resources/inspector/Images/navigationControls.png $
+    resources/inspector/Images/navigationControls_2x.png $
+    resources/inspector/Images/paneAddButtons.png $
+    resources/inspector/Images/paneFilterButtons.png $
+    resources/inspector/Images/paneRefreshButtons.png $
+    resources/inspector/Images/popoverArrows.png $
+    resources/inspector/Images/profileGroupIcon.png $
+    resources/inspector/Images/profileIcon.png $
+    resources/inspector/Images/profileSmallIcon.png $
+    resources/inspector/Images/radioDot.png $
+    resources/inspector/Images/resizeDiagonal.png $
+    resources/inspector/Images/resizeDiagonal_2x.png $
+    resources/inspector/Images/resizeHorizontal.png $
+    resources/inspector/Images/resizeHorizontal_2x.png $
+    resources/inspector/Images/resizeVertical.png $
+    resources/inspector/Images/resizeVertical_2x.png $
+    resources/inspector/Images/resourceCSSIcon.png $
+    resources/inspector/Images/resourceDocumentIcon.png $
+    resources/inspector/Images/resourceDocumentIconSmall.png $
+    resources/inspector/Images/resourceJSIcon.png $
+    resources/inspector/Images/resourcePlainIcon.png $
+    resources/inspector/Images/resourcePlainIconSmall.png $
+    resources/inspector/Images/resourcesTimeGraphIcon.png $
+    resources/inspector/Images/searchNext.png $
+    resources/inspector/Images/searchPrev.png $
+    resources/inspector/Images/securityPropertyInfo.svg $
+    resources/inspector/Images/securityPropertyInsecure.svg $
+    resources/inspector/Images/securityPropertySecure.svg $
+    resources/inspector/Images/securityPropertyWarning.svg $
+    resources/inspector/Images/securityPropertyUnknown.svg $
+    resources/inspector/Images/securityStateInsecure.svg $
+    resources/inspector/Images/securityStateNeutral.svg $
+    resources/inspector/Images/securityStateSecure.svg $
+    resources/inspector/Images/serviceWorker.svg $
+    resources/inspector/Images/sessionStorage.png $
+    resources/inspector/Images/settingsListRemove.png $
+    resources/inspector/Images/settingsListRemove_2x.png $
+    resources/inspector/Images/speech.png $
+    resources/inspector/Images/toolbarButtonGlyphs.png $
+    resources/inspector/Images/toolbarButtonGlyphs_2x.png $
+    resources/inspector/Images/toolbarResizerHorizontal.png $
+    resources/inspector/Images/toolbarResizerVertical.png $
+    resources/inspector/Images/toolbarItemSelected.png $
+    resources/inspector/Images/touchCursor.png $
+    resources/inspector/Images/touchCursor_2x.png $
+    resources/inspector/emulated_devices/google-nexus-5-horizontal-default-1x.png $
+    resources/inspector/emulated_devices/google-nexus-5-horizontal-default-2x.png $
+    resources/inspector/emulated_devices/google-nexus-5-horizontal-keyboard-1x.png $
+    resources/inspector/emulated_devices/google-nexus-5-horizontal-keyboard-2x.png $
+    resources/inspector/emulated_devices/google-nexus-5-horizontal-navigation-1x.png $
+    resources/inspector/emulated_devices/google-nexus-5-horizontal-navigation-2x.png $
+    resources/inspector/emulated_devices/google-nexus-5-vertical-default-1x.png $
+    resources/inspector/emulated_devices/google-nexus-5-vertical-default-2x.png $
+    resources/inspector/emulated_devices/google-nexus-5-vertical-keyboard-1x.png $
+    resources/inspector/emulated_devices/google-nexus-5-vertical-keyboard-2x.png $
+    resources/inspector/emulated_devices/google-nexus-5-vertical-navigation-1x.png $
+    resources/inspector/emulated_devices/google-nexus-5-vertical-navigation-2x.png $
+    resources/inspector/emulated_devices/google-nexus-5x-horizontal-default-1x.png $
+    resources/inspector/emulated_devices/google-nexus-5x-horizontal-default-2x.png $
+    resources/inspector/emulated_devices/google-nexus-5x-horizontal-keyboard-1x.png $
+    resources/inspector/emulated_devices/google-nexus-5x-horizontal-keyboard-2x.png $
+    resources/inspector/emulated_devices/google-nexus-5x-horizontal-navigation-1x.png $
+    resources/inspector/emulated_devices/google-nexus-5x-horizontal-navigation-2x.png $
+    resources/inspector/emulated_devices/google-nexus-5x-vertical-default-1x.png $
+    resources/inspector/emulated_devices/google-nexus-5x-vertical-default-2x.png $
+    resources/inspector/emulated_devices/google-nexus-5x-vertical-keyboard-1x.png $
+    resources/inspector/emulated_devices/google-nexus-5x-vertical-keyboard-2x.png $
+    resources/inspector/emulated_devices/google-nexus-5x-vertical-navigation-1x.png $
+    resources/inspector/emulated_devices/google-nexus-5x-vertical-navigation-2x.png $
+    resources/inspector/devtools.js resources/inspector/Tests.js
+

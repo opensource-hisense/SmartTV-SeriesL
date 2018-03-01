@@ -1,0 +1,20 @@
+diff --git LocalDOMWindow.cpp LocalDOMWindow.cpp
+index a9450a2..845289f
+--- LocalDOMWindow.cpp
++++ LocalDOMWindow.cpp
+@@ -1085,6 +1085,15 @@ double LocalDOMWindow::devicePixelRatio() const
+     if (!frame())
+         return 0.0;
+ 
++#if defined(NFBE_DTV_SOCIO)
++    const char* env = getenv("NFBE_DEVICE_PIXEL_RATIO");
++    if (env != NULL) {
++        double ratio = atof(env);
++        if (1 <= ratio) {
++            return ratio;
++        }
++    }
++#endif
+     return frame()->devicePixelRatio();
+ }
+ 

@@ -1,0 +1,108 @@
+diff --git video_frame_provider_client_impl.cc video_frame_provider_client_impl.cc
+index 5e9fd33..9cd3470 100644
+--- video_frame_provider_client_impl.cc
++++ video_frame_provider_client_impl.cc
+@@ -26,7 +26,12 @@ VideoFrameProviderClientImpl::VideoFrameProviderClientImpl(
+       active_video_layer_(nullptr),
+       stopped_(false),
+       rendering_(false),
+-      needs_put_current_frame_(false) {
++      needs_put_current_frame_(false)
++#if defined(VIDEO_HOLE)
++      ,
++      needs_clear_(false)
++#endif
++{
+   // This only happens during a commit on the compositor thread while the main
+   // thread is blocked. That makes this a thread-safe call to set the video
+   // frame provider client that does not require a lock. The same is true of
+@@ -56,6 +61,14 @@ void VideoFrameProviderClientImpl::SetActiveVideoLayer(
+     VideoLayerImpl* video_layer) {
+   DCHECK(thread_checker_.CalledOnValidThread());
+   DCHECK(video_layer);
++#if defined(VIDEO_HOLE)
++  // To throttle drawing video hole frame
++  if (!active_video_layer_ ||
++      (active_video_layer_ &&
++       !active_video_layer_->IsSameVideoHoleFrame(*video_layer))) {
++    needs_clear_ = true;
++  }
++#endif
+   active_video_layer_ = video_layer;
+ }
+ 
+@@ -147,8 +160,16 @@ void VideoFrameProviderClientImpl::DidReceiveFrame() {
+                !!active_video_layer_);
+   DCHECK(thread_checker_.CalledOnValidThread());
+   needs_put_current_frame_ = true;
++#if defined(VIDEO_HOLE)
++  // Throttle drawing video hole frame
++  if (active_video_layer_ && needs_clear_) {
++    active_video_layer_->SetNeedsRedraw();
++    needs_clear_ = false;
++  }
++#else
+   if (active_video_layer_)
+     active_video_layer_->SetNeedsRedraw();
++#endif
+ }
+ 
+ void VideoFrameProviderClientImpl::OnBeginFrame(const BeginFrameArgs& args) {
+diff --git video_frame_provider_client_impl.h video_frame_provider_client_impl.h
+index 349b25d..19b62f9 100644
+--- video_frame_provider_client_impl.h
++++ video_frame_provider_client_impl.h
+@@ -77,6 +77,10 @@ class CC_EXPORT VideoFrameProviderClientImpl
+   bool rendering_;
+   bool needs_put_current_frame_;
+ 
++#if defined(VIDEO_HOLE)
++  bool needs_clear_;
++#endif
++
+   // Since the provider lives on another thread, it can be destroyed while the
+   // frame controller are accessing its frame. Before being destroyed the
+   // provider calls StopUsingProvider. provider_lock_ blocks StopUsingProvider
+diff --git video_layer_impl.cc video_layer_impl.cc
+index f22860c..70d0bb9 100644
+--- video_layer_impl.cc
++++ video_layer_impl.cc
+@@ -414,6 +414,22 @@ void VideoLayerImpl::SetNeedsRedraw() {
+   layer_tree_impl()->SetNeedsRedraw();
+ }
+ 
++#if defined(VIDEO_HOLE)
++ 
++bool VideoLayerImpl::IsSameVideoHoleFrame(const VideoLayerImpl& other) {
++  if (!frame_ || !other.frame_) {
++      return false;
++  }
++  if (frame_->storage_type() == media::VideoFrame::STORAGE_HOLE &&
++      other.frame_->storage_type() == media::VideoFrame::STORAGE_HOLE &&
++      frame_->visible_rect() == other.frame_->visible_rect()) {
++    return true;
++  }
++  return false;
++}
++ 
++#endif
++
+ const char* VideoLayerImpl::LayerTypeAsString() const {
+   return "cc::VideoLayerImpl";
+ }
+diff --git video_layer_impl.h video_layer_impl.h
+index 6db1930..3801349 100644
+--- video_layer_impl.h
++++ video_layer_impl.h
+@@ -46,6 +46,11 @@ class CC_EXPORT VideoLayerImpl : public LayerImpl {
+   void SetNeedsRedraw();
+   media::VideoRotation video_rotation() const { return video_rotation_; }
+ 
++#if defined(VIDEO_HOLE)
++  // True if both frames are hole frame and have the same size
++  bool IsSameVideoHoleFrame(const VideoLayerImpl&);
++#endif
++
+  private:
+   VideoLayerImpl(
+       LayerTreeImpl* tree_impl,

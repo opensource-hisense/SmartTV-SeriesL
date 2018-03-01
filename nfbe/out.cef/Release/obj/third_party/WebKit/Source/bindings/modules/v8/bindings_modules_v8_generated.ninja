@@ -1,0 +1,20 @@
+build $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated.actions_depends.stamp: $
+    stamp $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_impl_generated.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_aggregate.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_individual.actions_rules_copies.stamp $
+    gen/blink/bindings/modules/v8/initPartialInterfacesInModules.cpp $
+    gen/blink/bindings/modules/v8/V8GeneratedModulesBindingsPartial.cpp $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.actions_rules_copies.stamp
+
+build $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated.compile_depends.stamp: $
+    stamp $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_impl_generated.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_aggregate.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_individual.actions_rules_copies.stamp $
+    gen/blink/bindings/modules/v8/initPartialInterfacesInModules.cpp $
+    gen/blink/bindings/modules/v8/V8GeneratedModulesBindingsPartial.cpp $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.actions_rules_copies.stamp
+

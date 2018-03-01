@@ -1,0 +1,1230 @@
+build $
+    obj/third_party/WebKit/Source/core/webcore_generated.actions_depends.stamp: $
+    stamp $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.actions_depends.stamp $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/core/inspector_instrumentation_sources.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/core/v8/bindings_core_v8_generated.actions_depends.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/modules_event_generated.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated.actions_depends.stamp $
+    obj/third_party/WebKit/Source/platform/make_platform_generated.actions_rules_copies.stamp $
+    obj/skia/skia.actions_depends.stamp $
+    obj/third_party/libwebp/libwebp.actions_depends.stamp $
+    lib/liburl_lib.so.TOC $
+    obj/v8/tools/gyp/v8_maybe_snapshot.actions_depends.stamp
+
+build $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp: $
+    stamp $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/core/inspector_instrumentation_sources.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/core/v8/bindings_core_v8_generated.compile_depends.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/modules_event_generated.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated.compile_depends.stamp $
+    obj/third_party/WebKit/Source/platform/make_platform_generated.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/url/url_lib.compile_depends.stamp snapshot_blob.bin
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DCOMPONENT_BUILD -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 $
+    -DUSE_OZONE=1 -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DMOJO_USE_SYSTEM_IMPL $
+    -DBLINK_IMPLEMENTATION=1 -DINSIDE_BLINK $
+    -DENABLE_LAYOUT_UNIT_IN_INLINE_BOXES=0 -DENABLE_OILPAN=1 $
+    -DWTF_USE_CONCATENATED_IMPULSE_RESPONSES=1 $
+    -DENABLE_INPUT_MULTIPLE_FIELDS_UI=1 -DWTF_USE_ICCJPEG=1 $
+    -DWTF_USE_QCMSLIB=1 -DWTF_USE_WEBAUDIO_FFMPEG=1 $
+    -DWTF_USE_DEFAULT_RENDER_THEME=1 -DU_USING_ICU_NAMESPACE=0 $
+    -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= -DU_STATIC_IMPLEMENTATION $
+    -DSK_SUPPORT_GPU=1 -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS $
+    -DCHROME_PNG_WRITE_SUPPORT -DPNG_USER_CONFIG -DLIBXML_STATIC $
+    -DLIBXSLT_STATIC -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 $
+    -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../../third_party/WebKit/Source -Igen/blink -I../.. $
+    -I../../skia/config -I../../third_party/khronos -I../../gpu -Igen/angle $
+    -I../../third_party/angle/include -I../../third_party/ffmpeg $
+    -I../../third_party/WebKit -Igen/third_party/WebKit $
+    -I../../third_party/ots/include -I../../third_party/zlib $
+    -I../../third_party/icu/source/i18n $
+    -I../../third_party/icu/source/common $
+    -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../third_party/iccjpeg -I../../third_party/libpng $
+    -I../../third_party/libwebp -I../../third_party/libxml/linux/include $
+    -I../../third_party/libxml/src/include -I../../third_party/libxslt $
+    -I../../third_party/qcms/src -I../../third_party/snappy/linux $
+    -I../../third_party/snappy/src -I../../v8/include
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8CSSStyleDeclarationCustom.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/custom/V8CSSStyleDeclarationCustom.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8CustomEventCustom.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/custom/V8CustomEventCustom.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8CustomXPathNSResolver.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/custom/V8CustomXPathNSResolver.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8DevToolsHostCustom.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/custom/V8DevToolsHostCustom.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8DocumentCustom.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/custom/V8DocumentCustom.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8ErrorEventCustom.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/custom/V8ErrorEventCustom.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8EventTargetCustom.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/custom/V8EventTargetCustom.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8HTMLAllCollectionCustom.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/custom/V8HTMLAllCollectionCustom.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8HTMLPlugInElementCustom.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/custom/V8HTMLPlugInElementCustom.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8IntersectionObserverCustom.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/custom/V8IntersectionObserverCustom.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8MediaQueryListCustom.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/custom/V8MediaQueryListCustom.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8MessageChannelCustom.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/custom/V8MessageChannelCustom.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8MessageEventCustom.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/custom/V8MessageEventCustom.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8MutationObserverCustom.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/custom/V8MutationObserverCustom.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8PerformanceObserverCustom.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/custom/V8PerformanceObserverCustom.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8PopStateEventCustom.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/custom/V8PopStateEventCustom.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8PromiseRejectionEventCustom.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/custom/V8PromiseRejectionEventCustom.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8WindowCustom.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/custom/V8WindowCustom.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8XMLHttpRequestCustom.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/custom/V8XMLHttpRequestCustom.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ActiveDOMCallback.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/ActiveDOMCallback.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ActiveScriptWrappable.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/ActiveScriptWrappable.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ArrayValue.o: $
+    cxx ../../third_party/WebKit/Source/bindings/core/v8/ArrayValue.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.BindingSecurity.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/BindingSecurity.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.CustomElementBinding.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/CustomElementBinding.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.CustomElementConstructorBuilder.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/CustomElementConstructorBuilder.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.DocumentWriteEvaluator.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/DocumentWriteEvaluator.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.DOMWrapperWorld.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/DOMWrapperWorld.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.Dictionary.o: $
+    cxx ../../third_party/WebKit/Source/bindings/core/v8/Dictionary.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.DictionaryHelperForCore.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/DictionaryHelperForCore.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.DictionaryIterator.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/DictionaryIterator.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ExceptionMessages.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/ExceptionMessages.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ExceptionState.o: $
+    cxx ../../third_party/WebKit/Source/bindings/core/v8/ExceptionState.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ExceptionStatePlaceholder.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/ExceptionStatePlaceholder.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.JSONValuesForV8.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/JSONValuesForV8.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.Microtask.o: $
+    cxx ../../third_party/WebKit/Source/bindings/core/v8/Microtask.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.OnStackObjectChecker.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/OnStackObjectChecker.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.PrivateScriptRunner.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/PrivateScriptRunner.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.RejectedPromises.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/RejectedPromises.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.RetainedDOMInfo.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/RetainedDOMInfo.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScheduledAction.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/ScheduledAction.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptCallStack.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/ScriptCallStack.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptController.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/ScriptController.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptEventListener.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/ScriptEventListener.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptFunction.o: $
+    cxx ../../third_party/WebKit/Source/bindings/core/v8/ScriptFunction.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptPromise.o: $
+    cxx ../../third_party/WebKit/Source/bindings/core/v8/ScriptPromise.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptPromisePropertyBase.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/ScriptPromisePropertyBase.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptPromiseResolver.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/ScriptPromiseResolver.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptRegexp.o: $
+    cxx ../../third_party/WebKit/Source/bindings/core/v8/ScriptRegexp.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptSourceCode.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/ScriptSourceCode.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptState.o: $
+    cxx ../../third_party/WebKit/Source/bindings/core/v8/ScriptState.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptStreamer.o: $
+    cxx ../../third_party/WebKit/Source/bindings/core/v8/ScriptStreamer.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptStreamerThread.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/ScriptStreamerThread.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptString.o: $
+    cxx ../../third_party/WebKit/Source/bindings/core/v8/ScriptString.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptValue.o: $
+    cxx ../../third_party/WebKit/Source/bindings/core/v8/ScriptValue.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptValueSerializer.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/ScriptValueSerializer.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptWrappable.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/ScriptWrappable.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.SerializedScriptValue.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/SerializedScriptValue.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.SerializedScriptValueFactory.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/SerializedScriptValueFactory.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ToV8.o: $
+    cxx ../../third_party/WebKit/Source/bindings/core/v8/ToV8.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8AbstractEventListener.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/V8AbstractEventListener.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8Binding.o: $
+    cxx ../../third_party/WebKit/Source/bindings/core/v8/V8Binding.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8CustomElementLifecycleCallbacks.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/V8CustomElementLifecycleCallbacks.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8DOMActivityLogger.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/V8DOMActivityLogger.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8DOMConfiguration.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/V8DOMConfiguration.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8DOMWrapper.o: $
+    cxx ../../third_party/WebKit/Source/bindings/core/v8/V8DOMWrapper.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8ErrorHandler.o: $
+    cxx ../../third_party/WebKit/Source/bindings/core/v8/V8ErrorHandler.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8EventListener.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/V8EventListener.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8EventListenerList.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/V8EventListenerList.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8GCController.o: $
+    cxx ../../third_party/WebKit/Source/bindings/core/v8/V8GCController.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8GCForContextDispose.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/V8GCForContextDispose.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8HiddenValue.o: $
+    cxx ../../third_party/WebKit/Source/bindings/core/v8/V8HiddenValue.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8Initializer.o: $
+    cxx ../../third_party/WebKit/Source/bindings/core/v8/V8Initializer.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8IntersectionObserverCallback.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/V8IntersectionObserverCallback.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8IteratorResultValue.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/V8IteratorResultValue.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8LazyEventListener.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/V8LazyEventListener.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8MutationCallback.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/V8MutationCallback.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8NodeFilterCondition.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/V8NodeFilterCondition.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8ObjectBuilder.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/V8ObjectBuilder.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8ObjectConstructor.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/V8ObjectConstructor.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8PagePopupControllerBinding.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/V8PagePopupControllerBinding.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8PerContextData.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/V8PerContextData.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8PerformanceObserverCallback.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/V8PerformanceObserverCallback.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8PerIsolateData.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/V8PerIsolateData.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8ScriptRunner.o: $
+    cxx ../../third_party/WebKit/Source/bindings/core/v8/V8ScriptRunner.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8StringResource.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/V8StringResource.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8ThrowException.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/V8ThrowException.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8ValueCache.o: $
+    cxx ../../third_party/WebKit/Source/bindings/core/v8/V8ValueCache.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8WorkerGlobalScopeEventListener.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/V8WorkerGlobalScopeEventListener.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.WindowProxy.o: $
+    cxx ../../third_party/WebKit/Source/bindings/core/v8/WindowProxy.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.WindowProxyManager.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/WindowProxyManager.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.WorkerOrWorkletScriptController.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/WorkerOrWorkletScriptController.cpp $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.WrapperTypeInfo.o: $
+    cxx $
+    ../../third_party/WebKit/Source/bindings/core/v8/WrapperTypeInfo.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings01.o: $
+    cxx gen/blink/bindings/core/v8/V8GeneratedCoreBindings01.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings02.o: $
+    cxx gen/blink/bindings/core/v8/V8GeneratedCoreBindings02.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings03.o: $
+    cxx gen/blink/bindings/core/v8/V8GeneratedCoreBindings03.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings04.o: $
+    cxx gen/blink/bindings/core/v8/V8GeneratedCoreBindings04.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings05.o: $
+    cxx gen/blink/bindings/core/v8/V8GeneratedCoreBindings05.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings06.o: $
+    cxx gen/blink/bindings/core/v8/V8GeneratedCoreBindings06.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings07.o: $
+    cxx gen/blink/bindings/core/v8/V8GeneratedCoreBindings07.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings08.o: $
+    cxx gen/blink/bindings/core/v8/V8GeneratedCoreBindings08.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings09.o: $
+    cxx gen/blink/bindings/core/v8/V8GeneratedCoreBindings09.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings10.o: $
+    cxx gen/blink/bindings/core/v8/V8GeneratedCoreBindings10.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings11.o: $
+    cxx gen/blink/bindings/core/v8/V8GeneratedCoreBindings11.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings12.o: $
+    cxx gen/blink/bindings/core/v8/V8GeneratedCoreBindings12.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings13.o: $
+    cxx gen/blink/bindings/core/v8/V8GeneratedCoreBindings13.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings14.o: $
+    cxx gen/blink/bindings/core/v8/V8GeneratedCoreBindings14.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings15.o: $
+    cxx gen/blink/bindings/core/v8/V8GeneratedCoreBindings15.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings16.o: $
+    cxx gen/blink/bindings/core/v8/V8GeneratedCoreBindings16.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings17.o: $
+    cxx gen/blink/bindings/core/v8/V8GeneratedCoreBindings17.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings18.o: $
+    cxx gen/blink/bindings/core/v8/V8GeneratedCoreBindings18.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings19.o: $
+    cxx gen/blink/bindings/core/v8/V8GeneratedCoreBindings19.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.UnionTypesCore.o: $
+    cxx gen/blink/bindings/core/v8/UnionTypesCore.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.CSSPropertyNames.o: $
+    cxx gen/blink/core/CSSPropertyNames.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.CSSValueKeywords.o: $
+    cxx gen/blink/core/CSSValueKeywords.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.Event.o: $
+    cxx gen/blink/core/Event.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.EventNames.o: $
+    cxx gen/blink/core/EventNames.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.EventTargetNames.o: $
+    cxx gen/blink/core/EventTargetNames.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.EventTypeNames.o: $
+    cxx gen/blink/core/EventTypeNames.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.HTMLElementFactory.o: $
+    cxx gen/blink/core/HTMLElementFactory.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.HTMLElementLookupTrie.o: $
+    cxx gen/blink/core/HTMLElementLookupTrie.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.HTMLNames.o: $
+    cxx gen/blink/core/HTMLNames.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.HTMLTokenizerNames.o: $
+    cxx gen/blink/core/HTMLTokenizerNames.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.InputTypeNames.o: $
+    cxx gen/blink/core/InputTypeNames.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.MathMLNames.o: $
+    cxx gen/blink/core/MathMLNames.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.SVGNames.o: $
+    cxx gen/blink/core/SVGNames.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.XLinkNames.o: $
+    cxx gen/blink/core/XLinkNames.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.XMLNSNames.o: $
+    cxx gen/blink/core/XMLNSNames.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.XMLNames.o: $
+    cxx gen/blink/core/XMLNames.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/fetch/webcore_generated.FetchInitiatorTypeNames.o: $
+    cxx gen/blink/core/fetch/FetchInitiatorTypeNames.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.HTMLEntityTable.o: $
+    cxx gen/blink/core/HTMLEntityTable.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.MediaFeatureNames.o: $
+    cxx gen/blink/core/MediaFeatureNames.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.MediaTypeNames.o: $
+    cxx gen/blink/core/MediaTypeNames.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.HTMLMetaElement.o: $
+    cxx gen/blink/core/HTMLMetaElement.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.XPathGrammar.o: $
+    cxx gen/blink/core/XPathGrammar.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.InspectorInstrumentationImpl.o: $
+    cxx gen/blink/core/InspectorInstrumentationImpl.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.SVGElementFactory.o: $
+    cxx gen/blink/core/SVGElementFactory.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.StylePropertyShorthand.o: $
+    cxx gen/blink/core/StylePropertyShorthand.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.StyleBuilder.o: $
+    cxx gen/blink/core/StyleBuilder.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.StyleBuilderFunctions.o: $
+    cxx gen/blink/core/StyleBuilderFunctions.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.CSSOMKeywords.o: $
+    cxx gen/blink/core/CSSOMKeywords.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.CSSOMTypes.o: $
+    cxx gen/blink/core/CSSOMTypes.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.CSSPropertyMetadata.o: $
+    cxx gen/blink/core/CSSPropertyMetadata.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/origin_trials/webcore_generated.OriginTrials.o: $
+    cxx gen/blink/core/origin_trials/OriginTrials.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/animation/webcore_generated.KeyframeEffectOptions.o: $
+    cxx gen/blink/core/animation/KeyframeEffectOptions.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/animation/webcore_generated.ComputedTimingProperties.o: $
+    cxx gen/blink/core/animation/ComputedTimingProperties.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/css/webcore_generated.FontFaceDescriptors.o: $
+    cxx gen/blink/core/css/FontFaceDescriptors.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/css/webcore_generated.FontFaceSetLoadEventInit.o: $
+    cxx gen/blink/core/css/FontFaceSetLoadEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/css/webcore_generated.MediaQueryListEventInit.o: $
+    cxx gen/blink/core/css/MediaQueryListEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/css/cssom/webcore_generated.CalcDictionary.o: $
+    cxx gen/blink/core/css/cssom/CalcDictionary.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/dom/webcore_generated.DOMPointInit.o: $
+    cxx gen/blink/core/dom/DOMPointInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/dom/webcore_generated.ElementRegistrationOptions.o: $
+    cxx gen/blink/core/dom/ElementRegistrationOptions.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/dom/webcore_generated.IdleRequestOptions.o: $
+    cxx gen/blink/core/dom/IdleRequestOptions.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/dom/webcore_generated.IntersectionObserverInit.o: $
+    cxx gen/blink/core/dom/IntersectionObserverInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/dom/webcore_generated.MutationObserverInit.o: $
+    cxx gen/blink/core/dom/MutationObserverInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/dom/shadow/webcore_generated.ShadowRootInit.o: $
+    cxx gen/blink/core/dom/shadow/ShadowRootInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/dom/webcore_generated.TouchInit.o: $
+    cxx gen/blink/core/dom/TouchInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.AnimationEventInit.o: $
+    cxx gen/blink/core/events/AnimationEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.AnimationPlayerEventInit.o: $
+    cxx gen/blink/core/events/AnimationPlayerEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.ApplicationCacheErrorEventInit.o: $
+    cxx gen/blink/core/events/ApplicationCacheErrorEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.AutocompleteErrorEventInit.o: $
+    cxx gen/blink/core/events/AutocompleteErrorEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.CompositionEventInit.o: $
+    cxx gen/blink/core/events/CompositionEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.CustomEventInit.o: $
+    cxx gen/blink/core/events/CustomEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.DragEventInit.o: $
+    cxx gen/blink/core/events/DragEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.ErrorEventInit.o: $
+    cxx gen/blink/core/events/ErrorEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.EventInit.o: $
+    cxx gen/blink/core/events/EventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.EventListenerOptions.o: $
+    cxx gen/blink/core/events/EventListenerOptions.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.EventModifierInit.o: $
+    cxx gen/blink/core/events/EventModifierInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.FocusEventInit.o: $
+    cxx gen/blink/core/events/FocusEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.HashChangeEventInit.o: $
+    cxx gen/blink/core/events/HashChangeEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.InputEventInit.o: $
+    cxx gen/blink/core/events/InputEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.KeyboardEventInit.o: $
+    cxx gen/blink/core/events/KeyboardEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.MessageEventInit.o: $
+    cxx gen/blink/core/events/MessageEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.MouseEventInit.o: $
+    cxx gen/blink/core/events/MouseEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.PageTransitionEventInit.o: $
+    cxx gen/blink/core/events/PageTransitionEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.PointerEventInit.o: $
+    cxx gen/blink/core/events/PointerEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.PopStateEventInit.o: $
+    cxx gen/blink/core/events/PopStateEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.ProgressEventInit.o: $
+    cxx gen/blink/core/events/ProgressEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.PromiseRejectionEventInit.o: $
+    cxx gen/blink/core/events/PromiseRejectionEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.RelatedEventInit.o: $
+    cxx gen/blink/core/events/RelatedEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.SecurityPolicyViolationEventInit.o: $
+    cxx gen/blink/core/events/SecurityPolicyViolationEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.TouchEventInit.o: $
+    cxx gen/blink/core/events/TouchEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.TransitionEventInit.o: $
+    cxx gen/blink/core/events/TransitionEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.UIEventInit.o: $
+    cxx gen/blink/core/events/UIEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.WheelEventInit.o: $
+    cxx gen/blink/core/events/WheelEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/fileapi/webcore_generated.BlobPropertyBag.o: $
+    cxx gen/blink/core/fileapi/BlobPropertyBag.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/fileapi/webcore_generated.FilePropertyBag.o: $
+    cxx gen/blink/core/fileapi/FilePropertyBag.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/frame/webcore_generated.ScrollOptions.o: $
+    cxx gen/blink/core/frame/ScrollOptions.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/frame/webcore_generated.ScrollToOptions.o: $
+    cxx gen/blink/core/frame/ScrollToOptions.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/html/webcore_generated.AssignedNodesOptions.o: $
+    cxx gen/blink/core/html/AssignedNodesOptions.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/html/canvas/webcore_generated.CanvasContextCreationAttributes.o: $
+    cxx gen/blink/core/html/canvas/CanvasContextCreationAttributes.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/html/track/webcore_generated.TrackEventInit.o: $
+    cxx gen/blink/core/html/track/TrackEventInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/imagebitmap/webcore_generated.ImageBitmapOptions.o: $
+    cxx gen/blink/core/imagebitmap/ImageBitmapOptions.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/input/webcore_generated.InputDeviceCapabilitiesInit.o: $
+    cxx gen/blink/core/input/InputDeviceCapabilitiesInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/page/webcore_generated.EventSourceInit.o: $
+    cxx gen/blink/core/page/EventSourceInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/page/scrolling/webcore_generated.ScrollStateInit.o: $
+    cxx gen/blink/core/page/scrolling/ScrollStateInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+build $
+    obj/third_party/WebKit/Source/core/gen/blink/core/timing/webcore_generated.PerformanceObserverInit.o: $
+    cxx gen/blink/core/timing/PerformanceObserverInit.cpp || $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp
+
+build obj/third_party/WebKit/Source/core/libwebcore_generated.a: alink_thin $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8CSSStyleDeclarationCustom.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8CustomEventCustom.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8CustomXPathNSResolver.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8DevToolsHostCustom.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8DocumentCustom.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8ErrorEventCustom.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8EventTargetCustom.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8HTMLAllCollectionCustom.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8HTMLPlugInElementCustom.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8IntersectionObserverCustom.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8MediaQueryListCustom.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8MessageChannelCustom.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8MessageEventCustom.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8MutationObserverCustom.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8PerformanceObserverCustom.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8PopStateEventCustom.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8PromiseRejectionEventCustom.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8WindowCustom.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/custom/webcore_generated.V8XMLHttpRequestCustom.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ActiveDOMCallback.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ActiveScriptWrappable.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ArrayValue.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.BindingSecurity.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.CustomElementBinding.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.CustomElementConstructorBuilder.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.DocumentWriteEvaluator.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.DOMWrapperWorld.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.Dictionary.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.DictionaryHelperForCore.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.DictionaryIterator.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ExceptionMessages.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ExceptionState.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ExceptionStatePlaceholder.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.JSONValuesForV8.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.Microtask.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.OnStackObjectChecker.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.PrivateScriptRunner.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.RejectedPromises.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.RetainedDOMInfo.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScheduledAction.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptCallStack.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptController.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptEventListener.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptFunction.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptPromise.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptPromisePropertyBase.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptPromiseResolver.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptRegexp.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptSourceCode.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptState.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptStreamer.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptStreamerThread.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptString.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptValue.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptValueSerializer.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ScriptWrappable.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.SerializedScriptValue.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.SerializedScriptValueFactory.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.ToV8.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8AbstractEventListener.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8Binding.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8CustomElementLifecycleCallbacks.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8DOMActivityLogger.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8DOMConfiguration.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8DOMWrapper.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8ErrorHandler.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8EventListener.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8EventListenerList.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8GCController.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8GCForContextDispose.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8HiddenValue.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8Initializer.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8IntersectionObserverCallback.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8IteratorResultValue.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8LazyEventListener.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8MutationCallback.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8NodeFilterCondition.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8ObjectBuilder.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8ObjectConstructor.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8PagePopupControllerBinding.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8PerContextData.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8PerformanceObserverCallback.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8PerIsolateData.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8ScriptRunner.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8StringResource.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8ThrowException.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8ValueCache.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.V8WorkerGlobalScopeEventListener.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.WindowProxy.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.WindowProxyManager.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.WorkerOrWorkletScriptController.o $
+    obj/third_party/WebKit/Source/bindings/core/v8/webcore_generated.WrapperTypeInfo.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings01.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings02.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings03.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings04.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings05.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings06.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings07.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings08.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings09.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings10.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings11.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings12.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings13.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings14.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings15.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings16.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings17.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings18.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.V8GeneratedCoreBindings19.o $
+    obj/third_party/WebKit/Source/core/gen/blink/bindings/core/v8/webcore_generated.UnionTypesCore.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.CSSPropertyNames.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.CSSValueKeywords.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.Event.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.EventNames.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.EventTargetNames.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.EventTypeNames.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.HTMLElementFactory.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.HTMLElementLookupTrie.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.HTMLNames.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.HTMLTokenizerNames.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.InputTypeNames.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.MathMLNames.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.SVGNames.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.XLinkNames.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.XMLNSNames.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.XMLNames.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/fetch/webcore_generated.FetchInitiatorTypeNames.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.HTMLEntityTable.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.MediaFeatureNames.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.MediaTypeNames.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.HTMLMetaElement.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.XPathGrammar.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.InspectorInstrumentationImpl.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.SVGElementFactory.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.StylePropertyShorthand.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.StyleBuilder.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.StyleBuilderFunctions.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.CSSOMKeywords.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.CSSOMTypes.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/webcore_generated.CSSPropertyMetadata.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/origin_trials/webcore_generated.OriginTrials.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/animation/webcore_generated.KeyframeEffectOptions.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/animation/webcore_generated.ComputedTimingProperties.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/css/webcore_generated.FontFaceDescriptors.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/css/webcore_generated.FontFaceSetLoadEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/css/webcore_generated.MediaQueryListEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/css/cssom/webcore_generated.CalcDictionary.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/dom/webcore_generated.DOMPointInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/dom/webcore_generated.ElementRegistrationOptions.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/dom/webcore_generated.IdleRequestOptions.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/dom/webcore_generated.IntersectionObserverInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/dom/webcore_generated.MutationObserverInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/dom/shadow/webcore_generated.ShadowRootInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/dom/webcore_generated.TouchInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.AnimationEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.AnimationPlayerEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.ApplicationCacheErrorEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.AutocompleteErrorEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.CompositionEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.CustomEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.DragEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.ErrorEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.EventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.EventListenerOptions.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.EventModifierInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.FocusEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.HashChangeEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.InputEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.KeyboardEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.MessageEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.MouseEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.PageTransitionEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.PointerEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.PopStateEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.ProgressEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.PromiseRejectionEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.RelatedEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.SecurityPolicyViolationEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.TouchEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.TransitionEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.UIEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/events/webcore_generated.WheelEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/fileapi/webcore_generated.BlobPropertyBag.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/fileapi/webcore_generated.FilePropertyBag.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/frame/webcore_generated.ScrollOptions.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/frame/webcore_generated.ScrollToOptions.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/html/webcore_generated.AssignedNodesOptions.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/html/canvas/webcore_generated.CanvasContextCreationAttributes.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/html/track/webcore_generated.TrackEventInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/imagebitmap/webcore_generated.ImageBitmapOptions.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/input/webcore_generated.InputDeviceCapabilitiesInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/page/webcore_generated.EventSourceInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/page/scrolling/webcore_generated.ScrollStateInit.o $
+    obj/third_party/WebKit/Source/core/gen/blink/core/timing/webcore_generated.PerformanceObserverInit.o $
+    || $
+    obj/third_party/WebKit/Source/core/webcore_generated.actions_depends.stamp

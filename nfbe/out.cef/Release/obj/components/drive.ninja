@@ -1,0 +1,159 @@
+build obj/components/drive.actions_depends.stamp: stamp $
+    obj/components/libdrive_proto.a lib/libbase.so.TOC $
+    obj/mojo/libmojo_application_bindings.a $
+    obj/ui/accessibility/libax_gen.a $
+    obj/content/libcontent_common_mojo_bindings.a lib/libnet.so.TOC $
+    obj/third_party/cacheinvalidation/libcacheinvalidation_proto_cpp.a
+
+build obj/components/drive.compile_depends.stamp: stamp $
+    obj/components/drive_proto.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/mojo/mojo_application_bindings_mojom.actions_rules_copies.stamp $
+    obj/ui/accessibility/ax_gen.actions_rules_copies.stamp $
+    obj/content/content_common_mojo_bindings_mojom.actions_rules_copies.stamp $
+    obj/net/net.compile_depends.stamp $
+    obj/third_party/cacheinvalidation/cacheinvalidation_proto_cpp.actions_rules_copies.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DMOJO_USE_SYSTEM_IMPL $
+    -DPROTOBUF_USE_DLLS -DGOOGLE_PROTOBUF_NO_RTTI $
+    -DGOOGLE_PROTOBUF_NO_STATIC_INITIALIZER -DSK_SUPPORT_GPU=1 $
+    -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS $
+    -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../third_party/khronos -I../../gpu $
+    -I../../skia/config -Igen/angle -I../../third_party/WebKit/Source $
+    -Igen/protoc_out -I../../third_party/protobuf $
+    -I../../third_party/protobuf/src -I../../third_party/WebKit $
+    -Igen/third_party/WebKit -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../third_party/cacheinvalidation/overrides $
+    -I../../third_party/cacheinvalidation/src $
+    -I../../third_party/cacheinvalidation/google/cacheinvalidation $
+    -I../../third_party/leveldatabase/src/include $
+    -I../../third_party/leveldatabase/src -I../../third_party/leveldatabase $
+    -I../../third_party/re2/src
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/components/drive/drive.drive_api_util.o: cxx $
+    ../../components/drive/drive_api_util.cc || $
+    obj/components/drive.compile_depends.stamp
+build obj/components/drive/drive.drive_app_registry.o: cxx $
+    ../../components/drive/drive_app_registry.cc || $
+    obj/components/drive.compile_depends.stamp
+build obj/components/drive/drive.drive_notification_manager.o: cxx $
+    ../../components/drive/drive_notification_manager.cc || $
+    obj/components/drive.compile_depends.stamp
+build obj/components/drive/drive.drive_pref_names.o: cxx $
+    ../../components/drive/drive_pref_names.cc || $
+    obj/components/drive.compile_depends.stamp
+build obj/components/drive/drive.drive_uploader.o: cxx $
+    ../../components/drive/drive_uploader.cc || $
+    obj/components/drive.compile_depends.stamp
+build obj/components/drive/drive.event_logger.o: cxx $
+    ../../components/drive/event_logger.cc || $
+    obj/components/drive.compile_depends.stamp
+build obj/components/drive/drive.file_change.o: cxx $
+    ../../components/drive/file_change.cc || $
+    obj/components/drive.compile_depends.stamp
+build obj/components/drive/drive.file_errors.o: cxx $
+    ../../components/drive/file_errors.cc || $
+    obj/components/drive.compile_depends.stamp
+build obj/components/drive/drive.file_system_core_util.o: cxx $
+    ../../components/drive/file_system_core_util.cc || $
+    obj/components/drive.compile_depends.stamp
+build obj/components/drive/drive.file_system_metadata.o: cxx $
+    ../../components/drive/file_system_metadata.cc || $
+    obj/components/drive.compile_depends.stamp
+build obj/components/drive/drive.file_write_watcher.o: cxx $
+    ../../components/drive/file_write_watcher.cc || $
+    obj/components/drive.compile_depends.stamp
+build obj/components/drive/drive.job_list.o: cxx $
+    ../../components/drive/job_list.cc || $
+    obj/components/drive.compile_depends.stamp
+build obj/components/drive/drive.job_queue.o: cxx $
+    ../../components/drive/job_queue.cc || $
+    obj/components/drive.compile_depends.stamp
+build obj/components/drive/drive.job_scheduler.o: cxx $
+    ../../components/drive/job_scheduler.cc || $
+    obj/components/drive.compile_depends.stamp
+build obj/components/drive/drive.local_file_reader.o: cxx $
+    ../../components/drive/local_file_reader.cc || $
+    obj/components/drive.compile_depends.stamp
+build obj/components/drive/drive.resource_entry_conversion.o: cxx $
+    ../../components/drive/resource_entry_conversion.cc || $
+    obj/components/drive.compile_depends.stamp
+build obj/components/drive/drive.resource_metadata_storage.o: cxx $
+    ../../components/drive/resource_metadata_storage.cc || $
+    obj/components/drive.compile_depends.stamp
+build obj/components/drive/service/drive.drive_api_service.o: cxx $
+    ../../components/drive/service/drive_api_service.cc || $
+    obj/components/drive.compile_depends.stamp
+build obj/components/drive/service/drive.drive_service_interface.o: cxx $
+    ../../components/drive/service/drive_service_interface.cc || $
+    obj/components/drive.compile_depends.stamp
+
+build obj/components/libdrive.a: alink_thin $
+    obj/components/drive/drive.drive_api_util.o $
+    obj/components/drive/drive.drive_app_registry.o $
+    obj/components/drive/drive.drive_notification_manager.o $
+    obj/components/drive/drive.drive_pref_names.o $
+    obj/components/drive/drive.drive_uploader.o $
+    obj/components/drive/drive.event_logger.o $
+    obj/components/drive/drive.file_change.o $
+    obj/components/drive/drive.file_errors.o $
+    obj/components/drive/drive.file_system_core_util.o $
+    obj/components/drive/drive.file_system_metadata.o $
+    obj/components/drive/drive.file_write_watcher.o $
+    obj/components/drive/drive.job_list.o $
+    obj/components/drive/drive.job_queue.o $
+    obj/components/drive/drive.job_scheduler.o $
+    obj/components/drive/drive.local_file_reader.o $
+    obj/components/drive/drive.resource_entry_conversion.o $
+    obj/components/drive/drive.resource_metadata_storage.o $
+    obj/components/drive/service/drive.drive_api_service.o $
+    obj/components/drive/service/drive.drive_service_interface.o || $
+    obj/components/drive.actions_depends.stamp

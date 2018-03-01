@@ -1,0 +1,16 @@
+build obj/mojo/mojo_edk_tests.actions_depends.stamp: stamp $
+    mojo_message_pipe_perftests mojo_public_bindings_perftests $
+    mojo_public_bindings_unittests mojo_public_system_perftests $
+    mojo_public_system_unittests mojo_system_unittests mojo_js_unittests $
+    mojo_js_integration_tests
+
+build obj/mojo/mojo_edk_tests.compile_depends.stamp: stamp $
+    obj/mojo/mojo_message_pipe_perftests.compile_depends.stamp $
+    obj/mojo/mojo_public_bindings_perftests.compile_depends.stamp $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp $
+    obj/mojo/mojo_public_system_perftests.compile_depends.stamp $
+    obj/mojo/mojo_public_system_unittests.compile_depends.stamp $
+    obj/mojo/mojo_system_unittests.compile_depends.stamp $
+    obj/mojo/mojo_js_unittests.compile_depends.stamp $
+    obj/mojo/mojo_js_integration_tests.compile_depends.stamp
+

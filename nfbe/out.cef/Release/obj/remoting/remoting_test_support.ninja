@@ -1,0 +1,239 @@
+build obj/remoting/remoting_test_support.actions_depends.stamp: stamp $
+    lib/libbase.so.TOC obj/skia/skia.actions_depends.stamp $
+    obj/remoting/libremoting_base.a $
+    obj/remoting/proto/libchromotocol_proto_lib.a $
+    obj/remoting/remoting_resources.actions_rules_copies.stamp
+
+build obj/remoting/remoting_test_support.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/remoting/remoting_base.compile_depends.stamp $
+    obj/remoting/proto/chromotocol_proto_lib.actions_rules_copies.stamp $
+    obj/remoting/remoting_resources.actions_rules_copies.stamp
+
+defines = -DBINARY_CORE=1 -DBINARY_DESKTOP=2 -DBINARY_HOST_ME2ME=3 $
+    -DBINARY_NATIVE_MESSAGING_HOST=4 -DBINARY_REMOTE_ASSISTANCE_HOST=5 $
+    -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -D__ARMEL__ -D__arm__ -DNVALGRIND $
+    -DGTEST_HAS_POSIX_RE=0 -DGTEST_LANG_CXX11=0 -DSK_SUPPORT_GPU=1 $
+    -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS -DUNIT_TEST -DGTEST_HAS_RTTI=0 $
+    -DPROTOBUF_USE_DLLS -DGOOGLE_PROTOBUF_NO_RTTI $
+    -DGOOGLE_PROTOBUF_NO_STATIC_INITIALIZER -DFEATURE_ENABLE_SSL $
+    -DFEATURE_ENABLE_VOICEMAIL -DEXPAT_RELATIVE_PATH -DGTEST_RELATIVE_PATH $
+    -DNO_MAIN_THREAD_WRAPPING -DNO_SOUND_SYSTEM -DLINUX -DWEBRTC_LINUX $
+    -DWEBRTC_POSIX -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 $
+    -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -I../.. -Igen -I../../skia/config -I../../third_party/khronos $
+    -I../../gpu -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../testing/gmock/include -I../../testing/gtest/include $
+    -I../../third_party/protobuf -I../../third_party/protobuf/src $
+    -Igen/protoc_out -I../../third_party/webrtc_overrides $
+    -I../../third_party/libjingle/overrides $
+    -I../../third_party/libjingle/source -I../../third_party
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -I/work/bsp/sc1400/usr/include/nss3 $
+    -I/work/bsp/sc1400/usr/include/nspr -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/remoting/protocol/remoting_test_support.fake_authenticator.o: cxx $
+    ../../remoting/protocol/fake_authenticator.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build $
+    obj/remoting/protocol/remoting_test_support.fake_connection_to_client.o: $
+    cxx ../../remoting/protocol/fake_connection_to_client.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build $
+    obj/remoting/protocol/remoting_test_support.fake_connection_to_host.o: $
+    cxx ../../remoting/protocol/fake_connection_to_host.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/protocol/remoting_test_support.fake_datagram_socket.o: $
+    cxx ../../remoting/protocol/fake_datagram_socket.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/protocol/remoting_test_support.fake_desktop_capturer.o: $
+    cxx ../../remoting/protocol/fake_desktop_capturer.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/protocol/remoting_test_support.fake_session.o: cxx $
+    ../../remoting/protocol/fake_session.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/protocol/remoting_test_support.fake_stream_socket.o: cxx $
+    ../../remoting/protocol/fake_stream_socket.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/protocol/remoting_test_support.fake_video_renderer.o: $
+    cxx ../../remoting/protocol/fake_video_renderer.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/protocol/remoting_test_support.protocol_mock_objects.o: $
+    cxx ../../remoting/protocol/protocol_mock_objects.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/signaling/remoting_test_support.fake_signal_strategy.o: $
+    cxx ../../remoting/signaling/fake_signal_strategy.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/signaling/remoting_test_support.mock_signal_strategy.o: $
+    cxx ../../remoting/signaling/mock_signal_strategy.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/test/remoting_test_support.access_token_fetcher.o: cxx $
+    ../../remoting/test/access_token_fetcher.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build $
+    obj/remoting/test/remoting_test_support.app_remoting_report_issue_request.o: $
+    cxx ../../remoting/test/app_remoting_report_issue_request.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/test/remoting_test_support.app_remoting_service_urls.o: $
+    cxx ../../remoting/test/app_remoting_service_urls.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build $
+    obj/remoting/test/remoting_test_support.chromoting_test_driver_environment.o: $
+    cxx ../../remoting/test/chromoting_test_driver_environment.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/test/remoting_test_support.connection_setup_info.o: cxx $
+    ../../remoting/test/connection_setup_info.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/test/remoting_test_support.connection_time_observer.o: $
+    cxx ../../remoting/test/connection_time_observer.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/test/remoting_test_support.cyclic_frame_generator.o: cxx $
+    ../../remoting/test/cyclic_frame_generator.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/test/remoting_test_support.fake_access_token_fetcher.o: $
+    cxx ../../remoting/test/fake_access_token_fetcher.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build $
+    obj/remoting/test/remoting_test_support.fake_app_remoting_report_issue_request.o: $
+    cxx ../../remoting/test/fake_app_remoting_report_issue_request.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/test/remoting_test_support.fake_host_list_fetcher.o: cxx $
+    ../../remoting/test/fake_host_list_fetcher.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/test/remoting_test_support.fake_network_dispatcher.o: $
+    cxx ../../remoting/test/fake_network_dispatcher.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/test/remoting_test_support.fake_network_manager.o: cxx $
+    ../../remoting/test/fake_network_manager.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/test/remoting_test_support.fake_port_allocator.o: cxx $
+    ../../remoting/test/fake_port_allocator.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/test/remoting_test_support.fake_refresh_token_store.o: $
+    cxx ../../remoting/test/fake_refresh_token_store.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build $
+    obj/remoting/test/remoting_test_support.fake_remote_host_info_fetcher.o: $
+    cxx ../../remoting/test/fake_remote_host_info_fetcher.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/test/remoting_test_support.fake_socket_factory.o: cxx $
+    ../../remoting/test/fake_socket_factory.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/test/remoting_test_support.host_info.o: cxx $
+    ../../remoting/test/host_info.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/test/remoting_test_support.host_list_fetcher.o: cxx $
+    ../../remoting/test/host_list_fetcher.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/test/remoting_test_support.leaky_bucket.o: cxx $
+    ../../remoting/test/leaky_bucket.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/test/remoting_test_support.mock_access_token_fetcher.o: $
+    cxx ../../remoting/test/mock_access_token_fetcher.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/test/remoting_test_support.refresh_token_store.o: cxx $
+    ../../remoting/test/refresh_token_store.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/test/remoting_test_support.remote_host_info.o: cxx $
+    ../../remoting/test/remote_host_info.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/test/remoting_test_support.remote_host_info_fetcher.o: $
+    cxx ../../remoting/test/remote_host_info_fetcher.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/test/remoting_test_support.rgb_value.o: cxx $
+    ../../remoting/test/rgb_value.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/test/remoting_test_support.test_chromoting_client.o: cxx $
+    ../../remoting/test/test_chromoting_client.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/test/remoting_test_support.test_video_renderer.o: cxx $
+    ../../remoting/test/test_video_renderer.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+build obj/remoting/test/remoting_test_support.video_frame_writer.o: cxx $
+    ../../remoting/test/video_frame_writer.cc || $
+    obj/remoting/remoting_test_support.compile_depends.stamp
+
+build obj/remoting/libremoting_test_support.a: alink_thin $
+    obj/remoting/protocol/remoting_test_support.fake_authenticator.o $
+    obj/remoting/protocol/remoting_test_support.fake_connection_to_client.o $
+    obj/remoting/protocol/remoting_test_support.fake_connection_to_host.o $
+    obj/remoting/protocol/remoting_test_support.fake_datagram_socket.o $
+    obj/remoting/protocol/remoting_test_support.fake_desktop_capturer.o $
+    obj/remoting/protocol/remoting_test_support.fake_session.o $
+    obj/remoting/protocol/remoting_test_support.fake_stream_socket.o $
+    obj/remoting/protocol/remoting_test_support.fake_video_renderer.o $
+    obj/remoting/protocol/remoting_test_support.protocol_mock_objects.o $
+    obj/remoting/signaling/remoting_test_support.fake_signal_strategy.o $
+    obj/remoting/signaling/remoting_test_support.mock_signal_strategy.o $
+    obj/remoting/test/remoting_test_support.access_token_fetcher.o $
+    obj/remoting/test/remoting_test_support.app_remoting_report_issue_request.o $
+    obj/remoting/test/remoting_test_support.app_remoting_service_urls.o $
+    obj/remoting/test/remoting_test_support.chromoting_test_driver_environment.o $
+    obj/remoting/test/remoting_test_support.connection_setup_info.o $
+    obj/remoting/test/remoting_test_support.connection_time_observer.o $
+    obj/remoting/test/remoting_test_support.cyclic_frame_generator.o $
+    obj/remoting/test/remoting_test_support.fake_access_token_fetcher.o $
+    obj/remoting/test/remoting_test_support.fake_app_remoting_report_issue_request.o $
+    obj/remoting/test/remoting_test_support.fake_host_list_fetcher.o $
+    obj/remoting/test/remoting_test_support.fake_network_dispatcher.o $
+    obj/remoting/test/remoting_test_support.fake_network_manager.o $
+    obj/remoting/test/remoting_test_support.fake_port_allocator.o $
+    obj/remoting/test/remoting_test_support.fake_refresh_token_store.o $
+    obj/remoting/test/remoting_test_support.fake_remote_host_info_fetcher.o $
+    obj/remoting/test/remoting_test_support.fake_socket_factory.o $
+    obj/remoting/test/remoting_test_support.host_info.o $
+    obj/remoting/test/remoting_test_support.host_list_fetcher.o $
+    obj/remoting/test/remoting_test_support.leaky_bucket.o $
+    obj/remoting/test/remoting_test_support.mock_access_token_fetcher.o $
+    obj/remoting/test/remoting_test_support.refresh_token_store.o $
+    obj/remoting/test/remoting_test_support.remote_host_info.o $
+    obj/remoting/test/remoting_test_support.remote_host_info_fetcher.o $
+    obj/remoting/test/remoting_test_support.rgb_value.o $
+    obj/remoting/test/remoting_test_support.test_chromoting_client.o $
+    obj/remoting/test/remoting_test_support.test_video_renderer.o $
+    obj/remoting/test/remoting_test_support.video_frame_writer.o || $
+    obj/remoting/remoting_test_support.actions_depends.stamp

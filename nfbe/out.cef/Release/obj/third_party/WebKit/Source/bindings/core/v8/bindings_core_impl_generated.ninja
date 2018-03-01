@@ -1,0 +1,378 @@
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/bindings_core_impl_generated.actions_depends.stamp: $
+    stamp gen/blink/bindings/scripts/cached_jinja_templates.stamp $
+    obj/third_party/WebKit/Source/bindings/scripts/cached_lex_yacc_tables.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/core/interfaces_info_individual_core.actions_rules_copies.stamp $
+    gen/blink/bindings/modules/InterfacesInfoOverall.pickle
+
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/bindings_core_impl_generated.compile_depends.stamp: $
+    stamp gen/blink/bindings/scripts/cached_jinja_templates.stamp $
+    obj/third_party/WebKit/Source/bindings/scripts/cached_lex_yacc_tables.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/core/interfaces_info_individual_core.actions_rules_copies.stamp $
+    gen/blink/bindings/modules/InterfacesInfoOverall.pickle
+
+rule $
+    bindings_core_impl_generated_target_idl_dictionary_324b284a2e9a70c6108af1f84bc2d2d0
+  command = cd ../../third_party/WebKit/Source/bindings/core/v8; python $
+      ../../scripts/idl_compiler.py --cache-dir $
+      ../../../../../../out.cef/Release/gen/blink/bindings/scripts $
+      --output-dir $
+      ../../../../../../out.cef/Release/gen/blink/bindings/core/v8 $
+      --impl-output-dir ../../../../../../out.cef/Release/gen/blink/ $
+      --info-dir ../../../../../../out.cef/Release/gen/blink/bindings/ $
+      --target-component core --write-file-only-if-changed 1 $
+      --generate-impl $
+      ../../../../../../out.cef/third_party/WebKit/Source/bindings/core/v8/core_dictionary_idl_files_list.tmp
+  description = ACTION Generating core IDL dictionary impl classes
+  restat = 1
+
+build gen/blink/bindings/core/v8/UnionTypesCore.cpp $
+    gen/blink/bindings/core/v8/UnionTypesCore.h $
+    gen/blink/core/animation/KeyframeEffectOptions.cpp $
+    gen/blink/core/animation/KeyframeEffectOptions.h $
+    gen/blink/core/animation/ComputedTimingProperties.cpp $
+    gen/blink/core/animation/ComputedTimingProperties.h $
+    gen/blink/core/css/FontFaceDescriptors.cpp $
+    gen/blink/core/css/FontFaceDescriptors.h $
+    gen/blink/core/css/FontFaceSetLoadEventInit.cpp $
+    gen/blink/core/css/FontFaceSetLoadEventInit.h $
+    gen/blink/core/css/MediaQueryListEventInit.cpp $
+    gen/blink/core/css/MediaQueryListEventInit.h $
+    gen/blink/core/css/cssom/CalcDictionary.cpp $
+    gen/blink/core/css/cssom/CalcDictionary.h $
+    gen/blink/core/dom/DOMPointInit.cpp gen/blink/core/dom/DOMPointInit.h $
+    gen/blink/core/dom/ElementRegistrationOptions.cpp $
+    gen/blink/core/dom/ElementRegistrationOptions.h $
+    gen/blink/core/dom/IdleRequestOptions.cpp $
+    gen/blink/core/dom/IdleRequestOptions.h $
+    gen/blink/core/dom/IntersectionObserverInit.cpp $
+    gen/blink/core/dom/IntersectionObserverInit.h $
+    gen/blink/core/dom/MutationObserverInit.cpp $
+    gen/blink/core/dom/MutationObserverInit.h $
+    gen/blink/core/dom/shadow/ShadowRootInit.cpp $
+    gen/blink/core/dom/shadow/ShadowRootInit.h $
+    gen/blink/core/dom/TouchInit.cpp gen/blink/core/dom/TouchInit.h $
+    gen/blink/core/events/AnimationEventInit.cpp $
+    gen/blink/core/events/AnimationEventInit.h $
+    gen/blink/core/events/AnimationPlayerEventInit.cpp $
+    gen/blink/core/events/AnimationPlayerEventInit.h $
+    gen/blink/core/events/ApplicationCacheErrorEventInit.cpp $
+    gen/blink/core/events/ApplicationCacheErrorEventInit.h $
+    gen/blink/core/events/AutocompleteErrorEventInit.cpp $
+    gen/blink/core/events/AutocompleteErrorEventInit.h $
+    gen/blink/core/events/CompositionEventInit.cpp $
+    gen/blink/core/events/CompositionEventInit.h $
+    gen/blink/core/events/CustomEventInit.cpp $
+    gen/blink/core/events/CustomEventInit.h $
+    gen/blink/core/events/DragEventInit.cpp $
+    gen/blink/core/events/DragEventInit.h $
+    gen/blink/core/events/ErrorEventInit.cpp $
+    gen/blink/core/events/ErrorEventInit.h $
+    gen/blink/core/events/EventInit.cpp gen/blink/core/events/EventInit.h $
+    gen/blink/core/events/EventListenerOptions.cpp $
+    gen/blink/core/events/EventListenerOptions.h $
+    gen/blink/core/events/EventModifierInit.cpp $
+    gen/blink/core/events/EventModifierInit.h $
+    gen/blink/core/events/FocusEventInit.cpp $
+    gen/blink/core/events/FocusEventInit.h $
+    gen/blink/core/events/HashChangeEventInit.cpp $
+    gen/blink/core/events/HashChangeEventInit.h $
+    gen/blink/core/events/InputEventInit.cpp $
+    gen/blink/core/events/InputEventInit.h $
+    gen/blink/core/events/KeyboardEventInit.cpp $
+    gen/blink/core/events/KeyboardEventInit.h $
+    gen/blink/core/events/MessageEventInit.cpp $
+    gen/blink/core/events/MessageEventInit.h $
+    gen/blink/core/events/MouseEventInit.cpp $
+    gen/blink/core/events/MouseEventInit.h $
+    gen/blink/core/events/PageTransitionEventInit.cpp $
+    gen/blink/core/events/PageTransitionEventInit.h $
+    gen/blink/core/events/PointerEventInit.cpp $
+    gen/blink/core/events/PointerEventInit.h $
+    gen/blink/core/events/PopStateEventInit.cpp $
+    gen/blink/core/events/PopStateEventInit.h $
+    gen/blink/core/events/ProgressEventInit.cpp $
+    gen/blink/core/events/ProgressEventInit.h $
+    gen/blink/core/events/PromiseRejectionEventInit.cpp $
+    gen/blink/core/events/PromiseRejectionEventInit.h $
+    gen/blink/core/events/RelatedEventInit.cpp $
+    gen/blink/core/events/RelatedEventInit.h $
+    gen/blink/core/events/SecurityPolicyViolationEventInit.cpp $
+    gen/blink/core/events/SecurityPolicyViolationEventInit.h $
+    gen/blink/core/events/TouchEventInit.cpp $
+    gen/blink/core/events/TouchEventInit.h $
+    gen/blink/core/events/TransitionEventInit.cpp $
+    gen/blink/core/events/TransitionEventInit.h $
+    gen/blink/core/events/UIEventInit.cpp $
+    gen/blink/core/events/UIEventInit.h $
+    gen/blink/core/events/WheelEventInit.cpp $
+    gen/blink/core/events/WheelEventInit.h $
+    gen/blink/core/fileapi/BlobPropertyBag.cpp $
+    gen/blink/core/fileapi/BlobPropertyBag.h $
+    gen/blink/core/fileapi/FilePropertyBag.cpp $
+    gen/blink/core/fileapi/FilePropertyBag.h $
+    gen/blink/core/frame/ScrollOptions.cpp $
+    gen/blink/core/frame/ScrollOptions.h $
+    gen/blink/core/frame/ScrollToOptions.cpp $
+    gen/blink/core/frame/ScrollToOptions.h $
+    gen/blink/core/html/AssignedNodesOptions.cpp $
+    gen/blink/core/html/AssignedNodesOptions.h $
+    gen/blink/core/html/canvas/CanvasContextCreationAttributes.cpp $
+    gen/blink/core/html/canvas/CanvasContextCreationAttributes.h $
+    gen/blink/core/html/track/TrackEventInit.cpp $
+    gen/blink/core/html/track/TrackEventInit.h $
+    gen/blink/core/imagebitmap/ImageBitmapOptions.cpp $
+    gen/blink/core/imagebitmap/ImageBitmapOptions.h $
+    gen/blink/core/input/InputDeviceCapabilitiesInit.cpp $
+    gen/blink/core/input/InputDeviceCapabilitiesInit.h $
+    gen/blink/core/page/EventSourceInit.cpp $
+    gen/blink/core/page/EventSourceInit.h $
+    gen/blink/core/page/scrolling/ScrollStateInit.cpp $
+    gen/blink/core/page/scrolling/ScrollStateInit.h $
+    gen/blink/core/timing/PerformanceObserverInit.cpp $
+    gen/blink/core/timing/PerformanceObserverInit.h $
+    gen/blink/core/testing/InternalDictionary.cpp $
+    gen/blink/core/testing/InternalDictionary.h $
+    gen/blink/core/testing/InternalDictionaryDerived.cpp $
+    gen/blink/core/testing/InternalDictionaryDerived.h: $
+    bindings_core_impl_generated_target_idl_dictionary_324b284a2e9a70c6108af1f84bc2d2d0 $
+    ../../third_party/WebKit/Source/core/animation/KeyframeEffectOptions.idl $
+    ../../third_party/WebKit/Source/core/animation/ComputedTimingProperties.idl $
+    ../../third_party/WebKit/Source/core/css/FontFaceDescriptors.idl $
+    ../../third_party/WebKit/Source/core/css/FontFaceSetLoadEventInit.idl $
+    ../../third_party/WebKit/Source/core/css/MediaQueryListEventInit.idl $
+    ../../third_party/WebKit/Source/core/css/cssom/CalcDictionary.idl $
+    ../../third_party/WebKit/Source/core/dom/DOMPointInit.idl $
+    ../../third_party/WebKit/Source/core/dom/ElementRegistrationOptions.idl $
+    ../../third_party/WebKit/Source/core/dom/IdleRequestOptions.idl $
+    ../../third_party/WebKit/Source/core/dom/IntersectionObserverInit.idl $
+    ../../third_party/WebKit/Source/core/dom/MutationObserverInit.idl $
+    ../../third_party/WebKit/Source/core/dom/shadow/ShadowRootInit.idl $
+    ../../third_party/WebKit/Source/core/dom/TouchInit.idl $
+    ../../third_party/WebKit/Source/core/events/AnimationEventInit.idl $
+    ../../third_party/WebKit/Source/core/events/AnimationPlayerEventInit.idl $
+    ../../third_party/WebKit/Source/core/events/ApplicationCacheErrorEventInit.idl $
+    ../../third_party/WebKit/Source/core/events/AutocompleteErrorEventInit.idl $
+    ../../third_party/WebKit/Source/core/events/CompositionEventInit.idl $
+    ../../third_party/WebKit/Source/core/events/CustomEventInit.idl $
+    ../../third_party/WebKit/Source/core/events/DragEventInit.idl $
+    ../../third_party/WebKit/Source/core/events/ErrorEventInit.idl $
+    ../../third_party/WebKit/Source/core/events/EventInit.idl $
+    ../../third_party/WebKit/Source/core/events/EventListenerOptions.idl $
+    ../../third_party/WebKit/Source/core/events/EventModifierInit.idl $
+    ../../third_party/WebKit/Source/core/events/FocusEventInit.idl $
+    ../../third_party/WebKit/Source/core/events/HashChangeEventInit.idl $
+    ../../third_party/WebKit/Source/core/events/InputEventInit.idl $
+    ../../third_party/WebKit/Source/core/events/KeyboardEventInit.idl $
+    ../../third_party/WebKit/Source/core/events/MessageEventInit.idl $
+    ../../third_party/WebKit/Source/core/events/MouseEventInit.idl $
+    ../../third_party/WebKit/Source/core/events/PageTransitionEventInit.idl $
+    ../../third_party/WebKit/Source/core/events/PointerEventInit.idl $
+    ../../third_party/WebKit/Source/core/events/PopStateEventInit.idl $
+    ../../third_party/WebKit/Source/core/events/ProgressEventInit.idl $
+    ../../third_party/WebKit/Source/core/events/PromiseRejectionEventInit.idl $
+    ../../third_party/WebKit/Source/core/events/RelatedEventInit.idl $
+    ../../third_party/WebKit/Source/core/events/SecurityPolicyViolationEventInit.idl $
+    ../../third_party/WebKit/Source/core/events/TouchEventInit.idl $
+    ../../third_party/WebKit/Source/core/events/TransitionEventInit.idl $
+    ../../third_party/WebKit/Source/core/events/UIEventInit.idl $
+    ../../third_party/WebKit/Source/core/events/WheelEventInit.idl $
+    ../../third_party/WebKit/Source/core/fileapi/BlobPropertyBag.idl $
+    ../../third_party/WebKit/Source/core/fileapi/FilePropertyBag.idl $
+    ../../third_party/WebKit/Source/core/frame/ScrollOptions.idl $
+    ../../third_party/WebKit/Source/core/frame/ScrollToOptions.idl $
+    ../../third_party/WebKit/Source/core/html/AssignedNodesOptions.idl $
+    ../../third_party/WebKit/Source/core/html/canvas/CanvasContextCreationAttributes.idl $
+    ../../third_party/WebKit/Source/core/html/track/TrackEventInit.idl $
+    ../../third_party/WebKit/Source/core/imagebitmap/ImageBitmapOptions.idl $
+    ../../third_party/WebKit/Source/core/input/InputDeviceCapabilitiesInit.idl $
+    ../../third_party/WebKit/Source/core/page/EventSourceInit.idl $
+    ../../third_party/WebKit/Source/core/page/scrolling/ScrollStateInit.idl $
+    ../../third_party/WebKit/Source/core/timing/PerformanceObserverInit.idl $
+    ../../third_party/WebKit/Source/core/testing/InternalDictionary.idl $
+    ../../third_party/WebKit/Source/core/testing/InternalDictionaryDerived.idl $
+    ../../third_party/ply/lex.py ../../third_party/ply/yacc.py $
+    ../../tools/idl_parser/idl_lexer.py ../../tools/idl_parser/idl_node.py $
+    ../../tools/idl_parser/idl_parser.py $
+    ../../third_party/WebKit/Source/bindings/scripts/blink_idl_lexer.py $
+    ../../third_party/WebKit/Source/bindings/scripts/blink_idl_parser.py $
+    gen/blink/bindings/scripts/lextab.py $
+    gen/blink/bindings/scripts/parsetab.pickle $
+    gen/blink/bindings/scripts/cached_jinja_templates.stamp $
+    ../../third_party/WebKit/Source/bindings/scripts/idl_compiler.py $
+    ../../third_party/WebKit/Source/bindings/scripts/idl_definitions.py $
+    ../../third_party/WebKit/Source/bindings/scripts/idl_reader.py $
+    ../../third_party/WebKit/Source/bindings/scripts/idl_types.py $
+    ../../third_party/WebKit/Source/bindings/scripts/idl_validator.py $
+    ../../third_party/WebKit/Source/bindings/scripts/interface_dependency_resolver.py $
+    ../../third_party/WebKit/Source/bindings/scripts/code_generator_v8.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_attributes.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_callback_interface.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_dictionary.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_globals.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_interface.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_methods.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_types.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_union.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_utilities.py $
+    ../../third_party/WebKit/Source/bindings/IDLExtendedAttributes.txt $
+    gen/blink/bindings/modules/InterfacesInfoOverall.pickle $
+    gen/blink/bindings/core/ComponentInfoCore.pickle || $
+    obj/third_party/WebKit/Source/bindings/core/v8/bindings_core_impl_generated.actions_depends.stamp
+
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/bindings_core_impl_generated.actions_rules_copies.stamp: $
+    stamp gen/blink/bindings/core/v8/UnionTypesCore.cpp $
+    gen/blink/bindings/core/v8/UnionTypesCore.h $
+    gen/blink/core/animation/KeyframeEffectOptions.cpp $
+    gen/blink/core/animation/KeyframeEffectOptions.h $
+    gen/blink/core/animation/ComputedTimingProperties.cpp $
+    gen/blink/core/animation/ComputedTimingProperties.h $
+    gen/blink/core/css/FontFaceDescriptors.cpp $
+    gen/blink/core/css/FontFaceDescriptors.h $
+    gen/blink/core/css/FontFaceSetLoadEventInit.cpp $
+    gen/blink/core/css/FontFaceSetLoadEventInit.h $
+    gen/blink/core/css/MediaQueryListEventInit.cpp $
+    gen/blink/core/css/MediaQueryListEventInit.h $
+    gen/blink/core/css/cssom/CalcDictionary.cpp $
+    gen/blink/core/css/cssom/CalcDictionary.h $
+    gen/blink/core/dom/DOMPointInit.cpp gen/blink/core/dom/DOMPointInit.h $
+    gen/blink/core/dom/ElementRegistrationOptions.cpp $
+    gen/blink/core/dom/ElementRegistrationOptions.h $
+    gen/blink/core/dom/IdleRequestOptions.cpp $
+    gen/blink/core/dom/IdleRequestOptions.h $
+    gen/blink/core/dom/IntersectionObserverInit.cpp $
+    gen/blink/core/dom/IntersectionObserverInit.h $
+    gen/blink/core/dom/MutationObserverInit.cpp $
+    gen/blink/core/dom/MutationObserverInit.h $
+    gen/blink/core/dom/shadow/ShadowRootInit.cpp $
+    gen/blink/core/dom/shadow/ShadowRootInit.h $
+    gen/blink/core/dom/TouchInit.cpp gen/blink/core/dom/TouchInit.h $
+    gen/blink/core/events/AnimationEventInit.cpp $
+    gen/blink/core/events/AnimationEventInit.h $
+    gen/blink/core/events/AnimationPlayerEventInit.cpp $
+    gen/blink/core/events/AnimationPlayerEventInit.h $
+    gen/blink/core/events/ApplicationCacheErrorEventInit.cpp $
+    gen/blink/core/events/ApplicationCacheErrorEventInit.h $
+    gen/blink/core/events/AutocompleteErrorEventInit.cpp $
+    gen/blink/core/events/AutocompleteErrorEventInit.h $
+    gen/blink/core/events/CompositionEventInit.cpp $
+    gen/blink/core/events/CompositionEventInit.h $
+    gen/blink/core/events/CustomEventInit.cpp $
+    gen/blink/core/events/CustomEventInit.h $
+    gen/blink/core/events/DragEventInit.cpp $
+    gen/blink/core/events/DragEventInit.h $
+    gen/blink/core/events/ErrorEventInit.cpp $
+    gen/blink/core/events/ErrorEventInit.h $
+    gen/blink/core/events/EventInit.cpp gen/blink/core/events/EventInit.h $
+    gen/blink/core/events/EventListenerOptions.cpp $
+    gen/blink/core/events/EventListenerOptions.h $
+    gen/blink/core/events/EventModifierInit.cpp $
+    gen/blink/core/events/EventModifierInit.h $
+    gen/blink/core/events/FocusEventInit.cpp $
+    gen/blink/core/events/FocusEventInit.h $
+    gen/blink/core/events/HashChangeEventInit.cpp $
+    gen/blink/core/events/HashChangeEventInit.h $
+    gen/blink/core/events/InputEventInit.cpp $
+    gen/blink/core/events/InputEventInit.h $
+    gen/blink/core/events/KeyboardEventInit.cpp $
+    gen/blink/core/events/KeyboardEventInit.h $
+    gen/blink/core/events/MessageEventInit.cpp $
+    gen/blink/core/events/MessageEventInit.h $
+    gen/blink/core/events/MouseEventInit.cpp $
+    gen/blink/core/events/MouseEventInit.h $
+    gen/blink/core/events/PageTransitionEventInit.cpp $
+    gen/blink/core/events/PageTransitionEventInit.h $
+    gen/blink/core/events/PointerEventInit.cpp $
+    gen/blink/core/events/PointerEventInit.h $
+    gen/blink/core/events/PopStateEventInit.cpp $
+    gen/blink/core/events/PopStateEventInit.h $
+    gen/blink/core/events/ProgressEventInit.cpp $
+    gen/blink/core/events/ProgressEventInit.h $
+    gen/blink/core/events/PromiseRejectionEventInit.cpp $
+    gen/blink/core/events/PromiseRejectionEventInit.h $
+    gen/blink/core/events/RelatedEventInit.cpp $
+    gen/blink/core/events/RelatedEventInit.h $
+    gen/blink/core/events/SecurityPolicyViolationEventInit.cpp $
+    gen/blink/core/events/SecurityPolicyViolationEventInit.h $
+    gen/blink/core/events/TouchEventInit.cpp $
+    gen/blink/core/events/TouchEventInit.h $
+    gen/blink/core/events/TransitionEventInit.cpp $
+    gen/blink/core/events/TransitionEventInit.h $
+    gen/blink/core/events/UIEventInit.cpp $
+    gen/blink/core/events/UIEventInit.h $
+    gen/blink/core/events/WheelEventInit.cpp $
+    gen/blink/core/events/WheelEventInit.h $
+    gen/blink/core/fileapi/BlobPropertyBag.cpp $
+    gen/blink/core/fileapi/BlobPropertyBag.h $
+    gen/blink/core/fileapi/FilePropertyBag.cpp $
+    gen/blink/core/fileapi/FilePropertyBag.h $
+    gen/blink/core/frame/ScrollOptions.cpp $
+    gen/blink/core/frame/ScrollOptions.h $
+    gen/blink/core/frame/ScrollToOptions.cpp $
+    gen/blink/core/frame/ScrollToOptions.h $
+    gen/blink/core/html/AssignedNodesOptions.cpp $
+    gen/blink/core/html/AssignedNodesOptions.h $
+    gen/blink/core/html/canvas/CanvasContextCreationAttributes.cpp $
+    gen/blink/core/html/canvas/CanvasContextCreationAttributes.h $
+    gen/blink/core/html/track/TrackEventInit.cpp $
+    gen/blink/core/html/track/TrackEventInit.h $
+    gen/blink/core/imagebitmap/ImageBitmapOptions.cpp $
+    gen/blink/core/imagebitmap/ImageBitmapOptions.h $
+    gen/blink/core/input/InputDeviceCapabilitiesInit.cpp $
+    gen/blink/core/input/InputDeviceCapabilitiesInit.h $
+    gen/blink/core/page/EventSourceInit.cpp $
+    gen/blink/core/page/EventSourceInit.h $
+    gen/blink/core/page/scrolling/ScrollStateInit.cpp $
+    gen/blink/core/page/scrolling/ScrollStateInit.h $
+    gen/blink/core/timing/PerformanceObserverInit.cpp $
+    gen/blink/core/timing/PerformanceObserverInit.h $
+    gen/blink/core/testing/InternalDictionary.cpp $
+    gen/blink/core/testing/InternalDictionary.h $
+    gen/blink/core/testing/InternalDictionaryDerived.cpp $
+    gen/blink/core/testing/InternalDictionaryDerived.h
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -Igen
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-abi $
+    -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+

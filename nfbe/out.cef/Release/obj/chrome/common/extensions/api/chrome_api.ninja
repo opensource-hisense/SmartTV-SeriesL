@@ -1,0 +1,1297 @@
+rule chrome_api_target_genapi_bundle_schema_5eb444085fda8d7cef937af66ffaf854
+  command = cd ../../chrome/common/extensions/api; python $
+      ../../../../tools/json_schema_compiler/compiler.py $
+      "--root=../../../.." "--destdir=../../../../out.cef/Release/gen" $
+      "--namespace=extensions::api::%(namespace)s" "--bundle-name=Chrome" $
+      "--generator=cpp-bundle-schema" $
+      "--include-rules=\"extensions/common/api:extensions::api::%(namespace)s\"" $
+      accessibility_features.json accessibility_private.json $
+      activity_log_private.json audio_modem.idl autofill_private.idl $
+      automation.idl automation_internal.idl autotest_private.idl $
+      bluetooth_low_energy.idl bookmark_manager_private.json bookmarks.json $
+      braille_display_private.idl browser.idl chrome_web_view_internal.json $
+      cloud_print_private.json command_line_private.json $
+      content_settings.json context_menus_internal.json context_menus.json $
+      cookies.json copresence.idl copresence_private.idl $
+      cryptotoken_private.idl dashboard_private.json $
+      data_reduction_proxy.json debugger.json desktop_capture.json $
+      developer_private.idl dial.idl downloads.idl downloads_internal.idl $
+      easy_unlock_private.idl experience_sampling_private.json $
+      feedback_private.idl file_system.idl font_settings.json gcm.json $
+      hangouts_private.idl history.json hotword_private.idl i18n.json $
+      identity.idl identity_private.idl image_writer_private.idl $
+      inline_install_private.idl instance_id.json $
+      language_settings_private.idl launcher_page.idl manifest_types.json $
+      media_galleries.idl metrics_private.json notification_provider.idl $
+      notifications.idl omnibox.json page_capture.json $
+      passwords_private.idl permissions.json preferences_private.json $
+      resources_private.idl screenlock_private.idl sessions.json $
+      settings_private.idl signed_in_devices.idl streams_private.idl $
+      sync_file_system.idl system_indicator.idl system_private.json $
+      tab_capture.idl tabs.json types.json web_navigation.json $
+      webrtc_audio_private.idl webrtc_desktop_capture_private.idl $
+      webrtc_logging_private.idl webstore_private.json $
+      webstore_widget_private.idl windows.json processes.idl input_ime.json $
+      gcd_private.idl mdns.idl browsing_data.json extension.json $
+      idltest.idl music_manager_private.idl top_sites.json
+  description = ACTION Generating C++ API bundle code for schemas
+  restat = 1
+
+build gen/chrome/common/extensions/api/generated_schemas.h $
+    gen/chrome/common/extensions/api/generated_schemas.cc: $
+    chrome_api_target_genapi_bundle_schema_5eb444085fda8d7cef937af66ffaf854 $
+    ../../tools/json_schema_compiler/cc_generator.py $
+    ../../tools/json_schema_compiler/code.py $
+    ../../tools/json_schema_compiler/compiler.py $
+    ../../tools/json_schema_compiler/cpp_bundle_generator.py $
+    ../../tools/json_schema_compiler/cpp_type_generator.py $
+    ../../tools/json_schema_compiler/cpp_util.py $
+    ../../tools/json_schema_compiler/h_generator.py $
+    ../../tools/json_schema_compiler/idl_schema.py $
+    ../../tools/json_schema_compiler/json_schema.py $
+    ../../tools/json_schema_compiler/model.py $
+    ../../tools/json_schema_compiler/util_cc_helper.py $
+    ../../chrome/common/extensions/api/accessibility_features.json $
+    ../../chrome/common/extensions/api/accessibility_private.json $
+    ../../chrome/common/extensions/api/activity_log_private.json $
+    ../../chrome/common/extensions/api/audio_modem.idl $
+    ../../chrome/common/extensions/api/autofill_private.idl $
+    ../../chrome/common/extensions/api/automation.idl $
+    ../../chrome/common/extensions/api/automation_internal.idl $
+    ../../chrome/common/extensions/api/autotest_private.idl $
+    ../../chrome/common/extensions/api/bluetooth_low_energy.idl $
+    ../../chrome/common/extensions/api/bookmark_manager_private.json $
+    ../../chrome/common/extensions/api/bookmarks.json $
+    ../../chrome/common/extensions/api/braille_display_private.idl $
+    ../../chrome/common/extensions/api/browser.idl $
+    ../../chrome/common/extensions/api/chrome_web_view_internal.json $
+    ../../chrome/common/extensions/api/cloud_print_private.json $
+    ../../chrome/common/extensions/api/command_line_private.json $
+    ../../chrome/common/extensions/api/content_settings.json $
+    ../../chrome/common/extensions/api/context_menus_internal.json $
+    ../../chrome/common/extensions/api/context_menus.json $
+    ../../chrome/common/extensions/api/cookies.json $
+    ../../chrome/common/extensions/api/copresence.idl $
+    ../../chrome/common/extensions/api/copresence_private.idl $
+    ../../chrome/common/extensions/api/cryptotoken_private.idl $
+    ../../chrome/common/extensions/api/dashboard_private.json $
+    ../../chrome/common/extensions/api/data_reduction_proxy.json $
+    ../../chrome/common/extensions/api/debugger.json $
+    ../../chrome/common/extensions/api/desktop_capture.json $
+    ../../chrome/common/extensions/api/developer_private.idl $
+    ../../chrome/common/extensions/api/dial.idl $
+    ../../chrome/common/extensions/api/downloads.idl $
+    ../../chrome/common/extensions/api/downloads_internal.idl $
+    ../../chrome/common/extensions/api/easy_unlock_private.idl $
+    ../../chrome/common/extensions/api/experience_sampling_private.json $
+    ../../chrome/common/extensions/api/feedback_private.idl $
+    ../../chrome/common/extensions/api/file_system.idl $
+    ../../chrome/common/extensions/api/font_settings.json $
+    ../../chrome/common/extensions/api/gcm.json $
+    ../../chrome/common/extensions/api/hangouts_private.idl $
+    ../../chrome/common/extensions/api/history.json $
+    ../../chrome/common/extensions/api/hotword_private.idl $
+    ../../chrome/common/extensions/api/i18n.json $
+    ../../chrome/common/extensions/api/identity.idl $
+    ../../chrome/common/extensions/api/identity_private.idl $
+    ../../chrome/common/extensions/api/image_writer_private.idl $
+    ../../chrome/common/extensions/api/inline_install_private.idl $
+    ../../chrome/common/extensions/api/instance_id.json $
+    ../../chrome/common/extensions/api/language_settings_private.idl $
+    ../../chrome/common/extensions/api/launcher_page.idl $
+    ../../chrome/common/extensions/api/manifest_types.json $
+    ../../chrome/common/extensions/api/media_galleries.idl $
+    ../../chrome/common/extensions/api/metrics_private.json $
+    ../../chrome/common/extensions/api/notification_provider.idl $
+    ../../chrome/common/extensions/api/notifications.idl $
+    ../../chrome/common/extensions/api/omnibox.json $
+    ../../chrome/common/extensions/api/page_capture.json $
+    ../../chrome/common/extensions/api/passwords_private.idl $
+    ../../chrome/common/extensions/api/permissions.json $
+    ../../chrome/common/extensions/api/preferences_private.json $
+    ../../chrome/common/extensions/api/resources_private.idl $
+    ../../chrome/common/extensions/api/screenlock_private.idl $
+    ../../chrome/common/extensions/api/sessions.json $
+    ../../chrome/common/extensions/api/settings_private.idl $
+    ../../chrome/common/extensions/api/signed_in_devices.idl $
+    ../../chrome/common/extensions/api/streams_private.idl $
+    ../../chrome/common/extensions/api/sync_file_system.idl $
+    ../../chrome/common/extensions/api/system_indicator.idl $
+    ../../chrome/common/extensions/api/system_private.json $
+    ../../chrome/common/extensions/api/tab_capture.idl $
+    ../../chrome/common/extensions/api/tabs.json $
+    ../../chrome/common/extensions/api/types.json $
+    ../../chrome/common/extensions/api/web_navigation.json $
+    ../../chrome/common/extensions/api/webrtc_audio_private.idl $
+    ../../chrome/common/extensions/api/webrtc_desktop_capture_private.idl $
+    ../../chrome/common/extensions/api/webrtc_logging_private.idl $
+    ../../chrome/common/extensions/api/webstore_private.json $
+    ../../chrome/common/extensions/api/webstore_widget_private.idl $
+    ../../chrome/common/extensions/api/windows.json $
+    ../../chrome/common/extensions/api/processes.idl $
+    ../../chrome/common/extensions/api/input_ime.json $
+    ../../chrome/common/extensions/api/gcd_private.idl $
+    ../../chrome/common/extensions/api/mdns.idl $
+    ../../chrome/common/extensions/api/browsing_data.json $
+    ../../chrome/common/extensions/api/extension.json $
+    ../../chrome/common/extensions/api/idltest.idl $
+    ../../chrome/common/extensions/api/music_manager_private.idl $
+    ../../chrome/common/extensions/api/top_sites.json || $
+    obj/extensions/common/api/libextensions_api.a
+
+rule chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854
+  command = cd ../../chrome/common/extensions/api; python $
+      ../../../../tools/json_schema_compiler/compiler.py "${source}" $
+      "--root=../../../.." "--destdir=../../../../out.cef/Release/gen" $
+      "--namespace=extensions::api::%(namespace)s" "--generator=cpp" $
+      "--include-rules=\"extensions/common/api:extensions::api::%(namespace)s\""
+  description = RULE Generating C++ code from ${source} json files
+  restat = 1
+
+build obj/chrome/common/extensions/api/chrome_api.genapi.stamp: stamp $
+    ../../tools/json_schema_compiler/cc_generator.py $
+    ../../tools/json_schema_compiler/code.py $
+    ../../tools/json_schema_compiler/compiler.py $
+    ../../tools/json_schema_compiler/cpp_generator.py $
+    ../../tools/json_schema_compiler/cpp_type_generator.py $
+    ../../tools/json_schema_compiler/cpp_util.py $
+    ../../tools/json_schema_compiler/h_generator.py $
+    ../../tools/json_schema_compiler/json_schema.py $
+    ../../tools/json_schema_compiler/model.py $
+    ../../tools/json_schema_compiler/util.cc $
+    ../../tools/json_schema_compiler/util.h $
+    ../../tools/json_schema_compiler/util_cc_helper.py || $
+    obj/extensions/common/api/libextensions_api.a
+
+build gen/chrome/common/extensions/api//accessibility_features.cc $
+    gen/chrome/common/extensions/api//accessibility_features.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/accessibility_features.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = accessibility_features.json
+build gen/chrome/common/extensions/api//accessibility_private.cc $
+    gen/chrome/common/extensions/api//accessibility_private.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/accessibility_private.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = accessibility_private.json
+build gen/chrome/common/extensions/api//activity_log_private.cc $
+    gen/chrome/common/extensions/api//activity_log_private.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/activity_log_private.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = activity_log_private.json
+build gen/chrome/common/extensions/api//bookmark_manager_private.cc $
+    gen/chrome/common/extensions/api//bookmark_manager_private.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/bookmark_manager_private.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = bookmark_manager_private.json
+build gen/chrome/common/extensions/api//bookmarks.cc $
+    gen/chrome/common/extensions/api//bookmarks.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/bookmarks.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = bookmarks.json
+build gen/chrome/common/extensions/api//chrome_web_view_internal.cc $
+    gen/chrome/common/extensions/api//chrome_web_view_internal.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/chrome_web_view_internal.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = chrome_web_view_internal.json
+build gen/chrome/common/extensions/api//cloud_print_private.cc $
+    gen/chrome/common/extensions/api//cloud_print_private.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/cloud_print_private.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = cloud_print_private.json
+build gen/chrome/common/extensions/api//command_line_private.cc $
+    gen/chrome/common/extensions/api//command_line_private.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/command_line_private.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = command_line_private.json
+build gen/chrome/common/extensions/api//content_settings.cc $
+    gen/chrome/common/extensions/api//content_settings.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/content_settings.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = content_settings.json
+build gen/chrome/common/extensions/api//context_menus_internal.cc $
+    gen/chrome/common/extensions/api//context_menus_internal.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/context_menus_internal.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = context_menus_internal.json
+build gen/chrome/common/extensions/api//context_menus.cc $
+    gen/chrome/common/extensions/api//context_menus.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/context_menus.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = context_menus.json
+build gen/chrome/common/extensions/api//cookies.cc $
+    gen/chrome/common/extensions/api//cookies.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/cookies.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = cookies.json
+build gen/chrome/common/extensions/api//dashboard_private.cc $
+    gen/chrome/common/extensions/api//dashboard_private.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/dashboard_private.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = dashboard_private.json
+build gen/chrome/common/extensions/api//data_reduction_proxy.cc $
+    gen/chrome/common/extensions/api//data_reduction_proxy.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/data_reduction_proxy.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = data_reduction_proxy.json
+build gen/chrome/common/extensions/api//debugger.cc $
+    gen/chrome/common/extensions/api//debugger.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/debugger.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = debugger.json
+build gen/chrome/common/extensions/api//desktop_capture.cc $
+    gen/chrome/common/extensions/api//desktop_capture.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/desktop_capture.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = desktop_capture.json
+build gen/chrome/common/extensions/api//experience_sampling_private.cc $
+    gen/chrome/common/extensions/api//experience_sampling_private.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/experience_sampling_private.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = experience_sampling_private.json
+build gen/chrome/common/extensions/api//font_settings.cc $
+    gen/chrome/common/extensions/api//font_settings.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/font_settings.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = font_settings.json
+build gen/chrome/common/extensions/api//gcm.cc $
+    gen/chrome/common/extensions/api//gcm.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/gcm.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = gcm.json
+build gen/chrome/common/extensions/api//history.cc $
+    gen/chrome/common/extensions/api//history.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/history.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = history.json
+build gen/chrome/common/extensions/api//i18n.cc $
+    gen/chrome/common/extensions/api//i18n.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/i18n.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = i18n.json
+build gen/chrome/common/extensions/api//instance_id.cc $
+    gen/chrome/common/extensions/api//instance_id.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/instance_id.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = instance_id.json
+build gen/chrome/common/extensions/api//manifest_types.cc $
+    gen/chrome/common/extensions/api//manifest_types.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/manifest_types.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = manifest_types.json
+build gen/chrome/common/extensions/api//metrics_private.cc $
+    gen/chrome/common/extensions/api//metrics_private.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/metrics_private.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = metrics_private.json
+build gen/chrome/common/extensions/api//omnibox.cc $
+    gen/chrome/common/extensions/api//omnibox.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/omnibox.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = omnibox.json
+build gen/chrome/common/extensions/api//page_capture.cc $
+    gen/chrome/common/extensions/api//page_capture.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/page_capture.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = page_capture.json
+build gen/chrome/common/extensions/api//permissions.cc $
+    gen/chrome/common/extensions/api//permissions.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/permissions.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = permissions.json
+build gen/chrome/common/extensions/api//preferences_private.cc $
+    gen/chrome/common/extensions/api//preferences_private.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/preferences_private.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = preferences_private.json
+build gen/chrome/common/extensions/api//sessions.cc $
+    gen/chrome/common/extensions/api//sessions.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/sessions.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = sessions.json
+build gen/chrome/common/extensions/api//system_private.cc $
+    gen/chrome/common/extensions/api//system_private.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/system_private.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = system_private.json
+build gen/chrome/common/extensions/api//tabs.cc $
+    gen/chrome/common/extensions/api//tabs.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/tabs.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = tabs.json
+build gen/chrome/common/extensions/api//types.cc $
+    gen/chrome/common/extensions/api//types.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/types.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = types.json
+build gen/chrome/common/extensions/api//web_navigation.cc $
+    gen/chrome/common/extensions/api//web_navigation.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/web_navigation.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = web_navigation.json
+build gen/chrome/common/extensions/api//webstore_private.cc $
+    gen/chrome/common/extensions/api//webstore_private.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/webstore_private.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = webstore_private.json
+build gen/chrome/common/extensions/api//windows.cc $
+    gen/chrome/common/extensions/api//windows.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/windows.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = windows.json
+build gen/chrome/common/extensions/api//input_ime.cc $
+    gen/chrome/common/extensions/api//input_ime.h: $
+    chrome_api_target_genapi_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/input_ime.json | $
+    obj/chrome/common/extensions/api/chrome_api.genapi.stamp
+  source = input_ime.json
+rule chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854
+  command = cd ../../chrome/common/extensions/api; python $
+      ../../../../tools/json_schema_compiler/compiler.py "${source}" $
+      "--root=../../../.." "--destdir=../../../../out.cef/Release/gen" $
+      "--namespace=extensions::api::%(namespace)s" "--generator=cpp" $
+      "--include-rules=\"extensions/common/api:extensions::api::%(namespace)s\""
+  description = RULE Generating C++ code from ${source} IDL files
+  restat = 1
+
+build obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp: stamp $
+    ../../tools/json_schema_compiler/cc_generator.py $
+    ../../tools/json_schema_compiler/code.py $
+    ../../tools/json_schema_compiler/compiler.py $
+    ../../tools/json_schema_compiler/cpp_generator.py $
+    ../../tools/json_schema_compiler/cpp_type_generator.py $
+    ../../tools/json_schema_compiler/cpp_util.py $
+    ../../tools/json_schema_compiler/h_generator.py $
+    ../../tools/json_schema_compiler/idl_schema.py $
+    ../../tools/json_schema_compiler/model.py $
+    ../../tools/json_schema_compiler/util.cc $
+    ../../tools/json_schema_compiler/util.h $
+    ../../tools/json_schema_compiler/util_cc_helper.py
+
+build gen/chrome/common/extensions/api//audio_modem.cc $
+    gen/chrome/common/extensions/api//audio_modem.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/audio_modem.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = audio_modem.idl
+build gen/chrome/common/extensions/api//autofill_private.cc $
+    gen/chrome/common/extensions/api//autofill_private.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/autofill_private.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = autofill_private.idl
+build gen/chrome/common/extensions/api//automation.cc $
+    gen/chrome/common/extensions/api//automation.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/automation.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = automation.idl
+build gen/chrome/common/extensions/api//automation_internal.cc $
+    gen/chrome/common/extensions/api//automation_internal.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/automation_internal.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = automation_internal.idl
+build gen/chrome/common/extensions/api//autotest_private.cc $
+    gen/chrome/common/extensions/api//autotest_private.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/autotest_private.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = autotest_private.idl
+build gen/chrome/common/extensions/api//bluetooth_low_energy.cc $
+    gen/chrome/common/extensions/api//bluetooth_low_energy.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/bluetooth_low_energy.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = bluetooth_low_energy.idl
+build gen/chrome/common/extensions/api//braille_display_private.cc $
+    gen/chrome/common/extensions/api//braille_display_private.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/braille_display_private.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = braille_display_private.idl
+build gen/chrome/common/extensions/api//browser.cc $
+    gen/chrome/common/extensions/api//browser.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/browser.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = browser.idl
+build gen/chrome/common/extensions/api//copresence.cc $
+    gen/chrome/common/extensions/api//copresence.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/copresence.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = copresence.idl
+build gen/chrome/common/extensions/api//copresence_private.cc $
+    gen/chrome/common/extensions/api//copresence_private.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/copresence_private.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = copresence_private.idl
+build gen/chrome/common/extensions/api//cryptotoken_private.cc $
+    gen/chrome/common/extensions/api//cryptotoken_private.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/cryptotoken_private.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = cryptotoken_private.idl
+build gen/chrome/common/extensions/api//developer_private.cc $
+    gen/chrome/common/extensions/api//developer_private.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/developer_private.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = developer_private.idl
+build gen/chrome/common/extensions/api//dial.cc $
+    gen/chrome/common/extensions/api//dial.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/dial.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = dial.idl
+build gen/chrome/common/extensions/api//downloads.cc $
+    gen/chrome/common/extensions/api//downloads.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/downloads.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = downloads.idl
+build gen/chrome/common/extensions/api//downloads_internal.cc $
+    gen/chrome/common/extensions/api//downloads_internal.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/downloads_internal.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = downloads_internal.idl
+build gen/chrome/common/extensions/api//easy_unlock_private.cc $
+    gen/chrome/common/extensions/api//easy_unlock_private.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/easy_unlock_private.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = easy_unlock_private.idl
+build gen/chrome/common/extensions/api//feedback_private.cc $
+    gen/chrome/common/extensions/api//feedback_private.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/feedback_private.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = feedback_private.idl
+build gen/chrome/common/extensions/api//file_system.cc $
+    gen/chrome/common/extensions/api//file_system.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/file_system.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = file_system.idl
+build gen/chrome/common/extensions/api//hangouts_private.cc $
+    gen/chrome/common/extensions/api//hangouts_private.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/hangouts_private.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = hangouts_private.idl
+build gen/chrome/common/extensions/api//hotword_private.cc $
+    gen/chrome/common/extensions/api//hotword_private.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/hotword_private.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = hotword_private.idl
+build gen/chrome/common/extensions/api//identity.cc $
+    gen/chrome/common/extensions/api//identity.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/identity.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = identity.idl
+build gen/chrome/common/extensions/api//identity_private.cc $
+    gen/chrome/common/extensions/api//identity_private.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/identity_private.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = identity_private.idl
+build gen/chrome/common/extensions/api//image_writer_private.cc $
+    gen/chrome/common/extensions/api//image_writer_private.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/image_writer_private.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = image_writer_private.idl
+build gen/chrome/common/extensions/api//inline_install_private.cc $
+    gen/chrome/common/extensions/api//inline_install_private.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/inline_install_private.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = inline_install_private.idl
+build gen/chrome/common/extensions/api//language_settings_private.cc $
+    gen/chrome/common/extensions/api//language_settings_private.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/language_settings_private.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = language_settings_private.idl
+build gen/chrome/common/extensions/api//launcher_page.cc $
+    gen/chrome/common/extensions/api//launcher_page.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/launcher_page.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = launcher_page.idl
+build gen/chrome/common/extensions/api//media_galleries.cc $
+    gen/chrome/common/extensions/api//media_galleries.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/media_galleries.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = media_galleries.idl
+build gen/chrome/common/extensions/api//notification_provider.cc $
+    gen/chrome/common/extensions/api//notification_provider.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/notification_provider.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = notification_provider.idl
+build gen/chrome/common/extensions/api//notifications.cc $
+    gen/chrome/common/extensions/api//notifications.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/notifications.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = notifications.idl
+build gen/chrome/common/extensions/api//passwords_private.cc $
+    gen/chrome/common/extensions/api//passwords_private.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/passwords_private.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = passwords_private.idl
+build gen/chrome/common/extensions/api//resources_private.cc $
+    gen/chrome/common/extensions/api//resources_private.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/resources_private.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = resources_private.idl
+build gen/chrome/common/extensions/api//screenlock_private.cc $
+    gen/chrome/common/extensions/api//screenlock_private.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/screenlock_private.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = screenlock_private.idl
+build gen/chrome/common/extensions/api//settings_private.cc $
+    gen/chrome/common/extensions/api//settings_private.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/settings_private.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = settings_private.idl
+build gen/chrome/common/extensions/api//signed_in_devices.cc $
+    gen/chrome/common/extensions/api//signed_in_devices.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/signed_in_devices.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = signed_in_devices.idl
+build gen/chrome/common/extensions/api//streams_private.cc $
+    gen/chrome/common/extensions/api//streams_private.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/streams_private.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = streams_private.idl
+build gen/chrome/common/extensions/api//sync_file_system.cc $
+    gen/chrome/common/extensions/api//sync_file_system.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/sync_file_system.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = sync_file_system.idl
+build gen/chrome/common/extensions/api//system_indicator.cc $
+    gen/chrome/common/extensions/api//system_indicator.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/system_indicator.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = system_indicator.idl
+build gen/chrome/common/extensions/api//tab_capture.cc $
+    gen/chrome/common/extensions/api//tab_capture.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/tab_capture.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = tab_capture.idl
+build gen/chrome/common/extensions/api//webrtc_audio_private.cc $
+    gen/chrome/common/extensions/api//webrtc_audio_private.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/webrtc_audio_private.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = webrtc_audio_private.idl
+build gen/chrome/common/extensions/api//webrtc_desktop_capture_private.cc $
+    gen/chrome/common/extensions/api//webrtc_desktop_capture_private.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/webrtc_desktop_capture_private.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = webrtc_desktop_capture_private.idl
+build gen/chrome/common/extensions/api//webrtc_logging_private.cc $
+    gen/chrome/common/extensions/api//webrtc_logging_private.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/webrtc_logging_private.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = webrtc_logging_private.idl
+build gen/chrome/common/extensions/api//webstore_widget_private.cc $
+    gen/chrome/common/extensions/api//webstore_widget_private.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/webstore_widget_private.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = webstore_widget_private.idl
+build gen/chrome/common/extensions/api//processes.cc $
+    gen/chrome/common/extensions/api//processes.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/processes.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = processes.idl
+build gen/chrome/common/extensions/api//gcd_private.cc $
+    gen/chrome/common/extensions/api//gcd_private.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/gcd_private.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = gcd_private.idl
+build gen/chrome/common/extensions/api//mdns.cc $
+    gen/chrome/common/extensions/api//mdns.h: $
+    chrome_api_target_genapi_idl_5eb444085fda8d7cef937af66ffaf854 $
+    ../../chrome/common/extensions/api/mdns.idl | $
+    obj/chrome/common/extensions/api/chrome_api.genapi_idl.stamp
+  source = mdns.idl
+build $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp: $
+    stamp gen/chrome/common/extensions/api/generated_schemas.h $
+    gen/chrome/common/extensions/api/generated_schemas.cc $
+    gen/chrome/common/extensions/api//accessibility_features.cc $
+    gen/chrome/common/extensions/api//accessibility_features.h $
+    gen/chrome/common/extensions/api//accessibility_private.cc $
+    gen/chrome/common/extensions/api//accessibility_private.h $
+    gen/chrome/common/extensions/api//activity_log_private.cc $
+    gen/chrome/common/extensions/api//activity_log_private.h $
+    gen/chrome/common/extensions/api//bookmark_manager_private.cc $
+    gen/chrome/common/extensions/api//bookmark_manager_private.h $
+    gen/chrome/common/extensions/api//bookmarks.cc $
+    gen/chrome/common/extensions/api//bookmarks.h $
+    gen/chrome/common/extensions/api//chrome_web_view_internal.cc $
+    gen/chrome/common/extensions/api//chrome_web_view_internal.h $
+    gen/chrome/common/extensions/api//cloud_print_private.cc $
+    gen/chrome/common/extensions/api//cloud_print_private.h $
+    gen/chrome/common/extensions/api//command_line_private.cc $
+    gen/chrome/common/extensions/api//command_line_private.h $
+    gen/chrome/common/extensions/api//content_settings.cc $
+    gen/chrome/common/extensions/api//content_settings.h $
+    gen/chrome/common/extensions/api//context_menus_internal.cc $
+    gen/chrome/common/extensions/api//context_menus_internal.h $
+    gen/chrome/common/extensions/api//context_menus.cc $
+    gen/chrome/common/extensions/api//context_menus.h $
+    gen/chrome/common/extensions/api//cookies.cc $
+    gen/chrome/common/extensions/api//cookies.h $
+    gen/chrome/common/extensions/api//dashboard_private.cc $
+    gen/chrome/common/extensions/api//dashboard_private.h $
+    gen/chrome/common/extensions/api//data_reduction_proxy.cc $
+    gen/chrome/common/extensions/api//data_reduction_proxy.h $
+    gen/chrome/common/extensions/api//debugger.cc $
+    gen/chrome/common/extensions/api//debugger.h $
+    gen/chrome/common/extensions/api//desktop_capture.cc $
+    gen/chrome/common/extensions/api//desktop_capture.h $
+    gen/chrome/common/extensions/api//experience_sampling_private.cc $
+    gen/chrome/common/extensions/api//experience_sampling_private.h $
+    gen/chrome/common/extensions/api//font_settings.cc $
+    gen/chrome/common/extensions/api//font_settings.h $
+    gen/chrome/common/extensions/api//gcm.cc $
+    gen/chrome/common/extensions/api//gcm.h $
+    gen/chrome/common/extensions/api//history.cc $
+    gen/chrome/common/extensions/api//history.h $
+    gen/chrome/common/extensions/api//i18n.cc $
+    gen/chrome/common/extensions/api//i18n.h $
+    gen/chrome/common/extensions/api//instance_id.cc $
+    gen/chrome/common/extensions/api//instance_id.h $
+    gen/chrome/common/extensions/api//manifest_types.cc $
+    gen/chrome/common/extensions/api//manifest_types.h $
+    gen/chrome/common/extensions/api//metrics_private.cc $
+    gen/chrome/common/extensions/api//metrics_private.h $
+    gen/chrome/common/extensions/api//omnibox.cc $
+    gen/chrome/common/extensions/api//omnibox.h $
+    gen/chrome/common/extensions/api//page_capture.cc $
+    gen/chrome/common/extensions/api//page_capture.h $
+    gen/chrome/common/extensions/api//permissions.cc $
+    gen/chrome/common/extensions/api//permissions.h $
+    gen/chrome/common/extensions/api//preferences_private.cc $
+    gen/chrome/common/extensions/api//preferences_private.h $
+    gen/chrome/common/extensions/api//sessions.cc $
+    gen/chrome/common/extensions/api//sessions.h $
+    gen/chrome/common/extensions/api//system_private.cc $
+    gen/chrome/common/extensions/api//system_private.h $
+    gen/chrome/common/extensions/api//tabs.cc $
+    gen/chrome/common/extensions/api//tabs.h $
+    gen/chrome/common/extensions/api//types.cc $
+    gen/chrome/common/extensions/api//types.h $
+    gen/chrome/common/extensions/api//web_navigation.cc $
+    gen/chrome/common/extensions/api//web_navigation.h $
+    gen/chrome/common/extensions/api//webstore_private.cc $
+    gen/chrome/common/extensions/api//webstore_private.h $
+    gen/chrome/common/extensions/api//windows.cc $
+    gen/chrome/common/extensions/api//windows.h $
+    gen/chrome/common/extensions/api//input_ime.cc $
+    gen/chrome/common/extensions/api//input_ime.h $
+    gen/chrome/common/extensions/api//audio_modem.cc $
+    gen/chrome/common/extensions/api//audio_modem.h $
+    gen/chrome/common/extensions/api//autofill_private.cc $
+    gen/chrome/common/extensions/api//autofill_private.h $
+    gen/chrome/common/extensions/api//automation.cc $
+    gen/chrome/common/extensions/api//automation.h $
+    gen/chrome/common/extensions/api//automation_internal.cc $
+    gen/chrome/common/extensions/api//automation_internal.h $
+    gen/chrome/common/extensions/api//autotest_private.cc $
+    gen/chrome/common/extensions/api//autotest_private.h $
+    gen/chrome/common/extensions/api//bluetooth_low_energy.cc $
+    gen/chrome/common/extensions/api//bluetooth_low_energy.h $
+    gen/chrome/common/extensions/api//braille_display_private.cc $
+    gen/chrome/common/extensions/api//braille_display_private.h $
+    gen/chrome/common/extensions/api//browser.cc $
+    gen/chrome/common/extensions/api//browser.h $
+    gen/chrome/common/extensions/api//copresence.cc $
+    gen/chrome/common/extensions/api//copresence.h $
+    gen/chrome/common/extensions/api//copresence_private.cc $
+    gen/chrome/common/extensions/api//copresence_private.h $
+    gen/chrome/common/extensions/api//cryptotoken_private.cc $
+    gen/chrome/common/extensions/api//cryptotoken_private.h $
+    gen/chrome/common/extensions/api//developer_private.cc $
+    gen/chrome/common/extensions/api//developer_private.h $
+    gen/chrome/common/extensions/api//dial.cc $
+    gen/chrome/common/extensions/api//dial.h $
+    gen/chrome/common/extensions/api//downloads.cc $
+    gen/chrome/common/extensions/api//downloads.h $
+    gen/chrome/common/extensions/api//downloads_internal.cc $
+    gen/chrome/common/extensions/api//downloads_internal.h $
+    gen/chrome/common/extensions/api//easy_unlock_private.cc $
+    gen/chrome/common/extensions/api//easy_unlock_private.h $
+    gen/chrome/common/extensions/api//feedback_private.cc $
+    gen/chrome/common/extensions/api//feedback_private.h $
+    gen/chrome/common/extensions/api//file_system.cc $
+    gen/chrome/common/extensions/api//file_system.h $
+    gen/chrome/common/extensions/api//hangouts_private.cc $
+    gen/chrome/common/extensions/api//hangouts_private.h $
+    gen/chrome/common/extensions/api//hotword_private.cc $
+    gen/chrome/common/extensions/api//hotword_private.h $
+    gen/chrome/common/extensions/api//identity.cc $
+    gen/chrome/common/extensions/api//identity.h $
+    gen/chrome/common/extensions/api//identity_private.cc $
+    gen/chrome/common/extensions/api//identity_private.h $
+    gen/chrome/common/extensions/api//image_writer_private.cc $
+    gen/chrome/common/extensions/api//image_writer_private.h $
+    gen/chrome/common/extensions/api//inline_install_private.cc $
+    gen/chrome/common/extensions/api//inline_install_private.h $
+    gen/chrome/common/extensions/api//language_settings_private.cc $
+    gen/chrome/common/extensions/api//language_settings_private.h $
+    gen/chrome/common/extensions/api//launcher_page.cc $
+    gen/chrome/common/extensions/api//launcher_page.h $
+    gen/chrome/common/extensions/api//media_galleries.cc $
+    gen/chrome/common/extensions/api//media_galleries.h $
+    gen/chrome/common/extensions/api//notification_provider.cc $
+    gen/chrome/common/extensions/api//notification_provider.h $
+    gen/chrome/common/extensions/api//notifications.cc $
+    gen/chrome/common/extensions/api//notifications.h $
+    gen/chrome/common/extensions/api//passwords_private.cc $
+    gen/chrome/common/extensions/api//passwords_private.h $
+    gen/chrome/common/extensions/api//resources_private.cc $
+    gen/chrome/common/extensions/api//resources_private.h $
+    gen/chrome/common/extensions/api//screenlock_private.cc $
+    gen/chrome/common/extensions/api//screenlock_private.h $
+    gen/chrome/common/extensions/api//settings_private.cc $
+    gen/chrome/common/extensions/api//settings_private.h $
+    gen/chrome/common/extensions/api//signed_in_devices.cc $
+    gen/chrome/common/extensions/api//signed_in_devices.h $
+    gen/chrome/common/extensions/api//streams_private.cc $
+    gen/chrome/common/extensions/api//streams_private.h $
+    gen/chrome/common/extensions/api//sync_file_system.cc $
+    gen/chrome/common/extensions/api//sync_file_system.h $
+    gen/chrome/common/extensions/api//system_indicator.cc $
+    gen/chrome/common/extensions/api//system_indicator.h $
+    gen/chrome/common/extensions/api//tab_capture.cc $
+    gen/chrome/common/extensions/api//tab_capture.h $
+    gen/chrome/common/extensions/api//webrtc_audio_private.cc $
+    gen/chrome/common/extensions/api//webrtc_audio_private.h $
+    gen/chrome/common/extensions/api//webrtc_desktop_capture_private.cc $
+    gen/chrome/common/extensions/api//webrtc_desktop_capture_private.h $
+    gen/chrome/common/extensions/api//webrtc_logging_private.cc $
+    gen/chrome/common/extensions/api//webrtc_logging_private.h $
+    gen/chrome/common/extensions/api//webstore_widget_private.cc $
+    gen/chrome/common/extensions/api//webstore_widget_private.h $
+    gen/chrome/common/extensions/api//processes.cc $
+    gen/chrome/common/extensions/api//processes.h $
+    gen/chrome/common/extensions/api//gcd_private.cc $
+    gen/chrome/common/extensions/api//gcd_private.h $
+    gen/chrome/common/extensions/api//mdns.cc $
+    gen/chrome/common/extensions/api//mdns.h
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS $
+    -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../..
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.generated_schemas.o: $
+    cxx gen/chrome/common/extensions/api/generated_schemas.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.accessibility_features.o: $
+    cxx gen/chrome/common/extensions/api//accessibility_features.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.accessibility_private.o: $
+    cxx gen/chrome/common/extensions/api//accessibility_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.activity_log_private.o: $
+    cxx gen/chrome/common/extensions/api//activity_log_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.bookmark_manager_private.o: $
+    cxx gen/chrome/common/extensions/api//bookmark_manager_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.bookmarks.o: $
+    cxx gen/chrome/common/extensions/api//bookmarks.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.chrome_web_view_internal.o: $
+    cxx gen/chrome/common/extensions/api//chrome_web_view_internal.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.cloud_print_private.o: $
+    cxx gen/chrome/common/extensions/api//cloud_print_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.command_line_private.o: $
+    cxx gen/chrome/common/extensions/api//command_line_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.content_settings.o: $
+    cxx gen/chrome/common/extensions/api//content_settings.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.context_menus_internal.o: $
+    cxx gen/chrome/common/extensions/api//context_menus_internal.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.context_menus.o: $
+    cxx gen/chrome/common/extensions/api//context_menus.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.cookies.o: $
+    cxx gen/chrome/common/extensions/api//cookies.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.dashboard_private.o: $
+    cxx gen/chrome/common/extensions/api//dashboard_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.data_reduction_proxy.o: $
+    cxx gen/chrome/common/extensions/api//data_reduction_proxy.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.debugger.o: $
+    cxx gen/chrome/common/extensions/api//debugger.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.desktop_capture.o: $
+    cxx gen/chrome/common/extensions/api//desktop_capture.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.experience_sampling_private.o: $
+    cxx gen/chrome/common/extensions/api//experience_sampling_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.font_settings.o: $
+    cxx gen/chrome/common/extensions/api//font_settings.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.gcm.o: $
+    cxx gen/chrome/common/extensions/api//gcm.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.history.o: $
+    cxx gen/chrome/common/extensions/api//history.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.i18n.o: $
+    cxx gen/chrome/common/extensions/api//i18n.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.instance_id.o: $
+    cxx gen/chrome/common/extensions/api//instance_id.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.manifest_types.o: $
+    cxx gen/chrome/common/extensions/api//manifest_types.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.metrics_private.o: $
+    cxx gen/chrome/common/extensions/api//metrics_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.omnibox.o: $
+    cxx gen/chrome/common/extensions/api//omnibox.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.page_capture.o: $
+    cxx gen/chrome/common/extensions/api//page_capture.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.permissions.o: $
+    cxx gen/chrome/common/extensions/api//permissions.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.preferences_private.o: $
+    cxx gen/chrome/common/extensions/api//preferences_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.sessions.o: $
+    cxx gen/chrome/common/extensions/api//sessions.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.system_private.o: $
+    cxx gen/chrome/common/extensions/api//system_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.tabs.o: $
+    cxx gen/chrome/common/extensions/api//tabs.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.types.o: $
+    cxx gen/chrome/common/extensions/api//types.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.web_navigation.o: $
+    cxx gen/chrome/common/extensions/api//web_navigation.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.webstore_private.o: $
+    cxx gen/chrome/common/extensions/api//webstore_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.windows.o: $
+    cxx gen/chrome/common/extensions/api//windows.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.input_ime.o: $
+    cxx gen/chrome/common/extensions/api//input_ime.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.audio_modem.o: $
+    cxx gen/chrome/common/extensions/api//audio_modem.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.autofill_private.o: $
+    cxx gen/chrome/common/extensions/api//autofill_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.automation.o: $
+    cxx gen/chrome/common/extensions/api//automation.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.automation_internal.o: $
+    cxx gen/chrome/common/extensions/api//automation_internal.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.autotest_private.o: $
+    cxx gen/chrome/common/extensions/api//autotest_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.bluetooth_low_energy.o: $
+    cxx gen/chrome/common/extensions/api//bluetooth_low_energy.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.braille_display_private.o: $
+    cxx gen/chrome/common/extensions/api//braille_display_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.browser.o: $
+    cxx gen/chrome/common/extensions/api//browser.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.copresence.o: $
+    cxx gen/chrome/common/extensions/api//copresence.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.copresence_private.o: $
+    cxx gen/chrome/common/extensions/api//copresence_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.cryptotoken_private.o: $
+    cxx gen/chrome/common/extensions/api//cryptotoken_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.developer_private.o: $
+    cxx gen/chrome/common/extensions/api//developer_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.dial.o: $
+    cxx gen/chrome/common/extensions/api//dial.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.downloads.o: $
+    cxx gen/chrome/common/extensions/api//downloads.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.downloads_internal.o: $
+    cxx gen/chrome/common/extensions/api//downloads_internal.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.easy_unlock_private.o: $
+    cxx gen/chrome/common/extensions/api//easy_unlock_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.feedback_private.o: $
+    cxx gen/chrome/common/extensions/api//feedback_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.file_system.o: $
+    cxx gen/chrome/common/extensions/api//file_system.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.hangouts_private.o: $
+    cxx gen/chrome/common/extensions/api//hangouts_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.hotword_private.o: $
+    cxx gen/chrome/common/extensions/api//hotword_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.identity.o: $
+    cxx gen/chrome/common/extensions/api//identity.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.identity_private.o: $
+    cxx gen/chrome/common/extensions/api//identity_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.image_writer_private.o: $
+    cxx gen/chrome/common/extensions/api//image_writer_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.inline_install_private.o: $
+    cxx gen/chrome/common/extensions/api//inline_install_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.language_settings_private.o: $
+    cxx gen/chrome/common/extensions/api//language_settings_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.launcher_page.o: $
+    cxx gen/chrome/common/extensions/api//launcher_page.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.media_galleries.o: $
+    cxx gen/chrome/common/extensions/api//media_galleries.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.notification_provider.o: $
+    cxx gen/chrome/common/extensions/api//notification_provider.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.notifications.o: $
+    cxx gen/chrome/common/extensions/api//notifications.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.passwords_private.o: $
+    cxx gen/chrome/common/extensions/api//passwords_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.resources_private.o: $
+    cxx gen/chrome/common/extensions/api//resources_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.screenlock_private.o: $
+    cxx gen/chrome/common/extensions/api//screenlock_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.settings_private.o: $
+    cxx gen/chrome/common/extensions/api//settings_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.signed_in_devices.o: $
+    cxx gen/chrome/common/extensions/api//signed_in_devices.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.streams_private.o: $
+    cxx gen/chrome/common/extensions/api//streams_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.sync_file_system.o: $
+    cxx gen/chrome/common/extensions/api//sync_file_system.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.system_indicator.o: $
+    cxx gen/chrome/common/extensions/api//system_indicator.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.tab_capture.o: $
+    cxx gen/chrome/common/extensions/api//tab_capture.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.webrtc_audio_private.o: $
+    cxx gen/chrome/common/extensions/api//webrtc_audio_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.webrtc_desktop_capture_private.o: $
+    cxx gen/chrome/common/extensions/api//webrtc_desktop_capture_private.cc $
+    || obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.webrtc_logging_private.o: $
+    cxx gen/chrome/common/extensions/api//webrtc_logging_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.webstore_widget_private.o: $
+    cxx gen/chrome/common/extensions/api//webstore_widget_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.processes.o: $
+    cxx gen/chrome/common/extensions/api//processes.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.gcd_private.o: $
+    cxx gen/chrome/common/extensions/api//gcd_private.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+build $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.mdns.o: $
+    cxx gen/chrome/common/extensions/api//mdns.cc || $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+
+build obj/chrome/common/extensions/api/libchrome_api.a: alink_thin $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.generated_schemas.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.accessibility_features.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.accessibility_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.activity_log_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.bookmark_manager_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.bookmarks.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.chrome_web_view_internal.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.cloud_print_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.command_line_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.content_settings.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.context_menus_internal.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.context_menus.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.cookies.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.dashboard_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.data_reduction_proxy.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.debugger.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.desktop_capture.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.experience_sampling_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.font_settings.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.gcm.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.history.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.i18n.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.instance_id.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.manifest_types.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.metrics_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.omnibox.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.page_capture.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.permissions.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.preferences_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.sessions.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.system_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.tabs.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.types.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.web_navigation.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.webstore_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.windows.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.input_ime.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.audio_modem.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.autofill_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.automation.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.automation_internal.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.autotest_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.bluetooth_low_energy.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.braille_display_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.browser.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.copresence.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.copresence_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.cryptotoken_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.developer_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.dial.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.downloads.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.downloads_internal.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.easy_unlock_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.feedback_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.file_system.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.hangouts_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.hotword_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.identity.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.identity_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.image_writer_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.inline_install_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.language_settings_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.launcher_page.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.media_galleries.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.notification_provider.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.notifications.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.passwords_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.resources_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.screenlock_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.settings_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.signed_in_devices.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.streams_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.sync_file_system.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.system_indicator.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.tab_capture.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.webrtc_audio_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.webrtc_desktop_capture_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.webrtc_logging_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.webstore_widget_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.processes.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.gcd_private.o $
+    obj/chrome/common/extensions/api/gen/chrome/common/extensions/api/chrome_api.mdns.o $
+    || obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp

@@ -1,0 +1,81 @@
+rule $
+    precompile_mojom_bindings_generator_templates_target_precompile_mojom_bindings_generator_templates_6597e2b56d2ffe3c924a107fdc599b6d
+  command = cd ../../mojo/public/tools/bindings; python $
+      ../../../../mojo/public/tools/bindings/mojom_bindings_generator.py $
+      --use_bundled_pylibs precompile -o $
+      ../../../../out.cef/Release/gen/mojo/public/tools/bindings
+  description = ACTION precompile_mojom_bindings_generator_templates: $
+      precompile_mojom_bindings_generator_templates_6597e2b56d2ffe3c924a107fdc599b6d
+  restat = 1
+
+build gen/mojo/public/tools/bindings/cpp_templates.zip $
+    gen/mojo/public/tools/bindings/java_templates.zip $
+    gen/mojo/public/tools/bindings/js_templates.zip: $
+    precompile_mojom_bindings_generator_templates_target_precompile_mojom_bindings_generator_templates_6597e2b56d2ffe3c924a107fdc599b6d $
+    ../../mojo/public/tools/bindings/mojom_bindings_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_cpp_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_java_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_js_generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/error.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/data.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/module.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/pack.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/template_expander.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/ast.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/lexer.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/parser.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/translate.py $
+    ../../mojo/public/tools/bindings/generators/cpp_templates/enum_macros.tmpl $
+    ../../mojo/public/tools/bindings/generators/cpp_templates/interface_declaration.tmpl $
+    ../../mojo/public/tools/bindings/generators/cpp_templates/interface_definition.tmpl $
+    ../../mojo/public/tools/bindings/generators/cpp_templates/interface_macros.tmpl $
+    ../../mojo/public/tools/bindings/generators/cpp_templates/interface_proxy_declaration.tmpl $
+    ../../mojo/public/tools/bindings/generators/cpp_templates/interface_request_validator_declaration.tmpl $
+    ../../mojo/public/tools/bindings/generators/cpp_templates/interface_response_validator_declaration.tmpl $
+    ../../mojo/public/tools/bindings/generators/cpp_templates/interface_stub_declaration.tmpl $
+    ../../mojo/public/tools/bindings/generators/cpp_templates/module.cc.tmpl $
+    ../../mojo/public/tools/bindings/generators/cpp_templates/module.h.tmpl $
+    ../../mojo/public/tools/bindings/generators/cpp_templates/module-internal.h.tmpl $
+    ../../mojo/public/tools/bindings/generators/cpp_templates/struct_declaration.tmpl $
+    ../../mojo/public/tools/bindings/generators/cpp_templates/struct_definition.tmpl $
+    ../../mojo/public/tools/bindings/generators/cpp_templates/struct_macros.tmpl $
+    ../../mojo/public/tools/bindings/generators/cpp_templates/struct_serialization_declaration.tmpl $
+    ../../mojo/public/tools/bindings/generators/cpp_templates/struct_serialization_definition.tmpl $
+    ../../mojo/public/tools/bindings/generators/cpp_templates/union_declaration.tmpl $
+    ../../mojo/public/tools/bindings/generators/cpp_templates/union_definition.tmpl $
+    ../../mojo/public/tools/bindings/generators/cpp_templates/union_serialization_declaration.tmpl $
+    ../../mojo/public/tools/bindings/generators/cpp_templates/union_serialization_definition.tmpl $
+    ../../mojo/public/tools/bindings/generators/cpp_templates/validation_macros.tmpl $
+    ../../mojo/public/tools/bindings/generators/cpp_templates/wrapper_class_declaration.tmpl $
+    ../../mojo/public/tools/bindings/generators/cpp_templates/wrapper_class_definition.tmpl $
+    ../../mojo/public/tools/bindings/generators/cpp_templates/wrapper_union_class_declaration.tmpl $
+    ../../mojo/public/tools/bindings/generators/cpp_templates/wrapper_union_class_definition.tmpl $
+    ../../mojo/public/tools/bindings/generators/java_templates/constant_definition.tmpl $
+    ../../mojo/public/tools/bindings/generators/java_templates/constants.java.tmpl $
+    ../../mojo/public/tools/bindings/generators/java_templates/data_types_definition.tmpl $
+    ../../mojo/public/tools/bindings/generators/java_templates/enum_definition.tmpl $
+    ../../mojo/public/tools/bindings/generators/java_templates/enum.java.tmpl $
+    ../../mojo/public/tools/bindings/generators/java_templates/header.java.tmpl $
+    ../../mojo/public/tools/bindings/generators/java_templates/interface_definition.tmpl $
+    ../../mojo/public/tools/bindings/generators/java_templates/interface_internal.java.tmpl $
+    ../../mojo/public/tools/bindings/generators/java_templates/interface.java.tmpl $
+    ../../mojo/public/tools/bindings/generators/java_templates/struct.java.tmpl $
+    ../../mojo/public/tools/bindings/generators/java_templates/union.java.tmpl $
+    ../../mojo/public/tools/bindings/generators/js_templates/enum_definition.tmpl $
+    ../../mojo/public/tools/bindings/generators/js_templates/interface_definition.tmpl $
+    ../../mojo/public/tools/bindings/generators/js_templates/module_definition.tmpl $
+    ../../mojo/public/tools/bindings/generators/js_templates/module.amd.tmpl $
+    ../../mojo/public/tools/bindings/generators/js_templates/struct_definition.tmpl $
+    ../../mojo/public/tools/bindings/generators/js_templates/union_definition.tmpl $
+    ../../mojo/public/tools/bindings/generators/js_templates/validation_macros.tmpl
+
+build $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp: $
+    stamp gen/mojo/public/tools/bindings/cpp_templates.zip $
+    gen/mojo/public/tools/bindings/java_templates.zip $
+    gen/mojo/public/tools/bindings/js_templates.zip
+

@@ -1,0 +1,121 @@
+build obj/net/simple_quic_tools.actions_depends.stamp: stamp $
+    lib/libbase.so.TOC lib/liburl_lib.so.TOC lib/libnet.so.TOC $
+    obj/net/libnet_quic_proto.a
+
+build obj/net/simple_quic_tools.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/url/url_lib.compile_depends.stamp obj/net/net.compile_depends.stamp $
+    obj/net/net_quic_proto.actions_rules_copies.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DCOMPONENT_BUILD -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 $
+    -DUSE_OZONE=1 -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DPROTOBUF_USE_DLLS $
+    -DGOOGLE_PROTOBUF_NO_RTTI -DGOOGLE_PROTOBUF_NO_STATIC_INITIALIZER $
+    -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 $
+    -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -Igen/protoc_out -I../../third_party/protobuf $
+    -I../../third_party/protobuf/src
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/net/tools/quic/simple_quic_tools.quic_client_base.o: cxx $
+    ../../net/tools/quic/quic_client_base.cc || $
+    obj/net/simple_quic_tools.compile_depends.stamp
+build obj/net/tools/quic/simple_quic_tools.quic_client_session.o: cxx $
+    ../../net/tools/quic/quic_client_session.cc || $
+    obj/net/simple_quic_tools.compile_depends.stamp
+build obj/net/tools/quic/simple_quic_tools.quic_dispatcher.o: cxx $
+    ../../net/tools/quic/quic_dispatcher.cc || $
+    obj/net/simple_quic_tools.compile_depends.stamp
+build obj/net/tools/quic/simple_quic_tools.quic_in_memory_cache.o: cxx $
+    ../../net/tools/quic/quic_in_memory_cache.cc || $
+    obj/net/simple_quic_tools.compile_depends.stamp
+build $
+    obj/net/tools/quic/simple_quic_tools.quic_per_connection_packet_writer.o: $
+    cxx ../../net/tools/quic/quic_per_connection_packet_writer.cc || $
+    obj/net/simple_quic_tools.compile_depends.stamp
+build obj/net/tools/quic/simple_quic_tools.quic_server_session_base.o: cxx $
+    ../../net/tools/quic/quic_server_session_base.cc || $
+    obj/net/simple_quic_tools.compile_depends.stamp
+build obj/net/tools/quic/simple_quic_tools.quic_simple_client.o: cxx $
+    ../../net/tools/quic/quic_simple_client.cc || $
+    obj/net/simple_quic_tools.compile_depends.stamp
+build $
+    obj/net/tools/quic/simple_quic_tools.quic_simple_per_connection_packet_writer.o: $
+    cxx ../../net/tools/quic/quic_simple_per_connection_packet_writer.cc || $
+    obj/net/simple_quic_tools.compile_depends.stamp
+build obj/net/tools/quic/simple_quic_tools.quic_simple_server.o: cxx $
+    ../../net/tools/quic/quic_simple_server.cc || $
+    obj/net/simple_quic_tools.compile_depends.stamp
+build $
+    obj/net/tools/quic/simple_quic_tools.quic_simple_server_packet_writer.o: $
+    cxx ../../net/tools/quic/quic_simple_server_packet_writer.cc || $
+    obj/net/simple_quic_tools.compile_depends.stamp
+build obj/net/tools/quic/simple_quic_tools.quic_simple_server_session.o: $
+    cxx ../../net/tools/quic/quic_simple_server_session.cc || $
+    obj/net/simple_quic_tools.compile_depends.stamp
+build obj/net/tools/quic/simple_quic_tools.quic_spdy_client_stream.o: cxx $
+    ../../net/tools/quic/quic_spdy_client_stream.cc || $
+    obj/net/simple_quic_tools.compile_depends.stamp
+build obj/net/tools/quic/simple_quic_tools.quic_simple_server_stream.o: cxx $
+    ../../net/tools/quic/quic_simple_server_stream.cc || $
+    obj/net/simple_quic_tools.compile_depends.stamp
+build obj/net/tools/quic/simple_quic_tools.quic_time_wait_list_manager.o: $
+    cxx ../../net/tools/quic/quic_time_wait_list_manager.cc || $
+    obj/net/simple_quic_tools.compile_depends.stamp
+build obj/net/tools/quic/simple_quic_tools.synchronous_host_resolver.o: cxx $
+    ../../net/tools/quic/synchronous_host_resolver.cc || $
+    obj/net/simple_quic_tools.compile_depends.stamp
+
+build obj/net/libsimple_quic_tools.a: alink_thin $
+    obj/net/tools/quic/simple_quic_tools.quic_client_base.o $
+    obj/net/tools/quic/simple_quic_tools.quic_client_session.o $
+    obj/net/tools/quic/simple_quic_tools.quic_dispatcher.o $
+    obj/net/tools/quic/simple_quic_tools.quic_in_memory_cache.o $
+    obj/net/tools/quic/simple_quic_tools.quic_per_connection_packet_writer.o $
+    obj/net/tools/quic/simple_quic_tools.quic_server_session_base.o $
+    obj/net/tools/quic/simple_quic_tools.quic_simple_client.o $
+    obj/net/tools/quic/simple_quic_tools.quic_simple_per_connection_packet_writer.o $
+    obj/net/tools/quic/simple_quic_tools.quic_simple_server.o $
+    obj/net/tools/quic/simple_quic_tools.quic_simple_server_packet_writer.o $
+    obj/net/tools/quic/simple_quic_tools.quic_simple_server_session.o $
+    obj/net/tools/quic/simple_quic_tools.quic_spdy_client_stream.o $
+    obj/net/tools/quic/simple_quic_tools.quic_simple_server_stream.o $
+    obj/net/tools/quic/simple_quic_tools.quic_time_wait_list_manager.o $
+    obj/net/tools/quic/simple_quic_tools.synchronous_host_resolver.o || $
+    obj/net/simple_quic_tools.actions_depends.stamp

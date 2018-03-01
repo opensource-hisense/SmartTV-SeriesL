@@ -1,0 +1,30 @@
+build media_router/browser_test_resources/basic_test.html: copy $
+    ../../chrome/test/media_router/resources/basic_test.html
+build $
+    media_router/browser_test_resources/close_route_with_error_on_send.json: $
+    copy $
+    ../../chrome/test/media_router/resources/close_route_with_error_on_send.json
+build media_router/browser_test_resources/common.js: copy $
+    ../../chrome/test/media_router/resources/common.js
+build media_router/browser_test_resources/fail_create_route.json: copy $
+    ../../chrome/test/media_router/resources/fail_create_route.json
+build media_router/browser_test_resources/fail_reconnect_session.html: copy $
+    ../../chrome/test/media_router/resources/fail_reconnect_session.html
+build media_router/browser_test_resources/fail_reconnect_session.json: copy $
+    ../../chrome/test/media_router/resources/fail_reconnect_session.json
+build media_router/browser_test_resources/no_provider.json: copy $
+    ../../chrome/test/media_router/resources/no_provider.json
+build media_router/browser_test_resources/route_creation_timed_out.json: $
+    copy $
+    ../../chrome/test/media_router/resources/route_creation_timed_out.json
+build $
+    obj/chrome/test/media_router/media_router_integration_test_files.actions_rules_copies.stamp: $
+    stamp media_router/browser_test_resources/basic_test.html $
+    media_router/browser_test_resources/close_route_with_error_on_send.json $
+    media_router/browser_test_resources/common.js $
+    media_router/browser_test_resources/fail_create_route.json $
+    media_router/browser_test_resources/fail_reconnect_session.html $
+    media_router/browser_test_resources/fail_reconnect_session.json $
+    media_router/browser_test_resources/no_provider.json $
+    media_router/browser_test_resources/route_creation_timed_out.json
+

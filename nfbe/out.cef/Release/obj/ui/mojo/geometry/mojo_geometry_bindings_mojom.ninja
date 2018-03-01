@@ -1,0 +1,80 @@
+build $
+    obj/ui/mojo/geometry/mojo_geometry_bindings_mojom.actions_depends.stamp: $
+    stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    lib/libbase.so.TOC $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp
+
+build $
+    obj/ui/mojo/geometry/mojo_geometry_bindings_mojom.compile_depends.stamp: $
+    stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp
+
+rule $
+    mojo_geometry_bindings_mojom_target_mojo_geometry_bindings_mojom_mojom_bindings_stamp_0fb1f0478b588aacc16cfbe9e9da15b6
+  command = cd ../../ui/mojo/geometry; python $
+      ../../../build/rmdir_and_stamp.py $
+      ../../../out.cef/Release/java_mojo/mojo_geometry_bindings_mojom/src $
+      ../../../out.cef/Release/java_mojo/mojo_geometry_bindings_mojom/mojo_geometry_bindings_mojom.stamp
+  description = ACTION mojo_geometry_bindings_mojom: $
+      mojo_geometry_bindings_mojom_mojom_bindings_stamp_0fb1f0478b588aacc16cfbe9e9da15b6
+  restat = 1
+
+build $
+    java_mojo/mojo_geometry_bindings_mojom/mojo_geometry_bindings_mojom.stamp: $
+    mojo_geometry_bindings_mojom_target_mojo_geometry_bindings_mojom_mojom_bindings_stamp_0fb1f0478b588aacc16cfbe9e9da15b6 $
+    ../../ui/mojo/geometry/geometry.mojom || $
+    obj/ui/mojo/geometry/mojo_geometry_bindings_mojom.actions_depends.stamp
+
+rule $
+    mojo_geometry_bindings_mojom_target_mojo_geometry_bindings_mojom_mojom_bindings_generator_0fb1f0478b588aacc16cfbe9e9da15b6
+  command = cd ../../ui/mojo/geometry; python $
+      ../../../mojo/public/tools/bindings/mojom_bindings_generator.py $
+      --use_bundled_pylibs generate geometry.mojom -d ../../.. -I../../.. $
+      -I../../../mojo/services -I../../.. -o ../../../out.cef/Release/gen $
+      "--java_output_directory=../../../out.cef/Release/java_mojo/mojo_geometry_bindings_mojom/src" $
+      --variant none -g c++,javascript,java --bytecode_path $
+      ../../../out.cef/Release/gen/mojo/public/tools/bindings
+  description = ACTION Generating Mojo bindings from geometry.mojom
+  restat = 1
+
+build gen/ui/mojo/geometry/geometry.mojom.cc $
+    gen/ui/mojo/geometry/geometry.mojom.h $
+    gen/ui/mojo/geometry/geometry.mojom-internal.h $
+    gen/ui/mojo/geometry/geometry.mojom.js: $
+    mojo_geometry_bindings_mojom_target_mojo_geometry_bindings_mojom_mojom_bindings_generator_0fb1f0478b588aacc16cfbe9e9da15b6 $
+    ../../mojo/public/tools/bindings/mojom_bindings_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_cpp_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_java_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_js_generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/error.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/data.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/module.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/pack.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/template_expander.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/ast.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/lexer.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/parser.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/translate.py $
+    ../../ui/mojo/geometry/geometry.mojom $
+    java_mojo/mojo_geometry_bindings_mojom/mojo_geometry_bindings_mojom.stamp $
+    gen/mojo/public/tools/bindings/cpp_templates.zip $
+    gen/mojo/public/tools/bindings/java_templates.zip $
+    gen/mojo/public/tools/bindings/js_templates.zip || $
+    obj/ui/mojo/geometry/mojo_geometry_bindings_mojom.actions_depends.stamp
+
+build $
+    obj/ui/mojo/geometry/mojo_geometry_bindings_mojom.actions_rules_copies.stamp: $
+    stamp $
+    java_mojo/mojo_geometry_bindings_mojom/mojo_geometry_bindings_mojom.stamp $
+    gen/ui/mojo/geometry/geometry.mojom.cc $
+    gen/ui/mojo/geometry/geometry.mojom.h $
+    gen/ui/mojo/geometry/geometry.mojom-internal.h $
+    gen/ui/mojo/geometry/geometry.mojom.js
+

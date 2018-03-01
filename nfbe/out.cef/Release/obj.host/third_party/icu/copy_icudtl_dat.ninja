@@ -1,0 +1,1 @@
+build icudtl.dat: copy ../../third_party/icu/common/icudtl.dat

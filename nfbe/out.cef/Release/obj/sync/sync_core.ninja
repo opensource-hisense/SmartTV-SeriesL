@@ -1,0 +1,817 @@
+build obj/sync/sync_core.actions_depends.stamp: stamp lib/libbase.so.TOC $
+    lib/libnet.so.TOC lib/liburl_lib.so.TOC $
+    obj/sync/libattachment_store_proto.a obj/sync/libsync_proto.a
+
+build obj/sync/sync_core.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp obj/net/net.compile_depends.stamp $
+    obj/url/url_lib.compile_depends.stamp $
+    obj/sync/attachment_store_proto.actions_rules_copies.stamp $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DSYNC_IMPLEMENTATION $
+    -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= $
+    -DU_STATIC_IMPLEMENTATION -DPROTOBUF_USE_DLLS -DGOOGLE_PROTOBUF_NO_RTTI $
+    -DGOOGLE_PROTOBUF_NO_STATIC_INITIALIZER -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS $
+    -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../third_party/icu/source/common $
+    -I../../third_party/icu/source/i18n $
+    -I../../third_party/leveldatabase/src/include $
+    -I../../third_party/leveldatabase/src -I../../third_party/leveldatabase $
+    -I../../third_party/protobuf -I../../third_party/protobuf/src $
+    -I../../third_party/zlib -Igen/protoc_out
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -I/work/bsp/sc1400/usr/include/nss3 $
+    -I/work/bsp/sc1400/usr/include/nspr -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/sync/api/attachments/sync_core.attachment.o: cxx $
+    ../../sync/api/attachments/attachment.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/api/attachments/sync_core.attachment_id.o: cxx $
+    ../../sync/api/attachments/attachment_id.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/api/attachments/sync_core.attachment_metadata.o: cxx $
+    ../../sync/api/attachments/attachment_metadata.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/api/attachments/sync_core.attachment_store.o: cxx $
+    ../../sync/api/attachments/attachment_store.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/api/attachments/sync_core.attachment_store_backend.o: cxx $
+    ../../sync/api/attachments/attachment_store_backend.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/api/sync_core.conflict_resolution.o: cxx $
+    ../../sync/api/conflict_resolution.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/api/sync_core.entity_change.o: cxx $
+    ../../sync/api/entity_change.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/api/sync_core.entity_data.o: cxx $
+    ../../sync/api/entity_data.cc || obj/sync/sync_core.compile_depends.stamp
+build obj/sync/api/sync_core.metadata_batch.o: cxx $
+    ../../sync/api/metadata_batch.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/api/sync_core.model_type_change_processor.o: cxx $
+    ../../sync/api/model_type_change_processor.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/api/sync_core.model_type_service.o: cxx $
+    ../../sync/api/model_type_service.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/api/sync_core.model_type_store.o: cxx $
+    ../../sync/api/model_type_store.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/api/sync_core.sync_change.o: cxx $
+    ../../sync/api/sync_change.cc || obj/sync/sync_core.compile_depends.stamp
+build obj/sync/api/sync_core.sync_change_processor.o: cxx $
+    ../../sync/api/sync_change_processor.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/api/sync_core.sync_data.o: cxx ../../sync/api/sync_data.cc $
+    || obj/sync/sync_core.compile_depends.stamp
+build obj/sync/api/sync_core.sync_error.o: cxx ../../sync/api/sync_error.cc $
+    || obj/sync/sync_core.compile_depends.stamp
+build obj/sync/api/sync_core.sync_error_factory.o: cxx $
+    ../../sync/api/sync_error_factory.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/api/sync_core.sync_merge_result.o: cxx $
+    ../../sync/api/sync_merge_result.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/api/sync_core.syncable_service.o: cxx $
+    ../../sync/api/syncable_service.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.all_status.o: cxx $
+    ../../sync/engine/all_status.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.apply_control_data_updates.o: cxx $
+    ../../sync/engine/apply_control_data_updates.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.backoff_delay_provider.o: cxx $
+    ../../sync/engine/backoff_delay_provider.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.clear_server_data.o: cxx $
+    ../../sync/engine/clear_server_data.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.commit.o: cxx ../../sync/engine/commit.cc $
+    || obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.commit_contribution.o: cxx $
+    ../../sync/engine/commit_contribution.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.commit_contributor.o: cxx $
+    ../../sync/engine/commit_contributor.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.commit_processor.o: cxx $
+    ../../sync/engine/commit_processor.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.commit_queue.o: cxx $
+    ../../sync/engine/commit_queue.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.commit_util.o: cxx $
+    ../../sync/engine/commit_util.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.conflict_resolver.o: cxx $
+    ../../sync/engine/conflict_resolver.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.conflict_util.o: cxx $
+    ../../sync/engine/conflict_util.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.directory_commit_contribution.o: cxx $
+    ../../sync/engine/directory_commit_contribution.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.directory_commit_contributor.o: cxx $
+    ../../sync/engine/directory_commit_contributor.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.directory_update_handler.o: cxx $
+    ../../sync/engine/directory_update_handler.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.get_commit_ids.o: cxx $
+    ../../sync/engine/get_commit_ids.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.get_updates_delegate.o: cxx $
+    ../../sync/engine/get_updates_delegate.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.get_updates_processor.o: cxx $
+    ../../sync/engine/get_updates_processor.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.model_type_worker.o: cxx $
+    ../../sync/engine/model_type_worker.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/net/sync_core.server_connection_manager.o: cxx $
+    ../../sync/engine/net/server_connection_manager.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/net/sync_core.url_translator.o: cxx $
+    ../../sync/engine/net/url_translator.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.non_blocking_type_commit_contribution.o: $
+    cxx ../../sync/engine/non_blocking_type_commit_contribution.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.nudge_handler.o: cxx $
+    ../../sync/engine/nudge_handler.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.nudge_source.o: cxx $
+    ../../sync/engine/nudge_source.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.process_updates_util.o: cxx $
+    ../../sync/engine/process_updates_util.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.sync_cycle_event.o: cxx $
+    ../../sync/engine/sync_cycle_event.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.sync_engine_event_listener.o: cxx $
+    ../../sync/engine/sync_engine_event_listener.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.sync_scheduler.o: cxx $
+    ../../sync/engine/sync_scheduler.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.sync_scheduler_impl.o: cxx $
+    ../../sync/engine/sync_scheduler_impl.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.syncer.o: cxx ../../sync/engine/syncer.cc $
+    || obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.syncer_proto_util.o: cxx $
+    ../../sync/engine/syncer_proto_util.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.syncer_util.o: cxx $
+    ../../sync/engine/syncer_util.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.traffic_logger.o: cxx $
+    ../../sync/engine/traffic_logger.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.update_applicator.o: cxx $
+    ../../sync/engine/update_applicator.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.update_handler.o: cxx $
+    ../../sync/engine/update_handler.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/engine/sync_core.worker_entity_tracker.o: cxx $
+    ../../sync/engine/worker_entity_tracker.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.activation_context.o: cxx $
+    ../../sync/internal_api/activation_context.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/attachments/sync_core.attachment_downloader.o: $
+    cxx ../../sync/internal_api/attachments/attachment_downloader.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build $
+    obj/sync/internal_api/attachments/sync_core.attachment_downloader_impl.o: $
+    cxx ../../sync/internal_api/attachments/attachment_downloader_impl.cc $
+    || obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/attachments/sync_core.attachment_service.o: cxx $
+    ../../sync/internal_api/attachments/attachment_service.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build $
+    obj/sync/internal_api/attachments/sync_core.attachment_service_impl.o: $
+    cxx ../../sync/internal_api/attachments/attachment_service_impl.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build $
+    obj/sync/internal_api/attachments/sync_core.attachment_service_proxy.o: $
+    cxx ../../sync/internal_api/attachments/attachment_service_proxy.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build $
+    obj/sync/internal_api/attachments/sync_core.attachment_service_proxy_for_test.o: $
+    cxx $
+    ../../sync/internal_api/attachments/attachment_service_proxy_for_test.cc $
+    || obj/sync/sync_core.compile_depends.stamp
+build $
+    obj/sync/internal_api/attachments/sync_core.attachment_store_frontend.o: $
+    cxx ../../sync/internal_api/attachments/attachment_store_frontend.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/attachments/sync_core.attachment_uploader.o: $
+    cxx ../../sync/internal_api/attachments/attachment_uploader.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build $
+    obj/sync/internal_api/attachments/sync_core.attachment_uploader_impl.o: $
+    cxx ../../sync/internal_api/attachments/attachment_uploader_impl.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/attachments/sync_core.attachment_util.o: cxx $
+    ../../sync/internal_api/attachments/attachment_util.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build $
+    obj/sync/internal_api/attachments/sync_core.fake_attachment_downloader.o: $
+    cxx ../../sync/internal_api/attachments/fake_attachment_downloader.cc $
+    || obj/sync/sync_core.compile_depends.stamp
+build $
+    obj/sync/internal_api/attachments/sync_core.fake_attachment_uploader.o: $
+    cxx ../../sync/internal_api/attachments/fake_attachment_uploader.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build $
+    obj/sync/internal_api/attachments/sync_core.in_memory_attachment_store.o: $
+    cxx ../../sync/internal_api/attachments/in_memory_attachment_store.cc $
+    || obj/sync/sync_core.compile_depends.stamp
+build $
+    obj/sync/internal_api/attachments/sync_core.on_disk_attachment_store.o: $
+    cxx ../../sync/internal_api/attachments/on_disk_attachment_store.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/attachments/sync_core.task_queue.o: cxx $
+    ../../sync/internal_api/attachments/task_queue.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.base_node.o: cxx $
+    ../../sync/internal_api/base_node.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.base_transaction.o: cxx $
+    ../../sync/internal_api/base_transaction.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.change_record.o: cxx $
+    ../../sync/internal_api/change_record.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.change_reorder_buffer.o: cxx $
+    ../../sync/internal_api/change_reorder_buffer.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.debug_info_event_listener.o: cxx $
+    ../../sync/internal_api/debug_info_event_listener.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.delete_journal.o: cxx $
+    ../../sync/internal_api/delete_journal.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build $
+    obj/sync/internal_api/events/sync_core.clear_server_data_request_event.o: $
+    cxx ../../sync/internal_api/events/clear_server_data_request_event.cc $
+    || obj/sync/sync_core.compile_depends.stamp
+build $
+    obj/sync/internal_api/events/sync_core.clear_server_data_response_event.o: $
+    cxx ../../sync/internal_api/events/clear_server_data_response_event.cc $
+    || obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/events/sync_core.commit_request_event.o: cxx $
+    ../../sync/internal_api/events/commit_request_event.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/events/sync_core.commit_response_event.o: cxx $
+    ../../sync/internal_api/events/commit_response_event.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build $
+    obj/sync/internal_api/events/sync_core.configure_get_updates_request_event.o: $
+    cxx $
+    ../../sync/internal_api/events/configure_get_updates_request_event.cc $
+    || obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/events/sync_core.get_updates_response_event.o: $
+    cxx ../../sync/internal_api/events/get_updates_response_event.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build $
+    obj/sync/internal_api/events/sync_core.normal_get_updates_request_event.o: $
+    cxx ../../sync/internal_api/events/normal_get_updates_request_event.cc $
+    || obj/sync/sync_core.compile_depends.stamp
+build $
+    obj/sync/internal_api/events/sync_core.poll_get_updates_request_event.o: $
+    cxx ../../sync/internal_api/events/poll_get_updates_request_event.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/events/sync_core.protocol_event.o: cxx $
+    ../../sync/internal_api/events/protocol_event.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.http_bridge.o: cxx $
+    ../../sync/internal_api/http_bridge.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.http_bridge_network_resources.o: cxx $
+    ../../sync/internal_api/http_bridge_network_resources.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.internal_components_factory_impl.o: $
+    cxx ../../sync/internal_api/internal_components_factory_impl.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.js_mutation_event_observer.o: cxx $
+    ../../sync/internal_api/js_mutation_event_observer.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build $
+    obj/sync/internal_api/sync_core.js_sync_encryption_handler_observer.o: $
+    cxx ../../sync/internal_api/js_sync_encryption_handler_observer.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.js_sync_manager_observer.o: cxx $
+    ../../sync/internal_api/js_sync_manager_observer.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.model_type_store_backend.o: cxx $
+    ../../sync/internal_api/model_type_store_backend.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.model_type_store_impl.o: cxx $
+    ../../sync/internal_api/model_type_store_impl.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.processor_entity_tracker.o: cxx $
+    ../../sync/internal_api/processor_entity_tracker.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.protocol_event_buffer.o: cxx $
+    ../../sync/internal_api/protocol_event_buffer.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/public/base/sync_core.attachment_id_proto.o: $
+    cxx ../../sync/internal_api/public/base/attachment_id_proto.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/public/base/sync_core.cancelation_observer.o: $
+    cxx ../../sync/internal_api/public/base/cancelation_observer.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/public/base/sync_core.cancelation_signal.o: cxx $
+    ../../sync/internal_api/public/base/cancelation_signal.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/public/base/sync_core.invalidation_interface.o: $
+    cxx ../../sync/internal_api/public/base/invalidation_interface.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/public/base/sync_core.node_ordinal.o: cxx $
+    ../../sync/internal_api/public/base/node_ordinal.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/public/base/sync_core.progress_marker_map.o: $
+    cxx ../../sync/internal_api/public/base/progress_marker_map.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/public/base/sync_core.unique_position.o: cxx $
+    ../../sync/internal_api/public/base/unique_position.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/public/sync_core.data_batch_impl.o: cxx $
+    ../../sync/internal_api/public/data_batch_impl.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/public/sync_core.data_type_association_stats.o: $
+    cxx ../../sync/internal_api/public/data_type_association_stats.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build $
+    obj/sync/internal_api/public/sync_core.data_type_debug_info_listener.o: $
+    cxx ../../sync/internal_api/public/data_type_debug_info_listener.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/public/engine/sync_core.model_safe_worker.o: $
+    cxx ../../sync/internal_api/public/engine/model_safe_worker.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/public/engine/sync_core.passive_model_worker.o: $
+    cxx ../../sync/internal_api/public/engine/passive_model_worker.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/public/engine/sync_core.polling_constants.o: $
+    cxx ../../sync/internal_api/public/engine/polling_constants.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/public/engine/sync_core.sync_status.o: cxx $
+    ../../sync/internal_api/public/engine/sync_status.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/public/sync_core.model_type_processor.o: cxx $
+    ../../sync/internal_api/public/model_type_processor.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/public/sync_core.non_blocking_sync_common.o: $
+    cxx ../../sync/internal_api/public/non_blocking_sync_common.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/public/sessions/sync_core.commit_counters.o: $
+    cxx ../../sync/internal_api/public/sessions/commit_counters.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build $
+    obj/sync/internal_api/public/sessions/sync_core.model_neutral_state.o: $
+    cxx ../../sync/internal_api/public/sessions/model_neutral_state.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/public/sessions/sync_core.status_counters.o: $
+    cxx ../../sync/internal_api/public/sessions/status_counters.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build $
+    obj/sync/internal_api/public/sessions/sync_core.sync_session_snapshot.o: $
+    cxx ../../sync/internal_api/public/sessions/sync_session_snapshot.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build $
+    obj/sync/internal_api/public/sessions/sync_core.type_debug_info_observer.o: $
+    cxx ../../sync/internal_api/public/sessions/type_debug_info_observer.cc $
+    || obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/public/sessions/sync_core.update_counters.o: $
+    cxx ../../sync/internal_api/public/sessions/update_counters.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/public/sync_core.simple_metadata_change_list.o: $
+    cxx ../../sync/internal_api/public/simple_metadata_change_list.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/public/sync_core.sync_encryption_handler.o: cxx $
+    ../../sync/internal_api/public/sync_encryption_handler.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/public/sync_core.sync_manager.o: cxx $
+    ../../sync/internal_api/public/sync_manager.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build $
+    obj/sync/internal_api/public/util/sync_core.sync_string_conversions.o: $
+    cxx ../../sync/internal_api/public/util/sync_string_conversions.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/public/util/sync_core.syncer_error.o: cxx $
+    ../../sync/internal_api/public/util/syncer_error.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build $
+    obj/sync/internal_api/public/util/sync_core.unrecoverable_error_info.o: $
+    cxx ../../sync/internal_api/public/util/unrecoverable_error_info.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/public/util/sync_core.weak_handle.o: cxx $
+    ../../sync/internal_api/public/util/weak_handle.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.read_node.o: cxx $
+    ../../sync/internal_api/read_node.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.read_transaction.o: cxx $
+    ../../sync/internal_api/read_transaction.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.shared_model_type_processor.o: cxx $
+    ../../sync/internal_api/shared_model_type_processor.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.sync_context.o: cxx $
+    ../../sync/internal_api/sync_context.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.sync_context_proxy.o: cxx $
+    ../../sync/internal_api/sync_context_proxy.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.sync_db_util.o: cxx $
+    ../../sync/internal_api/sync_db_util.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.sync_encryption_handler_impl.o: cxx $
+    ../../sync/internal_api/sync_encryption_handler_impl.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.sync_manager_factory.o: cxx $
+    ../../sync/internal_api/sync_manager_factory.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.sync_manager_impl.o: cxx $
+    ../../sync/internal_api/sync_manager_impl.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.syncapi_internal.o: cxx $
+    ../../sync/internal_api/syncapi_internal.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.syncapi_server_connection_manager.o: $
+    cxx ../../sync/internal_api/syncapi_server_connection_manager.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.user_share.o: cxx $
+    ../../sync/internal_api/user_share.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.write_node.o: cxx $
+    ../../sync/internal_api/write_node.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/internal_api/sync_core.write_transaction.o: cxx $
+    ../../sync/internal_api/write_transaction.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/js/sync_core.js_event_details.o: cxx $
+    ../../sync/js/js_event_details.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/js/sync_core.sync_js_controller.o: cxx $
+    ../../sync/js/sync_js_controller.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/protocol/sync_core.proto_enum_conversions.o: cxx $
+    ../../sync/protocol/proto_enum_conversions.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/protocol/sync_core.proto_value_conversions.o: cxx $
+    ../../sync/protocol/proto_value_conversions.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/protocol/sync_core.sync_protocol_error.o: cxx $
+    ../../sync/protocol/sync_protocol_error.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/sessions/sync_core.data_type_tracker.o: cxx $
+    ../../sync/sessions/data_type_tracker.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/sessions/sync_core.directory_type_debug_info_emitter.o: cxx $
+    ../../sync/sessions/directory_type_debug_info_emitter.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/sessions/sync_core.model_type_registry.o: cxx $
+    ../../sync/sessions/model_type_registry.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/sessions/sync_core.nudge_tracker.o: cxx $
+    ../../sync/sessions/nudge_tracker.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/sessions/sync_core.status_controller.o: cxx $
+    ../../sync/sessions/status_controller.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/sessions/sync_core.sync_session.o: cxx $
+    ../../sync/sessions/sync_session.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/sessions/sync_core.sync_session_context.o: cxx $
+    ../../sync/sessions/sync_session_context.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/syncable/sync_core.directory.o: cxx $
+    ../../sync/syncable/directory.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/syncable/sync_core.directory_backing_store.o: cxx $
+    ../../sync/syncable/directory_backing_store.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/syncable/sync_core.entry.o: cxx ../../sync/syncable/entry.cc $
+    || obj/sync/sync_core.compile_depends.stamp
+build obj/sync/syncable/sync_core.entry_kernel.o: cxx $
+    ../../sync/syncable/entry_kernel.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/syncable/sync_core.in_memory_directory_backing_store.o: cxx $
+    ../../sync/syncable/in_memory_directory_backing_store.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/syncable/sync_core.invalid_directory_backing_store.o: cxx $
+    ../../sync/syncable/invalid_directory_backing_store.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/syncable/sync_core.model_neutral_mutable_entry.o: cxx $
+    ../../sync/syncable/model_neutral_mutable_entry.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/syncable/sync_core.model_type.o: cxx $
+    ../../sync/syncable/model_type.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/syncable/sync_core.mutable_entry.o: cxx $
+    ../../sync/syncable/mutable_entry.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/syncable/sync_core.nigori_handler.o: cxx $
+    ../../sync/syncable/nigori_handler.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/syncable/sync_core.nigori_util.o: cxx $
+    ../../sync/syncable/nigori_util.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/syncable/sync_core.on_disk_directory_backing_store.o: cxx $
+    ../../sync/syncable/on_disk_directory_backing_store.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/syncable/sync_core.parent_child_index.o: cxx $
+    ../../sync/syncable/parent_child_index.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/syncable/sync_core.scoped_kernel_lock.o: cxx $
+    ../../sync/syncable/scoped_kernel_lock.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/syncable/sync_core.scoped_parent_child_index_updater.o: cxx $
+    ../../sync/syncable/scoped_parent_child_index_updater.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/syncable/sync_core.syncable_base_transaction.o: cxx $
+    ../../sync/syncable/syncable_base_transaction.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/syncable/sync_core.syncable_base_write_transaction.o: cxx $
+    ../../sync/syncable/syncable_base_write_transaction.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/syncable/sync_core.syncable_delete_journal.o: cxx $
+    ../../sync/syncable/syncable_delete_journal.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/syncable/sync_core.syncable_enum_conversions.o: cxx $
+    ../../sync/syncable/syncable_enum_conversions.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/syncable/sync_core.syncable_id.o: cxx $
+    ../../sync/syncable/syncable_id.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build $
+    obj/sync/syncable/sync_core.syncable_model_neutral_write_transaction.o: $
+    cxx ../../sync/syncable/syncable_model_neutral_write_transaction.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/syncable/sync_core.syncable_proto_util.o: cxx $
+    ../../sync/syncable/syncable_proto_util.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/syncable/sync_core.syncable_read_transaction.o: cxx $
+    ../../sync/syncable/syncable_read_transaction.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/syncable/sync_core.syncable_util.o: cxx $
+    ../../sync/syncable/syncable_util.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/syncable/sync_core.syncable_write_transaction.o: cxx $
+    ../../sync/syncable/syncable_write_transaction.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/syncable/sync_core.write_transaction_info.o: cxx $
+    ../../sync/syncable/write_transaction_info.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/util/sync_core.cryptographer.o: cxx $
+    ../../sync/util/cryptographer.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/util/sync_core.data_type_histogram.o: cxx $
+    ../../sync/util/data_type_histogram.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/util/sync_core.extensions_activity.o: cxx $
+    ../../sync/util/extensions_activity.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/util/sync_core.get_session_name.o: cxx $
+    ../../sync/util/get_session_name.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/util/sync_core.get_session_name_linux.o: cxx $
+    ../../sync/util/get_session_name_linux.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/util/sync_core.logging.o: cxx ../../sync/util/logging.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/util/sync_core.nigori.o: cxx ../../sync/util/nigori.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+build obj/sync/util/sync_core.time.o: cxx ../../sync/util/time.cc || $
+    obj/sync/sync_core.compile_depends.stamp
+
+build obj/sync/libsync_core.a: alink_thin $
+    obj/sync/api/attachments/sync_core.attachment.o $
+    obj/sync/api/attachments/sync_core.attachment_id.o $
+    obj/sync/api/attachments/sync_core.attachment_metadata.o $
+    obj/sync/api/attachments/sync_core.attachment_store.o $
+    obj/sync/api/attachments/sync_core.attachment_store_backend.o $
+    obj/sync/api/sync_core.conflict_resolution.o $
+    obj/sync/api/sync_core.entity_change.o $
+    obj/sync/api/sync_core.entity_data.o $
+    obj/sync/api/sync_core.metadata_batch.o $
+    obj/sync/api/sync_core.model_type_change_processor.o $
+    obj/sync/api/sync_core.model_type_service.o $
+    obj/sync/api/sync_core.model_type_store.o $
+    obj/sync/api/sync_core.sync_change.o $
+    obj/sync/api/sync_core.sync_change_processor.o $
+    obj/sync/api/sync_core.sync_data.o obj/sync/api/sync_core.sync_error.o $
+    obj/sync/api/sync_core.sync_error_factory.o $
+    obj/sync/api/sync_core.sync_merge_result.o $
+    obj/sync/api/sync_core.syncable_service.o $
+    obj/sync/engine/sync_core.all_status.o $
+    obj/sync/engine/sync_core.apply_control_data_updates.o $
+    obj/sync/engine/sync_core.backoff_delay_provider.o $
+    obj/sync/engine/sync_core.clear_server_data.o $
+    obj/sync/engine/sync_core.commit.o $
+    obj/sync/engine/sync_core.commit_contribution.o $
+    obj/sync/engine/sync_core.commit_contributor.o $
+    obj/sync/engine/sync_core.commit_processor.o $
+    obj/sync/engine/sync_core.commit_queue.o $
+    obj/sync/engine/sync_core.commit_util.o $
+    obj/sync/engine/sync_core.conflict_resolver.o $
+    obj/sync/engine/sync_core.conflict_util.o $
+    obj/sync/engine/sync_core.directory_commit_contribution.o $
+    obj/sync/engine/sync_core.directory_commit_contributor.o $
+    obj/sync/engine/sync_core.directory_update_handler.o $
+    obj/sync/engine/sync_core.get_commit_ids.o $
+    obj/sync/engine/sync_core.get_updates_delegate.o $
+    obj/sync/engine/sync_core.get_updates_processor.o $
+    obj/sync/engine/sync_core.model_type_worker.o $
+    obj/sync/engine/net/sync_core.server_connection_manager.o $
+    obj/sync/engine/net/sync_core.url_translator.o $
+    obj/sync/engine/sync_core.non_blocking_type_commit_contribution.o $
+    obj/sync/engine/sync_core.nudge_handler.o $
+    obj/sync/engine/sync_core.nudge_source.o $
+    obj/sync/engine/sync_core.process_updates_util.o $
+    obj/sync/engine/sync_core.sync_cycle_event.o $
+    obj/sync/engine/sync_core.sync_engine_event_listener.o $
+    obj/sync/engine/sync_core.sync_scheduler.o $
+    obj/sync/engine/sync_core.sync_scheduler_impl.o $
+    obj/sync/engine/sync_core.syncer.o $
+    obj/sync/engine/sync_core.syncer_proto_util.o $
+    obj/sync/engine/sync_core.syncer_util.o $
+    obj/sync/engine/sync_core.traffic_logger.o $
+    obj/sync/engine/sync_core.update_applicator.o $
+    obj/sync/engine/sync_core.update_handler.o $
+    obj/sync/engine/sync_core.worker_entity_tracker.o $
+    obj/sync/internal_api/sync_core.activation_context.o $
+    obj/sync/internal_api/attachments/sync_core.attachment_downloader.o $
+    obj/sync/internal_api/attachments/sync_core.attachment_downloader_impl.o $
+    obj/sync/internal_api/attachments/sync_core.attachment_service.o $
+    obj/sync/internal_api/attachments/sync_core.attachment_service_impl.o $
+    obj/sync/internal_api/attachments/sync_core.attachment_service_proxy.o $
+    obj/sync/internal_api/attachments/sync_core.attachment_service_proxy_for_test.o $
+    obj/sync/internal_api/attachments/sync_core.attachment_store_frontend.o $
+    obj/sync/internal_api/attachments/sync_core.attachment_uploader.o $
+    obj/sync/internal_api/attachments/sync_core.attachment_uploader_impl.o $
+    obj/sync/internal_api/attachments/sync_core.attachment_util.o $
+    obj/sync/internal_api/attachments/sync_core.fake_attachment_downloader.o $
+    obj/sync/internal_api/attachments/sync_core.fake_attachment_uploader.o $
+    obj/sync/internal_api/attachments/sync_core.in_memory_attachment_store.o $
+    obj/sync/internal_api/attachments/sync_core.on_disk_attachment_store.o $
+    obj/sync/internal_api/attachments/sync_core.task_queue.o $
+    obj/sync/internal_api/sync_core.base_node.o $
+    obj/sync/internal_api/sync_core.base_transaction.o $
+    obj/sync/internal_api/sync_core.change_record.o $
+    obj/sync/internal_api/sync_core.change_reorder_buffer.o $
+    obj/sync/internal_api/sync_core.debug_info_event_listener.o $
+    obj/sync/internal_api/sync_core.delete_journal.o $
+    obj/sync/internal_api/events/sync_core.clear_server_data_request_event.o $
+    obj/sync/internal_api/events/sync_core.clear_server_data_response_event.o $
+    obj/sync/internal_api/events/sync_core.commit_request_event.o $
+    obj/sync/internal_api/events/sync_core.commit_response_event.o $
+    obj/sync/internal_api/events/sync_core.configure_get_updates_request_event.o $
+    obj/sync/internal_api/events/sync_core.get_updates_response_event.o $
+    obj/sync/internal_api/events/sync_core.normal_get_updates_request_event.o $
+    obj/sync/internal_api/events/sync_core.poll_get_updates_request_event.o $
+    obj/sync/internal_api/events/sync_core.protocol_event.o $
+    obj/sync/internal_api/sync_core.http_bridge.o $
+    obj/sync/internal_api/sync_core.http_bridge_network_resources.o $
+    obj/sync/internal_api/sync_core.internal_components_factory_impl.o $
+    obj/sync/internal_api/sync_core.js_mutation_event_observer.o $
+    obj/sync/internal_api/sync_core.js_sync_encryption_handler_observer.o $
+    obj/sync/internal_api/sync_core.js_sync_manager_observer.o $
+    obj/sync/internal_api/sync_core.model_type_store_backend.o $
+    obj/sync/internal_api/sync_core.model_type_store_impl.o $
+    obj/sync/internal_api/sync_core.processor_entity_tracker.o $
+    obj/sync/internal_api/sync_core.protocol_event_buffer.o $
+    obj/sync/internal_api/public/base/sync_core.attachment_id_proto.o $
+    obj/sync/internal_api/public/base/sync_core.cancelation_observer.o $
+    obj/sync/internal_api/public/base/sync_core.cancelation_signal.o $
+    obj/sync/internal_api/public/base/sync_core.invalidation_interface.o $
+    obj/sync/internal_api/public/base/sync_core.node_ordinal.o $
+    obj/sync/internal_api/public/base/sync_core.progress_marker_map.o $
+    obj/sync/internal_api/public/base/sync_core.unique_position.o $
+    obj/sync/internal_api/public/sync_core.data_batch_impl.o $
+    obj/sync/internal_api/public/sync_core.data_type_association_stats.o $
+    obj/sync/internal_api/public/sync_core.data_type_debug_info_listener.o $
+    obj/sync/internal_api/public/engine/sync_core.model_safe_worker.o $
+    obj/sync/internal_api/public/engine/sync_core.passive_model_worker.o $
+    obj/sync/internal_api/public/engine/sync_core.polling_constants.o $
+    obj/sync/internal_api/public/engine/sync_core.sync_status.o $
+    obj/sync/internal_api/public/sync_core.model_type_processor.o $
+    obj/sync/internal_api/public/sync_core.non_blocking_sync_common.o $
+    obj/sync/internal_api/public/sessions/sync_core.commit_counters.o $
+    obj/sync/internal_api/public/sessions/sync_core.model_neutral_state.o $
+    obj/sync/internal_api/public/sessions/sync_core.status_counters.o $
+    obj/sync/internal_api/public/sessions/sync_core.sync_session_snapshot.o $
+    obj/sync/internal_api/public/sessions/sync_core.type_debug_info_observer.o $
+    obj/sync/internal_api/public/sessions/sync_core.update_counters.o $
+    obj/sync/internal_api/public/sync_core.simple_metadata_change_list.o $
+    obj/sync/internal_api/public/sync_core.sync_encryption_handler.o $
+    obj/sync/internal_api/public/sync_core.sync_manager.o $
+    obj/sync/internal_api/public/util/sync_core.sync_string_conversions.o $
+    obj/sync/internal_api/public/util/sync_core.syncer_error.o $
+    obj/sync/internal_api/public/util/sync_core.unrecoverable_error_info.o $
+    obj/sync/internal_api/public/util/sync_core.weak_handle.o $
+    obj/sync/internal_api/sync_core.read_node.o $
+    obj/sync/internal_api/sync_core.read_transaction.o $
+    obj/sync/internal_api/sync_core.shared_model_type_processor.o $
+    obj/sync/internal_api/sync_core.sync_context.o $
+    obj/sync/internal_api/sync_core.sync_context_proxy.o $
+    obj/sync/internal_api/sync_core.sync_db_util.o $
+    obj/sync/internal_api/sync_core.sync_encryption_handler_impl.o $
+    obj/sync/internal_api/sync_core.sync_manager_factory.o $
+    obj/sync/internal_api/sync_core.sync_manager_impl.o $
+    obj/sync/internal_api/sync_core.syncapi_internal.o $
+    obj/sync/internal_api/sync_core.syncapi_server_connection_manager.o $
+    obj/sync/internal_api/sync_core.user_share.o $
+    obj/sync/internal_api/sync_core.write_node.o $
+    obj/sync/internal_api/sync_core.write_transaction.o $
+    obj/sync/js/sync_core.js_event_details.o $
+    obj/sync/js/sync_core.sync_js_controller.o $
+    obj/sync/protocol/sync_core.proto_enum_conversions.o $
+    obj/sync/protocol/sync_core.proto_value_conversions.o $
+    obj/sync/protocol/sync_core.sync_protocol_error.o $
+    obj/sync/sessions/sync_core.data_type_tracker.o $
+    obj/sync/sessions/sync_core.directory_type_debug_info_emitter.o $
+    obj/sync/sessions/sync_core.model_type_registry.o $
+    obj/sync/sessions/sync_core.nudge_tracker.o $
+    obj/sync/sessions/sync_core.status_controller.o $
+    obj/sync/sessions/sync_core.sync_session.o $
+    obj/sync/sessions/sync_core.sync_session_context.o $
+    obj/sync/syncable/sync_core.directory.o $
+    obj/sync/syncable/sync_core.directory_backing_store.o $
+    obj/sync/syncable/sync_core.entry.o $
+    obj/sync/syncable/sync_core.entry_kernel.o $
+    obj/sync/syncable/sync_core.in_memory_directory_backing_store.o $
+    obj/sync/syncable/sync_core.invalid_directory_backing_store.o $
+    obj/sync/syncable/sync_core.model_neutral_mutable_entry.o $
+    obj/sync/syncable/sync_core.model_type.o $
+    obj/sync/syncable/sync_core.mutable_entry.o $
+    obj/sync/syncable/sync_core.nigori_handler.o $
+    obj/sync/syncable/sync_core.nigori_util.o $
+    obj/sync/syncable/sync_core.on_disk_directory_backing_store.o $
+    obj/sync/syncable/sync_core.parent_child_index.o $
+    obj/sync/syncable/sync_core.scoped_kernel_lock.o $
+    obj/sync/syncable/sync_core.scoped_parent_child_index_updater.o $
+    obj/sync/syncable/sync_core.syncable_base_transaction.o $
+    obj/sync/syncable/sync_core.syncable_base_write_transaction.o $
+    obj/sync/syncable/sync_core.syncable_delete_journal.o $
+    obj/sync/syncable/sync_core.syncable_enum_conversions.o $
+    obj/sync/syncable/sync_core.syncable_id.o $
+    obj/sync/syncable/sync_core.syncable_model_neutral_write_transaction.o $
+    obj/sync/syncable/sync_core.syncable_proto_util.o $
+    obj/sync/syncable/sync_core.syncable_read_transaction.o $
+    obj/sync/syncable/sync_core.syncable_util.o $
+    obj/sync/syncable/sync_core.syncable_write_transaction.o $
+    obj/sync/syncable/sync_core.write_transaction_info.o $
+    obj/sync/util/sync_core.cryptographer.o $
+    obj/sync/util/sync_core.data_type_histogram.o $
+    obj/sync/util/sync_core.extensions_activity.o $
+    obj/sync/util/sync_core.get_session_name.o $
+    obj/sync/util/sync_core.get_session_name_linux.o $
+    obj/sync/util/sync_core.logging.o obj/sync/util/sync_core.nigori.o $
+    obj/sync/util/sync_core.time.o || obj/sync/sync_core.actions_depends.stamp

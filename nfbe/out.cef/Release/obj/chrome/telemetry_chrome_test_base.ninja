@@ -1,0 +1,3 @@
+build obj/chrome/telemetry_chrome_test_base.actions_depends.stamp: stamp $
+    bitmaptools dump_syms
+

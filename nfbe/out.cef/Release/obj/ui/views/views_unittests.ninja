@@ -1,0 +1,616 @@
+build obj/ui/views/views_unittests.actions_depends.stamp: stamp $
+    lib/libbase.so.TOC obj/base/libbase_i18n.a $
+    obj/base/libtest_support_base.a obj/skia/skia.actions_depends.stamp $
+    obj/testing/libgtest.a obj/third_party/icu/libicui18n.a $
+    obj/third_party/icu/libicuuc.a lib/liburl_lib.so.TOC $
+    obj/ui/accessibility/libaccessibility.a $
+    obj/ui/base/ime/libui_base_ime.a obj/ui/base/libui_base.a $
+    obj/ui/base/libui_base_test_support.a obj/ui/compositor/libcompositor.a $
+    obj/ui/events/libevents.a obj/ui/events/libevents_base.a $
+    obj/ui/events/libevents_test_support.a obj/ui/gfx/libgfx.a $
+    obj/ui/gfx/libgfx_geometry.a obj/ui/native_theme/libnative_theme.a $
+    obj/ui/resources/ui_resources.actions_rules_copies.stamp $
+    obj/ui/resources/ui_test_pak.actions_rules_copies.stamp $
+    obj/ui/strings/ui_strings.actions_rules_copies.stamp $
+    obj/ui/views/resources/views_resources.actions_rules_copies.stamp $
+    obj/ui/views/libviews.a obj/ui/views/libviews_test_support.a $
+    obj/ui/aura/libaura.a obj/ui/aura/libaura_test_support.a $
+    obj/ui/touch_selection/libui_touch_selection.a obj/ui/wm/libwm.a $
+    obj/base/third_party/dynamic_annotations/libdynamic_annotations.a $
+    icudtl.dat icudtl.dat obj/base/libbase_static.a obj/testing/libgmock.a $
+    obj/third_party/libxml/libxml2.a obj/third_party/zlib/libchrome_zlib.a $
+    obj/third_party/zlib/libzlib_x86_simd.a obj/skia/libskia_library.a $
+    obj/skia/libskia_opts.a obj/skia/libskia_opts_neon.a $
+    obj/third_party/sfntly/libsfntly.a $
+    obj/third_party/fontconfig/libfontconfig.a $
+    obj/third_party/fontconfig/libfontconfig.a obj/skia/libskia_chrome.a $
+    obj/third_party/harfbuzz-ng/libharfbuzz-ng.a $
+    obj/third_party/libpng/libpng.a $
+    obj/third_party/libjpeg_turbo/libjpeg_turbo.a $
+    obj/ui/accessibility/libax_gen.a $
+    obj/tools/json_schema_compiler/libapi_gen_util.a $
+    obj/ui/events/libdom_keycode_converter.a $
+    obj/ui/events/libgesture_detection.a $
+    obj/ui/events/ozone/libevents_ozone_layout.a $
+    obj/ui/base/libui_data_pack.a gen/ui/base/ui_features.h $
+    lib/libnet.so.TOC obj/ui/events/platform/libevents_platform.a $
+    obj/ui/events/devices/libevents_devices.a $
+    obj/ui/events/ozone/libevents_ozone_evdev.a $
+    obj/ui/ozone/libozone_base.a obj/ipc/libipc.a $
+    obj/ui/display/libdisplay_types.a obj/ui/display/libdisplay_util.a $
+    obj/ui/gfx/ipc/libgfx_ipc.a obj/ui/gfx/ipc/skia/libgfx_ipc_skia.a $
+    obj/ui/events/ozone/libevents_ozone.a obj/ui/ozone/libozone.a $
+    obj/ui/ozone/libozone_platform.a $
+    obj/ui/ozone/libozone_platform_egltest.a obj/ui/ozone/libozone_common.a $
+    obj/ui/ozone/libeglplatform_shim.a $
+    obj/ui/ozone/libozone_platform_headless.a obj/cc/libcc.a $
+    obj/cc/libcc_proto.a obj/third_party/protobuf/libprotobuf_lite.a $
+    obj/gpu/gpu.actions_depends.stamp obj/gpu/libcommand_buffer_client.a $
+    obj/gpu/libcommand_buffer_common.a $
+    obj/gpu/command_buffer/libgles2_utils.a $
+    obj/gpu/libcommand_buffer_service.a obj/gpu/libdisk_cache_proto.a $
+    obj/gpu/libgpu_config.a obj/third_party/re2/libre2.a $
+    obj/ui/gl/libgl_wrapper.a obj/crypto/libcrcrypto.a $
+    obj/third_party/boringssl/libboringssl.a $
+    obj/third_party/boringssl/libboringssl.a $
+    obj/third_party/boringssl/libboringssl_asm.a $
+    obj/third_party/smhasher/libcityhash.a gen/angle/id/commit.h $
+    obj/third_party/angle/src/copy_scripts.actions_rules_copies.stamp $
+    obj/third_party/angle/src/libtranslator.a $
+    obj/third_party/angle/src/libtranslator_lib.a $
+    obj/third_party/angle/src/libpreprocessor.a $
+    obj/third_party/angle/src/libangle_common.a $
+    obj/gpu/libgles2_cmd_helper.a obj/gpu/libgpu_ipc_client.a $
+    obj/gpu/libcommand_buffer_traits.a obj/ui/events/libevents_ipc.a $
+    obj/url/ipc/liburl_ipc.a obj/gpu/libgpu_ipc_common.a $
+    obj/gpu/libgpu_ipc_service.a obj/media/libmedia.a $
+    gen/media/media_features.h obj/third_party/libwebm/libwebm.a libyuv.a $
+    obj/third_party/opus/libopus.a obj/media/libshared_memory_support.a $
+    lib/libffmpeg.so.TOC obj/third_party/libvpx/libvpx.a $
+    obj/cc/libcc_surfaces.a obj/ui/display/libdisplay.a $
+    obj/ui/gfx/libgfx_vector_icons.a $
+    obj/ui/shell_dialogs/libshell_dialogs.a $
+    obj/ui/aura_extra/libaura_extra.a obj/ipc/libtest_support_ipc.a $
+    obj/ui/compositor/libcompositor_test_support.a $
+    obj/cc/libcc_test_support.a obj/gpu/libgles2_c_lib.a $
+    obj/gpu/libgles2_implementation.a obj/gpu/libgl_in_process_context.a $
+    obj/gpu/libgpu_unittest_utils.a obj/ui/gl/libgl_unittest_utils.a $
+    obj/gpu/skia_bindings/libgpu_skia_bindings.a $
+    obj/ui/gfx/libgfx_test_support.a obj/ui/gl/libgl_test_support.a $
+    obj/third_party/WebKit/Source/platform/libblink_common.a $
+    obj/third_party/WebKit/Source/platform/libblink_common.a $
+    obj/third_party/WebKit/Source/wtf/libwtf.a
+
+build obj/ui/views/views_unittests.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    icudtl.dat obj/url/url_lib.compile_depends.stamp $
+    obj/ui/accessibility/accessibility.compile_depends.stamp $
+    obj/ui/base/ime/ui_base_ime.compile_depends.stamp $
+    obj/ui/base/ui_base.compile_depends.stamp $
+    obj/ui/base/ui_base_test_support.compile_depends.stamp $
+    obj/ui/compositor/compositor.compile_depends.stamp $
+    obj/ui/events/events.compile_depends.stamp $
+    obj/ui/events/events_base.compile_depends.stamp $
+    obj/ui/events/events_test_support.compile_depends.stamp $
+    obj/ui/gfx/gfx.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/ui/native_theme/native_theme.compile_depends.stamp $
+    obj/ui/resources/ui_resources.actions_rules_copies.stamp $
+    obj/ui/resources/ui_test_pak.actions_rules_copies.stamp $
+    obj/ui/strings/ui_strings.actions_rules_copies.stamp $
+    obj/ui/views/resources/views_resources.actions_rules_copies.stamp $
+    obj/ui/views/views.compile_depends.stamp $
+    obj/ui/views/views_test_support.compile_depends.stamp $
+    obj/ui/aura/aura.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/ui/touch_selection/ui_touch_selection.compile_depends.stamp $
+    obj/ui/wm/wm.compile_depends.stamp icudtl.dat icudtl.dat $
+    obj/base/base.compile_depends.stamp $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp $
+    obj/ui/accessibility/ax_gen.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp gen/ui/base/ui_features.h $
+    obj/net/net.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/ui/events/devices/events_devices.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/ui/ozone/ozone_base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/ui/gfx/ipc/skia/gfx_ipc_skia.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/ui/ozone/ozone_platform.actions_rules_copies.stamp $
+    obj/ui/ozone/ozone_platform_egltest.compile_depends.stamp $
+    obj/ui/ozone/ozone_common.compile_depends.stamp $
+    obj/ui/ozone/eglplatform_shim.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp obj/cc/cc.compile_depends.stamp $
+    obj/cc/cc_proto.actions_rules_copies.stamp $
+    obj/gpu/gpu.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/gpu/command_buffer_service.compile_depends.stamp $
+    obj/gpu/disk_cache_proto.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp obj/ui/gl/gl.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp gen/angle/id/commit.h $
+    obj/third_party/angle/src/copy_scripts.actions_rules_copies.stamp $
+    obj/gpu/gpu_ipc_client.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/url/ipc/url_ipc.compile_depends.stamp $
+    obj/gpu/gpu_ipc_common.compile_depends.stamp $
+    obj/gpu/gpu_ipc_service.compile_depends.stamp $
+    obj/media/media.compile_depends.stamp gen/media/media_features.h $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S $
+    obj/base/base.compile_depends.stamp $
+    obj/third_party/libvpx/libvpx.actions_rules_copies.stamp $
+    obj/cc/cc_surfaces.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/ui/gfx/gfx_vector_icons.actions_rules_copies.stamp $
+    obj/ui/shell_dialogs/shell_dialogs.compile_depends.stamp $
+    obj/ui/aura_extra/aura_extra.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/ui/compositor/compositor_test_support.compile_depends.stamp $
+    obj/cc/cc_test_support.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/gpu/gl_in_process_context.compile_depends.stamp $
+    obj/gpu/gpu.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/ui/gfx/gfx_test_support.compile_depends.stamp $
+    obj/third_party/WebKit/Source/platform/blink_common.compile_depends.stamp $
+    obj/third_party/WebKit/Source/platform/blink_common.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DGTEST_HAS_POSIX_RE=0 $
+    -DGTEST_LANG_CXX11=0 -DTOOLKIT_VIEWS=1 -DSK_SUPPORT_GPU=1 $
+    -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS -DUNIT_TEST -DGTEST_HAS_RTTI=0 $
+    -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= $
+    -DU_STATIC_IMPLEMENTATION -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS $
+    -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../../ui -I../.. -I../../skia/config $
+    -I../../third_party/khronos -I../../gpu -Igen/angle $
+    -I../../third_party/WebKit/Source -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../testing/gtest/include -I../../third_party/icu/source/i18n $
+    -I../../third_party/icu/source/common -Igen/ui/resources $
+    -Igen/ui/views/resources
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/ui/views/accessibility/views_unittests.native_view_accessibility_unittest.o: $
+    cxx ../../ui/views/accessibility/native_view_accessibility_unittest.cc $
+    || obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/views_unittests.accessible_pane_view_unittest.o: cxx $
+    ../../ui/views/accessible_pane_view_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/animation/views_unittests.bounds_animator_unittest.o: $
+    cxx ../../ui/views/animation/bounds_animator_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build $
+    obj/ui/views/animation/views_unittests.ink_drop_animation_controller_factory_unittest.o: $
+    cxx $
+    ../../ui/views/animation/ink_drop_animation_controller_factory_unittest.cc $
+    || obj/ui/views/views_unittests.compile_depends.stamp
+build $
+    obj/ui/views/animation/views_unittests.ink_drop_animation_controller_impl_unittest.o: $
+    cxx $
+    ../../ui/views/animation/ink_drop_animation_controller_impl_unittest.cc $
+    || obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/animation/views_unittests.ink_drop_animation_unittest.o: $
+    cxx ../../ui/views/animation/ink_drop_animation_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/animation/views_unittests.ink_drop_hover_unittest.o: cxx $
+    ../../ui/views/animation/ink_drop_hover_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build $
+    obj/ui/views/animation/views_unittests.square_ink_drop_animation_unittest.o: $
+    cxx ../../ui/views/animation/square_ink_drop_animation_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/bubble/views_unittests.bubble_border_unittest.o: cxx $
+    ../../ui/views/bubble/bubble_border_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/bubble/views_unittests.bubble_delegate_unittest.o: cxx $
+    ../../ui/views/bubble/bubble_delegate_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build $
+    obj/ui/views/bubble/views_unittests.bubble_dialog_delegate_unittest.o: $
+    cxx ../../ui/views/bubble/bubble_dialog_delegate_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/bubble/views_unittests.bubble_frame_view_unittest.o: cxx $
+    ../../ui/views/bubble/bubble_frame_view_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build $
+    obj/ui/views/bubble/views_unittests.bubble_window_targeter_unittest.o: $
+    cxx ../../ui/views/bubble/bubble_window_targeter_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/controls/button/views_unittests.blue_button_unittest.o: $
+    cxx ../../ui/views/controls/button/blue_button_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build $
+    obj/ui/views/controls/button/views_unittests.custom_button_unittest.o: $
+    cxx ../../ui/views/controls/button/custom_button_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/controls/button/views_unittests.image_button_unittest.o: $
+    cxx ../../ui/views/controls/button/image_button_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/controls/button/views_unittests.label_button_unittest.o: $
+    cxx ../../ui/views/controls/button/label_button_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/controls/button/views_unittests.menu_button_unittest.o: $
+    cxx ../../ui/views/controls/button/menu_button_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/controls/combobox/views_unittests.combobox_unittest.o: $
+    cxx ../../ui/views/controls/combobox/combobox_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/controls/views_unittests.label_unittest.o: cxx $
+    ../../ui/views/controls/label_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build $
+    obj/ui/views/controls/menu/views_unittests.menu_controller_unittest.o: $
+    cxx ../../ui/views/controls/menu/menu_controller_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/controls/menu/views_unittests.menu_item_view_unittest.o: $
+    cxx ../../ui/views/controls/menu/menu_item_view_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build $
+    obj/ui/views/controls/menu/views_unittests.menu_model_adapter_unittest.o: $
+    cxx ../../ui/views/controls/menu/menu_model_adapter_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/controls/menu/views_unittests.menu_runner_unittest.o: $
+    cxx ../../ui/views/controls/menu/menu_runner_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build $
+    obj/ui/views/controls/native/views_unittests.native_view_host_test_base.o: $
+    cxx ../../ui/views/controls/native/native_view_host_test_base.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build $
+    obj/ui/views/controls/native/views_unittests.native_view_host_unittest.o: $
+    cxx ../../ui/views/controls/native/native_view_host_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/controls/views_unittests.prefix_selector_unittest.o: cxx $
+    ../../ui/views/controls/prefix_selector_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/controls/views_unittests.progress_bar_unittest.o: cxx $
+    ../../ui/views/controls/progress_bar_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/controls/views_unittests.scroll_view_unittest.o: cxx $
+    ../../ui/views/controls/scroll_view_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/controls/scrollbar/views_unittests.scrollbar_unittest.o: $
+    cxx ../../ui/views/controls/scrollbar/scrollbar_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/controls/views_unittests.single_split_view_unittest.o: $
+    cxx ../../ui/views/controls/single_split_view_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/controls/views_unittests.slider_unittest.o: cxx $
+    ../../ui/views/controls/slider_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/controls/views_unittests.styled_label_unittest.o: cxx $
+    ../../ui/views/controls/styled_label_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build $
+    obj/ui/views/controls/tabbed_pane/views_unittests.tabbed_pane_unittest.o: $
+    cxx ../../ui/views/controls/tabbed_pane/tabbed_pane_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/controls/table/views_unittests.table_utils_unittest.o: $
+    cxx ../../ui/views/controls/table/table_utils_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/controls/table/views_unittests.table_view_unittest.o: $
+    cxx ../../ui/views/controls/table/table_view_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/controls/table/views_unittests.test_table_model.o: cxx $
+    ../../ui/views/controls/table/test_table_model.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build $
+    obj/ui/views/controls/textfield/views_unittests.textfield_model_unittest.o: $
+    cxx ../../ui/views/controls/textfield/textfield_model_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/controls/textfield/views_unittests.textfield_unittest.o: $
+    cxx ../../ui/views/controls/textfield/textfield_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/controls/tree/views_unittests.tree_view_unittest.o: cxx $
+    ../../ui/views/controls/tree/tree_view_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/views_unittests.event_monitor_unittest.o: cxx $
+    ../../ui/views/event_monitor_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/focus/views_unittests.focus_manager_unittest.o: cxx $
+    ../../ui/views/focus/focus_manager_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/focus/views_unittests.focus_traversal_unittest.o: cxx $
+    ../../ui/views/focus/focus_traversal_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/layout/views_unittests.box_layout_unittest.o: cxx $
+    ../../ui/views/layout/box_layout_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/layout/views_unittests.grid_layout_unittest.o: cxx $
+    ../../ui/views/layout/grid_layout_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/views_unittests.rect_based_targeting_utils_unittest.o: $
+    cxx ../../ui/views/rect_based_targeting_utils_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/views_unittests.run_all_unittests.o: cxx $
+    ../../ui/views/run_all_unittests.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/views_unittests.run_all_unittests_main.o: cxx $
+    ../../ui/views/run_all_unittests_main.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/views_unittests.view_model_unittest.o: cxx $
+    ../../ui/views/view_model_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/views_unittests.view_model_utils_unittest.o: cxx $
+    ../../ui/views/view_model_utils_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/views_unittests.view_targeter_unittest.o: cxx $
+    ../../ui/views/view_targeter_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/views_unittests.view_unittest.o: cxx $
+    ../../ui/views/view_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/widget/views_unittests.native_widget_unittest.o: cxx $
+    ../../ui/views/widget/native_widget_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/widget/views_unittests.root_view_unittest.o: cxx $
+    ../../ui/views/widget/root_view_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/widget/views_unittests.widget_unittest.o: cxx $
+    ../../ui/views/widget/widget_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/widget/views_unittests.window_reorderer_unittest.o: cxx $
+    ../../ui/views/widget/window_reorderer_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/window/views_unittests.custom_frame_view_unittest.o: cxx $
+    ../../ui/views/window/custom_frame_view_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/window/views_unittests.dialog_client_view_unittest.o: $
+    cxx ../../ui/views/window/dialog_client_view_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/window/views_unittests.dialog_delegate_unittest.o: cxx $
+    ../../ui/views/window/dialog_delegate_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build $
+    obj/ui/views/accessibility/views_unittests.ax_aura_obj_cache_unittest.o: $
+    cxx ../../ui/views/accessibility/ax_aura_obj_cache_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build $
+    obj/ui/views/controls/native/views_unittests.native_view_host_aura_unittest.o: $
+    cxx ../../ui/views/controls/native/native_view_host_aura_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/corewm/views_unittests.tooltip_controller_unittest.o: $
+    cxx ../../ui/views/corewm/tooltip_controller_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build $
+    obj/ui/views/touchui/views_unittests.touch_selection_controller_impl_unittest.o: $
+    cxx ../../ui/views/touchui/touch_selection_controller_impl_unittest.cc $
+    || obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/views_unittests.view_unittest_aura.o: cxx $
+    ../../ui/views/view_unittest_aura.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/widget/views_unittests.native_widget_aura_unittest.o: $
+    cxx ../../ui/views/widget/native_widget_aura_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+build $
+    obj/ui/views/widget/desktop_aura/views_unittests.desktop_focus_rules_unittest.o: $
+    cxx ../../ui/views/widget/desktop_aura/desktop_focus_rules_unittest.cc $
+    || obj/ui/views/views_unittests.compile_depends.stamp
+build $
+    obj/ui/views/widget/desktop_aura/views_unittests.desktop_native_widget_aura_unittest.o: $
+    cxx $
+    ../../ui/views/widget/desktop_aura/desktop_native_widget_aura_unittest.cc $
+    || obj/ui/views/views_unittests.compile_depends.stamp
+build obj/ui/views/widget/views_unittests.desktop_widget_unittest.o: cxx $
+    ../../ui/views/widget/desktop_widget_unittest.cc || $
+    obj/ui/views/views_unittests.compile_depends.stamp
+
+ldflags = -L/work/bsp/sc1400/usr/local/lib -L/work/bsp/sc1400/lib $
+    -L/work/bsp/sc1400/usr/lib -Wl,-z,now -Wl,-z,relro -Wl,-z,defs -pthread $
+    -Wl,-z,noexecstack -fPIC -Wl,--disable-new-dtags $
+    -L/work/bsp/sc1400/usr/lib -L/work/bsp/sc1400/usr/lib $
+    --sysroot=/work/bsp/sc1400 -L/work/bsp/sc1400/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/lib/ -L/work/bsp/sc1400/usr/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/lib/ $
+    -L/work/bsp/sc1400/usr/dtvrec/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/dtvrec/lib/ $
+    -L/work/bsp/sc1400/usr/local/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/local/lib/ $
+    -L/work/bsp/sc1400/usr/local/netfrontbe/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/local/netfrontbe/lib/ -Wl,-O1 $
+    -Wl,--as-needed -Wl,--gc-sections -Wl,-rpath=\$$ORIGIN/lib/ $
+    -Wl,-rpath-link=lib/
+libs =  -lrt -ldl -latomic -lm -lfreetype -lexpat -lnss3 -lnssutil3 $
+    -lsmime3 -lplds4 -lplc4 -lnspr4 -lz
+build views_unittests: link $
+    obj/ui/views/accessibility/views_unittests.native_view_accessibility_unittest.o $
+    obj/ui/views/views_unittests.accessible_pane_view_unittest.o $
+    obj/ui/views/animation/views_unittests.bounds_animator_unittest.o $
+    obj/ui/views/animation/views_unittests.ink_drop_animation_controller_factory_unittest.o $
+    obj/ui/views/animation/views_unittests.ink_drop_animation_controller_impl_unittest.o $
+    obj/ui/views/animation/views_unittests.ink_drop_animation_unittest.o $
+    obj/ui/views/animation/views_unittests.ink_drop_hover_unittest.o $
+    obj/ui/views/animation/views_unittests.square_ink_drop_animation_unittest.o $
+    obj/ui/views/bubble/views_unittests.bubble_border_unittest.o $
+    obj/ui/views/bubble/views_unittests.bubble_delegate_unittest.o $
+    obj/ui/views/bubble/views_unittests.bubble_dialog_delegate_unittest.o $
+    obj/ui/views/bubble/views_unittests.bubble_frame_view_unittest.o $
+    obj/ui/views/bubble/views_unittests.bubble_window_targeter_unittest.o $
+    obj/ui/views/controls/button/views_unittests.blue_button_unittest.o $
+    obj/ui/views/controls/button/views_unittests.custom_button_unittest.o $
+    obj/ui/views/controls/button/views_unittests.image_button_unittest.o $
+    obj/ui/views/controls/button/views_unittests.label_button_unittest.o $
+    obj/ui/views/controls/button/views_unittests.menu_button_unittest.o $
+    obj/ui/views/controls/combobox/views_unittests.combobox_unittest.o $
+    obj/ui/views/controls/views_unittests.label_unittest.o $
+    obj/ui/views/controls/menu/views_unittests.menu_controller_unittest.o $
+    obj/ui/views/controls/menu/views_unittests.menu_item_view_unittest.o $
+    obj/ui/views/controls/menu/views_unittests.menu_model_adapter_unittest.o $
+    obj/ui/views/controls/menu/views_unittests.menu_runner_unittest.o $
+    obj/ui/views/controls/native/views_unittests.native_view_host_test_base.o $
+    obj/ui/views/controls/native/views_unittests.native_view_host_unittest.o $
+    obj/ui/views/controls/views_unittests.prefix_selector_unittest.o $
+    obj/ui/views/controls/views_unittests.progress_bar_unittest.o $
+    obj/ui/views/controls/views_unittests.scroll_view_unittest.o $
+    obj/ui/views/controls/scrollbar/views_unittests.scrollbar_unittest.o $
+    obj/ui/views/controls/views_unittests.single_split_view_unittest.o $
+    obj/ui/views/controls/views_unittests.slider_unittest.o $
+    obj/ui/views/controls/views_unittests.styled_label_unittest.o $
+    obj/ui/views/controls/tabbed_pane/views_unittests.tabbed_pane_unittest.o $
+    obj/ui/views/controls/table/views_unittests.table_utils_unittest.o $
+    obj/ui/views/controls/table/views_unittests.table_view_unittest.o $
+    obj/ui/views/controls/table/views_unittests.test_table_model.o $
+    obj/ui/views/controls/textfield/views_unittests.textfield_model_unittest.o $
+    obj/ui/views/controls/textfield/views_unittests.textfield_unittest.o $
+    obj/ui/views/controls/tree/views_unittests.tree_view_unittest.o $
+    obj/ui/views/views_unittests.event_monitor_unittest.o $
+    obj/ui/views/focus/views_unittests.focus_manager_unittest.o $
+    obj/ui/views/focus/views_unittests.focus_traversal_unittest.o $
+    obj/ui/views/layout/views_unittests.box_layout_unittest.o $
+    obj/ui/views/layout/views_unittests.grid_layout_unittest.o $
+    obj/ui/views/views_unittests.rect_based_targeting_utils_unittest.o $
+    obj/ui/views/views_unittests.run_all_unittests.o $
+    obj/ui/views/views_unittests.run_all_unittests_main.o $
+    obj/ui/views/views_unittests.view_model_unittest.o $
+    obj/ui/views/views_unittests.view_model_utils_unittest.o $
+    obj/ui/views/views_unittests.view_targeter_unittest.o $
+    obj/ui/views/views_unittests.view_unittest.o $
+    obj/ui/views/widget/views_unittests.native_widget_unittest.o $
+    obj/ui/views/widget/views_unittests.root_view_unittest.o $
+    obj/ui/views/widget/views_unittests.widget_unittest.o $
+    obj/ui/views/widget/views_unittests.window_reorderer_unittest.o $
+    obj/ui/views/window/views_unittests.custom_frame_view_unittest.o $
+    obj/ui/views/window/views_unittests.dialog_client_view_unittest.o $
+    obj/ui/views/window/views_unittests.dialog_delegate_unittest.o $
+    obj/ui/views/accessibility/views_unittests.ax_aura_obj_cache_unittest.o $
+    obj/ui/views/controls/native/views_unittests.native_view_host_aura_unittest.o $
+    obj/ui/views/corewm/views_unittests.tooltip_controller_unittest.o $
+    obj/ui/views/touchui/views_unittests.touch_selection_controller_impl_unittest.o $
+    obj/ui/views/views_unittests.view_unittest_aura.o $
+    obj/ui/views/widget/views_unittests.native_widget_aura_unittest.o $
+    obj/ui/views/widget/desktop_aura/views_unittests.desktop_focus_rules_unittest.o $
+    obj/ui/views/widget/desktop_aura/views_unittests.desktop_native_widget_aura_unittest.o $
+    obj/ui/views/widget/views_unittests.desktop_widget_unittest.o $
+    obj/base/libbase_i18n.a obj/base/libtest_support_base.a $
+    obj/testing/libgtest.a obj/third_party/icu/libicui18n.a $
+    obj/third_party/icu/libicuuc.a obj/ui/accessibility/libaccessibility.a $
+    obj/ui/base/ime/libui_base_ime.a obj/ui/base/libui_base.a $
+    obj/ui/base/libui_base_test_support.a obj/ui/compositor/libcompositor.a $
+    obj/ui/events/libevents.a obj/ui/events/libevents_base.a $
+    obj/ui/events/libevents_test_support.a obj/ui/gfx/libgfx.a $
+    obj/ui/gfx/libgfx_geometry.a obj/ui/native_theme/libnative_theme.a $
+    obj/ui/views/libviews.a obj/ui/views/libviews_test_support.a $
+    obj/ui/aura/libaura.a obj/ui/aura/libaura_test_support.a $
+    obj/ui/touch_selection/libui_touch_selection.a obj/ui/wm/libwm.a $
+    obj/base/third_party/dynamic_annotations/libdynamic_annotations.a $
+    obj/base/libbase_static.a obj/testing/libgmock.a $
+    obj/third_party/libxml/libxml2.a obj/third_party/zlib/libchrome_zlib.a $
+    obj/third_party/zlib/libzlib_x86_simd.a obj/skia/libskia_library.a $
+    obj/skia/libskia_opts.a obj/skia/libskia_opts_neon.a $
+    obj/third_party/sfntly/libsfntly.a $
+    obj/third_party/fontconfig/libfontconfig.a obj/skia/libskia_chrome.a $
+    obj/third_party/harfbuzz-ng/libharfbuzz-ng.a $
+    obj/third_party/libpng/libpng.a $
+    obj/third_party/libjpeg_turbo/libjpeg_turbo.a $
+    obj/ui/accessibility/libax_gen.a $
+    obj/tools/json_schema_compiler/libapi_gen_util.a $
+    obj/ui/events/libdom_keycode_converter.a $
+    obj/ui/events/libgesture_detection.a $
+    obj/ui/events/ozone/libevents_ozone_layout.a $
+    obj/ui/base/libui_data_pack.a $
+    obj/ui/events/platform/libevents_platform.a $
+    obj/ui/events/devices/libevents_devices.a $
+    obj/ui/events/ozone/libevents_ozone_evdev.a $
+    obj/ui/ozone/libozone_base.a obj/ipc/libipc.a $
+    obj/ui/display/libdisplay_types.a obj/ui/display/libdisplay_util.a $
+    obj/ui/gfx/ipc/libgfx_ipc.a obj/ui/gfx/ipc/skia/libgfx_ipc_skia.a $
+    obj/ui/events/ozone/libevents_ozone.a obj/ui/ozone/libozone.a $
+    obj/ui/ozone/libozone_platform.a $
+    obj/ui/ozone/libozone_platform_egltest.a obj/ui/ozone/libozone_common.a $
+    obj/ui/ozone/libeglplatform_shim.a $
+    obj/ui/ozone/libozone_platform_headless.a obj/cc/libcc.a $
+    obj/cc/libcc_proto.a obj/third_party/protobuf/libprotobuf_lite.a $
+    obj/gpu/libcommand_buffer_client.a obj/gpu/libcommand_buffer_common.a $
+    obj/gpu/command_buffer/libgles2_utils.a $
+    obj/gpu/libcommand_buffer_service.a obj/gpu/libdisk_cache_proto.a $
+    obj/gpu/libgpu_config.a obj/third_party/re2/libre2.a $
+    obj/ui/gl/libgl_wrapper.a obj/crypto/libcrcrypto.a $
+    obj/third_party/boringssl/libboringssl.a $
+    obj/third_party/boringssl/libboringssl_asm.a $
+    obj/third_party/smhasher/libcityhash.a $
+    obj/third_party/angle/src/libtranslator.a $
+    obj/third_party/angle/src/libtranslator_lib.a $
+    obj/third_party/angle/src/libpreprocessor.a $
+    obj/third_party/angle/src/libangle_common.a $
+    obj/gpu/libgles2_cmd_helper.a obj/gpu/libgpu_ipc_client.a $
+    obj/gpu/libcommand_buffer_traits.a obj/ui/events/libevents_ipc.a $
+    obj/url/ipc/liburl_ipc.a obj/gpu/libgpu_ipc_common.a $
+    obj/gpu/libgpu_ipc_service.a obj/media/libmedia.a $
+    obj/third_party/libwebm/libwebm.a libyuv.a $
+    obj/third_party/opus/libopus.a obj/media/libshared_memory_support.a $
+    obj/third_party/libvpx/libvpx.a obj/cc/libcc_surfaces.a $
+    obj/ui/display/libdisplay.a obj/ui/gfx/libgfx_vector_icons.a $
+    obj/ui/shell_dialogs/libshell_dialogs.a $
+    obj/ui/aura_extra/libaura_extra.a obj/ipc/libtest_support_ipc.a $
+    obj/ui/compositor/libcompositor_test_support.a $
+    obj/cc/libcc_test_support.a obj/gpu/libgles2_c_lib.a $
+    obj/gpu/libgles2_implementation.a obj/gpu/libgl_in_process_context.a $
+    obj/gpu/libgpu_unittest_utils.a obj/ui/gl/libgl_unittest_utils.a $
+    obj/gpu/skia_bindings/libgpu_skia_bindings.a $
+    obj/ui/gfx/libgfx_test_support.a obj/ui/gl/libgl_test_support.a $
+    obj/third_party/WebKit/Source/platform/libblink_common.a $
+    obj/third_party/WebKit/Source/wtf/libwtf.a | gen/angle/id/commit.h $
+    gen/media/media_features.h gen/ui/base/ui_features.h icudtl.dat $
+    lib/libbase.so.TOC lib/libffmpeg.so.TOC lib/libnet.so.TOC $
+    lib/liburl_lib.so.TOC obj/gpu/gpu.actions_depends.stamp $
+    obj/skia/skia.actions_depends.stamp $
+    obj/third_party/WebKit/Source/platform/libblink_common.a $
+    obj/third_party/angle/src/copy_scripts.actions_rules_copies.stamp $
+    obj/third_party/boringssl/libboringssl.a $
+    obj/third_party/fontconfig/libfontconfig.a $
+    obj/ui/resources/ui_resources.actions_rules_copies.stamp $
+    obj/ui/resources/ui_test_pak.actions_rules_copies.stamp $
+    obj/ui/strings/ui_strings.actions_rules_copies.stamp $
+    obj/ui/views/resources/views_resources.actions_rules_copies.stamp || $
+    obj/ui/views/views_unittests.actions_depends.stamp
+  ld = $ldxx
+  solibs = lib/libbase.so lib/libffmpeg.so lib/libnet.so lib/liburl_lib.so

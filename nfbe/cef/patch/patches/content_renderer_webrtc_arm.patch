@@ -1,0 +1,62 @@
+diff --git content_renderer.gypi content_renderer.gypi
+index 90724cf..bb5feae 100644
+--- content_renderer.gypi
++++ content_renderer.gypi
+@@ -861,6 +861,7 @@
+       'sources': [
+         'renderer/media/webrtc_logging.h',
+         'renderer/media/webrtc_logging_noop.cc',
++        'renderer/media/webrtc_media_base_codec.cc',
+       ],
+       # TODO(jrg): Understand better how media_stream_ is tied into Chromium,
+       # and maybe remove the OS=="android" section? http://crbug.com/113172
+diff --git renderer/media/webrtc_media_base_codec.cc renderer/media/webrtc_media_base_codec.cc
+new file mode 100644
+index 0000000..f5bb03d
+--- renderer/media/webrtc_media_base_codec.cc
++++ renderer/media/webrtc_media_base_codec.cc
+@@ -0,0 +1,44 @@
++/*
++ *  Copyright (c) 2004 The WebRTC project authors. All Rights Reserved.
++ *
++ *  Use of this source code is governed by a BSD-style license
++ *  that can be found in the LICENSE file in the root of the source
++ *  tree. An additional intellectual property rights grant can be found
++ *  in the file PATENTS.  All contributing project authors may
++ *  be found in the AUTHORS file in the root of the source tree.
++ */
++
++#include "webrtc/media/base/codec.h"
++
++// This code is copied from the webrtc/media/base/codec.cc
++// These functions are here to prevent undefined symbols
++// on some platforms like ARM.A15
++
++#include <algorithm>
++#include <sstream>
++
++namespace cricket {
++
++const int kMaxPayloadId = 127;
++
++std::string AudioCodec::ToString() const {
++  std::ostringstream os;
++  os << "AudioCodec[" << id << ":" << name << ":" << clockrate << ":" << bitrate
++     << ":" << channels << ":" << preference << "]";
++  return os.str();
++}
++
++std::string VideoCodec::ToString() const {
++  std::ostringstream os;
++  os << "VideoCodec[" << id << ":" << name << ":" << width << ":" << height
++     << ":" << framerate << ":" << preference << "]";
++  return os.str();
++}
++
++std::string DataCodec::ToString() const {
++  std::ostringstream os;
++  os << "DataCodec[" << id << ":" << name << "]";
++  return os.str();
++}
++
++}  // namespace cricket

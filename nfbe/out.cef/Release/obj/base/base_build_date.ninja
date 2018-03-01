@@ -1,0 +1,12 @@
+rule $
+    base_build_date_target_generate_build_date_headers_2d994c2f4ef494ffd8d6478e05b91ca9
+  command = cd ../../base; python ../build/write_build_date_header.py $
+      ../out.cef/Release/gen/base/generated_build_date.h default
+  description = ACTION base_build_date: $
+      generate_build_date_headers_2d994c2f4ef494ffd8d6478e05b91ca9
+  restat = 1
+
+build gen/base/generated_build_date.h: $
+    base_build_date_target_generate_build_date_headers_2d994c2f4ef494ffd8d6478e05b91ca9 $
+    ../../build/write_build_date_header.py ../../build/util/LASTCHANGE
+

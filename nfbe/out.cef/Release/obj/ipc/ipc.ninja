@@ -1,0 +1,126 @@
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS $
+    -DIPC_IMPLEMENTATION -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../..
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/ipc/ipc.attachment_broker.o: cxx ../../ipc/attachment_broker.cc $
+    || obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.attachment_broker_privileged.o: cxx $
+    ../../ipc/attachment_broker_privileged.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.attachment_broker_unprivileged.o: cxx $
+    ../../ipc/attachment_broker_unprivileged.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.brokerable_attachment.o: cxx $
+    ../../ipc/brokerable_attachment.cc || obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.ipc_channel.o: cxx ../../ipc/ipc_channel.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.ipc_channel_factory.o: cxx $
+    ../../ipc/ipc_channel_factory.cc || obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.ipc_channel_common.o: cxx ../../ipc/ipc_channel_common.cc $
+    || obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.ipc_channel_posix.o: cxx ../../ipc/ipc_channel_posix.cc $
+    || obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.ipc_channel_proxy.o: cxx ../../ipc/ipc_channel_proxy.cc $
+    || obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.ipc_channel_reader.o: cxx ../../ipc/ipc_channel_reader.cc $
+    || obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.ipc_endpoint.o: cxx ../../ipc/ipc_endpoint.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.ipc_logging.o: cxx ../../ipc/ipc_logging.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.ipc_message.o: cxx ../../ipc/ipc_message.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.ipc_message_attachment.o: cxx $
+    ../../ipc/ipc_message_attachment.cc || obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.ipc_message_attachment_set.o: cxx $
+    ../../ipc/ipc_message_attachment_set.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.ipc_message_generator.o: cxx $
+    ../../ipc/ipc_message_generator.cc || obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.ipc_message_utils.o: cxx ../../ipc/ipc_message_utils.cc $
+    || obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.ipc_platform_file.o: cxx ../../ipc/ipc_platform_file.cc $
+    || obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.ipc_platform_file_attachment_posix.o: cxx $
+    ../../ipc/ipc_platform_file_attachment_posix.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.ipc_switches.o: cxx ../../ipc/ipc_switches.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.ipc_sync_channel.o: cxx ../../ipc/ipc_sync_channel.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.ipc_sync_message.o: cxx ../../ipc/ipc_sync_message.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.ipc_sync_message_filter.o: cxx $
+    ../../ipc/ipc_sync_message_filter.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.message_filter.o: cxx ../../ipc/message_filter.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.message_filter_router.o: cxx $
+    ../../ipc/message_filter_router.cc || obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.message_router.o: cxx ../../ipc/message_router.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.placeholder_brokerable_attachment.o: cxx $
+    ../../ipc/placeholder_brokerable_attachment.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/ipc/ipc.unix_domain_socket_util.o: cxx $
+    ../../ipc/unix_domain_socket_util.cc || $
+    obj/base/base.compile_depends.stamp
+
+build obj/ipc/libipc.a: alink_thin obj/ipc/ipc.attachment_broker.o $
+    obj/ipc/ipc.attachment_broker_privileged.o $
+    obj/ipc/ipc.attachment_broker_unprivileged.o $
+    obj/ipc/ipc.brokerable_attachment.o obj/ipc/ipc.ipc_channel.o $
+    obj/ipc/ipc.ipc_channel_factory.o obj/ipc/ipc.ipc_channel_common.o $
+    obj/ipc/ipc.ipc_channel_posix.o obj/ipc/ipc.ipc_channel_proxy.o $
+    obj/ipc/ipc.ipc_channel_reader.o obj/ipc/ipc.ipc_endpoint.o $
+    obj/ipc/ipc.ipc_logging.o obj/ipc/ipc.ipc_message.o $
+    obj/ipc/ipc.ipc_message_attachment.o $
+    obj/ipc/ipc.ipc_message_attachment_set.o $
+    obj/ipc/ipc.ipc_message_generator.o obj/ipc/ipc.ipc_message_utils.o $
+    obj/ipc/ipc.ipc_platform_file.o $
+    obj/ipc/ipc.ipc_platform_file_attachment_posix.o $
+    obj/ipc/ipc.ipc_switches.o obj/ipc/ipc.ipc_sync_channel.o $
+    obj/ipc/ipc.ipc_sync_message.o obj/ipc/ipc.ipc_sync_message_filter.o $
+    obj/ipc/ipc.message_filter.o obj/ipc/ipc.message_filter_router.o $
+    obj/ipc/ipc.message_router.o $
+    obj/ipc/ipc.placeholder_brokerable_attachment.o $
+    obj/ipc/ipc.unix_domain_socket_util.o || lib/libbase.so.TOC

@@ -1,0 +1,16 @@
+rule $
+    content_app_browser_manifest_target_content_app_browser_manifest_collation_55d0c25835a154fa415cf95302df477e
+  command = cd ../../content; python $
+      ../mojo/public/tools/manifest/manifest_collator.py --application-name $
+      content_browser $
+      "--parent=../content/public/app/mojo/content_browser_manifest.json" $
+      "--output=../out.cef/Release/content_browser_manifest.json"
+  description = ACTION content_app_browser_manifest: $
+      content_app_browser_manifest_collation_55d0c25835a154fa415cf95302df477e
+  restat = 1
+
+build content_browser_manifest.json: $
+    content_app_browser_manifest_target_content_app_browser_manifest_collation_55d0c25835a154fa415cf95302df477e $
+    ../../mojo/public/tools/manifest/manifest_collator.py $
+    ../../content/public/app/mojo/content_browser_manifest.json
+

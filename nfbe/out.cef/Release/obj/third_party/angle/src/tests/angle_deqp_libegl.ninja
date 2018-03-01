@@ -1,0 +1,377 @@
+build $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.actions_depends.stamp: $
+    stamp obj/third_party/angle/src/tests/libangle_deqp_libtester.a $
+    obj/third_party/angle/src/tests/libangle_deqp_decpp.a lib/libEGL.so.TOC $
+    obj/third_party/angle/util/libangle_util.a $
+    obj/third_party/angle/src/libangle_common.a lib/libGLESv2.so.TOC $
+    obj/third_party/libpng/libpng.a obj/third_party/zlib/libchrome_zlib.a $
+    obj/third_party/zlib/libzlib_x86_simd.a
+
+build $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp: $
+    stamp obj/third_party/angle/src/libEGL.compile_depends.stamp $
+    obj/third_party/angle/src/libEGL.compile_depends.stamp $
+    obj/third_party/angle/util/angle_util.compile_depends.stamp $
+    obj/third_party/angle/src/libGLESv2.compile_depends.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DANGLE_DEQP_EGL_TESTS $
+    -DANGLE_DEQP_LIBTESTER_IMPLEMENTATION -DDEQP_SUPPORT_GLES3=1 $
+    -DDEQP_SUPPORT_GLES2=1 -DDEQP_SUPPORT_EGL=1 $
+    '-DDEQP_TARGET_NAME="angle"' -DDEQP_GLES3_RUNTIME_LOAD=1 $
+    -DDEQP_GLES2_RUNTIME_LOAD=1 -DQP_SUPPORT_PNG=1 -D_HAS_EXCEPTIONS=1 $
+    -DGL_GLEXT_PROTOTYPES -DEGL_EGLEXT_PROTOTYPES -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -Igen -Igen/angle -I../../third_party/angle/include $
+    -I../../third_party/deqp/src/executor $
+    -I../../third_party/deqp/src/execserver $
+    -I../../third_party/deqp/src/framework/common $
+    -I../../third_party/deqp/src/framework/delibs/debase $
+    -I../../third_party/deqp/src/framework/delibs/decpp $
+    -I../../third_party/deqp/src/framework/delibs/depool $
+    -I../../third_party/deqp/src/framework/delibs/dethread $
+    -I../../third_party/deqp/src/framework/delibs/deutil $
+    -I../../third_party/deqp/src/framework/delibs/destream $
+    -I../../third_party/deqp/src/framework/egl $
+    -I../../third_party/deqp/src/framework/egl/wrapper $
+    -I../../third_party/deqp/src/framework/opengl $
+    -I../../third_party/deqp/src/framework/opengl/simplereference $
+    -I../../third_party/deqp/src/framework/opengl/wrapper $
+    -I../../third_party/deqp/src/framework/platform/null $
+    -I../../third_party/deqp/src/framework/qphelper $
+    -I../../third_party/deqp/src/framework/randomshaders $
+    -I../../third_party/deqp/src/framework/referencerenderer $
+    -I../../third_party/deqp/src/modules/gles2 $
+    -I../../third_party/deqp/src/modules/gles2/functional $
+    -I../../third_party/deqp/src/modules/gles2/accuracy $
+    -I../../third_party/deqp/src/modules/gles2/performance $
+    -I../../third_party/deqp/src/modules/gles2/stress $
+    -I../../third_party/deqp/src/modules/gles2/usecases $
+    -I../../third_party/deqp/src/modules/gles3 $
+    -I../../third_party/deqp/src/modules/gles3/functional $
+    -I../../third_party/deqp/src/modules/gles3/accuracy $
+    -I../../third_party/deqp/src/modules/gles3/performance $
+    -I../../third_party/deqp/src/modules/gles3/stress $
+    -I../../third_party/deqp/src/modules/gles3/usecases $
+    -I../../third_party/deqp/src/modules/gles31 $
+    -I../../third_party/deqp/src/modules/gles31/functional $
+    -I../../third_party/deqp/src/modules/gles31/stress $
+    -I../../third_party/deqp/src/modules/glshared $
+    -I../../third_party/deqp/src/modules/glusecases $
+    -I../../third_party/libpng -I../../third_party/zlib $
+    -I../../third_party/angle/util -I../../third_party/angle/src
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-threadsafe-statics -fvisibility-inlines-hidden -Wno-deprecated $
+    -Wno-abi -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglAndroidUtil.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglAndroidUtil.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglApiCase.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglApiCase.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglBufferAgeTests.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglBufferAgeTests.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglChooseConfigReference.o: $
+    cxx $
+    ../../third_party/deqp/src/modules/egl/teglChooseConfigReference.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglChooseConfigTests.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglChooseConfigTests.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglClientExtensionTests.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglClientExtensionTests.cpp $
+    || obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglColorClearCase.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglColorClearCase.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglColorClearTests.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglColorClearTests.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglConfigList.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglConfigList.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglCreateContextExtTests.o: $
+    cxx $
+    ../../third_party/deqp/src/modules/egl/teglCreateContextExtTests.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglCreateContextTests.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglCreateContextTests.cpp $
+    || obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglCreateSurfaceTests.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglCreateSurfaceTests.cpp $
+    || obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglGetProcAddressTests.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglGetProcAddressTests.cpp $
+    || obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglGLES1RenderUtil.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglGLES1RenderUtil.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglGLES2RenderUtil.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglGLES2RenderUtil.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglGLES2SharedRenderingPerfTests.o: $
+    cxx $
+    ../../third_party/deqp/src/modules/egl/teglGLES2SharedRenderingPerfTests.cpp $
+    || obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglGLES2SharingTests.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglGLES2SharingTests.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglGLES2SharingThreadedTests.o: $
+    cxx $
+    ../../third_party/deqp/src/modules/egl/teglGLES2SharingThreadedTests.cpp $
+    || obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglImageFormatTests.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglImageFormatTests.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglImageTests.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglImageTests.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglImageUtil.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglImageUtil.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglInfoTests.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglInfoTests.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglMakeCurrentPerfTests.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglMakeCurrentPerfTests.cpp $
+    || obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglMemoryStressTests.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglMemoryStressTests.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglMultiThreadTests.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglMultiThreadTests.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglNativeColorMappingTests.o: $
+    cxx $
+    ../../third_party/deqp/src/modules/egl/teglNativeColorMappingTests.cpp $
+    || obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglNativeCoordMappingTests.o: $
+    cxx $
+    ../../third_party/deqp/src/modules/egl/teglNativeCoordMappingTests.cpp $
+    || obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglNegativeApiTests.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglNegativeApiTests.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglNegativePartialUpdateTests.o: $
+    cxx $
+    ../../third_party/deqp/src/modules/egl/teglNegativePartialUpdateTests.cpp $
+    || obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglPreservingSwapTests.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglPreservingSwapTests.cpp $
+    || obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglPartialUpdateTests.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglPartialUpdateTests.cpp $
+    || obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglQueryConfigTests.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglQueryConfigTests.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglQueryContextTests.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglQueryContextTests.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglQuerySurfaceTests.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglQuerySurfaceTests.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglRenderCase.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglRenderCase.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglRenderTests.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglRenderTests.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglResizeTests.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglResizeTests.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglSimpleConfigCase.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglSimpleConfigCase.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglSurfacelessContextTests.o: $
+    cxx $
+    ../../third_party/deqp/src/modules/egl/teglSurfacelessContextTests.cpp $
+    || obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglSwapBuffersTests.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglSwapBuffersTests.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglSwapBuffersWithDamageTests.o: $
+    cxx $
+    ../../third_party/deqp/src/modules/egl/teglSwapBuffersWithDamageTests.cpp $
+    || obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglSyncTests.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglSyncTests.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglTestCase.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglTestCase.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglTestPackage.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglTestPackage.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglTestPackageEntry.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglTestPackageEntry.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglVGRenderUtil.o: $
+    cxx ../../third_party/deqp/src/modules/egl/teglVGRenderUtil.cpp || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/deqp_support/angle_deqp_libegl.angle_deqp_libtester_main.o: $
+    cxx $
+    ../../third_party/angle/src/tests/deqp_support/angle_deqp_libtester_main.cpp $
+    || obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/deqp_support/angle_deqp_libegl.tcuANGLEPlatform.o: $
+    cxx ../../third_party/angle/src/tests/deqp_support/tcuANGLEPlatform.cpp $
+    || obj/third_party/angle/src/tests/angle_deqp_libegl.compile_depends.stamp
+
+ldflags = -L/work/bsp/sc1400/usr/local/lib -L/work/bsp/sc1400/lib $
+    -L/work/bsp/sc1400/usr/lib -Wl,-z,now -Wl,-z,relro -Wl,-z,defs -pthread $
+    -Wl,-z,noexecstack -fPIC -Wl,--disable-new-dtags $
+    --sysroot=/work/bsp/sc1400 -L/work/bsp/sc1400/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/lib/ -L/work/bsp/sc1400/usr/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/lib/ $
+    -L/work/bsp/sc1400/usr/dtvrec/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/dtvrec/lib/ $
+    -L/work/bsp/sc1400/usr/local/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/local/lib/ $
+    -L/work/bsp/sc1400/usr/local/netfrontbe/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/local/netfrontbe/lib/ -Wl,-O1 $
+    -Wl,--as-needed -Wl,--gc-sections
+libs =  -lrt -ldl
+build lib/libangle_deqp_libegl.so lib/libangle_deqp_libegl.so.TOC: solink $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglAndroidUtil.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglApiCase.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglBufferAgeTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglChooseConfigReference.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglChooseConfigTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglClientExtensionTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglColorClearCase.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglColorClearTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglConfigList.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglCreateContextExtTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglCreateContextTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglCreateSurfaceTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglGetProcAddressTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglGLES1RenderUtil.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglGLES2RenderUtil.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglGLES2SharedRenderingPerfTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglGLES2SharingTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglGLES2SharingThreadedTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglImageFormatTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglImageTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglImageUtil.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglInfoTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglMakeCurrentPerfTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglMemoryStressTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglMultiThreadTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglNativeColorMappingTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglNativeCoordMappingTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglNegativeApiTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglNegativePartialUpdateTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglPreservingSwapTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglPartialUpdateTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglQueryConfigTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglQueryContextTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglQuerySurfaceTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglRenderCase.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglRenderTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglResizeTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglSimpleConfigCase.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglSurfacelessContextTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglSwapBuffersTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglSwapBuffersWithDamageTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglSyncTests.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglTestCase.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglTestPackage.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglTestPackageEntry.o $
+    obj/third_party/deqp/src/modules/egl/angle_deqp_libegl.teglVGRenderUtil.o $
+    obj/third_party/angle/src/tests/deqp_support/angle_deqp_libegl.angle_deqp_libtester_main.o $
+    obj/third_party/angle/src/tests/deqp_support/angle_deqp_libegl.tcuANGLEPlatform.o $
+    obj/third_party/angle/src/tests/libangle_deqp_libtester.a $
+    obj/third_party/angle/src/tests/libangle_deqp_decpp.a $
+    obj/third_party/angle/util/libangle_util.a $
+    obj/third_party/angle/src/libangle_common.a $
+    obj/third_party/libpng/libpng.a obj/third_party/zlib/libchrome_zlib.a $
+    obj/third_party/zlib/libzlib_x86_simd.a | lib/libEGL.so.TOC $
+    lib/libGLESv2.so.TOC || $
+    obj/third_party/angle/src/tests/angle_deqp_libegl.actions_depends.stamp
+  ld = $ldxx
+  soname = libangle_deqp_libegl.so
+  lib = lib/libangle_deqp_libegl.so
+  link_file_list = lib/libangle_deqp_libegl.so.rsp
+  solibs = lib/libEGL.so lib/libGLESv2.so

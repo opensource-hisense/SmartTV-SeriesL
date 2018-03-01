@@ -1,0 +1,135 @@
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DHAVE_CONFIG_H $
+    '-DFC_CACHEDIR="/var/cache/fontconfig"' $
+    '-DFONTCONFIG_PATH="/etc/fonts"' -DLIBXML_STATIC $
+    -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= $
+    -DU_STATIC_IMPLEMENTATION -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -Igen -I../../third_party/fontconfig/src $
+    -I../../third_party/fontconfig/include $
+    -I../../third_party/fontconfig/include/src -I../../third_party/zlib $
+    -I../../third_party/libxml/linux/include $
+    -I../../third_party/libxml/src/include $
+    -I../../third_party/icu/source/common
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-abi $
+    -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+build obj/third_party/fontconfig/chromium/fontconfig.empty.o: cxx $
+    ../../third_party/fontconfig/chromium/empty.cc
+build obj/third_party/fontconfig/src/src/fontconfig.fcatomic.o: cc $
+    ../../third_party/fontconfig/src/src/fcatomic.c
+build obj/third_party/fontconfig/src/src/fontconfig.fcblanks.o: cc $
+    ../../third_party/fontconfig/src/src/fcblanks.c
+build obj/third_party/fontconfig/src/src/fontconfig.fccache.o: cc $
+    ../../third_party/fontconfig/src/src/fccache.c
+build obj/third_party/fontconfig/src/src/fontconfig.fccfg.o: cc $
+    ../../third_party/fontconfig/src/src/fccfg.c
+build obj/third_party/fontconfig/src/src/fontconfig.fccharset.o: cc $
+    ../../third_party/fontconfig/src/src/fccharset.c
+build obj/third_party/fontconfig/src/src/fontconfig.fccompat.o: cc $
+    ../../third_party/fontconfig/src/src/fccompat.c
+build obj/third_party/fontconfig/src/src/fontconfig.fcdbg.o: cc $
+    ../../third_party/fontconfig/src/src/fcdbg.c
+build obj/third_party/fontconfig/src/src/fontconfig.fcdefault.o: cc $
+    ../../third_party/fontconfig/src/src/fcdefault.c
+build obj/third_party/fontconfig/src/src/fontconfig.fcdir.o: cc $
+    ../../third_party/fontconfig/src/src/fcdir.c
+build obj/third_party/fontconfig/src/src/fontconfig.fcformat.o: cc $
+    ../../third_party/fontconfig/src/src/fcformat.c
+build obj/third_party/fontconfig/src/src/fontconfig.fcfreetype.o: cc $
+    ../../third_party/fontconfig/src/src/fcfreetype.c
+build obj/third_party/fontconfig/src/src/fontconfig.fcfs.o: cc $
+    ../../third_party/fontconfig/src/src/fcfs.c
+build obj/third_party/fontconfig/src/src/fontconfig.fchash.o: cc $
+    ../../third_party/fontconfig/src/src/fchash.c
+build obj/third_party/fontconfig/src/src/fontconfig.fcinit.o: cc $
+    ../../third_party/fontconfig/src/src/fcinit.c
+build obj/third_party/fontconfig/src/src/fontconfig.fclang.o: cc $
+    ../../third_party/fontconfig/src/src/fclang.c
+build obj/third_party/fontconfig/src/src/fontconfig.fclist.o: cc $
+    ../../third_party/fontconfig/src/src/fclist.c
+build obj/third_party/fontconfig/src/src/fontconfig.fcmatch.o: cc $
+    ../../third_party/fontconfig/src/src/fcmatch.c
+build obj/third_party/fontconfig/src/src/fontconfig.fcmatrix.o: cc $
+    ../../third_party/fontconfig/src/src/fcmatrix.c
+build obj/third_party/fontconfig/src/src/fontconfig.fcname.o: cc $
+    ../../third_party/fontconfig/src/src/fcname.c
+build obj/third_party/fontconfig/src/src/fontconfig.fcobjs.o: cc $
+    ../../third_party/fontconfig/src/src/fcobjs.c
+build obj/third_party/fontconfig/src/src/fontconfig.fcpat.o: cc $
+    ../../third_party/fontconfig/src/src/fcpat.c
+build obj/third_party/fontconfig/src/src/fontconfig.fcserialize.o: cc $
+    ../../third_party/fontconfig/src/src/fcserialize.c
+build obj/third_party/fontconfig/src/src/fontconfig.fcstat.o: cc $
+    ../../third_party/fontconfig/src/src/fcstat.c
+build obj/third_party/fontconfig/src/src/fontconfig.fcstr.o: cc $
+    ../../third_party/fontconfig/src/src/fcstr.c
+build obj/third_party/fontconfig/src/src/fontconfig.fcxml.o: cc $
+    ../../third_party/fontconfig/src/src/fcxml.c
+build obj/third_party/fontconfig/src/src/fontconfig.ftglue.o: cc $
+    ../../third_party/fontconfig/src/src/ftglue.c
+
+build obj/third_party/fontconfig/libfontconfig.a: alink_thin $
+    obj/third_party/fontconfig/chromium/fontconfig.empty.o $
+    obj/third_party/fontconfig/src/src/fontconfig.fcatomic.o $
+    obj/third_party/fontconfig/src/src/fontconfig.fcblanks.o $
+    obj/third_party/fontconfig/src/src/fontconfig.fccache.o $
+    obj/third_party/fontconfig/src/src/fontconfig.fccfg.o $
+    obj/third_party/fontconfig/src/src/fontconfig.fccharset.o $
+    obj/third_party/fontconfig/src/src/fontconfig.fccompat.o $
+    obj/third_party/fontconfig/src/src/fontconfig.fcdbg.o $
+    obj/third_party/fontconfig/src/src/fontconfig.fcdefault.o $
+    obj/third_party/fontconfig/src/src/fontconfig.fcdir.o $
+    obj/third_party/fontconfig/src/src/fontconfig.fcformat.o $
+    obj/third_party/fontconfig/src/src/fontconfig.fcfreetype.o $
+    obj/third_party/fontconfig/src/src/fontconfig.fcfs.o $
+    obj/third_party/fontconfig/src/src/fontconfig.fchash.o $
+    obj/third_party/fontconfig/src/src/fontconfig.fcinit.o $
+    obj/third_party/fontconfig/src/src/fontconfig.fclang.o $
+    obj/third_party/fontconfig/src/src/fontconfig.fclist.o $
+    obj/third_party/fontconfig/src/src/fontconfig.fcmatch.o $
+    obj/third_party/fontconfig/src/src/fontconfig.fcmatrix.o $
+    obj/third_party/fontconfig/src/src/fontconfig.fcname.o $
+    obj/third_party/fontconfig/src/src/fontconfig.fcobjs.o $
+    obj/third_party/fontconfig/src/src/fontconfig.fcpat.o $
+    obj/third_party/fontconfig/src/src/fontconfig.fcserialize.o $
+    obj/third_party/fontconfig/src/src/fontconfig.fcstat.o $
+    obj/third_party/fontconfig/src/src/fontconfig.fcstr.o $
+    obj/third_party/fontconfig/src/src/fontconfig.fcxml.o $
+    obj/third_party/fontconfig/src/src/fontconfig.ftglue.o

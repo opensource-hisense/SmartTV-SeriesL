@@ -1,0 +1,63 @@
+build obj/extensions/extensions_shell_and_test_pak.actions_depends.stamp: $
+    stamp $
+    obj/content/browser/devtools/devtools_resources.actions_rules_copies.stamp $
+    obj/content/content_resources.actions_rules_copies.stamp $
+    obj/content/content_shell_resources.actions_rules_copies.stamp $
+    obj/third_party/WebKit/public/blink_resources.actions_rules_copies.stamp $
+    obj/ui/resources/ui_resources.actions_rules_copies.stamp $
+    obj/ui/strings/ui_strings.actions_rules_copies.stamp $
+    obj/extensions/extensions_resources.actions_rules_copies.stamp $
+    obj/extensions/extensions_strings.actions_rules_copies.stamp $
+    obj/extensions/shell/app_shell_resources.actions_rules_copies.stamp
+
+build obj/extensions/extensions_shell_and_test_pak.compile_depends.stamp: $
+    stamp $
+    obj/content/browser/devtools/devtools_resources.actions_rules_copies.stamp $
+    obj/content/content_resources.actions_rules_copies.stamp $
+    obj/content/content_shell_resources.actions_rules_copies.stamp $
+    obj/third_party/WebKit/public/blink_resources.actions_rules_copies.stamp $
+    obj/ui/resources/ui_resources.actions_rules_copies.stamp $
+    obj/ui/strings/ui_strings.actions_rules_copies.stamp $
+    obj/extensions/extensions_resources.actions_rules_copies.stamp $
+    obj/extensions/extensions_strings.actions_rules_copies.stamp $
+    obj/extensions/shell/app_shell_resources.actions_rules_copies.stamp
+
+rule $
+    extensions_shell_and_test_pak_target_repack_extensions_shell_and_test_pak_dd63a0b7e1f1f6e6a7e370fa6b1a924d
+  command = cd ../../extensions; python ../tools/grit/grit/format/repack.py $
+      ../out.cef/Release/extensions_shell_and_test.pak $
+      ../out.cef/Release/gen/blink/public/resources/blink_image_resources_100_percent.pak $
+      ../out.cef/Release/gen/blink/public/resources/blink_resources.pak $
+      ../out.cef/Release/gen/content/app/strings/content_strings_en-US.pak $
+      ../out.cef/Release/gen/content/content_resources.pak $
+      ../out.cef/Release/gen/content/shell_resources.pak $
+      ../out.cef/Release/gen/extensions/extensions_browser_resources_100_percent.pak $
+      ../out.cef/Release/gen/extensions/extensions_renderer_resources.pak $
+      ../out.cef/Release/gen/extensions/extensions_resources.pak $
+      ../out.cef/Release/gen/extensions/shell/app_shell_resources.pak $
+      ../out.cef/Release/gen/extensions/strings/extensions_strings_en-US.pak $
+      ../out.cef/Release/gen/ui/resources/ui_resources_100_percent.pak $
+      ../out.cef/Release/gen/ui/strings/app_locale_settings_en-US.pak $
+      ../out.cef/Release/gen/ui/strings/ui_strings_en-US.pak $
+      ../out.cef/Release/gen/blink/devtools_resources.pak
+  description = ACTION extensions_shell_and_test_pak: $
+      repack_extensions_shell_and_test_pak_dd63a0b7e1f1f6e6a7e370fa6b1a924d
+  restat = 1
+
+build extensions_shell_and_test.pak: $
+    extensions_shell_and_test_pak_target_repack_extensions_shell_and_test_pak_dd63a0b7e1f1f6e6a7e370fa6b1a924d $
+    ../../tools/grit/grit/format/repack.py $
+    gen/blink/public/resources/blink_image_resources_100_percent.pak $
+    gen/blink/public/resources/blink_resources.pak $
+    gen/content/app/strings/content_strings_en-US.pak $
+    gen/content/content_resources.pak gen/content/shell_resources.pak $
+    gen/extensions/extensions_browser_resources_100_percent.pak $
+    gen/extensions/extensions_renderer_resources.pak $
+    gen/extensions/extensions_resources.pak $
+    gen/extensions/shell/app_shell_resources.pak $
+    gen/extensions/strings/extensions_strings_en-US.pak $
+    gen/ui/resources/ui_resources_100_percent.pak $
+    gen/ui/strings/app_locale_settings_en-US.pak $
+    gen/ui/strings/ui_strings_en-US.pak gen/blink/devtools_resources.pak || $
+    obj/extensions/extensions_shell_and_test_pak.actions_depends.stamp
+

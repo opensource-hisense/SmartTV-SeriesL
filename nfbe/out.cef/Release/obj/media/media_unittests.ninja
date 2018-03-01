@@ -1,0 +1,879 @@
+build obj/media/media_unittests.actions_depends.stamp: stamp $
+    obj/media/libmedia.a obj/media/libmedia_test_support.a $
+    obj/media/libshared_memory_support.a lib/libbase.so.TOC $
+    obj/base/libbase_i18n.a obj/base/libtest_support_base.a $
+    obj/gpu/libcommand_buffer_common.a obj/gpu/libgpu_unittest_utils.a $
+    obj/skia/skia.actions_depends.stamp obj/testing/libgmock.a $
+    obj/testing/libgtest.a obj/third_party/libwebm/libwebm.a libyuv.a $
+    gen/widevine_cdm_version.h obj/ui/gfx/libgfx.a $
+    obj/ui/gfx/libgfx_geometry.a obj/ui/gfx/libgfx_test_support.a $
+    lib/liburl_lib.so.TOC lib/libffmpeg.so.TOC gen/media/media_features.h $
+    obj/base/third_party/dynamic_annotations/libdynamic_annotations.a $
+    obj/third_party/icu/libicui18n.a obj/third_party/icu/libicuuc.a $
+    icudtl.dat icudtl.dat obj/crypto/libcrcrypto.a $
+    obj/third_party/boringssl/libboringssl.a $
+    obj/third_party/boringssl/libboringssl.a $
+    obj/third_party/boringssl/libboringssl_asm.a $
+    obj/gpu/command_buffer/libgles2_utils.a obj/skia/libskia_library.a $
+    obj/skia/libskia_opts.a obj/skia/libskia_opts_neon.a $
+    obj/third_party/zlib/libchrome_zlib.a $
+    obj/third_party/zlib/libzlib_x86_simd.a $
+    obj/third_party/sfntly/libsfntly.a $
+    obj/third_party/fontconfig/libfontconfig.a $
+    obj/third_party/fontconfig/libfontconfig.a $
+    obj/third_party/libxml/libxml2.a obj/skia/libskia_chrome.a $
+    obj/third_party/libjpeg_turbo/libjpeg_turbo.a $
+    obj/third_party/opus/libopus.a obj/ui/events/libevents_base.a $
+    obj/base/libbase_static.a obj/third_party/harfbuzz-ng/libharfbuzz-ng.a $
+    obj/third_party/libpng/libpng.a $
+    obj/ui/events/libdom_keycode_converter.a $
+    obj/third_party/libvpx/libvpx.a obj/ui/gl/libgl_unittest_utils.a $
+    obj/ui/gl/libgl_wrapper.a obj/ui/base/libui_base.a $
+    obj/ui/base/libui_data_pack.a gen/ui/base/ui_features.h $
+    lib/libnet.so.TOC obj/ui/events/libevents.a $
+    obj/ui/events/libgesture_detection.a $
+    obj/ui/events/ozone/libevents_ozone_layout.a $
+    obj/ui/events/platform/libevents_platform.a $
+    obj/ui/resources/ui_resources.actions_rules_copies.stamp $
+    obj/ui/strings/ui_strings.actions_rules_copies.stamp $
+    obj/ui/events/devices/libevents_devices.a $
+    obj/ui/events/ozone/libevents_ozone_evdev.a $
+    obj/ui/ozone/libozone_base.a obj/ipc/libipc.a $
+    obj/ui/display/libdisplay_types.a obj/ui/display/libdisplay_util.a $
+    obj/ui/gfx/ipc/libgfx_ipc.a obj/ui/gfx/ipc/skia/libgfx_ipc_skia.a $
+    obj/ui/events/ozone/libevents_ozone.a obj/ui/ozone/libozone.a $
+    obj/ui/ozone/libozone_platform.a $
+    obj/ui/ozone/libozone_platform_egltest.a obj/ui/ozone/libozone_common.a $
+    obj/ui/ozone/libeglplatform_shim.a $
+    obj/ui/ozone/libozone_platform_headless.a $
+    obj/gpu/gpu.actions_depends.stamp obj/gpu/libcommand_buffer_client.a $
+    obj/gpu/libcommand_buffer_service.a obj/gpu/libdisk_cache_proto.a $
+    obj/third_party/protobuf/libprotobuf_lite.a obj/gpu/libgpu_config.a $
+    obj/third_party/re2/libre2.a obj/third_party/smhasher/libcityhash.a $
+    gen/angle/id/commit.h $
+    obj/third_party/angle/src/copy_scripts.actions_rules_copies.stamp $
+    obj/third_party/angle/src/libtranslator.a $
+    obj/third_party/angle/src/libtranslator_lib.a $
+    obj/third_party/angle/src/libpreprocessor.a $
+    obj/third_party/angle/src/libangle_common.a $
+    obj/gpu/libgles2_cmd_helper.a obj/gpu/libgpu_ipc_client.a $
+    obj/gpu/libcommand_buffer_traits.a obj/ui/events/libevents_ipc.a $
+    obj/url/ipc/liburl_ipc.a obj/gpu/libgpu_ipc_common.a $
+    obj/gpu/libgpu_ipc_service.a
+
+build obj/media/media_unittests.compile_depends.stamp: stamp $
+    obj/media/media.compile_depends.stamp $
+    obj/media/media_test_support.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/gpu/gpu.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp gen/widevine_cdm_version.h $
+    obj/ui/gfx/gfx.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/ui/gfx/gfx_test_support.compile_depends.stamp $
+    obj/url/url_lib.compile_depends.stamp gen/media/media_features.h $
+    icudtl.dat icudtl.dat icudtl.dat obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S $
+    obj/ui/events/events_base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/third_party/libvpx/libvpx.actions_rules_copies.stamp $
+    obj/ui/gl/gl.compile_depends.stamp $
+    obj/ui/base/ui_base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp gen/ui/base/ui_features.h $
+    obj/net/net.compile_depends.stamp $
+    obj/ui/events/events.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/ui/resources/ui_resources.actions_rules_copies.stamp $
+    obj/ui/strings/ui_strings.actions_rules_copies.stamp $
+    obj/ui/events/devices/events_devices.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/ui/ozone/ozone_base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/ui/gfx/ipc/skia/gfx_ipc_skia.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/ui/ozone/ozone_platform.actions_rules_copies.stamp $
+    obj/ui/ozone/ozone_platform_egltest.compile_depends.stamp $
+    obj/ui/ozone/ozone_common.compile_depends.stamp $
+    obj/ui/ozone/eglplatform_shim.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp obj/gpu/gpu.compile_depends.stamp $
+    obj/gpu/command_buffer_service.compile_depends.stamp $
+    obj/gpu/disk_cache_proto.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp gen/angle/id/commit.h $
+    obj/third_party/angle/src/copy_scripts.actions_rules_copies.stamp $
+    obj/gpu/gpu_ipc_client.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/url/ipc/url_ipc.compile_depends.stamp $
+    obj/gpu/gpu_ipc_common.compile_depends.stamp $
+    obj/gpu/gpu_ipc_service.compile_depends.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_NEON -DGTEST_HAS_POSIX_RE=0 $
+    -DGTEST_LANG_CXX11=0 -DOPUS_FIXED_POINT -DU_USING_ICU_NAMESPACE=0 $
+    -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= -DU_STATIC_IMPLEMENTATION $
+    -DSK_SUPPORT_GPU=1 -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS -DUNIT_TEST $
+    -DGTEST_HAS_RTTI=0 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS $
+    -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../../third_party/khronos -I../../gpu -I../.. $
+    -I../../skia/config -Igen/angle -I../../third_party/opus/src/include $
+    -I../../third_party/icu/source/common $
+    -I../../third_party/icu/source/i18n $
+    -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../testing/gmock/include -I../../testing/gtest/include $
+    -I../../third_party/libyuv/include -I../../third_party/libyuv $
+    -I../../third_party/ffmpeg/chromium/config/Chrome/linux/arm-neon $
+    -I../../third_party/ffmpeg
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/media/capture/content/media_unittests.animated_content_sampler_unittest.o: $
+    cxx ../../media/capture/content/animated_content_sampler_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build $
+    obj/media/capture/content/media_unittests.capture_resolution_chooser_unittest.o: $
+    cxx ../../media/capture/content/capture_resolution_chooser_unittest.cc $
+    || obj/media/media_unittests.compile_depends.stamp
+build $
+    obj/media/capture/content/media_unittests.feedback_signal_accumulator_unittest.o: $
+    cxx ../../media/capture/content/feedback_signal_accumulator_unittest.cc $
+    || obj/media/media_unittests.compile_depends.stamp
+build $
+    obj/media/capture/content/media_unittests.smooth_event_sampler_unittest.o: $
+    cxx ../../media/capture/content/smooth_event_sampler_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build $
+    obj/media/capture/content/media_unittests.video_capture_oracle_unittest.o: $
+    cxx ../../media/capture/content/video_capture_oracle_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build $
+    obj/media/capture/video/media_unittests.fake_video_capture_device_unittest.o: $
+    cxx ../../media/capture/video/fake_video_capture_device_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build $
+    obj/media/capture/video/media_unittests.video_capture_device_unittest.o: $
+    cxx ../../media/capture/video/video_capture_device_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.audio_block_fifo_unittest.o: cxx $
+    ../../media/base/audio_block_fifo_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.audio_buffer_converter_unittest.o: cxx $
+    ../../media/base/audio_buffer_converter_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.audio_buffer_queue_unittest.o: cxx $
+    ../../media/base/audio_buffer_queue_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.audio_buffer_unittest.o: cxx $
+    ../../media/base/audio_buffer_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.audio_bus_unittest.o: cxx $
+    ../../media/base/audio_bus_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.audio_converter_unittest.o: cxx $
+    ../../media/base/audio_converter_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.audio_discard_helper_unittest.o: cxx $
+    ../../media/base/audio_discard_helper_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.audio_fifo_unittest.o: cxx $
+    ../../media/base/audio_fifo_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.audio_hardware_config_unittest.o: cxx $
+    ../../media/base/audio_hardware_config_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.audio_hash_unittest.o: cxx $
+    ../../media/base/audio_hash_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.audio_pull_fifo_unittest.o: cxx $
+    ../../media/base/audio_pull_fifo_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.audio_push_fifo_unittest.o: cxx $
+    ../../media/base/audio_push_fifo_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.audio_renderer_mixer_input_unittest.o: $
+    cxx ../../media/base/audio_renderer_mixer_input_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.audio_renderer_mixer_unittest.o: cxx $
+    ../../media/base/audio_renderer_mixer_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.audio_shifter_unittest.o: cxx $
+    ../../media/base/audio_shifter_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.audio_splicer_unittest.o: cxx $
+    ../../media/base/audio_splicer_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.audio_timestamp_helper_unittest.o: cxx $
+    ../../media/base/audio_timestamp_helper_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build $
+    obj/media/base/media_unittests.audio_video_metadata_extractor_unittest.o: $
+    cxx ../../media/base/audio_video_metadata_extractor_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.bind_to_current_loop_unittest.o: cxx $
+    ../../media/base/bind_to_current_loop_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.bit_reader_unittest.o: cxx $
+    ../../media/base/bit_reader_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.callback_holder_unittest.o: cxx $
+    ../../media/base/callback_holder_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.channel_mixer_unittest.o: cxx $
+    ../../media/base/channel_mixer_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.channel_mixing_matrix_unittest.o: cxx $
+    ../../media/base/channel_mixing_matrix_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.container_names_unittest.o: cxx $
+    ../../media/base/container_names_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.data_buffer_unittest.o: cxx $
+    ../../media/base/data_buffer_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.decoder_buffer_queue_unittest.o: cxx $
+    ../../media/base/decoder_buffer_queue_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.decoder_buffer_unittest.o: cxx $
+    ../../media/base/decoder_buffer_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.djb2_unittest.o: cxx $
+    ../../media/base/djb2_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.fake_demuxer_stream_unittest.o: cxx $
+    ../../media/base/fake_demuxer_stream_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.gmock_callback_support_unittest.o: cxx $
+    ../../media/base/gmock_callback_support_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.key_systems_unittest.o: cxx $
+    ../../media/base/key_systems_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.media_file_checker_unittest.o: cxx $
+    ../../media/base/media_file_checker_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.mime_util_unittest.o: cxx $
+    ../../media/base/mime_util_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.moving_average_unittest.o: cxx $
+    ../../media/base/moving_average_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.multi_channel_resampler_unittest.o: $
+    cxx ../../media/base/multi_channel_resampler_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.null_video_sink_unittest.o: cxx $
+    ../../media/base/null_video_sink_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.pipeline_impl_unittest.o: cxx $
+    ../../media/base/pipeline_impl_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.ranges_unittest.o: cxx $
+    ../../media/base/ranges_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.run_all_unittests.o: cxx $
+    ../../media/base/run_all_unittests.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.seekable_buffer_unittest.o: cxx $
+    ../../media/base/seekable_buffer_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.serial_runner_unittest.o: cxx $
+    ../../media/base/serial_runner_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.sinc_resampler_unittest.o: cxx $
+    ../../media/base/sinc_resampler_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.stream_parser_unittest.o: cxx $
+    ../../media/base/stream_parser_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.text_ranges_unittest.o: cxx $
+    ../../media/base/text_ranges_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.text_renderer_unittest.o: cxx $
+    ../../media/base/text_renderer_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.time_delta_interpolator_unittest.o: $
+    cxx ../../media/base/time_delta_interpolator_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.user_input_monitor_unittest.o: cxx $
+    ../../media/base/user_input_monitor_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.vector_math_unittest.o: cxx $
+    ../../media/base/vector_math_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.video_decoder_config_unittest.o: cxx $
+    ../../media/base/video_decoder_config_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.video_frame_pool_unittest.o: cxx $
+    ../../media/base/video_frame_pool_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.video_frame_unittest.o: cxx $
+    ../../media/base/video_frame_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.video_util_unittest.o: cxx $
+    ../../media/base/video_util_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.wall_clock_time_source_unittest.o: cxx $
+    ../../media/base/wall_clock_time_source_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/base/media_unittests.yuv_convert_unittest.o: cxx $
+    ../../media/base/yuv_convert_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/cdm/media_unittests.aes_decryptor_unittest.o: cxx $
+    ../../media/cdm/aes_decryptor_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/cdm/media_unittests.external_clear_key_test_helper.o: cxx $
+    ../../media/cdm/external_clear_key_test_helper.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/cdm/media_unittests.json_web_key_unittest.o: cxx $
+    ../../media/cdm/json_web_key_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/cdm/media_unittests.simple_cdm_allocator.o: cxx $
+    ../../media/cdm/simple_cdm_allocator.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/cdm/media_unittests.simple_cdm_allocator_unittest.o: cxx $
+    ../../media/cdm/simple_cdm_allocator_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/cdm/media_unittests.simple_cdm_buffer.o: cxx $
+    ../../media/cdm/simple_cdm_buffer.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/ffmpeg/media_unittests.ffmpeg_common_unittest.o: cxx $
+    ../../media/ffmpeg/ffmpeg_common_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.audio_clock_unittest.o: cxx $
+    ../../media/filters/audio_clock_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.audio_decoder_selector_unittest.o: $
+    cxx ../../media/filters/audio_decoder_selector_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.audio_decoder_unittest.o: cxx $
+    ../../media/filters/audio_decoder_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.audio_file_reader_unittest.o: cxx $
+    ../../media/filters/audio_file_reader_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build $
+    obj/media/filters/media_unittests.audio_renderer_algorithm_unittest.o: $
+    cxx ../../media/filters/audio_renderer_algorithm_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.blocking_url_protocol_unittest.o: $
+    cxx ../../media/filters/blocking_url_protocol_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.chunk_demuxer_unittest.o: cxx $
+    ../../media/filters/chunk_demuxer_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build $
+    obj/media/filters/media_unittests.decrypting_audio_decoder_unittest.o: $
+    cxx ../../media/filters/decrypting_audio_decoder_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build $
+    obj/media/filters/media_unittests.decrypting_demuxer_stream_unittest.o: $
+    cxx ../../media/filters/decrypting_demuxer_stream_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build $
+    obj/media/filters/media_unittests.decrypting_video_decoder_unittest.o: $
+    cxx ../../media/filters/decrypting_video_decoder_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.fake_video_decoder.o: cxx $
+    ../../media/filters/fake_video_decoder.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.fake_video_decoder_unittest.o: cxx $
+    ../../media/filters/fake_video_decoder_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.ffmpeg_demuxer_unittest.o: cxx $
+    ../../media/filters/ffmpeg_demuxer_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.ffmpeg_glue_unittest.o: cxx $
+    ../../media/filters/ffmpeg_glue_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.ffmpeg_video_decoder_unittest.o: $
+    cxx ../../media/filters/ffmpeg_video_decoder_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.file_data_source_unittest.o: cxx $
+    ../../media/filters/file_data_source_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.frame_processor_unittest.o: cxx $
+    ../../media/filters/frame_processor_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.h264_bit_reader_unittest.o: cxx $
+    ../../media/filters/h264_bit_reader_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.h264_parser_unittest.o: cxx $
+    ../../media/filters/h264_parser_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.in_memory_url_protocol_unittest.o: $
+    cxx ../../media/filters/in_memory_url_protocol_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.ivf_parser_unittest.o: cxx $
+    ../../media/filters/ivf_parser_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.jpeg_parser_unittest.o: cxx $
+    ../../media/filters/jpeg_parser_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.memory_data_source_unittest.o: cxx $
+    ../../media/filters/memory_data_source_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.pipeline_controller_unittest.o: cxx $
+    ../../media/filters/pipeline_controller_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.source_buffer_stream_unittest.o: $
+    cxx ../../media/filters/source_buffer_stream_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.video_cadence_estimator_unittest.o: $
+    cxx ../../media/filters/video_cadence_estimator_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.video_decoder_selector_unittest.o: $
+    cxx ../../media/filters/video_decoder_selector_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.video_frame_stream_unittest.o: cxx $
+    ../../media/filters/video_frame_stream_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build $
+    obj/media/filters/media_unittests.video_renderer_algorithm_unittest.o: $
+    cxx ../../media/filters/video_renderer_algorithm_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.vp8_bool_decoder_unittest.o: cxx $
+    ../../media/filters/vp8_bool_decoder_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.vp8_parser_unittest.o: cxx $
+    ../../media/filters/vp8_parser_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.vp9_parser_unittest.o: cxx $
+    ../../media/filters/vp9_parser_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/filters/media_unittests.vp9_raw_bits_reader_unittest.o: cxx $
+    ../../media/filters/vp9_raw_bits_reader_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build $
+    obj/media/formats/common/media_unittests.offset_byte_queue_unittest.o: $
+    cxx ../../media/formats/common/offset_byte_queue_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/formats/webm/media_unittests.cluster_builder.o: cxx $
+    ../../media/formats/webm/cluster_builder.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/formats/webm/media_unittests.opus_packet_builder.o: cxx $
+    ../../media/formats/webm/opus_packet_builder.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/formats/webm/media_unittests.tracks_builder.o: cxx $
+    ../../media/formats/webm/tracks_builder.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build $
+    obj/media/formats/webm/media_unittests.webm_cluster_parser_unittest.o: $
+    cxx ../../media/formats/webm/webm_cluster_parser_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build $
+    obj/media/formats/webm/media_unittests.webm_content_encodings_client_unittest.o: $
+    cxx ../../media/formats/webm/webm_content_encodings_client_unittest.cc $
+    || obj/media/media_unittests.compile_depends.stamp
+build obj/media/formats/webm/media_unittests.webm_parser_unittest.o: cxx $
+    ../../media/formats/webm/webm_parser_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/formats/webm/media_unittests.webm_stream_parser_unittest.o: $
+    cxx ../../media/formats/webm/webm_stream_parser_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/formats/webm/media_unittests.webm_tracks_parser_unittest.o: $
+    cxx ../../media/formats/webm/webm_tracks_parser_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/formats/webm/media_unittests.webm_webvtt_parser_unittest.o: $
+    cxx ../../media/formats/webm/webm_webvtt_parser_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/muxers/media_unittests.webm_muxer_unittest.o: cxx $
+    ../../media/muxers/webm_muxer_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/renderers/media_unittests.audio_renderer_impl_unittest.o: $
+    cxx ../../media/renderers/audio_renderer_impl_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/renderers/media_unittests.renderer_impl_unittest.o: cxx $
+    ../../media/renderers/renderer_impl_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build $
+    obj/media/renderers/media_unittests.skcanvas_video_renderer_unittest.o: $
+    cxx ../../media/renderers/skcanvas_video_renderer_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/renderers/media_unittests.video_renderer_impl_unittest.o: $
+    cxx ../../media/renderers/video_renderer_impl_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/test/media_unittests.pipeline_integration_test.o: cxx $
+    ../../media/test/pipeline_integration_test.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/test/media_unittests.pipeline_integration_test_base.o: cxx $
+    ../../media/test/pipeline_integration_test_base.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build $
+    obj/media/video/media_unittests.gpu_memory_buffer_video_frame_pool_unittest.o: $
+    cxx ../../media/video/gpu_memory_buffer_video_frame_pool_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/video/media_unittests.h264_poc_unittest.o: cxx $
+    ../../media/video/h264_poc_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/cdm/media_unittests.cenc_utils_unittest.o: cxx $
+    ../../media/cdm/cenc_utils_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build $
+    obj/media/filters/media_unittests.ffmpeg_aac_bitstream_converter_unittest.o: $
+    cxx ../../media/filters/ffmpeg_aac_bitstream_converter_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build $
+    obj/media/filters/media_unittests.ffmpeg_h264_to_annex_b_bitstream_converter_unittest.o: $
+    cxx $
+    ../../media/filters/ffmpeg_h264_to_annex_b_bitstream_converter_unittest.cc $
+    || obj/media/media_unittests.compile_depends.stamp
+build $
+    obj/media/filters/media_unittests.h264_to_annex_b_bitstream_converter_unittest.o: $
+    cxx ../../media/filters/h264_to_annex_b_bitstream_converter_unittest.cc $
+    || obj/media/media_unittests.compile_depends.stamp
+build obj/media/formats/common/media_unittests.stream_parser_test_base.o: $
+    cxx ../../media/formats/common/stream_parser_test_base.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/formats/mp4/media_unittests.aac_unittest.o: cxx $
+    ../../media/formats/mp4/aac_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/formats/mp4/media_unittests.avc_unittest.o: cxx $
+    ../../media/formats/mp4/avc_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/formats/mp4/media_unittests.box_reader_unittest.o: cxx $
+    ../../media/formats/mp4/box_reader_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/formats/mp4/media_unittests.es_descriptor_unittest.o: cxx $
+    ../../media/formats/mp4/es_descriptor_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/formats/mp4/media_unittests.mp4_stream_parser_unittest.o: $
+    cxx ../../media/formats/mp4/mp4_stream_parser_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build $
+    obj/media/formats/mp4/media_unittests.sample_to_group_iterator_unittest.o: $
+    cxx ../../media/formats/mp4/sample_to_group_iterator_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/formats/mp4/media_unittests.track_run_iterator_unittest.o: $
+    cxx ../../media/formats/mp4/track_run_iterator_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/formats/mpeg/media_unittests.adts_stream_parser_unittest.o: $
+    cxx ../../media/formats/mpeg/adts_stream_parser_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build $
+    obj/media/formats/mpeg/media_unittests.mpeg1_audio_stream_parser_unittest.o: $
+    cxx ../../media/formats/mpeg/mpeg1_audio_stream_parser_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/audio/media_unittests.audio_input_controller_unittest.o: $
+    cxx ../../media/audio/audio_input_controller_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/audio/media_unittests.audio_input_unittest.o: cxx $
+    ../../media/audio/audio_input_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/audio/media_unittests.audio_manager_factory_unittest.o: cxx $
+    ../../media/audio/audio_manager_factory_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/audio/media_unittests.audio_manager_unittest.o: cxx $
+    ../../media/audio/audio_manager_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/audio/media_unittests.audio_output_controller_unittest.o: $
+    cxx ../../media/audio/audio_output_controller_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/audio/media_unittests.audio_output_device_unittest.o: cxx $
+    ../../media/audio/audio_output_device_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/audio/media_unittests.audio_output_proxy_unittest.o: cxx $
+    ../../media/audio/audio_output_proxy_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/audio/media_unittests.audio_parameters_unittest.o: cxx $
+    ../../media/audio/audio_parameters_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/audio/media_unittests.audio_power_monitor_unittest.o: cxx $
+    ../../media/audio/audio_power_monitor_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/audio/media_unittests.audio_streams_tracker_unittest.o: cxx $
+    ../../media/audio/audio_streams_tracker_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/audio/media_unittests.fake_audio_worker_unittest.o: cxx $
+    ../../media/audio/fake_audio_worker_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/audio/media_unittests.point_unittest.o: cxx $
+    ../../media/audio/point_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build obj/media/audio/media_unittests.simple_sources_unittest.o: cxx $
+    ../../media/audio/simple_sources_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build $
+    obj/media/audio/media_unittests.virtual_audio_input_stream_unittest.o: $
+    cxx ../../media/audio/virtual_audio_input_stream_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+build $
+    obj/media/audio/media_unittests.virtual_audio_output_stream_unittest.o: $
+    cxx ../../media/audio/virtual_audio_output_stream_unittest.cc || $
+    obj/media/media_unittests.compile_depends.stamp
+
+ldflags = -L/work/bsp/sc1400/usr/local/lib -L/work/bsp/sc1400/lib $
+    -L/work/bsp/sc1400/usr/lib -Wl,-z,now -Wl,-z,relro -Wl,-z,defs -pthread $
+    -Wl,-z,noexecstack -fPIC -Wl,--disable-new-dtags $
+    -L/work/bsp/sc1400/usr/lib -L/work/bsp/sc1400/usr/lib $
+    --sysroot=/work/bsp/sc1400 -L/work/bsp/sc1400/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/lib/ -L/work/bsp/sc1400/usr/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/lib/ $
+    -L/work/bsp/sc1400/usr/dtvrec/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/dtvrec/lib/ $
+    -L/work/bsp/sc1400/usr/local/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/local/lib/ $
+    -L/work/bsp/sc1400/usr/local/netfrontbe/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/local/netfrontbe/lib/ -Wl,-O1 $
+    -Wl,--as-needed -Wl,--gc-sections -Wl,-rpath=\$$ORIGIN/lib/ $
+    -Wl,-rpath-link=lib/
+libs =  -lrt -ldl -latomic -lnss3 -lnssutil3 -lsmime3 -lplds4 -lplc4 $
+    -lnspr4 -lfreetype -lm -lexpat -lz
+build media_unittests: link $
+    obj/media/capture/content/media_unittests.animated_content_sampler_unittest.o $
+    obj/media/capture/content/media_unittests.capture_resolution_chooser_unittest.o $
+    obj/media/capture/content/media_unittests.feedback_signal_accumulator_unittest.o $
+    obj/media/capture/content/media_unittests.smooth_event_sampler_unittest.o $
+    obj/media/capture/content/media_unittests.video_capture_oracle_unittest.o $
+    obj/media/capture/video/media_unittests.fake_video_capture_device_unittest.o $
+    obj/media/capture/video/media_unittests.video_capture_device_unittest.o $
+    obj/media/base/media_unittests.audio_block_fifo_unittest.o $
+    obj/media/base/media_unittests.audio_buffer_converter_unittest.o $
+    obj/media/base/media_unittests.audio_buffer_queue_unittest.o $
+    obj/media/base/media_unittests.audio_buffer_unittest.o $
+    obj/media/base/media_unittests.audio_bus_unittest.o $
+    obj/media/base/media_unittests.audio_converter_unittest.o $
+    obj/media/base/media_unittests.audio_discard_helper_unittest.o $
+    obj/media/base/media_unittests.audio_fifo_unittest.o $
+    obj/media/base/media_unittests.audio_hardware_config_unittest.o $
+    obj/media/base/media_unittests.audio_hash_unittest.o $
+    obj/media/base/media_unittests.audio_pull_fifo_unittest.o $
+    obj/media/base/media_unittests.audio_push_fifo_unittest.o $
+    obj/media/base/media_unittests.audio_renderer_mixer_input_unittest.o $
+    obj/media/base/media_unittests.audio_renderer_mixer_unittest.o $
+    obj/media/base/media_unittests.audio_shifter_unittest.o $
+    obj/media/base/media_unittests.audio_splicer_unittest.o $
+    obj/media/base/media_unittests.audio_timestamp_helper_unittest.o $
+    obj/media/base/media_unittests.audio_video_metadata_extractor_unittest.o $
+    obj/media/base/media_unittests.bind_to_current_loop_unittest.o $
+    obj/media/base/media_unittests.bit_reader_unittest.o $
+    obj/media/base/media_unittests.callback_holder_unittest.o $
+    obj/media/base/media_unittests.channel_mixer_unittest.o $
+    obj/media/base/media_unittests.channel_mixing_matrix_unittest.o $
+    obj/media/base/media_unittests.container_names_unittest.o $
+    obj/media/base/media_unittests.data_buffer_unittest.o $
+    obj/media/base/media_unittests.decoder_buffer_queue_unittest.o $
+    obj/media/base/media_unittests.decoder_buffer_unittest.o $
+    obj/media/base/media_unittests.djb2_unittest.o $
+    obj/media/base/media_unittests.fake_demuxer_stream_unittest.o $
+    obj/media/base/media_unittests.gmock_callback_support_unittest.o $
+    obj/media/base/media_unittests.key_systems_unittest.o $
+    obj/media/base/media_unittests.media_file_checker_unittest.o $
+    obj/media/base/media_unittests.mime_util_unittest.o $
+    obj/media/base/media_unittests.moving_average_unittest.o $
+    obj/media/base/media_unittests.multi_channel_resampler_unittest.o $
+    obj/media/base/media_unittests.null_video_sink_unittest.o $
+    obj/media/base/media_unittests.pipeline_impl_unittest.o $
+    obj/media/base/media_unittests.ranges_unittest.o $
+    obj/media/base/media_unittests.run_all_unittests.o $
+    obj/media/base/media_unittests.seekable_buffer_unittest.o $
+    obj/media/base/media_unittests.serial_runner_unittest.o $
+    obj/media/base/media_unittests.sinc_resampler_unittest.o $
+    obj/media/base/media_unittests.stream_parser_unittest.o $
+    obj/media/base/media_unittests.text_ranges_unittest.o $
+    obj/media/base/media_unittests.text_renderer_unittest.o $
+    obj/media/base/media_unittests.time_delta_interpolator_unittest.o $
+    obj/media/base/media_unittests.user_input_monitor_unittest.o $
+    obj/media/base/media_unittests.vector_math_unittest.o $
+    obj/media/base/media_unittests.video_decoder_config_unittest.o $
+    obj/media/base/media_unittests.video_frame_pool_unittest.o $
+    obj/media/base/media_unittests.video_frame_unittest.o $
+    obj/media/base/media_unittests.video_util_unittest.o $
+    obj/media/base/media_unittests.wall_clock_time_source_unittest.o $
+    obj/media/base/media_unittests.yuv_convert_unittest.o $
+    obj/media/cdm/media_unittests.aes_decryptor_unittest.o $
+    obj/media/cdm/media_unittests.external_clear_key_test_helper.o $
+    obj/media/cdm/media_unittests.json_web_key_unittest.o $
+    obj/media/cdm/media_unittests.simple_cdm_allocator.o $
+    obj/media/cdm/media_unittests.simple_cdm_allocator_unittest.o $
+    obj/media/cdm/media_unittests.simple_cdm_buffer.o $
+    obj/media/ffmpeg/media_unittests.ffmpeg_common_unittest.o $
+    obj/media/filters/media_unittests.audio_clock_unittest.o $
+    obj/media/filters/media_unittests.audio_decoder_selector_unittest.o $
+    obj/media/filters/media_unittests.audio_decoder_unittest.o $
+    obj/media/filters/media_unittests.audio_file_reader_unittest.o $
+    obj/media/filters/media_unittests.audio_renderer_algorithm_unittest.o $
+    obj/media/filters/media_unittests.blocking_url_protocol_unittest.o $
+    obj/media/filters/media_unittests.chunk_demuxer_unittest.o $
+    obj/media/filters/media_unittests.decrypting_audio_decoder_unittest.o $
+    obj/media/filters/media_unittests.decrypting_demuxer_stream_unittest.o $
+    obj/media/filters/media_unittests.decrypting_video_decoder_unittest.o $
+    obj/media/filters/media_unittests.fake_video_decoder.o $
+    obj/media/filters/media_unittests.fake_video_decoder_unittest.o $
+    obj/media/filters/media_unittests.ffmpeg_demuxer_unittest.o $
+    obj/media/filters/media_unittests.ffmpeg_glue_unittest.o $
+    obj/media/filters/media_unittests.ffmpeg_video_decoder_unittest.o $
+    obj/media/filters/media_unittests.file_data_source_unittest.o $
+    obj/media/filters/media_unittests.frame_processor_unittest.o $
+    obj/media/filters/media_unittests.h264_bit_reader_unittest.o $
+    obj/media/filters/media_unittests.h264_parser_unittest.o $
+    obj/media/filters/media_unittests.in_memory_url_protocol_unittest.o $
+    obj/media/filters/media_unittests.ivf_parser_unittest.o $
+    obj/media/filters/media_unittests.jpeg_parser_unittest.o $
+    obj/media/filters/media_unittests.memory_data_source_unittest.o $
+    obj/media/filters/media_unittests.pipeline_controller_unittest.o $
+    obj/media/filters/media_unittests.source_buffer_stream_unittest.o $
+    obj/media/filters/media_unittests.video_cadence_estimator_unittest.o $
+    obj/media/filters/media_unittests.video_decoder_selector_unittest.o $
+    obj/media/filters/media_unittests.video_frame_stream_unittest.o $
+    obj/media/filters/media_unittests.video_renderer_algorithm_unittest.o $
+    obj/media/filters/media_unittests.vp8_bool_decoder_unittest.o $
+    obj/media/filters/media_unittests.vp8_parser_unittest.o $
+    obj/media/filters/media_unittests.vp9_parser_unittest.o $
+    obj/media/filters/media_unittests.vp9_raw_bits_reader_unittest.o $
+    obj/media/formats/common/media_unittests.offset_byte_queue_unittest.o $
+    obj/media/formats/webm/media_unittests.cluster_builder.o $
+    obj/media/formats/webm/media_unittests.opus_packet_builder.o $
+    obj/media/formats/webm/media_unittests.tracks_builder.o $
+    obj/media/formats/webm/media_unittests.webm_cluster_parser_unittest.o $
+    obj/media/formats/webm/media_unittests.webm_content_encodings_client_unittest.o $
+    obj/media/formats/webm/media_unittests.webm_parser_unittest.o $
+    obj/media/formats/webm/media_unittests.webm_stream_parser_unittest.o $
+    obj/media/formats/webm/media_unittests.webm_tracks_parser_unittest.o $
+    obj/media/formats/webm/media_unittests.webm_webvtt_parser_unittest.o $
+    obj/media/muxers/media_unittests.webm_muxer_unittest.o $
+    obj/media/renderers/media_unittests.audio_renderer_impl_unittest.o $
+    obj/media/renderers/media_unittests.renderer_impl_unittest.o $
+    obj/media/renderers/media_unittests.skcanvas_video_renderer_unittest.o $
+    obj/media/renderers/media_unittests.video_renderer_impl_unittest.o $
+    obj/media/test/media_unittests.pipeline_integration_test.o $
+    obj/media/test/media_unittests.pipeline_integration_test_base.o $
+    obj/media/video/media_unittests.gpu_memory_buffer_video_frame_pool_unittest.o $
+    obj/media/video/media_unittests.h264_poc_unittest.o $
+    obj/media/cdm/media_unittests.cenc_utils_unittest.o $
+    obj/media/filters/media_unittests.ffmpeg_aac_bitstream_converter_unittest.o $
+    obj/media/filters/media_unittests.ffmpeg_h264_to_annex_b_bitstream_converter_unittest.o $
+    obj/media/filters/media_unittests.h264_to_annex_b_bitstream_converter_unittest.o $
+    obj/media/formats/common/media_unittests.stream_parser_test_base.o $
+    obj/media/formats/mp4/media_unittests.aac_unittest.o $
+    obj/media/formats/mp4/media_unittests.avc_unittest.o $
+    obj/media/formats/mp4/media_unittests.box_reader_unittest.o $
+    obj/media/formats/mp4/media_unittests.es_descriptor_unittest.o $
+    obj/media/formats/mp4/media_unittests.mp4_stream_parser_unittest.o $
+    obj/media/formats/mp4/media_unittests.sample_to_group_iterator_unittest.o $
+    obj/media/formats/mp4/media_unittests.track_run_iterator_unittest.o $
+    obj/media/formats/mpeg/media_unittests.adts_stream_parser_unittest.o $
+    obj/media/formats/mpeg/media_unittests.mpeg1_audio_stream_parser_unittest.o $
+    obj/media/audio/media_unittests.audio_input_controller_unittest.o $
+    obj/media/audio/media_unittests.audio_input_unittest.o $
+    obj/media/audio/media_unittests.audio_manager_factory_unittest.o $
+    obj/media/audio/media_unittests.audio_manager_unittest.o $
+    obj/media/audio/media_unittests.audio_output_controller_unittest.o $
+    obj/media/audio/media_unittests.audio_output_device_unittest.o $
+    obj/media/audio/media_unittests.audio_output_proxy_unittest.o $
+    obj/media/audio/media_unittests.audio_parameters_unittest.o $
+    obj/media/audio/media_unittests.audio_power_monitor_unittest.o $
+    obj/media/audio/media_unittests.audio_streams_tracker_unittest.o $
+    obj/media/audio/media_unittests.fake_audio_worker_unittest.o $
+    obj/media/audio/media_unittests.point_unittest.o $
+    obj/media/audio/media_unittests.simple_sources_unittest.o $
+    obj/media/audio/media_unittests.virtual_audio_input_stream_unittest.o $
+    obj/media/audio/media_unittests.virtual_audio_output_stream_unittest.o $
+    obj/media/libmedia.a obj/media/libmedia_test_support.a $
+    obj/media/libshared_memory_support.a obj/base/libbase_i18n.a $
+    obj/base/libtest_support_base.a obj/gpu/libcommand_buffer_common.a $
+    obj/gpu/libgpu_unittest_utils.a obj/testing/libgmock.a $
+    obj/testing/libgtest.a obj/third_party/libwebm/libwebm.a libyuv.a $
+    obj/ui/gfx/libgfx.a obj/ui/gfx/libgfx_geometry.a $
+    obj/ui/gfx/libgfx_test_support.a $
+    obj/base/third_party/dynamic_annotations/libdynamic_annotations.a $
+    obj/third_party/icu/libicui18n.a obj/third_party/icu/libicuuc.a $
+    obj/crypto/libcrcrypto.a obj/third_party/boringssl/libboringssl.a $
+    obj/third_party/boringssl/libboringssl_asm.a $
+    obj/gpu/command_buffer/libgles2_utils.a obj/skia/libskia_library.a $
+    obj/skia/libskia_opts.a obj/skia/libskia_opts_neon.a $
+    obj/third_party/zlib/libchrome_zlib.a $
+    obj/third_party/zlib/libzlib_x86_simd.a $
+    obj/third_party/sfntly/libsfntly.a $
+    obj/third_party/fontconfig/libfontconfig.a $
+    obj/third_party/libxml/libxml2.a obj/skia/libskia_chrome.a $
+    obj/third_party/libjpeg_turbo/libjpeg_turbo.a $
+    obj/third_party/opus/libopus.a obj/ui/events/libevents_base.a $
+    obj/base/libbase_static.a obj/third_party/harfbuzz-ng/libharfbuzz-ng.a $
+    obj/third_party/libpng/libpng.a $
+    obj/ui/events/libdom_keycode_converter.a $
+    obj/third_party/libvpx/libvpx.a obj/ui/gl/libgl_unittest_utils.a $
+    obj/ui/gl/libgl_wrapper.a obj/ui/base/libui_base.a $
+    obj/ui/base/libui_data_pack.a obj/ui/events/libevents.a $
+    obj/ui/events/libgesture_detection.a $
+    obj/ui/events/ozone/libevents_ozone_layout.a $
+    obj/ui/events/platform/libevents_platform.a $
+    obj/ui/events/devices/libevents_devices.a $
+    obj/ui/events/ozone/libevents_ozone_evdev.a $
+    obj/ui/ozone/libozone_base.a obj/ipc/libipc.a $
+    obj/ui/display/libdisplay_types.a obj/ui/display/libdisplay_util.a $
+    obj/ui/gfx/ipc/libgfx_ipc.a obj/ui/gfx/ipc/skia/libgfx_ipc_skia.a $
+    obj/ui/events/ozone/libevents_ozone.a obj/ui/ozone/libozone.a $
+    obj/ui/ozone/libozone_platform.a $
+    obj/ui/ozone/libozone_platform_egltest.a obj/ui/ozone/libozone_common.a $
+    obj/ui/ozone/libeglplatform_shim.a $
+    obj/ui/ozone/libozone_platform_headless.a $
+    obj/gpu/libcommand_buffer_client.a obj/gpu/libcommand_buffer_service.a $
+    obj/gpu/libdisk_cache_proto.a $
+    obj/third_party/protobuf/libprotobuf_lite.a obj/gpu/libgpu_config.a $
+    obj/third_party/re2/libre2.a obj/third_party/smhasher/libcityhash.a $
+    obj/third_party/angle/src/libtranslator.a $
+    obj/third_party/angle/src/libtranslator_lib.a $
+    obj/third_party/angle/src/libpreprocessor.a $
+    obj/third_party/angle/src/libangle_common.a $
+    obj/gpu/libgles2_cmd_helper.a obj/gpu/libgpu_ipc_client.a $
+    obj/gpu/libcommand_buffer_traits.a obj/ui/events/libevents_ipc.a $
+    obj/url/ipc/liburl_ipc.a obj/gpu/libgpu_ipc_common.a $
+    obj/gpu/libgpu_ipc_service.a | gen/angle/id/commit.h $
+    gen/media/media_features.h gen/ui/base/ui_features.h $
+    gen/widevine_cdm_version.h icudtl.dat lib/libbase.so.TOC $
+    lib/libffmpeg.so.TOC lib/libnet.so.TOC lib/liburl_lib.so.TOC $
+    obj/gpu/gpu.actions_depends.stamp obj/skia/skia.actions_depends.stamp $
+    obj/third_party/angle/src/copy_scripts.actions_rules_copies.stamp $
+    obj/third_party/boringssl/libboringssl.a $
+    obj/third_party/fontconfig/libfontconfig.a $
+    obj/ui/resources/ui_resources.actions_rules_copies.stamp $
+    obj/ui/strings/ui_strings.actions_rules_copies.stamp || $
+    obj/media/media_unittests.actions_depends.stamp
+  ld = $ldxx
+  solibs = lib/libbase.so lib/libffmpeg.so lib/libnet.so lib/liburl_lib.so

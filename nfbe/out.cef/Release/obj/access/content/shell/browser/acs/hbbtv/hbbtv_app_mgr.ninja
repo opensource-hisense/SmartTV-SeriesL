@@ -1,0 +1,16 @@
+build $
+    obj/access/content/shell/browser/acs/hbbtv/hbbtv_app_mgr.actions_depends.stamp: $
+    stamp lib/libbase.so.TOC obj/mojo/libmojo_application_bindings.a $
+    obj/ui/accessibility/libax_gen.a $
+    obj/content/libcontent_common_mojo_bindings.a
+
+build $
+    obj/access/content/shell/browser/acs/hbbtv/hbbtv_app_mgr.compile_depends.stamp: $
+    stamp obj/base/base.compile_depends.stamp $
+    obj/mojo/mojo_application_bindings_mojom.actions_rules_copies.stamp $
+    obj/ui/accessibility/ax_gen.actions_rules_copies.stamp $
+    obj/content/content_common_mojo_bindings_mojom.actions_rules_copies.stamp
+
+build obj/access/content/shell/browser/acs/hbbtv/libhbbtv_app_mgr.a: $
+    alink_thin || $
+    obj/access/content/shell/browser/acs/hbbtv/hbbtv_app_mgr.actions_depends.stamp

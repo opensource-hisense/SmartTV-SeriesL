@@ -1,0 +1,22 @@
+diff --git headless_surface_factory.cc headless_surface_factory.cc
+index 41de513..15b1069 100644
+--- headless_surface_factory.cc
++++ headless_surface_factory.cc
+@@ -27,7 +27,16 @@ void WriteDataToFile(const base::FilePath& location, const SkBitmap& bitmap) {
+   DCHECK(!location.empty());
+   std::vector<unsigned char> png_data;
+   gfx::PNGCodec::FastEncodeBGRASkBitmap(bitmap, true, &png_data);
+-  base::WriteFile(location, reinterpret_cast<const char*>(png_data.data()),
++  base::FilePath current_location = location;
++  if (location.Extension() != "png") {
++      current_location = location.RemoveExtension();
++      current_location = location.AddExtension("png");
++  }
++  std::stringstream timestamp;
++  timestamp << base::Time::Now().ToJavaTime();
++  current_location = current_location.InsertBeforeExtension(timestamp.str());
++  LOG(INFO) << "NFBE Dumping screen into " << current_location.AsUTF8Unsafe();
++  base::WriteFile(current_location, reinterpret_cast<const char*>(png_data.data()),
+                   png_data.size());
+ }
+ 

@@ -1,0 +1,22 @@
+diff --git content_browser_client.cc content_browser_client.cc
+index 23fd868..dd8d753
+--- content_browser_client.cc
++++ content_browser_client.cc
+@@ -9,6 +9,7 @@
+ #include "content/public/browser/client_certificate_delegate.h"
+ #include "content/public/common/sandbox_type.h"
+ #include "media/base/cdm_factory.h"
++#include "media/cdm/default_cdm_factory.h"
+ #include "storage/browser/quota/quota_manager.h"
+ #include "ui/gfx/image/image_skia.h"
+ #include "url/gurl.h"
+@@ -103,7 +104,8 @@ bool ContentBrowserClient::ShouldSwapBrowsingInstancesForNavigation(
+ }
+ 
+ scoped_ptr<media::CdmFactory> ContentBrowserClient::CreateCdmFactory() {
+-  return nullptr;
++  printf("++ [%d] ContentBrowserClient::CreateCdmFactory:\n", getpid());
++  return make_scoped_ptr(new media::DefaultCdmFactory());
+ }
+ 
+ bool ContentBrowserClient::ShouldSwapProcessesForRedirect(

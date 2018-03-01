@@ -1,0 +1,75 @@
+diff --git chrome/browser/extensions/api/tab_capture/offscreen_tab.cc chrome/browser/extensions/api/tab_capture/offscreen_tab.cc
+index 9e00054..86e21b4 100644
+--- chrome/browser/extensions/api/tab_capture/offscreen_tab.cc
++++ chrome/browser/extensions/api/tab_capture/offscreen_tab.cc
+@@ -295,7 +295,9 @@ bool OffscreenTab::ShouldCreateWebContents(
+     const std::string& frame_name,
+     const GURL& target_url,
+     const std::string& partition_id,
+-    content::SessionStorageNamespace* session_storage_namespace) {
++    content::SessionStorageNamespace* session_storage_namespace,
++    content::WebContentsView** view,
++    content::RenderViewHostDelegateView** delegate_view) {
+   DCHECK_EQ(offscreen_tab_web_contents_.get(), contents);
+   // Disallow creating separate WebContentses.  The WebContents implementation
+   // uses this to spawn new windows/tabs, which is also not allowed for
+diff --git chrome/browser/extensions/api/tab_capture/offscreen_tab.h chrome/browser/extensions/api/tab_capture/offscreen_tab.h
+index 20d88e7..fe4c66e 100644
+--- chrome/browser/extensions/api/tab_capture/offscreen_tab.h
++++ chrome/browser/extensions/api/tab_capture/offscreen_tab.h
+@@ -149,7 +149,9 @@ class OffscreenTab : protected content::WebContentsDelegate,
+       const std::string& frame_name,
+       const GURL& target_url,
+       const std::string& partition_id,
+-      content::SessionStorageNamespace* session_storage_namespace) final;
++      content::SessionStorageNamespace* session_storage_namespace,
++      content::WebContentsView** view,
++      content::RenderViewHostDelegateView** delegate_view) final;
+   bool EmbedsFullscreenWidget() const final;
+   void EnterFullscreenModeForTab(content::WebContents* contents,
+                                  const GURL& origin) final;
+diff --git chrome/browser/prerender/prerender_contents.cc chrome/browser/prerender/prerender_contents.cc
+index 7a68274..7b458d2 100644
+--- chrome/browser/prerender/prerender_contents.cc
++++ chrome/browser/prerender/prerender_contents.cc
+@@ -131,7 +131,9 @@ class PrerenderContents::WebContentsDelegateImpl
+       const std::string& frame_name,
+       const GURL& target_url,
+       const std::string& partition_id,
+-      SessionStorageNamespace* session_storage_namespace) override {
++      SessionStorageNamespace* session_storage_namespace,
++      content::WebContentsView** view,
++      content::RenderViewHostDelegateView** delegate_view) override {
+     // Since we don't want to permit child windows that would have a
+     // window.opener property, terminate prerendering.
+     prerender_contents_->Destroy(FINAL_STATUS_CREATE_NEW_WINDOW);
+diff --git chrome/browser/ui/webui/print_preview/print_preview_distiller.cc chrome/browser/ui/webui/print_preview/print_preview_distiller.cc
+index 213078c..0653d51 100644
+--- chrome/browser/ui/webui/print_preview/print_preview_distiller.cc
++++ chrome/browser/ui/webui/print_preview/print_preview_distiller.cc
+@@ -91,7 +91,9 @@ class PrintPreviewDistiller::WebContentsDelegateImpl
+       const std::string& frame_name,
+       const GURL& target_url,
+       const std::string& partition_id,
+-      SessionStorageNamespace* session_storage_namespace) override {
++      SessionStorageNamespace* session_storage_namespace,
++      content::WebContentsView** view,
++      content::RenderViewHostDelegateView** delegate_view) override {
+     // Since we don't want to permit child windows that would have a
+     // window.opener property, terminate rendering.
+     on_failed_callback_.Run();
+diff --git ui/keyboard/content/keyboard_ui_content.cc ui/keyboard/content/keyboard_ui_content.cc
+index 7f97525..19ffd12 100644
+--- ui/keyboard/content/keyboard_ui_content.cc
++++ ui/keyboard/content/keyboard_ui_content.cc
+@@ -64,7 +64,9 @@ class KeyboardContentsDelegate : public content::WebContentsDelegate,
+       const std::string& frame_name,
+       const GURL& target_url,
+       const std::string& partition_id,
+-      content::SessionStorageNamespace* session_storage_namespace) override {
++      content::SessionStorageNamespace* session_storage_namespace,
++      content::WebContentsView** view,
++      content::RenderViewHostDelegateView** delegate_view) override {
+     return false;
+   }
+ 

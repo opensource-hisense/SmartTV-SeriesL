@@ -1,0 +1,283 @@
+build obj/mojo/mojo_public_test_interfaces_mojom.actions_depends.stamp: $
+    stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    lib/libbase.so.TOC $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp
+
+build obj/mojo/mojo_public_test_interfaces_mojom.compile_depends.stamp: $
+    stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp
+
+rule $
+    mojo_public_test_interfaces_mojom_target_mojo_public_test_interfaces_mojom_mojom_bindings_stamp_b3513981d1e16b47aaf9176e05d94fdf
+  command = cd ../../mojo; python ../build/rmdir_and_stamp.py $
+      ../out.cef/Release/java_mojo/mojo_public_test_interfaces_mojom/src $
+      ../out.cef/Release/java_mojo/mojo_public_test_interfaces_mojom/mojo_public_test_interfaces_mojom.stamp
+  description = ACTION mojo_public_test_interfaces_mojom: $
+      mojo_public_test_interfaces_mojom_mojom_bindings_stamp_b3513981d1e16b47aaf9176e05d94fdf
+  restat = 1
+
+build $
+    java_mojo/mojo_public_test_interfaces_mojom/mojo_public_test_interfaces_mojom.stamp: $
+    mojo_public_test_interfaces_mojom_target_mojo_public_test_interfaces_mojom_mojom_bindings_stamp_b3513981d1e16b47aaf9176e05d94fdf $
+    ../../mojo/public/interfaces/bindings/tests/math_calculator.mojom $
+    ../../mojo/public/interfaces/bindings/tests/no_module.mojom $
+    ../../mojo/public/interfaces/bindings/tests/ping_service.mojom $
+    ../../mojo/public/interfaces/bindings/tests/rect.mojom $
+    ../../mojo/public/interfaces/bindings/tests/regression_tests.mojom $
+    ../../mojo/public/interfaces/bindings/tests/sample_factory.mojom $
+    ../../mojo/public/interfaces/bindings/tests/sample_import.mojom $
+    ../../mojo/public/interfaces/bindings/tests/sample_import2.mojom $
+    ../../mojo/public/interfaces/bindings/tests/sample_interfaces.mojom $
+    ../../mojo/public/interfaces/bindings/tests/sample_service.mojom $
+    ../../mojo/public/interfaces/bindings/tests/scoping.mojom $
+    ../../mojo/public/interfaces/bindings/tests/serialization_test_structs.mojom $
+    ../../mojo/public/interfaces/bindings/tests/test_constants.mojom $
+    ../../mojo/public/interfaces/bindings/tests/test_native_types.mojom $
+    ../../mojo/public/interfaces/bindings/tests/test_structs.mojom $
+    ../../mojo/public/interfaces/bindings/tests/test_sync_methods.mojom $
+    ../../mojo/public/interfaces/bindings/tests/test_unions.mojom $
+    ../../mojo/public/interfaces/bindings/tests/validation_test_interfaces.mojom $
+    || obj/mojo/mojo_public_test_interfaces_mojom.actions_depends.stamp
+
+rule $
+    mojo_public_test_interfaces_mojom_target_mojo_public_test_interfaces_mojom_mojom_bindings_generator_b3513981d1e16b47aaf9176e05d94fdf
+  command = cd ../../mojo; python $
+      ../mojo/public/tools/bindings/mojom_bindings_generator.py $
+      --use_bundled_pylibs generate $
+      public/interfaces/bindings/tests/math_calculator.mojom $
+      public/interfaces/bindings/tests/no_module.mojom $
+      public/interfaces/bindings/tests/ping_service.mojom $
+      public/interfaces/bindings/tests/rect.mojom $
+      public/interfaces/bindings/tests/regression_tests.mojom $
+      public/interfaces/bindings/tests/sample_factory.mojom $
+      public/interfaces/bindings/tests/sample_import.mojom $
+      public/interfaces/bindings/tests/sample_import2.mojom $
+      public/interfaces/bindings/tests/sample_interfaces.mojom $
+      public/interfaces/bindings/tests/sample_service.mojom $
+      public/interfaces/bindings/tests/scoping.mojom $
+      public/interfaces/bindings/tests/serialization_test_structs.mojom $
+      public/interfaces/bindings/tests/test_constants.mojom $
+      public/interfaces/bindings/tests/test_native_types.mojom $
+      public/interfaces/bindings/tests/test_structs.mojom $
+      public/interfaces/bindings/tests/test_sync_methods.mojom $
+      public/interfaces/bindings/tests/test_unions.mojom $
+      public/interfaces/bindings/tests/validation_test_interfaces.mojom -d $
+      .. -I.. -I../mojo/services -I.. -o ../out.cef/Release/gen $
+      "--java_output_directory=../out.cef/Release/java_mojo/mojo_public_test_interfaces_mojom/src" $
+      --variant none -g c++,javascript,java --bytecode_path $
+      ../out.cef/Release/gen/mojo/public/tools/bindings
+  description = ACTION Generating Mojo bindings from $
+      public/interfaces/bindings/tests/math_calculator.mojom $
+      public/interfaces/bindings/tests/no_module.mojom $
+      public/interfaces/bindings/tests/ping_service.mojom $
+      public/interfaces/bindings/tests/rect.mojom $
+      public/interfaces/bindings/tests/regression_tests.mojom $
+      public/interfaces/bindings/tests/sample_factory.mojom $
+      public/interfaces/bindings/tests/sample_import.mojom $
+      public/interfaces/bindings/tests/sample_import2.mojom $
+      public/interfaces/bindings/tests/sample_interfaces.mojom $
+      public/interfaces/bindings/tests/sample_service.mojom $
+      public/interfaces/bindings/tests/scoping.mojom $
+      public/interfaces/bindings/tests/serialization_test_structs.mojom $
+      public/interfaces/bindings/tests/test_constants.mojom $
+      public/interfaces/bindings/tests/test_native_types.mojom $
+      public/interfaces/bindings/tests/test_structs.mojom $
+      public/interfaces/bindings/tests/test_sync_methods.mojom $
+      public/interfaces/bindings/tests/test_unions.mojom $
+      public/interfaces/bindings/tests/validation_test_interfaces.mojom
+  restat = 1
+
+build gen/mojo/public/interfaces/bindings/tests/math_calculator.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/math_calculator.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/math_calculator.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/math_calculator.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/no_module.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/no_module.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/no_module.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/no_module.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/ping_service.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/ping_service.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/ping_service.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/ping_service.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/rect.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/rect.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/rect.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/rect.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/regression_tests.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/regression_tests.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/regression_tests.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/regression_tests.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/sample_factory.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/sample_factory.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_factory.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_factory.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/sample_import.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/sample_import.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_import.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_import.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/sample_import2.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/sample_import2.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_import2.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_import2.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/sample_interfaces.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/sample_interfaces.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_interfaces.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_interfaces.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/sample_service.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/sample_service.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_service.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_service.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/scoping.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/scoping.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/scoping.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/scoping.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/serialization_test_structs.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/serialization_test_structs.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/serialization_test_structs.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/serialization_test_structs.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/test_constants.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/test_constants.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/test_constants.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/test_constants.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/test_native_types.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/test_native_types.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/test_native_types.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/test_native_types.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/test_structs.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/test_structs.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/test_structs.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/test_structs.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/test_sync_methods.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/test_sync_methods.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/test_sync_methods.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/test_sync_methods.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/test_unions.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/test_unions.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/test_unions.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/test_unions.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/validation_test_interfaces.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/validation_test_interfaces.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/validation_test_interfaces.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/validation_test_interfaces.mojom.js: $
+    mojo_public_test_interfaces_mojom_target_mojo_public_test_interfaces_mojom_mojom_bindings_generator_b3513981d1e16b47aaf9176e05d94fdf $
+    ../../mojo/public/tools/bindings/mojom_bindings_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_cpp_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_java_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_js_generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/error.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/data.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/module.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/pack.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/template_expander.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/ast.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/lexer.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/parser.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/translate.py $
+    ../../mojo/public/interfaces/bindings/tests/math_calculator.mojom $
+    ../../mojo/public/interfaces/bindings/tests/no_module.mojom $
+    ../../mojo/public/interfaces/bindings/tests/ping_service.mojom $
+    ../../mojo/public/interfaces/bindings/tests/rect.mojom $
+    ../../mojo/public/interfaces/bindings/tests/regression_tests.mojom $
+    ../../mojo/public/interfaces/bindings/tests/sample_factory.mojom $
+    ../../mojo/public/interfaces/bindings/tests/sample_import.mojom $
+    ../../mojo/public/interfaces/bindings/tests/sample_import2.mojom $
+    ../../mojo/public/interfaces/bindings/tests/sample_interfaces.mojom $
+    ../../mojo/public/interfaces/bindings/tests/sample_service.mojom $
+    ../../mojo/public/interfaces/bindings/tests/scoping.mojom $
+    ../../mojo/public/interfaces/bindings/tests/serialization_test_structs.mojom $
+    ../../mojo/public/interfaces/bindings/tests/test_constants.mojom $
+    ../../mojo/public/interfaces/bindings/tests/test_native_types.mojom $
+    ../../mojo/public/interfaces/bindings/tests/test_structs.mojom $
+    ../../mojo/public/interfaces/bindings/tests/test_sync_methods.mojom $
+    ../../mojo/public/interfaces/bindings/tests/test_unions.mojom $
+    ../../mojo/public/interfaces/bindings/tests/validation_test_interfaces.mojom $
+    java_mojo/mojo_public_test_interfaces_mojom/mojo_public_test_interfaces_mojom.stamp $
+    gen/mojo/public/tools/bindings/cpp_templates.zip $
+    gen/mojo/public/tools/bindings/java_templates.zip $
+    gen/mojo/public/tools/bindings/js_templates.zip || $
+    obj/mojo/mojo_public_test_interfaces_mojom.actions_depends.stamp
+
+build $
+    obj/mojo/mojo_public_test_interfaces_mojom.actions_rules_copies.stamp: $
+    stamp $
+    java_mojo/mojo_public_test_interfaces_mojom/mojo_public_test_interfaces_mojom.stamp $
+    gen/mojo/public/interfaces/bindings/tests/math_calculator.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/math_calculator.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/math_calculator.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/math_calculator.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/no_module.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/no_module.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/no_module.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/no_module.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/ping_service.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/ping_service.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/ping_service.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/ping_service.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/rect.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/rect.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/rect.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/rect.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/regression_tests.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/regression_tests.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/regression_tests.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/regression_tests.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/sample_factory.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/sample_factory.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_factory.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_factory.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/sample_import.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/sample_import.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_import.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_import.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/sample_import2.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/sample_import2.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_import2.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_import2.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/sample_interfaces.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/sample_interfaces.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_interfaces.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_interfaces.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/sample_service.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/sample_service.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_service.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_service.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/scoping.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/scoping.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/scoping.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/scoping.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/serialization_test_structs.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/serialization_test_structs.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/serialization_test_structs.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/serialization_test_structs.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/test_constants.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/test_constants.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/test_constants.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/test_constants.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/test_native_types.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/test_native_types.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/test_native_types.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/test_native_types.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/test_structs.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/test_structs.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/test_structs.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/test_structs.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/test_sync_methods.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/test_sync_methods.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/test_sync_methods.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/test_sync_methods.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/test_unions.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/test_unions.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/test_unions.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/test_unions.mojom.js $
+    gen/mojo/public/interfaces/bindings/tests/validation_test_interfaces.mojom.cc $
+    gen/mojo/public/interfaces/bindings/tests/validation_test_interfaces.mojom.h $
+    gen/mojo/public/interfaces/bindings/tests/validation_test_interfaces.mojom-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/validation_test_interfaces.mojom.js
+

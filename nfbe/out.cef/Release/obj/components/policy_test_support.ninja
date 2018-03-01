@@ -1,0 +1,8 @@
+build obj/components/policy_test_support.actions_depends.stamp: stamp $
+    obj/components/libchrome_settings_proto_generated_compile.a $
+    obj/components/libpolicy.a
+
+build obj/components/policy_test_support.compile_depends.stamp: stamp $
+    obj/components/chrome_settings_proto_generated_compile.actions_rules_copies.stamp $
+    obj/components/policy.compile_depends.stamp
+

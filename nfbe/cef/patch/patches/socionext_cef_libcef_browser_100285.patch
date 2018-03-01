@@ -1,0 +1,15 @@
+diff --git browser_context_impl.cc browser_context_impl.cc
+index 6f02712..5545276
+--- browser_context_impl.cc
++++ browser_context_impl.cc
+@@ -250,8 +250,10 @@ void CefBrowserContextImpl::Initialize() {
+ 
+   // Initialize visited links management.
+   base::FilePath visited_link_path;
++#if !defined(NFBE_DTV_SOCIO)
+   if (!cache_path_.empty())
+      visited_link_path = cache_path_.Append(FILE_PATH_LITERAL("Visited Links"));
++#endif
+   visitedlink_listener_ = new CefVisitedLinkListener;
+   visitedlink_master_.reset(
+       new visitedlink::VisitedLinkMaster(visitedlink_listener_, this,

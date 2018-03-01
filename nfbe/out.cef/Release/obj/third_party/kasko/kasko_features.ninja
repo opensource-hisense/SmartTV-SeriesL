@@ -1,0 +1,14 @@
+rule kasko_features_target_buildflag_header_7a950d731711536d52e2cbec97e7379c
+  command = cd ../../third_party/kasko; python $
+      ../../build/write_buildflag_header.py --output $
+      third_party/kasko/kasko_features.h --rulename kasko_features $
+      --gen-dir ../../out.cef/Release/gen --definitions $
+      ../../out.cef/third_party/kasko/kasko_features_buildflag_header.rsp
+  description = ACTION Generating build header.
+  restat = 1
+
+build gen/third_party/kasko/kasko_features.h: $
+    kasko_features_target_buildflag_header_7a950d731711536d52e2cbec97e7379c $
+    ../../build/write_buildflag_header.py $
+    ../../out.cef/third_party/kasko/kasko_features_buildflag_header.rsp
+

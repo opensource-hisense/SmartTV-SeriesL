@@ -1,0 +1,14 @@
+rule $
+    inspector_injected_script_target_ConvertFileToHeaderWithCharacterArray_c9bdd6d23088b79361cac0f1d268baaa
+  command = cd ../../third_party/WebKit/Source/platform/v8_inspector; $
+      python build/xxd.py InjectedScriptSource_js InjectedScriptSource.js $
+      ../../../../../out.cef/Release/gen/blink/platform/v8_inspector/InjectedScriptSource.h
+  description = ACTION inspector_injected_script: $
+      ConvertFileToHeaderWithCharacterArray_c9bdd6d23088b79361cac0f1d268baaa
+  restat = 1
+
+build gen/blink/platform/v8_inspector/InjectedScriptSource.h: $
+    inspector_injected_script_target_ConvertFileToHeaderWithCharacterArray_c9bdd6d23088b79361cac0f1d268baaa $
+    ../../third_party/WebKit/Source/platform/v8_inspector/build/xxd.py $
+    ../../third_party/WebKit/Source/platform/v8_inspector/InjectedScriptSource.js
+

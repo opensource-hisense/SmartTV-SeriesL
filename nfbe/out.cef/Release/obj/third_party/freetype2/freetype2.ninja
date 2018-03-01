@@ -1,0 +1,178 @@
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DFT_CONFIG_OPTION_SYSTEM_ZLIB $
+    -DFT2_BUILD_LIBRARY '-DFT_CONFIG_CONFIG_H=<ftconfig.h>' $
+    '-DFT_CONFIG_MODULES_H=<ftmodule.h>' -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -Igen -I../../third_party/freetype2/include $
+    -I../../third_party/freetype2/src/include
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-abi $
+    -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+build obj/third_party/freetype2/src/src/base/freetype2.ftsystem.o: cc $
+    ../../third_party/freetype2/src/src/base/ftsystem.c
+build obj/third_party/freetype2/src/src/base/freetype2.ftinit.o: cc $
+    ../../third_party/freetype2/src/src/base/ftinit.c
+build obj/third_party/freetype2/src/src/base/freetype2.ftdebug.o: cc $
+    ../../third_party/freetype2/src/src/base/ftdebug.c
+build obj/third_party/freetype2/src/src/base/freetype2.ftbase.o: cc $
+    ../../third_party/freetype2/src/src/base/ftbase.c
+build obj/third_party/freetype2/src/src/base/freetype2.ftbbox.o: cc $
+    ../../third_party/freetype2/src/src/base/ftbbox.c
+build obj/third_party/freetype2/src/src/base/freetype2.ftglyph.o: cc $
+    ../../third_party/freetype2/src/src/base/ftglyph.c
+build obj/third_party/freetype2/src/src/base/freetype2.ftbdf.o: cc $
+    ../../third_party/freetype2/src/src/base/ftbdf.c
+build obj/third_party/freetype2/src/src/base/freetype2.ftbitmap.o: cc $
+    ../../third_party/freetype2/src/src/base/ftbitmap.c
+build obj/third_party/freetype2/src/src/base/freetype2.ftcid.o: cc $
+    ../../third_party/freetype2/src/src/base/ftcid.c
+build obj/third_party/freetype2/src/src/base/freetype2.ftfstype.o: cc $
+    ../../third_party/freetype2/src/src/base/ftfstype.c
+build obj/third_party/freetype2/src/src/base/freetype2.ftgasp.o: cc $
+    ../../third_party/freetype2/src/src/base/ftgasp.c
+build obj/third_party/freetype2/src/src/base/freetype2.ftgxval.o: cc $
+    ../../third_party/freetype2/src/src/base/ftgxval.c
+build obj/third_party/freetype2/src/src/base/freetype2.ftlcdfil.o: cc $
+    ../../third_party/freetype2/src/src/base/ftlcdfil.c
+build obj/third_party/freetype2/src/src/base/freetype2.ftmm.o: cc $
+    ../../third_party/freetype2/src/src/base/ftmm.c
+build obj/third_party/freetype2/src/src/base/freetype2.ftpfr.o: cc $
+    ../../third_party/freetype2/src/src/base/ftpfr.c
+build obj/third_party/freetype2/src/src/base/freetype2.ftstroke.o: cc $
+    ../../third_party/freetype2/src/src/base/ftstroke.c
+build obj/third_party/freetype2/src/src/base/freetype2.ftsynth.o: cc $
+    ../../third_party/freetype2/src/src/base/ftsynth.c
+build obj/third_party/freetype2/src/src/base/freetype2.fttype1.o: cc $
+    ../../third_party/freetype2/src/src/base/fttype1.c
+build obj/third_party/freetype2/src/src/base/freetype2.ftwinfnt.o: cc $
+    ../../third_party/freetype2/src/src/base/ftwinfnt.c
+build obj/third_party/freetype2/src/src/base/freetype2.ftxf86.o: cc $
+    ../../third_party/freetype2/src/src/base/ftxf86.c
+build obj/third_party/freetype2/src/src/bdf/freetype2.bdf.o: cc $
+    ../../third_party/freetype2/src/src/bdf/bdf.c
+build obj/third_party/freetype2/src/src/cff/freetype2.cff.o: cc $
+    ../../third_party/freetype2/src/src/cff/cff.c
+build obj/third_party/freetype2/src/src/cid/freetype2.type1cid.o: cc $
+    ../../third_party/freetype2/src/src/cid/type1cid.c
+build obj/third_party/freetype2/src/src/pcf/freetype2.pcf.o: cc $
+    ../../third_party/freetype2/src/src/pcf/pcf.c
+build obj/third_party/freetype2/src/src/pfr/freetype2.pfr.o: cc $
+    ../../third_party/freetype2/src/src/pfr/pfr.c
+build obj/third_party/freetype2/src/src/sfnt/freetype2.sfnt.o: cc $
+    ../../third_party/freetype2/src/src/sfnt/sfnt.c
+build obj/third_party/freetype2/src/src/truetype/freetype2.truetype.o: cc $
+    ../../third_party/freetype2/src/src/truetype/truetype.c
+build obj/third_party/freetype2/src/src/type1/freetype2.type1.o: cc $
+    ../../third_party/freetype2/src/src/type1/type1.c
+build obj/third_party/freetype2/src/src/type42/freetype2.type42.o: cc $
+    ../../third_party/freetype2/src/src/type42/type42.c
+build obj/third_party/freetype2/src/src/winfonts/freetype2.winfnt.o: cc $
+    ../../third_party/freetype2/src/src/winfonts/winfnt.c
+build obj/third_party/freetype2/src/src/psaux/freetype2.psaux.o: cc $
+    ../../third_party/freetype2/src/src/psaux/psaux.c
+build obj/third_party/freetype2/src/src/psnames/freetype2.psnames.o: cc $
+    ../../third_party/freetype2/src/src/psnames/psnames.c
+build obj/third_party/freetype2/src/src/pshinter/freetype2.pshinter.o: cc $
+    ../../third_party/freetype2/src/src/pshinter/pshinter.c
+build obj/third_party/freetype2/src/src/raster/freetype2.raster.o: cc $
+    ../../third_party/freetype2/src/src/raster/raster.c
+build obj/third_party/freetype2/src/src/smooth/freetype2.smooth.o: cc $
+    ../../third_party/freetype2/src/src/smooth/smooth.c
+build obj/third_party/freetype2/src/src/autofit/freetype2.autofit.o: cc $
+    ../../third_party/freetype2/src/src/autofit/autofit.c
+build obj/third_party/freetype2/src/src/gzip/freetype2.ftgzip.o: cc $
+    ../../third_party/freetype2/src/src/gzip/ftgzip.c
+build obj/third_party/freetype2/src/src/lzw/freetype2.ftlzw.o: cc $
+    ../../third_party/freetype2/src/src/lzw/ftlzw.c
+
+ldflags = -L/work/bsp/sc1400/usr/local/lib -L/work/bsp/sc1400/lib $
+    -L/work/bsp/sc1400/usr/lib -Wl,-z,now -Wl,-z,relro -Wl,-z,defs -pthread $
+    -Wl,-z,noexecstack -fPIC -Wl,--disable-new-dtags $
+    --sysroot=/work/bsp/sc1400 -L/work/bsp/sc1400/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/lib/ -L/work/bsp/sc1400/usr/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/lib/ $
+    -L/work/bsp/sc1400/usr/dtvrec/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/dtvrec/lib/ $
+    -L/work/bsp/sc1400/usr/local/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/local/lib/ $
+    -L/work/bsp/sc1400/usr/local/netfrontbe/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/local/netfrontbe/lib/ -Wl,-O1 $
+    -Wl,--as-needed -Wl,--gc-sections
+libs =  -lz
+build lib/libfreetype.so.6 lib/libfreetype.so.6.TOC: solink $
+    obj/third_party/freetype2/src/src/base/freetype2.ftsystem.o $
+    obj/third_party/freetype2/src/src/base/freetype2.ftinit.o $
+    obj/third_party/freetype2/src/src/base/freetype2.ftdebug.o $
+    obj/third_party/freetype2/src/src/base/freetype2.ftbase.o $
+    obj/third_party/freetype2/src/src/base/freetype2.ftbbox.o $
+    obj/third_party/freetype2/src/src/base/freetype2.ftglyph.o $
+    obj/third_party/freetype2/src/src/base/freetype2.ftbdf.o $
+    obj/third_party/freetype2/src/src/base/freetype2.ftbitmap.o $
+    obj/third_party/freetype2/src/src/base/freetype2.ftcid.o $
+    obj/third_party/freetype2/src/src/base/freetype2.ftfstype.o $
+    obj/third_party/freetype2/src/src/base/freetype2.ftgasp.o $
+    obj/third_party/freetype2/src/src/base/freetype2.ftgxval.o $
+    obj/third_party/freetype2/src/src/base/freetype2.ftlcdfil.o $
+    obj/third_party/freetype2/src/src/base/freetype2.ftmm.o $
+    obj/third_party/freetype2/src/src/base/freetype2.ftpfr.o $
+    obj/third_party/freetype2/src/src/base/freetype2.ftstroke.o $
+    obj/third_party/freetype2/src/src/base/freetype2.ftsynth.o $
+    obj/third_party/freetype2/src/src/base/freetype2.fttype1.o $
+    obj/third_party/freetype2/src/src/base/freetype2.ftwinfnt.o $
+    obj/third_party/freetype2/src/src/base/freetype2.ftxf86.o $
+    obj/third_party/freetype2/src/src/bdf/freetype2.bdf.o $
+    obj/third_party/freetype2/src/src/cff/freetype2.cff.o $
+    obj/third_party/freetype2/src/src/cid/freetype2.type1cid.o $
+    obj/third_party/freetype2/src/src/pcf/freetype2.pcf.o $
+    obj/third_party/freetype2/src/src/pfr/freetype2.pfr.o $
+    obj/third_party/freetype2/src/src/sfnt/freetype2.sfnt.o $
+    obj/third_party/freetype2/src/src/truetype/freetype2.truetype.o $
+    obj/third_party/freetype2/src/src/type1/freetype2.type1.o $
+    obj/third_party/freetype2/src/src/type42/freetype2.type42.o $
+    obj/third_party/freetype2/src/src/winfonts/freetype2.winfnt.o $
+    obj/third_party/freetype2/src/src/psaux/freetype2.psaux.o $
+    obj/third_party/freetype2/src/src/psnames/freetype2.psnames.o $
+    obj/third_party/freetype2/src/src/pshinter/freetype2.pshinter.o $
+    obj/third_party/freetype2/src/src/raster/freetype2.raster.o $
+    obj/third_party/freetype2/src/src/smooth/freetype2.smooth.o $
+    obj/third_party/freetype2/src/src/autofit/freetype2.autofit.o $
+    obj/third_party/freetype2/src/src/gzip/freetype2.ftgzip.o $
+    obj/third_party/freetype2/src/src/lzw/freetype2.ftlzw.o
+  soname = libfreetype.so.6
+  lib = lib/libfreetype.so.6
+  link_file_list = lib/libfreetype.so.6.rsp

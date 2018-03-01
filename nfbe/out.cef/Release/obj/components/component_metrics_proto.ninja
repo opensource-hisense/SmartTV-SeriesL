@@ -1,0 +1,287 @@
+rule component_metrics_proto_target_genproto_0b1af4e734bceed957e57a2e14c186f3
+  command = cd ../../components; python $
+      ../tools/protoc_wrapper/protoc_wrapper.py --include "" --protobuf $
+      "../out.cef/Release/gen/protoc_out/components/metrics/proto/${root}.pb.h" $
+      --proto-in-dir metrics/proto --proto-in-file "${root}${ext}" $
+      "--use-system-protobuf=0" -- ../out.cef/Release/protoc --cpp_out $
+      ../out.cef/Release/gen/protoc_out/components/metrics/proto $
+      --python_out ../out.cef/Release/pyproto/components/metrics/proto
+  description = RULE Generating C++ and Python code from ${source}
+  restat = 1
+
+build obj/components/component_metrics_proto.genproto.stamp: stamp $
+    ../../tools/protoc_wrapper/protoc_wrapper.py protoc || protoc
+
+build pyproto/components/metrics/proto/call_stack_profile_pb2.py $
+    gen/protoc_out/components/metrics/proto/call_stack_profile.pb.cc $
+    gen/protoc_out/components/metrics/proto/call_stack_profile.pb.h: $
+    component_metrics_proto_target_genproto_0b1af4e734bceed957e57a2e14c186f3 $
+    ../../components/metrics/proto/call_stack_profile.proto | $
+    obj/components/component_metrics_proto.genproto.stamp
+  ext = .proto
+  root = call_stack_profile
+  source = metrics/proto/call_stack_profile.proto
+build pyproto/components/metrics/proto/cast_logs_pb2.py $
+    gen/protoc_out/components/metrics/proto/cast_logs.pb.cc $
+    gen/protoc_out/components/metrics/proto/cast_logs.pb.h: $
+    component_metrics_proto_target_genproto_0b1af4e734bceed957e57a2e14c186f3 $
+    ../../components/metrics/proto/cast_logs.proto | $
+    obj/components/component_metrics_proto.genproto.stamp
+  ext = .proto
+  root = cast_logs
+  source = metrics/proto/cast_logs.proto
+build pyproto/components/metrics/proto/chrome_user_metrics_extension_pb2.py $
+    gen/protoc_out/components/metrics/proto/chrome_user_metrics_extension.pb.cc $
+    gen/protoc_out/components/metrics/proto/chrome_user_metrics_extension.pb.h: $
+    component_metrics_proto_target_genproto_0b1af4e734bceed957e57a2e14c186f3 $
+    ../../components/metrics/proto/chrome_user_metrics_extension.proto | $
+    obj/components/component_metrics_proto.genproto.stamp
+  ext = .proto
+  root = chrome_user_metrics_extension
+  source = metrics/proto/chrome_user_metrics_extension.proto
+build pyproto/components/metrics/proto/histogram_event_pb2.py $
+    gen/protoc_out/components/metrics/proto/histogram_event.pb.cc $
+    gen/protoc_out/components/metrics/proto/histogram_event.pb.h: $
+    component_metrics_proto_target_genproto_0b1af4e734bceed957e57a2e14c186f3 $
+    ../../components/metrics/proto/histogram_event.proto | $
+    obj/components/component_metrics_proto.genproto.stamp
+  ext = .proto
+  root = histogram_event
+  source = metrics/proto/histogram_event.proto
+build pyproto/components/metrics/proto/memory_leak_report_pb2.py $
+    gen/protoc_out/components/metrics/proto/memory_leak_report.pb.cc $
+    gen/protoc_out/components/metrics/proto/memory_leak_report.pb.h: $
+    component_metrics_proto_target_genproto_0b1af4e734bceed957e57a2e14c186f3 $
+    ../../components/metrics/proto/memory_leak_report.proto | $
+    obj/components/component_metrics_proto.genproto.stamp
+  ext = .proto
+  root = memory_leak_report
+  source = metrics/proto/memory_leak_report.proto
+build pyproto/components/metrics/proto/omnibox_event_pb2.py $
+    gen/protoc_out/components/metrics/proto/omnibox_event.pb.cc $
+    gen/protoc_out/components/metrics/proto/omnibox_event.pb.h: $
+    component_metrics_proto_target_genproto_0b1af4e734bceed957e57a2e14c186f3 $
+    ../../components/metrics/proto/omnibox_event.proto | $
+    obj/components/component_metrics_proto.genproto.stamp
+  ext = .proto
+  root = omnibox_event
+  source = metrics/proto/omnibox_event.proto
+build pyproto/components/metrics/proto/omnibox_input_type_pb2.py $
+    gen/protoc_out/components/metrics/proto/omnibox_input_type.pb.cc $
+    gen/protoc_out/components/metrics/proto/omnibox_input_type.pb.h: $
+    component_metrics_proto_target_genproto_0b1af4e734bceed957e57a2e14c186f3 $
+    ../../components/metrics/proto/omnibox_input_type.proto | $
+    obj/components/component_metrics_proto.genproto.stamp
+  ext = .proto
+  root = omnibox_input_type
+  source = metrics/proto/omnibox_input_type.proto
+build pyproto/components/metrics/proto/perf_data_pb2.py $
+    gen/protoc_out/components/metrics/proto/perf_data.pb.cc $
+    gen/protoc_out/components/metrics/proto/perf_data.pb.h: $
+    component_metrics_proto_target_genproto_0b1af4e734bceed957e57a2e14c186f3 $
+    ../../components/metrics/proto/perf_data.proto | $
+    obj/components/component_metrics_proto.genproto.stamp
+  ext = .proto
+  root = perf_data
+  source = metrics/proto/perf_data.proto
+build pyproto/components/metrics/proto/perf_stat_pb2.py $
+    gen/protoc_out/components/metrics/proto/perf_stat.pb.cc $
+    gen/protoc_out/components/metrics/proto/perf_stat.pb.h: $
+    component_metrics_proto_target_genproto_0b1af4e734bceed957e57a2e14c186f3 $
+    ../../components/metrics/proto/perf_stat.proto | $
+    obj/components/component_metrics_proto.genproto.stamp
+  ext = .proto
+  root = perf_stat
+  source = metrics/proto/perf_stat.proto
+build pyproto/components/metrics/proto/profiler_event_pb2.py $
+    gen/protoc_out/components/metrics/proto/profiler_event.pb.cc $
+    gen/protoc_out/components/metrics/proto/profiler_event.pb.h: $
+    component_metrics_proto_target_genproto_0b1af4e734bceed957e57a2e14c186f3 $
+    ../../components/metrics/proto/profiler_event.proto | $
+    obj/components/component_metrics_proto.genproto.stamp
+  ext = .proto
+  root = profiler_event
+  source = metrics/proto/profiler_event.proto
+build pyproto/components/metrics/proto/sampled_profile_pb2.py $
+    gen/protoc_out/components/metrics/proto/sampled_profile.pb.cc $
+    gen/protoc_out/components/metrics/proto/sampled_profile.pb.h: $
+    component_metrics_proto_target_genproto_0b1af4e734bceed957e57a2e14c186f3 $
+    ../../components/metrics/proto/sampled_profile.proto | $
+    obj/components/component_metrics_proto.genproto.stamp
+  ext = .proto
+  root = sampled_profile
+  source = metrics/proto/sampled_profile.proto
+build pyproto/components/metrics/proto/system_profile_pb2.py $
+    gen/protoc_out/components/metrics/proto/system_profile.pb.cc $
+    gen/protoc_out/components/metrics/proto/system_profile.pb.h: $
+    component_metrics_proto_target_genproto_0b1af4e734bceed957e57a2e14c186f3 $
+    ../../components/metrics/proto/system_profile.proto | $
+    obj/components/component_metrics_proto.genproto.stamp
+  ext = .proto
+  root = system_profile
+  source = metrics/proto/system_profile.proto
+build pyproto/components/metrics/proto/user_action_event_pb2.py $
+    gen/protoc_out/components/metrics/proto/user_action_event.pb.cc $
+    gen/protoc_out/components/metrics/proto/user_action_event.pb.h: $
+    component_metrics_proto_target_genproto_0b1af4e734bceed957e57a2e14c186f3 $
+    ../../components/metrics/proto/user_action_event.proto | $
+    obj/components/component_metrics_proto.genproto.stamp
+  ext = .proto
+  root = user_action_event
+  source = metrics/proto/user_action_event.proto
+build obj/components/component_metrics_proto.actions_rules_copies.stamp: $
+    stamp pyproto/components/metrics/proto/call_stack_profile_pb2.py $
+    gen/protoc_out/components/metrics/proto/call_stack_profile.pb.cc $
+    gen/protoc_out/components/metrics/proto/call_stack_profile.pb.h $
+    pyproto/components/metrics/proto/cast_logs_pb2.py $
+    gen/protoc_out/components/metrics/proto/cast_logs.pb.cc $
+    gen/protoc_out/components/metrics/proto/cast_logs.pb.h $
+    pyproto/components/metrics/proto/chrome_user_metrics_extension_pb2.py $
+    gen/protoc_out/components/metrics/proto/chrome_user_metrics_extension.pb.cc $
+    gen/protoc_out/components/metrics/proto/chrome_user_metrics_extension.pb.h $
+    pyproto/components/metrics/proto/histogram_event_pb2.py $
+    gen/protoc_out/components/metrics/proto/histogram_event.pb.cc $
+    gen/protoc_out/components/metrics/proto/histogram_event.pb.h $
+    pyproto/components/metrics/proto/memory_leak_report_pb2.py $
+    gen/protoc_out/components/metrics/proto/memory_leak_report.pb.cc $
+    gen/protoc_out/components/metrics/proto/memory_leak_report.pb.h $
+    pyproto/components/metrics/proto/omnibox_event_pb2.py $
+    gen/protoc_out/components/metrics/proto/omnibox_event.pb.cc $
+    gen/protoc_out/components/metrics/proto/omnibox_event.pb.h $
+    pyproto/components/metrics/proto/omnibox_input_type_pb2.py $
+    gen/protoc_out/components/metrics/proto/omnibox_input_type.pb.cc $
+    gen/protoc_out/components/metrics/proto/omnibox_input_type.pb.h $
+    pyproto/components/metrics/proto/perf_data_pb2.py $
+    gen/protoc_out/components/metrics/proto/perf_data.pb.cc $
+    gen/protoc_out/components/metrics/proto/perf_data.pb.h $
+    pyproto/components/metrics/proto/perf_stat_pb2.py $
+    gen/protoc_out/components/metrics/proto/perf_stat.pb.cc $
+    gen/protoc_out/components/metrics/proto/perf_stat.pb.h $
+    pyproto/components/metrics/proto/profiler_event_pb2.py $
+    gen/protoc_out/components/metrics/proto/profiler_event.pb.cc $
+    gen/protoc_out/components/metrics/proto/profiler_event.pb.h $
+    pyproto/components/metrics/proto/sampled_profile_pb2.py $
+    gen/protoc_out/components/metrics/proto/sampled_profile.pb.cc $
+    gen/protoc_out/components/metrics/proto/sampled_profile.pb.h $
+    pyproto/components/metrics/proto/system_profile_pb2.py $
+    gen/protoc_out/components/metrics/proto/system_profile.pb.cc $
+    gen/protoc_out/components/metrics/proto/system_profile.pb.h $
+    pyproto/components/metrics/proto/user_action_event_pb2.py $
+    gen/protoc_out/components/metrics/proto/user_action_event.pb.cc $
+    gen/protoc_out/components/metrics/proto/user_action_event.pb.h
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DPROTOBUF_USE_DLLS $
+    -DGOOGLE_PROTOBUF_NO_RTTI -DGOOGLE_PROTOBUF_NO_STATIC_INITIALIZER $
+    -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 $
+    -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -Igen/protoc_out -I../.. -I../../third_party/protobuf $
+    -I../../third_party/protobuf/src
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/components/gen/protoc_out/components/metrics/proto/component_metrics_proto.call_stack_profile.pb.o: $
+    cxx gen/protoc_out/components/metrics/proto/call_stack_profile.pb.cc || $
+    obj/components/component_metrics_proto.actions_rules_copies.stamp
+build $
+    obj/components/gen/protoc_out/components/metrics/proto/component_metrics_proto.cast_logs.pb.o: $
+    cxx gen/protoc_out/components/metrics/proto/cast_logs.pb.cc || $
+    obj/components/component_metrics_proto.actions_rules_copies.stamp
+build $
+    obj/components/gen/protoc_out/components/metrics/proto/component_metrics_proto.chrome_user_metrics_extension.pb.o: $
+    cxx $
+    gen/protoc_out/components/metrics/proto/chrome_user_metrics_extension.pb.cc $
+    || obj/components/component_metrics_proto.actions_rules_copies.stamp
+build $
+    obj/components/gen/protoc_out/components/metrics/proto/component_metrics_proto.histogram_event.pb.o: $
+    cxx gen/protoc_out/components/metrics/proto/histogram_event.pb.cc || $
+    obj/components/component_metrics_proto.actions_rules_copies.stamp
+build $
+    obj/components/gen/protoc_out/components/metrics/proto/component_metrics_proto.memory_leak_report.pb.o: $
+    cxx gen/protoc_out/components/metrics/proto/memory_leak_report.pb.cc || $
+    obj/components/component_metrics_proto.actions_rules_copies.stamp
+build $
+    obj/components/gen/protoc_out/components/metrics/proto/component_metrics_proto.omnibox_event.pb.o: $
+    cxx gen/protoc_out/components/metrics/proto/omnibox_event.pb.cc || $
+    obj/components/component_metrics_proto.actions_rules_copies.stamp
+build $
+    obj/components/gen/protoc_out/components/metrics/proto/component_metrics_proto.omnibox_input_type.pb.o: $
+    cxx gen/protoc_out/components/metrics/proto/omnibox_input_type.pb.cc || $
+    obj/components/component_metrics_proto.actions_rules_copies.stamp
+build $
+    obj/components/gen/protoc_out/components/metrics/proto/component_metrics_proto.perf_data.pb.o: $
+    cxx gen/protoc_out/components/metrics/proto/perf_data.pb.cc || $
+    obj/components/component_metrics_proto.actions_rules_copies.stamp
+build $
+    obj/components/gen/protoc_out/components/metrics/proto/component_metrics_proto.perf_stat.pb.o: $
+    cxx gen/protoc_out/components/metrics/proto/perf_stat.pb.cc || $
+    obj/components/component_metrics_proto.actions_rules_copies.stamp
+build $
+    obj/components/gen/protoc_out/components/metrics/proto/component_metrics_proto.profiler_event.pb.o: $
+    cxx gen/protoc_out/components/metrics/proto/profiler_event.pb.cc || $
+    obj/components/component_metrics_proto.actions_rules_copies.stamp
+build $
+    obj/components/gen/protoc_out/components/metrics/proto/component_metrics_proto.sampled_profile.pb.o: $
+    cxx gen/protoc_out/components/metrics/proto/sampled_profile.pb.cc || $
+    obj/components/component_metrics_proto.actions_rules_copies.stamp
+build $
+    obj/components/gen/protoc_out/components/metrics/proto/component_metrics_proto.system_profile.pb.o: $
+    cxx gen/protoc_out/components/metrics/proto/system_profile.pb.cc || $
+    obj/components/component_metrics_proto.actions_rules_copies.stamp
+build $
+    obj/components/gen/protoc_out/components/metrics/proto/component_metrics_proto.user_action_event.pb.o: $
+    cxx gen/protoc_out/components/metrics/proto/user_action_event.pb.cc || $
+    obj/components/component_metrics_proto.actions_rules_copies.stamp
+
+build obj/components/libcomponent_metrics_proto.a: alink_thin $
+    obj/components/gen/protoc_out/components/metrics/proto/component_metrics_proto.call_stack_profile.pb.o $
+    obj/components/gen/protoc_out/components/metrics/proto/component_metrics_proto.cast_logs.pb.o $
+    obj/components/gen/protoc_out/components/metrics/proto/component_metrics_proto.chrome_user_metrics_extension.pb.o $
+    obj/components/gen/protoc_out/components/metrics/proto/component_metrics_proto.histogram_event.pb.o $
+    obj/components/gen/protoc_out/components/metrics/proto/component_metrics_proto.memory_leak_report.pb.o $
+    obj/components/gen/protoc_out/components/metrics/proto/component_metrics_proto.omnibox_event.pb.o $
+    obj/components/gen/protoc_out/components/metrics/proto/component_metrics_proto.omnibox_input_type.pb.o $
+    obj/components/gen/protoc_out/components/metrics/proto/component_metrics_proto.perf_data.pb.o $
+    obj/components/gen/protoc_out/components/metrics/proto/component_metrics_proto.perf_stat.pb.o $
+    obj/components/gen/protoc_out/components/metrics/proto/component_metrics_proto.profiler_event.pb.o $
+    obj/components/gen/protoc_out/components/metrics/proto/component_metrics_proto.sampled_profile.pb.o $
+    obj/components/gen/protoc_out/components/metrics/proto/component_metrics_proto.system_profile.pb.o $
+    obj/components/gen/protoc_out/components/metrics/proto/component_metrics_proto.user_action_event.pb.o $
+    || obj/components/component_metrics_proto.actions_rules_copies.stamp

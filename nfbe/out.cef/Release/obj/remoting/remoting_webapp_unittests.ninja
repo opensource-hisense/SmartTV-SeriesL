@@ -1,0 +1,749 @@
+rule $
+    remoting_webapp_unittests_target_Build_Remoting_Webapp_unittests_html_a80a62153d814f1fb39b203b181278e9
+  command = cd ../../remoting; python webapp/build-html.py $
+      ../out.cef/Release/remoting/unittests/unittests.html $
+      webapp/crd/html/template_unittests.html --exclude-js $
+      webapp/crd/js/background.js --js webapp/base/js/base_unittest.js $
+      webapp/base/js/base_event_hook_unittest.js $
+      webapp/base/js/base_inherits_unittest.js $
+      webapp/base/js/callstack_unittest.js $
+      webapp/base/js/client_session_unittest.js $
+      webapp/base/js/client_session_factory_unittest.js $
+      webapp/base/js/console_wrapper_unittest.js $
+      webapp/base/js/dns_blackhole_checker_unittest.js $
+      webapp/base/js/error_unittest.js $
+      webapp/base/js/fallback_signal_strategy_unittest.js $
+      webapp/base/js/host_options_unittest.js $
+      webapp/base/js/identity_unittest.js webapp/base/js/ipc_unittest.js $
+      webapp/base/js/l10n_unittest.js $
+      webapp/base/js/network_connectivity_detector_unittest.js $
+      webapp/base/js/platform_unittest.js $
+      webapp/base/js/protocol_extension_manager_unittest.js $
+      webapp/base/js/session_logger_unittest.js $
+      webapp/base/js/telemetry_event_writer_unittest.js $
+      webapp/base/js/typecheck_unittest.js $
+      webapp/base/js/viewport_unittest.js $
+      webapp/base/js/window_shape_unittest.js $
+      webapp/base/js/window_message_dispatcher_unittest.js $
+      webapp/base/js/xhr_event_writer_unittest.js $
+      webapp/base/js/xhr_unittest.js $
+      webapp/base/js/xmpp_connection_unittest.js $
+      webapp/base/js/xmpp_error_cache_unittest.js $
+      webapp/base/js/xmpp_login_handler_unittest.js $
+      webapp/base/js/xmpp_stream_parser_unittest.js $
+      webapp/crd/js/apps_v2_migration_unittest.js $
+      webapp/crd/js/combined_host_list_api_unittest.js $
+      webapp/crd/js/gcd_client_unittest.js $
+      webapp/crd/js/gcd_client_with_mock_xhr_unittest.js $
+      webapp/crd/js/gnubby_auth_handler_unittest.js $
+      webapp/crd/js/host_controller_unittest.js $
+      webapp/crd/js/host_daemon_facade_unittest.js $
+      webapp/crd/js/host_table_entry_unittest.js $
+      webapp/crd/js/legacy_host_list_api_unittest.js $
+      webapp/crd/js/menu_button_unittest.js $
+      webapp/crd/js/me2me_telemetry_integration_test.js $
+      webapp/crd/js/mock_xhr_unittest.js $
+      webapp/crd/js/mock_client_plugin.js $
+      webapp/crd/js/mock_host_daemon_facade.js $
+      webapp/crd/js/mock_host_list_api.js $
+      webapp/crd/js/mock_modal_dialog_factory.js $
+      webapp/crd/js/mock_identity.js webapp/crd/js/mock_signal_strategy.js $
+      webapp/crd/js/remoting_activity_test_driver.js $
+      webapp/js_proto/chrome_mocks.js webapp/unittests/sinon_helpers.js $
+      webapp/crd/js/mock_xhr.js webapp/unittests/qunit_callbacks.js $
+      --instrument-js webapp/base/js/application.js webapp/base/js/base.js $
+      webapp/base/js/callstack.js webapp/base/js/console_wrapper.js $
+      webapp/base/js/ipc.js webapp/base/js/modal_dialogs.js $
+      webapp/base/js/platform.js $
+      webapp/base/js/protocol_extension_manager.js $
+      webapp/base/js/protocol_extension.js webapp/base/js/error.js $
+      webapp/base/js/network_connectivity_detector.js $
+      webapp/base/js/plugin_settings.js webapp/base/js/suspend_detector.js $
+      webapp/base/js/typecheck.js webapp/base/js/xhr_event_writer.js $
+      webapp/base/js/window_message_dispatcher.js webapp/base/js/xhr.js $
+      webapp/base/js/auth_init.js webapp/base/js/identity.js $
+      webapp/base/js/oauth2.js webapp/base/js/oauth2_api.js $
+      webapp/base/js/oauth2_api_impl.js webapp/base/js/activity.js $
+      webapp/base/js/client_plugin.js $
+      webapp/base/js/client_plugin_host_desktop_impl.js $
+      webapp/base/js/client_plugin_impl.js webapp/base/js/client_session.js $
+      webapp/base/js/client_session_factory.js webapp/base/js/clipboard.js $
+      webapp/base/js/connected_view.js webapp/base/js/connection_info.js $
+      webapp/base/js/credentials_provider.js webapp/base/js/experiments.js $
+      webapp/base/js/host_desktop.js $
+      webapp/base/js/telemetry_event_writer.js $
+      webapp/base/js/xmpp_error_cache.js webapp/base/js/host.js $
+      webapp/base/js/host_options.js webapp/base/js/chromoting_event.js $
+      webapp/base/js/format_iq.js webapp/base/js/session_logger.js $
+      webapp/base/js/stats_accumulator.js $
+      webapp/base/js/dns_blackhole_checker.js $
+      webapp/base/js/fallback_signal_strategy.js $
+      webapp/base/js/signal_strategy.js webapp/base/js/tcp_socket.js $
+      webapp/base/js/wcs_adapter.js webapp/base/js/wcs_sandbox_container.js $
+      webapp/base/js/xmpp_connection.js $
+      webapp/base/js/xmpp_login_handler.js $
+      webapp/base/js/xmpp_stream_parser.js $
+      webapp/base/js/connection_dropped_dialog.js $
+      webapp/base/js/connection_stats.js webapp/base/js/l10n.js $
+      webapp/base/js/ui_mode.js webapp/base/js/viewport.js $
+      webapp/base/js/window_shape.js $
+      webapp/crd/js/third_party_host_permissions.js $
+      webapp/crd/js/third_party_token_fetcher.js $
+      webapp/crd/js/apps_v2_migration.js webapp/crd/js/event_handlers.js $
+      webapp/crd/js/gcd_client.js webapp/crd/js/gnubby_auth_handler.js $
+      webapp/crd/js/host_controller.js webapp/crd/js/host_daemon_facade.js $
+      webapp/crd/js/host_screen.js webapp/crd/js/host_session.js $
+      webapp/crd/js/host_setup_dialog.js $
+      webapp/crd/js/host_install_dialog.js webapp/crd/js/host_installer.js $
+      webapp/crd/js/it2me_host_facade.js $
+      webapp/crd/js/native_message_host_log_message_handler.js $
+      webapp/crd/js/paired_client_manager.js webapp/crd/js/host_list.js $
+      webapp/crd/js/host_list_api.js webapp/crd/js/host_table_entry.js $
+      webapp/crd/js/local_host_section.js $
+      webapp/crd/js/combined_host_list_api.js $
+      webapp/crd/js/gcd_host_list_api.js $
+      webapp/crd/js/legacy_host_list_api.js webapp/crd/js/bump_scroller.js $
+      webapp/crd/js/butter_bar.js webapp/crd/js/crd_auth_dialog.js $
+      webapp/crd/js/crd_event_handlers.js webapp/crd/js/crd_experimental.js $
+      webapp/crd/js/desktop_connected_view.js $
+      webapp/crd/js/desktop_remoting.js $
+      webapp/crd/js/desktop_remoting_activity.js $
+      webapp/crd/js/desktop_viewport.js webapp/crd/js/feedback.js $
+      webapp/crd/js/fullscreen.js webapp/crd/js/fullscreen_v1.js $
+      webapp/crd/js/fullscreen_v2.js webapp/crd/js/it2me_activity.js $
+      webapp/crd/js/me2me_activity.js webapp/crd/js/menu_button.js $
+      webapp/crd/js/options_menu.js webapp/crd/js/toolbar.js $
+      webapp/crd/js/window_frame.js webapp/crd/js/wcs.js $
+      webapp/crd/js/wcs_loader.js webapp/crd/js/wcs_sandbox_content.js $
+      webapp/crd/js/xhr_proxy.js webapp/crd/js/activation_handler.js $
+      webapp/crd/js/app_launcher.js
+  description = ACTION remoting_webapp_unittests: Build Remoting Webapp $
+      unittests.html_a80a62153d814f1fb39b203b181278e9
+  restat = 1
+
+build remoting/unittests/unittests.html: $
+    remoting_webapp_unittests_target_Build_Remoting_Webapp_unittests_html_a80a62153d814f1fb39b203b181278e9 $
+    ../../remoting/webapp/build-html.py $
+    ../../remoting/webapp/crd/html/template_unittests.html $
+    ../../remoting/webapp/base/js/application.js $
+    ../../remoting/webapp/base/js/base.js $
+    ../../remoting/webapp/base/js/callstack.js $
+    ../../remoting/webapp/base/js/console_wrapper.js $
+    ../../remoting/webapp/base/js/ipc.js $
+    ../../remoting/webapp/base/js/modal_dialogs.js $
+    ../../remoting/webapp/base/js/platform.js $
+    ../../remoting/webapp/base/js/protocol_extension_manager.js $
+    ../../remoting/webapp/base/js/protocol_extension.js $
+    ../../remoting/webapp/base/js/error.js $
+    ../../remoting/webapp/base/js/network_connectivity_detector.js $
+    ../../remoting/webapp/base/js/plugin_settings.js $
+    ../../remoting/webapp/base/js/suspend_detector.js $
+    ../../remoting/webapp/base/js/typecheck.js $
+    ../../remoting/webapp/base/js/xhr_event_writer.js $
+    ../../remoting/webapp/base/js/window_message_dispatcher.js $
+    ../../remoting/webapp/base/js/xhr.js $
+    ../../remoting/webapp/base/js/auth_init.js $
+    ../../remoting/webapp/base/js/identity.js $
+    ../../remoting/webapp/base/js/oauth2.js $
+    ../../remoting/webapp/base/js/oauth2_api.js $
+    ../../remoting/webapp/base/js/oauth2_api_impl.js $
+    ../../remoting/webapp/base/js/activity.js $
+    ../../remoting/webapp/base/js/client_plugin.js $
+    ../../remoting/webapp/base/js/client_plugin_host_desktop_impl.js $
+    ../../remoting/webapp/base/js/client_plugin_impl.js $
+    ../../remoting/webapp/base/js/client_session.js $
+    ../../remoting/webapp/base/js/client_session_factory.js $
+    ../../remoting/webapp/base/js/clipboard.js $
+    ../../remoting/webapp/base/js/connected_view.js $
+    ../../remoting/webapp/base/js/connection_info.js $
+    ../../remoting/webapp/base/js/credentials_provider.js $
+    ../../remoting/webapp/base/js/experiments.js $
+    ../../remoting/webapp/base/js/host_desktop.js $
+    ../../remoting/webapp/base/js/telemetry_event_writer.js $
+    ../../remoting/webapp/base/js/xmpp_error_cache.js $
+    ../../remoting/webapp/base/js/host.js $
+    ../../remoting/webapp/base/js/host_options.js $
+    ../../remoting/webapp/base/js/chromoting_event.js $
+    ../../remoting/webapp/base/js/format_iq.js $
+    ../../remoting/webapp/base/js/session_logger.js $
+    ../../remoting/webapp/base/js/stats_accumulator.js $
+    ../../remoting/webapp/base/js/dns_blackhole_checker.js $
+    ../../remoting/webapp/base/js/fallback_signal_strategy.js $
+    ../../remoting/webapp/base/js/signal_strategy.js $
+    ../../remoting/webapp/base/js/tcp_socket.js $
+    ../../remoting/webapp/base/js/wcs_adapter.js $
+    ../../remoting/webapp/base/js/wcs_sandbox_container.js $
+    ../../remoting/webapp/base/js/xmpp_connection.js $
+    ../../remoting/webapp/base/js/xmpp_login_handler.js $
+    ../../remoting/webapp/base/js/xmpp_stream_parser.js $
+    ../../remoting/webapp/base/js/connection_dropped_dialog.js $
+    ../../remoting/webapp/base/js/connection_stats.js $
+    ../../remoting/webapp/base/js/l10n.js $
+    ../../remoting/webapp/base/js/ui_mode.js $
+    ../../remoting/webapp/base/js/viewport.js $
+    ../../remoting/webapp/base/js/window_shape.js $
+    ../../remoting/webapp/crd/js/third_party_host_permissions.js $
+    ../../remoting/webapp/crd/js/third_party_token_fetcher.js $
+    ../../remoting/webapp/crd/js/apps_v2_migration.js $
+    ../../remoting/webapp/crd/js/event_handlers.js $
+    ../../remoting/webapp/crd/js/gcd_client.js $
+    ../../remoting/webapp/crd/js/gnubby_auth_handler.js $
+    ../../remoting/webapp/crd/js/host_controller.js $
+    ../../remoting/webapp/crd/js/host_daemon_facade.js $
+    ../../remoting/webapp/crd/js/host_screen.js $
+    ../../remoting/webapp/crd/js/host_session.js $
+    ../../remoting/webapp/crd/js/host_setup_dialog.js $
+    ../../remoting/webapp/crd/js/host_install_dialog.js $
+    ../../remoting/webapp/crd/js/host_installer.js $
+    ../../remoting/webapp/crd/js/it2me_host_facade.js $
+    ../../remoting/webapp/crd/js/native_message_host_log_message_handler.js $
+    ../../remoting/webapp/crd/js/paired_client_manager.js $
+    ../../remoting/webapp/crd/js/host_list.js $
+    ../../remoting/webapp/crd/js/host_list_api.js $
+    ../../remoting/webapp/crd/js/host_table_entry.js $
+    ../../remoting/webapp/crd/js/local_host_section.js $
+    ../../remoting/webapp/crd/js/combined_host_list_api.js $
+    ../../remoting/webapp/crd/js/gcd_host_list_api.js $
+    ../../remoting/webapp/crd/js/legacy_host_list_api.js $
+    ../../remoting/webapp/crd/js/bump_scroller.js $
+    ../../remoting/webapp/crd/js/butter_bar.js $
+    ../../remoting/webapp/crd/js/crd_auth_dialog.js $
+    ../../remoting/webapp/crd/js/crd_event_handlers.js $
+    ../../remoting/webapp/crd/js/crd_experimental.js $
+    ../../remoting/webapp/crd/js/desktop_connected_view.js $
+    ../../remoting/webapp/crd/js/desktop_remoting.js $
+    ../../remoting/webapp/crd/js/desktop_remoting_activity.js $
+    ../../remoting/webapp/crd/js/desktop_viewport.js $
+    ../../remoting/webapp/crd/js/feedback.js $
+    ../../remoting/webapp/crd/js/fullscreen.js $
+    ../../remoting/webapp/crd/js/fullscreen_v1.js $
+    ../../remoting/webapp/crd/js/fullscreen_v2.js $
+    ../../remoting/webapp/crd/js/it2me_activity.js $
+    ../../remoting/webapp/crd/js/me2me_activity.js $
+    ../../remoting/webapp/crd/js/menu_button.js $
+    ../../remoting/webapp/crd/js/options_menu.js $
+    ../../remoting/webapp/crd/js/toolbar.js $
+    ../../remoting/webapp/crd/js/window_frame.js $
+    ../../remoting/webapp/crd/js/wcs.js $
+    ../../remoting/webapp/crd/js/wcs_loader.js $
+    ../../remoting/webapp/crd/js/wcs_sandbox_content.js $
+    ../../remoting/webapp/crd/js/xhr_proxy.js $
+    ../../remoting/webapp/crd/js/activation_handler.js $
+    ../../remoting/webapp/crd/js/app_launcher.js $
+    ../../remoting/webapp/crd/js/background.js $
+    ../../remoting/webapp/base/js/base_unittest.js $
+    ../../remoting/webapp/base/js/base_event_hook_unittest.js $
+    ../../remoting/webapp/base/js/base_inherits_unittest.js $
+    ../../remoting/webapp/base/js/callstack_unittest.js $
+    ../../remoting/webapp/base/js/client_session_unittest.js $
+    ../../remoting/webapp/base/js/client_session_factory_unittest.js $
+    ../../remoting/webapp/base/js/console_wrapper_unittest.js $
+    ../../remoting/webapp/base/js/dns_blackhole_checker_unittest.js $
+    ../../remoting/webapp/base/js/error_unittest.js $
+    ../../remoting/webapp/base/js/fallback_signal_strategy_unittest.js $
+    ../../remoting/webapp/base/js/host_options_unittest.js $
+    ../../remoting/webapp/base/js/identity_unittest.js $
+    ../../remoting/webapp/base/js/ipc_unittest.js $
+    ../../remoting/webapp/base/js/l10n_unittest.js $
+    ../../remoting/webapp/base/js/network_connectivity_detector_unittest.js $
+    ../../remoting/webapp/base/js/platform_unittest.js $
+    ../../remoting/webapp/base/js/protocol_extension_manager_unittest.js $
+    ../../remoting/webapp/base/js/session_logger_unittest.js $
+    ../../remoting/webapp/base/js/telemetry_event_writer_unittest.js $
+    ../../remoting/webapp/base/js/typecheck_unittest.js $
+    ../../remoting/webapp/base/js/viewport_unittest.js $
+    ../../remoting/webapp/base/js/window_shape_unittest.js $
+    ../../remoting/webapp/base/js/window_message_dispatcher_unittest.js $
+    ../../remoting/webapp/base/js/xhr_event_writer_unittest.js $
+    ../../remoting/webapp/base/js/xhr_unittest.js $
+    ../../remoting/webapp/base/js/xmpp_connection_unittest.js $
+    ../../remoting/webapp/base/js/xmpp_error_cache_unittest.js $
+    ../../remoting/webapp/base/js/xmpp_login_handler_unittest.js $
+    ../../remoting/webapp/base/js/xmpp_stream_parser_unittest.js $
+    ../../remoting/webapp/crd/js/apps_v2_migration_unittest.js $
+    ../../remoting/webapp/crd/js/combined_host_list_api_unittest.js $
+    ../../remoting/webapp/crd/js/gcd_client_unittest.js $
+    ../../remoting/webapp/crd/js/gcd_client_with_mock_xhr_unittest.js $
+    ../../remoting/webapp/crd/js/gnubby_auth_handler_unittest.js $
+    ../../remoting/webapp/crd/js/host_controller_unittest.js $
+    ../../remoting/webapp/crd/js/host_daemon_facade_unittest.js $
+    ../../remoting/webapp/crd/js/host_table_entry_unittest.js $
+    ../../remoting/webapp/crd/js/legacy_host_list_api_unittest.js $
+    ../../remoting/webapp/crd/js/menu_button_unittest.js $
+    ../../remoting/webapp/crd/js/me2me_telemetry_integration_test.js $
+    ../../remoting/webapp/crd/js/mock_xhr_unittest.js $
+    ../../remoting/webapp/crd/js/mock_client_plugin.js $
+    ../../remoting/webapp/crd/js/mock_host_daemon_facade.js $
+    ../../remoting/webapp/crd/js/mock_host_list_api.js $
+    ../../remoting/webapp/crd/js/mock_modal_dialog_factory.js $
+    ../../remoting/webapp/crd/js/mock_identity.js $
+    ../../remoting/webapp/crd/js/mock_signal_strategy.js $
+    ../../remoting/webapp/crd/js/remoting_activity_test_driver.js $
+    ../../remoting/webapp/js_proto/chrome_mocks.js $
+    ../../remoting/webapp/unittests/sinon_helpers.js $
+    ../../remoting/webapp/crd/js/mock_xhr.js $
+    ../../remoting/webapp/unittests/qunit_callbacks.js
+
+build remoting/unittests/qunit/browser_test_harness.js: copy $
+    ../../third_party/qunit/src/browser_test_harness.js
+build remoting/unittests/qunit/qunit.css: copy $
+    ../../third_party/qunit/src/qunit.css
+build remoting/unittests/qunit/qunit.js: copy $
+    ../../third_party/qunit/src/qunit.js
+build remoting/unittests/blanketjs/blanket.js: copy $
+    ../../third_party/blanketjs/src/blanket.js
+build remoting/unittests/blanketjs/qunit_adapter.js: copy $
+    ../../third_party/blanketjs/src/qunit_adapter.js
+build remoting/unittests/sinonjs/sinon.js: copy $
+    ../../third_party/sinonjs/src/sinon.js
+build remoting/unittests/sinonjs/sinon-qunit.js: copy $
+    ../../third_party/sinonjs/src/sinon-qunit.js
+build remoting/unittests/application.js: copy $
+    ../../remoting/webapp/base/js/application.js
+build remoting/unittests/base.js: copy ../../remoting/webapp/base/js/base.js
+build remoting/unittests/callstack.js: copy $
+    ../../remoting/webapp/base/js/callstack.js
+build remoting/unittests/console_wrapper.js: copy $
+    ../../remoting/webapp/base/js/console_wrapper.js
+build remoting/unittests/ipc.js: copy ../../remoting/webapp/base/js/ipc.js
+build remoting/unittests/modal_dialogs.js: copy $
+    ../../remoting/webapp/base/js/modal_dialogs.js
+build remoting/unittests/platform.js: copy $
+    ../../remoting/webapp/base/js/platform.js
+build remoting/unittests/protocol_extension_manager.js: copy $
+    ../../remoting/webapp/base/js/protocol_extension_manager.js
+build remoting/unittests/protocol_extension.js: copy $
+    ../../remoting/webapp/base/js/protocol_extension.js
+build remoting/unittests/error.js: copy ../../remoting/webapp/base/js/error.js
+build remoting/unittests/network_connectivity_detector.js: copy $
+    ../../remoting/webapp/base/js/network_connectivity_detector.js
+build remoting/unittests/plugin_settings.js: copy $
+    ../../remoting/webapp/base/js/plugin_settings.js
+build remoting/unittests/suspend_detector.js: copy $
+    ../../remoting/webapp/base/js/suspend_detector.js
+build remoting/unittests/typecheck.js: copy $
+    ../../remoting/webapp/base/js/typecheck.js
+build remoting/unittests/xhr_event_writer.js: copy $
+    ../../remoting/webapp/base/js/xhr_event_writer.js
+build remoting/unittests/window_message_dispatcher.js: copy $
+    ../../remoting/webapp/base/js/window_message_dispatcher.js
+build remoting/unittests/xhr.js: copy ../../remoting/webapp/base/js/xhr.js
+build remoting/unittests/auth_init.js: copy $
+    ../../remoting/webapp/base/js/auth_init.js
+build remoting/unittests/identity.js: copy $
+    ../../remoting/webapp/base/js/identity.js
+build remoting/unittests/oauth2.js: copy $
+    ../../remoting/webapp/base/js/oauth2.js
+build remoting/unittests/oauth2_api.js: copy $
+    ../../remoting/webapp/base/js/oauth2_api.js
+build remoting/unittests/oauth2_api_impl.js: copy $
+    ../../remoting/webapp/base/js/oauth2_api_impl.js
+build remoting/unittests/activity.js: copy $
+    ../../remoting/webapp/base/js/activity.js
+build remoting/unittests/client_plugin.js: copy $
+    ../../remoting/webapp/base/js/client_plugin.js
+build remoting/unittests/client_plugin_host_desktop_impl.js: copy $
+    ../../remoting/webapp/base/js/client_plugin_host_desktop_impl.js
+build remoting/unittests/client_plugin_impl.js: copy $
+    ../../remoting/webapp/base/js/client_plugin_impl.js
+build remoting/unittests/client_session.js: copy $
+    ../../remoting/webapp/base/js/client_session.js
+build remoting/unittests/client_session_factory.js: copy $
+    ../../remoting/webapp/base/js/client_session_factory.js
+build remoting/unittests/clipboard.js: copy $
+    ../../remoting/webapp/base/js/clipboard.js
+build remoting/unittests/connected_view.js: copy $
+    ../../remoting/webapp/base/js/connected_view.js
+build remoting/unittests/connection_info.js: copy $
+    ../../remoting/webapp/base/js/connection_info.js
+build remoting/unittests/credentials_provider.js: copy $
+    ../../remoting/webapp/base/js/credentials_provider.js
+build remoting/unittests/experiments.js: copy $
+    ../../remoting/webapp/base/js/experiments.js
+build remoting/unittests/host_desktop.js: copy $
+    ../../remoting/webapp/base/js/host_desktop.js
+build remoting/unittests/telemetry_event_writer.js: copy $
+    ../../remoting/webapp/base/js/telemetry_event_writer.js
+build remoting/unittests/xmpp_error_cache.js: copy $
+    ../../remoting/webapp/base/js/xmpp_error_cache.js
+build remoting/unittests/host.js: copy ../../remoting/webapp/base/js/host.js
+build remoting/unittests/host_options.js: copy $
+    ../../remoting/webapp/base/js/host_options.js
+build remoting/unittests/chromoting_event.js: copy $
+    ../../remoting/webapp/base/js/chromoting_event.js
+build remoting/unittests/format_iq.js: copy $
+    ../../remoting/webapp/base/js/format_iq.js
+build remoting/unittests/session_logger.js: copy $
+    ../../remoting/webapp/base/js/session_logger.js
+build remoting/unittests/stats_accumulator.js: copy $
+    ../../remoting/webapp/base/js/stats_accumulator.js
+build remoting/unittests/dns_blackhole_checker.js: copy $
+    ../../remoting/webapp/base/js/dns_blackhole_checker.js
+build remoting/unittests/fallback_signal_strategy.js: copy $
+    ../../remoting/webapp/base/js/fallback_signal_strategy.js
+build remoting/unittests/signal_strategy.js: copy $
+    ../../remoting/webapp/base/js/signal_strategy.js
+build remoting/unittests/tcp_socket.js: copy $
+    ../../remoting/webapp/base/js/tcp_socket.js
+build remoting/unittests/wcs_adapter.js: copy $
+    ../../remoting/webapp/base/js/wcs_adapter.js
+build remoting/unittests/wcs_sandbox_container.js: copy $
+    ../../remoting/webapp/base/js/wcs_sandbox_container.js
+build remoting/unittests/xmpp_connection.js: copy $
+    ../../remoting/webapp/base/js/xmpp_connection.js
+build remoting/unittests/xmpp_login_handler.js: copy $
+    ../../remoting/webapp/base/js/xmpp_login_handler.js
+build remoting/unittests/xmpp_stream_parser.js: copy $
+    ../../remoting/webapp/base/js/xmpp_stream_parser.js
+build remoting/unittests/connection_dropped_dialog.js: copy $
+    ../../remoting/webapp/base/js/connection_dropped_dialog.js
+build remoting/unittests/connection_stats.js: copy $
+    ../../remoting/webapp/base/js/connection_stats.js
+build remoting/unittests/l10n.js: copy ../../remoting/webapp/base/js/l10n.js
+build remoting/unittests/ui_mode.js: copy $
+    ../../remoting/webapp/base/js/ui_mode.js
+build remoting/unittests/viewport.js: copy $
+    ../../remoting/webapp/base/js/viewport.js
+build remoting/unittests/window_shape.js: copy $
+    ../../remoting/webapp/base/js/window_shape.js
+build remoting/unittests/third_party_host_permissions.js: copy $
+    ../../remoting/webapp/crd/js/third_party_host_permissions.js
+build remoting/unittests/third_party_token_fetcher.js: copy $
+    ../../remoting/webapp/crd/js/third_party_token_fetcher.js
+build remoting/unittests/apps_v2_migration.js: copy $
+    ../../remoting/webapp/crd/js/apps_v2_migration.js
+build remoting/unittests/event_handlers.js: copy $
+    ../../remoting/webapp/crd/js/event_handlers.js
+build remoting/unittests/gcd_client.js: copy $
+    ../../remoting/webapp/crd/js/gcd_client.js
+build remoting/unittests/gnubby_auth_handler.js: copy $
+    ../../remoting/webapp/crd/js/gnubby_auth_handler.js
+build remoting/unittests/host_controller.js: copy $
+    ../../remoting/webapp/crd/js/host_controller.js
+build remoting/unittests/host_daemon_facade.js: copy $
+    ../../remoting/webapp/crd/js/host_daemon_facade.js
+build remoting/unittests/host_screen.js: copy $
+    ../../remoting/webapp/crd/js/host_screen.js
+build remoting/unittests/host_session.js: copy $
+    ../../remoting/webapp/crd/js/host_session.js
+build remoting/unittests/host_setup_dialog.js: copy $
+    ../../remoting/webapp/crd/js/host_setup_dialog.js
+build remoting/unittests/host_install_dialog.js: copy $
+    ../../remoting/webapp/crd/js/host_install_dialog.js
+build remoting/unittests/host_installer.js: copy $
+    ../../remoting/webapp/crd/js/host_installer.js
+build remoting/unittests/it2me_host_facade.js: copy $
+    ../../remoting/webapp/crd/js/it2me_host_facade.js
+build remoting/unittests/native_message_host_log_message_handler.js: copy $
+    ../../remoting/webapp/crd/js/native_message_host_log_message_handler.js
+build remoting/unittests/paired_client_manager.js: copy $
+    ../../remoting/webapp/crd/js/paired_client_manager.js
+build remoting/unittests/host_list.js: copy $
+    ../../remoting/webapp/crd/js/host_list.js
+build remoting/unittests/host_list_api.js: copy $
+    ../../remoting/webapp/crd/js/host_list_api.js
+build remoting/unittests/host_table_entry.js: copy $
+    ../../remoting/webapp/crd/js/host_table_entry.js
+build remoting/unittests/local_host_section.js: copy $
+    ../../remoting/webapp/crd/js/local_host_section.js
+build remoting/unittests/combined_host_list_api.js: copy $
+    ../../remoting/webapp/crd/js/combined_host_list_api.js
+build remoting/unittests/gcd_host_list_api.js: copy $
+    ../../remoting/webapp/crd/js/gcd_host_list_api.js
+build remoting/unittests/legacy_host_list_api.js: copy $
+    ../../remoting/webapp/crd/js/legacy_host_list_api.js
+build remoting/unittests/bump_scroller.js: copy $
+    ../../remoting/webapp/crd/js/bump_scroller.js
+build remoting/unittests/butter_bar.js: copy $
+    ../../remoting/webapp/crd/js/butter_bar.js
+build remoting/unittests/crd_auth_dialog.js: copy $
+    ../../remoting/webapp/crd/js/crd_auth_dialog.js
+build remoting/unittests/crd_event_handlers.js: copy $
+    ../../remoting/webapp/crd/js/crd_event_handlers.js
+build remoting/unittests/crd_experimental.js: copy $
+    ../../remoting/webapp/crd/js/crd_experimental.js
+build remoting/unittests/desktop_connected_view.js: copy $
+    ../../remoting/webapp/crd/js/desktop_connected_view.js
+build remoting/unittests/desktop_remoting.js: copy $
+    ../../remoting/webapp/crd/js/desktop_remoting.js
+build remoting/unittests/desktop_remoting_activity.js: copy $
+    ../../remoting/webapp/crd/js/desktop_remoting_activity.js
+build remoting/unittests/desktop_viewport.js: copy $
+    ../../remoting/webapp/crd/js/desktop_viewport.js
+build remoting/unittests/feedback.js: copy $
+    ../../remoting/webapp/crd/js/feedback.js
+build remoting/unittests/fullscreen.js: copy $
+    ../../remoting/webapp/crd/js/fullscreen.js
+build remoting/unittests/fullscreen_v1.js: copy $
+    ../../remoting/webapp/crd/js/fullscreen_v1.js
+build remoting/unittests/fullscreen_v2.js: copy $
+    ../../remoting/webapp/crd/js/fullscreen_v2.js
+build remoting/unittests/it2me_activity.js: copy $
+    ../../remoting/webapp/crd/js/it2me_activity.js
+build remoting/unittests/me2me_activity.js: copy $
+    ../../remoting/webapp/crd/js/me2me_activity.js
+build remoting/unittests/menu_button.js: copy $
+    ../../remoting/webapp/crd/js/menu_button.js
+build remoting/unittests/options_menu.js: copy $
+    ../../remoting/webapp/crd/js/options_menu.js
+build remoting/unittests/toolbar.js: copy $
+    ../../remoting/webapp/crd/js/toolbar.js
+build remoting/unittests/window_frame.js: copy $
+    ../../remoting/webapp/crd/js/window_frame.js
+build remoting/unittests/wcs.js: copy ../../remoting/webapp/crd/js/wcs.js
+build remoting/unittests/wcs_loader.js: copy $
+    ../../remoting/webapp/crd/js/wcs_loader.js
+build remoting/unittests/wcs_sandbox_content.js: copy $
+    ../../remoting/webapp/crd/js/wcs_sandbox_content.js
+build remoting/unittests/xhr_proxy.js: copy $
+    ../../remoting/webapp/crd/js/xhr_proxy.js
+build remoting/unittests/activation_handler.js: copy $
+    ../../remoting/webapp/crd/js/activation_handler.js
+build remoting/unittests/app_launcher.js: copy $
+    ../../remoting/webapp/crd/js/app_launcher.js
+build remoting/unittests/background.js: copy $
+    ../../remoting/webapp/crd/js/background.js
+build remoting/unittests/menu_button.css: copy $
+    ../../remoting/webapp/crd/html/menu_button.css
+build remoting/unittests/base_unittest.js: copy $
+    ../../remoting/webapp/base/js/base_unittest.js
+build remoting/unittests/base_event_hook_unittest.js: copy $
+    ../../remoting/webapp/base/js/base_event_hook_unittest.js
+build remoting/unittests/base_inherits_unittest.js: copy $
+    ../../remoting/webapp/base/js/base_inherits_unittest.js
+build remoting/unittests/callstack_unittest.js: copy $
+    ../../remoting/webapp/base/js/callstack_unittest.js
+build remoting/unittests/client_session_unittest.js: copy $
+    ../../remoting/webapp/base/js/client_session_unittest.js
+build remoting/unittests/client_session_factory_unittest.js: copy $
+    ../../remoting/webapp/base/js/client_session_factory_unittest.js
+build remoting/unittests/console_wrapper_unittest.js: copy $
+    ../../remoting/webapp/base/js/console_wrapper_unittest.js
+build remoting/unittests/dns_blackhole_checker_unittest.js: copy $
+    ../../remoting/webapp/base/js/dns_blackhole_checker_unittest.js
+build remoting/unittests/error_unittest.js: copy $
+    ../../remoting/webapp/base/js/error_unittest.js
+build remoting/unittests/fallback_signal_strategy_unittest.js: copy $
+    ../../remoting/webapp/base/js/fallback_signal_strategy_unittest.js
+build remoting/unittests/host_options_unittest.js: copy $
+    ../../remoting/webapp/base/js/host_options_unittest.js
+build remoting/unittests/identity_unittest.js: copy $
+    ../../remoting/webapp/base/js/identity_unittest.js
+build remoting/unittests/ipc_unittest.js: copy $
+    ../../remoting/webapp/base/js/ipc_unittest.js
+build remoting/unittests/l10n_unittest.js: copy $
+    ../../remoting/webapp/base/js/l10n_unittest.js
+build remoting/unittests/network_connectivity_detector_unittest.js: copy $
+    ../../remoting/webapp/base/js/network_connectivity_detector_unittest.js
+build remoting/unittests/platform_unittest.js: copy $
+    ../../remoting/webapp/base/js/platform_unittest.js
+build remoting/unittests/protocol_extension_manager_unittest.js: copy $
+    ../../remoting/webapp/base/js/protocol_extension_manager_unittest.js
+build remoting/unittests/session_logger_unittest.js: copy $
+    ../../remoting/webapp/base/js/session_logger_unittest.js
+build remoting/unittests/telemetry_event_writer_unittest.js: copy $
+    ../../remoting/webapp/base/js/telemetry_event_writer_unittest.js
+build remoting/unittests/typecheck_unittest.js: copy $
+    ../../remoting/webapp/base/js/typecheck_unittest.js
+build remoting/unittests/viewport_unittest.js: copy $
+    ../../remoting/webapp/base/js/viewport_unittest.js
+build remoting/unittests/window_shape_unittest.js: copy $
+    ../../remoting/webapp/base/js/window_shape_unittest.js
+build remoting/unittests/window_message_dispatcher_unittest.js: copy $
+    ../../remoting/webapp/base/js/window_message_dispatcher_unittest.js
+build remoting/unittests/xhr_event_writer_unittest.js: copy $
+    ../../remoting/webapp/base/js/xhr_event_writer_unittest.js
+build remoting/unittests/xhr_unittest.js: copy $
+    ../../remoting/webapp/base/js/xhr_unittest.js
+build remoting/unittests/xmpp_connection_unittest.js: copy $
+    ../../remoting/webapp/base/js/xmpp_connection_unittest.js
+build remoting/unittests/xmpp_error_cache_unittest.js: copy $
+    ../../remoting/webapp/base/js/xmpp_error_cache_unittest.js
+build remoting/unittests/xmpp_login_handler_unittest.js: copy $
+    ../../remoting/webapp/base/js/xmpp_login_handler_unittest.js
+build remoting/unittests/xmpp_stream_parser_unittest.js: copy $
+    ../../remoting/webapp/base/js/xmpp_stream_parser_unittest.js
+build remoting/unittests/apps_v2_migration_unittest.js: copy $
+    ../../remoting/webapp/crd/js/apps_v2_migration_unittest.js
+build remoting/unittests/combined_host_list_api_unittest.js: copy $
+    ../../remoting/webapp/crd/js/combined_host_list_api_unittest.js
+build remoting/unittests/gcd_client_unittest.js: copy $
+    ../../remoting/webapp/crd/js/gcd_client_unittest.js
+build remoting/unittests/gcd_client_with_mock_xhr_unittest.js: copy $
+    ../../remoting/webapp/crd/js/gcd_client_with_mock_xhr_unittest.js
+build remoting/unittests/gnubby_auth_handler_unittest.js: copy $
+    ../../remoting/webapp/crd/js/gnubby_auth_handler_unittest.js
+build remoting/unittests/host_controller_unittest.js: copy $
+    ../../remoting/webapp/crd/js/host_controller_unittest.js
+build remoting/unittests/host_daemon_facade_unittest.js: copy $
+    ../../remoting/webapp/crd/js/host_daemon_facade_unittest.js
+build remoting/unittests/host_table_entry_unittest.js: copy $
+    ../../remoting/webapp/crd/js/host_table_entry_unittest.js
+build remoting/unittests/legacy_host_list_api_unittest.js: copy $
+    ../../remoting/webapp/crd/js/legacy_host_list_api_unittest.js
+build remoting/unittests/menu_button_unittest.js: copy $
+    ../../remoting/webapp/crd/js/menu_button_unittest.js
+build remoting/unittests/me2me_telemetry_integration_test.js: copy $
+    ../../remoting/webapp/crd/js/me2me_telemetry_integration_test.js
+build remoting/unittests/mock_xhr_unittest.js: copy $
+    ../../remoting/webapp/crd/js/mock_xhr_unittest.js
+build remoting/unittests/mock_client_plugin.js: copy $
+    ../../remoting/webapp/crd/js/mock_client_plugin.js
+build remoting/unittests/mock_host_daemon_facade.js: copy $
+    ../../remoting/webapp/crd/js/mock_host_daemon_facade.js
+build remoting/unittests/mock_host_list_api.js: copy $
+    ../../remoting/webapp/crd/js/mock_host_list_api.js
+build remoting/unittests/mock_modal_dialog_factory.js: copy $
+    ../../remoting/webapp/crd/js/mock_modal_dialog_factory.js
+build remoting/unittests/mock_identity.js: copy $
+    ../../remoting/webapp/crd/js/mock_identity.js
+build remoting/unittests/mock_signal_strategy.js: copy $
+    ../../remoting/webapp/crd/js/mock_signal_strategy.js
+build remoting/unittests/remoting_activity_test_driver.js: copy $
+    ../../remoting/webapp/crd/js/remoting_activity_test_driver.js
+build remoting/unittests/chrome_mocks.js: copy $
+    ../../remoting/webapp/js_proto/chrome_mocks.js
+build remoting/unittests/sinon_helpers.js: copy $
+    ../../remoting/webapp/unittests/sinon_helpers.js
+build remoting/unittests/mock_xhr.js: copy $
+    ../../remoting/webapp/crd/js/mock_xhr.js
+build remoting/unittests/qunit_callbacks.js: copy $
+    ../../remoting/webapp/unittests/qunit_callbacks.js
+build obj/remoting/remoting_webapp_unittests.actions_rules_copies.stamp: $
+    stamp remoting/unittests/unittests.html $
+    remoting/unittests/qunit/browser_test_harness.js $
+    remoting/unittests/qunit/qunit.css remoting/unittests/qunit/qunit.js $
+    remoting/unittests/blanketjs/blanket.js $
+    remoting/unittests/blanketjs/qunit_adapter.js $
+    remoting/unittests/sinonjs/sinon.js $
+    remoting/unittests/sinonjs/sinon-qunit.js $
+    remoting/unittests/application.js remoting/unittests/base.js $
+    remoting/unittests/callstack.js remoting/unittests/console_wrapper.js $
+    remoting/unittests/ipc.js remoting/unittests/modal_dialogs.js $
+    remoting/unittests/platform.js $
+    remoting/unittests/protocol_extension_manager.js $
+    remoting/unittests/protocol_extension.js remoting/unittests/error.js $
+    remoting/unittests/network_connectivity_detector.js $
+    remoting/unittests/plugin_settings.js $
+    remoting/unittests/suspend_detector.js remoting/unittests/typecheck.js $
+    remoting/unittests/xhr_event_writer.js $
+    remoting/unittests/window_message_dispatcher.js $
+    remoting/unittests/xhr.js remoting/unittests/auth_init.js $
+    remoting/unittests/identity.js remoting/unittests/oauth2.js $
+    remoting/unittests/oauth2_api.js remoting/unittests/oauth2_api_impl.js $
+    remoting/unittests/activity.js remoting/unittests/client_plugin.js $
+    remoting/unittests/client_plugin_host_desktop_impl.js $
+    remoting/unittests/client_plugin_impl.js $
+    remoting/unittests/client_session.js $
+    remoting/unittests/client_session_factory.js $
+    remoting/unittests/clipboard.js remoting/unittests/connected_view.js $
+    remoting/unittests/connection_info.js $
+    remoting/unittests/credentials_provider.js $
+    remoting/unittests/experiments.js remoting/unittests/host_desktop.js $
+    remoting/unittests/telemetry_event_writer.js $
+    remoting/unittests/xmpp_error_cache.js remoting/unittests/host.js $
+    remoting/unittests/host_options.js $
+    remoting/unittests/chromoting_event.js remoting/unittests/format_iq.js $
+    remoting/unittests/session_logger.js $
+    remoting/unittests/stats_accumulator.js $
+    remoting/unittests/dns_blackhole_checker.js $
+    remoting/unittests/fallback_signal_strategy.js $
+    remoting/unittests/signal_strategy.js remoting/unittests/tcp_socket.js $
+    remoting/unittests/wcs_adapter.js $
+    remoting/unittests/wcs_sandbox_container.js $
+    remoting/unittests/xmpp_connection.js $
+    remoting/unittests/xmpp_login_handler.js $
+    remoting/unittests/xmpp_stream_parser.js $
+    remoting/unittests/connection_dropped_dialog.js $
+    remoting/unittests/connection_stats.js remoting/unittests/l10n.js $
+    remoting/unittests/ui_mode.js remoting/unittests/viewport.js $
+    remoting/unittests/window_shape.js $
+    remoting/unittests/third_party_host_permissions.js $
+    remoting/unittests/third_party_token_fetcher.js $
+    remoting/unittests/apps_v2_migration.js $
+    remoting/unittests/event_handlers.js remoting/unittests/gcd_client.js $
+    remoting/unittests/gnubby_auth_handler.js $
+    remoting/unittests/host_controller.js $
+    remoting/unittests/host_daemon_facade.js $
+    remoting/unittests/host_screen.js remoting/unittests/host_session.js $
+    remoting/unittests/host_setup_dialog.js $
+    remoting/unittests/host_install_dialog.js $
+    remoting/unittests/host_installer.js $
+    remoting/unittests/it2me_host_facade.js $
+    remoting/unittests/native_message_host_log_message_handler.js $
+    remoting/unittests/paired_client_manager.js $
+    remoting/unittests/host_list.js remoting/unittests/host_list_api.js $
+    remoting/unittests/host_table_entry.js $
+    remoting/unittests/local_host_section.js $
+    remoting/unittests/combined_host_list_api.js $
+    remoting/unittests/gcd_host_list_api.js $
+    remoting/unittests/legacy_host_list_api.js $
+    remoting/unittests/bump_scroller.js remoting/unittests/butter_bar.js $
+    remoting/unittests/crd_auth_dialog.js $
+    remoting/unittests/crd_event_handlers.js $
+    remoting/unittests/crd_experimental.js $
+    remoting/unittests/desktop_connected_view.js $
+    remoting/unittests/desktop_remoting.js $
+    remoting/unittests/desktop_remoting_activity.js $
+    remoting/unittests/desktop_viewport.js remoting/unittests/feedback.js $
+    remoting/unittests/fullscreen.js remoting/unittests/fullscreen_v1.js $
+    remoting/unittests/fullscreen_v2.js $
+    remoting/unittests/it2me_activity.js $
+    remoting/unittests/me2me_activity.js remoting/unittests/menu_button.js $
+    remoting/unittests/options_menu.js remoting/unittests/toolbar.js $
+    remoting/unittests/window_frame.js remoting/unittests/wcs.js $
+    remoting/unittests/wcs_loader.js $
+    remoting/unittests/wcs_sandbox_content.js $
+    remoting/unittests/xhr_proxy.js $
+    remoting/unittests/activation_handler.js $
+    remoting/unittests/app_launcher.js remoting/unittests/background.js $
+    remoting/unittests/menu_button.css remoting/unittests/base_unittest.js $
+    remoting/unittests/base_event_hook_unittest.js $
+    remoting/unittests/base_inherits_unittest.js $
+    remoting/unittests/callstack_unittest.js $
+    remoting/unittests/client_session_unittest.js $
+    remoting/unittests/client_session_factory_unittest.js $
+    remoting/unittests/console_wrapper_unittest.js $
+    remoting/unittests/dns_blackhole_checker_unittest.js $
+    remoting/unittests/error_unittest.js $
+    remoting/unittests/fallback_signal_strategy_unittest.js $
+    remoting/unittests/host_options_unittest.js $
+    remoting/unittests/identity_unittest.js $
+    remoting/unittests/ipc_unittest.js remoting/unittests/l10n_unittest.js $
+    remoting/unittests/network_connectivity_detector_unittest.js $
+    remoting/unittests/platform_unittest.js $
+    remoting/unittests/protocol_extension_manager_unittest.js $
+    remoting/unittests/session_logger_unittest.js $
+    remoting/unittests/telemetry_event_writer_unittest.js $
+    remoting/unittests/typecheck_unittest.js $
+    remoting/unittests/viewport_unittest.js $
+    remoting/unittests/window_shape_unittest.js $
+    remoting/unittests/window_message_dispatcher_unittest.js $
+    remoting/unittests/xhr_event_writer_unittest.js $
+    remoting/unittests/xhr_unittest.js $
+    remoting/unittests/xmpp_connection_unittest.js $
+    remoting/unittests/xmpp_error_cache_unittest.js $
+    remoting/unittests/xmpp_login_handler_unittest.js $
+    remoting/unittests/xmpp_stream_parser_unittest.js $
+    remoting/unittests/apps_v2_migration_unittest.js $
+    remoting/unittests/combined_host_list_api_unittest.js $
+    remoting/unittests/gcd_client_unittest.js $
+    remoting/unittests/gcd_client_with_mock_xhr_unittest.js $
+    remoting/unittests/gnubby_auth_handler_unittest.js $
+    remoting/unittests/host_controller_unittest.js $
+    remoting/unittests/host_daemon_facade_unittest.js $
+    remoting/unittests/host_table_entry_unittest.js $
+    remoting/unittests/legacy_host_list_api_unittest.js $
+    remoting/unittests/menu_button_unittest.js $
+    remoting/unittests/me2me_telemetry_integration_test.js $
+    remoting/unittests/mock_xhr_unittest.js $
+    remoting/unittests/mock_client_plugin.js $
+    remoting/unittests/mock_host_daemon_facade.js $
+    remoting/unittests/mock_host_list_api.js $
+    remoting/unittests/mock_modal_dialog_factory.js $
+    remoting/unittests/mock_identity.js $
+    remoting/unittests/mock_signal_strategy.js $
+    remoting/unittests/remoting_activity_test_driver.js $
+    remoting/unittests/chrome_mocks.js remoting/unittests/sinon_helpers.js $
+    remoting/unittests/mock_xhr.js remoting/unittests/qunit_callbacks.js
+

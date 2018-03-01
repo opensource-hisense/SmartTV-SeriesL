@@ -1,0 +1,130 @@
+build $
+    obj/third_party/WebKit/public/mojo_bindings_mojom.actions_depends.stamp: $
+    stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    lib/libbase.so.TOC $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp
+
+build $
+    obj/third_party/WebKit/public/mojo_bindings_mojom.compile_depends.stamp: $
+    stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp
+
+rule $
+    mojo_bindings_mojom_target_mojo_bindings_mojom_mojom_bindings_stamp_0bbbb31052ef020e898f08ba8820ff62
+  command = cd ../../third_party/WebKit/public; python $
+      ../../../build/rmdir_and_stamp.py $
+      ../../../out.cef/Release/java_mojo/mojo_bindings_mojom/src $
+      ../../../out.cef/Release/java_mojo/mojo_bindings_mojom/mojo_bindings_mojom.stamp
+  description = ACTION mojo_bindings_mojom: $
+      mojo_bindings_mojom_mojom_bindings_stamp_0bbbb31052ef020e898f08ba8820ff62
+  restat = 1
+
+build java_mojo/mojo_bindings_mojom/mojo_bindings_mojom.stamp: $
+    mojo_bindings_mojom_target_mojo_bindings_mojom_mojom_bindings_stamp_0bbbb31052ef020e898f08ba8820ff62 $
+    ../../third_party/WebKit/public/platform/modules/bluetooth/web_bluetooth.mojom $
+    ../../third_party/WebKit/public/platform/modules/geolocation/geolocation.mojom $
+    ../../third_party/WebKit/public/platform/modules/notifications/notification.mojom $
+    ../../third_party/WebKit/public/platform/modules/permissions/permission.mojom $
+    ../../third_party/WebKit/public/platform/modules/permissions/permission_status.mojom $
+    || obj/third_party/WebKit/public/mojo_bindings_mojom.actions_depends.stamp
+
+rule $
+    mojo_bindings_mojom_target_mojo_bindings_mojom_mojom_bindings_generator_0bbbb31052ef020e898f08ba8820ff62
+  command = cd ../../third_party/WebKit/public; python $
+      ../../../mojo/public/tools/bindings/mojom_bindings_generator.py $
+      --use_bundled_pylibs generate $
+      platform/modules/bluetooth/web_bluetooth.mojom $
+      platform/modules/geolocation/geolocation.mojom $
+      platform/modules/notifications/notification.mojom $
+      platform/modules/permissions/permission.mojom $
+      platform/modules/permissions/permission_status.mojom -d ../../.. $
+      -I../../.. -I../../../mojo/services -I../../.. -o $
+      ../../../out.cef/Release/gen $
+      "--java_output_directory=../../../out.cef/Release/java_mojo/mojo_bindings_mojom/src" $
+      --variant none -g c++,javascript,java --bytecode_path $
+      ../../../out.cef/Release/gen/mojo/public/tools/bindings
+  description = ACTION Generating Mojo bindings from $
+      platform/modules/bluetooth/web_bluetooth.mojom $
+      platform/modules/geolocation/geolocation.mojom $
+      platform/modules/notifications/notification.mojom $
+      platform/modules/permissions/permission.mojom $
+      platform/modules/permissions/permission_status.mojom
+  restat = 1
+
+build $
+    gen/third_party/WebKit/public/platform/modules/bluetooth/web_bluetooth.mojom.cc $
+    gen/third_party/WebKit/public/platform/modules/bluetooth/web_bluetooth.mojom.h $
+    gen/third_party/WebKit/public/platform/modules/bluetooth/web_bluetooth.mojom-internal.h $
+    gen/third_party/WebKit/public/platform/modules/bluetooth/web_bluetooth.mojom.js $
+    gen/third_party/WebKit/public/platform/modules/geolocation/geolocation.mojom.cc $
+    gen/third_party/WebKit/public/platform/modules/geolocation/geolocation.mojom.h $
+    gen/third_party/WebKit/public/platform/modules/geolocation/geolocation.mojom-internal.h $
+    gen/third_party/WebKit/public/platform/modules/geolocation/geolocation.mojom.js $
+    gen/third_party/WebKit/public/platform/modules/notifications/notification.mojom.cc $
+    gen/third_party/WebKit/public/platform/modules/notifications/notification.mojom.h $
+    gen/third_party/WebKit/public/platform/modules/notifications/notification.mojom-internal.h $
+    gen/third_party/WebKit/public/platform/modules/notifications/notification.mojom.js $
+    gen/third_party/WebKit/public/platform/modules/permissions/permission.mojom.cc $
+    gen/third_party/WebKit/public/platform/modules/permissions/permission.mojom.h $
+    gen/third_party/WebKit/public/platform/modules/permissions/permission.mojom-internal.h $
+    gen/third_party/WebKit/public/platform/modules/permissions/permission.mojom.js $
+    gen/third_party/WebKit/public/platform/modules/permissions/permission_status.mojom.cc $
+    gen/third_party/WebKit/public/platform/modules/permissions/permission_status.mojom.h $
+    gen/third_party/WebKit/public/platform/modules/permissions/permission_status.mojom-internal.h $
+    gen/third_party/WebKit/public/platform/modules/permissions/permission_status.mojom.js: $
+    mojo_bindings_mojom_target_mojo_bindings_mojom_mojom_bindings_generator_0bbbb31052ef020e898f08ba8820ff62 $
+    ../../mojo/public/tools/bindings/mojom_bindings_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_cpp_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_java_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_js_generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/error.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/data.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/module.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/pack.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/template_expander.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/ast.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/lexer.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/parser.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/translate.py $
+    ../../third_party/WebKit/public/platform/modules/bluetooth/web_bluetooth.mojom $
+    ../../third_party/WebKit/public/platform/modules/geolocation/geolocation.mojom $
+    ../../third_party/WebKit/public/platform/modules/notifications/notification.mojom $
+    ../../third_party/WebKit/public/platform/modules/permissions/permission.mojom $
+    ../../third_party/WebKit/public/platform/modules/permissions/permission_status.mojom $
+    java_mojo/mojo_bindings_mojom/mojo_bindings_mojom.stamp $
+    gen/mojo/public/tools/bindings/cpp_templates.zip $
+    gen/mojo/public/tools/bindings/java_templates.zip $
+    gen/mojo/public/tools/bindings/js_templates.zip || $
+    obj/third_party/WebKit/public/mojo_bindings_mojom.actions_depends.stamp
+
+build $
+    obj/third_party/WebKit/public/mojo_bindings_mojom.actions_rules_copies.stamp: $
+    stamp java_mojo/mojo_bindings_mojom/mojo_bindings_mojom.stamp $
+    gen/third_party/WebKit/public/platform/modules/bluetooth/web_bluetooth.mojom.cc $
+    gen/third_party/WebKit/public/platform/modules/bluetooth/web_bluetooth.mojom.h $
+    gen/third_party/WebKit/public/platform/modules/bluetooth/web_bluetooth.mojom-internal.h $
+    gen/third_party/WebKit/public/platform/modules/bluetooth/web_bluetooth.mojom.js $
+    gen/third_party/WebKit/public/platform/modules/geolocation/geolocation.mojom.cc $
+    gen/third_party/WebKit/public/platform/modules/geolocation/geolocation.mojom.h $
+    gen/third_party/WebKit/public/platform/modules/geolocation/geolocation.mojom-internal.h $
+    gen/third_party/WebKit/public/platform/modules/geolocation/geolocation.mojom.js $
+    gen/third_party/WebKit/public/platform/modules/notifications/notification.mojom.cc $
+    gen/third_party/WebKit/public/platform/modules/notifications/notification.mojom.h $
+    gen/third_party/WebKit/public/platform/modules/notifications/notification.mojom-internal.h $
+    gen/third_party/WebKit/public/platform/modules/notifications/notification.mojom.js $
+    gen/third_party/WebKit/public/platform/modules/permissions/permission.mojom.cc $
+    gen/third_party/WebKit/public/platform/modules/permissions/permission.mojom.h $
+    gen/third_party/WebKit/public/platform/modules/permissions/permission.mojom-internal.h $
+    gen/third_party/WebKit/public/platform/modules/permissions/permission.mojom.js $
+    gen/third_party/WebKit/public/platform/modules/permissions/permission_status.mojom.cc $
+    gen/third_party/WebKit/public/platform/modules/permissions/permission_status.mojom.h $
+    gen/third_party/WebKit/public/platform/modules/permissions/permission_status.mojom-internal.h $
+    gen/third_party/WebKit/public/platform/modules/permissions/permission_status.mojom.js
+

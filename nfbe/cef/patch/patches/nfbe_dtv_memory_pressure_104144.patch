@@ -1,0 +1,279 @@
+diff --git content/browser/renderer_host/render_process_host_impl.cc content/browser/renderer_host/render_process_host_impl.cc
+index 1e4fd71..8036056 100644
+--- content/browser/renderer_host/render_process_host_impl.cc
++++ content/browser/renderer_host/render_process_host_impl.cc
+@@ -1615,6 +1615,7 @@ void RenderProcessHostImpl::PropagateBrowserCommandLineToRenderer(
+ #if defined(OS_CHROMEOS)
+     switches::kDisableVaapiAcceleratedVideoEncode,
+ #endif
++    switches::kMemoryPressureThresholdsMb,
+   };
+   renderer_cmd->CopySwitchesFrom(browser_cmd, kSwitchNames,
+                                  arraysize(kSwitchNames));
+diff --git content/content_renderer.gypi content/content_renderer.gypi
+index 1dfdb8f..d4d99bf 100644
+--- content/content_renderer.gypi
++++ content/content_renderer.gypi
+@@ -9,6 +9,7 @@
+     '../cc/cc.gyp:cc',
+     '../cc/cc.gyp:cc_proto',
+     '../cc/blink/cc_blink.gyp:cc_blink',
++    '../components/components.gyp:memory_pressure',
+     '../components/scheduler/scheduler.gyp:scheduler',
+     '../components/url_formatter/url_formatter.gyp:url_formatter',
+     '../device/battery/battery.gyp:device_battery',
+diff --git content/public/common/content_switches.cc content/public/common/content_switches.cc
+index 79a4561b..fcf5300 100644
+--- content/public/common/content_switches.cc
++++ content/public/common/content_switches.cc
+@@ -1026,17 +1026,17 @@ const char kEnableAcceleratedVpxDecode[] = "enable-accelerated-vpx-decode";
+ // This switch allows us to pass the shared memory handle to the renderer.
+ const char kFontCacheSharedHandle[] = "font-cache-shared-handle";
+ 
++// Enables the exporting of the tracing events to ETW. This is only supported on
++// Windows Vista and later.
++const char kTraceExportEventsToETW[] = "trace-export-events-to-etw";
++#endif
++
+ // Sets the free memory thresholds below which the system is considered to be
+ // under moderate and critical memory pressure. Used in the browser process,
+ // and ignored if invalid. Specified as a pair of comma separated integers.
+ // See base/win/memory_pressure_monitor.cc for defaults.
+ const char kMemoryPressureThresholdsMb[] = "memory-pressure-thresholds-mb";
+ 
+-// Enables the exporting of the tracing events to ETW. This is only supported on
+-// Windows Vista and later.
+-const char kTraceExportEventsToETW[] = "trace-export-events-to-etw";
+-#endif
+-
+ // Don't dump stuff here, follow the same order as the header.
+ 
+ }  // namespace switches
+diff --git content/public/common/content_switches.h content/public/common/content_switches.h
+index 01c5aa1..1f22eb3 100644
+--- content/public/common/content_switches.h
++++ content/public/common/content_switches.h
+@@ -298,10 +298,11 @@ CONTENT_EXPORT extern const char kEnableWin32kLockDownMimeTypes[];
+ CONTENT_EXPORT extern const char kEnableAcceleratedVpxDecode[];
+ // Switch to pass the font cache shared memory handle to the renderer.
+ CONTENT_EXPORT extern const char kFontCacheSharedHandle[];
+-CONTENT_EXPORT extern const char kMemoryPressureThresholdsMb[];
+ CONTENT_EXPORT extern const char kTraceExportEventsToETW[];
+ #endif
+ 
++CONTENT_EXPORT extern const char kMemoryPressureThresholdsMb[];
++
+ // DON'T ADD RANDOM STUFF HERE. Put it in the main section above in
+ // alphabetical order, or in one of the ifdefs (also in order in each section).
+ 
+diff --git content/renderer/render_thread_impl.cc content/renderer/render_thread_impl.cc
+index 9d5d1f3..f8235d2 100644
+--- content/renderer/render_thread_impl.cc
++++ content/renderer/render_thread_impl.cc
+@@ -808,7 +808,7 @@ void RenderThreadImpl::Init(
+   }
+ #endif
+ 
+-  memory_pressure_listener_.reset(new base::MemoryPressureListener(
++  memory_pressure_listener_.reset(new memory_pressure::MemoryPressureListener(
+       base::Bind(&RenderThreadImpl::OnMemoryPressure, base::Unretained(this))));
+ 
+   int num_raster_threads = 0;
+@@ -1985,7 +1985,7 @@ void RenderThreadImpl::OnCreateNewSharedWorker(
+ }
+ 
+ void RenderThreadImpl::OnMemoryPressure(
+-    base::MemoryPressureListener::MemoryPressureLevel memory_pressure_level) {
++    memory_pressure::MemoryPressureListener::MemoryPressureLevel memory_pressure_level) {
+   ReleaseFreeMemory();
+ 
+   // Do not call into blink if it is not initialized.
+@@ -2007,7 +2007,7 @@ void RenderThreadImpl::OnMemoryPressure(
+     }
+ 
+     if (memory_pressure_level ==
+-        base::MemoryPressureListener::MEMORY_PRESSURE_LEVEL_CRITICAL) {
++        memory_pressure::MemoryPressureListener::MEMORY_PRESSURE_LEVEL_CRITICAL) {
+       // Purge Skia font cache, by setting it to 0 and then again to the
+       // previous limit.
+       size_t font_cache_limit = SkGraphics::SetFontCacheLimit(0);
+diff --git content/renderer/render_thread_impl.h content/renderer/render_thread_impl.h
+index 66c4049..1efe151 100644
+--- content/renderer/render_thread_impl.h
++++ content/renderer/render_thread_impl.h
+@@ -14,7 +14,6 @@
+ 
+ #include "base/cancelable_callback.h"
+ #include "base/macros.h"
+-#include "base/memory/memory_pressure_listener.h"
+ #include "base/memory/ref_counted.h"
+ #include "base/metrics/user_metrics_action.h"
+ #include "base/observer_list.h"
+@@ -22,6 +21,7 @@
+ #include "base/threading/thread_checker.h"
+ #include "base/timer/timer.h"
+ #include "build/build_config.h"
++#include "components/memory_pressure/memory_pressure_listener.h"
+ #include "content/child/child_thread_impl.h"
+ #include "content/common/content_export.h"
+ #include "content/common/frame_replication_state.h"
+@@ -515,7 +515,7 @@ class CONTENT_EXPORT RenderThreadImpl
+   void OnGetAccessibilityTree();
+   void OnUpdateTimezone(const std::string& zoneId);
+   void OnMemoryPressure(
+-      base::MemoryPressureListener::MemoryPressureLevel memory_pressure_level);
++      memory_pressure::MemoryPressureListener::MemoryPressureLevel memory_pressure_level);
+ #if defined(OS_ANDROID)
+   void OnSetWebKitSharedTimersSuspended(bool suspend);
+ #endif
+@@ -664,7 +664,7 @@ class CONTENT_EXPORT RenderThreadImpl
+ 
+   HistogramCustomizer histogram_customizer_;
+ 
+-  scoped_ptr<base::MemoryPressureListener> memory_pressure_listener_;
++  scoped_ptr<memory_pressure::MemoryPressureListener> memory_pressure_listener_;
+ 
+ #if defined(ENABLE_WEBRTC)
+   scoped_ptr<WebRTCIdentityService> webrtc_identity_service_;
+diff --git content/renderer/renderer_main.cc content/renderer/renderer_main.cc
+index 661319b..fe82ca2 100644
+--- content/renderer/renderer_main.cc
++++ content/renderer/renderer_main.cc
+@@ -16,13 +16,21 @@
+ #include "base/metrics/histogram_macros.h"
+ #include "base/metrics/statistics_recorder.h"
+ #include "base/pending_task.h"
++#include "base/strings/string_number_conversions.h"
++#include "base/strings/string_split.h"
+ #include "base/strings/string_util.h"
+ #include "base/sys_info.h"
++#include "base/thread_task_runner_handle.h"
+ #include "base/threading/platform_thread.h"
++#include "base/time/default_tick_clock.h"
+ #include "base/timer/hi_res_timer_manager.h"
+ #include "base/trace_event/trace_event.h"
+ #include "build/build_config.h"
+ #include "components/scheduler/renderer/renderer_scheduler.h"
++#include "components/memory_pressure/direct_memory_pressure_calculator_linux.h"
++#include "components/memory_pressure/memory_pressure_listener.h"
++#include "components/memory_pressure/memory_pressure_monitor.h"
++#include "components/memory_pressure/memory_pressure_stats_collector.h"
+ #include "content/child/child_process.h"
+ #include "content/common/content_constants_internal.h"
+ #include "content/common/mojo/mojo_shell_connection_impl.h"
+@@ -79,6 +87,59 @@ base::LazyInstance<scoped_ptr<ui::ClientNativePixmapFactory>> g_pixmap_factory =
+     LAZY_INSTANCE_INITIALIZER;
+ #endif
+ 
++// MemoryPressureFixer doesn't use FilteredMemoryPressureCalculator class.
++// Because it doesn't contribute to the memory usage reduction, rather just
++// wastes the CPU resource in the order of a few handred milliseconds.
++class MemoryPressureFixer final {
++ public:
++  static MemoryPressureFixer* Create(
++      const base::CommandLine& parsed_command_line) {
++    // The following code was copied from CreateWinMemoryPressureMonitor() in
++    // content/browser/browser_main_loop.cc.
++    std::vector<std::string> thresholds = base::SplitString(
++        parsed_command_line.GetSwitchValueASCII(
++            switches::kMemoryPressureThresholdsMb),
++        ",", base::TRIM_WHITESPACE, base::SPLIT_WANT_ALL);
++    int moderate_threshold_mb = 0;
++    int critical_threshold_mb = 0;
++    if (thresholds.size() == 2 &&
++        base::StringToInt(thresholds[0], &moderate_threshold_mb) &&
++        base::StringToInt(thresholds[1], &critical_threshold_mb) &&
++        moderate_threshold_mb >= critical_threshold_mb &&
++        critical_threshold_mb >= 0) {
++      return new MemoryPressureFixer(
++          moderate_threshold_mb, critical_threshold_mb);
++    }
++    return nullptr;
++  }
++
++  ~MemoryPressureFixer() = default;
++
++ private:
++  using MemoryPressureMonitor = memory_pressure::MemoryPressureMonitor;
++  using MemoryPressureListener = memory_pressure::MemoryPressureListener;
++
++  static void NotifyMemoryPressure(
++      MemoryPressureListener::MemoryPressureLevel memory_pressure_level) {
++    LOG(INFO) << "MemoryPressureFixer: level: " << memory_pressure_level;
++    MemoryPressureListener::NotifyMemoryPressure(memory_pressure_level);
++  }
++
++  MemoryPressureFixer(int moderator_threshold_mb, int critical_threshold_mb)
++      : stats_collector_(&tick_clock_),
++        direct_calculator_(moderator_threshold_mb, critical_threshold_mb) {
++    monitor_.reset(new MemoryPressureMonitor(
++        base::ThreadTaskRunnerHandle::Get(), &tick_clock_, &stats_collector_,
++        &direct_calculator_, base::Bind(&NotifyMemoryPressure)));
++  }
++
++  base::DefaultTickClock tick_clock_;
++  memory_pressure::MemoryPressureStatsCollector stats_collector_;
++  memory_pressure::DirectMemoryPressureCalculator direct_calculator_;
++  scoped_ptr<MemoryPressureMonitor> monitor_;
++
++};
++
+ }  // namespace
+ 
+ // mainline routine for running as the Renderer process
+@@ -211,6 +272,8 @@ int RendererMain(const MainFunctionParams& parameters) {
+     base::HighResolutionTimerManager hi_res_timer_manager;
+ 
+     if (run_loop) {
++      scoped_ptr<MemoryPressureFixer> memory_pressure_fixer(
++          MemoryPressureFixer::Create(parsed_command_line));
+ #if defined(OS_MACOSX)
+       if (pool)
+         pool->Recycle();
+diff --git third_party/WebKit/Source/platform/heap/ThreadState.cpp third_party/WebKit/Source/platform/heap/ThreadState.cpp
+index 2e3bd22..2581b71 100644
+--- third_party/WebKit/Source/platform/heap/ThreadState.cpp
++++ third_party/WebKit/Source/platform/heap/ThreadState.cpp
+@@ -30,6 +30,7 @@
+ 
+ #include "platform/heap/ThreadState.h"
+ 
++#include "base/sys_info.h"
+ #include "platform/Histogram.h"
+ #include "platform/ScriptForbiddenScope.h"
+ #include "platform/TraceEvent.h"
+@@ -565,6 +566,13 @@ bool ThreadState::judgeGCThreshold(size_t totalMemorySizeThreshold, double heapG
+     // If the allocated object size or the total memory size is small, don't trigger a GC.
+     if (Heap::heapStats().allocatedObjectSize() < 100 * 1024 || totalMemorySize() < totalMemorySizeThreshold)
+         return false;
++    // If current available physical memory size is less than 100MB, do trigger a GC.
++    int avail_mb = base::SysInfo::AmountOfAvailablePhysicalMemory() / (1024 * 1024);  // floored
++#if PRINT_HEAP_STATS
++    dataLogF("availablePhysicalMemory=%dMB\n", avail_mb);
++#endif
++    if (avail_mb < 100)
++        return true;
+     // If the growing rate of Oilpan's heap or PartitionAlloc is high enough,
+     // trigger a GC.
+ #if PRINT_HEAP_STATS
+@@ -649,6 +657,7 @@ void ThreadState::scheduleV8FollowupGCIfNeeded(BlinkGC::V8GCType gcType)
+ 
+ void ThreadState::willStartV8GC(BlinkGC::V8GCType gcType)
+ {
++#if 0  // NFBE
+     // Finish Oilpan's complete sweeping before running a V8 major GC.
+     // This will let the GC collect more V8 objects.
+     //
+@@ -658,6 +667,12 @@ void ThreadState::willStartV8GC(BlinkGC::V8GCType gcType)
+     // the major GC requests object grouping.
+     if (gcType == BlinkGC::V8MajorGC)
+         completeSweep();
++#else
++    // Sweep garbage in Blink GC heap regardless V8 GC type in order to break
++    // relations between DOM objects and V8 objects.  It is expected to increase
++    // the collection rates of V8 GC and Blink GC.
++    completeSweep();
++#endif
+ }
+ 
+ void ThreadState::schedulePageNavigationGCIfNeeded(float estimatedRemovalRatio)

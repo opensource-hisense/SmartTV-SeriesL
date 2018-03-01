@@ -1,0 +1,25 @@
+rule $
+    devtools_protocol_constants_target_devtools_protocol_constants_5e9a71536f2f819a43bb4ba155d756ee
+  command = cd ../../chrome/browser/devtools; python $
+      devtools_protocol_constants_generator.py chrome $
+      ../../../out.cef/Release/gen/chrome/browser/devtools/devtools_protocol_constants.cc $
+      ../../../out.cef/Release/gen/chrome/browser/devtools/devtools_protocol_constants.h $
+      ../../../third_party/WebKit/Source/devtools/protocol.json $
+      ../../../content/browser/devtools/browser_protocol.json
+  description = ACTION Generating DevTools protocol constants from $
+      ../../../third_party/WebKit/Source/devtools/protocol.json and $
+      ../../../content/browser/devtools/browser_protocol.json
+  restat = 1
+
+build gen/chrome/browser/devtools/devtools_protocol_constants.cc $
+    gen/chrome/browser/devtools/devtools_protocol_constants.h: $
+    devtools_protocol_constants_target_devtools_protocol_constants_5e9a71536f2f819a43bb4ba155d756ee $
+    ../../third_party/WebKit/Source/devtools/protocol.json $
+    ../../content/browser/devtools/browser_protocol.json $
+    ../../chrome/browser/devtools/devtools_protocol_constants_generator.py
+
+build $
+    obj/chrome/browser/devtools/devtools_protocol_constants.actions_rules_copies.stamp: $
+    stamp gen/chrome/browser/devtools/devtools_protocol_constants.cc $
+    gen/chrome/browser/devtools/devtools_protocol_constants.h
+

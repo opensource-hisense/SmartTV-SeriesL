@@ -1,0 +1,16 @@
+rule $
+    generate_version_info_target_generation_version_info_0aabb29e5a6fcbcb9dcbf334f95ed85b
+  command = cd ../../components; python ../build/util/version.py -f $
+      ../chrome/VERSION -f ../chrome/app/theme/chromium/BRANDING -f $
+      ../build/util/LASTCHANGE version_info/version_info_values.h.version $
+      ../out.cef/Release/gen/components/version_info/version_info_values.h
+  description = ACTION Generating version information
+  restat = 1
+
+build gen/components/version_info/version_info_values.h: $
+    generate_version_info_target_generation_version_info_0aabb29e5a6fcbcb9dcbf334f95ed85b $
+    ../../build/util/version.py $
+    ../../components/version_info/version_info_values.h.version $
+    ../../chrome/VERSION ../../chrome/app/theme/chromium/BRANDING $
+    ../../build/util/LASTCHANGE
+

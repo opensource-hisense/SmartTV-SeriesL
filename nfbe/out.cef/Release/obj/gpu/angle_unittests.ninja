@@ -1,0 +1,408 @@
+build obj/gpu/angle_unittests.actions_depends.stamp: stamp $
+    lib/libbase.so.TOC obj/base/libtest_support_base.a $
+    obj/third_party/angle/src/libANGLE.a $
+    obj/third_party/angle/src/libpreprocessor.a $
+    obj/third_party/angle/src/libtranslator_static.a $
+    obj/third_party/angle/src/tests/angle_test_support.actions_depends.stamp $
+    obj/base/libbase_static.a obj/base/libbase_i18n.a $
+    obj/base/third_party/dynamic_annotations/libdynamic_annotations.a $
+    obj/third_party/icu/libicui18n.a obj/third_party/icu/libicuuc.a $
+    icudtl.dat icudtl.dat obj/testing/libgmock.a obj/testing/libgtest.a $
+    obj/third_party/libxml/libxml2.a obj/third_party/zlib/libchrome_zlib.a $
+    obj/third_party/zlib/libzlib_x86_simd.a $
+    obj/third_party/angle/src/libtranslator_lib.a $
+    obj/third_party/angle/src/libangle_common.a gen/angle/id/commit.h $
+    obj/third_party/angle/src/copy_scripts.actions_rules_copies.stamp
+
+build obj/gpu/angle_unittests.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    gen/angle/id/commit.h obj/base/base.compile_depends.stamp icudtl.dat $
+    icudtl.dat icudtl.dat gen/angle/id/commit.h $
+    obj/third_party/angle/src/copy_scripts.actions_rules_copies.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DGTEST_HAS_POSIX_RE=0 $
+    -DGTEST_LANG_CXX11=0 -DGL_GLEXT_PROTOTYPES $
+    '-DANGLE_PRELOADED_D3DCOMPILER_MODULE_NAMES={ "d3dcompiler_47.dll", $
+    "d3dcompiler_46.dll", "d3dcompiler_43.dll" }' $
+    '-DGL_APICALL=__attribute__((visibility("default")))' $
+    '-DEGLAPI=__attribute__((visibility("default")))' $
+    -DANGLE_TRANSLATOR_STATIC -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS $
+    -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../third_party/angle/include $
+    -I../../third_party/angle/src -Igen/angle -I../../testing/gmock/include $
+    -I../../testing/gtest/include
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/gpu/angle_unittests.angle_unittest_main.o: cxx $
+    ../../gpu/angle_unittest_main.cc || $
+    obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/common/angle_unittests.BitSetIterator_unittest.o: $
+    cxx ../../third_party/angle/src/common/BitSetIterator_unittest.cpp || $
+    obj/gpu/angle_unittests.compile_depends.stamp
+build obj/third_party/angle/src/common/angle_unittests.Optional_unittest.o: $
+    cxx ../../third_party/angle/src/common/Optional_unittest.cpp || $
+    obj/gpu/angle_unittests.compile_depends.stamp
+build obj/third_party/angle/src/common/angle_unittests.mathutil_unittest.o: $
+    cxx ../../third_party/angle/src/common/mathutil_unittest.cpp || $
+    obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/common/angle_unittests.matrix_utils_unittest.o: $
+    cxx ../../third_party/angle/src/common/matrix_utils_unittest.cpp || $
+    obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/common/angle_unittests.string_utils_unittest.o: $
+    cxx ../../third_party/angle/src/common/string_utils_unittest.cpp || $
+    obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/common/angle_unittests.utilities_unittest.o: $
+    cxx ../../third_party/angle/src/common/utilities_unittest.cpp || $
+    obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/libANGLE/angle_unittests.BinaryStream_unittest.o: $
+    cxx ../../third_party/angle/src/libANGLE/BinaryStream_unittest.cpp || $
+    obj/gpu/angle_unittests.compile_depends.stamp
+build obj/third_party/angle/src/libANGLE/angle_unittests.Config_unittest.o: $
+    cxx ../../third_party/angle/src/libANGLE/Config_unittest.cpp || $
+    obj/gpu/angle_unittests.compile_depends.stamp
+build obj/third_party/angle/src/libANGLE/angle_unittests.Fence_unittest.o: $
+    cxx ../../third_party/angle/src/libANGLE/Fence_unittest.cpp || $
+    obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/libANGLE/angle_unittests.HandleAllocator_unittest.o: $
+    cxx ../../third_party/angle/src/libANGLE/HandleAllocator_unittest.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build obj/third_party/angle/src/libANGLE/angle_unittests.Image_unittest.o: $
+    cxx ../../third_party/angle/src/libANGLE/Image_unittest.cpp || $
+    obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/libANGLE/angle_unittests.ImageIndexIterator_unittest.o: $
+    cxx $
+    ../../third_party/angle/src/libANGLE/ImageIndexIterator_unittest.cpp || $
+    obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/libANGLE/angle_unittests.Program_unittest.o: $
+    cxx ../../third_party/angle/src/libANGLE/Program_unittest.cpp || $
+    obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/libANGLE/angle_unittests.ResourceManager_unittest.o: $
+    cxx ../../third_party/angle/src/libANGLE/ResourceManager_unittest.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/libANGLE/angle_unittests.Surface_unittest.o: $
+    cxx ../../third_party/angle/src/libANGLE/Surface_unittest.cpp || $
+    obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/libANGLE/angle_unittests.TransformFeedback_unittest.o: $
+    cxx ../../third_party/angle/src/libANGLE/TransformFeedback_unittest.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/libANGLE/angle_unittests.validationES_unittest.o: $
+    cxx ../../third_party/angle/src/libANGLE/validationES_unittest.cpp || $
+    obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.API_test.o: $
+    cxx ../../third_party/angle/src/tests/compiler_tests/API_test.cpp || $
+    obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.BuiltInFunctionEmulator_test.o: $
+    cxx $
+    ../../third_party/angle/src/tests/compiler_tests/BuiltInFunctionEmulator_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.CollectVariables_test.o: $
+    cxx $
+    ../../third_party/angle/src/tests/compiler_tests/CollectVariables_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.ConstantFolding_test.o: $
+    cxx $
+    ../../third_party/angle/src/tests/compiler_tests/ConstantFolding_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.DebugShaderPrecision_test.o: $
+    cxx $
+    ../../third_party/angle/src/tests/compiler_tests/DebugShaderPrecision_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.ExpressionLimit_test.o: $
+    cxx $
+    ../../third_party/angle/src/tests/compiler_tests/ExpressionLimit_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.EXT_blend_func_extended_test.o: $
+    cxx $
+    ../../third_party/angle/src/tests/compiler_tests/EXT_blend_func_extended_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.FragDepth_test.o: $
+    cxx ../../third_party/angle/src/tests/compiler_tests/FragDepth_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.GLSLCompatibilityOutput_test.o: $
+    cxx $
+    ../../third_party/angle/src/tests/compiler_tests/GLSLCompatibilityOutput_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.IntermNode_test.o: $
+    cxx $
+    ../../third_party/angle/src/tests/compiler_tests/IntermNode_test.cpp || $
+    obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.MalformedShader_test.o: $
+    cxx $
+    ../../third_party/angle/src/tests/compiler_tests/MalformedShader_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.NV_draw_buffers_test.o: $
+    cxx $
+    ../../third_party/angle/src/tests/compiler_tests/NV_draw_buffers_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.Pack_Unpack_test.o: $
+    cxx $
+    ../../third_party/angle/src/tests/compiler_tests/Pack_Unpack_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.PruneUnusedFunctions_test.o: $
+    cxx $
+    ../../third_party/angle/src/tests/compiler_tests/PruneUnusedFunctions_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.RecordConstantPrecision_test.o: $
+    cxx $
+    ../../third_party/angle/src/tests/compiler_tests/RecordConstantPrecision_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.RemovePow_test.o: $
+    cxx ../../third_party/angle/src/tests/compiler_tests/RemovePow_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.ShaderExtension_test.o: $
+    cxx $
+    ../../third_party/angle/src/tests/compiler_tests/ShaderExtension_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.ShaderVariable_test.o: $
+    cxx $
+    ../../third_party/angle/src/tests/compiler_tests/ShaderVariable_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.ShCompile_test.o: $
+    cxx ../../third_party/angle/src/tests/compiler_tests/ShCompile_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.TypeTracking_test.o: $
+    cxx $
+    ../../third_party/angle/src/tests/compiler_tests/TypeTracking_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.VariablePacker_test.o: $
+    cxx $
+    ../../third_party/angle/src/tests/compiler_tests/VariablePacker_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.char_test.o: $
+    cxx ../../third_party/angle/src/tests/preprocessor_tests/char_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.comment_test.o: $
+    cxx $
+    ../../third_party/angle/src/tests/preprocessor_tests/comment_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.define_test.o: $
+    cxx $
+    ../../third_party/angle/src/tests/preprocessor_tests/define_test.cpp || $
+    obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.error_test.o: $
+    cxx ../../third_party/angle/src/tests/preprocessor_tests/error_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.extension_test.o: $
+    cxx $
+    ../../third_party/angle/src/tests/preprocessor_tests/extension_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.identifier_test.o: $
+    cxx $
+    ../../third_party/angle/src/tests/preprocessor_tests/identifier_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.if_test.o: $
+    cxx ../../third_party/angle/src/tests/preprocessor_tests/if_test.cpp || $
+    obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.input_test.o: $
+    cxx ../../third_party/angle/src/tests/preprocessor_tests/input_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.location_test.o: $
+    cxx $
+    ../../third_party/angle/src/tests/preprocessor_tests/location_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.number_test.o: $
+    cxx $
+    ../../third_party/angle/src/tests/preprocessor_tests/number_test.cpp || $
+    obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.operator_test.o: $
+    cxx $
+    ../../third_party/angle/src/tests/preprocessor_tests/operator_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.pragma_test.o: $
+    cxx $
+    ../../third_party/angle/src/tests/preprocessor_tests/pragma_test.cpp || $
+    obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.PreprocessorTest.o: $
+    cxx $
+    ../../third_party/angle/src/tests/preprocessor_tests/PreprocessorTest.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.space_test.o: $
+    cxx ../../third_party/angle/src/tests/preprocessor_tests/space_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.token_test.o: $
+    cxx ../../third_party/angle/src/tests/preprocessor_tests/token_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.version_test.o: $
+    cxx $
+    ../../third_party/angle/src/tests/preprocessor_tests/version_test.cpp $
+    || obj/gpu/angle_unittests.compile_depends.stamp
+build $
+    obj/third_party/angle/src/tests/test_utils/angle_unittests.compiler_test.o: $
+    cxx ../../third_party/angle/src/tests/test_utils/compiler_test.cpp || $
+    obj/gpu/angle_unittests.compile_depends.stamp
+
+ldflags = -L/work/bsp/sc1400/usr/local/lib -L/work/bsp/sc1400/lib $
+    -L/work/bsp/sc1400/usr/lib -Wl,-z,now -Wl,-z,relro -Wl,-z,defs -pthread $
+    -Wl,-z,noexecstack -fPIC -Wl,--disable-new-dtags $
+    --sysroot=/work/bsp/sc1400 -L/work/bsp/sc1400/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/lib/ -L/work/bsp/sc1400/usr/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/lib/ $
+    -L/work/bsp/sc1400/usr/dtvrec/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/dtvrec/lib/ $
+    -L/work/bsp/sc1400/usr/local/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/local/lib/ $
+    -L/work/bsp/sc1400/usr/local/netfrontbe/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/local/netfrontbe/lib/ -Wl,-O1 $
+    -Wl,--as-needed -Wl,--gc-sections -Wl,-rpath=\$$ORIGIN/lib/ $
+    -Wl,-rpath-link=lib/
+libs =  -lrt -ldl -latomic -lm
+build angle_unittests: link obj/gpu/angle_unittests.angle_unittest_main.o $
+    obj/third_party/angle/src/common/angle_unittests.BitSetIterator_unittest.o $
+    obj/third_party/angle/src/common/angle_unittests.Optional_unittest.o $
+    obj/third_party/angle/src/common/angle_unittests.mathutil_unittest.o $
+    obj/third_party/angle/src/common/angle_unittests.matrix_utils_unittest.o $
+    obj/third_party/angle/src/common/angle_unittests.string_utils_unittest.o $
+    obj/third_party/angle/src/common/angle_unittests.utilities_unittest.o $
+    obj/third_party/angle/src/libANGLE/angle_unittests.BinaryStream_unittest.o $
+    obj/third_party/angle/src/libANGLE/angle_unittests.Config_unittest.o $
+    obj/third_party/angle/src/libANGLE/angle_unittests.Fence_unittest.o $
+    obj/third_party/angle/src/libANGLE/angle_unittests.HandleAllocator_unittest.o $
+    obj/third_party/angle/src/libANGLE/angle_unittests.Image_unittest.o $
+    obj/third_party/angle/src/libANGLE/angle_unittests.ImageIndexIterator_unittest.o $
+    obj/third_party/angle/src/libANGLE/angle_unittests.Program_unittest.o $
+    obj/third_party/angle/src/libANGLE/angle_unittests.ResourceManager_unittest.o $
+    obj/third_party/angle/src/libANGLE/angle_unittests.Surface_unittest.o $
+    obj/third_party/angle/src/libANGLE/angle_unittests.TransformFeedback_unittest.o $
+    obj/third_party/angle/src/libANGLE/angle_unittests.validationES_unittest.o $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.API_test.o $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.BuiltInFunctionEmulator_test.o $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.CollectVariables_test.o $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.ConstantFolding_test.o $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.DebugShaderPrecision_test.o $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.ExpressionLimit_test.o $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.EXT_blend_func_extended_test.o $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.FragDepth_test.o $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.GLSLCompatibilityOutput_test.o $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.IntermNode_test.o $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.MalformedShader_test.o $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.NV_draw_buffers_test.o $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.Pack_Unpack_test.o $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.PruneUnusedFunctions_test.o $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.RecordConstantPrecision_test.o $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.RemovePow_test.o $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.ShaderExtension_test.o $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.ShaderVariable_test.o $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.ShCompile_test.o $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.TypeTracking_test.o $
+    obj/third_party/angle/src/tests/compiler_tests/angle_unittests.VariablePacker_test.o $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.char_test.o $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.comment_test.o $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.define_test.o $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.error_test.o $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.extension_test.o $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.identifier_test.o $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.if_test.o $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.input_test.o $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.location_test.o $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.number_test.o $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.operator_test.o $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.pragma_test.o $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.PreprocessorTest.o $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.space_test.o $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.token_test.o $
+    obj/third_party/angle/src/tests/preprocessor_tests/angle_unittests.version_test.o $
+    obj/third_party/angle/src/tests/test_utils/angle_unittests.compiler_test.o $
+    obj/base/libtest_support_base.a obj/third_party/angle/src/libANGLE.a $
+    obj/third_party/angle/src/libpreprocessor.a $
+    obj/third_party/angle/src/libtranslator_static.a $
+    obj/base/libbase_static.a obj/base/libbase_i18n.a $
+    obj/base/third_party/dynamic_annotations/libdynamic_annotations.a $
+    obj/third_party/icu/libicui18n.a obj/third_party/icu/libicuuc.a $
+    obj/testing/libgmock.a obj/testing/libgtest.a $
+    obj/third_party/libxml/libxml2.a obj/third_party/zlib/libchrome_zlib.a $
+    obj/third_party/zlib/libzlib_x86_simd.a $
+    obj/third_party/angle/src/libtranslator_lib.a $
+    obj/third_party/angle/src/libangle_common.a | gen/angle/id/commit.h $
+    icudtl.dat lib/libbase.so.TOC $
+    obj/third_party/angle/src/copy_scripts.actions_rules_copies.stamp $
+    obj/third_party/angle/src/tests/angle_test_support.actions_depends.stamp $
+    || obj/gpu/angle_unittests.actions_depends.stamp
+  ld = $ldxx
+  solibs = lib/libbase.so

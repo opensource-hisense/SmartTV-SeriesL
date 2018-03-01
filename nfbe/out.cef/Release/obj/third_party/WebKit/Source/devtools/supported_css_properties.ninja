@@ -1,0 +1,13 @@
+rule $
+    supported_css_properties_target_generateSupportedCSSProperties_20f67e644406678f6d176a237ac485ca
+  command = cd ../../third_party/WebKit/Source/devtools; python $
+      scripts/generate_supported_css.py ../core/css/CSSProperties.in $
+      ../../../../out.cef/Release/resources/inspector/SupportedCSSProperties.js
+  description = ACTION Generating supported CSS properties for front end
+  restat = 1
+
+build resources/inspector/SupportedCSSProperties.js: $
+    supported_css_properties_target_generateSupportedCSSProperties_20f67e644406678f6d176a237ac485ca $
+    ../../third_party/WebKit/Source/devtools/scripts/generate_supported_css.py $
+    ../../third_party/WebKit/Source/core/css/CSSProperties.in
+

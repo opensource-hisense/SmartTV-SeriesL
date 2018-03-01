@@ -1,0 +1,99 @@
+defines = -DOPJ_STATIC -DPNG_PREFIX -DPNG_USE_READ_MACROS $
+    -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -I../.. -I../../third_party/pdfium $
+    -I../../third_party/pdfium/third_party/freetype/include $
+    -I../../third_party/pdfium/third_party/freetype/include/freetype -Igen
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-abi $
+    -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+build obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_Button.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/pdfwindow/PWL_Button.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_Caret.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/pdfwindow/PWL_Caret.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_ComboBox.o: $
+    cxx ../../third_party/pdfium/fpdfsdk/pdfwindow/PWL_ComboBox.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_Edit.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/pdfwindow/PWL_Edit.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_EditCtrl.o: $
+    cxx ../../third_party/pdfium/fpdfsdk/pdfwindow/PWL_EditCtrl.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_FontMap.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/pdfwindow/PWL_FontMap.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_Icon.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/pdfwindow/PWL_Icon.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_IconList.o: $
+    cxx ../../third_party/pdfium/fpdfsdk/pdfwindow/PWL_IconList.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_Label.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/pdfwindow/PWL_Label.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_ListBox.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/pdfwindow/PWL_ListBox.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_ListCtrl.o: $
+    cxx ../../third_party/pdfium/fpdfsdk/pdfwindow/PWL_ListCtrl.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_Note.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/pdfwindow/PWL_Note.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_ScrollBar.o: $
+    cxx ../../third_party/pdfium/fpdfsdk/pdfwindow/PWL_ScrollBar.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_Signature.o: $
+    cxx ../../third_party/pdfium/fpdfsdk/pdfwindow/PWL_Signature.cpp
+build $
+    obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_SpecialButton.o: $
+    cxx ../../third_party/pdfium/fpdfsdk/pdfwindow/PWL_SpecialButton.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_Utils.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/pdfwindow/PWL_Utils.cpp
+build obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_Wnd.o: cxx $
+    ../../third_party/pdfium/fpdfsdk/pdfwindow/PWL_Wnd.cpp
+
+build obj/third_party/pdfium/libpdfwindow.a: alink_thin $
+    obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_Button.o $
+    obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_Caret.o $
+    obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_ComboBox.o $
+    obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_Edit.o $
+    obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_EditCtrl.o $
+    obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_FontMap.o $
+    obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_Icon.o $
+    obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_IconList.o $
+    obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_Label.o $
+    obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_ListBox.o $
+    obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_ListCtrl.o $
+    obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_Note.o $
+    obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_ScrollBar.o $
+    obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_Signature.o $
+    obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_SpecialButton.o $
+    obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_Utils.o $
+    obj/third_party/pdfium/fpdfsdk/pdfwindow/pdfwindow.PWL_Wnd.o

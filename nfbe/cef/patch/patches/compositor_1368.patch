@@ -1,0 +1,82 @@
+diff --git content/browser/compositor/gpu_process_transport_factory.cc content/browser/compositor/gpu_process_transport_factory.cc
+index 9a4ad65..5a6d428 100644
+--- content/browser/compositor/gpu_process_transport_factory.cc
++++ content/browser/compositor/gpu_process_transport_factory.cc
+@@ -130,6 +130,13 @@ GpuProcessTransportFactory::CreateOffscreenCommandBufferContext() {
+ scoped_ptr<cc::SoftwareOutputDevice>
+ GpuProcessTransportFactory::CreateSoftwareOutputDevice(
+     ui::Compositor* compositor) {
++  if (compositor->delegate()) {
++    scoped_ptr<cc::SoftwareOutputDevice> output_device =
++        compositor->delegate()->CreateSoftwareOutputDevice(compositor);
++    if (output_device.get())
++      return output_device;
++  }
++
+ #if defined(MOJO_RUNNER_CLIENT)
+   if (IsRunningInMojoShell()) {
+     return scoped_ptr<cc::SoftwareOutputDevice>(
+diff --git ui/compositor/compositor.h ui/compositor/compositor.h
+index acae0be..90ff7e1 100644
+--- ui/compositor/compositor.h
++++ ui/compositor/compositor.h
+@@ -17,6 +17,7 @@
+ #include "base/single_thread_task_runner.h"
+ #include "base/time/time.h"
+ #include "cc/output/begin_frame_args.h"
++#include "cc/output/software_output_device.h"
+ #include "cc/surfaces/surface_sequence.h"
+ #include "cc/trees/layer_tree_host_client.h"
+ #include "cc/trees/layer_tree_host_single_thread_client.h"
+@@ -152,6 +153,15 @@ class COMPOSITOR_EXPORT CompositorBeginFrameObserver {
+   virtual void OnSendBeginFrame(const cc::BeginFrameArgs& args) = 0;
+ };
+ 
++class COMPOSITOR_EXPORT CompositorDelegate {
++ public:
++  virtual scoped_ptr<cc::SoftwareOutputDevice> CreateSoftwareOutputDevice(
++      ui::Compositor* compositor);
++
++ protected:
++  virtual ~CompositorDelegate() {}
++};
++
+ // Compositor object to take care of GPU painting.
+ // A Browser compositor object is responsible for generating the final
+ // displayable form of pixels comprising a single widget's contents. It draws an
+@@ -172,6 +182,9 @@ class COMPOSITOR_EXPORT Compositor
+   // Schedules a redraw of the layer tree associated with this compositor.
+   void ScheduleDraw();
+ 
++  CompositorDelegate* delegate() const { return delegate_; }
++  void SetDelegate(CompositorDelegate* delegate) { delegate_ = delegate; }
++
+   // Sets the root of the layer tree drawn by this Compositor. The root layer
+   // must have no parent. The compositor's root layer is reset if the root layer
+   // is destroyed. NULL can be passed to reset the root layer, in which case the
+@@ -346,6 +359,8 @@ class COMPOSITOR_EXPORT Compositor
+ 
+   ui::ContextFactory* context_factory_;
+ 
++  CompositorDelegate* delegate_ = nullptr;
++
+   // The root of the Layer tree drawn by this compositor.
+   Layer* root_layer_;
+ 
+diff --git ui/compositor/compositor.cc ui/compositor/compositor.cc
+index 9c49269..9aeb982 100644
+--- ui/compositor/compositor.cc
++++ ui/compositor/compositor.cc
+@@ -70,6 +70,12 @@ void CompositorLock::CancelLock() {
+   compositor_ = NULL;
+ }
+ 
++scoped_ptr<cc::SoftwareOutputDevice> CompositorDelegate::
++                                         CreateSoftwareOutputDevice(
++    ui::Compositor* compositor) {
++  return scoped_ptr<cc::SoftwareOutputDevice>();
++}
++
+ Compositor::Compositor(ui::ContextFactory* context_factory,
+                        scoped_refptr<base::SingleThreadTaskRunner> task_runner)
+     : context_factory_(context_factory),

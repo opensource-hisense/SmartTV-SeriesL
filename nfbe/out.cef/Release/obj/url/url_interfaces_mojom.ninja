@@ -1,0 +1,74 @@
+build obj/url/url_interfaces_mojom.actions_depends.stamp: stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    lib/libbase.so.TOC $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp
+
+build obj/url/url_interfaces_mojom.compile_depends.stamp: stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp
+
+rule $
+    url_interfaces_mojom_target_url_interfaces_mojom_mojom_bindings_stamp_9605c9ae4d56c6c767be83267e112b74
+  command = cd ../../url; python ../build/rmdir_and_stamp.py $
+      ../out.cef/Release/java_mojo/url_interfaces_mojom/src $
+      ../out.cef/Release/java_mojo/url_interfaces_mojom/url_interfaces_mojom.stamp
+  description = ACTION url_interfaces_mojom: $
+      url_interfaces_mojom_mojom_bindings_stamp_9605c9ae4d56c6c767be83267e112b74
+  restat = 1
+
+build java_mojo/url_interfaces_mojom/url_interfaces_mojom.stamp: $
+    url_interfaces_mojom_target_url_interfaces_mojom_mojom_bindings_stamp_9605c9ae4d56c6c767be83267e112b74 $
+    ../../url/mojo/origin.mojom ../../url/mojo/url.mojom || $
+    obj/url/url_interfaces_mojom.actions_depends.stamp
+
+rule $
+    url_interfaces_mojom_target_url_interfaces_mojom_mojom_bindings_generator_9605c9ae4d56c6c767be83267e112b74
+  command = cd ../../url; python $
+      ../mojo/public/tools/bindings/mojom_bindings_generator.py $
+      --use_bundled_pylibs generate mojo/origin.mojom mojo/url.mojom -d .. $
+      -I.. -I../mojo/services -I.. -o ../out.cef/Release/gen $
+      "--java_output_directory=../out.cef/Release/java_mojo/url_interfaces_mojom/src" $
+      --variant none -g c++,javascript,java --typemap $
+      ../url/mojo/origin.typemap --typemap ../url/mojo/gurl.typemap $
+      --bytecode_path ../out.cef/Release/gen/mojo/public/tools/bindings
+  description = ACTION Generating Mojo bindings from mojo/origin.mojom $
+      mojo/url.mojom
+  restat = 1
+
+build gen/url/mojo/origin.mojom.cc gen/url/mojo/origin.mojom.h $
+    gen/url/mojo/origin.mojom-internal.h gen/url/mojo/origin.mojom.js $
+    gen/url/mojo/url.mojom.cc gen/url/mojo/url.mojom.h $
+    gen/url/mojo/url.mojom-internal.h gen/url/mojo/url.mojom.js: $
+    url_interfaces_mojom_target_url_interfaces_mojom_mojom_bindings_generator_9605c9ae4d56c6c767be83267e112b74 $
+    ../../mojo/public/tools/bindings/mojom_bindings_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_cpp_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_java_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_js_generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/error.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/data.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/module.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/pack.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/template_expander.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/ast.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/lexer.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/parser.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/translate.py $
+    ../../url/mojo/origin.mojom ../../url/mojo/url.mojom $
+    java_mojo/url_interfaces_mojom/url_interfaces_mojom.stamp $
+    gen/mojo/public/tools/bindings/cpp_templates.zip $
+    gen/mojo/public/tools/bindings/java_templates.zip $
+    gen/mojo/public/tools/bindings/js_templates.zip || $
+    obj/url/url_interfaces_mojom.actions_depends.stamp
+
+build obj/url/url_interfaces_mojom.actions_rules_copies.stamp: stamp $
+    java_mojo/url_interfaces_mojom/url_interfaces_mojom.stamp $
+    gen/url/mojo/origin.mojom.cc gen/url/mojo/origin.mojom.h $
+    gen/url/mojo/origin.mojom-internal.h gen/url/mojo/origin.mojom.js $
+    gen/url/mojo/url.mojom.cc gen/url/mojo/url.mojom.h $
+    gen/url/mojo/url.mojom-internal.h gen/url/mojo/url.mojom.js
+

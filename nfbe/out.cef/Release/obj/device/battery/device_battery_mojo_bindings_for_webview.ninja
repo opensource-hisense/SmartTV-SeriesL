@@ -1,0 +1,32 @@
+rule $
+    device_battery_mojo_bindings_for_webview_target_device_battery_mojo_bindings_dummy_action_55c89df273fc13b978493f83e5329486
+  command = cd ../../device/battery; touch $
+      ../../out.cef/Release/gen/java_mojo/device_battery_mojo_bindings/src/org/chromium/mojom/device/BatteryMonitor.java $
+      ../../out.cef/Release/gen/java_mojo/device_battery_mojo_bindings/src/org/chromium/mojom/device/BatteryMonitor_Internal.java $
+      ../../out.cef/Release/gen/java_mojo/device_battery_mojo_bindings/src/org/chromium/mojom/device/BatteryStatusObserver.java $
+      ../../out.cef/Release/gen/java_mojo/device_battery_mojo_bindings/src/org/chromium/mojom/device/BatteryStatusObserver_Internal.java $
+      ../../out.cef/Release/gen/java_mojo/device_battery_mojo_bindings/src/org/chromium/mojom/device/BatteryStatus.java
+  description = ACTION device_battery_mojo_bindings_for_webview: $
+      device_battery_mojo_bindings_dummy_action_55c89df273fc13b978493f83e5329486
+  restat = 1
+
+build $
+    gen/java_mojo/device_battery_mojo_bindings/src/org/chromium/mojom/device/BatteryMonitor.java $
+    gen/java_mojo/device_battery_mojo_bindings/src/org/chromium/mojom/device/BatteryMonitor_Internal.java $
+    gen/java_mojo/device_battery_mojo_bindings/src/org/chromium/mojom/device/BatteryStatusObserver.java $
+    gen/java_mojo/device_battery_mojo_bindings/src/org/chromium/mojom/device/BatteryStatusObserver_Internal.java $
+    gen/java_mojo/device_battery_mojo_bindings/src/org/chromium/mojom/device/BatteryStatus.java: $
+    device_battery_mojo_bindings_for_webview_target_device_battery_mojo_bindings_dummy_action_55c89df273fc13b978493f83e5329486 $
+    gen/device/battery/battery_monitor.mojom.h $
+    gen/device/battery/battery_status.mojom.h || $
+    obj/device/battery/libdevice_battery_mojo_bindings.a
+
+build $
+    obj/device/battery/device_battery_mojo_bindings_for_webview.actions_rules_copies.stamp: $
+    stamp $
+    gen/java_mojo/device_battery_mojo_bindings/src/org/chromium/mojom/device/BatteryMonitor.java $
+    gen/java_mojo/device_battery_mojo_bindings/src/org/chromium/mojom/device/BatteryMonitor_Internal.java $
+    gen/java_mojo/device_battery_mojo_bindings/src/org/chromium/mojom/device/BatteryStatusObserver.java $
+    gen/java_mojo/device_battery_mojo_bindings/src/org/chromium/mojom/device/BatteryStatusObserver_Internal.java $
+    gen/java_mojo/device_battery_mojo_bindings/src/org/chromium/mojom/device/BatteryStatus.java
+

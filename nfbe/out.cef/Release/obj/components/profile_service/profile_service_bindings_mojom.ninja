@@ -1,0 +1,150 @@
+build $
+    obj/components/profile_service/profile_service_bindings_mojom.actions_depends.stamp: $
+    stamp $
+    obj/components/filesystem/filesystem_bindings_mojom.actions_rules_copies.stamp $
+    obj/components/leveldb/leveldb_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    lib/libbase.so.TOC $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp
+
+build $
+    obj/components/profile_service/profile_service_bindings_mojom.compile_depends.stamp: $
+    stamp $
+    obj/components/filesystem/filesystem_bindings_mojom.actions_rules_copies.stamp $
+    obj/components/leveldb/leveldb_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp
+
+rule $
+    profile_service_bindings_mojom_target_profile_service_bindings_mojom_mojom_bindings_stamp_c460378b4000ddd36adec6408c6a16ab
+  command = cd ../../components/profile_service; python $
+      ../../build/rmdir_and_stamp.py $
+      ../../out.cef/Release/java_mojo/profile_service_bindings_mojom/src $
+      ../../out.cef/Release/java_mojo/profile_service_bindings_mojom/profile_service_bindings_mojom.stamp
+  description = ACTION profile_service_bindings_mojom: $
+      profile_service_bindings_mojom_mojom_bindings_stamp_c460378b4000ddd36adec6408c6a16ab
+  restat = 1
+
+build $
+    java_mojo/profile_service_bindings_mojom/profile_service_bindings_mojom.stamp: $
+    profile_service_bindings_mojom_target_profile_service_bindings_mojom_mojom_bindings_stamp_c460378b4000ddd36adec6408c6a16ab $
+    ../../components/profile_service/public/interfaces/profile.mojom || $
+    obj/components/profile_service/profile_service_bindings_mojom.actions_depends.stamp
+
+rule $
+    profile_service_bindings_mojom_target_profile_service_bindings_mojom_mojom_bindings_generator_c460378b4000ddd36adec6408c6a16ab
+  command = cd ../../components/profile_service; python $
+      ../../mojo/public/tools/bindings/mojom_bindings_generator.py $
+      --use_bundled_pylibs generate public/interfaces/profile.mojom -d $
+      ../.. -I../.. -I../../mojo/services -I../.. -o $
+      ../../out.cef/Release/gen $
+      "--java_output_directory=../../out.cef/Release/java_mojo/profile_service_bindings_mojom/src" $
+      --variant none -g c++,javascript,java --bytecode_path $
+      ../../out.cef/Release/gen/mojo/public/tools/bindings
+  description = ACTION Generating Mojo bindings from $
+      public/interfaces/profile.mojom
+  restat = 1
+
+build gen/components/profile_service/public/interfaces/profile.mojom.cc $
+    gen/components/profile_service/public/interfaces/profile.mojom.h $
+    gen/components/profile_service/public/interfaces/profile.mojom-internal.h $
+    gen/components/profile_service/public/interfaces/profile.mojom.js: $
+    profile_service_bindings_mojom_target_profile_service_bindings_mojom_mojom_bindings_generator_c460378b4000ddd36adec6408c6a16ab $
+    ../../mojo/public/tools/bindings/mojom_bindings_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_cpp_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_java_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_js_generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/error.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/data.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/module.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/pack.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/template_expander.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/ast.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/lexer.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/parser.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/translate.py $
+    ../../components/profile_service/public/interfaces/profile.mojom $
+    java_mojo/profile_service_bindings_mojom/profile_service_bindings_mojom.stamp $
+    gen/mojo/public/tools/bindings/cpp_templates.zip $
+    gen/mojo/public/tools/bindings/java_templates.zip $
+    gen/mojo/public/tools/bindings/js_templates.zip || $
+    obj/components/profile_service/profile_service_bindings_mojom.actions_depends.stamp
+
+build $
+    obj/components/profile_service/profile_service_bindings_mojom.actions_rules_copies.stamp: $
+    stamp $
+    java_mojo/profile_service_bindings_mojom/profile_service_bindings_mojom.stamp $
+    gen/components/profile_service/public/interfaces/profile.mojom.cc $
+    gen/components/profile_service/public/interfaces/profile.mojom.h $
+    gen/components/profile_service/public/interfaces/profile.mojom-internal.h $
+    gen/components/profile_service/public/interfaces/profile.mojom.js
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS $
+    -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../..
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/components/profile_service/gen/components/filesystem/public/interfaces/profile_service_bindings_mojom.directory.mojom.o: $
+    cxx gen/components/filesystem/public/interfaces/directory.mojom.cc || $
+    obj/components/profile_service/profile_service_bindings_mojom.actions_rules_copies.stamp
+build $
+    obj/components/profile_service/gen/components/filesystem/public/interfaces/profile_service_bindings_mojom.file.mojom.o: $
+    cxx gen/components/filesystem/public/interfaces/file.mojom.cc || $
+    obj/components/profile_service/profile_service_bindings_mojom.actions_rules_copies.stamp
+build $
+    obj/components/profile_service/gen/components/filesystem/public/interfaces/profile_service_bindings_mojom.file_system.mojom.o: $
+    cxx gen/components/filesystem/public/interfaces/file_system.mojom.cc || $
+    obj/components/profile_service/profile_service_bindings_mojom.actions_rules_copies.stamp
+build $
+    obj/components/profile_service/gen/components/filesystem/public/interfaces/profile_service_bindings_mojom.types.mojom.o: $
+    cxx gen/components/filesystem/public/interfaces/types.mojom.cc || $
+    obj/components/profile_service/profile_service_bindings_mojom.actions_rules_copies.stamp
+build $
+    obj/components/profile_service/gen/components/leveldb/public/interfaces/profile_service_bindings_mojom.leveldb.mojom.o: $
+    cxx gen/components/leveldb/public/interfaces/leveldb.mojom.cc || $
+    obj/components/profile_service/profile_service_bindings_mojom.actions_rules_copies.stamp
+

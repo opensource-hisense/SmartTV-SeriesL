@@ -1,0 +1,915 @@
+build $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp: $
+    stamp $
+    obj/third_party/WebKit/Source/core/generated_testing_idls.actions_rules_copies.stamp $
+    gen/blink/core/EventInterfaces.in
+
+build $
+    obj/third_party/WebKit/Source/core/make_core_generated.compile_depends.stamp: $
+    stamp $
+    obj/third_party/WebKit/Source/core/generated_testing_idls.actions_rules_copies.stamp $
+    gen/blink/core/EventInterfaces.in
+
+rule $
+    make_core_generated_target_generatePrivateScript_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_private_script_source.py $
+      ../../../../out.cef/Release/gen/blink/core/PrivateScriptSources.h $
+      ../bindings/core/v8/PrivateScriptRunner.js html/HTMLMarqueeElement.js $
+      xml/DocumentXMLTreeViewer.js
+  description = ACTION make_core_generated: $
+      generatePrivateScript_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/PrivateScriptSources.h: $
+    make_core_generated_target_generatePrivateScript_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/WebKit/Source/build/scripts/make_private_script_source.py $
+    ../../third_party/WebKit/Source/bindings/core/v8/PrivateScriptRunner.js $
+    ../../third_party/WebKit/Source/core/html/HTMLMarqueeElement.js $
+    ../../third_party/WebKit/Source/core/xml/DocumentXMLTreeViewer.js || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule $
+    make_core_generated_target_generatePrivateScriptForTesting_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_private_script_source.py --for-testing $
+      ../../../../out.cef/Release/gen/blink/core/PrivateScriptSourcesForTesting.h $
+      testing/PartialPrivateScriptTest.js testing/PrivateScriptTest.js
+  description = ACTION make_core_generated: $
+      generatePrivateScriptForTesting_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/PrivateScriptSourcesForTesting.h: $
+    make_core_generated_target_generatePrivateScriptForTesting_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/WebKit/Source/build/scripts/make_private_script_source.py $
+    ../../third_party/WebKit/Source/core/testing/PartialPrivateScriptTest.js $
+    ../../third_party/WebKit/Source/core/testing/PrivateScriptTest.js || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule $
+    make_core_generated_target_HTMLEntityTable_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      html/parser/create-html-entity-table -o $
+      ../../../../out.cef/Release/gen/blink/core/HTMLEntityTable.cpp $
+      html/parser/HTMLEntityNames.in
+  description = ACTION make_core_generated: $
+      HTMLEntityTable_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/HTMLEntityTable.cpp: $
+    make_core_generated_target_HTMLEntityTable_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/WebKit/Source/core/html/parser/create-html-entity-table $
+    ../../third_party/WebKit/Source/core/html/parser/HTMLEntityNames.in || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule $
+    make_core_generated_target_CSSPropertyNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_css_property_names.py css/CSSProperties.in $
+      --output_dir ../../../../out.cef/Release/gen/blink/core --gperf gperf
+  description = ACTION make_core_generated: $
+      CSSPropertyNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/CSSPropertyNames.cpp $
+    gen/blink/core/CSSPropertyNames.h: $
+    make_core_generated_target_CSSPropertyNames_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/css_properties.py $
+    ../../third_party/WebKit/Source/core/css/CSSProperties.in $
+    ../../third_party/WebKit/Source/build/scripts/make_css_property_names.py $
+    || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule $
+    make_core_generated_target_MediaFeatureNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_media_feature_names.py css/MediaFeatureNames.in $
+      --output_dir ../../../../out.cef/Release/gen/blink/core
+  description = ACTION make_core_generated: $
+      MediaFeatureNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/MediaFeatureNames.cpp $
+    gen/blink/core/MediaFeatureNames.h: $
+    make_core_generated_target_MediaFeatureNames_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_names.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeNames.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeNames.h.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_media_feature_names.py $
+    ../../third_party/WebKit/Source/core/css/MediaFeatureNames.in || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule make_core_generated_target_MediaFeatures_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_media_features.py css/MediaFeatureNames.in $
+      --output_dir ../../../../out.cef/Release/gen/blink/core
+  description = ACTION make_core_generated: $
+      MediaFeatures_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/MediaFeatures.h: $
+    make_core_generated_target_MediaFeatures_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_media_features.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/MediaFeatures.h.tmpl $
+    ../../third_party/WebKit/Source/core/css/MediaFeatureNames.in || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule $
+    make_core_generated_target_MediaTypeNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_names.py css/MediaTypeNames.in --output_dir $
+      ../../../../out.cef/Release/gen/blink/core
+  description = ACTION make_core_generated: $
+      MediaTypeNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/MediaTypeNames.cpp gen/blink/core/MediaTypeNames.h: $
+    make_core_generated_target_MediaTypeNames_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_names.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeNames.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeNames.h.tmpl $
+    ../../third_party/WebKit/Source/core/css/MediaTypeNames.in || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule $
+    make_core_generated_target_CSSTokenizerCodepoints_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_css_tokenizer_codepoints.py --output_dir $
+      ../../../../out.cef/Release/gen/blink/core
+  description = ACTION make_core_generated: $
+      CSSTokenizerCodepoints_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/CSSTokenizerCodepoints.cpp: $
+    make_core_generated_target_CSSTokenizerCodepoints_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/WebKit/Source/build/scripts/make_css_tokenizer_codepoints.py $
+    || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule $
+    make_core_generated_target_StylePropertyShorthand_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_style_shorthands.py css/CSSProperties.in $
+      --output_dir ../../../../out.cef/Release/gen/blink/core
+  description = ACTION make_core_generated: $
+      StylePropertyShorthand_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/StylePropertyShorthand.cpp $
+    gen/blink/core/StylePropertyShorthand.h: $
+    make_core_generated_target_StylePropertyShorthand_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/css_properties.py $
+    ../../third_party/WebKit/Source/core/css/CSSProperties.in $
+    ../../third_party/WebKit/Source/build/scripts/make_style_shorthands.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/StylePropertyShorthand.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/StylePropertyShorthand.h.tmpl $
+    || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule make_core_generated_target_StyleBuilder_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_style_builder.py css/CSSProperties.in $
+      --output_dir ../../../../out.cef/Release/gen/blink/core
+  description = ACTION make_core_generated: $
+      StyleBuilder_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/StyleBuilder.cpp $
+    gen/blink/core/StyleBuilderFunctions.h $
+    gen/blink/core/StyleBuilderFunctions.cpp: $
+    make_core_generated_target_StyleBuilder_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/css_properties.py $
+    ../../third_party/WebKit/Source/core/css/CSSProperties.in $
+    ../../third_party/WebKit/Source/build/scripts/make_style_builder.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/StyleBuilder.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/StyleBuilderFunctions.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/StyleBuilderFunctions.h.tmpl $
+    || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule make_core_generated_target_CSSOMTypes_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_cssom_types.py css/CSSProperties.in $
+      --output_dir ../../../../out.cef/Release/gen/blink/core
+  description = ACTION make_core_generated: $
+      CSSOMTypes_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/CSSOMKeywords.cpp gen/blink/core/CSSOMTypes.cpp: $
+    make_core_generated_target_CSSOMTypes_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/css_properties.py $
+    ../../third_party/WebKit/Source/core/css/CSSProperties.in $
+    ../../third_party/WebKit/Source/build/scripts/make_cssom_types.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/CSSOMKeywords.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/CSSOMTypes.cpp.tmpl $
+    || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule $
+    make_core_generated_target_CSSPropertyMetadata_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_css_property_metadata.py css/CSSProperties.in $
+      --output_dir ../../../../out.cef/Release/gen/blink/core
+  description = ACTION make_core_generated: $
+      CSSPropertyMetadata_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/CSSPropertyMetadata.cpp: $
+    make_core_generated_target_CSSPropertyMetadata_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/css_properties.py $
+    ../../third_party/WebKit/Source/core/css/CSSProperties.in $
+    ../../third_party/WebKit/Source/build/scripts/make_css_property_metadata.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/CSSPropertyMetadata.cpp.tmpl $
+    || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule $
+    make_core_generated_target_CSSValueKeywords_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_css_value_keywords.py css/CSSValueKeywords.in $
+      css/SVGCSSValueKeywords.in --output_dir $
+      ../../../../out.cef/Release/gen/blink/core --gperf gperf
+  description = ACTION make_core_generated: $
+      CSSValueKeywords_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/CSSValueKeywords.cpp $
+    gen/blink/core/CSSValueKeywords.h: $
+    make_core_generated_target_CSSValueKeywords_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_css_value_keywords.py $
+    ../../third_party/WebKit/Source/core/css/CSSValueKeywords.in $
+    ../../third_party/WebKit/Source/core/css/SVGCSSValueKeywords.in || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule $
+    make_core_generated_target_HTMLElementFactory_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_element_factory.py html/HTMLTagNames.in $
+      html/HTMLAttributeNames.in --output_dir $
+      ../../../../out.cef/Release/gen/blink/core
+  description = ACTION make_core_generated: $
+      HTMLElementFactory_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/HTMLElementFactory.cpp $
+    gen/blink/core/HTMLElementFactory.h gen/blink/core/HTMLNames.cpp $
+    gen/blink/core/HTMLNames.h: $
+    make_core_generated_target_HTMLElementFactory_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_qualified_names.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeQualifiedNames.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeQualifiedNames.h.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_element_factory.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/ElementFactory.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/ElementFactory.h.tmpl $
+    ../../third_party/WebKit/Source/core/html/HTMLTagNames.in $
+    ../../third_party/WebKit/Source/core/html/HTMLAttributeNames.in || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule $
+    make_core_generated_target_HTMLElementTypeHelpers_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_element_type_helpers.py html/HTMLTagNames.in $
+      --output_dir ../../../../out.cef/Release/gen/blink/core
+  description = ACTION make_core_generated: $
+      HTMLElementTypeHelpers_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/HTMLElementTypeHelpers.h: $
+    make_core_generated_target_HTMLElementTypeHelpers_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_qualified_names.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeQualifiedNames.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeQualifiedNames.h.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_element_type_helpers.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/ElementTypeHelpers.h.tmpl $
+    ../../third_party/WebKit/Source/core/html/HTMLTagNames.in || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule make_core_generated_target_SVGNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_element_factory.py svg/SVGTagNames.in $
+      svg/SVGAttributeNames.in --output_dir $
+      ../../../../out.cef/Release/gen/blink/core
+  description = ACTION make_core_generated: $
+      SVGNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/SVGElementFactory.cpp $
+    gen/blink/core/SVGElementFactory.h gen/blink/core/SVGNames.cpp $
+    gen/blink/core/SVGNames.h: $
+    make_core_generated_target_SVGNames_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_qualified_names.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeQualifiedNames.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeQualifiedNames.h.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_element_factory.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/ElementFactory.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/ElementFactory.h.tmpl $
+    ../../third_party/WebKit/Source/core/svg/SVGTagNames.in $
+    ../../third_party/WebKit/Source/core/svg/SVGAttributeNames.in || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule $
+    make_core_generated_target_SVGElementTypeHelpers_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_element_type_helpers.py svg/SVGTagNames.in $
+      --output_dir ../../../../out.cef/Release/gen/blink/core
+  description = ACTION make_core_generated: $
+      SVGElementTypeHelpers_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/SVGElementTypeHelpers.h: $
+    make_core_generated_target_SVGElementTypeHelpers_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_qualified_names.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeQualifiedNames.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeQualifiedNames.h.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_element_type_helpers.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/ElementTypeHelpers.h.tmpl $
+    ../../third_party/WebKit/Source/core/svg/SVGTagNames.in || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule make_core_generated_target_EventFactory_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_event_factory.py $
+      ../../../../out.cef/Release/gen/blink/core/EventInterfaces.in $
+      events/EventAliases.in --output_dir $
+      ../../../../out.cef/Release/gen/blink/core
+  description = ACTION make_core_generated: $
+      EventFactory_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/Event.cpp gen/blink/core/EventHeaders.h: $
+    make_core_generated_target_EventFactory_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_event_factory.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/EventFactory.cpp.tmpl $
+    gen/blink/core/EventInterfaces.in $
+    ../../third_party/WebKit/Source/core/events/EventAliases.in || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule make_core_generated_target_EventNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_names.py $
+      ../../../../out.cef/Release/gen/blink/core/EventInterfaces.in $
+      --output_dir ../../../../out.cef/Release/gen/blink/core
+  description = ACTION make_core_generated: $
+      EventNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/EventNames.cpp gen/blink/core/EventNames.h: $
+    make_core_generated_target_EventNames_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_names.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeNames.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeNames.h.tmpl $
+    gen/blink/core/EventInterfaces.in || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule $
+    make_core_generated_target_EventTargetNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_names.py events/EventTargetFactory.in $
+      --output_dir ../../../../out.cef/Release/gen/blink/core
+  description = ACTION make_core_generated: $
+      EventTargetNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/EventTargetNames.cpp $
+    gen/blink/core/EventTargetNames.h: $
+    make_core_generated_target_EventTargetNames_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_names.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeNames.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeNames.h.tmpl $
+    ../../third_party/WebKit/Source/core/events/EventTargetFactory.in || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule make_core_generated_target_MathMLNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_qualified_names.py $
+      html/parser/MathMLTagNames.in html/parser/MathMLAttributeNames.in $
+      --output_dir ../../../../out.cef/Release/gen/blink/core
+  description = ACTION make_core_generated: $
+      MathMLNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/MathMLNames.cpp gen/blink/core/MathMLNames.h: $
+    make_core_generated_target_MathMLNames_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_qualified_names.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeQualifiedNames.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeQualifiedNames.h.tmpl $
+    ../../third_party/WebKit/Source/core/html/parser/MathMLTagNames.in $
+    ../../third_party/WebKit/Source/core/html/parser/MathMLAttributeNames.in $
+    || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule $
+    make_core_generated_target_FetchInitiatorTypeNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_names.py fetch/FetchInitiatorTypeNames.in $
+      --output_dir ../../../../out.cef/Release/gen/blink/core/fetch
+  description = ACTION make_core_generated: $
+      FetchInitiatorTypeNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/fetch/FetchInitiatorTypeNames.cpp $
+    gen/blink/core/fetch/FetchInitiatorTypeNames.h: $
+    make_core_generated_target_FetchInitiatorTypeNames_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_names.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeNames.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeNames.h.tmpl $
+    ../../third_party/WebKit/Source/core/fetch/FetchInitiatorTypeNames.in $
+    || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule $
+    make_core_generated_target_EventTypeNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_names.py events/EventTypeNames.in --output_dir $
+      ../../../../out.cef/Release/gen/blink/core
+  description = ACTION make_core_generated: $
+      EventTypeNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/EventTypeNames.cpp gen/blink/core/EventTypeNames.h: $
+    make_core_generated_target_EventTypeNames_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_names.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeNames.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeNames.h.tmpl $
+    ../../third_party/WebKit/Source/core/events/EventTypeNames.in || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule $
+    make_core_generated_target_HTMLTokenizerNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_names.py html/parser/HTMLTokenizerNames.in $
+      --output_dir ../../../../out.cef/Release/gen/blink/core
+  description = ACTION make_core_generated: $
+      HTMLTokenizerNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/HTMLTokenizerNames.cpp $
+    gen/blink/core/HTMLTokenizerNames.h: $
+    make_core_generated_target_HTMLTokenizerNames_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_names.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeNames.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeNames.h.tmpl $
+    ../../third_party/WebKit/Source/core/html/parser/HTMLTokenizerNames.in $
+    || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule $
+    make_core_generated_target_InputTypeNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_names.py html/forms/InputTypeNames.in $
+      --output_dir ../../../../out.cef/Release/gen/blink/core
+  description = ACTION make_core_generated: $
+      InputTypeNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/InputTypeNames.cpp gen/blink/core/InputTypeNames.h: $
+    make_core_generated_target_InputTypeNames_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_names.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeNames.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeNames.h.tmpl $
+    ../../third_party/WebKit/Source/core/html/forms/InputTypeNames.in || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule make_core_generated_target_XLinkNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_qualified_names.py svg/xlinkattrs.in $
+      --output_dir ../../../../out.cef/Release/gen/blink/core
+  description = ACTION make_core_generated: $
+      XLinkNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/XLinkNames.cpp gen/blink/core/XLinkNames.h: $
+    make_core_generated_target_XLinkNames_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_qualified_names.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeQualifiedNames.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeQualifiedNames.h.tmpl $
+    ../../third_party/WebKit/Source/core/svg/xlinkattrs.in || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule make_core_generated_target_XMLNSNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_qualified_names.py xml/xmlnsattrs.in $
+      --output_dir ../../../../out.cef/Release/gen/blink/core
+  description = ACTION make_core_generated: $
+      XMLNSNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/XMLNSNames.cpp gen/blink/core/XMLNSNames.h: $
+    make_core_generated_target_XMLNSNames_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_qualified_names.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeQualifiedNames.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeQualifiedNames.h.tmpl $
+    ../../third_party/WebKit/Source/core/xml/xmlnsattrs.in || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule make_core_generated_target_XMLNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_qualified_names.py xml/xmlattrs.in --output_dir $
+      ../../../../out.cef/Release/gen/blink/core
+  description = ACTION make_core_generated: $
+      XMLNames_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/XMLNames.cpp gen/blink/core/XMLNames.h: $
+    make_core_generated_target_XMLNames_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_qualified_names.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeQualifiedNames.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeQualifiedNames.h.tmpl $
+    ../../third_party/WebKit/Source/core/xml/xmlattrs.in || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule $
+    make_core_generated_target_MakeTokenMatcherForViewport_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_token_matcher.py $
+      ../core/html/HTMLMetaElement-in.cpp $
+      ../../../../out.cef/Release/gen/blink/core/HTMLMetaElement.cpp
+  description = ACTION make_core_generated: $
+      MakeTokenMatcherForViewport_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/HTMLMetaElement.cpp: $
+    make_core_generated_target_MakeTokenMatcherForViewport_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_token_matcher.py $
+    ../../third_party/WebKit/Source/core/html/HTMLMetaElement-in.cpp || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule $
+    make_core_generated_target_HTMLElementLookupTrie_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_element_lookup_trie.py html/HTMLTagNames.in $
+      --output_dir ../../../../out.cef/Release/gen/blink/core
+  description = ACTION make_core_generated: $
+      HTMLElementLookupTrie_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/HTMLElementLookupTrie.cpp $
+    gen/blink/core/HTMLElementLookupTrie.h: $
+    make_core_generated_target_HTMLElementLookupTrie_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_element_lookup_trie.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/ElementLookupTrie.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/ElementLookupTrie.h.tmpl $
+    ../../third_party/WebKit/Source/core/html/HTMLTagNames.in || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule make_core_generated_target_OriginTrials_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/make_origin_trials.py $
+      ../platform/RuntimeEnabledFeatures.in --output_dir $
+      ../../../../out.cef/Release/gen/blink/core/origin_trials
+  description = ACTION make_core_generated: $
+      OriginTrials_e1ded04c47a6dca5bac907ebcc5f4b89
+  restat = 1
+
+build gen/blink/core/origin_trials/OriginTrials.cpp $
+    gen/blink/core/origin_trials/OriginTrials.h: $
+    make_core_generated_target_OriginTrials_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_origin_trials.py $
+    ../../third_party/WebKit/Source/platform/RuntimeEnabledFeatures.in $
+    ../../third_party/WebKit/Source/build/scripts/templates/OriginTrials.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/OriginTrials.h.tmpl $
+    || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+
+rule make_core_generated_target_bison_e1ded04c47a6dca5bac907ebcc5f4b89
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../build/scripts/rule_bison.py "${source}" $
+      ../../../../out.cef/Release/gen/blink/core bison
+  description = RULE make_core_generated: $
+      bison_e1ded04c47a6dca5bac907ebcc5f4b89 ${source}
+  restat = 1
+
+build gen/blink/core/XPathGrammar.cpp gen/blink/core/XPathGrammar.h: $
+    make_core_generated_target_bison_e1ded04c47a6dca5bac907ebcc5f4b89 $
+    ../../third_party/WebKit/Source/core/xml/XPathGrammar.y || $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_depends.stamp
+  source = xml/XPathGrammar.y
+build $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_rules_copies.stamp: $
+    stamp gen/blink/core/PrivateScriptSources.h $
+    gen/blink/core/PrivateScriptSourcesForTesting.h $
+    gen/blink/core/HTMLEntityTable.cpp gen/blink/core/CSSPropertyNames.cpp $
+    gen/blink/core/CSSPropertyNames.h gen/blink/core/MediaFeatureNames.cpp $
+    gen/blink/core/MediaFeatureNames.h gen/blink/core/MediaFeatures.h $
+    gen/blink/core/MediaTypeNames.cpp gen/blink/core/MediaTypeNames.h $
+    gen/blink/core/CSSTokenizerCodepoints.cpp $
+    gen/blink/core/StylePropertyShorthand.cpp $
+    gen/blink/core/StylePropertyShorthand.h gen/blink/core/StyleBuilder.cpp $
+    gen/blink/core/StyleBuilderFunctions.h $
+    gen/blink/core/StyleBuilderFunctions.cpp $
+    gen/blink/core/CSSOMKeywords.cpp gen/blink/core/CSSOMTypes.cpp $
+    gen/blink/core/CSSPropertyMetadata.cpp $
+    gen/blink/core/CSSValueKeywords.cpp gen/blink/core/CSSValueKeywords.h $
+    gen/blink/core/HTMLElementFactory.cpp $
+    gen/blink/core/HTMLElementFactory.h gen/blink/core/HTMLNames.cpp $
+    gen/blink/core/HTMLNames.h gen/blink/core/HTMLElementTypeHelpers.h $
+    gen/blink/core/SVGElementFactory.cpp gen/blink/core/SVGElementFactory.h $
+    gen/blink/core/SVGNames.cpp gen/blink/core/SVGNames.h $
+    gen/blink/core/SVGElementTypeHelpers.h gen/blink/core/Event.cpp $
+    gen/blink/core/EventHeaders.h gen/blink/core/EventNames.cpp $
+    gen/blink/core/EventNames.h gen/blink/core/EventTargetNames.cpp $
+    gen/blink/core/EventTargetNames.h gen/blink/core/MathMLNames.cpp $
+    gen/blink/core/MathMLNames.h $
+    gen/blink/core/fetch/FetchInitiatorTypeNames.cpp $
+    gen/blink/core/fetch/FetchInitiatorTypeNames.h $
+    gen/blink/core/EventTypeNames.cpp gen/blink/core/EventTypeNames.h $
+    gen/blink/core/HTMLTokenizerNames.cpp $
+    gen/blink/core/HTMLTokenizerNames.h gen/blink/core/InputTypeNames.cpp $
+    gen/blink/core/InputTypeNames.h gen/blink/core/XLinkNames.cpp $
+    gen/blink/core/XLinkNames.h gen/blink/core/XMLNSNames.cpp $
+    gen/blink/core/XMLNSNames.h gen/blink/core/XMLNames.cpp $
+    gen/blink/core/XMLNames.h gen/blink/core/HTMLMetaElement.cpp $
+    gen/blink/core/HTMLElementLookupTrie.cpp $
+    gen/blink/core/HTMLElementLookupTrie.h $
+    gen/blink/core/origin_trials/OriginTrials.cpp $
+    gen/blink/core/origin_trials/OriginTrials.h $
+    gen/blink/core/XPathGrammar.cpp gen/blink/core/XPathGrammar.h
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS $
+    -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../../third_party/WebKit/Source $
+    -I../../third_party/WebKit -Igen/third_party/WebKit
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+

@@ -1,0 +1,47 @@
+config CLK_UNIPHIER
+	bool
+	select CLK
+	select SPL_CLK
+
+menu "Clock drivers for UniPhier SoCs"
+	depends on CLK_UNIPHIER
+
+config CLK_UNIPHIER_MIO
+	bool "Clock driver for UniPhier Media I/O block"
+	default y
+
+config CLK_UNIPHIER_PERI
+	bool "Clock driver for UniPhier Peripheral block"
+	default y
+
+config CLK_UNIPHIER_SLD3
+	bool "Clock driver for UniPhier PH1-sLD3 SoC"
+	depends on ARCH_UNIPHIER_SLD3
+	default y
+
+config CLK_UNIPHIER_LD4
+	bool "Clock driver for UniPhier PH1-LD4 SoC"
+	depends on ARCH_UNIPHIER_LD4
+	default y
+
+config CLK_UNIPHIER_PRO4
+	bool "Clock driver for UniPhier PH1-Pro4 SoC"
+	depends on ARCH_UNIPHIER_PRO4
+	default y
+
+config CLK_UNIPHIER_SLD8
+	bool "Clock driver for UniPhier PH1-sLD8 SoC"
+	depends on ARCH_UNIPHIER_SLD8
+	default y
+
+config CLK_UNIPHIER_PRO5
+	bool "Clock driver for UniPhier PH1-Pro5 SoC"
+	depends on ARCH_UNIPHIER_PRO5
+	default y
+
+config CLK_UNIPHIER_PXS2
+	bool "Clock driver for UniPhier ProXstream2/PH1-LD6b SoC"
+	depends on ARCH_UNIPHIER_PXS2 || ARCH_UNIPHIER_LD6B
+	default y
+
+endmenu

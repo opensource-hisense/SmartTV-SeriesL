@@ -1,0 +1,550 @@
+build $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_impl_generated.actions_depends.stamp: $
+    stamp gen/blink/bindings/scripts/cached_jinja_templates.stamp $
+    obj/third_party/WebKit/Source/bindings/scripts/cached_lex_yacc_tables.actions_rules_copies.stamp $
+    gen/blink/bindings/modules/InterfacesInfoOverall.pickle $
+    obj/third_party/WebKit/Source/bindings/modules/interfaces_info_individual_modules.actions_rules_copies.stamp
+
+build $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_impl_generated.compile_depends.stamp: $
+    stamp gen/blink/bindings/scripts/cached_jinja_templates.stamp $
+    obj/third_party/WebKit/Source/bindings/scripts/cached_lex_yacc_tables.actions_rules_copies.stamp $
+    gen/blink/bindings/modules/InterfacesInfoOverall.pickle $
+    obj/third_party/WebKit/Source/bindings/modules/interfaces_info_individual_modules.actions_rules_copies.stamp
+
+rule $
+    bindings_modules_impl_generated_target_idl_dictionary_8cebaf6a5f137535ea50ee062360b838
+  command = cd ../../third_party/WebKit/Source/bindings/modules/v8; python $
+      ../../scripts/idl_compiler.py --cache-dir $
+      ../../../../../../out.cef/Release/gen/blink/bindings/scripts $
+      --output-dir $
+      ../../../../../../out.cef/Release/gen/blink/bindings/modules/v8 $
+      --impl-output-dir ../../../../../../out.cef/Release/gen/blink/ $
+      --info-dir ../../../../../../out.cef/Release/gen/blink/bindings/ $
+      --target-component modules --write-file-only-if-changed 1 $
+      --generate-impl $
+      ../../../../../../out.cef/third_party/WebKit/Source/bindings/modules/v8/modules_dictionary_idl_files_list.tmp
+  description = ACTION Generating modules IDL dictionary impl classes
+  restat = 1
+
+build gen/blink/bindings/modules/v8/UnionTypesModules.cpp $
+    gen/blink/bindings/modules/v8/UnionTypesModules.h $
+    gen/blink/modules/app_banner/BeforeInstallPromptEventInit.cpp $
+    gen/blink/modules/app_banner/BeforeInstallPromptEventInit.h $
+    gen/blink/modules/background_sync/SyncEventInit.cpp $
+    gen/blink/modules/background_sync/SyncEventInit.h $
+    gen/blink/modules/bluetooth/BluetoothScanFilter.cpp $
+    gen/blink/modules/bluetooth/BluetoothScanFilter.h $
+    gen/blink/modules/bluetooth/RequestDeviceOptions.cpp $
+    gen/blink/modules/bluetooth/RequestDeviceOptions.h $
+    gen/blink/modules/cachestorage/CacheQueryOptions.cpp $
+    gen/blink/modules/cachestorage/CacheQueryOptions.h $
+    gen/blink/modules/canvas2d/Canvas2DContextAttributes.cpp $
+    gen/blink/modules/canvas2d/Canvas2DContextAttributes.h $
+    gen/blink/modules/canvas2d/HitRegionOptions.cpp $
+    gen/blink/modules/canvas2d/HitRegionOptions.h $
+    gen/blink/modules/credentialmanager/CredentialData.cpp $
+    gen/blink/modules/credentialmanager/CredentialData.h $
+    gen/blink/modules/credentialmanager/CredentialRequestOptions.cpp $
+    gen/blink/modules/credentialmanager/CredentialRequestOptions.h $
+    gen/blink/modules/credentialmanager/FederatedCredentialData.cpp $
+    gen/blink/modules/credentialmanager/FederatedCredentialData.h $
+    gen/blink/modules/credentialmanager/FederatedCredentialRequestOptions.cpp $
+    gen/blink/modules/credentialmanager/FederatedCredentialRequestOptions.h $
+    gen/blink/modules/credentialmanager/FormDataOptions.cpp $
+    gen/blink/modules/credentialmanager/FormDataOptions.h $
+    gen/blink/modules/credentialmanager/LocallyStoredCredentialData.cpp $
+    gen/blink/modules/credentialmanager/LocallyStoredCredentialData.h $
+    gen/blink/modules/credentialmanager/PasswordCredentialData.cpp $
+    gen/blink/modules/credentialmanager/PasswordCredentialData.h $
+    gen/blink/modules/device_light/DeviceLightEventInit.cpp $
+    gen/blink/modules/device_light/DeviceLightEventInit.h $
+    gen/blink/modules/encoding/TextDecodeOptions.cpp $
+    gen/blink/modules/encoding/TextDecodeOptions.h $
+    gen/blink/modules/encoding/TextDecoderOptions.cpp $
+    gen/blink/modules/encoding/TextDecoderOptions.h $
+    gen/blink/modules/encryptedmedia/MediaEncryptedEventInit.cpp $
+    gen/blink/modules/encryptedmedia/MediaEncryptedEventInit.h $
+    gen/blink/modules/encryptedmedia/MediaKeyMessageEventInit.cpp $
+    gen/blink/modules/encryptedmedia/MediaKeyMessageEventInit.h $
+    gen/blink/modules/encryptedmedia/MediaKeySystemConfiguration.cpp $
+    gen/blink/modules/encryptedmedia/MediaKeySystemConfiguration.h $
+    gen/blink/modules/encryptedmedia/MediaKeySystemMediaCapability.cpp $
+    gen/blink/modules/encryptedmedia/MediaKeySystemMediaCapability.h $
+    gen/blink/modules/filesystem/FileSystemFlags.cpp $
+    gen/blink/modules/filesystem/FileSystemFlags.h $
+    gen/blink/modules/gamepad/GamepadEventInit.cpp $
+    gen/blink/modules/gamepad/GamepadEventInit.h $
+    gen/blink/modules/geofencing/CircularGeofencingRegionInit.cpp $
+    gen/blink/modules/geofencing/CircularGeofencingRegionInit.h $
+    gen/blink/modules/geolocation/PositionOptions.cpp $
+    gen/blink/modules/geolocation/PositionOptions.h $
+    gen/blink/modules/indexeddb/IDBIndexParameters.cpp $
+    gen/blink/modules/indexeddb/IDBIndexParameters.h $
+    gen/blink/modules/indexeddb/IDBObjectStoreParameters.cpp $
+    gen/blink/modules/indexeddb/IDBObjectStoreParameters.h $
+    gen/blink/modules/indexeddb/IDBVersionChangeEventInit.cpp $
+    gen/blink/modules/indexeddb/IDBVersionChangeEventInit.h $
+    gen/blink/modules/mediarecorder/BlobEventInit.cpp $
+    gen/blink/modules/mediarecorder/BlobEventInit.h $
+    gen/blink/modules/mediarecorder/MediaRecorderOptions.cpp $
+    gen/blink/modules/mediarecorder/MediaRecorderOptions.h $
+    gen/blink/modules/mediasession/MediaMetadataInit.cpp $
+    gen/blink/modules/mediasession/MediaMetadataInit.h $
+    gen/blink/modules/mediastream/ConstrainBooleanParameters.cpp $
+    gen/blink/modules/mediastream/ConstrainBooleanParameters.h $
+    gen/blink/modules/mediastream/ConstrainDOMStringParameters.cpp $
+    gen/blink/modules/mediastream/ConstrainDOMStringParameters.h $
+    gen/blink/modules/mediastream/ConstrainDoubleRange.cpp $
+    gen/blink/modules/mediastream/ConstrainDoubleRange.h $
+    gen/blink/modules/mediastream/ConstrainLongRange.cpp $
+    gen/blink/modules/mediastream/ConstrainLongRange.h $
+    gen/blink/modules/mediastream/DoubleRange.cpp $
+    gen/blink/modules/mediastream/DoubleRange.h $
+    gen/blink/modules/mediastream/LongRange.cpp $
+    gen/blink/modules/mediastream/LongRange.h $
+    gen/blink/modules/mediastream/MediaStreamConstraints.cpp $
+    gen/blink/modules/mediastream/MediaStreamConstraints.h $
+    gen/blink/modules/mediastream/MediaStreamEventInit.cpp $
+    gen/blink/modules/mediastream/MediaStreamEventInit.h $
+    gen/blink/modules/mediastream/MediaTrackConstraintSet.cpp $
+    gen/blink/modules/mediastream/MediaTrackConstraintSet.h $
+    gen/blink/modules/mediastream/RTCAnswerOptions.cpp $
+    gen/blink/modules/mediastream/RTCAnswerOptions.h $
+    gen/blink/modules/mediastream/RTCDTMFToneChangeEventInit.cpp $
+    gen/blink/modules/mediastream/RTCDTMFToneChangeEventInit.h $
+    gen/blink/modules/mediastream/RTCIceCandidateInit.cpp $
+    gen/blink/modules/mediastream/RTCIceCandidateInit.h $
+    gen/blink/modules/mediastream/RTCOfferAnswerOptions.cpp $
+    gen/blink/modules/mediastream/RTCOfferAnswerOptions.h $
+    gen/blink/modules/mediastream/RTCOfferOptions.cpp $
+    gen/blink/modules/mediastream/RTCOfferOptions.h $
+    gen/blink/modules/mediastream/RTCSessionDescriptionInit.cpp $
+    gen/blink/modules/mediastream/RTCSessionDescriptionInit.h $
+    gen/blink/modules/nfc/NFCMessage.cpp gen/blink/modules/nfc/NFCMessage.h $
+    gen/blink/modules/nfc/NFCPushOptions.cpp $
+    gen/blink/modules/nfc/NFCPushOptions.h $
+    gen/blink/modules/nfc/NFCRecord.cpp gen/blink/modules/nfc/NFCRecord.h $
+    gen/blink/modules/nfc/NFCWatchOptions.cpp $
+    gen/blink/modules/nfc/NFCWatchOptions.h $
+    gen/blink/modules/notifications/GetNotificationOptions.cpp $
+    gen/blink/modules/notifications/GetNotificationOptions.h $
+    gen/blink/modules/notifications/NotificationAction.cpp $
+    gen/blink/modules/notifications/NotificationAction.h $
+    gen/blink/modules/notifications/NotificationEventInit.cpp $
+    gen/blink/modules/notifications/NotificationEventInit.h $
+    gen/blink/modules/notifications/NotificationOptions.cpp $
+    gen/blink/modules/notifications/NotificationOptions.h $
+    gen/blink/modules/payments/CurrencyAmount.cpp $
+    gen/blink/modules/payments/CurrencyAmount.h $
+    gen/blink/modules/payments/PaymentDetails.cpp $
+    gen/blink/modules/payments/PaymentDetails.h $
+    gen/blink/modules/payments/PaymentOptions.cpp $
+    gen/blink/modules/payments/PaymentOptions.h $
+    gen/blink/modules/payments/PaymentItem.cpp $
+    gen/blink/modules/payments/PaymentItem.h $
+    gen/blink/modules/payments/ShippingOption.cpp $
+    gen/blink/modules/payments/ShippingOption.h $
+    gen/blink/modules/permissions/MidiPermissionDescriptor.cpp $
+    gen/blink/modules/permissions/MidiPermissionDescriptor.h $
+    gen/blink/modules/permissions/PermissionDescriptor.cpp $
+    gen/blink/modules/permissions/PermissionDescriptor.h $
+    gen/blink/modules/permissions/PushPermissionDescriptor.cpp $
+    gen/blink/modules/permissions/PushPermissionDescriptor.h $
+    gen/blink/modules/presentation/PresentationConnectionAvailableEventInit.cpp $
+    gen/blink/modules/presentation/PresentationConnectionAvailableEventInit.h $
+    gen/blink/modules/presentation/PresentationConnectionCloseEventInit.cpp $
+    gen/blink/modules/presentation/PresentationConnectionCloseEventInit.h $
+    gen/blink/modules/push_messaging/PushEventInit.cpp $
+    gen/blink/modules/push_messaging/PushEventInit.h $
+    gen/blink/modules/push_messaging/PushSubscriptionOptions.cpp $
+    gen/blink/modules/push_messaging/PushSubscriptionOptions.h $
+    gen/blink/modules/serviceworkers/ClientQueryOptions.cpp $
+    gen/blink/modules/serviceworkers/ClientQueryOptions.h $
+    gen/blink/modules/serviceworkers/ExtendableEventInit.cpp $
+    gen/blink/modules/serviceworkers/ExtendableEventInit.h $
+    gen/blink/modules/serviceworkers/ExtendableMessageEventInit.cpp $
+    gen/blink/modules/serviceworkers/ExtendableMessageEventInit.h $
+    gen/blink/modules/serviceworkers/FetchEventInit.cpp $
+    gen/blink/modules/serviceworkers/FetchEventInit.h $
+    gen/blink/modules/serviceworkers/ForeignFetchEventInit.cpp $
+    gen/blink/modules/serviceworkers/ForeignFetchEventInit.h $
+    gen/blink/modules/serviceworkers/ForeignFetchOptions.cpp $
+    gen/blink/modules/serviceworkers/ForeignFetchOptions.h $
+    gen/blink/modules/serviceworkers/ForeignFetchResponse.cpp $
+    gen/blink/modules/serviceworkers/ForeignFetchResponse.h $
+    gen/blink/modules/serviceworkers/RegistrationOptions.cpp $
+    gen/blink/modules/serviceworkers/RegistrationOptions.h $
+    gen/blink/modules/serviceworkers/ServiceWorkerMessageEventInit.cpp $
+    gen/blink/modules/serviceworkers/ServiceWorkerMessageEventInit.h $
+    gen/blink/modules/speech/SpeechRecognitionErrorInit.cpp $
+    gen/blink/modules/speech/SpeechRecognitionErrorInit.h $
+    gen/blink/modules/speech/SpeechRecognitionEventInit.cpp $
+    gen/blink/modules/speech/SpeechRecognitionEventInit.h $
+    gen/blink/modules/storage/StorageEventInit.cpp $
+    gen/blink/modules/storage/StorageEventInit.h $
+    gen/blink/modules/vr/VRFieldOfViewInit.cpp $
+    gen/blink/modules/vr/VRFieldOfViewInit.h $
+    gen/blink/modules/webgl/WebGLContextAttributes.cpp $
+    gen/blink/modules/webgl/WebGLContextAttributes.h $
+    gen/blink/modules/webgl/WebGLContextEventInit.cpp $
+    gen/blink/modules/webgl/WebGLContextEventInit.h $
+    gen/blink/modules/webmidi/MIDIConnectionEventInit.cpp $
+    gen/blink/modules/webmidi/MIDIConnectionEventInit.h $
+    gen/blink/modules/webmidi/MIDIMessageEventInit.h $
+    gen/blink/modules/webmidi/MIDIMessageEventInit.cpp $
+    gen/blink/modules/webmidi/MIDIOptions.cpp $
+    gen/blink/modules/webmidi/MIDIOptions.h $
+    gen/blink/modules/websockets/CloseEventInit.cpp $
+    gen/blink/modules/websockets/CloseEventInit.h $
+    gen/blink/modules/webusb/USBConnectionEventInit.cpp $
+    gen/blink/modules/webusb/USBConnectionEventInit.h $
+    gen/blink/modules/webusb/USBControlTransferParameters.cpp $
+    gen/blink/modules/webusb/USBControlTransferParameters.h $
+    gen/blink/modules/webusb/USBDeviceFilter.cpp $
+    gen/blink/modules/webusb/USBDeviceFilter.h $
+    gen/blink/modules/webusb/USBDeviceRequestOptions.cpp $
+    gen/blink/modules/webusb/USBDeviceRequestOptions.h: $
+    bindings_modules_impl_generated_target_idl_dictionary_8cebaf6a5f137535ea50ee062360b838 $
+    ../../third_party/WebKit/Source/modules/app_banner/BeforeInstallPromptEventInit.idl $
+    ../../third_party/WebKit/Source/modules/background_sync/SyncEventInit.idl $
+    ../../third_party/WebKit/Source/modules/bluetooth/BluetoothScanFilter.idl $
+    ../../third_party/WebKit/Source/modules/bluetooth/RequestDeviceOptions.idl $
+    ../../third_party/WebKit/Source/modules/cachestorage/CacheQueryOptions.idl $
+    ../../third_party/WebKit/Source/modules/canvas2d/Canvas2DContextAttributes.idl $
+    ../../third_party/WebKit/Source/modules/canvas2d/HitRegionOptions.idl $
+    ../../third_party/WebKit/Source/modules/credentialmanager/CredentialData.idl $
+    ../../third_party/WebKit/Source/modules/credentialmanager/CredentialRequestOptions.idl $
+    ../../third_party/WebKit/Source/modules/credentialmanager/FederatedCredentialData.idl $
+    ../../third_party/WebKit/Source/modules/credentialmanager/FederatedCredentialRequestOptions.idl $
+    ../../third_party/WebKit/Source/modules/credentialmanager/FormDataOptions.idl $
+    ../../third_party/WebKit/Source/modules/credentialmanager/LocallyStoredCredentialData.idl $
+    ../../third_party/WebKit/Source/modules/credentialmanager/PasswordCredentialData.idl $
+    ../../third_party/WebKit/Source/modules/device_light/DeviceLightEventInit.idl $
+    ../../third_party/WebKit/Source/modules/encoding/TextDecodeOptions.idl $
+    ../../third_party/WebKit/Source/modules/encoding/TextDecoderOptions.idl $
+    ../../third_party/WebKit/Source/modules/encryptedmedia/MediaEncryptedEventInit.idl $
+    ../../third_party/WebKit/Source/modules/encryptedmedia/MediaKeyMessageEventInit.idl $
+    ../../third_party/WebKit/Source/modules/encryptedmedia/MediaKeySystemConfiguration.idl $
+    ../../third_party/WebKit/Source/modules/encryptedmedia/MediaKeySystemMediaCapability.idl $
+    ../../third_party/WebKit/Source/modules/filesystem/FileSystemFlags.idl $
+    ../../third_party/WebKit/Source/modules/gamepad/GamepadEventInit.idl $
+    ../../third_party/WebKit/Source/modules/geofencing/CircularGeofencingRegionInit.idl $
+    ../../third_party/WebKit/Source/modules/geolocation/PositionOptions.idl $
+    ../../third_party/WebKit/Source/modules/indexeddb/IDBIndexParameters.idl $
+    ../../third_party/WebKit/Source/modules/indexeddb/IDBObjectStoreParameters.idl $
+    ../../third_party/WebKit/Source/modules/indexeddb/IDBVersionChangeEventInit.idl $
+    ../../third_party/WebKit/Source/modules/mediarecorder/BlobEventInit.idl $
+    ../../third_party/WebKit/Source/modules/mediarecorder/MediaRecorderOptions.idl $
+    ../../third_party/WebKit/Source/modules/mediasession/MediaMetadataInit.idl $
+    ../../third_party/WebKit/Source/modules/mediastream/ConstrainBooleanParameters.idl $
+    ../../third_party/WebKit/Source/modules/mediastream/ConstrainDOMStringParameters.idl $
+    ../../third_party/WebKit/Source/modules/mediastream/ConstrainDoubleRange.idl $
+    ../../third_party/WebKit/Source/modules/mediastream/ConstrainLongRange.idl $
+    ../../third_party/WebKit/Source/modules/mediastream/DoubleRange.idl $
+    ../../third_party/WebKit/Source/modules/mediastream/LongRange.idl $
+    ../../third_party/WebKit/Source/modules/mediastream/MediaStreamConstraints.idl $
+    ../../third_party/WebKit/Source/modules/mediastream/MediaStreamEventInit.idl $
+    ../../third_party/WebKit/Source/modules/mediastream/MediaTrackConstraintSet.idl $
+    ../../third_party/WebKit/Source/modules/mediastream/RTCAnswerOptions.idl $
+    ../../third_party/WebKit/Source/modules/mediastream/RTCDTMFToneChangeEventInit.idl $
+    ../../third_party/WebKit/Source/modules/mediastream/RTCIceCandidateInit.idl $
+    ../../third_party/WebKit/Source/modules/mediastream/RTCOfferAnswerOptions.idl $
+    ../../third_party/WebKit/Source/modules/mediastream/RTCOfferOptions.idl $
+    ../../third_party/WebKit/Source/modules/mediastream/RTCSessionDescriptionInit.idl $
+    ../../third_party/WebKit/Source/modules/nfc/NFCMessage.idl $
+    ../../third_party/WebKit/Source/modules/nfc/NFCPushOptions.idl $
+    ../../third_party/WebKit/Source/modules/nfc/NFCRecord.idl $
+    ../../third_party/WebKit/Source/modules/nfc/NFCWatchOptions.idl $
+    ../../third_party/WebKit/Source/modules/notifications/GetNotificationOptions.idl $
+    ../../third_party/WebKit/Source/modules/notifications/NotificationAction.idl $
+    ../../third_party/WebKit/Source/modules/notifications/NotificationEventInit.idl $
+    ../../third_party/WebKit/Source/modules/notifications/NotificationOptions.idl $
+    ../../third_party/WebKit/Source/modules/payments/CurrencyAmount.idl $
+    ../../third_party/WebKit/Source/modules/payments/PaymentDetails.idl $
+    ../../third_party/WebKit/Source/modules/payments/PaymentOptions.idl $
+    ../../third_party/WebKit/Source/modules/payments/PaymentItem.idl $
+    ../../third_party/WebKit/Source/modules/payments/ShippingOption.idl $
+    ../../third_party/WebKit/Source/modules/permissions/MidiPermissionDescriptor.idl $
+    ../../third_party/WebKit/Source/modules/permissions/PermissionDescriptor.idl $
+    ../../third_party/WebKit/Source/modules/permissions/PushPermissionDescriptor.idl $
+    ../../third_party/WebKit/Source/modules/presentation/PresentationConnectionAvailableEventInit.idl $
+    ../../third_party/WebKit/Source/modules/presentation/PresentationConnectionCloseEventInit.idl $
+    ../../third_party/WebKit/Source/modules/push_messaging/PushEventInit.idl $
+    ../../third_party/WebKit/Source/modules/push_messaging/PushSubscriptionOptions.idl $
+    ../../third_party/WebKit/Source/modules/serviceworkers/ClientQueryOptions.idl $
+    ../../third_party/WebKit/Source/modules/serviceworkers/ExtendableEventInit.idl $
+    ../../third_party/WebKit/Source/modules/serviceworkers/ExtendableMessageEventInit.idl $
+    ../../third_party/WebKit/Source/modules/serviceworkers/FetchEventInit.idl $
+    ../../third_party/WebKit/Source/modules/serviceworkers/ForeignFetchEventInit.idl $
+    ../../third_party/WebKit/Source/modules/serviceworkers/ForeignFetchOptions.idl $
+    ../../third_party/WebKit/Source/modules/serviceworkers/ForeignFetchResponse.idl $
+    ../../third_party/WebKit/Source/modules/serviceworkers/RegistrationOptions.idl $
+    ../../third_party/WebKit/Source/modules/serviceworkers/ServiceWorkerMessageEventInit.idl $
+    ../../third_party/WebKit/Source/modules/speech/SpeechRecognitionErrorInit.idl $
+    ../../third_party/WebKit/Source/modules/speech/SpeechRecognitionEventInit.idl $
+    ../../third_party/WebKit/Source/modules/storage/StorageEventInit.idl $
+    ../../third_party/WebKit/Source/modules/vr/VRFieldOfViewInit.idl $
+    ../../third_party/WebKit/Source/modules/webgl/WebGLContextAttributes.idl $
+    ../../third_party/WebKit/Source/modules/webgl/WebGLContextEventInit.idl $
+    ../../third_party/WebKit/Source/modules/webmidi/MIDIConnectionEventInit.idl $
+    ../../third_party/WebKit/Source/modules/webmidi/MIDIMessageEventInit.idl $
+    ../../third_party/WebKit/Source/modules/webmidi/MIDIOptions.idl $
+    ../../third_party/WebKit/Source/modules/websockets/CloseEventInit.idl $
+    ../../third_party/WebKit/Source/modules/webusb/USBConnectionEventInit.idl $
+    ../../third_party/WebKit/Source/modules/webusb/USBControlTransferParameters.idl $
+    ../../third_party/WebKit/Source/modules/webusb/USBDeviceFilter.idl $
+    ../../third_party/WebKit/Source/modules/webusb/USBDeviceRequestOptions.idl $
+    ../../third_party/ply/lex.py ../../third_party/ply/yacc.py $
+    ../../tools/idl_parser/idl_lexer.py ../../tools/idl_parser/idl_node.py $
+    ../../tools/idl_parser/idl_parser.py $
+    ../../third_party/WebKit/Source/bindings/scripts/blink_idl_lexer.py $
+    ../../third_party/WebKit/Source/bindings/scripts/blink_idl_parser.py $
+    gen/blink/bindings/scripts/lextab.py $
+    gen/blink/bindings/scripts/parsetab.pickle $
+    gen/blink/bindings/scripts/cached_jinja_templates.stamp $
+    ../../third_party/WebKit/Source/bindings/scripts/idl_compiler.py $
+    ../../third_party/WebKit/Source/bindings/scripts/idl_definitions.py $
+    ../../third_party/WebKit/Source/bindings/scripts/idl_reader.py $
+    ../../third_party/WebKit/Source/bindings/scripts/idl_types.py $
+    ../../third_party/WebKit/Source/bindings/scripts/idl_validator.py $
+    ../../third_party/WebKit/Source/bindings/scripts/interface_dependency_resolver.py $
+    ../../third_party/WebKit/Source/bindings/scripts/code_generator_v8.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_attributes.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_callback_interface.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_dictionary.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_globals.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_interface.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_methods.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_types.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_union.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_utilities.py $
+    ../../third_party/WebKit/Source/bindings/IDLExtendedAttributes.txt $
+    gen/blink/bindings/modules/InterfacesInfoOverall.pickle $
+    gen/blink/bindings/modules/ComponentInfoModules.pickle || $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_impl_generated.actions_depends.stamp
+
+build $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_impl_generated.actions_rules_copies.stamp: $
+    stamp gen/blink/bindings/modules/v8/UnionTypesModules.cpp $
+    gen/blink/bindings/modules/v8/UnionTypesModules.h $
+    gen/blink/modules/app_banner/BeforeInstallPromptEventInit.cpp $
+    gen/blink/modules/app_banner/BeforeInstallPromptEventInit.h $
+    gen/blink/modules/background_sync/SyncEventInit.cpp $
+    gen/blink/modules/background_sync/SyncEventInit.h $
+    gen/blink/modules/bluetooth/BluetoothScanFilter.cpp $
+    gen/blink/modules/bluetooth/BluetoothScanFilter.h $
+    gen/blink/modules/bluetooth/RequestDeviceOptions.cpp $
+    gen/blink/modules/bluetooth/RequestDeviceOptions.h $
+    gen/blink/modules/cachestorage/CacheQueryOptions.cpp $
+    gen/blink/modules/cachestorage/CacheQueryOptions.h $
+    gen/blink/modules/canvas2d/Canvas2DContextAttributes.cpp $
+    gen/blink/modules/canvas2d/Canvas2DContextAttributes.h $
+    gen/blink/modules/canvas2d/HitRegionOptions.cpp $
+    gen/blink/modules/canvas2d/HitRegionOptions.h $
+    gen/blink/modules/credentialmanager/CredentialData.cpp $
+    gen/blink/modules/credentialmanager/CredentialData.h $
+    gen/blink/modules/credentialmanager/CredentialRequestOptions.cpp $
+    gen/blink/modules/credentialmanager/CredentialRequestOptions.h $
+    gen/blink/modules/credentialmanager/FederatedCredentialData.cpp $
+    gen/blink/modules/credentialmanager/FederatedCredentialData.h $
+    gen/blink/modules/credentialmanager/FederatedCredentialRequestOptions.cpp $
+    gen/blink/modules/credentialmanager/FederatedCredentialRequestOptions.h $
+    gen/blink/modules/credentialmanager/FormDataOptions.cpp $
+    gen/blink/modules/credentialmanager/FormDataOptions.h $
+    gen/blink/modules/credentialmanager/LocallyStoredCredentialData.cpp $
+    gen/blink/modules/credentialmanager/LocallyStoredCredentialData.h $
+    gen/blink/modules/credentialmanager/PasswordCredentialData.cpp $
+    gen/blink/modules/credentialmanager/PasswordCredentialData.h $
+    gen/blink/modules/device_light/DeviceLightEventInit.cpp $
+    gen/blink/modules/device_light/DeviceLightEventInit.h $
+    gen/blink/modules/encoding/TextDecodeOptions.cpp $
+    gen/blink/modules/encoding/TextDecodeOptions.h $
+    gen/blink/modules/encoding/TextDecoderOptions.cpp $
+    gen/blink/modules/encoding/TextDecoderOptions.h $
+    gen/blink/modules/encryptedmedia/MediaEncryptedEventInit.cpp $
+    gen/blink/modules/encryptedmedia/MediaEncryptedEventInit.h $
+    gen/blink/modules/encryptedmedia/MediaKeyMessageEventInit.cpp $
+    gen/blink/modules/encryptedmedia/MediaKeyMessageEventInit.h $
+    gen/blink/modules/encryptedmedia/MediaKeySystemConfiguration.cpp $
+    gen/blink/modules/encryptedmedia/MediaKeySystemConfiguration.h $
+    gen/blink/modules/encryptedmedia/MediaKeySystemMediaCapability.cpp $
+    gen/blink/modules/encryptedmedia/MediaKeySystemMediaCapability.h $
+    gen/blink/modules/filesystem/FileSystemFlags.cpp $
+    gen/blink/modules/filesystem/FileSystemFlags.h $
+    gen/blink/modules/gamepad/GamepadEventInit.cpp $
+    gen/blink/modules/gamepad/GamepadEventInit.h $
+    gen/blink/modules/geofencing/CircularGeofencingRegionInit.cpp $
+    gen/blink/modules/geofencing/CircularGeofencingRegionInit.h $
+    gen/blink/modules/geolocation/PositionOptions.cpp $
+    gen/blink/modules/geolocation/PositionOptions.h $
+    gen/blink/modules/indexeddb/IDBIndexParameters.cpp $
+    gen/blink/modules/indexeddb/IDBIndexParameters.h $
+    gen/blink/modules/indexeddb/IDBObjectStoreParameters.cpp $
+    gen/blink/modules/indexeddb/IDBObjectStoreParameters.h $
+    gen/blink/modules/indexeddb/IDBVersionChangeEventInit.cpp $
+    gen/blink/modules/indexeddb/IDBVersionChangeEventInit.h $
+    gen/blink/modules/mediarecorder/BlobEventInit.cpp $
+    gen/blink/modules/mediarecorder/BlobEventInit.h $
+    gen/blink/modules/mediarecorder/MediaRecorderOptions.cpp $
+    gen/blink/modules/mediarecorder/MediaRecorderOptions.h $
+    gen/blink/modules/mediasession/MediaMetadataInit.cpp $
+    gen/blink/modules/mediasession/MediaMetadataInit.h $
+    gen/blink/modules/mediastream/ConstrainBooleanParameters.cpp $
+    gen/blink/modules/mediastream/ConstrainBooleanParameters.h $
+    gen/blink/modules/mediastream/ConstrainDOMStringParameters.cpp $
+    gen/blink/modules/mediastream/ConstrainDOMStringParameters.h $
+    gen/blink/modules/mediastream/ConstrainDoubleRange.cpp $
+    gen/blink/modules/mediastream/ConstrainDoubleRange.h $
+    gen/blink/modules/mediastream/ConstrainLongRange.cpp $
+    gen/blink/modules/mediastream/ConstrainLongRange.h $
+    gen/blink/modules/mediastream/DoubleRange.cpp $
+    gen/blink/modules/mediastream/DoubleRange.h $
+    gen/blink/modules/mediastream/LongRange.cpp $
+    gen/blink/modules/mediastream/LongRange.h $
+    gen/blink/modules/mediastream/MediaStreamConstraints.cpp $
+    gen/blink/modules/mediastream/MediaStreamConstraints.h $
+    gen/blink/modules/mediastream/MediaStreamEventInit.cpp $
+    gen/blink/modules/mediastream/MediaStreamEventInit.h $
+    gen/blink/modules/mediastream/MediaTrackConstraintSet.cpp $
+    gen/blink/modules/mediastream/MediaTrackConstraintSet.h $
+    gen/blink/modules/mediastream/RTCAnswerOptions.cpp $
+    gen/blink/modules/mediastream/RTCAnswerOptions.h $
+    gen/blink/modules/mediastream/RTCDTMFToneChangeEventInit.cpp $
+    gen/blink/modules/mediastream/RTCDTMFToneChangeEventInit.h $
+    gen/blink/modules/mediastream/RTCIceCandidateInit.cpp $
+    gen/blink/modules/mediastream/RTCIceCandidateInit.h $
+    gen/blink/modules/mediastream/RTCOfferAnswerOptions.cpp $
+    gen/blink/modules/mediastream/RTCOfferAnswerOptions.h $
+    gen/blink/modules/mediastream/RTCOfferOptions.cpp $
+    gen/blink/modules/mediastream/RTCOfferOptions.h $
+    gen/blink/modules/mediastream/RTCSessionDescriptionInit.cpp $
+    gen/blink/modules/mediastream/RTCSessionDescriptionInit.h $
+    gen/blink/modules/nfc/NFCMessage.cpp gen/blink/modules/nfc/NFCMessage.h $
+    gen/blink/modules/nfc/NFCPushOptions.cpp $
+    gen/blink/modules/nfc/NFCPushOptions.h $
+    gen/blink/modules/nfc/NFCRecord.cpp gen/blink/modules/nfc/NFCRecord.h $
+    gen/blink/modules/nfc/NFCWatchOptions.cpp $
+    gen/blink/modules/nfc/NFCWatchOptions.h $
+    gen/blink/modules/notifications/GetNotificationOptions.cpp $
+    gen/blink/modules/notifications/GetNotificationOptions.h $
+    gen/blink/modules/notifications/NotificationAction.cpp $
+    gen/blink/modules/notifications/NotificationAction.h $
+    gen/blink/modules/notifications/NotificationEventInit.cpp $
+    gen/blink/modules/notifications/NotificationEventInit.h $
+    gen/blink/modules/notifications/NotificationOptions.cpp $
+    gen/blink/modules/notifications/NotificationOptions.h $
+    gen/blink/modules/payments/CurrencyAmount.cpp $
+    gen/blink/modules/payments/CurrencyAmount.h $
+    gen/blink/modules/payments/PaymentDetails.cpp $
+    gen/blink/modules/payments/PaymentDetails.h $
+    gen/blink/modules/payments/PaymentOptions.cpp $
+    gen/blink/modules/payments/PaymentOptions.h $
+    gen/blink/modules/payments/PaymentItem.cpp $
+    gen/blink/modules/payments/PaymentItem.h $
+    gen/blink/modules/payments/ShippingOption.cpp $
+    gen/blink/modules/payments/ShippingOption.h $
+    gen/blink/modules/permissions/MidiPermissionDescriptor.cpp $
+    gen/blink/modules/permissions/MidiPermissionDescriptor.h $
+    gen/blink/modules/permissions/PermissionDescriptor.cpp $
+    gen/blink/modules/permissions/PermissionDescriptor.h $
+    gen/blink/modules/permissions/PushPermissionDescriptor.cpp $
+    gen/blink/modules/permissions/PushPermissionDescriptor.h $
+    gen/blink/modules/presentation/PresentationConnectionAvailableEventInit.cpp $
+    gen/blink/modules/presentation/PresentationConnectionAvailableEventInit.h $
+    gen/blink/modules/presentation/PresentationConnectionCloseEventInit.cpp $
+    gen/blink/modules/presentation/PresentationConnectionCloseEventInit.h $
+    gen/blink/modules/push_messaging/PushEventInit.cpp $
+    gen/blink/modules/push_messaging/PushEventInit.h $
+    gen/blink/modules/push_messaging/PushSubscriptionOptions.cpp $
+    gen/blink/modules/push_messaging/PushSubscriptionOptions.h $
+    gen/blink/modules/serviceworkers/ClientQueryOptions.cpp $
+    gen/blink/modules/serviceworkers/ClientQueryOptions.h $
+    gen/blink/modules/serviceworkers/ExtendableEventInit.cpp $
+    gen/blink/modules/serviceworkers/ExtendableEventInit.h $
+    gen/blink/modules/serviceworkers/ExtendableMessageEventInit.cpp $
+    gen/blink/modules/serviceworkers/ExtendableMessageEventInit.h $
+    gen/blink/modules/serviceworkers/FetchEventInit.cpp $
+    gen/blink/modules/serviceworkers/FetchEventInit.h $
+    gen/blink/modules/serviceworkers/ForeignFetchEventInit.cpp $
+    gen/blink/modules/serviceworkers/ForeignFetchEventInit.h $
+    gen/blink/modules/serviceworkers/ForeignFetchOptions.cpp $
+    gen/blink/modules/serviceworkers/ForeignFetchOptions.h $
+    gen/blink/modules/serviceworkers/ForeignFetchResponse.cpp $
+    gen/blink/modules/serviceworkers/ForeignFetchResponse.h $
+    gen/blink/modules/serviceworkers/RegistrationOptions.cpp $
+    gen/blink/modules/serviceworkers/RegistrationOptions.h $
+    gen/blink/modules/serviceworkers/ServiceWorkerMessageEventInit.cpp $
+    gen/blink/modules/serviceworkers/ServiceWorkerMessageEventInit.h $
+    gen/blink/modules/speech/SpeechRecognitionErrorInit.cpp $
+    gen/blink/modules/speech/SpeechRecognitionErrorInit.h $
+    gen/blink/modules/speech/SpeechRecognitionEventInit.cpp $
+    gen/blink/modules/speech/SpeechRecognitionEventInit.h $
+    gen/blink/modules/storage/StorageEventInit.cpp $
+    gen/blink/modules/storage/StorageEventInit.h $
+    gen/blink/modules/vr/VRFieldOfViewInit.cpp $
+    gen/blink/modules/vr/VRFieldOfViewInit.h $
+    gen/blink/modules/webgl/WebGLContextAttributes.cpp $
+    gen/blink/modules/webgl/WebGLContextAttributes.h $
+    gen/blink/modules/webgl/WebGLContextEventInit.cpp $
+    gen/blink/modules/webgl/WebGLContextEventInit.h $
+    gen/blink/modules/webmidi/MIDIConnectionEventInit.cpp $
+    gen/blink/modules/webmidi/MIDIConnectionEventInit.h $
+    gen/blink/modules/webmidi/MIDIMessageEventInit.h $
+    gen/blink/modules/webmidi/MIDIMessageEventInit.cpp $
+    gen/blink/modules/webmidi/MIDIOptions.cpp $
+    gen/blink/modules/webmidi/MIDIOptions.h $
+    gen/blink/modules/websockets/CloseEventInit.cpp $
+    gen/blink/modules/websockets/CloseEventInit.h $
+    gen/blink/modules/webusb/USBConnectionEventInit.cpp $
+    gen/blink/modules/webusb/USBConnectionEventInit.h $
+    gen/blink/modules/webusb/USBControlTransferParameters.cpp $
+    gen/blink/modules/webusb/USBControlTransferParameters.h $
+    gen/blink/modules/webusb/USBDeviceFilter.cpp $
+    gen/blink/modules/webusb/USBDeviceFilter.h $
+    gen/blink/modules/webusb/USBDeviceRequestOptions.cpp $
+    gen/blink/modules/webusb/USBDeviceRequestOptions.h
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -Igen
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-abi $
+    -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+

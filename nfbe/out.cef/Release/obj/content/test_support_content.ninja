@@ -1,0 +1,463 @@
+build obj/content/test_support_content.actions_depends.stamp: stamp $
+    obj/ipc/mojo/libipc_mojo.a ipc_mojo_unittests ipc_mojo_perftests $
+    obj/skia/skia.actions_depends.stamp $
+    obj/third_party/WebKit/public/blink.actions_depends.stamp $
+    obj/third_party/WebKit/Source/platform/libblink_platform.a $
+    obj/third_party/WebKit/public/blink_test_support.actions_depends.stamp $
+    obj/third_party/WebKit/Source/web/libblink_web_test_support.a $
+    obj/ui/accessibility/libax_gen.a $
+    obj/ui/resources/ui_resources.actions_rules_copies.stamp $
+    lib/liburl_lib.so.TOC $
+    obj/v8/tools/gyp/v8_maybe_snapshot.actions_depends.stamp $
+    obj/content/browser/speech/proto/libspeech_proto.a $
+    obj/content/libcontent_test_mojo_bindings.a $
+    obj/content/libcontent_common_mojo_bindings.a $
+    obj/mojo/libmojo_application_bindings.a content_shell.pak $
+    obj/ui/resources/ui_test_pak.actions_rules_copies.stamp
+
+build obj/content/test_support_content.compile_depends.stamp: stamp $
+    obj/ipc/mojo/ipc_mojo.actions_rules_copies.stamp $
+    obj/ipc/mojo/ipc_mojo_unittests.compile_depends.stamp $
+    obj/ipc/mojo/ipc_mojo_perftests.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/third_party/WebKit/public/blink.compile_depends.stamp $
+    obj/third_party/WebKit/Source/platform/blink_platform.compile_depends.stamp $
+    obj/third_party/WebKit/public/blink_test_support.compile_depends.stamp $
+    obj/third_party/WebKit/Source/web/blink_web_test_support.compile_depends.stamp $
+    obj/ui/accessibility/ax_gen.actions_rules_copies.stamp $
+    obj/ui/resources/ui_resources.actions_rules_copies.stamp $
+    obj/url/url_lib.compile_depends.stamp snapshot_blob.bin $
+    obj/content/browser/speech/proto/speech_proto.actions_rules_copies.stamp $
+    obj/content/content_test_mojo_bindings.actions_rules_copies.stamp $
+    obj/content/content_common_mojo_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_application_bindings_mojom.actions_rules_copies.stamp $
+    content_shell.pak obj/ui/resources/ui_test_pak.actions_rules_copies.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DMOJO_USE_SYSTEM_IMPL $
+    -DGTEST_HAS_POSIX_RE=0 -DGTEST_LANG_CXX11=0 -DOPUS_FIXED_POINT $
+    -DSK_SUPPORT_GPU=1 -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS -DUNIT_TEST $
+    -DGTEST_HAS_RTTI=0 -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 $
+    -DU_NOEXCEPT= -DU_STATIC_IMPLEMENTATION -DCHROME_PNG_WRITE_SUPPORT $
+    -DPNG_USER_CONFIG -DPROTOBUF_USE_DLLS -DGOOGLE_PROTOBUF_NO_RTTI $
+    -DGOOGLE_PROTOBUF_NO_STATIC_INITIALIZER -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS $
+    -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../third_party/khronos -I../../gpu $
+    -I../../skia/config -I../../third_party/WebKit/Source -Igen/angle $
+    -I../../ipc -I../../third_party/opus/src/include $
+    -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../testing/gmock/include -I../../testing/gtest/include $
+    -I../../third_party/WebKit -I../../third_party/icu/source/common $
+    -I../../third_party/libpng -I../../third_party/zlib $
+    -I../../third_party/libwebp -I../../third_party/ots/include $
+    -I../../third_party/qcms/src -I../../third_party/iccjpeg $
+    -I../../third_party/libjpeg_turbo -I../../third_party/icu/source/i18n $
+    -Igen/ui/resources -I../../v8/include -Igen/protoc_out $
+    -I../../third_party/protobuf -I../../third_party/protobuf/src $
+    -I../../third_party/WebKit -Igen/third_party/WebKit $
+    -I../../third_party/libvpx/source/libvpx
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -I/work/bsp/sc1400/usr/include/nss3 $
+    -I/work/bsp/sc1400/usr/include/nspr -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/content/browser/download/test_support_content.mock_download_file.o: $
+    cxx ../../content/browser/download/mock_download_file.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/browser/geolocation/test_support_content.fake_access_token_store.o: $
+    cxx ../../content/browser/geolocation/fake_access_token_store.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/browser/geolocation/test_support_content.mock_location_arbitrator.o: $
+    cxx ../../content/browser/geolocation/mock_location_arbitrator.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/browser/geolocation/test_support_content.mock_location_provider.o: $
+    cxx ../../content/browser/geolocation/mock_location_provider.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/public/test/test_support_content.async_file_test_helper.o: $
+    cxx ../../content/public/test/async_file_test_helper.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/public/test/test_support_content.background_sync_test_util.o: $
+    cxx ../../content/public/test/background_sync_test_util.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/public/test/test_support_content.content_test_suite_base.o: $
+    cxx ../../content/public/test/content_test_suite_base.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/public/test/test_support_content.download_test_observer.o: $
+    cxx ../../content/public/test/download_test_observer.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/public/test/test_support_content.fake_speech_recognition_manager.o: $
+    cxx ../../content/public/test/fake_speech_recognition_manager.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/public/test/test_support_content.frame_load_waiter.o: cxx $
+    ../../content/public/test/frame_load_waiter.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/public/test/test_support_content.javascript_test_observer.o: $
+    cxx ../../content/public/test/javascript_test_observer.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/public/test/test_support_content.mock_blob_url_request_context.o: $
+    cxx ../../content/public/test/mock_blob_url_request_context.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/public/test/test_support_content.mock_download_item.o: $
+    cxx ../../content/public/test/mock_download_item.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/public/test/test_support_content.mock_download_manager.o: $
+    cxx ../../content/public/test/mock_download_manager.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/public/test/test_support_content.mock_notification_observer.o: $
+    cxx ../../content/public/test/mock_notification_observer.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/public/test/test_support_content.mock_render_process_host.o: $
+    cxx ../../content/public/test/mock_render_process_host.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/public/test/test_support_content.mock_render_thread.o: $
+    cxx ../../content/public/test/mock_render_thread.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/public/test/test_support_content.mock_resource_context.o: $
+    cxx ../../content/public/test/mock_resource_context.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/public/test/test_support_content.mock_special_storage_policy.o: $
+    cxx ../../content/public/test/mock_special_storage_policy.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/public/test/test_support_content.mock_storage_client.o: $
+    cxx ../../content/public/test/mock_storage_client.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/public/test/test_support_content.ppapi_test_utils.o: cxx $
+    ../../content/public/test/ppapi_test_utils.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/public/test/test_support_content.render_view_test.o: cxx $
+    ../../content/public/test/render_view_test.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/public/test/test_support_content.sandbox_file_system_test_helper.o: $
+    cxx ../../content/public/test/sandbox_file_system_test_helper.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/public/test/test_support_content.test_browser_context.o: $
+    cxx ../../content/public/test/test_browser_context.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/public/test/test_support_content.test_browser_thread.o: $
+    cxx ../../content/public/test/test_browser_thread.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/public/test/test_support_content.test_browser_thread_bundle.o: $
+    cxx ../../content/public/test/test_browser_thread_bundle.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/public/test/test_support_content.test_content_client_initializer.o: $
+    cxx ../../content/public/test/test_content_client_initializer.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/public/test/test_support_content.test_download_request_handler.o: $
+    cxx ../../content/public/test/test_download_request_handler.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/public/test/test_support_content.test_file_error_injector.o: $
+    cxx ../../content/public/test/test_file_error_injector.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/public/test/test_support_content.test_file_system_backend.o: $
+    cxx ../../content/public/test/test_file_system_backend.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/public/test/test_support_content.test_file_system_context.o: $
+    cxx ../../content/public/test/test_file_system_context.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/public/test/test_support_content.test_file_system_options.o: $
+    cxx ../../content/public/test/test_file_system_options.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/public/test/test_support_content.test_launcher.o: cxx $
+    ../../content/public/test/test_launcher.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/public/test/test_support_content.test_mojo_app.o: cxx $
+    ../../content/public/test/test_mojo_app.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/public/test/test_support_content.test_navigation_observer.o: $
+    cxx ../../content/public/test/test_navigation_observer.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/public/test/test_support_content.test_notification_tracker.o: $
+    cxx ../../content/public/test/test_notification_tracker.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/public/test/test_support_content.test_renderer_host.o: $
+    cxx ../../content/public/test/test_renderer_host.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/public/test/test_support_content.test_utils.o: cxx $
+    ../../content/public/test/test_utils.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/public/test/test_support_content.test_web_ui.o: cxx $
+    ../../content/public/test/test_web_ui.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/public/test/test_support_content.unittest_test_suite.o: $
+    cxx ../../content/public/test/unittest_test_suite.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/public/test/test_support_content.web_contents_tester.o: $
+    cxx ../../content/public/test/web_contents_tester.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/test/test_support_content.appcache_test_helper.o: cxx $
+    ../../content/test/appcache_test_helper.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/test/test_support_content.blink_test_environment.o: cxx $
+    ../../content/test/blink_test_environment.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/test/test_support_content.browser_side_navigation_test_utils.o: $
+    cxx ../../content/test/browser_side_navigation_test_utils.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/test/test_support_content.content_browser_sanity_checker.o: $
+    cxx ../../content/test/content_browser_sanity_checker.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/test/test_support_content.content_test_suite.o: cxx $
+    ../../content/test/content_test_suite.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/test/test_support_content.fake_compositor_dependencies.o: $
+    cxx ../../content/test/fake_compositor_dependencies.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/test/test_support_content.fake_plugin_service.o: cxx $
+    ../../content/test/fake_plugin_service.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/test/test_support_content.fake_renderer_scheduler.o: cxx $
+    ../../content/test/fake_renderer_scheduler.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/test/test_support_content.mock_background_sync_controller.o: $
+    cxx ../../content/test/mock_background_sync_controller.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/test/test_support_content.mock_google_streaming_server.o: $
+    cxx ../../content/test/mock_google_streaming_server.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/test/test_support_content.mock_keyboard.o: cxx $
+    ../../content/test/mock_keyboard.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/test/test_support_content.mock_permission_manager.o: cxx $
+    ../../content/test/mock_permission_manager.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/test/test_support_content.mock_render_process.o: cxx $
+    ../../content/test/mock_render_process.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/test/test_support_content.mock_ssl_host_state_delegate.o: $
+    cxx ../../content/test/mock_ssl_host_state_delegate.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/test/test_support_content.mock_webblob_registry_impl.o: $
+    cxx ../../content/test/mock_webblob_registry_impl.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/test/test_support_content.mock_webclipboard_impl.o: cxx $
+    ../../content/test/mock_webclipboard_impl.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/test/test_support_content.mock_weburlloader.o: cxx $
+    ../../content/test/mock_weburlloader.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/test/net/test_support_content.url_request_abort_on_end_job.o: $
+    cxx ../../content/test/net/url_request_abort_on_end_job.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/test/test_support_content.ppapi_unittest.o: cxx $
+    ../../content/test/ppapi_unittest.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/test/test_support_content.render_thread_impl_browser_test_ipc_helper.o: $
+    cxx ../../content/test/render_thread_impl_browser_test_ipc_helper.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/test/test_support_content.test_background_sync_context_impl.o: $
+    cxx ../../content/test/test_background_sync_context_impl.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/test/test_support_content.test_background_sync_manager.o: $
+    cxx ../../content/test/test_background_sync_manager.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/test/test_support_content.test_blink_web_unit_test_support.o: $
+    cxx ../../content/test/test_blink_web_unit_test_support.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/test/test_support_content.test_content_browser_client.o: $
+    cxx ../../content/test/test_content_browser_client.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/test/test_support_content.test_content_client.o: cxx $
+    ../../content/test/test_content_client.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/test/test_support_content.test_frame_navigation_observer.o: $
+    cxx ../../content/test/test_frame_navigation_observer.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/test/test_support_content.test_navigation_url_loader.o: $
+    cxx ../../content/test/test_navigation_url_loader.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/test/test_support_content.test_navigation_url_loader_factory.o: $
+    cxx ../../content/test/test_navigation_url_loader_factory.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/test/test_support_content.test_render_frame.o: cxx $
+    ../../content/test/test_render_frame.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/test/test_support_content.test_render_frame_host.o: cxx $
+    ../../content/test/test_render_frame_host.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/test/test_support_content.test_render_frame_host_factory.o: $
+    cxx ../../content/test/test_render_frame_host_factory.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/test/test_support_content.test_render_view_host.o: cxx $
+    ../../content/test/test_render_view_host.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/test/test_support_content.test_render_view_host_factory.o: $
+    cxx ../../content/test/test_render_view_host_factory.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/test/test_support_content.test_web_contents.o: cxx $
+    ../../content/test/test_web_contents.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/test/test_support_content.test_web_contents_factory.o: $
+    cxx ../../content/test/test_web_contents_factory.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/test/test_support_content.web_contents_observer_sanity_checker.o: $
+    cxx ../../content/test/web_contents_observer_sanity_checker.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build obj/content/test/test_support_content.web_gesture_curve_mock.o: cxx $
+    ../../content/test/web_gesture_curve_mock.cc || $
+    obj/content/test_support_content.compile_depends.stamp
+build $
+    obj/content/browser/compositor/test/test_support_content.no_transport_image_transport_factory.o: $
+    cxx $
+    ../../content/browser/compositor/test/no_transport_image_transport_factory.cc $
+    || obj/content/test_support_content.compile_depends.stamp
+
+build obj/content/libtest_support_content.a: alink_thin $
+    obj/content/browser/download/test_support_content.mock_download_file.o $
+    obj/content/browser/geolocation/test_support_content.fake_access_token_store.o $
+    obj/content/browser/geolocation/test_support_content.mock_location_arbitrator.o $
+    obj/content/browser/geolocation/test_support_content.mock_location_provider.o $
+    obj/content/public/test/test_support_content.async_file_test_helper.o $
+    obj/content/public/test/test_support_content.background_sync_test_util.o $
+    obj/content/public/test/test_support_content.content_test_suite_base.o $
+    obj/content/public/test/test_support_content.download_test_observer.o $
+    obj/content/public/test/test_support_content.fake_speech_recognition_manager.o $
+    obj/content/public/test/test_support_content.frame_load_waiter.o $
+    obj/content/public/test/test_support_content.javascript_test_observer.o $
+    obj/content/public/test/test_support_content.mock_blob_url_request_context.o $
+    obj/content/public/test/test_support_content.mock_download_item.o $
+    obj/content/public/test/test_support_content.mock_download_manager.o $
+    obj/content/public/test/test_support_content.mock_notification_observer.o $
+    obj/content/public/test/test_support_content.mock_render_process_host.o $
+    obj/content/public/test/test_support_content.mock_render_thread.o $
+    obj/content/public/test/test_support_content.mock_resource_context.o $
+    obj/content/public/test/test_support_content.mock_special_storage_policy.o $
+    obj/content/public/test/test_support_content.mock_storage_client.o $
+    obj/content/public/test/test_support_content.ppapi_test_utils.o $
+    obj/content/public/test/test_support_content.render_view_test.o $
+    obj/content/public/test/test_support_content.sandbox_file_system_test_helper.o $
+    obj/content/public/test/test_support_content.test_browser_context.o $
+    obj/content/public/test/test_support_content.test_browser_thread.o $
+    obj/content/public/test/test_support_content.test_browser_thread_bundle.o $
+    obj/content/public/test/test_support_content.test_content_client_initializer.o $
+    obj/content/public/test/test_support_content.test_download_request_handler.o $
+    obj/content/public/test/test_support_content.test_file_error_injector.o $
+    obj/content/public/test/test_support_content.test_file_system_backend.o $
+    obj/content/public/test/test_support_content.test_file_system_context.o $
+    obj/content/public/test/test_support_content.test_file_system_options.o $
+    obj/content/public/test/test_support_content.test_launcher.o $
+    obj/content/public/test/test_support_content.test_mojo_app.o $
+    obj/content/public/test/test_support_content.test_navigation_observer.o $
+    obj/content/public/test/test_support_content.test_notification_tracker.o $
+    obj/content/public/test/test_support_content.test_renderer_host.o $
+    obj/content/public/test/test_support_content.test_utils.o $
+    obj/content/public/test/test_support_content.test_web_ui.o $
+    obj/content/public/test/test_support_content.unittest_test_suite.o $
+    obj/content/public/test/test_support_content.web_contents_tester.o $
+    obj/content/test/test_support_content.appcache_test_helper.o $
+    obj/content/test/test_support_content.blink_test_environment.o $
+    obj/content/test/test_support_content.browser_side_navigation_test_utils.o $
+    obj/content/test/test_support_content.content_browser_sanity_checker.o $
+    obj/content/test/test_support_content.content_test_suite.o $
+    obj/content/test/test_support_content.fake_compositor_dependencies.o $
+    obj/content/test/test_support_content.fake_plugin_service.o $
+    obj/content/test/test_support_content.fake_renderer_scheduler.o $
+    obj/content/test/test_support_content.mock_background_sync_controller.o $
+    obj/content/test/test_support_content.mock_google_streaming_server.o $
+    obj/content/test/test_support_content.mock_keyboard.o $
+    obj/content/test/test_support_content.mock_permission_manager.o $
+    obj/content/test/test_support_content.mock_render_process.o $
+    obj/content/test/test_support_content.mock_ssl_host_state_delegate.o $
+    obj/content/test/test_support_content.mock_webblob_registry_impl.o $
+    obj/content/test/test_support_content.mock_webclipboard_impl.o $
+    obj/content/test/test_support_content.mock_weburlloader.o $
+    obj/content/test/net/test_support_content.url_request_abort_on_end_job.o $
+    obj/content/test/test_support_content.ppapi_unittest.o $
+    obj/content/test/test_support_content.render_thread_impl_browser_test_ipc_helper.o $
+    obj/content/test/test_support_content.test_background_sync_context_impl.o $
+    obj/content/test/test_support_content.test_background_sync_manager.o $
+    obj/content/test/test_support_content.test_blink_web_unit_test_support.o $
+    obj/content/test/test_support_content.test_content_browser_client.o $
+    obj/content/test/test_support_content.test_content_client.o $
+    obj/content/test/test_support_content.test_frame_navigation_observer.o $
+    obj/content/test/test_support_content.test_navigation_url_loader.o $
+    obj/content/test/test_support_content.test_navigation_url_loader_factory.o $
+    obj/content/test/test_support_content.test_render_frame.o $
+    obj/content/test/test_support_content.test_render_frame_host.o $
+    obj/content/test/test_support_content.test_render_frame_host_factory.o $
+    obj/content/test/test_support_content.test_render_view_host.o $
+    obj/content/test/test_support_content.test_render_view_host_factory.o $
+    obj/content/test/test_support_content.test_web_contents.o $
+    obj/content/test/test_support_content.test_web_contents_factory.o $
+    obj/content/test/test_support_content.web_contents_observer_sanity_checker.o $
+    obj/content/test/test_support_content.web_gesture_curve_mock.o $
+    obj/content/browser/compositor/test/test_support_content.no_transport_image_transport_factory.o $
+    || obj/content/test_support_content.actions_depends.stamp

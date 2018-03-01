@@ -1,0 +1,289 @@
+build obj/chrome/test_support_sync_integration.actions_depends.stamp: stamp $
+    obj/components/libautofill_server_proto.a $
+    obj/mojo/libmojo_application_bindings.a $
+    obj/ui/accessibility/libax_gen.a $
+    obj/content/libcontent_common_mojo_bindings.a chrome $
+    obj/third_party/WebKit/Source/platform/libblink_platform.a $
+    lib/libbase.so.TOC $
+    obj/third_party/cacheinvalidation/libcacheinvalidation_proto_cpp.a $
+    lib/libnet.so.TOC obj/skia/skia.actions_depends.stamp $
+    obj/sync/sync.actions_depends.stamp obj/sync/libsync_proto.a
+
+build obj/chrome/test_support_sync_integration.compile_depends.stamp: stamp $
+    obj/components/autofill_server_proto.actions_rules_copies.stamp $
+    obj/mojo/mojo_application_bindings_mojom.actions_rules_copies.stamp $
+    obj/ui/accessibility/ax_gen.actions_rules_copies.stamp $
+    obj/content/content_common_mojo_bindings_mojom.actions_rules_copies.stamp $
+    obj/chrome/chrome_initial.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/platform/blink_platform.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/third_party/cacheinvalidation/cacheinvalidation_proto_cpp.actions_rules_copies.stamp $
+    obj/net/net.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/sync/sync.compile_depends.stamp $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DMOJO_USE_SYSTEM_IMPL $
+    -DTOOLKIT_VIEWS=1 -DGTEST_HAS_POSIX_RE=0 -DGTEST_LANG_CXX11=0 $
+    -DPROTOBUF_USE_DLLS -DGOOGLE_PROTOBUF_NO_RTTI $
+    -DGOOGLE_PROTOBUF_NO_STATIC_INITIALIZER -DU_USING_ICU_NAMESPACE=0 $
+    -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= -DU_STATIC_IMPLEMENTATION $
+    -DCHROME_PNG_WRITE_SUPPORT -DPNG_USER_CONFIG -DSK_SUPPORT_GPU=1 $
+    -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS -DUNIT_TEST -DGTEST_HAS_RTTI=0 $
+    -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 $
+    -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -Iobj/chrome/test_support_sync_integration.gen $
+    -Igen/protoc_out -I../../skia/config -I../../third_party/khronos $
+    -I../../gpu -Igen/angle -I../../third_party/WebKit/Source $
+    -I../../third_party/protobuf -I../../third_party/protobuf/src $
+    -I../../third_party/WebKit -Igen/third_party/WebKit -Igen/policy $
+    -I../../third_party/WebKit -I../../third_party/icu/source/common $
+    -I../../v8/include -I../../third_party/libpng -I../../third_party/zlib $
+    -I../../third_party/libwebp -I../../third_party/ots/include $
+    -I../../third_party/qcms/src -I../../third_party/iccjpeg $
+    -I../../third_party/libjpeg_turbo $
+    -I../../third_party/cacheinvalidation/overrides $
+    -I../../third_party/cacheinvalidation/src $
+    -I../../third_party/cacheinvalidation/google/cacheinvalidation $
+    -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../testing/gtest/include -I../../testing/gmock/include
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -I/work/bsp/sc1400/usr/include/nss3 $
+    -I/work/bsp/sc1400/usr/include/nspr -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.apps_helper.o: $
+    cxx ../../chrome/browser/sync/test/integration/apps_helper.cc || $
+    obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.autofill_helper.o: $
+    cxx ../../chrome/browser/sync/test/integration/autofill_helper.cc || $
+    obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.await_match_status_change_checker.o: $
+    cxx $
+    ../../chrome/browser/sync/test/integration/await_match_status_change_checker.cc $
+    || obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.bookmarks_helper.o: $
+    cxx ../../chrome/browser/sync/test/integration/bookmarks_helper.cc || $
+    obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.dictionary_helper.o: $
+    cxx ../../chrome/browser/sync/test/integration/dictionary_helper.cc || $
+    obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.dictionary_load_observer.o: $
+    cxx $
+    ../../chrome/browser/sync/test/integration/dictionary_load_observer.cc $
+    || obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.extension_settings_helper.o: $
+    cxx $
+    ../../chrome/browser/sync/test/integration/extension_settings_helper.cc $
+    || obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.extensions_helper.o: $
+    cxx ../../chrome/browser/sync/test/integration/extensions_helper.cc || $
+    obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.fake_server_invalidation_service.o: $
+    cxx $
+    ../../chrome/browser/sync/test/integration/fake_server_invalidation_service.cc $
+    || obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.fake_server_match_status_checker.o: $
+    cxx $
+    ../../chrome/browser/sync/test/integration/fake_server_match_status_checker.cc $
+    || obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.migration_waiter.o: $
+    cxx ../../chrome/browser/sync/test/integration/migration_waiter.cc || $
+    obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.migration_watcher.o: $
+    cxx ../../chrome/browser/sync/test/integration/migration_watcher.cc || $
+    obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.multi_client_status_change_checker.o: $
+    cxx $
+    ../../chrome/browser/sync/test/integration/multi_client_status_change_checker.cc $
+    || obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.p2p_invalidation_forwarder.o: $
+    cxx $
+    ../../chrome/browser/sync/test/integration/p2p_invalidation_forwarder.cc $
+    || obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.p2p_sync_refresher.o: $
+    cxx ../../chrome/browser/sync/test/integration/p2p_sync_refresher.cc || $
+    obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.password_manager_setting_migrator_helper.o: $
+    cxx $
+    ../../chrome/browser/sync/test/integration/password_manager_setting_migrator_helper.cc $
+    || obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.passwords_helper.o: $
+    cxx ../../chrome/browser/sync/test/integration/passwords_helper.cc || $
+    obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.preferences_helper.o: $
+    cxx ../../chrome/browser/sync/test/integration/preferences_helper.cc || $
+    obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.profile_sync_service_harness.o: $
+    cxx $
+    ../../chrome/browser/sync/test/integration/profile_sync_service_harness.cc $
+    || obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.quiesce_status_change_checker.o: $
+    cxx $
+    ../../chrome/browser/sync/test/integration/quiesce_status_change_checker.cc $
+    || obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.retry_verifier.o: $
+    cxx ../../chrome/browser/sync/test/integration/retry_verifier.cc || $
+    obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.search_engines_helper.o: $
+    cxx ../../chrome/browser/sync/test/integration/search_engines_helper.cc $
+    || obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.sessions_helper.o: $
+    cxx ../../chrome/browser/sync/test/integration/sessions_helper.cc || $
+    obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.single_client_status_change_checker.o: $
+    cxx $
+    ../../chrome/browser/sync/test/integration/single_client_status_change_checker.cc $
+    || obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.status_change_checker.o: $
+    cxx ../../chrome/browser/sync/test/integration/status_change_checker.cc $
+    || obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.sync_app_helper.o: $
+    cxx ../../chrome/browser/sync/test/integration/sync_app_helper.cc || $
+    obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.sync_app_list_helper.o: $
+    cxx ../../chrome/browser/sync/test/integration/sync_app_list_helper.cc $
+    || obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.sync_datatype_helper.o: $
+    cxx ../../chrome/browser/sync/test/integration/sync_datatype_helper.cc $
+    || obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.sync_extension_helper.o: $
+    cxx ../../chrome/browser/sync/test/integration/sync_extension_helper.cc $
+    || obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.sync_extension_installer.o: $
+    cxx $
+    ../../chrome/browser/sync/test/integration/sync_extension_installer.cc $
+    || obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.sync_integration_test_util.o: $
+    cxx $
+    ../../chrome/browser/sync/test/integration/sync_integration_test_util.cc $
+    || obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.sync_test.o: $
+    cxx ../../chrome/browser/sync/test/integration/sync_test.cc || $
+    obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.themes_helper.o: $
+    cxx ../../chrome/browser/sync/test/integration/themes_helper.cc || $
+    obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.typed_urls_helper.o: $
+    cxx ../../chrome/browser/sync/test/integration/typed_urls_helper.cc || $
+    obj/chrome/test_support_sync_integration.compile_depends.stamp
+build $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.updated_progress_marker_checker.o: $
+    cxx $
+    ../../chrome/browser/sync/test/integration/updated_progress_marker_checker.cc $
+    || obj/chrome/test_support_sync_integration.compile_depends.stamp
+
+build obj/chrome/libtest_support_sync_integration.a: alink_thin $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.apps_helper.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.autofill_helper.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.await_match_status_change_checker.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.bookmarks_helper.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.dictionary_helper.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.dictionary_load_observer.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.extension_settings_helper.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.extensions_helper.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.fake_server_invalidation_service.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.fake_server_match_status_checker.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.migration_waiter.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.migration_watcher.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.multi_client_status_change_checker.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.p2p_invalidation_forwarder.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.p2p_sync_refresher.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.password_manager_setting_migrator_helper.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.passwords_helper.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.preferences_helper.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.profile_sync_service_harness.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.quiesce_status_change_checker.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.retry_verifier.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.search_engines_helper.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.sessions_helper.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.single_client_status_change_checker.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.status_change_checker.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.sync_app_helper.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.sync_app_list_helper.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.sync_datatype_helper.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.sync_extension_helper.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.sync_extension_installer.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.sync_integration_test_util.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.sync_test.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.themes_helper.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.typed_urls_helper.o $
+    obj/chrome/browser/sync/test/integration/test_support_sync_integration.updated_progress_marker_checker.o $
+    || obj/chrome/test_support_sync_integration.actions_depends.stamp

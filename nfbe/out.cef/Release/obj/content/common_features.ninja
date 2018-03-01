@@ -1,0 +1,13 @@
+rule common_features_target_buildflag_header_c6c2b8266b360d66eb7af57b18b9fc2d
+  command = cd ../../content; python ../build/write_buildflag_header.py $
+      --output content/public/common/features.h --rulename common_features $
+      --gen-dir ../out.cef/Release/gen --definitions $
+      ../out.cef/content/common_features_buildflag_header.rsp
+  description = ACTION Generating build header.
+  restat = 1
+
+build gen/content/public/common/features.h: $
+    common_features_target_buildflag_header_c6c2b8266b360d66eb7af57b18b9fc2d $
+    ../../build/write_buildflag_header.py $
+    ../../out.cef/content/common_features_buildflag_header.rsp
+

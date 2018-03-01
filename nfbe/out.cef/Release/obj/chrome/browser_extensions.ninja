@@ -1,0 +1,2297 @@
+build obj/chrome/browser_extensions.actions_depends.stamp: stamp $
+    obj/chrome/browser/extensions/api/libchrome_api_registration.a $
+    gen/chrome/common/features.h $
+    obj/chrome/chrome_extra_resources.actions_rules_copies.stamp $
+    obj/chrome/chrome_resources.actions_rules_copies.stamp $
+    obj/chrome/chrome_strings.actions_rules_copies.stamp $
+    obj/chrome/platform_locale_settings.actions_rules_copies.stamp $
+    obj/chrome/theme_resources.actions_rules_copies.stamp $
+    obj/chrome/libcommon.a obj/chrome/common/extensions/api/libchrome_api.a $
+    obj/chrome/libsafe_browsing_proto.a $
+    obj/components/libcopresence_proto.a $
+    obj/components/libdom_distiller_protos.a $
+    obj/third_party/dom_distiller_js/libdom_distiller_js_proto.a $
+    obj/components/libpolicy.a obj/components/libcryptauth_proto.a $
+    obj/components/components_resources.actions_rules_copies.stamp $
+    obj/components/components_strings.actions_rules_copies.stamp $
+    obj/content/app/resources/content_resources.actions_rules_copies.stamp $
+    obj/content/libcontent_common_mojo_bindings.a $
+    obj/mojo/libmojo_application_bindings.a $
+    obj/extensions/browser/api/libextensions_api_registration.a $
+    obj/extensions/common/api/libextensions_api.a $
+    obj/extensions/extensions_resources.actions_rules_copies.stamp $
+    obj/extensions/extensions_strings.actions_rules_copies.stamp $
+    lib/libnet.so.TOC obj/skia/skia.actions_depends.stamp $
+    obj/sync/sync.actions_depends.stamp obj/sync/libsync_proto.a $
+    obj/ui/accessibility/libax_gen.a $
+    obj/ui/resources/ui_resources.actions_rules_copies.stamp $
+    obj/ui/strings/ui_strings.actions_rules_copies.stamp $
+    lib/liburl_lib.so.TOC $
+    obj/ui/keyboard/keyboard_resources.actions_rules_copies.stamp $
+    obj/third_party/fontconfig/libfontconfig.a
+
+build obj/chrome/browser_extensions.compile_depends.stamp: stamp $
+    obj/chrome/browser/extensions/api/chrome_api_registration.actions_rules_copies.stamp $
+    gen/chrome/common/features.h $
+    obj/chrome/chrome_extra_resources.actions_rules_copies.stamp $
+    obj/chrome/chrome_resources.actions_rules_copies.stamp $
+    obj/chrome/chrome_strings.actions_rules_copies.stamp $
+    obj/chrome/platform_locale_settings.actions_rules_copies.stamp $
+    obj/chrome/theme_resources.actions_rules_copies.stamp $
+    obj/chrome/common.compile_depends.stamp $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp $
+    obj/chrome/safe_browsing_proto.actions_rules_copies.stamp $
+    obj/components/copresence_proto.actions_rules_copies.stamp $
+    obj/components/dom_distiller_protos.actions_rules_copies.stamp $
+    obj/third_party/dom_distiller_js/dom_distiller_js_proto.actions_rules_copies.stamp $
+    obj/components/policy.compile_depends.stamp $
+    obj/components/cryptauth_proto.actions_rules_copies.stamp $
+    obj/components/components_resources.actions_rules_copies.stamp $
+    obj/components/components_strings.actions_rules_copies.stamp $
+    obj/content/app/resources/content_resources.actions_rules_copies.stamp $
+    obj/content/content_common_mojo_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_application_bindings_mojom.actions_rules_copies.stamp $
+    obj/extensions/browser/api/extensions_api_registration.actions_rules_copies.stamp $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp $
+    obj/extensions/extensions_resources.actions_rules_copies.stamp $
+    obj/extensions/extensions_strings.actions_rules_copies.stamp $
+    obj/net/net.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/sync/sync.compile_depends.stamp $
+    obj/sync/sync_proto.actions_rules_copies.stamp $
+    obj/ui/accessibility/ax_gen.actions_rules_copies.stamp $
+    obj/ui/resources/ui_resources.actions_rules_copies.stamp $
+    obj/ui/strings/ui_strings.actions_rules_copies.stamp $
+    obj/url/url_lib.compile_depends.stamp $
+    obj/ui/keyboard/keyboard_resources.actions_rules_copies.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DMOJO_USE_SYSTEM_IMPL $
+    -DPROTOBUF_USE_DLLS -DGOOGLE_PROTOBUF_NO_RTTI $
+    -DGOOGLE_PROTOBUF_NO_STATIC_INITIALIZER -DSK_SUPPORT_GPU=1 $
+    -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS -DU_USING_ICU_NAMESPACE=0 $
+    -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= -DU_STATIC_IMPLEMENTATION $
+    -DI18N_ADDRESSINPUT_USE_BASICTYPES_OVERRIDE=1 -DWEBRTC_CHROMIUM_BUILD $
+    -DWEBRTC_LINUX -DWEBRTC_POSIX -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS $
+    -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -Iobj/chrome/browser_extensions.gen $
+    -I../../third_party/khronos -I../../gpu -I../../skia/config -Igen/angle $
+    -I../../third_party/WebKit/Source -Igen/chrome -Igen/protoc_out $
+    -I../../third_party/protobuf -I../../third_party/protobuf/src $
+    -I../../third_party/dom_distiller_js/dist/proto_gen -Igen/policy $
+    -Igen/components -Igen/components/strings -Igen/content/app/resources/ $
+    -I../../third_party/WebKit -Igen/third_party/WebKit -Igen/extensions $
+    -Igen/extensions/strings -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../third_party/cacheinvalidation/overrides $
+    -I../../third_party/cacheinvalidation/src $
+    -I../../third_party/icu/source/i18n $
+    -I../../third_party/icu/source/common $
+    -I../../third_party/leveldatabase/src/include $
+    -I../../third_party/leveldatabase/src -I../../third_party/leveldatabase $
+    -I../../third_party/re2/src $
+    -I../../third_party/libaddressinput/chromium/override $
+    -I../../third_party/libaddressinput/src/cpp/include $
+    -Igen/third_party/libaddressinput/ -I../../third_party/webrtc_overrides $
+    -I../../third_party -Igen/ui/resources -Igen/ui/keyboard $
+    -I../../third_party/fontconfig/src
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -I/work/bsp/sc1400/usr/include/nss3 $
+    -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/lib/dbus-1.0/include -march=armv8-a $
+    -mtune=cortex-a53 -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/chrome/browser/apps/browser_extensions.app_url_redirector.o: cxx $
+    ../../chrome/browser/apps/app_url_redirector.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/apps/browser_extensions.app_window_registry_util.o: $
+    cxx ../../chrome/browser/apps/app_window_registry_util.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/apps/browser_extensions.install_chrome_app.o: cxx $
+    ../../chrome/browser/apps/install_chrome_app.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/apps/browser_extensions.shortcut_manager.o: cxx $
+    ../../chrome/browser/apps/shortcut_manager.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/apps/browser_extensions.shortcut_manager_factory.o: $
+    cxx ../../chrome/browser/apps/shortcut_manager_factory.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/copresence/browser_extensions.chrome_whispernet_client.o: $
+    cxx ../../chrome/browser/copresence/chrome_whispernet_client.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.active_install_data.o: $
+    cxx ../../chrome/browser/extensions/active_install_data.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.active_tab_permission_granter.o: $
+    cxx ../../chrome/browser/extensions/active_tab_permission_granter.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/activity_log/browser_extensions.activity_action_constants.o: $
+    cxx $
+    ../../chrome/browser/extensions/activity_log/activity_action_constants.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/activity_log/browser_extensions.activity_actions.o: $
+    cxx ../../chrome/browser/extensions/activity_log/activity_actions.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/activity_log/browser_extensions.activity_database.o: $
+    cxx ../../chrome/browser/extensions/activity_log/activity_database.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/activity_log/browser_extensions.activity_log.o: $
+    cxx ../../chrome/browser/extensions/activity_log/activity_log.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/activity_log/browser_extensions.activity_log_policy.o: $
+    cxx ../../chrome/browser/extensions/activity_log/activity_log_policy.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/activity_log/browser_extensions.counting_policy.o: $
+    cxx ../../chrome/browser/extensions/activity_log/counting_policy.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/activity_log/browser_extensions.database_string_table.o: $
+    cxx $
+    ../../chrome/browser/extensions/activity_log/database_string_table.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/activity_log/browser_extensions.fullstream_ui_policy.o: $
+    cxx $
+    ../../chrome/browser/extensions/activity_log/fullstream_ui_policy.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/activity_log_private/browser_extensions.activity_log_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/activity_log_private/activity_log_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/audio_modem/browser_extensions.audio_modem_api.o: $
+    cxx ../../chrome/browser/extensions/api/audio_modem/audio_modem_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/autofill_private/browser_extensions.autofill_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/autofill_private/autofill_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/autofill_private/browser_extensions.autofill_private_event_router.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/autofill_private/autofill_private_event_router.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/autofill_private/browser_extensions.autofill_private_event_router_factory.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/autofill_private/autofill_private_event_router_factory.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/autofill_private/browser_extensions.autofill_util.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/autofill_private/autofill_util.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/automation_internal/browser_extensions.automation_event_router.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/automation_internal/automation_event_router.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/automation_internal/browser_extensions.automation_internal_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/automation_internal/automation_internal_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/autotest_private/browser_extensions.autotest_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/autotest_private/autotest_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/bluetooth_low_energy/browser_extensions.bluetooth_api_advertisement.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/bluetooth_low_energy/bluetooth_api_advertisement.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/bluetooth_low_energy/browser_extensions.bluetooth_low_energy_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/bluetooth_low_energy/bluetooth_low_energy_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/bluetooth_low_energy/browser_extensions.bluetooth_low_energy_connection.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/bluetooth_low_energy/bluetooth_low_energy_connection.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/bluetooth_low_energy/browser_extensions.bluetooth_low_energy_event_router.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/bluetooth_low_energy/bluetooth_low_energy_event_router.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/bluetooth_low_energy/browser_extensions.bluetooth_low_energy_notify_session.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/bluetooth_low_energy/bluetooth_low_energy_notify_session.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/bluetooth_low_energy/browser_extensions.utils.o: $
+    cxx ../../chrome/browser/extensions/api/bluetooth_low_energy/utils.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/bookmark_manager_private/browser_extensions.bookmark_manager_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/bookmark_manager_private/bookmark_manager_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/bookmarks/browser_extensions.bookmark_api_constants.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/bookmarks/bookmark_api_constants.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/bookmarks/browser_extensions.bookmark_api_helpers.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/bookmarks/bookmark_api_helpers.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/bookmarks/browser_extensions.bookmarks_api.o: $
+    cxx ../../chrome/browser/extensions/api/bookmarks/bookmarks_api.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/braille_display_private/browser_extensions.braille_display_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/braille_display_private/braille_display_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/braille_display_private/browser_extensions.stub_braille_controller.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/braille_display_private/stub_braille_controller.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/browser/browser_extensions.browser_api.o: $
+    cxx ../../chrome/browser/extensions/api/browser/browser_api.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/browsing_data/browser_extensions.browsing_data_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/browsing_data/browsing_data_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/browser_extensions.chrome_extensions_api_client.o: $
+    cxx ../../chrome/browser/extensions/api/chrome_extensions_api_client.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/cloud_print_private/browser_extensions.cloud_print_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/cloud_print_private/cloud_print_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/command_line_private/browser_extensions.command_line_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/command_line_private/command_line_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/commands/browser_extensions.command_service.o: $
+    cxx ../../chrome/browser/extensions/api/commands/command_service.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/commands/browser_extensions.commands.o: $
+    cxx ../../chrome/browser/extensions/api/commands/commands.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/content_settings/browser_extensions.content_settings_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/content_settings/content_settings_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/content_settings/browser_extensions.content_settings_api_constants.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/content_settings/content_settings_api_constants.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/content_settings/browser_extensions.content_settings_custom_extension_provider.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/content_settings/content_settings_custom_extension_provider.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/content_settings/browser_extensions.content_settings_helpers.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/content_settings/content_settings_helpers.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/content_settings/browser_extensions.content_settings_service.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/content_settings/content_settings_service.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/content_settings/browser_extensions.content_settings_store.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/content_settings/content_settings_store.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/context_menus/browser_extensions.context_menus_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/context_menus/context_menus_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/context_menus/browser_extensions.context_menus_api_helpers.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/context_menus/context_menus_api_helpers.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/cookies/browser_extensions.cookies_api.o: $
+    cxx ../../chrome/browser/extensions/api/cookies/cookies_api.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/cookies/browser_extensions.cookies_api_constants.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/cookies/cookies_api_constants.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/cookies/browser_extensions.cookies_helpers.o: $
+    cxx ../../chrome/browser/extensions/api/cookies/cookies_helpers.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/copresence/browser_extensions.copresence_api.o: $
+    cxx ../../chrome/browser/extensions/api/copresence/copresence_api.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/copresence/browser_extensions.copresence_translations.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/copresence/copresence_translations.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/copresence_private/browser_extensions.copresence_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/copresence_private/copresence_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/cryptotoken_private/browser_extensions.cryptotoken_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/cryptotoken_private/cryptotoken_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/dashboard_private/browser_extensions.dashboard_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/dashboard_private/dashboard_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/data_reduction_proxy/browser_extensions.data_reduction_proxy_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/data_reduction_proxy/data_reduction_proxy_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/debugger/browser_extensions.debugger_api.o: $
+    cxx ../../chrome/browser/extensions/api/debugger/debugger_api.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/debugger/browser_extensions.debugger_api_constants.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/debugger/debugger_api_constants.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/declarative_content/browser_extensions.chrome_content_rules_registry.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/declarative_content/chrome_content_rules_registry.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/declarative_content/browser_extensions.content_action.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/declarative_content/content_action.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/declarative_content/browser_extensions.content_condition.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/declarative_content/content_condition.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/declarative_content/browser_extensions.content_constants.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/declarative_content/content_constants.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/declarative_content/browser_extensions.content_predicate.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/declarative_content/content_predicate.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/declarative_content/browser_extensions.content_predicate_evaluator.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/declarative_content/content_predicate_evaluator.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/declarative_content/browser_extensions.declarative_content_css_condition_tracker.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/declarative_content/declarative_content_css_condition_tracker.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/declarative_content/browser_extensions.declarative_content_is_bookmarked_condition_tracker.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/declarative_content/declarative_content_is_bookmarked_condition_tracker.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/declarative_content/browser_extensions.declarative_content_page_url_condition_tracker.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/declarative_content/declarative_content_page_url_condition_tracker.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/declarative_content/browser_extensions.default_content_predicate_evaluators.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/declarative_content/default_content_predicate_evaluators.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/desktop_capture/browser_extensions.desktop_capture_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/desktop_capture/desktop_capture_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/desktop_capture/browser_extensions.desktop_capture_base.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/desktop_capture/desktop_capture_base.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/developer_private/browser_extensions.developer_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/developer_private/developer_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/developer_private/browser_extensions.developer_private_mangle.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/developer_private/developer_private_mangle.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/developer_private/browser_extensions.entry_picker.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/developer_private/entry_picker.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/developer_private/browser_extensions.extension_info_generator.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/developer_private/extension_info_generator.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/developer_private/browser_extensions.inspectable_views_finder.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/developer_private/inspectable_views_finder.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/developer_private/browser_extensions.show_permissions_dialog_helper.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/developer_private/show_permissions_dialog_helper.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/api/dial/browser_extensions.dial_api.o: $
+    cxx ../../chrome/browser/extensions/api/dial/dial_api.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/dial/browser_extensions.dial_api_factory.o: $
+    cxx ../../chrome/browser/extensions/api/dial/dial_api_factory.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/dial/browser_extensions.dial_device_data.o: $
+    cxx ../../chrome/browser/extensions/api/dial/dial_device_data.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/dial/browser_extensions.dial_registry.o: $
+    cxx ../../chrome/browser/extensions/api/dial/dial_registry.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/dial/browser_extensions.dial_service.o: $
+    cxx ../../chrome/browser/extensions/api/dial/dial_service.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/downloads/browser_extensions.downloads_api.o: $
+    cxx ../../chrome/browser/extensions/api/downloads/downloads_api.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/downloads_internal/browser_extensions.downloads_internal_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/downloads_internal/downloads_internal_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/easy_unlock_private/browser_extensions.easy_unlock_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/easy_unlock_private/easy_unlock_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/easy_unlock_private/browser_extensions.easy_unlock_private_connection.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/easy_unlock_private/easy_unlock_private_connection.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/easy_unlock_private/browser_extensions.easy_unlock_private_connection_manager.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/easy_unlock_private/easy_unlock_private_connection_manager.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/experience_sampling_private/browser_extensions.experience_sampling.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/experience_sampling_private/experience_sampling.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/experience_sampling_private/browser_extensions.experience_sampling_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/experience_sampling_private/experience_sampling_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/extension_action/browser_extensions.extension_action_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/extension_action/extension_action_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/extension_action/browser_extensions.extension_page_actions_api_constants.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/extension_action/extension_page_actions_api_constants.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/feedback_private/browser_extensions.feedback_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/feedback_private/feedback_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/feedback_private/browser_extensions.feedback_service.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/feedback_private/feedback_service.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/file_handlers/browser_extensions.app_file_handler_util.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/file_handlers/app_file_handler_util.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/file_handlers/browser_extensions.directory_util.o: $
+    cxx ../../chrome/browser/extensions/api/file_handlers/directory_util.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/file_handlers/browser_extensions.mime_util.o: $
+    cxx ../../chrome/browser/extensions/api/file_handlers/mime_util.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/file_system/browser_extensions.file_system_api.o: $
+    cxx ../../chrome/browser/extensions/api/file_system/file_system_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/font_settings/browser_extensions.font_settings_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/font_settings/font_settings_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/api/gcm/browser_extensions.gcm_api.o: $
+    cxx ../../chrome/browser/extensions/api/gcm/gcm_api.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/history/browser_extensions.history_api.o: $
+    cxx ../../chrome/browser/extensions/api/history/history_api.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/hotword_private/browser_extensions.hotword_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/hotword_private/hotword_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/api/i18n/browser_extensions.i18n_api.o: $
+    cxx ../../chrome/browser/extensions/api/i18n/i18n_api.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/identity/browser_extensions.extension_token_key.o: $
+    cxx ../../chrome/browser/extensions/api/identity/extension_token_key.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/identity/browser_extensions.gaia_web_auth_flow.o: $
+    cxx ../../chrome/browser/extensions/api/identity/gaia_web_auth_flow.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/identity/browser_extensions.identity_api.o: $
+    cxx ../../chrome/browser/extensions/api/identity/identity_api.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/identity/browser_extensions.identity_mint_queue.o: $
+    cxx ../../chrome/browser/extensions/api/identity/identity_mint_queue.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/identity/browser_extensions.identity_signin_flow.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/identity/identity_signin_flow.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/identity/browser_extensions.web_auth_flow.o: $
+    cxx ../../chrome/browser/extensions/api/identity/web_auth_flow.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/idltest/browser_extensions.idltest_api.o: $
+    cxx ../../chrome/browser/extensions/api/idltest/idltest_api.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/image_writer_private/browser_extensions.destroy_partitions_operation.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/image_writer_private/destroy_partitions_operation.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/image_writer_private/browser_extensions.error_messages.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/image_writer_private/error_messages.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/image_writer_private/browser_extensions.image_writer_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/image_writer_private/image_writer_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/image_writer_private/browser_extensions.image_writer_utility_client.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/image_writer_private/image_writer_utility_client.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/image_writer_private/browser_extensions.operation.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/image_writer_private/operation.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/image_writer_private/browser_extensions.operation_manager.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/image_writer_private/operation_manager.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/image_writer_private/browser_extensions.removable_storage_provider.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/image_writer_private/removable_storage_provider.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/image_writer_private/browser_extensions.write_from_file_operation.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/image_writer_private/write_from_file_operation.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/image_writer_private/browser_extensions.write_from_url_operation.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/image_writer_private/write_from_url_operation.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/inline_install_private/browser_extensions.inline_install_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/inline_install_private/inline_install_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/instance_id/browser_extensions.instance_id_api.o: $
+    cxx ../../chrome/browser/extensions/api/instance_id/instance_id_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/language_settings_private/browser_extensions.language_settings_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/language_settings_private/language_settings_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/language_settings_private/browser_extensions.language_settings_private_delegate.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/language_settings_private/language_settings_private_delegate.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/language_settings_private/browser_extensions.language_settings_private_delegate_factory.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/language_settings_private/language_settings_private_delegate_factory.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/launcher_page/browser_extensions.launcher_page_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/launcher_page/launcher_page_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/management/browser_extensions.chrome_management_api_delegate.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/management/chrome_management_api_delegate.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/media_galleries/browser_extensions.media_galleries_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/media_galleries/media_galleries_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/messaging/browser_extensions.extension_message_port.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/messaging/extension_message_port.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/messaging/browser_extensions.incognito_connectability.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/messaging/incognito_connectability.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/messaging/browser_extensions.message_property_provider.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/messaging/message_property_provider.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/messaging/browser_extensions.message_service.o: $
+    cxx ../../chrome/browser/extensions/api/messaging/message_service.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/messaging/browser_extensions.native_message_port.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/messaging/native_message_port.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/messaging/browser_extensions.native_messaging_host_manifest.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/messaging/native_messaging_host_manifest.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/messaging/browser_extensions.native_messaging_policy_handler.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/messaging/native_messaging_policy_handler.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/metrics_private/browser_extensions.metrics_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/metrics_private/metrics_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/api/module/browser_extensions.module.o: $
+    cxx ../../chrome/browser/extensions/api/module/module.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/music_manager_private/browser_extensions.device_id.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/music_manager_private/device_id.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/music_manager_private/browser_extensions.device_id_linux.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/music_manager_private/device_id_linux.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/music_manager_private/browser_extensions.music_manager_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/music_manager_private/music_manager_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/networking_private/browser_extensions.networking_private_ui_delegate_factory_impl.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/networking_private/networking_private_ui_delegate_factory_impl.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/networking_private/browser_extensions.networking_private_verify_delegate_factory_impl.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/networking_private/networking_private_verify_delegate_factory_impl.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/notification_provider/browser_extensions.notification_provider_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/notification_provider/notification_provider_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/notifications/browser_extensions.notifications_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/notifications/notifications_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/omnibox/browser_extensions.omnibox_api.o: $
+    cxx ../../chrome/browser/extensions/api/omnibox/omnibox_api.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/page_capture/browser_extensions.page_capture_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/page_capture/page_capture_api.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/passwords_private/browser_extensions.passwords_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/passwords_private/passwords_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/passwords_private/browser_extensions.passwords_private_delegate_factory.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/passwords_private/passwords_private_delegate_factory.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/passwords_private/browser_extensions.passwords_private_delegate_impl.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/passwords_private/passwords_private_delegate_impl.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/passwords_private/browser_extensions.passwords_private_event_router.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/passwords_private/passwords_private_event_router.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/passwords_private/browser_extensions.passwords_private_event_router_factory.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/passwords_private/passwords_private_event_router_factory.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/permissions/browser_extensions.permissions_api.o: $
+    cxx ../../chrome/browser/extensions/api/permissions/permissions_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/permissions/browser_extensions.permissions_api_helpers.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/permissions/permissions_api_helpers.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/preference/browser_extensions.chrome_direct_setting.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/preference/chrome_direct_setting.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/preference/browser_extensions.chrome_direct_setting_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/preference/chrome_direct_setting_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/preference/browser_extensions.preference_api.o: $
+    cxx ../../chrome/browser/extensions/api/preference/preference_api.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/preference/browser_extensions.preference_api_constants.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/preference/preference_api_constants.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/preference/browser_extensions.preference_helpers.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/preference/preference_helpers.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/proxy/browser_extensions.proxy_api.o: $
+    cxx ../../chrome/browser/extensions/api/proxy/proxy_api.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/proxy/browser_extensions.proxy_api_constants.o: $
+    cxx ../../chrome/browser/extensions/api/proxy/proxy_api_constants.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/proxy/browser_extensions.proxy_api_helpers.o: $
+    cxx ../../chrome/browser/extensions/api/proxy/proxy_api_helpers.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/resources_private/browser_extensions.resources_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/resources_private/resources_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/runtime/browser_extensions.chrome_runtime_api_delegate.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/runtime/chrome_runtime_api_delegate.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/screenlock_private/browser_extensions.screenlock_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/screenlock_private/screenlock_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/sessions/browser_extensions.session_id.o: $
+    cxx ../../chrome/browser/extensions/api/sessions/session_id.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/sessions/browser_extensions.sessions_api.o: $
+    cxx ../../chrome/browser/extensions/api/sessions/sessions_api.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/settings_overrides/browser_extensions.settings_overrides_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/settings_overrides/settings_overrides_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/settings_private/browser_extensions.prefs_util.o: $
+    cxx ../../chrome/browser/extensions/api/settings_private/prefs_util.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/settings_private/browser_extensions.settings_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/settings_private/settings_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/settings_private/browser_extensions.settings_private_delegate.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/settings_private/settings_private_delegate.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/settings_private/browser_extensions.settings_private_delegate_factory.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/settings_private/settings_private_delegate_factory.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/settings_private/browser_extensions.settings_private_event_router.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/settings_private/settings_private_event_router.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/settings_private/browser_extensions.settings_private_event_router_factory.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/settings_private/settings_private_event_router_factory.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/signed_in_devices/browser_extensions.id_mapping_helper.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/signed_in_devices/id_mapping_helper.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/signed_in_devices/browser_extensions.signed_in_devices_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/signed_in_devices/signed_in_devices_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/signed_in_devices/browser_extensions.signed_in_devices_manager.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/signed_in_devices/signed_in_devices_manager.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/spellcheck/browser_extensions.spellcheck_api.o: $
+    cxx ../../chrome/browser/extensions/api/spellcheck/spellcheck_api.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/storage/browser_extensions.managed_value_store_cache.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/storage/managed_value_store_cache.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/storage/browser_extensions.policy_value_store.o: $
+    cxx ../../chrome/browser/extensions/api/storage/policy_value_store.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/storage/browser_extensions.setting_sync_data.o: $
+    cxx ../../chrome/browser/extensions/api/storage/setting_sync_data.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/storage/browser_extensions.settings_sync_processor.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/storage/settings_sync_processor.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/storage/browser_extensions.settings_sync_util.o: $
+    cxx ../../chrome/browser/extensions/api/storage/settings_sync_util.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/storage/browser_extensions.sync_storage_backend.o: $
+    cxx ../../chrome/browser/extensions/api/storage/sync_storage_backend.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/storage/browser_extensions.sync_value_store_cache.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/storage/sync_value_store_cache.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/storage/browser_extensions.syncable_settings_storage.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/storage/syncable_settings_storage.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/streams_private/browser_extensions.streams_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/streams_private/streams_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/sync_file_system/browser_extensions.extension_sync_event_observer.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/sync_file_system/extension_sync_event_observer.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/sync_file_system/browser_extensions.sync_file_system_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/sync_file_system/sync_file_system_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/sync_file_system/browser_extensions.sync_file_system_api_helpers.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/sync_file_system/sync_file_system_api_helpers.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/system_indicator/browser_extensions.system_indicator_manager.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/system_indicator/system_indicator_manager.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/system_indicator/browser_extensions.system_indicator_manager_factory.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/system_indicator/system_indicator_manager_factory.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/system_private/browser_extensions.system_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/system_private/system_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/tab_capture/browser_extensions.offscreen_tab.o: $
+    cxx ../../chrome/browser/extensions/api/tab_capture/offscreen_tab.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/tab_capture/browser_extensions.tab_capture_api.o: $
+    cxx ../../chrome/browser/extensions/api/tab_capture/tab_capture_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/tab_capture/browser_extensions.tab_capture_registry.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/tab_capture/tab_capture_registry.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/tabs/browser_extensions.app_base_window.o: $
+    cxx ../../chrome/browser/extensions/api/tabs/app_base_window.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/tabs/browser_extensions.app_window_controller.o: $
+    cxx ../../chrome/browser/extensions/api/tabs/app_window_controller.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/api/tabs/browser_extensions.tabs_api.o: $
+    cxx ../../chrome/browser/extensions/api/tabs/tabs_api.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/tabs/browser_extensions.tabs_constants.o: $
+    cxx ../../chrome/browser/extensions/api/tabs/tabs_constants.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/tabs/browser_extensions.tabs_event_router.o: $
+    cxx ../../chrome/browser/extensions/api/tabs/tabs_event_router.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/tabs/browser_extensions.tabs_windows_api.o: $
+    cxx ../../chrome/browser/extensions/api/tabs/tabs_windows_api.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/tabs/browser_extensions.windows_event_router.o: $
+    cxx ../../chrome/browser/extensions/api/tabs/windows_event_router.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/tabs/browser_extensions.windows_util.o: $
+    cxx ../../chrome/browser/extensions/api/tabs/windows_util.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/top_sites/browser_extensions.top_sites_api.o: $
+    cxx ../../chrome/browser/extensions/api/top_sites/top_sites_api.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/web_navigation/browser_extensions.frame_navigation_state.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/web_navigation/frame_navigation_state.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/web_navigation/browser_extensions.web_navigation_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/web_navigation/web_navigation_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/web_navigation/browser_extensions.web_navigation_api_constants.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/web_navigation/web_navigation_api_constants.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/web_navigation/browser_extensions.web_navigation_api_helpers.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/web_navigation/web_navigation_api_helpers.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/web_request/browser_extensions.chrome_extension_web_request_event_router_delegate.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/web_request/chrome_extension_web_request_event_router_delegate.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/web_view/browser_extensions.chrome_web_view_internal_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/web_view/chrome_web_view_internal_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/webrtc_audio_private/browser_extensions.webrtc_audio_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/webrtc_audio_private/webrtc_audio_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/webrtc_desktop_capture_private/browser_extensions.webrtc_desktop_capture_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/webrtc_desktop_capture_private/webrtc_desktop_capture_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/webstore/browser_extensions.webstore_api.o: $
+    cxx ../../chrome/browser/extensions/api/webstore/webstore_api.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/webstore_private/browser_extensions.webstore_private_api.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/webstore_private/webstore_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.app_data_migrator.o: $
+    cxx ../../chrome/browser/extensions/app_data_migrator.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.blacklist.o: cxx $
+    ../../chrome/browser/extensions/blacklist.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.blacklist_factory.o: $
+    cxx ../../chrome/browser/extensions/blacklist_factory.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.blacklist_state_fetcher.o: $
+    cxx ../../chrome/browser/extensions/blacklist_state_fetcher.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.blob_reader.o: cxx $
+    ../../chrome/browser/extensions/blob_reader.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.bookmark_app_helper.o: $
+    cxx ../../chrome/browser/extensions/bookmark_app_helper.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.browser_context_keyed_service_factories.o: $
+    cxx $
+    ../../chrome/browser/extensions/browser_context_keyed_service_factories.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.browser_extension_window_controller.o: $
+    cxx $
+    ../../chrome/browser/extensions/browser_extension_window_controller.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.bundle_installer.o: $
+    cxx ../../chrome/browser/extensions/bundle_installer.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.chrome_app_sorting.o: $
+    cxx ../../chrome/browser/extensions/chrome_app_sorting.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.chrome_component_extension_resource_manager.o: $
+    cxx $
+    ../../chrome/browser/extensions/chrome_component_extension_resource_manager.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.chrome_content_browser_client_extensions_part.o: $
+    cxx $
+    ../../chrome/browser/extensions/chrome_content_browser_client_extensions_part.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.chrome_content_verifier_delegate.o: $
+    cxx ../../chrome/browser/extensions/chrome_content_verifier_delegate.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.chrome_extension_api_frame_id_map_helper.o: $
+    cxx $
+    ../../chrome/browser/extensions/chrome_extension_api_frame_id_map_helper.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.chrome_extension_function.o: $
+    cxx ../../chrome/browser/extensions/chrome_extension_function.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.chrome_extension_function_details.o: $
+    cxx $
+    ../../chrome/browser/extensions/chrome_extension_function_details.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.chrome_extension_host_delegate.o: $
+    cxx ../../chrome/browser/extensions/chrome_extension_host_delegate.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.chrome_extension_web_contents_observer.o: $
+    cxx $
+    ../../chrome/browser/extensions/chrome_extension_web_contents_observer.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.chrome_extensions_browser_client.o: $
+    cxx ../../chrome/browser/extensions/chrome_extensions_browser_client.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.chrome_mojo_service_registration.o: $
+    cxx ../../chrome/browser/extensions/chrome_mojo_service_registration.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.chrome_notification_observer.o: $
+    cxx ../../chrome/browser/extensions/chrome_notification_observer.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.chrome_process_manager_delegate.o: $
+    cxx ../../chrome/browser/extensions/chrome_process_manager_delegate.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.chrome_requirements_checker.o: $
+    cxx ../../chrome/browser/extensions/chrome_requirements_checker.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.chrome_url_request_util.o: $
+    cxx ../../chrome/browser/extensions/chrome_url_request_util.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/component_extensions_whitelist/browser_extensions.whitelist.o: $
+    cxx $
+    ../../chrome/browser/extensions/component_extensions_whitelist/whitelist.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.component_loader.o: $
+    cxx ../../chrome/browser/extensions/component_loader.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.component_migration_helper.o: $
+    cxx ../../chrome/browser/extensions/component_migration_helper.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.context_menu_matcher.o: $
+    cxx ../../chrome/browser/extensions/context_menu_matcher.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.convert_user_script.o: $
+    cxx ../../chrome/browser/extensions/convert_user_script.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.convert_web_app.o: $
+    cxx ../../chrome/browser/extensions/convert_web_app.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.crx_installer.o: cxx $
+    ../../chrome/browser/extensions/crx_installer.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.data_deleter.o: cxx $
+    ../../chrome/browser/extensions/data_deleter.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.dev_mode_bubble_delegate.o: $
+    cxx ../../chrome/browser/extensions/dev_mode_bubble_delegate.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.devtools_util.o: cxx $
+    ../../chrome/browser/extensions/devtools_util.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/error_console/browser_extensions.error_console.o: $
+    cxx ../../chrome/browser/extensions/error_console/error_console.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/error_console/browser_extensions.error_console_factory.o: $
+    cxx $
+    ../../chrome/browser/extensions/error_console/error_console_factory.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.event_router_forwarder.o: $
+    cxx ../../chrome/browser/extensions/event_router_forwarder.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.extension_action.o: $
+    cxx ../../chrome/browser/extensions/extension_action.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_action_icon_factory.o: $
+    cxx ../../chrome/browser/extensions/extension_action_icon_factory.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_action_manager.o: $
+    cxx ../../chrome/browser/extensions/extension_action_manager.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_action_runner.o: $
+    cxx ../../chrome/browser/extensions/extension_action_runner.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_action_storage_manager.o: $
+    cxx ../../chrome/browser/extensions/extension_action_storage_manager.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_app_icon_loader.o: $
+    cxx ../../chrome/browser/extensions/extension_app_icon_loader.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_assets_manager.o: $
+    cxx ../../chrome/browser/extensions/extension_assets_manager.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_commands_global_registry.o: $
+    cxx $
+    ../../chrome/browser/extensions/extension_commands_global_registry.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_context_menu_model.o: $
+    cxx ../../chrome/browser/extensions/extension_context_menu_model.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_cookie_monster_delegate.o: $
+    cxx $
+    ../../chrome/browser/extensions/extension_cookie_monster_delegate.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.extension_creator.o: $
+    cxx ../../chrome/browser/extensions/extension_creator.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_creator_filter.o: $
+    cxx ../../chrome/browser/extensions/extension_creator_filter.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_disabled_ui.o: $
+    cxx ../../chrome/browser/extensions/extension_disabled_ui.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_error_controller.o: $
+    cxx ../../chrome/browser/extensions/extension_error_controller.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_error_reporter.o: $
+    cxx ../../chrome/browser/extensions/extension_error_reporter.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_error_ui.o: $
+    cxx ../../chrome/browser/extensions/extension_error_ui.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_error_ui_default.o: $
+    cxx ../../chrome/browser/extensions/extension_error_ui_default.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_garbage_collector.o: $
+    cxx ../../chrome/browser/extensions/extension_garbage_collector.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_garbage_collector_factory.o: $
+    cxx $
+    ../../chrome/browser/extensions/extension_garbage_collector_factory.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_gcm_app_handler.o: $
+    cxx ../../chrome/browser/extensions/extension_gcm_app_handler.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_icon_manager.o: $
+    cxx ../../chrome/browser/extensions/extension_icon_manager.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_install_checker.o: $
+    cxx ../../chrome/browser/extensions/extension_install_checker.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_install_error_menu_item_id_provider.o: $
+    cxx $
+    ../../chrome/browser/extensions/extension_install_error_menu_item_id_provider.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_install_prompt.o: $
+    cxx ../../chrome/browser/extensions/extension_install_prompt.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_install_prompt_show_params.o: $
+    cxx $
+    ../../chrome/browser/extensions/extension_install_prompt_show_params.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_install_ui_util.o: $
+    cxx ../../chrome/browser/extensions/extension_install_ui_util.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_keybinding_registry.o: $
+    cxx ../../chrome/browser/extensions/extension_keybinding_registry.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_management.o: $
+    cxx ../../chrome/browser/extensions/extension_management.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_management_constants.o: $
+    cxx ../../chrome/browser/extensions/extension_management_constants.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_management_internal.o: $
+    cxx ../../chrome/browser/extensions/extension_management_internal.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_message_bubble_controller.o: $
+    cxx $
+    ../../chrome/browser/extensions/extension_message_bubble_controller.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_migrator.o: $
+    cxx ../../chrome/browser/extensions/extension_migrator.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_reenabler.o: $
+    cxx ../../chrome/browser/extensions/extension_reenabler.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_resource_protocols.o: $
+    cxx ../../chrome/browser/extensions/extension_resource_protocols.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.extension_service.o: $
+    cxx ../../chrome/browser/extensions/extension_service.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_special_storage_policy.o: $
+    cxx ../../chrome/browser/extensions/extension_special_storage_policy.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_storage_monitor.o: $
+    cxx ../../chrome/browser/extensions/extension_storage_monitor.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_storage_monitor_factory.o: $
+    cxx $
+    ../../chrome/browser/extensions/extension_storage_monitor_factory.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_sync_data.o: $
+    cxx ../../chrome/browser/extensions/extension_sync_data.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_sync_service.o: $
+    cxx ../../chrome/browser/extensions/extension_sync_service.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_sync_service_factory.o: $
+    cxx ../../chrome/browser/extensions/extension_sync_service_factory.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_system_factory.o: $
+    cxx ../../chrome/browser/extensions/extension_system_factory.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_system_impl.o: $
+    cxx ../../chrome/browser/extensions/extension_system_impl.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_tab_util.o: $
+    cxx ../../chrome/browser/extensions/extension_tab_util.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.extension_ui_util.o: $
+    cxx ../../chrome/browser/extensions/extension_ui_util.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_uninstall_dialog.o: $
+    cxx ../../chrome/browser/extensions/extension_uninstall_dialog.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.extension_util.o: $
+    cxx ../../chrome/browser/extensions/extension_util.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_view_host.o: $
+    cxx ../../chrome/browser/extensions/extension_view_host.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_view_host_factory.o: $
+    cxx ../../chrome/browser/extensions/extension_view_host_factory.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.extension_web_ui.o: $
+    cxx ../../chrome/browser/extensions/extension_web_ui.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_web_ui_override_registrar.o: $
+    cxx $
+    ../../chrome/browser/extensions/extension_web_ui_override_registrar.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.extension_webkit_preferences.o: $
+    cxx ../../chrome/browser/extensions/extension_webkit_preferences.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.external_component_loader.o: $
+    cxx ../../chrome/browser/extensions/external_component_loader.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.external_install_error.o: $
+    cxx ../../chrome/browser/extensions/external_install_error.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.external_install_manager.o: $
+    cxx ../../chrome/browser/extensions/external_install_manager.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.external_loader.o: $
+    cxx ../../chrome/browser/extensions/external_loader.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.external_policy_loader.o: $
+    cxx ../../chrome/browser/extensions/external_policy_loader.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.external_pref_loader.o: $
+    cxx ../../chrome/browser/extensions/external_pref_loader.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.external_provider_impl.o: $
+    cxx ../../chrome/browser/extensions/external_provider_impl.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.favicon_downloader.o: $
+    cxx ../../chrome/browser/extensions/favicon_downloader.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.global_shortcut_listener.o: $
+    cxx ../../chrome/browser/extensions/global_shortcut_listener.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.global_shortcut_listener_ozone.o: $
+    cxx ../../chrome/browser/extensions/global_shortcut_listener_ozone.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.install_observer.o: $
+    cxx ../../chrome/browser/extensions/install_observer.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.install_signer.o: $
+    cxx ../../chrome/browser/extensions/install_signer.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.install_tracker.o: $
+    cxx ../../chrome/browser/extensions/install_tracker.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.install_tracker_factory.o: $
+    cxx ../../chrome/browser/extensions/install_tracker_factory.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.install_verifier.o: $
+    cxx ../../chrome/browser/extensions/install_verifier.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.install_verifier_factory.o: $
+    cxx ../../chrome/browser/extensions/install_verifier_factory.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.installed_loader.o: $
+    cxx ../../chrome/browser/extensions/installed_loader.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.launch_util.o: cxx $
+    ../../chrome/browser/extensions/launch_util.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.location_bar_controller.o: $
+    cxx ../../chrome/browser/extensions/location_bar_controller.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.menu_manager.o: cxx $
+    ../../chrome/browser/extensions/menu_manager.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.menu_manager_factory.o: $
+    cxx ../../chrome/browser/extensions/menu_manager_factory.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.navigation_observer.o: $
+    cxx ../../chrome/browser/extensions/navigation_observer.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.ntp_overridden_bubble_delegate.o: $
+    cxx ../../chrome/browser/extensions/ntp_overridden_bubble_delegate.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.pack_extension_job.o: $
+    cxx ../../chrome/browser/extensions/pack_extension_job.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.path_util.o: cxx $
+    ../../chrome/browser/extensions/path_util.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.pending_extension_info.o: $
+    cxx ../../chrome/browser/extensions/pending_extension_info.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.pending_extension_manager.o: $
+    cxx ../../chrome/browser/extensions/pending_extension_manager.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.permissions_based_management_policy_provider.o: $
+    cxx $
+    ../../chrome/browser/extensions/permissions_based_management_policy_provider.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.permissions_updater.o: $
+    cxx ../../chrome/browser/extensions/permissions_updater.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.plugin_manager.o: $
+    cxx ../../chrome/browser/extensions/plugin_manager.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.policy_handlers.o: $
+    cxx ../../chrome/browser/extensions/policy_handlers.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.proxy_overridden_bubble_delegate.o: $
+    cxx ../../chrome/browser/extensions/proxy_overridden_bubble_delegate.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.scripting_permissions_modifier.o: $
+    cxx ../../chrome/browser/extensions/scripting_permissions_modifier.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.settings_api_bubble_delegate.o: $
+    cxx ../../chrome/browser/extensions/settings_api_bubble_delegate.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.settings_api_helpers.o: $
+    cxx ../../chrome/browser/extensions/settings_api_helpers.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.shared_module_service.o: $
+    cxx ../../chrome/browser/extensions/shared_module_service.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.shared_user_script_master.o: $
+    cxx ../../chrome/browser/extensions/shared_user_script_master.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/signin/browser_extensions.gaia_auth_extension_loader.o: $
+    cxx $
+    ../../chrome/browser/extensions/signin/gaia_auth_extension_loader.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/signin/browser_extensions.scoped_gaia_auth_extension.o: $
+    cxx $
+    ../../chrome/browser/extensions/signin/scoped_gaia_auth_extension.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.standard_management_policy_provider.o: $
+    cxx $
+    ../../chrome/browser/extensions/standard_management_policy_provider.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.startup_helper.o: $
+    cxx ../../chrome/browser/extensions/startup_helper.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.state_store_notification_observer.o: $
+    cxx $
+    ../../chrome/browser/extensions/state_store_notification_observer.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.suspicious_extension_bubble_delegate.o: $
+    cxx $
+    ../../chrome/browser/extensions/suspicious_extension_bubble_delegate.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.sync_bundle.o: cxx $
+    ../../chrome/browser/extensions/sync_bundle.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.tab_helper.o: cxx $
+    ../../chrome/browser/extensions/tab_helper.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.theme_installed_infobar_delegate.o: $
+    cxx ../../chrome/browser/extensions/theme_installed_infobar_delegate.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/token_cache/browser_extensions.token_cache_service.o: $
+    cxx ../../chrome/browser/extensions/token_cache/token_cache_service.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/token_cache/browser_extensions.token_cache_service_factory.o: $
+    cxx $
+    ../../chrome/browser/extensions/token_cache/token_cache_service_factory.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.unpacked_installer.o: $
+    cxx ../../chrome/browser/extensions/unpacked_installer.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/updater/browser_extensions.chrome_extension_downloader_factory.o: $
+    cxx $
+    ../../chrome/browser/extensions/updater/chrome_extension_downloader_factory.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/updater/browser_extensions.chrome_update_client_config.o: $
+    cxx $
+    ../../chrome/browser/extensions/updater/chrome_update_client_config.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/updater/browser_extensions.extension_updater.o: $
+    cxx ../../chrome/browser/extensions/updater/extension_updater.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.user_script_listener.o: $
+    cxx ../../chrome/browser/extensions/user_script_listener.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.warning_badge_service.o: $
+    cxx ../../chrome/browser/extensions/warning_badge_service.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.warning_badge_service_factory.o: $
+    cxx ../../chrome/browser/extensions/warning_badge_service_factory.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.webstore_data_fetcher.o: $
+    cxx ../../chrome/browser/extensions/webstore_data_fetcher.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.webstore_data_fetcher_delegate.o: $
+    cxx ../../chrome/browser/extensions/webstore_data_fetcher_delegate.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.webstore_inline_installer.o: $
+    cxx ../../chrome/browser/extensions/webstore_inline_installer.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.webstore_inline_installer_factory.o: $
+    cxx $
+    ../../chrome/browser/extensions/webstore_inline_installer_factory.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.webstore_install_helper.o: $
+    cxx ../../chrome/browser/extensions/webstore_install_helper.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.webstore_install_with_prompt.o: $
+    cxx ../../chrome/browser/extensions/webstore_install_with_prompt.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.webstore_installer.o: $
+    cxx ../../chrome/browser/extensions/webstore_installer.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.webstore_reinstaller.o: $
+    cxx ../../chrome/browser/extensions/webstore_reinstaller.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.webstore_standalone_installer.o: $
+    cxx ../../chrome/browser/extensions/webstore_standalone_installer.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.webstore_startup_installer.o: $
+    cxx ../../chrome/browser/extensions/webstore_startup_installer.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.window_controller.o: $
+    cxx ../../chrome/browser/extensions/window_controller.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.window_controller_list.o: $
+    cxx ../../chrome/browser/extensions/window_controller_list.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.zipfile_installer.o: $
+    cxx ../../chrome/browser/extensions/zipfile_installer.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/ui/browser_extensions.app_icon_loader.o: cxx $
+    ../../chrome/browser/ui/app_icon_loader.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/ui/toolbar/browser_extensions.toolbar_actions_model.o: $
+    cxx ../../chrome/browser/ui/toolbar/toolbar_actions_model.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/ui/toolbar/browser_extensions.toolbar_actions_model_factory.o: $
+    cxx ../../chrome/browser/ui/toolbar/toolbar_actions_model_factory.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/web_applications/browser_extensions.web_app.o: cxx $
+    ../../chrome/browser/web_applications/web_app.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/processes/browser_extensions.processes_api.o: $
+    cxx ../../chrome/browser/extensions/api/processes/processes_api.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/browser_extensions.default_apps.o: cxx $
+    ../../chrome/browser/extensions/default_apps.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/easy_unlock_private/browser_extensions.easy_unlock_private_crypto_delegate_stub.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/easy_unlock_private/easy_unlock_private_crypto_delegate_stub.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/image_writer_private/browser_extensions.operation_nonchromeos.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/image_writer_private/operation_nonchromeos.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/image_writer_private/browser_extensions.removable_storage_provider_linux.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/image_writer_private/removable_storage_provider_linux.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/messaging/browser_extensions.native_message_process_host.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/messaging/native_message_process_host.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/messaging/browser_extensions.native_process_launcher.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/messaging/native_process_launcher.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/messaging/browser_extensions.native_process_launcher_posix.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/messaging/native_process_launcher_posix.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/gcd_private/browser_extensions.gcd_private_api.o: $
+    cxx ../../chrome/browser/extensions/api/gcd_private/gcd_private_api.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/gcd_private/browser_extensions.privet_v3_context_getter.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/gcd_private/privet_v3_context_getter.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/gcd_private/browser_extensions.privet_v3_session.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/gcd_private/privet_v3_session.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/mdns/browser_extensions.dns_sd_delegate.o: $
+    cxx ../../chrome/browser/extensions/api/mdns/dns_sd_delegate.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/mdns/browser_extensions.dns_sd_device_lister.o: $
+    cxx ../../chrome/browser/extensions/api/mdns/dns_sd_device_lister.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/mdns/browser_extensions.dns_sd_registry.o: $
+    cxx ../../chrome/browser/extensions/api/mdns/dns_sd_registry.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/extensions/api/mdns/browser_extensions.mdns_api.o: $
+    cxx ../../chrome/browser/extensions/api/mdns/mdns_api.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/input_ime/browser_extensions.input_ime_api.o: $
+    cxx ../../chrome/browser/extensions/api/input_ime/input_ime_api.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/input_ime/browser_extensions.input_ime_api_nonchromeos.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/input_ime/input_ime_api_nonchromeos.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/input_ime/browser_extensions.input_ime_event_router_base.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/input_ime/input_ime_event_router_base.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/browser_extensions.display_info_provider_aura.o: $
+    cxx ../../chrome/browser/extensions/display_info_provider_aura.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/apps/drive/browser_extensions.drive_app_converter.o: $
+    cxx ../../chrome/browser/apps/drive/drive_app_converter.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build obj/chrome/browser/apps/drive/browser_extensions.drive_app_mapping.o: $
+    cxx ../../chrome/browser/apps/drive/drive_app_mapping.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/apps/drive/browser_extensions.drive_app_provider.o: $
+    cxx ../../chrome/browser/apps/drive/drive_app_provider.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/apps/drive/browser_extensions.drive_service_bridge.o: $
+    cxx ../../chrome/browser/apps/drive/drive_service_bridge.cc || $
+    obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/webrtc_logging_private/browser_extensions.webrtc_logging_private_api_stub.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/webrtc_logging_private/webrtc_logging_private_api_stub.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+build $
+    obj/chrome/browser/extensions/api/braille_display_private/browser_extensions.braille_controller_stub.o: $
+    cxx $
+    ../../chrome/browser/extensions/api/braille_display_private/braille_controller_stub.cc $
+    || obj/chrome/browser_extensions.compile_depends.stamp
+
+build obj/chrome/libbrowser_extensions.a: alink_thin $
+    obj/chrome/browser/apps/browser_extensions.app_url_redirector.o $
+    obj/chrome/browser/apps/browser_extensions.app_window_registry_util.o $
+    obj/chrome/browser/apps/browser_extensions.install_chrome_app.o $
+    obj/chrome/browser/apps/browser_extensions.shortcut_manager.o $
+    obj/chrome/browser/apps/browser_extensions.shortcut_manager_factory.o $
+    obj/chrome/browser/copresence/browser_extensions.chrome_whispernet_client.o $
+    obj/chrome/browser/extensions/browser_extensions.active_install_data.o $
+    obj/chrome/browser/extensions/browser_extensions.active_tab_permission_granter.o $
+    obj/chrome/browser/extensions/activity_log/browser_extensions.activity_action_constants.o $
+    obj/chrome/browser/extensions/activity_log/browser_extensions.activity_actions.o $
+    obj/chrome/browser/extensions/activity_log/browser_extensions.activity_database.o $
+    obj/chrome/browser/extensions/activity_log/browser_extensions.activity_log.o $
+    obj/chrome/browser/extensions/activity_log/browser_extensions.activity_log_policy.o $
+    obj/chrome/browser/extensions/activity_log/browser_extensions.counting_policy.o $
+    obj/chrome/browser/extensions/activity_log/browser_extensions.database_string_table.o $
+    obj/chrome/browser/extensions/activity_log/browser_extensions.fullstream_ui_policy.o $
+    obj/chrome/browser/extensions/api/activity_log_private/browser_extensions.activity_log_private_api.o $
+    obj/chrome/browser/extensions/api/audio_modem/browser_extensions.audio_modem_api.o $
+    obj/chrome/browser/extensions/api/autofill_private/browser_extensions.autofill_private_api.o $
+    obj/chrome/browser/extensions/api/autofill_private/browser_extensions.autofill_private_event_router.o $
+    obj/chrome/browser/extensions/api/autofill_private/browser_extensions.autofill_private_event_router_factory.o $
+    obj/chrome/browser/extensions/api/autofill_private/browser_extensions.autofill_util.o $
+    obj/chrome/browser/extensions/api/automation_internal/browser_extensions.automation_event_router.o $
+    obj/chrome/browser/extensions/api/automation_internal/browser_extensions.automation_internal_api.o $
+    obj/chrome/browser/extensions/api/autotest_private/browser_extensions.autotest_private_api.o $
+    obj/chrome/browser/extensions/api/bluetooth_low_energy/browser_extensions.bluetooth_api_advertisement.o $
+    obj/chrome/browser/extensions/api/bluetooth_low_energy/browser_extensions.bluetooth_low_energy_api.o $
+    obj/chrome/browser/extensions/api/bluetooth_low_energy/browser_extensions.bluetooth_low_energy_connection.o $
+    obj/chrome/browser/extensions/api/bluetooth_low_energy/browser_extensions.bluetooth_low_energy_event_router.o $
+    obj/chrome/browser/extensions/api/bluetooth_low_energy/browser_extensions.bluetooth_low_energy_notify_session.o $
+    obj/chrome/browser/extensions/api/bluetooth_low_energy/browser_extensions.utils.o $
+    obj/chrome/browser/extensions/api/bookmark_manager_private/browser_extensions.bookmark_manager_private_api.o $
+    obj/chrome/browser/extensions/api/bookmarks/browser_extensions.bookmark_api_constants.o $
+    obj/chrome/browser/extensions/api/bookmarks/browser_extensions.bookmark_api_helpers.o $
+    obj/chrome/browser/extensions/api/bookmarks/browser_extensions.bookmarks_api.o $
+    obj/chrome/browser/extensions/api/braille_display_private/browser_extensions.braille_display_private_api.o $
+    obj/chrome/browser/extensions/api/braille_display_private/browser_extensions.stub_braille_controller.o $
+    obj/chrome/browser/extensions/api/browser/browser_extensions.browser_api.o $
+    obj/chrome/browser/extensions/api/browsing_data/browser_extensions.browsing_data_api.o $
+    obj/chrome/browser/extensions/api/browser_extensions.chrome_extensions_api_client.o $
+    obj/chrome/browser/extensions/api/cloud_print_private/browser_extensions.cloud_print_private_api.o $
+    obj/chrome/browser/extensions/api/command_line_private/browser_extensions.command_line_private_api.o $
+    obj/chrome/browser/extensions/api/commands/browser_extensions.command_service.o $
+    obj/chrome/browser/extensions/api/commands/browser_extensions.commands.o $
+    obj/chrome/browser/extensions/api/content_settings/browser_extensions.content_settings_api.o $
+    obj/chrome/browser/extensions/api/content_settings/browser_extensions.content_settings_api_constants.o $
+    obj/chrome/browser/extensions/api/content_settings/browser_extensions.content_settings_custom_extension_provider.o $
+    obj/chrome/browser/extensions/api/content_settings/browser_extensions.content_settings_helpers.o $
+    obj/chrome/browser/extensions/api/content_settings/browser_extensions.content_settings_service.o $
+    obj/chrome/browser/extensions/api/content_settings/browser_extensions.content_settings_store.o $
+    obj/chrome/browser/extensions/api/context_menus/browser_extensions.context_menus_api.o $
+    obj/chrome/browser/extensions/api/context_menus/browser_extensions.context_menus_api_helpers.o $
+    obj/chrome/browser/extensions/api/cookies/browser_extensions.cookies_api.o $
+    obj/chrome/browser/extensions/api/cookies/browser_extensions.cookies_api_constants.o $
+    obj/chrome/browser/extensions/api/cookies/browser_extensions.cookies_helpers.o $
+    obj/chrome/browser/extensions/api/copresence/browser_extensions.copresence_api.o $
+    obj/chrome/browser/extensions/api/copresence/browser_extensions.copresence_translations.o $
+    obj/chrome/browser/extensions/api/copresence_private/browser_extensions.copresence_private_api.o $
+    obj/chrome/browser/extensions/api/cryptotoken_private/browser_extensions.cryptotoken_private_api.o $
+    obj/chrome/browser/extensions/api/dashboard_private/browser_extensions.dashboard_private_api.o $
+    obj/chrome/browser/extensions/api/data_reduction_proxy/browser_extensions.data_reduction_proxy_api.o $
+    obj/chrome/browser/extensions/api/debugger/browser_extensions.debugger_api.o $
+    obj/chrome/browser/extensions/api/debugger/browser_extensions.debugger_api_constants.o $
+    obj/chrome/browser/extensions/api/declarative_content/browser_extensions.chrome_content_rules_registry.o $
+    obj/chrome/browser/extensions/api/declarative_content/browser_extensions.content_action.o $
+    obj/chrome/browser/extensions/api/declarative_content/browser_extensions.content_condition.o $
+    obj/chrome/browser/extensions/api/declarative_content/browser_extensions.content_constants.o $
+    obj/chrome/browser/extensions/api/declarative_content/browser_extensions.content_predicate.o $
+    obj/chrome/browser/extensions/api/declarative_content/browser_extensions.content_predicate_evaluator.o $
+    obj/chrome/browser/extensions/api/declarative_content/browser_extensions.declarative_content_css_condition_tracker.o $
+    obj/chrome/browser/extensions/api/declarative_content/browser_extensions.declarative_content_is_bookmarked_condition_tracker.o $
+    obj/chrome/browser/extensions/api/declarative_content/browser_extensions.declarative_content_page_url_condition_tracker.o $
+    obj/chrome/browser/extensions/api/declarative_content/browser_extensions.default_content_predicate_evaluators.o $
+    obj/chrome/browser/extensions/api/desktop_capture/browser_extensions.desktop_capture_api.o $
+    obj/chrome/browser/extensions/api/desktop_capture/browser_extensions.desktop_capture_base.o $
+    obj/chrome/browser/extensions/api/developer_private/browser_extensions.developer_private_api.o $
+    obj/chrome/browser/extensions/api/developer_private/browser_extensions.developer_private_mangle.o $
+    obj/chrome/browser/extensions/api/developer_private/browser_extensions.entry_picker.o $
+    obj/chrome/browser/extensions/api/developer_private/browser_extensions.extension_info_generator.o $
+    obj/chrome/browser/extensions/api/developer_private/browser_extensions.inspectable_views_finder.o $
+    obj/chrome/browser/extensions/api/developer_private/browser_extensions.show_permissions_dialog_helper.o $
+    obj/chrome/browser/extensions/api/dial/browser_extensions.dial_api.o $
+    obj/chrome/browser/extensions/api/dial/browser_extensions.dial_api_factory.o $
+    obj/chrome/browser/extensions/api/dial/browser_extensions.dial_device_data.o $
+    obj/chrome/browser/extensions/api/dial/browser_extensions.dial_registry.o $
+    obj/chrome/browser/extensions/api/dial/browser_extensions.dial_service.o $
+    obj/chrome/browser/extensions/api/downloads/browser_extensions.downloads_api.o $
+    obj/chrome/browser/extensions/api/downloads_internal/browser_extensions.downloads_internal_api.o $
+    obj/chrome/browser/extensions/api/easy_unlock_private/browser_extensions.easy_unlock_private_api.o $
+    obj/chrome/browser/extensions/api/easy_unlock_private/browser_extensions.easy_unlock_private_connection.o $
+    obj/chrome/browser/extensions/api/easy_unlock_private/browser_extensions.easy_unlock_private_connection_manager.o $
+    obj/chrome/browser/extensions/api/experience_sampling_private/browser_extensions.experience_sampling.o $
+    obj/chrome/browser/extensions/api/experience_sampling_private/browser_extensions.experience_sampling_private_api.o $
+    obj/chrome/browser/extensions/api/extension_action/browser_extensions.extension_action_api.o $
+    obj/chrome/browser/extensions/api/extension_action/browser_extensions.extension_page_actions_api_constants.o $
+    obj/chrome/browser/extensions/api/feedback_private/browser_extensions.feedback_private_api.o $
+    obj/chrome/browser/extensions/api/feedback_private/browser_extensions.feedback_service.o $
+    obj/chrome/browser/extensions/api/file_handlers/browser_extensions.app_file_handler_util.o $
+    obj/chrome/browser/extensions/api/file_handlers/browser_extensions.directory_util.o $
+    obj/chrome/browser/extensions/api/file_handlers/browser_extensions.mime_util.o $
+    obj/chrome/browser/extensions/api/file_system/browser_extensions.file_system_api.o $
+    obj/chrome/browser/extensions/api/font_settings/browser_extensions.font_settings_api.o $
+    obj/chrome/browser/extensions/api/gcm/browser_extensions.gcm_api.o $
+    obj/chrome/browser/extensions/api/history/browser_extensions.history_api.o $
+    obj/chrome/browser/extensions/api/hotword_private/browser_extensions.hotword_private_api.o $
+    obj/chrome/browser/extensions/api/i18n/browser_extensions.i18n_api.o $
+    obj/chrome/browser/extensions/api/identity/browser_extensions.extension_token_key.o $
+    obj/chrome/browser/extensions/api/identity/browser_extensions.gaia_web_auth_flow.o $
+    obj/chrome/browser/extensions/api/identity/browser_extensions.identity_api.o $
+    obj/chrome/browser/extensions/api/identity/browser_extensions.identity_mint_queue.o $
+    obj/chrome/browser/extensions/api/identity/browser_extensions.identity_signin_flow.o $
+    obj/chrome/browser/extensions/api/identity/browser_extensions.web_auth_flow.o $
+    obj/chrome/browser/extensions/api/idltest/browser_extensions.idltest_api.o $
+    obj/chrome/browser/extensions/api/image_writer_private/browser_extensions.destroy_partitions_operation.o $
+    obj/chrome/browser/extensions/api/image_writer_private/browser_extensions.error_messages.o $
+    obj/chrome/browser/extensions/api/image_writer_private/browser_extensions.image_writer_private_api.o $
+    obj/chrome/browser/extensions/api/image_writer_private/browser_extensions.image_writer_utility_client.o $
+    obj/chrome/browser/extensions/api/image_writer_private/browser_extensions.operation.o $
+    obj/chrome/browser/extensions/api/image_writer_private/browser_extensions.operation_manager.o $
+    obj/chrome/browser/extensions/api/image_writer_private/browser_extensions.removable_storage_provider.o $
+    obj/chrome/browser/extensions/api/image_writer_private/browser_extensions.write_from_file_operation.o $
+    obj/chrome/browser/extensions/api/image_writer_private/browser_extensions.write_from_url_operation.o $
+    obj/chrome/browser/extensions/api/inline_install_private/browser_extensions.inline_install_private_api.o $
+    obj/chrome/browser/extensions/api/instance_id/browser_extensions.instance_id_api.o $
+    obj/chrome/browser/extensions/api/language_settings_private/browser_extensions.language_settings_private_api.o $
+    obj/chrome/browser/extensions/api/language_settings_private/browser_extensions.language_settings_private_delegate.o $
+    obj/chrome/browser/extensions/api/language_settings_private/browser_extensions.language_settings_private_delegate_factory.o $
+    obj/chrome/browser/extensions/api/launcher_page/browser_extensions.launcher_page_api.o $
+    obj/chrome/browser/extensions/api/management/browser_extensions.chrome_management_api_delegate.o $
+    obj/chrome/browser/extensions/api/media_galleries/browser_extensions.media_galleries_api.o $
+    obj/chrome/browser/extensions/api/messaging/browser_extensions.extension_message_port.o $
+    obj/chrome/browser/extensions/api/messaging/browser_extensions.incognito_connectability.o $
+    obj/chrome/browser/extensions/api/messaging/browser_extensions.message_property_provider.o $
+    obj/chrome/browser/extensions/api/messaging/browser_extensions.message_service.o $
+    obj/chrome/browser/extensions/api/messaging/browser_extensions.native_message_port.o $
+    obj/chrome/browser/extensions/api/messaging/browser_extensions.native_messaging_host_manifest.o $
+    obj/chrome/browser/extensions/api/messaging/browser_extensions.native_messaging_policy_handler.o $
+    obj/chrome/browser/extensions/api/metrics_private/browser_extensions.metrics_private_api.o $
+    obj/chrome/browser/extensions/api/module/browser_extensions.module.o $
+    obj/chrome/browser/extensions/api/music_manager_private/browser_extensions.device_id.o $
+    obj/chrome/browser/extensions/api/music_manager_private/browser_extensions.device_id_linux.o $
+    obj/chrome/browser/extensions/api/music_manager_private/browser_extensions.music_manager_private_api.o $
+    obj/chrome/browser/extensions/api/networking_private/browser_extensions.networking_private_ui_delegate_factory_impl.o $
+    obj/chrome/browser/extensions/api/networking_private/browser_extensions.networking_private_verify_delegate_factory_impl.o $
+    obj/chrome/browser/extensions/api/notification_provider/browser_extensions.notification_provider_api.o $
+    obj/chrome/browser/extensions/api/notifications/browser_extensions.notifications_api.o $
+    obj/chrome/browser/extensions/api/omnibox/browser_extensions.omnibox_api.o $
+    obj/chrome/browser/extensions/api/page_capture/browser_extensions.page_capture_api.o $
+    obj/chrome/browser/extensions/api/passwords_private/browser_extensions.passwords_private_api.o $
+    obj/chrome/browser/extensions/api/passwords_private/browser_extensions.passwords_private_delegate_factory.o $
+    obj/chrome/browser/extensions/api/passwords_private/browser_extensions.passwords_private_delegate_impl.o $
+    obj/chrome/browser/extensions/api/passwords_private/browser_extensions.passwords_private_event_router.o $
+    obj/chrome/browser/extensions/api/passwords_private/browser_extensions.passwords_private_event_router_factory.o $
+    obj/chrome/browser/extensions/api/permissions/browser_extensions.permissions_api.o $
+    obj/chrome/browser/extensions/api/permissions/browser_extensions.permissions_api_helpers.o $
+    obj/chrome/browser/extensions/api/preference/browser_extensions.chrome_direct_setting.o $
+    obj/chrome/browser/extensions/api/preference/browser_extensions.chrome_direct_setting_api.o $
+    obj/chrome/browser/extensions/api/preference/browser_extensions.preference_api.o $
+    obj/chrome/browser/extensions/api/preference/browser_extensions.preference_api_constants.o $
+    obj/chrome/browser/extensions/api/preference/browser_extensions.preference_helpers.o $
+    obj/chrome/browser/extensions/api/proxy/browser_extensions.proxy_api.o $
+    obj/chrome/browser/extensions/api/proxy/browser_extensions.proxy_api_constants.o $
+    obj/chrome/browser/extensions/api/proxy/browser_extensions.proxy_api_helpers.o $
+    obj/chrome/browser/extensions/api/resources_private/browser_extensions.resources_private_api.o $
+    obj/chrome/browser/extensions/api/runtime/browser_extensions.chrome_runtime_api_delegate.o $
+    obj/chrome/browser/extensions/api/screenlock_private/browser_extensions.screenlock_private_api.o $
+    obj/chrome/browser/extensions/api/sessions/browser_extensions.session_id.o $
+    obj/chrome/browser/extensions/api/sessions/browser_extensions.sessions_api.o $
+    obj/chrome/browser/extensions/api/settings_overrides/browser_extensions.settings_overrides_api.o $
+    obj/chrome/browser/extensions/api/settings_private/browser_extensions.prefs_util.o $
+    obj/chrome/browser/extensions/api/settings_private/browser_extensions.settings_private_api.o $
+    obj/chrome/browser/extensions/api/settings_private/browser_extensions.settings_private_delegate.o $
+    obj/chrome/browser/extensions/api/settings_private/browser_extensions.settings_private_delegate_factory.o $
+    obj/chrome/browser/extensions/api/settings_private/browser_extensions.settings_private_event_router.o $
+    obj/chrome/browser/extensions/api/settings_private/browser_extensions.settings_private_event_router_factory.o $
+    obj/chrome/browser/extensions/api/signed_in_devices/browser_extensions.id_mapping_helper.o $
+    obj/chrome/browser/extensions/api/signed_in_devices/browser_extensions.signed_in_devices_api.o $
+    obj/chrome/browser/extensions/api/signed_in_devices/browser_extensions.signed_in_devices_manager.o $
+    obj/chrome/browser/extensions/api/spellcheck/browser_extensions.spellcheck_api.o $
+    obj/chrome/browser/extensions/api/storage/browser_extensions.managed_value_store_cache.o $
+    obj/chrome/browser/extensions/api/storage/browser_extensions.policy_value_store.o $
+    obj/chrome/browser/extensions/api/storage/browser_extensions.setting_sync_data.o $
+    obj/chrome/browser/extensions/api/storage/browser_extensions.settings_sync_processor.o $
+    obj/chrome/browser/extensions/api/storage/browser_extensions.settings_sync_util.o $
+    obj/chrome/browser/extensions/api/storage/browser_extensions.sync_storage_backend.o $
+    obj/chrome/browser/extensions/api/storage/browser_extensions.sync_value_store_cache.o $
+    obj/chrome/browser/extensions/api/storage/browser_extensions.syncable_settings_storage.o $
+    obj/chrome/browser/extensions/api/streams_private/browser_extensions.streams_private_api.o $
+    obj/chrome/browser/extensions/api/sync_file_system/browser_extensions.extension_sync_event_observer.o $
+    obj/chrome/browser/extensions/api/sync_file_system/browser_extensions.sync_file_system_api.o $
+    obj/chrome/browser/extensions/api/sync_file_system/browser_extensions.sync_file_system_api_helpers.o $
+    obj/chrome/browser/extensions/api/system_indicator/browser_extensions.system_indicator_manager.o $
+    obj/chrome/browser/extensions/api/system_indicator/browser_extensions.system_indicator_manager_factory.o $
+    obj/chrome/browser/extensions/api/system_private/browser_extensions.system_private_api.o $
+    obj/chrome/browser/extensions/api/tab_capture/browser_extensions.offscreen_tab.o $
+    obj/chrome/browser/extensions/api/tab_capture/browser_extensions.tab_capture_api.o $
+    obj/chrome/browser/extensions/api/tab_capture/browser_extensions.tab_capture_registry.o $
+    obj/chrome/browser/extensions/api/tabs/browser_extensions.app_base_window.o $
+    obj/chrome/browser/extensions/api/tabs/browser_extensions.app_window_controller.o $
+    obj/chrome/browser/extensions/api/tabs/browser_extensions.tabs_api.o $
+    obj/chrome/browser/extensions/api/tabs/browser_extensions.tabs_constants.o $
+    obj/chrome/browser/extensions/api/tabs/browser_extensions.tabs_event_router.o $
+    obj/chrome/browser/extensions/api/tabs/browser_extensions.tabs_windows_api.o $
+    obj/chrome/browser/extensions/api/tabs/browser_extensions.windows_event_router.o $
+    obj/chrome/browser/extensions/api/tabs/browser_extensions.windows_util.o $
+    obj/chrome/browser/extensions/api/top_sites/browser_extensions.top_sites_api.o $
+    obj/chrome/browser/extensions/api/web_navigation/browser_extensions.frame_navigation_state.o $
+    obj/chrome/browser/extensions/api/web_navigation/browser_extensions.web_navigation_api.o $
+    obj/chrome/browser/extensions/api/web_navigation/browser_extensions.web_navigation_api_constants.o $
+    obj/chrome/browser/extensions/api/web_navigation/browser_extensions.web_navigation_api_helpers.o $
+    obj/chrome/browser/extensions/api/web_request/browser_extensions.chrome_extension_web_request_event_router_delegate.o $
+    obj/chrome/browser/extensions/api/web_view/browser_extensions.chrome_web_view_internal_api.o $
+    obj/chrome/browser/extensions/api/webrtc_audio_private/browser_extensions.webrtc_audio_private_api.o $
+    obj/chrome/browser/extensions/api/webrtc_desktop_capture_private/browser_extensions.webrtc_desktop_capture_private_api.o $
+    obj/chrome/browser/extensions/api/webstore/browser_extensions.webstore_api.o $
+    obj/chrome/browser/extensions/api/webstore_private/browser_extensions.webstore_private_api.o $
+    obj/chrome/browser/extensions/browser_extensions.app_data_migrator.o $
+    obj/chrome/browser/extensions/browser_extensions.blacklist.o $
+    obj/chrome/browser/extensions/browser_extensions.blacklist_factory.o $
+    obj/chrome/browser/extensions/browser_extensions.blacklist_state_fetcher.o $
+    obj/chrome/browser/extensions/browser_extensions.blob_reader.o $
+    obj/chrome/browser/extensions/browser_extensions.bookmark_app_helper.o $
+    obj/chrome/browser/extensions/browser_extensions.browser_context_keyed_service_factories.o $
+    obj/chrome/browser/extensions/browser_extensions.browser_extension_window_controller.o $
+    obj/chrome/browser/extensions/browser_extensions.bundle_installer.o $
+    obj/chrome/browser/extensions/browser_extensions.chrome_app_sorting.o $
+    obj/chrome/browser/extensions/browser_extensions.chrome_component_extension_resource_manager.o $
+    obj/chrome/browser/extensions/browser_extensions.chrome_content_browser_client_extensions_part.o $
+    obj/chrome/browser/extensions/browser_extensions.chrome_content_verifier_delegate.o $
+    obj/chrome/browser/extensions/browser_extensions.chrome_extension_api_frame_id_map_helper.o $
+    obj/chrome/browser/extensions/browser_extensions.chrome_extension_function.o $
+    obj/chrome/browser/extensions/browser_extensions.chrome_extension_function_details.o $
+    obj/chrome/browser/extensions/browser_extensions.chrome_extension_host_delegate.o $
+    obj/chrome/browser/extensions/browser_extensions.chrome_extension_web_contents_observer.o $
+    obj/chrome/browser/extensions/browser_extensions.chrome_extensions_browser_client.o $
+    obj/chrome/browser/extensions/browser_extensions.chrome_mojo_service_registration.o $
+    obj/chrome/browser/extensions/browser_extensions.chrome_notification_observer.o $
+    obj/chrome/browser/extensions/browser_extensions.chrome_process_manager_delegate.o $
+    obj/chrome/browser/extensions/browser_extensions.chrome_requirements_checker.o $
+    obj/chrome/browser/extensions/browser_extensions.chrome_url_request_util.o $
+    obj/chrome/browser/extensions/component_extensions_whitelist/browser_extensions.whitelist.o $
+    obj/chrome/browser/extensions/browser_extensions.component_loader.o $
+    obj/chrome/browser/extensions/browser_extensions.component_migration_helper.o $
+    obj/chrome/browser/extensions/browser_extensions.context_menu_matcher.o $
+    obj/chrome/browser/extensions/browser_extensions.convert_user_script.o $
+    obj/chrome/browser/extensions/browser_extensions.convert_web_app.o $
+    obj/chrome/browser/extensions/browser_extensions.crx_installer.o $
+    obj/chrome/browser/extensions/browser_extensions.data_deleter.o $
+    obj/chrome/browser/extensions/browser_extensions.dev_mode_bubble_delegate.o $
+    obj/chrome/browser/extensions/browser_extensions.devtools_util.o $
+    obj/chrome/browser/extensions/error_console/browser_extensions.error_console.o $
+    obj/chrome/browser/extensions/error_console/browser_extensions.error_console_factory.o $
+    obj/chrome/browser/extensions/browser_extensions.event_router_forwarder.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_action.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_action_icon_factory.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_action_manager.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_action_runner.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_action_storage_manager.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_app_icon_loader.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_assets_manager.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_commands_global_registry.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_context_menu_model.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_cookie_monster_delegate.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_creator.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_creator_filter.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_disabled_ui.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_error_controller.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_error_reporter.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_error_ui.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_error_ui_default.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_garbage_collector.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_garbage_collector_factory.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_gcm_app_handler.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_icon_manager.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_install_checker.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_install_error_menu_item_id_provider.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_install_prompt.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_install_prompt_show_params.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_install_ui_util.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_keybinding_registry.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_management.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_management_constants.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_management_internal.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_message_bubble_controller.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_migrator.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_reenabler.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_resource_protocols.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_service.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_special_storage_policy.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_storage_monitor.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_storage_monitor_factory.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_sync_data.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_sync_service.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_sync_service_factory.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_system_factory.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_system_impl.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_tab_util.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_ui_util.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_uninstall_dialog.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_util.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_view_host.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_view_host_factory.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_web_ui.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_web_ui_override_registrar.o $
+    obj/chrome/browser/extensions/browser_extensions.extension_webkit_preferences.o $
+    obj/chrome/browser/extensions/browser_extensions.external_component_loader.o $
+    obj/chrome/browser/extensions/browser_extensions.external_install_error.o $
+    obj/chrome/browser/extensions/browser_extensions.external_install_manager.o $
+    obj/chrome/browser/extensions/browser_extensions.external_loader.o $
+    obj/chrome/browser/extensions/browser_extensions.external_policy_loader.o $
+    obj/chrome/browser/extensions/browser_extensions.external_pref_loader.o $
+    obj/chrome/browser/extensions/browser_extensions.external_provider_impl.o $
+    obj/chrome/browser/extensions/browser_extensions.favicon_downloader.o $
+    obj/chrome/browser/extensions/browser_extensions.global_shortcut_listener.o $
+    obj/chrome/browser/extensions/browser_extensions.global_shortcut_listener_ozone.o $
+    obj/chrome/browser/extensions/browser_extensions.install_observer.o $
+    obj/chrome/browser/extensions/browser_extensions.install_signer.o $
+    obj/chrome/browser/extensions/browser_extensions.install_tracker.o $
+    obj/chrome/browser/extensions/browser_extensions.install_tracker_factory.o $
+    obj/chrome/browser/extensions/browser_extensions.install_verifier.o $
+    obj/chrome/browser/extensions/browser_extensions.install_verifier_factory.o $
+    obj/chrome/browser/extensions/browser_extensions.installed_loader.o $
+    obj/chrome/browser/extensions/browser_extensions.launch_util.o $
+    obj/chrome/browser/extensions/browser_extensions.location_bar_controller.o $
+    obj/chrome/browser/extensions/browser_extensions.menu_manager.o $
+    obj/chrome/browser/extensions/browser_extensions.menu_manager_factory.o $
+    obj/chrome/browser/extensions/browser_extensions.navigation_observer.o $
+    obj/chrome/browser/extensions/browser_extensions.ntp_overridden_bubble_delegate.o $
+    obj/chrome/browser/extensions/browser_extensions.pack_extension_job.o $
+    obj/chrome/browser/extensions/browser_extensions.path_util.o $
+    obj/chrome/browser/extensions/browser_extensions.pending_extension_info.o $
+    obj/chrome/browser/extensions/browser_extensions.pending_extension_manager.o $
+    obj/chrome/browser/extensions/browser_extensions.permissions_based_management_policy_provider.o $
+    obj/chrome/browser/extensions/browser_extensions.permissions_updater.o $
+    obj/chrome/browser/extensions/browser_extensions.plugin_manager.o $
+    obj/chrome/browser/extensions/browser_extensions.policy_handlers.o $
+    obj/chrome/browser/extensions/browser_extensions.proxy_overridden_bubble_delegate.o $
+    obj/chrome/browser/extensions/browser_extensions.scripting_permissions_modifier.o $
+    obj/chrome/browser/extensions/browser_extensions.settings_api_bubble_delegate.o $
+    obj/chrome/browser/extensions/browser_extensions.settings_api_helpers.o $
+    obj/chrome/browser/extensions/browser_extensions.shared_module_service.o $
+    obj/chrome/browser/extensions/browser_extensions.shared_user_script_master.o $
+    obj/chrome/browser/extensions/signin/browser_extensions.gaia_auth_extension_loader.o $
+    obj/chrome/browser/extensions/signin/browser_extensions.scoped_gaia_auth_extension.o $
+    obj/chrome/browser/extensions/browser_extensions.standard_management_policy_provider.o $
+    obj/chrome/browser/extensions/browser_extensions.startup_helper.o $
+    obj/chrome/browser/extensions/browser_extensions.state_store_notification_observer.o $
+    obj/chrome/browser/extensions/browser_extensions.suspicious_extension_bubble_delegate.o $
+    obj/chrome/browser/extensions/browser_extensions.sync_bundle.o $
+    obj/chrome/browser/extensions/browser_extensions.tab_helper.o $
+    obj/chrome/browser/extensions/browser_extensions.theme_installed_infobar_delegate.o $
+    obj/chrome/browser/extensions/token_cache/browser_extensions.token_cache_service.o $
+    obj/chrome/browser/extensions/token_cache/browser_extensions.token_cache_service_factory.o $
+    obj/chrome/browser/extensions/browser_extensions.unpacked_installer.o $
+    obj/chrome/browser/extensions/updater/browser_extensions.chrome_extension_downloader_factory.o $
+    obj/chrome/browser/extensions/updater/browser_extensions.chrome_update_client_config.o $
+    obj/chrome/browser/extensions/updater/browser_extensions.extension_updater.o $
+    obj/chrome/browser/extensions/browser_extensions.user_script_listener.o $
+    obj/chrome/browser/extensions/browser_extensions.warning_badge_service.o $
+    obj/chrome/browser/extensions/browser_extensions.warning_badge_service_factory.o $
+    obj/chrome/browser/extensions/browser_extensions.webstore_data_fetcher.o $
+    obj/chrome/browser/extensions/browser_extensions.webstore_data_fetcher_delegate.o $
+    obj/chrome/browser/extensions/browser_extensions.webstore_inline_installer.o $
+    obj/chrome/browser/extensions/browser_extensions.webstore_inline_installer_factory.o $
+    obj/chrome/browser/extensions/browser_extensions.webstore_install_helper.o $
+    obj/chrome/browser/extensions/browser_extensions.webstore_install_with_prompt.o $
+    obj/chrome/browser/extensions/browser_extensions.webstore_installer.o $
+    obj/chrome/browser/extensions/browser_extensions.webstore_reinstaller.o $
+    obj/chrome/browser/extensions/browser_extensions.webstore_standalone_installer.o $
+    obj/chrome/browser/extensions/browser_extensions.webstore_startup_installer.o $
+    obj/chrome/browser/extensions/browser_extensions.window_controller.o $
+    obj/chrome/browser/extensions/browser_extensions.window_controller_list.o $
+    obj/chrome/browser/extensions/browser_extensions.zipfile_installer.o $
+    obj/chrome/browser/ui/browser_extensions.app_icon_loader.o $
+    obj/chrome/browser/ui/toolbar/browser_extensions.toolbar_actions_model.o $
+    obj/chrome/browser/ui/toolbar/browser_extensions.toolbar_actions_model_factory.o $
+    obj/chrome/browser/web_applications/browser_extensions.web_app.o $
+    obj/chrome/browser/extensions/api/processes/browser_extensions.processes_api.o $
+    obj/chrome/browser/extensions/browser_extensions.default_apps.o $
+    obj/chrome/browser/extensions/api/easy_unlock_private/browser_extensions.easy_unlock_private_crypto_delegate_stub.o $
+    obj/chrome/browser/extensions/api/image_writer_private/browser_extensions.operation_nonchromeos.o $
+    obj/chrome/browser/extensions/api/image_writer_private/browser_extensions.removable_storage_provider_linux.o $
+    obj/chrome/browser/extensions/api/messaging/browser_extensions.native_message_process_host.o $
+    obj/chrome/browser/extensions/api/messaging/browser_extensions.native_process_launcher.o $
+    obj/chrome/browser/extensions/api/messaging/browser_extensions.native_process_launcher_posix.o $
+    obj/chrome/browser/extensions/api/gcd_private/browser_extensions.gcd_private_api.o $
+    obj/chrome/browser/extensions/api/gcd_private/browser_extensions.privet_v3_context_getter.o $
+    obj/chrome/browser/extensions/api/gcd_private/browser_extensions.privet_v3_session.o $
+    obj/chrome/browser/extensions/api/mdns/browser_extensions.dns_sd_delegate.o $
+    obj/chrome/browser/extensions/api/mdns/browser_extensions.dns_sd_device_lister.o $
+    obj/chrome/browser/extensions/api/mdns/browser_extensions.dns_sd_registry.o $
+    obj/chrome/browser/extensions/api/mdns/browser_extensions.mdns_api.o $
+    obj/chrome/browser/extensions/api/input_ime/browser_extensions.input_ime_api.o $
+    obj/chrome/browser/extensions/api/input_ime/browser_extensions.input_ime_api_nonchromeos.o $
+    obj/chrome/browser/extensions/api/input_ime/browser_extensions.input_ime_event_router_base.o $
+    obj/chrome/browser/extensions/browser_extensions.display_info_provider_aura.o $
+    obj/chrome/browser/apps/drive/browser_extensions.drive_app_converter.o $
+    obj/chrome/browser/apps/drive/browser_extensions.drive_app_mapping.o $
+    obj/chrome/browser/apps/drive/browser_extensions.drive_app_provider.o $
+    obj/chrome/browser/apps/drive/browser_extensions.drive_service_bridge.o $
+    obj/chrome/browser/extensions/api/webrtc_logging_private/browser_extensions.webrtc_logging_private_api_stub.o $
+    obj/chrome/browser/extensions/api/braille_display_private/browser_extensions.braille_controller_stub.o $
+    || obj/chrome/browser_extensions.actions_depends.stamp

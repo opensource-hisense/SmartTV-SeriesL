@@ -1,0 +1,122 @@
+defines = -DOPJ_STATIC -DPNG_PREFIX -DPNG_USE_READ_MACROS $
+    -D_CRT_SECURE_NO_WARNINGS -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 $
+    -D_FILE_OFFSET_BITS=64 -DDISABLE_NACL -DCHROMIUM_BUILD $
+    -DCR_CLANG_REVISION=264915-1 -DUI_COMPOSITOR_IMAGE_TRANSPORT $
+    -DUSE_AURA=1 -DUSE_OZONE=1 -DUSE_DEFAULT_RENDER_THEME=1 $
+    -DUSE_LIBJPEG_TURBO=1 -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS $
+    -DENABLE_BROWSER_CDMS -DENABLE_TOPCHROME_MD=1 $
+    -DFIELDTRIAL_TESTING_ENABLED -DENABLE_TASK_MANAGER=1 $
+    -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 -DENABLE_SESSION_SERVICE=1 $
+    -DENABLE_AUTOFILL_DIALOG=1 -DENABLE_PRINTING=1 $
+    -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -I../.. -I../../third_party/pdfium -Igen
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -Wno-main -Wno-missing-braces -Wno-unused $
+    -march=armv8-a -mtune=cortex-a53 -mfpu=crypto-neon-fp-armv8 $
+    -mfloat-abi=hard -mthumb --sysroot=/work/bsp/sc1400 -O2 -fno-ident $
+    -fdata-sections -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-abi $
+    -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+build obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmscam02.o: $
+    cc ../../third_party/pdfium/third_party/lcms2-2.6/src/cmscam02.c
+build obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmscgats.o: $
+    cc ../../third_party/pdfium/third_party/lcms2-2.6/src/cmscgats.c
+build obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmscnvrt.o: $
+    cc ../../third_party/pdfium/third_party/lcms2-2.6/src/cmscnvrt.c
+build obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmserr.o: $
+    cc ../../third_party/pdfium/third_party/lcms2-2.6/src/cmserr.c
+build obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmsgamma.o: $
+    cc ../../third_party/pdfium/third_party/lcms2-2.6/src/cmsgamma.c
+build obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmsgmt.o: $
+    cc ../../third_party/pdfium/third_party/lcms2-2.6/src/cmsgmt.c
+build obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmshalf.o: $
+    cc ../../third_party/pdfium/third_party/lcms2-2.6/src/cmshalf.c
+build obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmsintrp.o: $
+    cc ../../third_party/pdfium/third_party/lcms2-2.6/src/cmsintrp.c
+build obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmsio0.o: $
+    cc ../../third_party/pdfium/third_party/lcms2-2.6/src/cmsio0.c
+build obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmsio1.o: $
+    cc ../../third_party/pdfium/third_party/lcms2-2.6/src/cmsio1.c
+build obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmslut.o: $
+    cc ../../third_party/pdfium/third_party/lcms2-2.6/src/cmslut.c
+build obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmsmd5.o: $
+    cc ../../third_party/pdfium/third_party/lcms2-2.6/src/cmsmd5.c
+build obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmsmtrx.o: $
+    cc ../../third_party/pdfium/third_party/lcms2-2.6/src/cmsmtrx.c
+build obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmsnamed.o: $
+    cc ../../third_party/pdfium/third_party/lcms2-2.6/src/cmsnamed.c
+build obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmsopt.o: $
+    cc ../../third_party/pdfium/third_party/lcms2-2.6/src/cmsopt.c
+build obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmspack.o: $
+    cc ../../third_party/pdfium/third_party/lcms2-2.6/src/cmspack.c
+build obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmspcs.o: $
+    cc ../../third_party/pdfium/third_party/lcms2-2.6/src/cmspcs.c
+build $
+    obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmsplugin.o: $
+    cc ../../third_party/pdfium/third_party/lcms2-2.6/src/cmsplugin.c
+build obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmsps2.o: $
+    cc ../../third_party/pdfium/third_party/lcms2-2.6/src/cmsps2.c
+build obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmssamp.o: $
+    cc ../../third_party/pdfium/third_party/lcms2-2.6/src/cmssamp.c
+build obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmssm.o: cc $
+    ../../third_party/pdfium/third_party/lcms2-2.6/src/cmssm.c
+build obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmstypes.o: $
+    cc ../../third_party/pdfium/third_party/lcms2-2.6/src/cmstypes.c
+build obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmsvirt.o: $
+    cc ../../third_party/pdfium/third_party/lcms2-2.6/src/cmsvirt.c
+build obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmswtpnt.o: $
+    cc ../../third_party/pdfium/third_party/lcms2-2.6/src/cmswtpnt.c
+build obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmsxform.o: $
+    cc ../../third_party/pdfium/third_party/lcms2-2.6/src/cmsxform.c
+
+build obj/third_party/pdfium/third_party/libfx_lcms2.a: alink_thin $
+    obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmscam02.o $
+    obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmscgats.o $
+    obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmscnvrt.o $
+    obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmserr.o $
+    obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmsgamma.o $
+    obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmsgmt.o $
+    obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmshalf.o $
+    obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmsintrp.o $
+    obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmsio0.o $
+    obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmsio1.o $
+    obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmslut.o $
+    obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmsmd5.o $
+    obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmsmtrx.o $
+    obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmsnamed.o $
+    obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmsopt.o $
+    obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmspack.o $
+    obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmspcs.o $
+    obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmsplugin.o $
+    obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmsps2.o $
+    obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmssamp.o $
+    obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmssm.o $
+    obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmstypes.o $
+    obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmsvirt.o $
+    obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmswtpnt.o $
+    obj/third_party/pdfium/third_party/lcms2-2.6/src/fx_lcms2.cmsxform.o

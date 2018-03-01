@@ -1,0 +1,14 @@
+rule $
+    chrome_common_features_target_buildflag_header_a30cc8b416dda2446ce74c8263cde891
+  command = cd ../../chrome; python ../build/write_buildflag_header.py $
+      --output chrome/common/features.h --rulename chrome_common_features $
+      --gen-dir ../out.cef/Release/gen --definitions $
+      ../out.cef/chrome/chrome_common_features_buildflag_header.rsp
+  description = ACTION Generating build header.
+  restat = 1
+
+build gen/chrome/common/features.h: $
+    chrome_common_features_target_buildflag_header_a30cc8b416dda2446ce74c8263cde891 $
+    ../../build/write_buildflag_header.py $
+    ../../out.cef/chrome/chrome_common_features_buildflag_header.rsp
+

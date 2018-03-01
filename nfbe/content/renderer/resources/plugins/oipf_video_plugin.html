@@ -1,0 +1,1376 @@
+<!--Copyright(c) 2016 ACCESS CO., LTD. All rights reserved.-->
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<script>
+var g_vid00;
+var g_elem_body;
+var g_elem_ta00;
+var g_ta00_log_size;  /* # of lines */
+var g_ta00_log_buf_0;
+var g_ta00_log_buf_1;
+
+var g_plugin;
+
+function PluginSim()
+{
+  this.iQ = new Array();
+  this.media_url = null;
+  this.is_video = true;
+  this.initialPlaybackRate = -1;
+  this.videoW = 300;
+  this.videoH = 150;
+  this.visibleW = 160;
+  this.visibleH = 90;
+  this.enable_composite_kludge = 1;
+  this.ignore_layout = false;
+  // enable_debug_UI
+  this.enable_composite_kludge = 0;
+  this.ignore_layout = true;
+}
+
+PluginSim.prototype =
+{
+  loadUrl:
+function(url) {
+  window.console.log('---- loadUrl');
+},
+  onVideoSizeChanged:
+function(vw,vh) {
+  window.console.log('---- onVideoSizeChanged: vw='+vw+',vh='+vh);
+  this.videoW = vw;
+  this.videoH = vh;
+},
+  handlePSC:
+function(oQ) {
+  window.console.log('---- handlePSC');
+},
+  onTrackAdded:
+function(index, id) {
+  window.console.log('---- onTrackAdded: index='+index+',id='+id);
+},
+  onTrackRemoved:
+function(index, id) {
+  window.console.log('---- onTrackRemoved: index='+index+',id='+id);
+},
+  onTrackChanged:
+function(type) {
+  window.console.log('---- onTrackChanged: type='+type);
+},
+};
+
+// --------------------------------------------------------------------
+
+function cb_video_loadstart()
+{
+  var vid00 = g_vid00;
+  var log_msg = 'cb_video_loadstart:';
+  window.console.log(log_msg);
+  ta_log(log_msg);
+
+  if (!g_plugin) {
+    return;
+  }
+
+  if (!(vid00.preload === 'none')) {
+    return;
+  }
+
+  if (g_plugin.initialEntry) {
+    g_plugin.initialEntry = false;
+    return;
+  }
+
+  var eobj = new Object();
+  eobj.type = kEventTypeStopped;
+  var q_length = g_plugin.iQ.length;
+  g_plugin.iQ[q_length] = eobj;
+
+  if (q_length == 0) {
+    window.setTimeout(PSC, 0);
+  }
+}
+
+function cb_video_progress()
+{
+  var vid00 = g_vid00;
+  var log_msg = 'cb_video_progress:';
+  window.console.log(log_msg);
+  ta_log(log_msg);
+
+  vid00.acs_loadProgressCount += 1;
+}
+
+function cb_video_error(ev)
+{
+  var vid00 = g_vid00;
+  var log_msg = 'cb_video_error: ' + ev;
+  window.console.log(log_msg);
+  ta_log(log_msg);
+  // check_properties(ev, 'error event is');
+  /* 4.7.10.1 Error codes */
+  var err = vid00.error;
+  if (err) {
+    check_properties(err, 'error is');
+  }
+
+  if (!g_plugin) {
+    return;
+  }
+
+  var progressCount = 0;
+  if (vid00.acs_loadProgressHandler) {
+    progressCount = vid00.acs_loadProgressCount;
+    vid00.removeEventListener('progress', cb_video_progress, false);
+    vid00.acs_loadProgressHandler = false;
+  }
+
+  // media.error might already be cleared when this handler is called.
+  var errorCode = 99;
+  if (vid00.error) {
+    errorCode = vid00.error.code;
+  }
+
+  var eobj = new Object();
+  if (!vid00.acs_playIsAttempted) {
+    vid00.acs_pausedErrorErrorCode = errorCode;
+    vid00.acs_pausedErrorProgressCount = progressCount;
+    eobj.type = kEventTypePaused;
+  } else {
+    eobj.type = kEventTypeError;
+    eobj.errorCode = errorCode;
+    eobj.errorProgressCount = progressCount;
+  }
+  var q_length = g_plugin.iQ.length;
+  g_plugin.iQ[q_length] = eobj;
+
+  if (q_length == 0) {
+    window.setTimeout(PSC, 0);
+  }
+}
+
+function cb_video_loadedmetadata()
+{
+  var vid00 = g_vid00;
+  var log_msg = 'cb_video_loadedmetadata:';
+  if (g_plugin.is_video) {
+    log_msg = log_msg + ' vw=' + vid00.videoWidth + ',vh=' + vid00.videoHeight;
+  }
+  window.console.log(log_msg);
+  ta_log(log_msg);
+
+  if (!g_plugin) {
+    return;
+  }
+
+  if (vid00.acs_loadProgressHandler) {
+    vid00.removeEventListener('progress', cb_video_progress, false);
+    vid00.acs_loadProgressHandler = false;
+  }
+
+  var eobj = new Object();
+  if (vid00.paused) {
+    eobj.type = kEventTypePaused;
+  } else {
+    eobj.type = kEventTypePlay;
+  }
+  var q_length = g_plugin.iQ.length;
+  g_plugin.iQ[q_length] = eobj;
+
+  if (q_length == 0) {
+    window.setTimeout(PSC, 0);
+  }
+
+  if (g_plugin.is_video) {
+    if (g_plugin.videoW != vid00.videoWidth || g_plugin.videoH != vid00.videoHeight) {
+      g_plugin.onVideoSizeChanged(vid00.videoWidth, vid00.videoHeight);
+    }
+  }
+}
+
+function cb_video_seeked(ev)
+{
+  var vid00 = g_vid00;
+  var log_msg = 'cb_video_seeked: ' + ev;
+  window.console.log(log_msg);
+  ta_log(log_msg);
+
+  if (!g_plugin) {
+    return;
+  }
+
+  if (vid00.acs_loop_count) {
+    if (!vid00.acs_is_seeking) {
+      // this 'seeked' event is caused by a loop.
+      if (1 < vid00.acs_loop_count) {
+        vid00.acs_play_count += 1;
+        if (vid00.acs_loop_count <= vid00.acs_play_count) {
+          vid00.loop = false;
+        }
+      }
+      return;
+    }
+    vid00.acs_is_seeking = false;
+  }
+
+  var eobj = new Object();
+  eobj.type = kEventTypeSeeked;
+  // |currentTime| may already be updated....
+  eobj.param = g_vid00.currentTime * 1000;
+  var q_length = g_plugin.iQ.length;
+  g_plugin.iQ[q_length] = eobj;
+
+  if (q_length == 0) {
+    setTimeout(PSC, 0);
+  }
+}
+
+function cb_video_ended()
+{
+  var vid00 = g_vid00;
+  var log_msg = 'cb_video_ended:';
+  window.console.log(log_msg);
+  ta_log(log_msg);
+
+  if (!g_plugin) {
+    return;
+  }
+
+  if (1 < vid00.acs_loop_count) {
+    delete vid00.acs_play_count;
+  }
+
+  var eobj = new Object();
+  eobj.type = kEventTypeEnded;
+  var q_length = g_plugin.iQ.length;
+  g_plugin.iQ[q_length] = eobj;
+
+  if (q_length == 0) {
+    setTimeout(PSC, 0);
+  }
+}
+
+function cb_video_play()
+{
+  var vid00 = g_vid00;
+  var log_msg = 'cb_video_play:';
+  {
+    var val = vid00.readyState;
+    var val_name;
+    if (0 == val) {
+      val_name = 'HAVE_NOTHING';
+    } else if (1 == val) {
+      val_name = 'HAVE_METADATA';
+    } else if (2 == val) {
+      val_name = 'HAVE_CURRENT_DATA';
+    } else if (3 == val) {
+      val_name = 'HAVE_FUTHRE_DATA';
+    } else if (4 == val) {
+      val_name = 'HAVE_ENOUGH_DATA';
+    } else {
+      val_name = '__unknown_value__' + val;
+    }
+    log_msg += ' ';
+    log_msg += val_name;
+  }
+  {
+    var val = vid00.networkState;
+    var val_name;
+    if (0 == val) {
+      val_name = 'NETWORK_EMPTY';
+    } else if (1 == val) {
+      val_name = 'NETWORK_IDLE';
+    } else if (2 == val) {
+      val_name = 'NETWORK_LOADING';
+    } else if (3 == val) {
+      val_name = 'NETWORK_NO_SOURCE';
+    } else {
+      val_name = '__unknown_value__' + val;
+    }
+    log_msg += ' ';
+    log_msg += val_name;
+  }
+  window.console.log(log_msg);
+  ta_log(log_msg);
+
+  if (!g_plugin) {
+    return;
+  }
+
+  if (vid00.readyState < vid00.HAVE_METADATA) {
+    // we do not know which is the next state; playing or error or
+    // paused-error.
+    return;
+  }
+
+  var eobj = new Object();
+  eobj.type = kEventTypePlay;
+  var q_length = g_plugin.iQ.length;
+  g_plugin.iQ[q_length] = eobj;
+
+  if (q_length == 0) {
+    setTimeout(PSC, 0);
+  }
+}
+
+function cb_video_pause()
+{
+  var vid00 = g_vid00;
+  var log_msg = 'cb_video_pause:';
+  window.console.log(log_msg);
+  ta_log(log_msg);
+
+  if (!g_plugin) {
+    return;
+  }
+
+  // [HTML5] 4.7.10.8 Playing the media resource  (#ended-playback)
+  // 2. 'ended' starts returning true
+  // 4. if 'paused' is false, change it to true and fire 'pause'
+  // 5. fire 'ended'
+  if (vid00.ended) {
+    // cb_video_ended() will take care.
+    return;
+  }
+
+  var eobj = new Object();
+  eobj.type = kEventTypePaused;
+  var q_length = g_plugin.iQ.length;
+  g_plugin.iQ[q_length] = eobj;
+
+  if (q_length == 0) {
+    setTimeout(PSC, 0);
+  }
+}
+
+function cb_video_ratechange(ev)
+{
+  var vid00 = g_vid00;
+  var log_msg = 'cb_video_ratechange:';
+  window.console.log(log_msg);
+  ta_log(log_msg);
+
+  if (!g_plugin) {
+    return;
+  }
+
+  if (!vid00.acs_playIsAttempted) {
+    // ignore those two events init() has generated.
+    return;
+  }
+
+  var eobj = new Object();
+  if (0 <= vid00.acs_pausedErrorErrorCode) {
+    var eobj = new Object();
+    eobj.type = kEventTypeError;
+    eobj.errorCode = vid00.acs_pausedErrorErrorCode;
+    eobj.errorProgressCount = vid00.acs_pausedErrorProgressCount;
+  } else {
+    eobj.type = kEventTypeRatechange;
+    eobj.param = vid00.playbackRate;
+  }
+  var q_length = g_plugin.iQ.length;
+  g_plugin.iQ[q_length] = eobj;
+
+  if (q_length == 0) {
+    setTimeout(PSC, 0);
+  }
+}
+
+// the event for 'change' is Event, not TrackEvent.  so we have no idea
+// which Track has changed.  the event fires at the appropriate TrackList.
+function cb_video_at_change(ev)
+{
+  var log_msg = 'cb_video_at_change:';
+  window.console.log(log_msg);
+  ta_log(log_msg);
+
+  g_plugin.track_change(kAcsTrackTypeAudio);
+}
+
+function cb_video_at_addtrack(ev)
+{
+  var log_msg = 'cb_video_at_addtrack:';
+  window.console.log(log_msg);
+  ta_log(log_msg);
+
+  ev.track.acs_type = kAcsTrackTypeAudio;
+  g_plugin.track_add(ev.track);
+}
+
+function cb_video_at_removetrack(ev)
+{
+  var log_msg = 'cb_video_at_removetrack:';
+  window.console.log(log_msg);
+  ta_log(log_msg);
+
+  g_plugin.track_remove(ev.track);
+}
+
+// the event for 'change' is Event, not TrackEvent.  so we have no idea
+// which Track has changed.  the event fires at the appropriate TrackList.
+function cb_video_vt_change(ev)
+{
+  var log_msg = 'cb_video_vt_change:';
+  window.console.log(log_msg);
+  ta_log(log_msg);
+
+  g_plugin.track_change(kAcsTrackTypeVideo);
+}
+
+function cb_video_vt_addtrack(ev)
+{
+  var log_msg = 'cb_video_vt_addtrack:';
+  window.console.log(log_msg);
+  ta_log(log_msg);
+
+  ev.track.acs_type = kAcsTrackTypeVideo;
+  g_plugin.track_add(ev.track);
+}
+
+function cb_video_vt_removetrack(ev)
+{
+  var log_msg = 'cb_video_vt_removetrack:';
+  window.console.log(log_msg);
+  ta_log(log_msg);
+
+  g_plugin.track_remove(ev.track);
+}
+
+function cb_video_tt_change(ev)
+{
+  var log_msg = 'cb_video_tt_change:';
+  window.console.log(log_msg);
+  ta_log(log_msg);
+}
+
+function cb_video_tt_addtrack(ev)
+{
+  var log_msg = 'cb_video_tt_addtrack:';
+  window.console.log(log_msg);
+  ta_log(log_msg);
+}
+
+function cb_video_tt_removetrack(ev)
+{
+  var log_msg = 'cb_video_tt_removetrack:';
+  window.console.log(log_msg);
+  ta_log(log_msg);
+}
+
+// --------------------------------------------------------------------
+
+var kOipfVideoState_stopped = 0;
+var kOipfVideoState_playing = 1;
+var kOipfVideoState_paused = 2;
+var kOipfVideoState_connecting = 3;
+var kOipfVideoState_buffering = 4;
+var kOipfVideoState_finished = 5;
+var kOipfVideoState_error = 6;
+
+function get_video_state(vid00)
+{
+  if (0 <= vid00.acs_pausedErrorErrorCode) {
+    if (!vid00.acs_playIsAttempted) {
+      return kOipfVideoState_paused;
+    }
+    return kOipfVideoState_error;
+  }
+  if (vid00.error) {
+    return kOipfVideoState_error;
+  }
+  if (vid00.ended) {
+    return kOipfVideoState_finished;
+  }
+  if (vid00.seeking) {
+    if (vid00.paused) {
+      return kOipfVideoState_paused;
+    }
+    return kOipfVideoState_connecting;
+  }
+  if (vid00.paused) {
+    if (vid00.readyState == vid00.HAVE_NOTHING) {
+      return kOipfVideoState_stopped;
+    }
+    // FIXME: we do not have kOipfVideoState_connecting.
+    return kOipfVideoState_paused;
+  }
+  return kOipfVideoState_playing;
+}
+
+// [CEA2014A] [Req. 5.7.1.f] (5)
+var kOipfErrorDetail_formatNotSupported = 0;
+var kOipfErrorDetail_connectionErrorOrLost = 1;
+var kOipfErrorDetail_unidentified = 2;
+// [OIPFDAE]: Annex B. CE-HTML Profiling
+// "Requirement 5.7.1.f bullet (5) 'error' SHALL be modified as follows,"
+var kOipfErrorDetail_insufficientResources = 3;
+var kOipfErrorDetail_contentCorruptOrInvalid = 4;
+var kOipfErrorDetail_contentNotAvailable = 5;
+var kOipfErrorDetail_contentNotAvailableAtGivenPosition  = 6;
+
+// -1 : no error.
+function get_error_code(vid00)
+{
+  if (!vid00.error) {
+    return -1;
+  }
+  var m_err = vid00.error;
+  if (m_err.code == m_err.MEDIA_ERR_ABORTED) {
+    // FIXME: this must not happen.
+    // the error handler need to be unregistered before aborting.
+    return kOipfErrorDetail_unidentified;
+  }
+  if (m_err.code == m_err.MEDIA_ERR_NETWORK) {
+    return kOipfErrorDetail_connectionErrorOrLost;
+  }
+  if (m_err.code == m_err.MEDIA_ERR_DECODE) {
+    return kOipfErrorDetail_unidentified;
+  }
+  if (m_err.code == m_err.MEDIA_ERR_SRC_NOT_SUPPORTED) {
+    if (0 < vid00.acs_loadProgressCount) {
+      return kOipfErrorDetail_formatNotSupported;
+    }
+    // if data is already cached, no 'progress' event fires.
+    if (vid00.HAVE_METADATA <= vid00.readyState) {
+      return kOipfErrorDetail_formatNotSupported;
+    }
+    // FIXME: currently there is no way to distinguish connection errors
+    // and 404.
+    return kOipfErrorDetail_connectionErrorOrLost;
+  }
+  return kOipfErrorDetail_unidentified;
+}
+
+var kEventTypeStopped = 1;
+var kEventTypePlay = 2;
+var kEventTypePaused = 3;
+var kEventTypeEnded = 4;
+var kEventTypeSeeking = 5;
+var kEventTypeSeeked = 6;
+var kEventTypeError = 7;
+var kEventTypeRatechange = 8;
+
+// --------------------
+
+/*
+ * [HBBTV] A.2.3 play speed approximation
+ * The requirement beginning "Otherwise, false is returned" shall not apply.
+ * The terminal shall select an appropriate speed. As defined in section
+ * 8.2.3.1 of OIPF, a PlaySpeedChanged event shall be generated indicating
+ * the actual playback speed. True shall be always be returned.
+ *
+ * n.b. [ETSITS102796] A.1 says that, [OPIFDAE] 7.14.3 is M(*), which is,
+ * for trickmodes, "Only the onPlayPositionChanged property and event
+ * are required."  But [HBBTV] seems to want PlaySpeedChanged event also.
+ */
+function pfn_play(play_speed)
+{
+  if (play_speed < 0) {
+    // this media player does not support negative speed.
+    setTimeout(PSC, 0);
+    return true;
+  }
+
+  var vid00 = this.vid00;
+  var this_currState = get_video_state(vid00);
+
+  if (play_speed == 0) {
+    if (this_currState == kOipfVideoState_stopped) {
+      // [OIPFDAE] 7.14.1.1 bullet 2 says that, scare resources for
+      // playback are claimed during from 'stopped' to 'paused'.
+      // however the state diagram has no transition from 'paused'
+      // to 'error'.  [OIPFDAE] says "If at any point in time during
+      // playback,..." the state reaches to 'error'.
+      // n.b. HTMLMediaElement.load() sets |paused| to true.
+      // n.b. HTMLMediaElement.load() sets |playbackRate| to
+      //      |defaultPlaybackRate|.
+      // FIXME: 'PlaySpeedChanged' event.
+      vid00.preload = 'auto';
+      vid00.defaultPlaybackRate = 0;
+      vid00.acs_loadProgressCount = 0;
+      if (!vid00.acs_loadProgressHandler) {
+        vid00.addEventListener('progress', cb_video_progress);
+        vid00.acs_loadProgressHandler = true;
+      }
+      if (vid00.acs_loop_count) {
+        if (1 < vid00.acs_loop_count && !vid00.acs_play_count) {
+          vid00.acs_play_count = 1;
+        }
+        vid00.loop = true;
+      }
+      vid00.load();
+      return true;
+    }
+    if (this_currState == kOipfVideoState_paused) {
+      // FIXME: should we fire 'PlaySpeedChanged' event ? ? ?
+      return true;
+    }
+    if (this_currState == kOipfVideoState_finished) {
+      // [CEA2014A] does not say what to do when |playPostition| == |playTime|.
+      // [OIPFDAE] does not say what to do when in 'finished' state and
+      // speed is 0.
+      // (c.f. 7.14.1.1 5. is for the case when the speed is positive.)
+      // I think Figure 14 'finished'--play(x)-->'connecting' is for
+      // the case // when |x| < 0.
+      // does nothing.
+      return true;
+    }
+    if (this_currState == kOipfVideoState_error) {
+      // n.b. HTMLMediaElement.load() sets |paused| to true.
+      // n.b. HTMLMediaElement.load() sets |playbackRate| to
+      //      |defaultPlaybackRate|.
+      vid00.preload = 'auto';
+      vid00.acs_playIsAttempted = false;
+      vid00.acs_pausedErrorErrorCode = -1;
+      vid00.acs_pausedErrorProgressCount = 0;
+      vid00.defaultPlaybackRate = 0;
+      vid00.acs_loadProgressCount = 0;
+      if (!vid00.acs_loadProgressHandler) {
+        vid00.addEventListener('progress', cb_video_progress);
+        vid00.acs_loadProgressHandler = true;
+      }
+      vid00.load();
+      return true;
+    }
+    vid00.playbackRate = 0;
+    vid00.pause();
+    return true;
+  }
+  // assert( 0 < play_speed );
+  var saved_acs_playIsAttempted = vid00.acs_playIsAttempted;
+  vid00.acs_playIsAttempted = true;
+  if (   this_currState == kOipfVideoState_stopped
+      || this_currState == kOipfVideoState_paused) {
+    if (vid00.playbackRate != play_speed) {
+      vid00.playbackRate = play_speed;
+    }
+    if (vid00.acs_loop_count) {
+      if (1 < vid00.acs_loop_count && !vid00.acs_play_count) {
+        vid00.acs_play_count = 1;
+      }
+      vid00.loop = true;
+    }
+    // n.b. if we are in a paused-error state, the above generates
+    // 'ratechange' event because |playbackRate| changes from 0 to
+    // a non-zero value |play_speed|.  So, do not attempt to generate
+    // 'play' event.  PSC() needs to rename the above 'ratechange'
+    // event as an 'error' event.
+    if (!saved_acs_playIsAttempted && 0 <= vid00.acs_pausedErrorErrorCode) {
+      // do nothing.
+    } else {
+      // if we are in a paused state and there has been a load request,
+      // no need to check if there will be more.
+      if (!vid00.acs_loadProgressHandler && !vid00.acs_loadProgressCount) {
+        vid00.addEventListener('progress', cb_video_progress);
+        vid00.acs_loadProgressHandler = true;
+      }
+      vid00.play();
+    }
+    return true;
+  }
+  if (this_currState == kOipfVideoState_finished) {
+    // [OIPFDAE] 7.14.1.1 5. this fails.
+    return true;
+  }
+  if (this_currState == kOipfVideoState_error) {
+    // n.b. HTMLMediaElement.load() sets |paused| to true.
+    // n.b. HTMLMediaElement.load() sets |playbackRate| to
+    //      |defaultPlaybackRate|.
+    vid00.preload = 'auto';
+    vid00.acs_pausedErrorErrorCode = -1;
+    vid00.acs_pausedErrorProgressCount = 0;
+    vid00.defaultPlaybackRate = play_speed;
+    vid00.acs_loadProgressCount = 0;
+    if (!vid00.acs_loadProgressHandler) {
+      vid00.addEventListener('progress', cb_video_progress);
+      vid00.acs_loadProgressHandler = true;
+    }
+    vid00.load();
+    vid00.play();
+    return true;
+  }
+  if (vid00.playbackRate != play_speed) {
+    vid00.playbackRate = play_speed;
+  }
+  vid00.play();
+  return true;
+}
+
+function pfn_stop()
+{
+  var vid00 = this.vid00;
+  var this_currState = get_video_state(vid00);
+
+  if (this_currState == kOipfVideoState_stopped) {
+    return true;
+  }
+
+  vid00.removeAttribute('src');
+  vid00.preload = 'none';
+  vid00.acs_playIsAttempted = false;
+  vid00.acs_pausedErrorErrorCode = -1;
+  vid00.acs_pausedErrorProgressCount = 0;
+  // n.b. HTMLMediaElement.load() sets |paused| to true.
+  // n.b. HTMLMediaElement.load() sets |playbackRate| to
+  //      |defaultPlaybackRate|.
+  vid00.acs_loadProgressCount = 0;
+  if (vid00.acs_loadProgressHandler) {
+    vid00.removeEventListener('progress', cb_video_progress, false);
+    vid00.acs_loadProgressHandler = false;
+  }
+  vid00.load();
+  vid00.src = vid00.currentSrc;
+  return true;
+}
+
+function pfn_seek(seek_position)
+{
+  var vid00 = this.vid00;
+  if (!(vid00.duration == vid00.duration)) {
+    /* cannot seek */
+    return true;
+  }
+
+  var this_currState = get_video_state(vid00);
+
+  // As long as I checked, no spec says what shall happen in 'finished'
+  // state.  So I assume that seek() fails in 'finished', i.e. the user
+  // can do thing in 'finished' state except for stop() and/or play()
+  // to the negative direction.  This is strange....
+
+  if (   this_currState == kOipfVideoState_stopped
+      || this_currState == kOipfVideoState_finished
+      || this_currState == kOipfVideoState_error) {
+    return true;
+  }
+
+  // [HTML5] is not very clear when a positive infinite value is
+  // specified.  if the media resource is not bounded, i.e. has
+  // an infinite duration, it is natually assumed that, a positive
+  // infinite value is required in order to seek to the very late
+  // position.
+  // here just pass infinite values as such.
+
+  seek_position /= 1000;  /* CEA is millisec, HTML5 needs sec. */
+
+  if (vid00.acs_loop_count) {
+    vid00.acs_is_seeking = true;
+  }
+  vid00.currentTime = seek_position;
+  return true;
+}
+
+/*
+ * [ETSITS102796]: [OIPFDAE] 7.14.8 is NI.
+ *
+ * [OIPFDAE]
+ * 7.14.3 Extensions to A/V object for trickmodes
+ *   'PlaySpeedChanged'
+ *   'PlayPositionChanged'
+ * 7.14.5 Extensions to A/V object for parental rating errors
+ * 7.14.6 Extensions to A/V object for DRM rights errors
+ *   'DRMRightsError'
+ * 7.14.9 DOM2 events for A/V object
+ *   'focus'
+ *   'blur'
+ *   'PlayStateChange'
+ *   'FullScreenChange'
+ *
+ * n.b. 'PlayStateChange' (noun) and 'PlaySpeedChanged' (p.p.).
+ */
+function PSC()
+{
+  var msg = '[[[[ PSC: ENTER';
+  window.console.log(msg);
+  ta_log(msg);
+
+  var vid00 = g_vid00;
+
+  var last_state = -1;
+  var iQ = g_plugin.iQ;
+  var oQ = new Array();
+  for (var i = 0; i < iQ.length; i += 1) {
+    var ev = iQ[i];
+    if (ev.type == kEventTypeStopped) {
+      iQ[i] = null;
+      oQ[oQ.length] = ev;
+    } else if (ev.type == kEventTypePlay) {
+      iQ[i] = null;
+      oQ[oQ.length] = ev;
+    } else if (ev.type == kEventTypePaused) {
+      oQ[oQ.length] = ev;
+      iQ[i] = null;
+    } else if (ev.type == kEventTypeEnded) {
+      oQ[oQ.length] = ev;
+      iQ[i] = null;
+    } else if (ev.type == kEventTypeSeeking && false) {
+      oQ[oQ.length] = ev;
+      iQ[i] = null;
+    } else if (ev.type == kEventTypeSeeked) {
+      oQ[oQ.length] = ev;
+      iQ[i] = null;
+    } else if (ev.type == kEventTypeError) {
+      oQ = new Array();
+      oQ[oQ.length] = ev;
+      iQ[i] = null;
+    } else if (ev.type == kEventTypeRatechange) {
+      oQ[oQ.length] = ev;
+      iQ[i] = null;
+    }
+  }
+
+  for (var i = 0; i < oQ.length; i += 1) {
+    var ev = oQ[i];
+    if (ev.type == kEventTypeStopped) {
+      msg = '  stopped';
+    } else if (ev.type == kEventTypePlay) {
+      msg = '  play';
+    } else if (ev.type == kEventTypePaused) {
+      msg = '  paused';
+    } else if (ev.type == kEventTypeEnded) {
+      msg = '  ended';
+    } else if (ev.type == kEventTypeSeeked) {
+      msg = '  seeked: ' + ev.param;
+    } else if (ev.type == kEventTypeError) {
+      msg = '  error';
+    } else if (ev.type == kEventTypeRatechange) {
+      msg = '  ratechange: ' + ev.param;
+    }
+    window.console.log(msg);
+    ta_log(msg);
+  }
+
+  g_plugin.iQ = new Array();
+
+  g_plugin.handlePSC(oQ);
+
+  msg = ']]]] PSC: EXIT';
+  window.console.log(msg);
+  ta_log(msg);
+}
+
+function pfn_geterror()
+{
+  var vid00 = this.vid00;
+  var log_msg = '---- pfn_geterror:';
+  window.console.log(log_msg);
+  ta_log(log_msg);
+  return get_error_code(vid00);
+}
+
+function pfn_getplayposition()
+{
+  var vid00 = this.vid00;
+//var log_msg = '---- pfn_getplayposition:';
+//window.console.log(log_msg);
+//ta_log(log_msg);
+  return vid00.currentTime * 1000;
+}
+
+function pfn_getplaystate()
+{
+  var vid00 = this.vid00;
+//var log_msg = '---- pfn_getplaystate:';
+//window.console.log(log_msg);
+//ta_log(log_msg);
+  return get_video_state(vid00);
+}
+
+function pfn_getspeed()
+{
+  var vid00 = this.vid00;
+//var log_msg = '---- pfn_getspeed:';
+//window.console.log(log_msg);
+//ta_log(log_msg);
+  return vid00.playbackRate;
+}
+
+function pfn_onResize(w, h)
+{
+  var vid00 = this.vid00;
+  var log_msg = '---- pfn_onResize: ' + w + ' ' + h;
+  window.console.log(log_msg);
+  ta_log(log_msg);
+  if (g_plugin.ignore_layout) {
+    return;
+  }
+  vid00.width = w;
+  vid00.height = h;
+  g_elem_body.height = h;
+  g_elem_body.style.maxHeight = '' + h + 'px';
+}
+
+// ----------------------------------------
+
+// track API
+
+// the below values must match those in oipf_video_plugin.h.
+var kAcsTrackTypeAudio = 0;
+var kAcsTrackTypeVideo = 1;
+
+function pfn_track_add(track)
+{
+  var tlist = this.tlist;
+  // find an empty index.
+  var idx = 0;
+  while (tlist[idx]) {
+    idx += 1;
+  }
+  track.acs_idx = idx;
+  track.acs_id = this.t_id;
+  this.t_id += 1;
+  tlist[idx] = track;
+
+  this.onTrackAdded(track.acs_idx, track.acs_id, track.acs_type);
+}
+
+function pfn_track_remove(track)
+{
+  var tlist = this.tlist;
+  var idx = tlist.indexOf(track);
+  if (idx < 0) {
+    var log_msg = '---- pfn_track_remove: track has not been added.';
+    window.console.log(log_msg);
+    ta_log(log_msg);
+    return;
+  }
+  tlist[idx] = null;
+
+  this.onTrackRemoved(track.acs_idx, track.acs_id, track.acs_type);
+}
+
+function pfn_track_change(acs_type)
+{
+  this.onTrackChanged(acs_type);
+}
+
+function pfn_checkIfTrackIsSelected(idx, id)
+{
+  if (idx < 0) {
+    return false;
+  }
+  var tlist = this.tlist;
+  if (tlist.length <= idx) {
+    return false;
+  }
+  var track = tlist[idx];
+  if (!track) {
+    return false;
+  }
+  if (track.acs_idx != idx) {
+    return false;
+  }
+  if (track.acs_id != id) {
+    return false;
+  }
+  if (track.acs_type == kAcsTrackTypeAudio) {
+    if (track.enabled) {
+      return true;
+    }
+  } else if (track.acs_type == kAcsTrackTypeVideo) {
+    if (track.selected) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function pfn_selectTrack(idx, id, select)
+{
+  var tlist = this.tlist;
+  var track;
+  if (idx < 0) {
+    // |id| is the track type.  select the default track of that track type.
+    for (idx = 0; idx < tlist.length; idx += 1) {
+      // assume there is at most 1 track.
+      var t = tlist[idx];
+      if (t && t.acs_type == id) {
+        track = t;
+        break;
+      }
+    }
+    if (!track) {
+      return false;
+    }
+  } else {
+    if (tlist.length <= idx) {
+      return false;
+    }
+    var track = tlist[idx];
+    if (!track) {
+      return false;
+    }
+    if (track.acs_idx != idx) {
+      return false;
+    }
+    if (track.acs_id != id) {
+      return false;
+    }
+  }
+  if (track.acs_type == kAcsTrackTypeAudio) {
+    track.enabled = select;
+  } else if (track.acs_type == kAcsTrackTypeVideo) {
+    track.selected = select;
+  }
+  return true;
+}
+
+// --------------------------------------------------------------------
+
+function init()
+{
+  var log_msg;
+  var is_plugin = true;
+  if (typeof loadTimeData == 'undefined') {
+    is_plugin = false;
+  }
+  console.log('#### oipf_video_plugin: init:');
+  if (is_plugin) {
+    g_plugin = plugin;
+    g_plugin.iQ = new Array();
+    // default values.
+    g_plugin.media_url = null;
+    g_plugin.is_video = true;
+    g_plugin.enable_composite_kludge = 1;
+    // override.
+    if (loadTimeData.valueExists('mediaurl')) {
+      g_plugin.media_url = loadTimeData.getValue('mediaurl');
+    }
+    if (loadTimeData.valueExists('is_video')) {
+      g_plugin.is_video = (loadTimeData.getValue('is_video') !== 'false');
+    }
+    if (loadTimeData.valueExists('loop')) {
+      var val = loadTimeData.getValue('loop');
+      if (val === 'infinity') {
+        g_plugin.param_loop = -1;
+      } else {
+        var v = parseInt(val);
+        if (v == v) {
+          g_plugin.param_loop = v;
+        }
+      }
+    }
+    if (loadTimeData.valueExists('enable_composite_kludge')) {
+      g_plugin.enable_composite_kludge =
+        parseInt(loadTimeData.getValue('enable_composite_kludge'));
+    }
+  } else {
+    g_plugin = new PluginSim();
+    // default values, see above PluginSim definition.
+    // override.
+    var params = document.getElementById('initparams');
+    if (params) {
+      for (var i = 0; i < params.childNodes.length; i += 1) {
+        var elem = params.childNodes[i];
+        if (elem.attributes && elem.hasAttribute('name')
+            && elem.hasAttribute('value')) {
+          var key = elem.getAttribute('name');
+          var val = elem.getAttribute('value');
+          if (key === 'mediaurl') {
+            g_plugin.media_url = val;
+          } else if (key === 'is_video') {
+            g_plugin.is_video = (val !== 'false');
+          } else if (key === 'loop') {
+            if (val === 'infinity') {
+              g_plugin.param_loop = -1;
+            } else {
+              var v = parseInt(val);
+              if (v == v) {
+                g_plugin.param_loop = v;
+              }
+            }
+          } else if (key === 'enable_composite_kludge') {
+            g_plugin.enable_composite_kludge = parseInt(val);
+          }
+        }
+      }
+    }
+  }
+  g_elem_body = document.getElementById('body');
+
+  g_elem_ta00 = document.getElementById('ta00');
+  g_ta00_log_size = 0;
+  g_ta00_log_buf_0 = '';
+  g_ta00_log_buf_1 = '';
+
+  var vid00;
+  if (g_plugin.media_url) {
+    if (g_plugin.is_video) {
+      vid00 = document.createElement('video');
+    } else {
+      vid00 = document.createElement('audio');
+    }
+  } else {
+    // FIXME: add a dummy state machine for empty src.
+    // vid00 = document.createElement('span');
+    if (g_plugin.is_video) {
+      vid00 = document.createElement('video');
+    } else {
+      vid00 = document.createElement('audio');
+    }
+  }
+  g_elem_body.insertBefore(vid00, g_elem_body.childNodes[0]);
+
+  g_vid00 = vid00;
+  g_plugin.vid00 = vid00;
+
+  vid00.preload = 'none';
+  vid00.playbackRate = 0;
+  vid00.defaultPlaybackRate = 0;
+  vid00.acs_playIsAttempted = false;
+  vid00.acs_pausedErrorErrorCode = -1;
+  vid00.acs_pausedErrorProgressCount = 0;
+  vid00.acs_loadProgressCount = 0
+  vid00.acs_loadProgressHandler = false;
+
+  if (!g_plugin.is_video) {
+    if (g_plugin.param_loop && g_plugin.param_loop != 0) {
+      vid00.acs_loop_count = g_plugin.param_loop;
+    } else {
+      vid00.acs_loop_count = 0;
+    }
+    // we do not implement 'loop' by ourselves.  because handling 'ended'
+    // event to seek to the start of media and play again causes inevitable
+    // gap during loop.  we want gapless as much as possible.
+    // |acs_is_seeking|
+    // true if the seek is a user initiated seek.
+    // false if the seek is caused by a loop.
+    vid00.acs_is_seeking = false;
+  }
+
+  vid00.addEventListener('loadstart', cb_video_loadstart);
+  vid00.addEventListener('error', cb_video_error);
+  vid00.addEventListener('loadedmetadata', cb_video_loadedmetadata);
+  vid00.addEventListener('seeked', cb_video_seeked);
+  vid00.addEventListener('ended', cb_video_ended);
+  vid00.addEventListener('play', cb_video_play);
+  vid00.addEventListener('pause', cb_video_pause);
+  vid00.addEventListener('ratechange', cb_video_ratechange);
+  if (vid00.audioTracks) {
+    vid00.audioTracks.addEventListener('change', cb_video_at_change);
+    vid00.audioTracks.addEventListener('addtrack', cb_video_at_addtrack);
+    vid00.audioTracks.addEventListener('removetrack', cb_video_at_removetrack);
+  }
+  if (vid00.videoTracks) {
+    vid00.videoTracks.addEventListener('change', cb_video_vt_change);
+    vid00.videoTracks.addEventListener('addtrack', cb_video_vt_addtrack);
+    vid00.videoTracks.addEventListener('removetrack', cb_video_vt_removetrack);
+  }
+  if (vid00.textTracks) {
+    vid00.textTracks.addEventListener('change', cb_video_tt_change);
+    vid00.textTracks.addEventListener('addtrack', cb_video_tt_addtrack);
+    vid00.textTracks.addEventListener('removetrack', cb_video_tt_removetrack);
+  }
+
+  if (is_plugin) {
+    // empty.
+  } else {
+    if (window.location.protocol === 'file:') {
+      // FIXME: impl: when file.
+    } else {
+      if (window.location.search) {
+        var location_search = window.location.search.substring(1);
+        var params = location_search.split('&');
+        for (var i = 0; i < params.length; i += 1) {
+          var param_pair = params[i].split('=');
+          var p = unescape(param_pair[0]);
+          var v = unescape(param_pair[1]);
+          if (p == 'use_mc') {
+            if (v == '0') {
+              f_use_MediaController = false;
+            } else {
+              f_use_MediaController = true;
+            }
+            continue;
+          }
+          if (p == 'tc') {
+            if (v == '0') {
+              g_plugin.media_url = 'http://itv.mit-xperts.com/hbbtvtest/media/timecode.php/video.mp4';
+            } else if (v == '1') {
+              g_plugin.media_url = 'http://itv.mit-xperts.com/hbbtvtest/media/timecode.php/video.mp4';
+              g_plugin.initialPlaybackRate = 1;
+            }
+            continue;
+          }
+        }
+      }
+    }
+  }
+  log_msg = 'media_url=' + g_plugin.media_url;
+  window.console.log(log_msg);
+  ta_log(log_msg);
+
+  // if enable_composite_kludge, hide the <body> to see (the background of) the container <object> element.
+  // n.b. if |is_plugin|, the container <object> element is WebViewPlugin.  in that case, that WebView must
+  // be transparent to see the container <object> element.
+  // if !enable_composite_kludge, add video control.  FIXME: enable_debug_UI flag.
+  // if !enable_composite_kludge, show debug UI.  FIXME: enable_debug_UI flag.
+  if (0 == g_plugin.enable_composite_kludge) {
+    g_elem_body.style.visibility = "";
+    g_elem_body.style.position = "";
+    vid00.controls = true;
+    document.getElementById('debug_UI').style.display = "";
+  }
+  log_msg = 'visibleW=' + g_plugin.visibleW;
+  window.console.log(log_msg);
+  ta_log(log_msg);
+  log_msg = 'visibleH=' + g_plugin.visibleH;
+  window.console.log(log_msg);
+  ta_log(log_msg);
+  if (is_plugin) {
+    g_plugin.ignore_layout = loadTimeData.valueExists('ignore_layout');
+    log_msg = 'g_plugin.ignore_layout=' + g_plugin.ignore_layout;
+    window.console.log(log_msg);
+    ta_log(log_msg);
+  }
+  if (g_plugin.ignore_layout) {
+    // does nothing.
+  } else if (0 < g_plugin.visibleW && 0 < g_plugin.visibleH) {
+    vid00.width = g_plugin.visibleW;
+    vid00.height = g_plugin.visibleH;
+    g_elem_body.height = g_plugin.visibleH;
+    g_elem_body.style.maxHeight = '' + g_plugin.visibleH + 'px';
+  }
+
+  g_plugin.play = pfn_play.bind(g_plugin);
+  g_plugin.stop = pfn_stop.bind(g_plugin);
+  g_plugin.seek = pfn_seek.bind(g_plugin);
+  g_plugin.geterror = pfn_geterror.bind(g_plugin);
+  g_plugin.getplayposition = pfn_getplayposition.bind(g_plugin);
+  g_plugin.getplaystate = pfn_getplaystate.bind(g_plugin);
+  g_plugin.getspeed = pfn_getspeed.bind(g_plugin);
+  g_plugin.onresize = pfn_onResize.bind(g_plugin);
+
+  // track API
+  if (is_plugin) {
+    // FIXME: OipfVideoPlugin should implement them.
+    g_plugin.tlist = new Array();
+    g_plugin.t_id = 1;
+  } else {
+    g_plugin.tlist = new Array();
+    g_plugin.t_id = 1;
+  }
+  g_plugin.track_add = pfn_track_add.bind(g_plugin);
+  g_plugin.track_remove = pfn_track_remove.bind(g_plugin);
+  g_plugin.track_change = pfn_track_change.bind(g_plugin);
+  g_plugin.checkIfTrackIsSelected = pfn_checkIfTrackIsSelected.bind(g_plugin);
+  g_plugin.selectTrack = pfn_selectTrack.bind(g_plugin);
+
+  // [OIPFDAE]: 7.14.1.1 Figure 14.
+  // the first entry, the black dot to '0: stopped', must not generate
+  // a 'PlayStateChange' event to 'stopped'.
+  g_plugin.initialEntry = true;
+
+  if (typeof g_plugin.media_url == 'string') {
+    vid00.src = g_plugin.media_url;
+    var val = Number(g_plugin.initialPlaybackRate);
+    if (isFinite(val)) {
+      log_msg = 'g_plugin.initialPlaybackRate=' + val;
+      window.console.log(log_msg);
+      ta_log(log_msg);
+      window.setTimeout(init_playback, 0);
+    }
+  }
+  console.log('#### oipf_video_plugin: init: done.');
+}
+
+function init_playback()
+{
+  g_plugin.play(g_plugin.initialPlaybackRate);
+}
+
+function modify_body_color(color) {
+  var elem = document.getElementById("body");
+  elem.style.background = color;
+}
+function ta_log(s)
+{
+  g_ta00_log_buf_1 = g_ta00_log_buf_1 + s + '\n';
+  g_ta00_log_size += 1;
+  if (80 < g_ta00_log_size) {
+    g_ta00_log_buf_0 = g_ta00_log_buf_1;
+    g_ta00_log_buf_1 = '';
+    g_ta00_log_size = 0;
+  }
+  g_elem_ta00.value = g_ta00_log_buf_0 + g_ta00_log_buf_1;
+}
+function ta_log_clear()
+{
+  g_ta00_log_size = 0;
+  g_ta00_log_buf_0 = '';
+  g_ta00_log_buf_1 = '';
+  g_elem_ta00.value = '';
+}
+function check_properties(obj)
+{
+  window.console.log('---- checking ' + obj);
+  var methods = new Array();
+  for (var s in obj)
+  {
+    if (typeof(obj[s]) == 'function') {
+      methods[methods.length] = s;
+    }
+  }
+  for (var i in methods)
+  {
+    window.console.log(methods[i] + ' : ' + obj[methods[i]]);
+  }
+
+  var props = new Array();
+  for (var s in obj)
+  {
+    if (typeof(obj[s]) != 'function') {
+      props[props.length] = s;
+    }
+  }
+  for (var i in props)
+  {
+    window.console.log(props[i] + ' : ' + obj[props[i]]);
+  }
+}
+function check_loadTimeData()
+{
+  var key = "key_00";
+  var value = loadTimeData.getValue(key);
+  ta_log("key:" + key + " value:" + value);
+}
+</script>
+</head>
+<body id="body" onload="init()" style="margin:0px; position:fixed; visibility:hidden;">
+<video id="vid00">
+</video>
+<div id="debug_UI" style="display:none;">
+<input type="button" value="check_properties window" onclick="check_properties(window);">
+<br>
+<input type="button" value="check_properties document" onclick="check_properties(document);">
+<br>
+<input type="button" value="check_properties plugin" onclick="check_properties(plugin);">
+<br>
+<input type="button" value="check_properties loadTimeData" onclick="check_properties(loadTimeData);">
+<br>
+<input type="button" value="check loadTimeData" onclick="check_loadTimeData();">
+<br>
+<input type="button" value="modify body color red" onclick="modify_body_color('red');">
+<br>
+<input type="button" value="modify body color white" onclick="modify_body_color('white');">
+<br>
+<input type="button" value="plugin.reload()" onclick="g_plugin.loadUrl();">
+<br>
+<input type="button" value="video.play()" onclick="document.getElementById('vid00').play();">
+<br>
+<input type="button" value="video.pause()" onclick="document.getElementById('vid00').pause();">
+<br>
+<input type="button" value="plugin.play(1x)" onclick="g_plugin.play(1);">
+<br>
+<input type="button" value="plugin.play(0x)" onclick="g_plugin.play(0);">
+<br>
+<input type="button" value="plugin.stop()" onclick="g_plugin.stop();">
+<br>
+<textarea id="ta00" rows="20" cols="60"></textarea>
+<br>
+<input type="button" value="clear" onclick="ta_log_clear();">
+</div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+rule $
+    remoting_client_credits_target_Build_remoting_client_credits_b85e4fcf48df8ed69d94643a4642904a
+  command = cd ../../remoting; python ../tools/licenses.py credits $
+      ../out.cef/Release/gen/remoting/credits.html --file-template $
+      webapp/base/html/credits.tmpl --entry-template $
+      webapp/base/html/credits_entry.tmpl
+  description = ACTION remoting_client_credits: Build remoting client $
+      credits_b85e4fcf48df8ed69d94643a4642904a
+  restat = 1
+
+build gen/remoting/credits.html: $
+    remoting_client_credits_target_Build_remoting_client_credits_b85e4fcf48df8ed69d94643a4642904a $
+    ../../tools/licenses.py ../../remoting/webapp/base/html/credits.tmpl $
+    ../../remoting/webapp/base/html/credits_entry.tmpl
+

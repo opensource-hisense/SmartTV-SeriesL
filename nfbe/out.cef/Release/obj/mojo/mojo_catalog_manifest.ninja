@@ -1,0 +1,15 @@
+rule $
+    mojo_catalog_manifest_target_mojo_catalog_manifest_collation_a4a245584347f016b8587b74bab52329
+  command = cd ../../mojo; python $
+      ../mojo/public/tools/manifest/manifest_collator.py --application-name $
+      catalog "--parent=../mojo/services/catalog/manifest.json" $
+      "--output=../out.cef/Release/catalog/manifest.json"
+  description = ACTION mojo_catalog_manifest: $
+      mojo_catalog_manifest_collation_a4a245584347f016b8587b74bab52329
+  restat = 1
+
+build catalog/manifest.json: $
+    mojo_catalog_manifest_target_mojo_catalog_manifest_collation_a4a245584347f016b8587b74bab52329 $
+    ../../mojo/public/tools/manifest/manifest_collator.py $
+    ../../mojo/services/catalog/manifest.json
+

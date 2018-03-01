@@ -1,0 +1,2170 @@
+build obj/net/net_unittests.actions_depends.stamp: stamp lib/libbase.so.TOC $
+    obj/base/libbase_i18n.a $
+    obj/base/third_party/dynamic_annotations/libdynamic_annotations.a $
+    obj/crypto/libcrcrypto.a obj/crypto/libcrypto_test_support.a $
+    obj/testing/libgmock.a obj/testing/libgtest.a $
+    obj/third_party/zlib/libchrome_zlib.a lib/liburl_lib.so.TOC $
+    obj/net/libbalsa.a lib/libnet.so.TOC obj/net/libnet_quic_proto.a $
+    obj/net/net_derived_sources.actions_rules_copies.stamp $
+    obj/net/libnet_extras.a obj/net/libnet_test_support.a $
+    obj/net/libsimple_quic_tools.a $
+    obj/net/libstale_while_revalidate_experiment_domains.a $
+    obj/net/libepoll_quic_tools.a obj/net/libepoll_server.a $
+    obj/net/libflip_in_mem_edsm_server_base.a $
+    obj/third_party/boringssl/libboringssl.a $
+    obj/third_party/boringssl/libboringssl.a obj/net/libhttp_server.a $
+    obj/net/libnet_with_v8.a obj/net/libnet_browser_services.a $
+    obj/net/libnet_utility_services.a obj/mojo/libmojo_system_impl.a $
+    obj/gin/libgin.a obj/third_party/icu/libicui18n.a $
+    obj/third_party/icu/libicuuc.a icudtl.dat icudtl.dat $
+    obj/third_party/boringssl/libboringssl_asm.a $
+    obj/third_party/zlib/libzlib_x86_simd.a $
+    obj/third_party/protobuf/libprotobuf_lite.a obj/sql/libsql.a $
+    obj/third_party/sqlite/libchromium_sqlite3.a $
+    obj/base/libtest_support_base.a obj/base/libbase_static.a $
+    obj/third_party/libxml/libxml2.a $
+    obj/net/tools/tld_cleanup/libtld_cleanup_util.a $
+    obj/third_party/protobuf/py_proto.actions_rules_copies.stamp $
+    obj/v8/tools/gyp/v8_maybe_snapshot.actions_depends.stamp $
+    obj/v8/tools/gyp/v8_maybe_snapshot.actions_depends.stamp $
+    obj/v8/tools/gyp/libv8_base.a obj/v8/tools/gyp/libv8_libbase.a $
+    obj/v8/tools/gyp/libv8_external_snapshot.a $
+    obj.host/v8/tools/gyp/js2c.actions_rules_copies.stamp natives_blob.bin $
+    obj/net/libmojo_type_converters.a obj/net/libnet_interfaces.a $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    obj/mojo/libmojo_cpp_bindings.a obj/mojo/libmojo_cpp_system.a $
+    obj/mojo/libmojo_common_lib.a obj/mojo/libmojo_url_type_converters.a
+
+build obj/net/net_unittests.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/url/url_lib.compile_depends.stamp $
+    obj/net/balsa.compile_depends.stamp obj/net/net.compile_depends.stamp $
+    obj/net/net_quic_proto.actions_rules_copies.stamp $
+    obj/net/net_derived_sources.actions_rules_copies.stamp $
+    obj/net/net_extras.compile_depends.stamp $
+    obj/net/net_test_support.compile_depends.stamp $
+    obj/net/simple_quic_tools.compile_depends.stamp $
+    obj/net/stale_while_revalidate_experiment_domains.compile_depends.stamp $
+    obj/net/epoll_quic_tools.compile_depends.stamp $
+    obj/net/epoll_server.compile_depends.stamp $
+    obj/net/flip_in_mem_edsm_server_base.compile_depends.stamp $
+    obj/net/http_server.compile_depends.stamp $
+    obj/net/net_with_v8.compile_depends.stamp $
+    obj/net/net_browser_services.compile_depends.stamp $
+    obj/net/net_interfaces.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp obj/gin/gin.compile_depends.stamp $
+    icudtl.dat icudtl.dat icudtl.dat obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/net/tools/tld_cleanup/tld_cleanup_util.compile_depends.stamp $
+    obj/third_party/protobuf/py_proto.actions_rules_copies.stamp $
+    snapshot_blob.bin snapshot_blob.bin snapshot_blob.bin $
+    obj.host/v8/tools/gyp/js2c.actions_rules_copies.stamp natives_blob.bin $
+    obj/net/mojo_type_converters.compile_depends.stamp $
+    obj/net/net_interfaces.actions_rules_copies.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    obj/mojo/mojo_cpp_bindings.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/mojo/mojo_url_type_converters.compile_depends.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DCOMPONENT_BUILD -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 $
+    -DUSE_OZONE=1 -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DGTEST_HAS_POSIX_RE=0 $
+    -DGTEST_LANG_CXX11=0 -DMOJO_USE_SYSTEM_IMPL -DU_USING_ICU_NAMESPACE=0 $
+    -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= -DU_STATIC_IMPLEMENTATION -DUNIT_TEST $
+    -DGTEST_HAS_RTTI=0 -DPROTOBUF_USE_DLLS -DGOOGLE_PROTOBUF_NO_RTTI $
+    -DGOOGLE_PROTOBUF_NO_STATIC_INITIALIZER -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS $
+    -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../third_party/icu/source/common $
+    -I../../third_party/icu/source/i18n -I../../testing/gmock/include $
+    -I../../testing/gtest/include -I../../third_party/zlib -Igen/protoc_out $
+    -I../../third_party/protobuf -I../../third_party/protobuf/src $
+    -I../../third_party/boringssl/src/include -I../../v8/include
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -I/work/bsp/sc1400/usr/include/nss3 $
+    -I/work/bsp/sc1400/usr/include/nspr -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/net/base/net_unittests.address_family_unittest.o: cxx $
+    ../../net/base/address_family_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.address_list_unittest.o: cxx $
+    ../../net/base/address_list_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.address_tracker_linux_unittest.o: cxx $
+    ../../net/base/address_tracker_linux_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.backoff_entry_serializer_unittest.o: cxx $
+    ../../net/base/backoff_entry_serializer_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.backoff_entry_unittest.o: cxx $
+    ../../net/base/backoff_entry_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.chunked_upload_data_stream_unittest.o: cxx $
+    ../../net/base/chunked_upload_data_stream_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.data_url_unittest.o: cxx $
+    ../../net/base/data_url_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.directory_lister_unittest.o: cxx $
+    ../../net/base/directory_lister_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.directory_listing_unittest.o: cxx $
+    ../../net/base/directory_listing_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.elements_upload_data_stream_unittest.o: $
+    cxx ../../net/base/elements_upload_data_stream_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.escape_unittest.o: cxx $
+    ../../net/base/escape_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.expiring_cache_unittest.o: cxx $
+    ../../net/base/expiring_cache_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.file_stream_unittest.o: cxx $
+    ../../net/base/file_stream_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.filename_util_unittest.o: cxx $
+    ../../net/base/filename_util_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.host_mapping_rules_unittest.o: cxx $
+    ../../net/base/host_mapping_rules_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.host_port_pair_unittest.o: cxx $
+    ../../net/base/host_port_pair_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.int128_unittest.o: cxx $
+    ../../net/base/int128_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.ip_address_number_unittest.o: cxx $
+    ../../net/base/ip_address_number_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.ip_address_unittest.o: cxx $
+    ../../net/base/ip_address_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.ip_endpoint_unittest.o: cxx $
+    ../../net/base/ip_endpoint_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.ip_pattern_unittest.o: cxx $
+    ../../net/base/ip_pattern_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.keygen_handler_unittest.o: cxx $
+    ../../net/base/keygen_handler_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.layered_network_delegate_unittest.o: cxx $
+    ../../net/base/layered_network_delegate_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.lookup_string_in_fixed_set_unittest.o: cxx $
+    ../../net/base/lookup_string_in_fixed_set_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.mime_sniffer_unittest.o: cxx $
+    ../../net/base/mime_sniffer_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.mime_util_unittest.o: cxx $
+    ../../net/base/mime_util_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.network_activity_monitor_unittest.o: cxx $
+    ../../net/base/network_activity_monitor_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.network_change_notifier_unittest.o: cxx $
+    ../../net/base/network_change_notifier_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.network_interfaces_unittest.o: cxx $
+    ../../net/base/network_interfaces_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.network_quality_estimator_unittest.o: cxx $
+    ../../net/base/network_quality_estimator_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.parse_number_unittest.o: cxx $
+    ../../net/base/parse_number_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.port_util_unittest.o: cxx $
+    ../../net/base/port_util_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.prioritized_dispatcher_unittest.o: cxx $
+    ../../net/base/prioritized_dispatcher_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.priority_queue_unittest.o: cxx $
+    ../../net/base/priority_queue_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/base/registry_controlled_domains/net_unittests.registry_controlled_domain_unittest.o: $
+    cxx $
+    ../../net/base/registry_controlled_domains/registry_controlled_domain_unittest.cc $
+    || obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.sdch_dictionary_unittest.o: cxx $
+    ../../net/base/sdch_dictionary_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.sdch_manager_unittest.o: cxx $
+    ../../net/base/sdch_manager_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/base/net_unittests.stale_while_revalidate_experiment_domains_unittest.o: $
+    cxx $
+    ../../net/base/stale_while_revalidate_experiment_domains_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.static_cookie_policy_unittest.o: cxx $
+    ../../net/base/static_cookie_policy_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.test_completion_callback_unittest.o: cxx $
+    ../../net/base/test_completion_callback_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.test_proxy_delegate.o: cxx $
+    ../../net/base/test_proxy_delegate.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.upload_bytes_element_reader_unittest.o: $
+    cxx ../../net/base/upload_bytes_element_reader_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.upload_file_element_reader_unittest.o: cxx $
+    ../../net/base/upload_file_element_reader_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/base/net_unittests.url_util_unittest.o: cxx $
+    ../../net/base/url_util_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/net_unittests.ct_policy_enforcer_unittest.o: cxx $
+    ../../net/cert/ct_policy_enforcer_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/net_unittests.cert_verify_proc_unittest.o: cxx $
+    ../../net/cert/cert_verify_proc_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/net_unittests.cert_verify_proc_whitelist_unittest.o: cxx $
+    ../../net/cert/cert_verify_proc_whitelist_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/net_unittests.crl_set_unittest.o: cxx $
+    ../../net/cert/crl_set_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/net_unittests.ct_log_response_parser_unittest.o: cxx $
+    ../../net/cert/ct_log_response_parser_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/net_unittests.ct_log_verifier_unittest.o: cxx $
+    ../../net/cert/ct_log_verifier_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/net_unittests.ct_objects_extractor_unittest.o: cxx $
+    ../../net/cert/ct_objects_extractor_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/net_unittests.ct_serialization_unittest.o: cxx $
+    ../../net/cert/ct_serialization_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/net_unittests.ev_root_ca_metadata_unittest.o: cxx $
+    ../../net/cert/ev_root_ca_metadata_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/internal/net_unittests.certificate_policies_unittest.o: $
+    cxx ../../net/cert/internal/certificate_policies_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/internal/net_unittests.extended_key_usage_unittest.o: $
+    cxx ../../net/cert/internal/extended_key_usage_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/internal/net_unittests.name_constraints_unittest.o: cxx $
+    ../../net/cert/internal/name_constraints_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/internal/net_unittests.parse_certificate_unittest.o: cxx $
+    ../../net/cert/internal/parse_certificate_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/internal/net_unittests.parse_name_unittest.o: cxx $
+    ../../net/cert/internal/parse_name_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/internal/net_unittests.parse_ocsp_unittest.o: cxx $
+    ../../net/cert/internal/parse_ocsp_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/internal/net_unittests.signature_algorithm_unittest.o: $
+    cxx ../../net/cert/internal/signature_algorithm_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/internal/net_unittests.test_helpers.o: cxx $
+    ../../net/cert/internal/test_helpers.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/cert/internal/net_unittests.verify_certificate_chain_unittest.o: $
+    cxx ../../net/cert/internal/verify_certificate_chain_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/cert/internal/net_unittests.verify_certificate_chain_pkits_unittest.o: $
+    cxx ../../net/cert/internal/verify_certificate_chain_pkits_unittest.cc $
+    || obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/internal/net_unittests.verify_name_match_unittest.o: cxx $
+    ../../net/cert/internal/verify_name_match_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/internal/net_unittests.verify_signed_data_unittest.o: $
+    cxx ../../net/cert/internal/verify_signed_data_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/net_unittests.jwk_serializer_unittest.o: cxx $
+    ../../net/cert/jwk_serializer_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/net_unittests.multi_log_ct_verifier_unittest.o: cxx $
+    ../../net/cert/multi_log_ct_verifier_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/net_unittests.multi_threaded_cert_verifier_unittest.o: $
+    cxx ../../net/cert/multi_threaded_cert_verifier_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/net_unittests.nss_cert_database_unittest.o: cxx $
+    ../../net/cert/nss_cert_database_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/net_unittests.pem_tokenizer_unittest.o: cxx $
+    ../../net/cert/pem_tokenizer_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/net_unittests.signed_certificate_timestamp_unittest.o: $
+    cxx ../../net/cert/signed_certificate_timestamp_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/net_unittests.test_root_certs_unittest.o: cxx $
+    ../../net/cert/test_root_certs_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/net_unittests.x509_cert_types_unittest.o: cxx $
+    ../../net/cert/x509_cert_types_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/net_unittests.x509_certificate_unittest.o: cxx $
+    ../../net/cert/x509_certificate_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert/net_unittests.x509_util_unittest.o: cxx $
+    ../../net/cert/x509_util_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert_net/net_unittests.cert_net_fetcher_impl_unittest.o: cxx $
+    ../../net/cert_net/cert_net_fetcher_impl_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cert_net/net_unittests.nss_ocsp_unittest.o: cxx $
+    ../../net/cert_net/nss_ocsp_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cookies/net_unittests.canonical_cookie_unittest.o: cxx $
+    ../../net/cookies/canonical_cookie_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cookies/net_unittests.cookie_constants_unittest.o: cxx $
+    ../../net/cookies/cookie_constants_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cookies/net_unittests.cookie_monster_unittest.o: cxx $
+    ../../net/cookies/cookie_monster_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cookies/net_unittests.cookie_store_unittest.o: cxx $
+    ../../net/cookies/cookie_store_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cookies/net_unittests.cookie_util_unittest.o: cxx $
+    ../../net/cookies/cookie_util_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/cookies/net_unittests.parsed_cookie_unittest.o: cxx $
+    ../../net/cookies/parsed_cookie_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/der/net_unittests.input_unittest.o: cxx $
+    ../../net/der/input_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/der/net_unittests.parse_values_unittest.o: cxx $
+    ../../net/der/parse_values_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/der/net_unittests.parser_unittest.o: cxx $
+    ../../net/der/parser_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/disk_cache/net_unittests.backend_unittest.o: cxx $
+    ../../net/disk_cache/backend_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/disk_cache/blockfile/net_unittests.addr_unittest.o: cxx $
+    ../../net/disk_cache/blockfile/addr_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/disk_cache/blockfile/net_unittests.bitmap_unittest.o: cxx $
+    ../../net/disk_cache/blockfile/bitmap_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/disk_cache/blockfile/net_unittests.block_bitmaps_v3_unittest.o: $
+    cxx ../../net/disk_cache/blockfile/block_bitmaps_v3_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/disk_cache/blockfile/net_unittests.block_files_unittest.o: $
+    cxx ../../net/disk_cache/blockfile/block_files_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/disk_cache/blockfile/net_unittests.index_table_v3_unittest.o: $
+    cxx ../../net/disk_cache/blockfile/index_table_v3_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/disk_cache/blockfile/net_unittests.mapped_file_unittest.o: $
+    cxx ../../net/disk_cache/blockfile/mapped_file_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/disk_cache/blockfile/net_unittests.stats_unittest.o: cxx $
+    ../../net/disk_cache/blockfile/stats_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/disk_cache/blockfile/net_unittests.storage_block_unittest.o: $
+    cxx ../../net/disk_cache/blockfile/storage_block_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/disk_cache/net_unittests.cache_util_unittest.o: cxx $
+    ../../net/disk_cache/cache_util_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/disk_cache/net_unittests.entry_unittest.o: cxx $
+    ../../net/disk_cache/entry_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/disk_cache/simple/net_unittests.simple_index_file_unittest.o: $
+    cxx ../../net/disk_cache/simple/simple_index_file_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/disk_cache/simple/net_unittests.simple_index_unittest.o: cxx $
+    ../../net/disk_cache/simple/simple_index_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/disk_cache/simple/net_unittests.simple_test_util.o: cxx $
+    ../../net/disk_cache/simple/simple_test_util.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/disk_cache/simple/net_unittests.simple_util_unittest.o: cxx $
+    ../../net/disk_cache/simple/simple_util_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/disk_cache/simple/net_unittests.simple_version_upgrade_unittest.o: $
+    cxx ../../net/disk_cache/simple/simple_version_upgrade_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/dns/net_unittests.address_sorter_posix_unittest.o: cxx $
+    ../../net/dns/address_sorter_posix_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/dns/net_unittests.address_sorter_unittest.o: cxx $
+    ../../net/dns/address_sorter_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/dns/net_unittests.dns_config_service_posix_unittest.o: cxx $
+    ../../net/dns/dns_config_service_posix_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/dns/net_unittests.dns_config_service_unittest.o: cxx $
+    ../../net/dns/dns_config_service_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/dns/net_unittests.dns_hosts_unittest.o: cxx $
+    ../../net/dns/dns_hosts_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/dns/net_unittests.dns_query_unittest.o: cxx $
+    ../../net/dns/dns_query_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/dns/net_unittests.dns_response_unittest.o: cxx $
+    ../../net/dns/dns_response_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/dns/net_unittests.dns_session_unittest.o: cxx $
+    ../../net/dns/dns_session_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/dns/net_unittests.dns_transaction_unittest.o: cxx $
+    ../../net/dns/dns_transaction_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/dns/net_unittests.dns_util_unittest.o: cxx $
+    ../../net/dns/dns_util_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/dns/net_unittests.host_cache_unittest.o: cxx $
+    ../../net/dns/host_cache_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/dns/net_unittests.host_resolver_impl_unittest.o: cxx $
+    ../../net/dns/host_resolver_impl_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/dns/net_unittests.host_resolver_mojo_unittest.o: cxx $
+    ../../net/dns/host_resolver_mojo_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/dns/net_unittests.mapped_host_resolver_unittest.o: cxx $
+    ../../net/dns/mapped_host_resolver_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/dns/net_unittests.mdns_cache_unittest.o: cxx $
+    ../../net/dns/mdns_cache_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/dns/net_unittests.mdns_client_unittest.o: cxx $
+    ../../net/dns/mdns_client_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/dns/net_unittests.mojo_host_resolver_impl_unittest.o: cxx $
+    ../../net/dns/mojo_host_resolver_impl_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/dns/net_unittests.record_parsed_unittest.o: cxx $
+    ../../net/dns/record_parsed_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/dns/net_unittests.record_rdata_unittest.o: cxx $
+    ../../net/dns/record_rdata_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/dns/net_unittests.serial_worker_unittest.o: cxx $
+    ../../net/dns/serial_worker_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/dns/net_unittests.single_request_host_resolver_unittest.o: $
+    cxx ../../net/dns/single_request_host_resolver_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/extras/sqlite/net_unittests.sqlite_channel_id_store_unittest.o: $
+    cxx ../../net/extras/sqlite/sqlite_channel_id_store_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/extras/sqlite/net_unittests.sqlite_persistent_cookie_store_unittest.o: $
+    cxx ../../net/extras/sqlite/sqlite_persistent_cookie_store_unittest.cc $
+    || obj/net/net_unittests.compile_depends.stamp
+build obj/net/filter/net_unittests.brotli_filter_unittest.o: cxx $
+    ../../net/filter/brotli_filter_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/filter/net_unittests.filter_unittest.o: cxx $
+    ../../net/filter/filter_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/filter/net_unittests.gzip_filter_unittest.o: cxx $
+    ../../net/filter/gzip_filter_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/filter/net_unittests.mock_filter_context.o: cxx $
+    ../../net/filter/mock_filter_context.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/filter/net_unittests.sdch_filter_unittest.o: cxx $
+    ../../net/filter/sdch_filter_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/ftp/net_unittests.ftp_auth_cache_unittest.o: cxx $
+    ../../net/ftp/ftp_auth_cache_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/ftp/net_unittests.ftp_ctrl_response_buffer_unittest.o: cxx $
+    ../../net/ftp/ftp_ctrl_response_buffer_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/ftp/net_unittests.ftp_directory_listing_parser_ls_unittest.o: $
+    cxx ../../net/ftp/ftp_directory_listing_parser_ls_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/ftp/net_unittests.ftp_directory_listing_parser_unittest.o: $
+    cxx ../../net/ftp/ftp_directory_listing_parser_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/ftp/net_unittests.ftp_directory_listing_parser_vms_unittest.o: $
+    cxx ../../net/ftp/ftp_directory_listing_parser_vms_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/ftp/net_unittests.ftp_directory_listing_parser_windows_unittest.o: $
+    cxx ../../net/ftp/ftp_directory_listing_parser_windows_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/ftp/net_unittests.ftp_network_transaction_unittest.o: cxx $
+    ../../net/ftp/ftp_network_transaction_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/ftp/net_unittests.ftp_util_unittest.o: cxx $
+    ../../net/ftp/ftp_util_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.bidirectional_stream_unittest.o: cxx $
+    ../../net/http/bidirectional_stream_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.des_unittest.o: cxx $
+    ../../net/http/des_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/http/net_unittests.disk_cache_based_quic_server_info_unittest.o: $
+    cxx ../../net/http/disk_cache_based_quic_server_info_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_auth_cache_unittest.o: cxx $
+    ../../net/http/http_auth_cache_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_auth_challenge_tokenizer_unittest.o: $
+    cxx ../../net/http/http_auth_challenge_tokenizer_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_auth_controller_unittest.o: cxx $
+    ../../net/http/http_auth_controller_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_auth_filter_unittest.o: cxx $
+    ../../net/http/http_auth_filter_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_auth_handler_basic_unittest.o: cxx $
+    ../../net/http/http_auth_handler_basic_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_auth_handler_digest_unittest.o: cxx $
+    ../../net/http/http_auth_handler_digest_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_auth_handler_factory_unittest.o: cxx $
+    ../../net/http/http_auth_handler_factory_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_auth_handler_mock.o: cxx $
+    ../../net/http/http_auth_handler_mock.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_auth_handler_unittest.o: cxx $
+    ../../net/http/http_auth_handler_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_auth_multi_round_parse_unittest.o: $
+    cxx ../../net/http/http_auth_multi_round_parse_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_auth_preferences_unittest.o: cxx $
+    ../../net/http/http_auth_preferences_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_auth_unittest.o: cxx $
+    ../../net/http/http_auth_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_basic_state_unittest.o: cxx $
+    ../../net/http/http_basic_state_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_byte_range_unittest.o: cxx $
+    ../../net/http/http_byte_range_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_cache_unittest.o: cxx $
+    ../../net/http/http_cache_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_chunked_decoder_unittest.o: cxx $
+    ../../net/http/http_chunked_decoder_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_content_disposition_unittest.o: cxx $
+    ../../net/http/http_content_disposition_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_log_util_unittest.o: cxx $
+    ../../net/http/http_log_util_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_network_layer_unittest.o: cxx $
+    ../../net/http/http_network_layer_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_network_transaction_ssl_unittest.o: $
+    cxx ../../net/http/http_network_transaction_ssl_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_network_transaction_unittest.o: cxx $
+    ../../net/http/http_network_transaction_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_proxy_client_socket_pool_unittest.o: $
+    cxx ../../net/http/http_proxy_client_socket_pool_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_request_headers_unittest.o: cxx $
+    ../../net/http/http_request_headers_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_response_body_drainer_unittest.o: cxx $
+    ../../net/http/http_response_body_drainer_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_response_headers_unittest.o: cxx $
+    ../../net/http/http_response_headers_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_response_info_unittest.o: cxx $
+    ../../net/http/http_response_info_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_security_headers_unittest.o: cxx $
+    ../../net/http/http_security_headers_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_server_properties_impl_unittest.o: $
+    cxx ../../net/http/http_server_properties_impl_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_server_properties_manager_unittest.o: $
+    cxx ../../net/http/http_server_properties_manager_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_status_code_unittest.o: cxx $
+    ../../net/http/http_status_code_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_status_line_validator_unittest.o: cxx $
+    ../../net/http/http_status_line_validator_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/http/net_unittests.http_stream_factory_impl_request_unittest.o: $
+    cxx ../../net/http/http_stream_factory_impl_request_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_stream_factory_impl_unittest.o: cxx $
+    ../../net/http/http_stream_factory_impl_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_stream_parser_unittest.o: cxx $
+    ../../net/http/http_stream_parser_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_util_unittest.o: cxx $
+    ../../net/http/http_util_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.http_vary_data_unittest.o: cxx $
+    ../../net/http/http_vary_data_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.mock_allow_http_auth_preferences.o: cxx $
+    ../../net/http/mock_allow_http_auth_preferences.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.mock_http_cache.o: cxx $
+    ../../net/http/mock_http_cache.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.transport_security_persister_unittest.o: $
+    cxx ../../net/http/transport_security_persister_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.transport_security_state_unittest.o: cxx $
+    ../../net/http/transport_security_state_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/http/net_unittests.url_security_manager_unittest.o: cxx $
+    ../../net/http/url_security_manager_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/log/net_unittests.net_log_capture_mode_unittest.o: cxx $
+    ../../net/log/net_log_capture_mode_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/log/net_unittests.net_log_unittest.o: cxx $
+    ../../net/log/net_log_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/log/net_unittests.net_log_util_unittest.o: cxx $
+    ../../net/log/net_log_util_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/log/net_unittests.trace_net_log_observer_unittest.o: cxx $
+    ../../net/log/trace_net_log_observer_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/log/net_unittests.write_to_file_net_log_observer_unittest.o: $
+    cxx ../../net/log/write_to_file_net_log_observer_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/proxy/net_unittests.dhcp_proxy_script_fetcher_factory_unittest.o: $
+    cxx ../../net/proxy/dhcp_proxy_script_fetcher_factory_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/proxy/net_unittests.mojo_proxy_resolver_factory_impl_unittest.o: $
+    cxx ../../net/proxy/mojo_proxy_resolver_factory_impl_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/proxy/net_unittests.mojo_proxy_resolver_impl_unittest.o: cxx $
+    ../../net/proxy/mojo_proxy_resolver_impl_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/proxy/net_unittests.mojo_proxy_resolver_v8_tracing_bindings_unittest.o: $
+    cxx ../../net/proxy/mojo_proxy_resolver_v8_tracing_bindings_unittest.cc $
+    || obj/net/net_unittests.compile_depends.stamp
+build obj/net/proxy/net_unittests.multi_threaded_proxy_resolver_unittest.o: $
+    cxx ../../net/proxy/multi_threaded_proxy_resolver_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/proxy/net_unittests.network_delegate_error_observer_unittest.o: $
+    cxx ../../net/proxy/network_delegate_error_observer_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/proxy/net_unittests.proxy_bypass_rules_unittest.o: cxx $
+    ../../net/proxy/proxy_bypass_rules_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/proxy/net_unittests.proxy_config_service_linux_unittest.o: $
+    cxx ../../net/proxy/proxy_config_service_linux_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/proxy/net_unittests.proxy_config_unittest.o: cxx $
+    ../../net/proxy/proxy_config_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/proxy/net_unittests.proxy_info_unittest.o: cxx $
+    ../../net/proxy/proxy_info_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/proxy/net_unittests.proxy_list_unittest.o: cxx $
+    ../../net/proxy/proxy_list_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/proxy/net_unittests.proxy_resolver_factory_mojo_unittest.o: $
+    cxx ../../net/proxy/proxy_resolver_factory_mojo_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/proxy/net_unittests.proxy_resolver_v8_tracing_unittest.o: cxx $
+    ../../net/proxy/proxy_resolver_v8_tracing_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/proxy/net_unittests.proxy_resolver_v8_tracing_wrapper_unittest.o: $
+    cxx ../../net/proxy/proxy_resolver_v8_tracing_wrapper_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/proxy/net_unittests.proxy_resolver_v8_unittest.o: cxx $
+    ../../net/proxy/proxy_resolver_v8_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/proxy/net_unittests.proxy_script_decider_unittest.o: cxx $
+    ../../net/proxy/proxy_script_decider_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/proxy/net_unittests.proxy_script_fetcher_impl_unittest.o: cxx $
+    ../../net/proxy/proxy_script_fetcher_impl_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/proxy/net_unittests.proxy_server_unittest.o: cxx $
+    ../../net/proxy/proxy_server_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/proxy/net_unittests.proxy_service_mojo_unittest.o: cxx $
+    ../../net/proxy/proxy_service_mojo_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/proxy/net_unittests.proxy_service_unittest.o: cxx $
+    ../../net/proxy/proxy_service_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.bidirectional_stream_quic_impl_unittest.o: $
+    cxx ../../net/quic/bidirectional_stream_quic_impl_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/congestion_control/net_unittests.cubic_bytes_test.o: cxx $
+    ../../net/quic/congestion_control/cubic_bytes_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/congestion_control/net_unittests.cubic_test.o: cxx $
+    ../../net/quic/congestion_control/cubic_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/quic/congestion_control/net_unittests.general_loss_algorithm_test.o: $
+    cxx ../../net/quic/congestion_control/general_loss_algorithm_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/quic/congestion_control/net_unittests.hybrid_slow_start_test.o: $
+    cxx ../../net/quic/congestion_control/hybrid_slow_start_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/congestion_control/net_unittests.pacing_sender_test.o: $
+    cxx ../../net/quic/congestion_control/pacing_sender_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/congestion_control/net_unittests.prr_sender_test.o: cxx $
+    ../../net/quic/congestion_control/prr_sender_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/congestion_control/net_unittests.rtt_stats_test.o: cxx $
+    ../../net/quic/congestion_control/rtt_stats_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/quic/congestion_control/net_unittests.send_algorithm_simulator.o: $
+    cxx ../../net/quic/congestion_control/send_algorithm_simulator.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/quic/congestion_control/net_unittests.tcp_cubic_sender_bytes_test.o: $
+    cxx ../../net/quic/congestion_control/tcp_cubic_sender_bytes_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/quic/congestion_control/net_unittests.tcp_cubic_sender_packets_test.o: $
+    cxx ../../net/quic/congestion_control/tcp_cubic_sender_packets_test.cc $
+    || obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/crypto/net_unittests.aes_128_gcm_12_decrypter_test.o: $
+    cxx ../../net/quic/crypto/aes_128_gcm_12_decrypter_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/crypto/net_unittests.aes_128_gcm_12_encrypter_test.o: $
+    cxx ../../net/quic/crypto/aes_128_gcm_12_encrypter_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/crypto/net_unittests.cert_compressor_test.o: cxx $
+    ../../net/quic/crypto/cert_compressor_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/quic/crypto/net_unittests.chacha20_poly1305_rfc7539_decrypter_test.o: $
+    cxx ../../net/quic/crypto/chacha20_poly1305_rfc7539_decrypter_test.cc $
+    || obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/quic/crypto/net_unittests.chacha20_poly1305_rfc7539_encrypter_test.o: $
+    cxx ../../net/quic/crypto/chacha20_poly1305_rfc7539_encrypter_test.cc $
+    || obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/crypto/net_unittests.channel_id_test.o: cxx $
+    ../../net/quic/crypto/channel_id_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/crypto/net_unittests.common_cert_set_test.o: cxx $
+    ../../net/quic/crypto/common_cert_set_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/crypto/net_unittests.crypto_framer_test.o: cxx $
+    ../../net/quic/crypto/crypto_framer_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/crypto/net_unittests.crypto_handshake_message_test.o: $
+    cxx ../../net/quic/crypto/crypto_handshake_message_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/crypto/net_unittests.crypto_secret_boxer_test.o: cxx $
+    ../../net/quic/crypto/crypto_secret_boxer_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/crypto/net_unittests.crypto_server_test.o: cxx $
+    ../../net/quic/crypto/crypto_server_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/crypto/net_unittests.crypto_utils_test.o: cxx $
+    ../../net/quic/crypto/crypto_utils_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/crypto/net_unittests.curve25519_key_exchange_test.o: cxx $
+    ../../net/quic/crypto/curve25519_key_exchange_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/quic/crypto/net_unittests.local_strike_register_client_test.o: $
+    cxx ../../net/quic/crypto/local_strike_register_client_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/crypto/net_unittests.null_decrypter_test.o: cxx $
+    ../../net/quic/crypto/null_decrypter_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/crypto/net_unittests.null_encrypter_test.o: cxx $
+    ../../net/quic/crypto/null_encrypter_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/crypto/net_unittests.p256_key_exchange_test.o: cxx $
+    ../../net/quic/crypto/p256_key_exchange_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/crypto/net_unittests.proof_test.o: cxx $
+    ../../net/quic/crypto/proof_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/crypto/net_unittests.proof_verifier_chromium_test.o: cxx $
+    ../../net/quic/crypto/proof_verifier_chromium_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/quic/crypto/net_unittests.properties_based_quic_server_info_test.o: $
+    cxx ../../net/quic/crypto/properties_based_quic_server_info_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/crypto/net_unittests.quic_compressed_certs_cache_test.o: $
+    cxx ../../net/quic/crypto/quic_compressed_certs_cache_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/crypto/net_unittests.quic_crypto_client_config_test.o: $
+    cxx ../../net/quic/crypto/quic_crypto_client_config_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/crypto/net_unittests.quic_crypto_server_config_test.o: $
+    cxx ../../net/quic/crypto/quic_crypto_server_config_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/crypto/net_unittests.quic_random_test.o: cxx $
+    ../../net/quic/crypto/quic_random_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/crypto/net_unittests.strike_register_test.o: cxx $
+    ../../net/quic/crypto/strike_register_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.interval_set_test.o: cxx $
+    ../../net/quic/interval_set_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.interval_test.o: cxx $
+    ../../net/quic/interval_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.iovector_test.o: cxx $
+    ../../net/quic/iovector_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.network_connection_unittest.o: cxx $
+    ../../net/quic/network_connection_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/p2p/net_unittests.quic_p2p_session_test.o: cxx $
+    ../../net/quic/p2p/quic_p2p_session_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.port_suggester_unittest.o: cxx $
+    ../../net/quic/port_suggester_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_address_mismatch_test.o: cxx $
+    ../../net/quic/quic_address_mismatch_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_alarm_test.o: cxx $
+    ../../net/quic/quic_alarm_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_arena_scoped_ptr_test.o: cxx $
+    ../../net/quic/quic_arena_scoped_ptr_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_bandwidth_test.o: cxx $
+    ../../net/quic/quic_bandwidth_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_chromium_client_session_test.o: cxx $
+    ../../net/quic/quic_chromium_client_session_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_chromium_client_stream_test.o: cxx $
+    ../../net/quic/quic_chromium_client_stream_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_chromium_connection_helper_test.o: $
+    cxx ../../net/quic/quic_chromium_connection_helper_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_client_push_promise_index_test.o: cxx $
+    ../../net/quic/quic_client_push_promise_index_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_clock_test.o: cxx $
+    ../../net/quic/quic_clock_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_config_test.o: cxx $
+    ../../net/quic/quic_config_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_connection_logger_unittest.o: cxx $
+    ../../net/quic/quic_connection_logger_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_connection_test.o: cxx $
+    ../../net/quic/quic_connection_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_crypto_client_stream_test.o: cxx $
+    ../../net/quic/quic_crypto_client_stream_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_crypto_server_stream_test.o: cxx $
+    ../../net/quic/quic_crypto_server_stream_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_crypto_stream_test.o: cxx $
+    ../../net/quic/quic_crypto_stream_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_data_writer_test.o: cxx $
+    ../../net/quic/quic_data_writer_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_fec_group_test.o: cxx $
+    ../../net/quic/quic_fec_group_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_flow_controller_test.o: cxx $
+    ../../net/quic/quic_flow_controller_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_framer_test.o: cxx $
+    ../../net/quic/quic_framer_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_headers_stream_test.o: cxx $
+    ../../net/quic/quic_headers_stream_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_http_stream_test.o: cxx $
+    ../../net/quic/quic_http_stream_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_http_utils_test.o: cxx $
+    ../../net/quic/quic_http_utils_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/quic/net_unittests.quic_multipath_received_packet_manager_test.o: $
+    cxx ../../net/quic/quic_multipath_received_packet_manager_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_multipath_transmissions_map_test.o: $
+    cxx ../../net/quic/quic_multipath_transmissions_map_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_network_transaction_unittest.o: cxx $
+    ../../net/quic/quic_network_transaction_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_one_block_arena_test.o: cxx $
+    ../../net/quic/quic_one_block_arena_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_packet_creator_test.o: cxx $
+    ../../net/quic/quic_packet_creator_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_packet_generator_test.o: cxx $
+    ../../net/quic/quic_packet_generator_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_protocol_test.o: cxx $
+    ../../net/quic/quic_protocol_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_received_packet_manager_test.o: cxx $
+    ../../net/quic/quic_received_packet_manager_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_sent_entropy_manager_test.o: cxx $
+    ../../net/quic/quic_sent_entropy_manager_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_sent_packet_manager_test.o: cxx $
+    ../../net/quic/quic_sent_packet_manager_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_server_id_test.o: cxx $
+    ../../net/quic/quic_server_id_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_session_test.o: cxx $
+    ../../net/quic/quic_session_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_simple_buffer_allocator_test.o: cxx $
+    ../../net/quic/quic_simple_buffer_allocator_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_socket_address_coder_test.o: cxx $
+    ../../net/quic/quic_socket_address_coder_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_spdy_stream_test.o: cxx $
+    ../../net/quic/quic_spdy_stream_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_stream_factory_test.o: cxx $
+    ../../net/quic/quic_stream_factory_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_stream_sequencer_test.o: cxx $
+    ../../net/quic/quic_stream_sequencer_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_sustained_bandwidth_recorder_test.o: $
+    cxx ../../net/quic/quic_sustained_bandwidth_recorder_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_time_test.o: cxx $
+    ../../net/quic/quic_time_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_unacked_packet_map_test.o: cxx $
+    ../../net/quic/quic_unacked_packet_map_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_utils_chromium_test.o: cxx $
+    ../../net/quic/quic_utils_chromium_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_utils_test.o: cxx $
+    ../../net/quic/quic_utils_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_write_blocked_list_test.o: cxx $
+    ../../net/quic/quic_write_blocked_list_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.reliable_quic_stream_test.o: cxx $
+    ../../net/quic/reliable_quic_stream_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.spdy_utils_test.o: cxx $
+    ../../net/quic/spdy_utils_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_stream_sequencer_buffer_test.o: cxx $
+    ../../net/quic/quic_stream_sequencer_buffer_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/test_tools/net_unittests.crypto_test_utils.o: cxx $
+    ../../net/quic/test_tools/crypto_test_utils.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/test_tools/net_unittests.crypto_test_utils_chromium.o: $
+    cxx ../../net/quic/test_tools/crypto_test_utils_chromium.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/test_tools/net_unittests.crypto_test_utils_openssl.o: $
+    cxx ../../net/quic/test_tools/crypto_test_utils_openssl.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/quic/test_tools/net_unittests.delayed_verify_strike_register_client.o: $
+    cxx ../../net/quic/test_tools/delayed_verify_strike_register_client.cc $
+    || obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/test_tools/net_unittests.mock_clock.o: cxx $
+    ../../net/quic/test_tools/mock_clock.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/test_tools/net_unittests.mock_crypto_client_stream.o: $
+    cxx ../../net/quic/test_tools/mock_crypto_client_stream.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/quic/test_tools/net_unittests.mock_crypto_client_stream_factory.o: $
+    cxx ../../net/quic/test_tools/mock_crypto_client_stream_factory.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/quic/test_tools/net_unittests.mock_quic_client_promised_info.o: $
+    cxx ../../net/quic/test_tools/mock_quic_client_promised_info.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/test_tools/net_unittests.mock_quic_dispatcher.o: cxx $
+    ../../net/quic/test_tools/mock_quic_dispatcher.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/test_tools/net_unittests.mock_quic_spdy_client_stream.o: $
+    cxx ../../net/quic/test_tools/mock_quic_spdy_client_stream.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/test_tools/net_unittests.mock_random.o: cxx $
+    ../../net/quic/test_tools/mock_random.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/quic/test_tools/net_unittests.quic_chromium_client_session_peer.o: $
+    cxx ../../net/quic/test_tools/quic_chromium_client_session_peer.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/test_tools/net_unittests.quic_config_peer.o: cxx $
+    ../../net/quic/test_tools/quic_config_peer.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/test_tools/net_unittests.quic_connection_peer.o: cxx $
+    ../../net/quic/test_tools/quic_connection_peer.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/test_tools/net_unittests.quic_flow_controller_peer.o: $
+    cxx ../../net/quic/test_tools/quic_flow_controller_peer.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/test_tools/net_unittests.quic_framer_peer.o: cxx $
+    ../../net/quic/test_tools/quic_framer_peer.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/test_tools/net_unittests.quic_packet_creator_peer.o: cxx $
+    ../../net/quic/test_tools/quic_packet_creator_peer.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/test_tools/net_unittests.quic_packet_generator_peer.o: $
+    cxx ../../net/quic/test_tools/quic_packet_generator_peer.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/quic/test_tools/net_unittests.quic_received_packet_manager_peer.o: $
+    cxx ../../net/quic/test_tools/quic_received_packet_manager_peer.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/quic/test_tools/net_unittests.quic_sent_packet_manager_peer.o: $
+    cxx ../../net/quic/test_tools/quic_sent_packet_manager_peer.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/test_tools/net_unittests.quic_session_peer.o: cxx $
+    ../../net/quic/test_tools/quic_session_peer.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/test_tools/net_unittests.quic_spdy_session_peer.o: cxx $
+    ../../net/quic/test_tools/quic_spdy_session_peer.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/test_tools/net_unittests.quic_spdy_stream_peer.o: cxx $
+    ../../net/quic/test_tools/quic_spdy_stream_peer.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/test_tools/net_unittests.quic_stream_factory_peer.o: cxx $
+    ../../net/quic/test_tools/quic_stream_factory_peer.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/test_tools/net_unittests.quic_stream_sequencer_peer.o: $
+    cxx ../../net/quic/test_tools/quic_stream_sequencer_peer.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/quic/test_tools/net_unittests.quic_sustained_bandwidth_recorder_peer.o: $
+    cxx ../../net/quic/test_tools/quic_sustained_bandwidth_recorder_peer.cc $
+    || obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/test_tools/net_unittests.quic_test_packet_maker.o: cxx $
+    ../../net/quic/test_tools/quic_test_packet_maker.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/test_tools/net_unittests.quic_test_utils.o: cxx $
+    ../../net/quic/test_tools/quic_test_utils.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/test_tools/net_unittests.reliable_quic_stream_peer.o: $
+    cxx ../../net/quic/test_tools/reliable_quic_stream_peer.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/test_tools/net_unittests.rtt_stats_peer.o: cxx $
+    ../../net/quic/test_tools/rtt_stats_peer.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/test_tools/net_unittests.simple_quic_framer.o: cxx $
+    ../../net/quic/test_tools/simple_quic_framer.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/test_tools/net_unittests.test_task_runner.o: cxx $
+    ../../net/quic/test_tools/test_task_runner.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/sdch/net_unittests.sdch_owner_unittest.o: cxx $
+    ../../net/sdch/sdch_owner_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/socket/net_unittests.client_socket_pool_base_unittest.o: cxx $
+    ../../net/socket/client_socket_pool_base_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/socket/net_unittests.mock_client_socket_pool_manager.o: cxx $
+    ../../net/socket/mock_client_socket_pool_manager.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/socket/net_unittests.sequenced_socket_data_unittest.o: cxx $
+    ../../net/socket/sequenced_socket_data_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/socket/net_unittests.socks5_client_socket_unittest.o: cxx $
+    ../../net/socket/socks5_client_socket_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/socket/net_unittests.socks_client_socket_pool_unittest.o: cxx $
+    ../../net/socket/socks_client_socket_pool_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/socket/net_unittests.socks_client_socket_unittest.o: cxx $
+    ../../net/socket/socks_client_socket_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/socket/net_unittests.ssl_client_socket_pool_unittest.o: cxx $
+    ../../net/socket/ssl_client_socket_pool_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/socket/net_unittests.ssl_client_socket_unittest.o: cxx $
+    ../../net/socket/ssl_client_socket_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/socket/net_unittests.ssl_server_socket_unittest.o: cxx $
+    ../../net/socket/ssl_server_socket_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/socket/net_unittests.tcp_client_socket_unittest.o: cxx $
+    ../../net/socket/tcp_client_socket_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/socket/net_unittests.tcp_server_socket_unittest.o: cxx $
+    ../../net/socket/tcp_server_socket_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/socket/net_unittests.tcp_socket_unittest.o: cxx $
+    ../../net/socket/tcp_socket_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/socket/net_unittests.transport_client_socket_pool_test_util.o: $
+    cxx ../../net/socket/transport_client_socket_pool_test_util.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/socket/net_unittests.transport_client_socket_pool_unittest.o: $
+    cxx ../../net/socket/transport_client_socket_pool_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/socket/net_unittests.transport_client_socket_unittest.o: cxx $
+    ../../net/socket/transport_client_socket_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/socket/net_unittests.unix_domain_client_socket_posix_unittest.o: $
+    cxx ../../net/socket/unix_domain_client_socket_posix_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/socket/net_unittests.unix_domain_server_socket_posix_unittest.o: $
+    cxx ../../net/socket/unix_domain_server_socket_posix_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/socket/net_unittests.websocket_endpoint_lock_manager_unittest.o: $
+    cxx ../../net/socket/websocket_endpoint_lock_manager_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/socket/net_unittests.websocket_transport_client_socket_pool_unittest.o: $
+    cxx ../../net/socket/websocket_transport_client_socket_pool_unittest.cc $
+    || obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.buffered_spdy_framer_unittest.o: cxx $
+    ../../net/spdy/buffered_spdy_framer_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/fuzzing/net_unittests.hpack_fuzz_util_test.o: cxx $
+    ../../net/spdy/fuzzing/hpack_fuzz_util_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/hpack/net_unittests.hpack_decoder_test.o: cxx $
+    ../../net/spdy/hpack/hpack_decoder_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/hpack/net_unittests.hpack_encoder_test.o: cxx $
+    ../../net/spdy/hpack/hpack_encoder_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/hpack/net_unittests.hpack_entry_test.o: cxx $
+    ../../net/spdy/hpack/hpack_entry_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/hpack/net_unittests.hpack_header_table_test.o: cxx $
+    ../../net/spdy/hpack/hpack_header_table_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/hpack/net_unittests.hpack_huffman_decoder_test.o: cxx $
+    ../../net/spdy/hpack/hpack_huffman_decoder_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/hpack/net_unittests.hpack_huffman_table_test.o: cxx $
+    ../../net/spdy/hpack/hpack_huffman_table_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/hpack/net_unittests.hpack_input_stream_test.o: cxx $
+    ../../net/spdy/hpack/hpack_input_stream_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/hpack/net_unittests.hpack_output_stream_test.o: cxx $
+    ../../net/spdy/hpack/hpack_output_stream_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/hpack/net_unittests.hpack_round_trip_test.o: cxx $
+    ../../net/spdy/hpack/hpack_round_trip_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/hpack/net_unittests.hpack_static_table_test.o: cxx $
+    ../../net/spdy/hpack/hpack_static_table_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.http2_write_scheduler_test.o: cxx $
+    ../../net/spdy/http2_write_scheduler_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.http2_priority_dependencies_unittest.o: $
+    cxx ../../net/spdy/http2_priority_dependencies_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.mock_spdy_framer_visitor.o: cxx $
+    ../../net/spdy/mock_spdy_framer_visitor.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.priority_write_scheduler_test.o: cxx $
+    ../../net/spdy/priority_write_scheduler_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.spdy_alt_svc_wire_format_test.o: cxx $
+    ../../net/spdy/spdy_alt_svc_wire_format_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.spdy_buffer_unittest.o: cxx $
+    ../../net/spdy/spdy_buffer_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.spdy_frame_builder_test.o: cxx $
+    ../../net/spdy/spdy_frame_builder_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.spdy_frame_reader_test.o: cxx $
+    ../../net/spdy/spdy_frame_reader_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.spdy_framer_test.o: cxx $
+    ../../net/spdy/spdy_framer_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.spdy_header_block_test.o: cxx $
+    ../../net/spdy/spdy_header_block_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.spdy_headers_block_parser_test.o: cxx $
+    ../../net/spdy/spdy_headers_block_parser_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.spdy_http_stream_unittest.o: cxx $
+    ../../net/spdy/spdy_http_stream_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.spdy_http_utils_unittest.o: cxx $
+    ../../net/spdy/spdy_http_utils_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.spdy_network_transaction_unittest.o: cxx $
+    ../../net/spdy/spdy_network_transaction_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.spdy_pinnable_buffer_piece_test.o: cxx $
+    ../../net/spdy/spdy_pinnable_buffer_piece_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.spdy_prefixed_buffer_reader_test.o: cxx $
+    ../../net/spdy/spdy_prefixed_buffer_reader_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.spdy_protocol_test.o: cxx $
+    ../../net/spdy/spdy_protocol_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.spdy_proxy_client_socket_unittest.o: cxx $
+    ../../net/spdy/spdy_proxy_client_socket_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.spdy_read_queue_unittest.o: cxx $
+    ../../net/spdy/spdy_read_queue_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.spdy_session_pool_unittest.o: cxx $
+    ../../net/spdy/spdy_session_pool_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.spdy_session_test_util.o: cxx $
+    ../../net/spdy/spdy_session_test_util.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.spdy_session_unittest.o: cxx $
+    ../../net/spdy/spdy_session_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.spdy_stream_test_util.o: cxx $
+    ../../net/spdy/spdy_stream_test_util.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.spdy_stream_unittest.o: cxx $
+    ../../net/spdy/spdy_stream_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.spdy_test_util_common.o: cxx $
+    ../../net/spdy/spdy_test_util_common.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.spdy_test_utils.o: cxx $
+    ../../net/spdy/spdy_test_utils.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.spdy_write_queue_unittest.o: cxx $
+    ../../net/spdy/spdy_write_queue_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/spdy/net_unittests.write_blocked_list_test.o: cxx $
+    ../../net/spdy/write_blocked_list_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/ssl/net_unittests.channel_id_service_unittest.o: cxx $
+    ../../net/ssl/channel_id_service_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/ssl/net_unittests.client_cert_store_nss_unittest.o: cxx $
+    ../../net/ssl/client_cert_store_nss_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/ssl/net_unittests.default_channel_id_store_unittest.o: cxx $
+    ../../net/ssl/default_channel_id_store_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/ssl/net_unittests.ssl_cipher_suite_names_unittest.o: cxx $
+    ../../net/ssl/ssl_cipher_suite_names_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/ssl/net_unittests.ssl_client_auth_cache_unittest.o: cxx $
+    ../../net/ssl/ssl_client_auth_cache_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/ssl/net_unittests.ssl_client_session_cache_openssl_unittest.o: $
+    cxx ../../net/ssl/ssl_client_session_cache_openssl_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/ssl/net_unittests.ssl_config_service_unittest.o: cxx $
+    ../../net/ssl/ssl_config_service_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/ssl/net_unittests.ssl_config_unittest.o: cxx $
+    ../../net/ssl/ssl_config_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/ssl/net_unittests.ssl_connection_status_flags_unittest.o: cxx $
+    ../../net/ssl/ssl_connection_status_flags_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/test/embedded_test_server/net_unittests.embedded_test_server_unittest.o: $
+    cxx $
+    ../../net/test/embedded_test_server/embedded_test_server_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/test/embedded_test_server/net_unittests.http_request_unittest.o: $
+    cxx ../../net/test/embedded_test_server/http_request_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/test/embedded_test_server/net_unittests.http_response_unittest.o: $
+    cxx ../../net/test/embedded_test_server/http_response_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/test/net_unittests.python_utils_unittest.o: cxx $
+    ../../net/test/python_utils_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/test/net_unittests.run_all_unittests.o: cxx $
+    ../../net/test/run_all_unittests.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/test/net_unittests.scoped_disable_exit_on_dfatal.o: cxx $
+    ../../net/test/scoped_disable_exit_on_dfatal.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/balsa/net_unittests.balsa_frame_test.o: cxx $
+    ../../net/tools/balsa/balsa_frame_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/balsa/net_unittests.balsa_headers_test.o: cxx $
+    ../../net/tools/balsa/balsa_headers_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/quic/net_unittests.quic_simple_client_test.o: cxx $
+    ../../net/tools/quic/quic_simple_client_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/tools/quic/test_tools/net_unittests.mock_quic_server_session_visitor.o: $
+    cxx ../../net/tools/quic/test_tools/mock_quic_server_session_visitor.cc $
+    || obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/tld_cleanup/net_unittests.tld_cleanup_util_unittest.o: $
+    cxx ../../net/tools/tld_cleanup/tld_cleanup_util_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/udp/net_unittests.udp_socket_unittest.o: cxx $
+    ../../net/udp/udp_socket_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/url_request/net_unittests.certificate_report_sender_unittest.o: $
+    cxx ../../net/url_request/certificate_report_sender_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/url_request/net_unittests.sdch_dictionary_fetcher_unittest.o: $
+    cxx ../../net/url_request/sdch_dictionary_fetcher_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/url_request/net_unittests.url_fetcher_impl_unittest.o: cxx $
+    ../../net/url_request/url_fetcher_impl_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/url_request/net_unittests.url_fetcher_response_writer_unittest.o: $
+    cxx ../../net/url_request/url_fetcher_response_writer_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/url_request/net_unittests.url_request_backoff_manager_unittest.o: $
+    cxx ../../net/url_request/url_request_backoff_manager_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/url_request/net_unittests.url_request_context_builder_unittest.o: $
+    cxx ../../net/url_request/url_request_context_builder_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/url_request/net_unittests.url_request_data_job_unittest.o: $
+    cxx ../../net/url_request/url_request_data_job_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/url_request/net_unittests.url_request_file_dir_job_unittest.o: $
+    cxx ../../net/url_request/url_request_file_dir_job_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/url_request/net_unittests.url_request_file_job_unittest.o: $
+    cxx ../../net/url_request/url_request_file_job_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/url_request/net_unittests.url_request_filter_unittest.o: cxx $
+    ../../net/url_request/url_request_filter_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/url_request/net_unittests.url_request_ftp_job_unittest.o: cxx $
+    ../../net/url_request/url_request_ftp_job_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/url_request/net_unittests.url_request_http_job_unittest.o: $
+    cxx ../../net/url_request/url_request_http_job_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/url_request/net_unittests.url_request_job_factory_impl_unittest.o: $
+    cxx ../../net/url_request/url_request_job_factory_impl_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/url_request/net_unittests.url_request_job_unittest.o: cxx $
+    ../../net/url_request/url_request_job_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/url_request/net_unittests.url_request_simple_job_unittest.o: $
+    cxx ../../net/url_request/url_request_simple_job_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/url_request/net_unittests.url_request_throttler_simulation_unittest.o: $
+    cxx ../../net/url_request/url_request_throttler_simulation_unittest.cc $
+    || obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/url_request/net_unittests.url_request_throttler_test_support.o: $
+    cxx ../../net/url_request/url_request_throttler_test_support.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/url_request/net_unittests.url_request_throttler_unittest.o: $
+    cxx ../../net/url_request/url_request_throttler_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/url_request/net_unittests.url_request_unittest.o: cxx $
+    ../../net/url_request/url_request_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/url_request/net_unittests.view_cache_helper_unittest.o: cxx $
+    ../../net/url_request/view_cache_helper_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/quic/net_unittests.quic_end_to_end_unittest.o: cxx $
+    ../../net/quic/quic_end_to_end_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/quic/net_unittests.end_to_end_test.o: cxx $
+    ../../net/tools/quic/end_to_end_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/quic/net_unittests.quic_client_session_test.o: cxx $
+    ../../net/tools/quic/quic_client_session_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/quic/net_unittests.quic_client_test.o: cxx $
+    ../../net/tools/quic/quic_client_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/quic/net_unittests.quic_dispatcher_test.o: cxx $
+    ../../net/tools/quic/quic_dispatcher_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/quic/net_unittests.quic_epoll_clock_test.o: cxx $
+    ../../net/tools/quic/quic_epoll_clock_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/quic/net_unittests.quic_epoll_connection_helper_test.o: $
+    cxx ../../net/tools/quic/quic_epoll_connection_helper_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/quic/net_unittests.quic_in_memory_cache_test.o: cxx $
+    ../../net/tools/quic/quic_in_memory_cache_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/quic/net_unittests.quic_server_session_base_test.o: cxx $
+    ../../net/tools/quic/quic_server_session_base_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/quic/net_unittests.quic_server_test.o: cxx $
+    ../../net/tools/quic/quic_server_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/quic/net_unittests.quic_simple_server_session_test.o: $
+    cxx ../../net/tools/quic/quic_simple_server_session_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/quic/net_unittests.quic_simple_server_test.o: cxx $
+    ../../net/tools/quic/quic_simple_server_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/quic/net_unittests.quic_spdy_client_stream_test.o: cxx $
+    ../../net/tools/quic/quic_spdy_client_stream_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/quic/net_unittests.quic_time_wait_list_manager_test.o: $
+    cxx ../../net/tools/quic/quic_time_wait_list_manager_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/quic/net_unittests.spdy_balsa_utils_test.o: cxx $
+    ../../net/tools/quic/spdy_balsa_utils_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/quic/test_tools/net_unittests.http_message.o: cxx $
+    ../../net/tools/quic/test_tools/http_message.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/tools/quic/test_tools/net_unittests.limited_mtu_test_writer.o: $
+    cxx ../../net/tools/quic/test_tools/limited_mtu_test_writer.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/quic/test_tools/net_unittests.mock_epoll_server.o: cxx $
+    ../../net/tools/quic/test_tools/mock_epoll_server.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/tools/quic/test_tools/net_unittests.mock_quic_time_wait_list_manager.o: $
+    cxx ../../net/tools/quic/test_tools/mock_quic_time_wait_list_manager.cc $
+    || obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/tools/quic/test_tools/net_unittests.packet_dropping_test_writer.o: $
+    cxx ../../net/tools/quic/test_tools/packet_dropping_test_writer.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/quic/test_tools/net_unittests.quic_client_peer.o: cxx $
+    ../../net/tools/quic/test_tools/quic_client_peer.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/quic/test_tools/net_unittests.quic_dispatcher_peer.o: $
+    cxx ../../net/tools/quic/test_tools/quic_dispatcher_peer.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/tools/quic/test_tools/net_unittests.quic_in_memory_cache_peer.o: $
+    cxx ../../net/tools/quic/test_tools/quic_in_memory_cache_peer.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/quic/test_tools/net_unittests.quic_server_peer.o: cxx $
+    ../../net/tools/quic/test_tools/quic_server_peer.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/quic/test_tools/net_unittests.quic_test_client.o: cxx $
+    ../../net/tools/quic/test_tools/quic_test_client.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/quic/test_tools/net_unittests.quic_test_server.o: cxx $
+    ../../net/tools/quic/test_tools/quic_test_server.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/quic/test_tools/net_unittests.server_thread.o: cxx $
+    ../../net/tools/quic/test_tools/server_thread.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/tools/quic/test_tools/net_unittests.simple_client.o: cxx $
+    ../../net/tools/quic/test_tools/simple_client.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/server/net_unittests.http_connection_unittest.o: cxx $
+    ../../net/server/http_connection_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/server/net_unittests.http_server_response_info_unittest.o: $
+    cxx ../../net/server/http_server_response_info_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/server/net_unittests.http_server_unittest.o: cxx $
+    ../../net/server/http_server_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/server/net_unittests.web_socket_encoder_unittest.o: cxx $
+    ../../net/server/web_socket_encoder_unittest.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/websockets/net_unittests.websocket_basic_stream_test.o: cxx $
+    ../../net/websockets/websocket_basic_stream_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/websockets/net_unittests.websocket_channel_test.o: cxx $
+    ../../net/websockets/websocket_channel_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/websockets/net_unittests.websocket_deflate_parameters_test.o: $
+    cxx ../../net/websockets/websocket_deflate_parameters_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/websockets/net_unittests.websocket_deflate_predictor_impl_test.o: $
+    cxx ../../net/websockets/websocket_deflate_predictor_impl_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/websockets/net_unittests.websocket_deflate_stream_test.o: cxx $
+    ../../net/websockets/websocket_deflate_stream_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/websockets/net_unittests.websocket_deflater_test.o: cxx $
+    ../../net/websockets/websocket_deflater_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/websockets/net_unittests.websocket_end_to_end_test.o: cxx $
+    ../../net/websockets/websocket_end_to_end_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/websockets/net_unittests.websocket_errors_test.o: cxx $
+    ../../net/websockets/websocket_errors_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/websockets/net_unittests.websocket_extension_parser_test.o: $
+    cxx ../../net/websockets/websocket_extension_parser_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/websockets/net_unittests.websocket_extension_test.o: cxx $
+    ../../net/websockets/websocket_extension_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/websockets/net_unittests.websocket_frame_parser_test.o: cxx $
+    ../../net/websockets/websocket_frame_parser_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/websockets/net_unittests.websocket_frame_test.o: cxx $
+    ../../net/websockets/websocket_frame_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/websockets/net_unittests.websocket_handshake_challenge_test.o: $
+    cxx ../../net/websockets/websocket_handshake_challenge_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build $
+    obj/net/websockets/net_unittests.websocket_handshake_stream_create_helper_test.o: $
+    cxx $
+    ../../net/websockets/websocket_handshake_stream_create_helper_test.cc $
+    || obj/net/net_unittests.compile_depends.stamp
+build obj/net/websockets/net_unittests.websocket_inflater_test.o: cxx $
+    ../../net/websockets/websocket_inflater_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/websockets/net_unittests.websocket_stream_cookie_test.o: cxx $
+    ../../net/websockets/websocket_stream_cookie_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/websockets/net_unittests.websocket_stream_create_test_base.o: $
+    cxx ../../net/websockets/websocket_stream_create_test_base.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/websockets/net_unittests.websocket_stream_test.o: cxx $
+    ../../net/websockets/websocket_stream_test.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+build obj/net/websockets/net_unittests.websocket_test_util.o: cxx $
+    ../../net/websockets/websocket_test_util.cc || $
+    obj/net/net_unittests.compile_depends.stamp
+
+ldflags = -L/work/bsp/sc1400/usr/local/lib -L/work/bsp/sc1400/lib $
+    -L/work/bsp/sc1400/usr/lib -Wl,-z,now -Wl,-z,relro -Wl,-z,defs -pthread $
+    -Wl,-z,noexecstack -fPIC -Wl,--disable-new-dtags $
+    -L/work/bsp/sc1400/usr/lib --sysroot=/work/bsp/sc1400 $
+    -L/work/bsp/sc1400/lib/ -Wl,-rpath-link=/work/bsp/sc1400/lib/ $
+    -L/work/bsp/sc1400/usr/lib/ -Wl,-rpath-link=/work/bsp/sc1400/usr/lib/ $
+    -L/work/bsp/sc1400/usr/dtvrec/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/dtvrec/lib/ $
+    -L/work/bsp/sc1400/usr/local/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/local/lib/ $
+    -L/work/bsp/sc1400/usr/local/netfrontbe/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/local/netfrontbe/lib/ -Wl,-O1 $
+    -Wl,--as-needed -Wl,--gc-sections -Wl,-rpath=\$$ORIGIN/lib/ $
+    -Wl,-rpath-link=lib/
+libs =  -lrt -ldl -latomic -lnss3 -lnssutil3 -lsmime3 -lplds4 -lplc4 $
+    -lnspr4 -lm
+build net_unittests: link $
+    obj/net/base/net_unittests.address_family_unittest.o $
+    obj/net/base/net_unittests.address_list_unittest.o $
+    obj/net/base/net_unittests.address_tracker_linux_unittest.o $
+    obj/net/base/net_unittests.backoff_entry_serializer_unittest.o $
+    obj/net/base/net_unittests.backoff_entry_unittest.o $
+    obj/net/base/net_unittests.chunked_upload_data_stream_unittest.o $
+    obj/net/base/net_unittests.data_url_unittest.o $
+    obj/net/base/net_unittests.directory_lister_unittest.o $
+    obj/net/base/net_unittests.directory_listing_unittest.o $
+    obj/net/base/net_unittests.elements_upload_data_stream_unittest.o $
+    obj/net/base/net_unittests.escape_unittest.o $
+    obj/net/base/net_unittests.expiring_cache_unittest.o $
+    obj/net/base/net_unittests.file_stream_unittest.o $
+    obj/net/base/net_unittests.filename_util_unittest.o $
+    obj/net/base/net_unittests.host_mapping_rules_unittest.o $
+    obj/net/base/net_unittests.host_port_pair_unittest.o $
+    obj/net/base/net_unittests.int128_unittest.o $
+    obj/net/base/net_unittests.ip_address_number_unittest.o $
+    obj/net/base/net_unittests.ip_address_unittest.o $
+    obj/net/base/net_unittests.ip_endpoint_unittest.o $
+    obj/net/base/net_unittests.ip_pattern_unittest.o $
+    obj/net/base/net_unittests.keygen_handler_unittest.o $
+    obj/net/base/net_unittests.layered_network_delegate_unittest.o $
+    obj/net/base/net_unittests.lookup_string_in_fixed_set_unittest.o $
+    obj/net/base/net_unittests.mime_sniffer_unittest.o $
+    obj/net/base/net_unittests.mime_util_unittest.o $
+    obj/net/base/net_unittests.network_activity_monitor_unittest.o $
+    obj/net/base/net_unittests.network_change_notifier_unittest.o $
+    obj/net/base/net_unittests.network_interfaces_unittest.o $
+    obj/net/base/net_unittests.network_quality_estimator_unittest.o $
+    obj/net/base/net_unittests.parse_number_unittest.o $
+    obj/net/base/net_unittests.port_util_unittest.o $
+    obj/net/base/net_unittests.prioritized_dispatcher_unittest.o $
+    obj/net/base/net_unittests.priority_queue_unittest.o $
+    obj/net/base/registry_controlled_domains/net_unittests.registry_controlled_domain_unittest.o $
+    obj/net/base/net_unittests.sdch_dictionary_unittest.o $
+    obj/net/base/net_unittests.sdch_manager_unittest.o $
+    obj/net/base/net_unittests.stale_while_revalidate_experiment_domains_unittest.o $
+    obj/net/base/net_unittests.static_cookie_policy_unittest.o $
+    obj/net/base/net_unittests.test_completion_callback_unittest.o $
+    obj/net/base/net_unittests.test_proxy_delegate.o $
+    obj/net/base/net_unittests.upload_bytes_element_reader_unittest.o $
+    obj/net/base/net_unittests.upload_file_element_reader_unittest.o $
+    obj/net/base/net_unittests.url_util_unittest.o $
+    obj/net/cert/net_unittests.ct_policy_enforcer_unittest.o $
+    obj/net/cert/net_unittests.cert_verify_proc_unittest.o $
+    obj/net/cert/net_unittests.cert_verify_proc_whitelist_unittest.o $
+    obj/net/cert/net_unittests.crl_set_unittest.o $
+    obj/net/cert/net_unittests.ct_log_response_parser_unittest.o $
+    obj/net/cert/net_unittests.ct_log_verifier_unittest.o $
+    obj/net/cert/net_unittests.ct_objects_extractor_unittest.o $
+    obj/net/cert/net_unittests.ct_serialization_unittest.o $
+    obj/net/cert/net_unittests.ev_root_ca_metadata_unittest.o $
+    obj/net/cert/internal/net_unittests.certificate_policies_unittest.o $
+    obj/net/cert/internal/net_unittests.extended_key_usage_unittest.o $
+    obj/net/cert/internal/net_unittests.name_constraints_unittest.o $
+    obj/net/cert/internal/net_unittests.parse_certificate_unittest.o $
+    obj/net/cert/internal/net_unittests.parse_name_unittest.o $
+    obj/net/cert/internal/net_unittests.parse_ocsp_unittest.o $
+    obj/net/cert/internal/net_unittests.signature_algorithm_unittest.o $
+    obj/net/cert/internal/net_unittests.test_helpers.o $
+    obj/net/cert/internal/net_unittests.verify_certificate_chain_unittest.o $
+    obj/net/cert/internal/net_unittests.verify_certificate_chain_pkits_unittest.o $
+    obj/net/cert/internal/net_unittests.verify_name_match_unittest.o $
+    obj/net/cert/internal/net_unittests.verify_signed_data_unittest.o $
+    obj/net/cert/net_unittests.jwk_serializer_unittest.o $
+    obj/net/cert/net_unittests.multi_log_ct_verifier_unittest.o $
+    obj/net/cert/net_unittests.multi_threaded_cert_verifier_unittest.o $
+    obj/net/cert/net_unittests.nss_cert_database_unittest.o $
+    obj/net/cert/net_unittests.pem_tokenizer_unittest.o $
+    obj/net/cert/net_unittests.signed_certificate_timestamp_unittest.o $
+    obj/net/cert/net_unittests.test_root_certs_unittest.o $
+    obj/net/cert/net_unittests.x509_cert_types_unittest.o $
+    obj/net/cert/net_unittests.x509_certificate_unittest.o $
+    obj/net/cert/net_unittests.x509_util_unittest.o $
+    obj/net/cert_net/net_unittests.cert_net_fetcher_impl_unittest.o $
+    obj/net/cert_net/net_unittests.nss_ocsp_unittest.o $
+    obj/net/cookies/net_unittests.canonical_cookie_unittest.o $
+    obj/net/cookies/net_unittests.cookie_constants_unittest.o $
+    obj/net/cookies/net_unittests.cookie_monster_unittest.o $
+    obj/net/cookies/net_unittests.cookie_store_unittest.o $
+    obj/net/cookies/net_unittests.cookie_util_unittest.o $
+    obj/net/cookies/net_unittests.parsed_cookie_unittest.o $
+    obj/net/der/net_unittests.input_unittest.o $
+    obj/net/der/net_unittests.parse_values_unittest.o $
+    obj/net/der/net_unittests.parser_unittest.o $
+    obj/net/disk_cache/net_unittests.backend_unittest.o $
+    obj/net/disk_cache/blockfile/net_unittests.addr_unittest.o $
+    obj/net/disk_cache/blockfile/net_unittests.bitmap_unittest.o $
+    obj/net/disk_cache/blockfile/net_unittests.block_bitmaps_v3_unittest.o $
+    obj/net/disk_cache/blockfile/net_unittests.block_files_unittest.o $
+    obj/net/disk_cache/blockfile/net_unittests.index_table_v3_unittest.o $
+    obj/net/disk_cache/blockfile/net_unittests.mapped_file_unittest.o $
+    obj/net/disk_cache/blockfile/net_unittests.stats_unittest.o $
+    obj/net/disk_cache/blockfile/net_unittests.storage_block_unittest.o $
+    obj/net/disk_cache/net_unittests.cache_util_unittest.o $
+    obj/net/disk_cache/net_unittests.entry_unittest.o $
+    obj/net/disk_cache/simple/net_unittests.simple_index_file_unittest.o $
+    obj/net/disk_cache/simple/net_unittests.simple_index_unittest.o $
+    obj/net/disk_cache/simple/net_unittests.simple_test_util.o $
+    obj/net/disk_cache/simple/net_unittests.simple_util_unittest.o $
+    obj/net/disk_cache/simple/net_unittests.simple_version_upgrade_unittest.o $
+    obj/net/dns/net_unittests.address_sorter_posix_unittest.o $
+    obj/net/dns/net_unittests.address_sorter_unittest.o $
+    obj/net/dns/net_unittests.dns_config_service_posix_unittest.o $
+    obj/net/dns/net_unittests.dns_config_service_unittest.o $
+    obj/net/dns/net_unittests.dns_hosts_unittest.o $
+    obj/net/dns/net_unittests.dns_query_unittest.o $
+    obj/net/dns/net_unittests.dns_response_unittest.o $
+    obj/net/dns/net_unittests.dns_session_unittest.o $
+    obj/net/dns/net_unittests.dns_transaction_unittest.o $
+    obj/net/dns/net_unittests.dns_util_unittest.o $
+    obj/net/dns/net_unittests.host_cache_unittest.o $
+    obj/net/dns/net_unittests.host_resolver_impl_unittest.o $
+    obj/net/dns/net_unittests.host_resolver_mojo_unittest.o $
+    obj/net/dns/net_unittests.mapped_host_resolver_unittest.o $
+    obj/net/dns/net_unittests.mdns_cache_unittest.o $
+    obj/net/dns/net_unittests.mdns_client_unittest.o $
+    obj/net/dns/net_unittests.mojo_host_resolver_impl_unittest.o $
+    obj/net/dns/net_unittests.record_parsed_unittest.o $
+    obj/net/dns/net_unittests.record_rdata_unittest.o $
+    obj/net/dns/net_unittests.serial_worker_unittest.o $
+    obj/net/dns/net_unittests.single_request_host_resolver_unittest.o $
+    obj/net/extras/sqlite/net_unittests.sqlite_channel_id_store_unittest.o $
+    obj/net/extras/sqlite/net_unittests.sqlite_persistent_cookie_store_unittest.o $
+    obj/net/filter/net_unittests.brotli_filter_unittest.o $
+    obj/net/filter/net_unittests.filter_unittest.o $
+    obj/net/filter/net_unittests.gzip_filter_unittest.o $
+    obj/net/filter/net_unittests.mock_filter_context.o $
+    obj/net/filter/net_unittests.sdch_filter_unittest.o $
+    obj/net/ftp/net_unittests.ftp_auth_cache_unittest.o $
+    obj/net/ftp/net_unittests.ftp_ctrl_response_buffer_unittest.o $
+    obj/net/ftp/net_unittests.ftp_directory_listing_parser_ls_unittest.o $
+    obj/net/ftp/net_unittests.ftp_directory_listing_parser_unittest.o $
+    obj/net/ftp/net_unittests.ftp_directory_listing_parser_vms_unittest.o $
+    obj/net/ftp/net_unittests.ftp_directory_listing_parser_windows_unittest.o $
+    obj/net/ftp/net_unittests.ftp_network_transaction_unittest.o $
+    obj/net/ftp/net_unittests.ftp_util_unittest.o $
+    obj/net/http/net_unittests.bidirectional_stream_unittest.o $
+    obj/net/http/net_unittests.des_unittest.o $
+    obj/net/http/net_unittests.disk_cache_based_quic_server_info_unittest.o $
+    obj/net/http/net_unittests.http_auth_cache_unittest.o $
+    obj/net/http/net_unittests.http_auth_challenge_tokenizer_unittest.o $
+    obj/net/http/net_unittests.http_auth_controller_unittest.o $
+    obj/net/http/net_unittests.http_auth_filter_unittest.o $
+    obj/net/http/net_unittests.http_auth_handler_basic_unittest.o $
+    obj/net/http/net_unittests.http_auth_handler_digest_unittest.o $
+    obj/net/http/net_unittests.http_auth_handler_factory_unittest.o $
+    obj/net/http/net_unittests.http_auth_handler_mock.o $
+    obj/net/http/net_unittests.http_auth_handler_unittest.o $
+    obj/net/http/net_unittests.http_auth_multi_round_parse_unittest.o $
+    obj/net/http/net_unittests.http_auth_preferences_unittest.o $
+    obj/net/http/net_unittests.http_auth_unittest.o $
+    obj/net/http/net_unittests.http_basic_state_unittest.o $
+    obj/net/http/net_unittests.http_byte_range_unittest.o $
+    obj/net/http/net_unittests.http_cache_unittest.o $
+    obj/net/http/net_unittests.http_chunked_decoder_unittest.o $
+    obj/net/http/net_unittests.http_content_disposition_unittest.o $
+    obj/net/http/net_unittests.http_log_util_unittest.o $
+    obj/net/http/net_unittests.http_network_layer_unittest.o $
+    obj/net/http/net_unittests.http_network_transaction_ssl_unittest.o $
+    obj/net/http/net_unittests.http_network_transaction_unittest.o $
+    obj/net/http/net_unittests.http_proxy_client_socket_pool_unittest.o $
+    obj/net/http/net_unittests.http_request_headers_unittest.o $
+    obj/net/http/net_unittests.http_response_body_drainer_unittest.o $
+    obj/net/http/net_unittests.http_response_headers_unittest.o $
+    obj/net/http/net_unittests.http_response_info_unittest.o $
+    obj/net/http/net_unittests.http_security_headers_unittest.o $
+    obj/net/http/net_unittests.http_server_properties_impl_unittest.o $
+    obj/net/http/net_unittests.http_server_properties_manager_unittest.o $
+    obj/net/http/net_unittests.http_status_code_unittest.o $
+    obj/net/http/net_unittests.http_status_line_validator_unittest.o $
+    obj/net/http/net_unittests.http_stream_factory_impl_request_unittest.o $
+    obj/net/http/net_unittests.http_stream_factory_impl_unittest.o $
+    obj/net/http/net_unittests.http_stream_parser_unittest.o $
+    obj/net/http/net_unittests.http_util_unittest.o $
+    obj/net/http/net_unittests.http_vary_data_unittest.o $
+    obj/net/http/net_unittests.mock_allow_http_auth_preferences.o $
+    obj/net/http/net_unittests.mock_http_cache.o $
+    obj/net/http/net_unittests.transport_security_persister_unittest.o $
+    obj/net/http/net_unittests.transport_security_state_unittest.o $
+    obj/net/http/net_unittests.url_security_manager_unittest.o $
+    obj/net/log/net_unittests.net_log_capture_mode_unittest.o $
+    obj/net/log/net_unittests.net_log_unittest.o $
+    obj/net/log/net_unittests.net_log_util_unittest.o $
+    obj/net/log/net_unittests.trace_net_log_observer_unittest.o $
+    obj/net/log/net_unittests.write_to_file_net_log_observer_unittest.o $
+    obj/net/proxy/net_unittests.dhcp_proxy_script_fetcher_factory_unittest.o $
+    obj/net/proxy/net_unittests.mojo_proxy_resolver_factory_impl_unittest.o $
+    obj/net/proxy/net_unittests.mojo_proxy_resolver_impl_unittest.o $
+    obj/net/proxy/net_unittests.mojo_proxy_resolver_v8_tracing_bindings_unittest.o $
+    obj/net/proxy/net_unittests.multi_threaded_proxy_resolver_unittest.o $
+    obj/net/proxy/net_unittests.network_delegate_error_observer_unittest.o $
+    obj/net/proxy/net_unittests.proxy_bypass_rules_unittest.o $
+    obj/net/proxy/net_unittests.proxy_config_service_linux_unittest.o $
+    obj/net/proxy/net_unittests.proxy_config_unittest.o $
+    obj/net/proxy/net_unittests.proxy_info_unittest.o $
+    obj/net/proxy/net_unittests.proxy_list_unittest.o $
+    obj/net/proxy/net_unittests.proxy_resolver_factory_mojo_unittest.o $
+    obj/net/proxy/net_unittests.proxy_resolver_v8_tracing_unittest.o $
+    obj/net/proxy/net_unittests.proxy_resolver_v8_tracing_wrapper_unittest.o $
+    obj/net/proxy/net_unittests.proxy_resolver_v8_unittest.o $
+    obj/net/proxy/net_unittests.proxy_script_decider_unittest.o $
+    obj/net/proxy/net_unittests.proxy_script_fetcher_impl_unittest.o $
+    obj/net/proxy/net_unittests.proxy_server_unittest.o $
+    obj/net/proxy/net_unittests.proxy_service_mojo_unittest.o $
+    obj/net/proxy/net_unittests.proxy_service_unittest.o $
+    obj/net/quic/net_unittests.bidirectional_stream_quic_impl_unittest.o $
+    obj/net/quic/congestion_control/net_unittests.cubic_bytes_test.o $
+    obj/net/quic/congestion_control/net_unittests.cubic_test.o $
+    obj/net/quic/congestion_control/net_unittests.general_loss_algorithm_test.o $
+    obj/net/quic/congestion_control/net_unittests.hybrid_slow_start_test.o $
+    obj/net/quic/congestion_control/net_unittests.pacing_sender_test.o $
+    obj/net/quic/congestion_control/net_unittests.prr_sender_test.o $
+    obj/net/quic/congestion_control/net_unittests.rtt_stats_test.o $
+    obj/net/quic/congestion_control/net_unittests.send_algorithm_simulator.o $
+    obj/net/quic/congestion_control/net_unittests.tcp_cubic_sender_bytes_test.o $
+    obj/net/quic/congestion_control/net_unittests.tcp_cubic_sender_packets_test.o $
+    obj/net/quic/crypto/net_unittests.aes_128_gcm_12_decrypter_test.o $
+    obj/net/quic/crypto/net_unittests.aes_128_gcm_12_encrypter_test.o $
+    obj/net/quic/crypto/net_unittests.cert_compressor_test.o $
+    obj/net/quic/crypto/net_unittests.chacha20_poly1305_rfc7539_decrypter_test.o $
+    obj/net/quic/crypto/net_unittests.chacha20_poly1305_rfc7539_encrypter_test.o $
+    obj/net/quic/crypto/net_unittests.channel_id_test.o $
+    obj/net/quic/crypto/net_unittests.common_cert_set_test.o $
+    obj/net/quic/crypto/net_unittests.crypto_framer_test.o $
+    obj/net/quic/crypto/net_unittests.crypto_handshake_message_test.o $
+    obj/net/quic/crypto/net_unittests.crypto_secret_boxer_test.o $
+    obj/net/quic/crypto/net_unittests.crypto_server_test.o $
+    obj/net/quic/crypto/net_unittests.crypto_utils_test.o $
+    obj/net/quic/crypto/net_unittests.curve25519_key_exchange_test.o $
+    obj/net/quic/crypto/net_unittests.local_strike_register_client_test.o $
+    obj/net/quic/crypto/net_unittests.null_decrypter_test.o $
+    obj/net/quic/crypto/net_unittests.null_encrypter_test.o $
+    obj/net/quic/crypto/net_unittests.p256_key_exchange_test.o $
+    obj/net/quic/crypto/net_unittests.proof_test.o $
+    obj/net/quic/crypto/net_unittests.proof_verifier_chromium_test.o $
+    obj/net/quic/crypto/net_unittests.properties_based_quic_server_info_test.o $
+    obj/net/quic/crypto/net_unittests.quic_compressed_certs_cache_test.o $
+    obj/net/quic/crypto/net_unittests.quic_crypto_client_config_test.o $
+    obj/net/quic/crypto/net_unittests.quic_crypto_server_config_test.o $
+    obj/net/quic/crypto/net_unittests.quic_random_test.o $
+    obj/net/quic/crypto/net_unittests.strike_register_test.o $
+    obj/net/quic/net_unittests.interval_set_test.o $
+    obj/net/quic/net_unittests.interval_test.o $
+    obj/net/quic/net_unittests.iovector_test.o $
+    obj/net/quic/net_unittests.network_connection_unittest.o $
+    obj/net/quic/p2p/net_unittests.quic_p2p_session_test.o $
+    obj/net/quic/net_unittests.port_suggester_unittest.o $
+    obj/net/quic/net_unittests.quic_address_mismatch_test.o $
+    obj/net/quic/net_unittests.quic_alarm_test.o $
+    obj/net/quic/net_unittests.quic_arena_scoped_ptr_test.o $
+    obj/net/quic/net_unittests.quic_bandwidth_test.o $
+    obj/net/quic/net_unittests.quic_chromium_client_session_test.o $
+    obj/net/quic/net_unittests.quic_chromium_client_stream_test.o $
+    obj/net/quic/net_unittests.quic_chromium_connection_helper_test.o $
+    obj/net/quic/net_unittests.quic_client_push_promise_index_test.o $
+    obj/net/quic/net_unittests.quic_clock_test.o $
+    obj/net/quic/net_unittests.quic_config_test.o $
+    obj/net/quic/net_unittests.quic_connection_logger_unittest.o $
+    obj/net/quic/net_unittests.quic_connection_test.o $
+    obj/net/quic/net_unittests.quic_crypto_client_stream_test.o $
+    obj/net/quic/net_unittests.quic_crypto_server_stream_test.o $
+    obj/net/quic/net_unittests.quic_crypto_stream_test.o $
+    obj/net/quic/net_unittests.quic_data_writer_test.o $
+    obj/net/quic/net_unittests.quic_fec_group_test.o $
+    obj/net/quic/net_unittests.quic_flow_controller_test.o $
+    obj/net/quic/net_unittests.quic_framer_test.o $
+    obj/net/quic/net_unittests.quic_headers_stream_test.o $
+    obj/net/quic/net_unittests.quic_http_stream_test.o $
+    obj/net/quic/net_unittests.quic_http_utils_test.o $
+    obj/net/quic/net_unittests.quic_multipath_received_packet_manager_test.o $
+    obj/net/quic/net_unittests.quic_multipath_transmissions_map_test.o $
+    obj/net/quic/net_unittests.quic_network_transaction_unittest.o $
+    obj/net/quic/net_unittests.quic_one_block_arena_test.o $
+    obj/net/quic/net_unittests.quic_packet_creator_test.o $
+    obj/net/quic/net_unittests.quic_packet_generator_test.o $
+    obj/net/quic/net_unittests.quic_protocol_test.o $
+    obj/net/quic/net_unittests.quic_received_packet_manager_test.o $
+    obj/net/quic/net_unittests.quic_sent_entropy_manager_test.o $
+    obj/net/quic/net_unittests.quic_sent_packet_manager_test.o $
+    obj/net/quic/net_unittests.quic_server_id_test.o $
+    obj/net/quic/net_unittests.quic_session_test.o $
+    obj/net/quic/net_unittests.quic_simple_buffer_allocator_test.o $
+    obj/net/quic/net_unittests.quic_socket_address_coder_test.o $
+    obj/net/quic/net_unittests.quic_spdy_stream_test.o $
+    obj/net/quic/net_unittests.quic_stream_factory_test.o $
+    obj/net/quic/net_unittests.quic_stream_sequencer_test.o $
+    obj/net/quic/net_unittests.quic_sustained_bandwidth_recorder_test.o $
+    obj/net/quic/net_unittests.quic_time_test.o $
+    obj/net/quic/net_unittests.quic_unacked_packet_map_test.o $
+    obj/net/quic/net_unittests.quic_utils_chromium_test.o $
+    obj/net/quic/net_unittests.quic_utils_test.o $
+    obj/net/quic/net_unittests.quic_write_blocked_list_test.o $
+    obj/net/quic/net_unittests.reliable_quic_stream_test.o $
+    obj/net/quic/net_unittests.spdy_utils_test.o $
+    obj/net/quic/net_unittests.quic_stream_sequencer_buffer_test.o $
+    obj/net/quic/test_tools/net_unittests.crypto_test_utils.o $
+    obj/net/quic/test_tools/net_unittests.crypto_test_utils_chromium.o $
+    obj/net/quic/test_tools/net_unittests.crypto_test_utils_openssl.o $
+    obj/net/quic/test_tools/net_unittests.delayed_verify_strike_register_client.o $
+    obj/net/quic/test_tools/net_unittests.mock_clock.o $
+    obj/net/quic/test_tools/net_unittests.mock_crypto_client_stream.o $
+    obj/net/quic/test_tools/net_unittests.mock_crypto_client_stream_factory.o $
+    obj/net/quic/test_tools/net_unittests.mock_quic_client_promised_info.o $
+    obj/net/quic/test_tools/net_unittests.mock_quic_dispatcher.o $
+    obj/net/quic/test_tools/net_unittests.mock_quic_spdy_client_stream.o $
+    obj/net/quic/test_tools/net_unittests.mock_random.o $
+    obj/net/quic/test_tools/net_unittests.quic_chromium_client_session_peer.o $
+    obj/net/quic/test_tools/net_unittests.quic_config_peer.o $
+    obj/net/quic/test_tools/net_unittests.quic_connection_peer.o $
+    obj/net/quic/test_tools/net_unittests.quic_flow_controller_peer.o $
+    obj/net/quic/test_tools/net_unittests.quic_framer_peer.o $
+    obj/net/quic/test_tools/net_unittests.quic_packet_creator_peer.o $
+    obj/net/quic/test_tools/net_unittests.quic_packet_generator_peer.o $
+    obj/net/quic/test_tools/net_unittests.quic_received_packet_manager_peer.o $
+    obj/net/quic/test_tools/net_unittests.quic_sent_packet_manager_peer.o $
+    obj/net/quic/test_tools/net_unittests.quic_session_peer.o $
+    obj/net/quic/test_tools/net_unittests.quic_spdy_session_peer.o $
+    obj/net/quic/test_tools/net_unittests.quic_spdy_stream_peer.o $
+    obj/net/quic/test_tools/net_unittests.quic_stream_factory_peer.o $
+    obj/net/quic/test_tools/net_unittests.quic_stream_sequencer_peer.o $
+    obj/net/quic/test_tools/net_unittests.quic_sustained_bandwidth_recorder_peer.o $
+    obj/net/quic/test_tools/net_unittests.quic_test_packet_maker.o $
+    obj/net/quic/test_tools/net_unittests.quic_test_utils.o $
+    obj/net/quic/test_tools/net_unittests.reliable_quic_stream_peer.o $
+    obj/net/quic/test_tools/net_unittests.rtt_stats_peer.o $
+    obj/net/quic/test_tools/net_unittests.simple_quic_framer.o $
+    obj/net/quic/test_tools/net_unittests.test_task_runner.o $
+    obj/net/sdch/net_unittests.sdch_owner_unittest.o $
+    obj/net/socket/net_unittests.client_socket_pool_base_unittest.o $
+    obj/net/socket/net_unittests.mock_client_socket_pool_manager.o $
+    obj/net/socket/net_unittests.sequenced_socket_data_unittest.o $
+    obj/net/socket/net_unittests.socks5_client_socket_unittest.o $
+    obj/net/socket/net_unittests.socks_client_socket_pool_unittest.o $
+    obj/net/socket/net_unittests.socks_client_socket_unittest.o $
+    obj/net/socket/net_unittests.ssl_client_socket_pool_unittest.o $
+    obj/net/socket/net_unittests.ssl_client_socket_unittest.o $
+    obj/net/socket/net_unittests.ssl_server_socket_unittest.o $
+    obj/net/socket/net_unittests.tcp_client_socket_unittest.o $
+    obj/net/socket/net_unittests.tcp_server_socket_unittest.o $
+    obj/net/socket/net_unittests.tcp_socket_unittest.o $
+    obj/net/socket/net_unittests.transport_client_socket_pool_test_util.o $
+    obj/net/socket/net_unittests.transport_client_socket_pool_unittest.o $
+    obj/net/socket/net_unittests.transport_client_socket_unittest.o $
+    obj/net/socket/net_unittests.unix_domain_client_socket_posix_unittest.o $
+    obj/net/socket/net_unittests.unix_domain_server_socket_posix_unittest.o $
+    obj/net/socket/net_unittests.websocket_endpoint_lock_manager_unittest.o $
+    obj/net/socket/net_unittests.websocket_transport_client_socket_pool_unittest.o $
+    obj/net/spdy/net_unittests.buffered_spdy_framer_unittest.o $
+    obj/net/spdy/fuzzing/net_unittests.hpack_fuzz_util_test.o $
+    obj/net/spdy/hpack/net_unittests.hpack_decoder_test.o $
+    obj/net/spdy/hpack/net_unittests.hpack_encoder_test.o $
+    obj/net/spdy/hpack/net_unittests.hpack_entry_test.o $
+    obj/net/spdy/hpack/net_unittests.hpack_header_table_test.o $
+    obj/net/spdy/hpack/net_unittests.hpack_huffman_decoder_test.o $
+    obj/net/spdy/hpack/net_unittests.hpack_huffman_table_test.o $
+    obj/net/spdy/hpack/net_unittests.hpack_input_stream_test.o $
+    obj/net/spdy/hpack/net_unittests.hpack_output_stream_test.o $
+    obj/net/spdy/hpack/net_unittests.hpack_round_trip_test.o $
+    obj/net/spdy/hpack/net_unittests.hpack_static_table_test.o $
+    obj/net/spdy/net_unittests.http2_write_scheduler_test.o $
+    obj/net/spdy/net_unittests.http2_priority_dependencies_unittest.o $
+    obj/net/spdy/net_unittests.mock_spdy_framer_visitor.o $
+    obj/net/spdy/net_unittests.priority_write_scheduler_test.o $
+    obj/net/spdy/net_unittests.spdy_alt_svc_wire_format_test.o $
+    obj/net/spdy/net_unittests.spdy_buffer_unittest.o $
+    obj/net/spdy/net_unittests.spdy_frame_builder_test.o $
+    obj/net/spdy/net_unittests.spdy_frame_reader_test.o $
+    obj/net/spdy/net_unittests.spdy_framer_test.o $
+    obj/net/spdy/net_unittests.spdy_header_block_test.o $
+    obj/net/spdy/net_unittests.spdy_headers_block_parser_test.o $
+    obj/net/spdy/net_unittests.spdy_http_stream_unittest.o $
+    obj/net/spdy/net_unittests.spdy_http_utils_unittest.o $
+    obj/net/spdy/net_unittests.spdy_network_transaction_unittest.o $
+    obj/net/spdy/net_unittests.spdy_pinnable_buffer_piece_test.o $
+    obj/net/spdy/net_unittests.spdy_prefixed_buffer_reader_test.o $
+    obj/net/spdy/net_unittests.spdy_protocol_test.o $
+    obj/net/spdy/net_unittests.spdy_proxy_client_socket_unittest.o $
+    obj/net/spdy/net_unittests.spdy_read_queue_unittest.o $
+    obj/net/spdy/net_unittests.spdy_session_pool_unittest.o $
+    obj/net/spdy/net_unittests.spdy_session_test_util.o $
+    obj/net/spdy/net_unittests.spdy_session_unittest.o $
+    obj/net/spdy/net_unittests.spdy_stream_test_util.o $
+    obj/net/spdy/net_unittests.spdy_stream_unittest.o $
+    obj/net/spdy/net_unittests.spdy_test_util_common.o $
+    obj/net/spdy/net_unittests.spdy_test_utils.o $
+    obj/net/spdy/net_unittests.spdy_write_queue_unittest.o $
+    obj/net/spdy/net_unittests.write_blocked_list_test.o $
+    obj/net/ssl/net_unittests.channel_id_service_unittest.o $
+    obj/net/ssl/net_unittests.client_cert_store_nss_unittest.o $
+    obj/net/ssl/net_unittests.default_channel_id_store_unittest.o $
+    obj/net/ssl/net_unittests.ssl_cipher_suite_names_unittest.o $
+    obj/net/ssl/net_unittests.ssl_client_auth_cache_unittest.o $
+    obj/net/ssl/net_unittests.ssl_client_session_cache_openssl_unittest.o $
+    obj/net/ssl/net_unittests.ssl_config_service_unittest.o $
+    obj/net/ssl/net_unittests.ssl_config_unittest.o $
+    obj/net/ssl/net_unittests.ssl_connection_status_flags_unittest.o $
+    obj/net/test/embedded_test_server/net_unittests.embedded_test_server_unittest.o $
+    obj/net/test/embedded_test_server/net_unittests.http_request_unittest.o $
+    obj/net/test/embedded_test_server/net_unittests.http_response_unittest.o $
+    obj/net/test/net_unittests.python_utils_unittest.o $
+    obj/net/test/net_unittests.run_all_unittests.o $
+    obj/net/test/net_unittests.scoped_disable_exit_on_dfatal.o $
+    obj/net/tools/balsa/net_unittests.balsa_frame_test.o $
+    obj/net/tools/balsa/net_unittests.balsa_headers_test.o $
+    obj/net/tools/quic/net_unittests.quic_simple_client_test.o $
+    obj/net/tools/quic/test_tools/net_unittests.mock_quic_server_session_visitor.o $
+    obj/net/tools/tld_cleanup/net_unittests.tld_cleanup_util_unittest.o $
+    obj/net/udp/net_unittests.udp_socket_unittest.o $
+    obj/net/url_request/net_unittests.certificate_report_sender_unittest.o $
+    obj/net/url_request/net_unittests.sdch_dictionary_fetcher_unittest.o $
+    obj/net/url_request/net_unittests.url_fetcher_impl_unittest.o $
+    obj/net/url_request/net_unittests.url_fetcher_response_writer_unittest.o $
+    obj/net/url_request/net_unittests.url_request_backoff_manager_unittest.o $
+    obj/net/url_request/net_unittests.url_request_context_builder_unittest.o $
+    obj/net/url_request/net_unittests.url_request_data_job_unittest.o $
+    obj/net/url_request/net_unittests.url_request_file_dir_job_unittest.o $
+    obj/net/url_request/net_unittests.url_request_file_job_unittest.o $
+    obj/net/url_request/net_unittests.url_request_filter_unittest.o $
+    obj/net/url_request/net_unittests.url_request_ftp_job_unittest.o $
+    obj/net/url_request/net_unittests.url_request_http_job_unittest.o $
+    obj/net/url_request/net_unittests.url_request_job_factory_impl_unittest.o $
+    obj/net/url_request/net_unittests.url_request_job_unittest.o $
+    obj/net/url_request/net_unittests.url_request_simple_job_unittest.o $
+    obj/net/url_request/net_unittests.url_request_throttler_simulation_unittest.o $
+    obj/net/url_request/net_unittests.url_request_throttler_test_support.o $
+    obj/net/url_request/net_unittests.url_request_throttler_unittest.o $
+    obj/net/url_request/net_unittests.url_request_unittest.o $
+    obj/net/url_request/net_unittests.view_cache_helper_unittest.o $
+    obj/net/quic/net_unittests.quic_end_to_end_unittest.o $
+    obj/net/tools/quic/net_unittests.end_to_end_test.o $
+    obj/net/tools/quic/net_unittests.quic_client_session_test.o $
+    obj/net/tools/quic/net_unittests.quic_client_test.o $
+    obj/net/tools/quic/net_unittests.quic_dispatcher_test.o $
+    obj/net/tools/quic/net_unittests.quic_epoll_clock_test.o $
+    obj/net/tools/quic/net_unittests.quic_epoll_connection_helper_test.o $
+    obj/net/tools/quic/net_unittests.quic_in_memory_cache_test.o $
+    obj/net/tools/quic/net_unittests.quic_server_session_base_test.o $
+    obj/net/tools/quic/net_unittests.quic_server_test.o $
+    obj/net/tools/quic/net_unittests.quic_simple_server_session_test.o $
+    obj/net/tools/quic/net_unittests.quic_simple_server_test.o $
+    obj/net/tools/quic/net_unittests.quic_spdy_client_stream_test.o $
+    obj/net/tools/quic/net_unittests.quic_time_wait_list_manager_test.o $
+    obj/net/tools/quic/net_unittests.spdy_balsa_utils_test.o $
+    obj/net/tools/quic/test_tools/net_unittests.http_message.o $
+    obj/net/tools/quic/test_tools/net_unittests.limited_mtu_test_writer.o $
+    obj/net/tools/quic/test_tools/net_unittests.mock_epoll_server.o $
+    obj/net/tools/quic/test_tools/net_unittests.mock_quic_time_wait_list_manager.o $
+    obj/net/tools/quic/test_tools/net_unittests.packet_dropping_test_writer.o $
+    obj/net/tools/quic/test_tools/net_unittests.quic_client_peer.o $
+    obj/net/tools/quic/test_tools/net_unittests.quic_dispatcher_peer.o $
+    obj/net/tools/quic/test_tools/net_unittests.quic_in_memory_cache_peer.o $
+    obj/net/tools/quic/test_tools/net_unittests.quic_server_peer.o $
+    obj/net/tools/quic/test_tools/net_unittests.quic_test_client.o $
+    obj/net/tools/quic/test_tools/net_unittests.quic_test_server.o $
+    obj/net/tools/quic/test_tools/net_unittests.server_thread.o $
+    obj/net/tools/quic/test_tools/net_unittests.simple_client.o $
+    obj/net/server/net_unittests.http_connection_unittest.o $
+    obj/net/server/net_unittests.http_server_response_info_unittest.o $
+    obj/net/server/net_unittests.http_server_unittest.o $
+    obj/net/server/net_unittests.web_socket_encoder_unittest.o $
+    obj/net/websockets/net_unittests.websocket_basic_stream_test.o $
+    obj/net/websockets/net_unittests.websocket_channel_test.o $
+    obj/net/websockets/net_unittests.websocket_deflate_parameters_test.o $
+    obj/net/websockets/net_unittests.websocket_deflate_predictor_impl_test.o $
+    obj/net/websockets/net_unittests.websocket_deflate_stream_test.o $
+    obj/net/websockets/net_unittests.websocket_deflater_test.o $
+    obj/net/websockets/net_unittests.websocket_end_to_end_test.o $
+    obj/net/websockets/net_unittests.websocket_errors_test.o $
+    obj/net/websockets/net_unittests.websocket_extension_parser_test.o $
+    obj/net/websockets/net_unittests.websocket_extension_test.o $
+    obj/net/websockets/net_unittests.websocket_frame_parser_test.o $
+    obj/net/websockets/net_unittests.websocket_frame_test.o $
+    obj/net/websockets/net_unittests.websocket_handshake_challenge_test.o $
+    obj/net/websockets/net_unittests.websocket_handshake_stream_create_helper_test.o $
+    obj/net/websockets/net_unittests.websocket_inflater_test.o $
+    obj/net/websockets/net_unittests.websocket_stream_cookie_test.o $
+    obj/net/websockets/net_unittests.websocket_stream_create_test_base.o $
+    obj/net/websockets/net_unittests.websocket_stream_test.o $
+    obj/net/websockets/net_unittests.websocket_test_util.o $
+    obj/base/libbase_i18n.a $
+    obj/base/third_party/dynamic_annotations/libdynamic_annotations.a $
+    obj/crypto/libcrcrypto.a obj/crypto/libcrypto_test_support.a $
+    obj/testing/libgmock.a obj/testing/libgtest.a $
+    obj/third_party/zlib/libchrome_zlib.a obj/net/libbalsa.a $
+    obj/net/libnet_quic_proto.a obj/net/libnet_extras.a $
+    obj/net/libnet_test_support.a obj/net/libsimple_quic_tools.a $
+    obj/net/libstale_while_revalidate_experiment_domains.a $
+    obj/net/libepoll_quic_tools.a obj/net/libepoll_server.a $
+    obj/net/libflip_in_mem_edsm_server_base.a $
+    obj/third_party/boringssl/libboringssl.a obj/net/libhttp_server.a $
+    obj/net/libnet_with_v8.a obj/net/libnet_browser_services.a $
+    obj/net/libnet_utility_services.a obj/mojo/libmojo_system_impl.a $
+    obj/gin/libgin.a obj/third_party/icu/libicui18n.a $
+    obj/third_party/icu/libicuuc.a $
+    obj/third_party/boringssl/libboringssl_asm.a $
+    obj/third_party/zlib/libzlib_x86_simd.a $
+    obj/third_party/protobuf/libprotobuf_lite.a obj/sql/libsql.a $
+    obj/third_party/sqlite/libchromium_sqlite3.a $
+    obj/base/libtest_support_base.a obj/base/libbase_static.a $
+    obj/third_party/libxml/libxml2.a $
+    obj/net/tools/tld_cleanup/libtld_cleanup_util.a $
+    obj/v8/tools/gyp/libv8_base.a obj/v8/tools/gyp/libv8_libbase.a $
+    obj/v8/tools/gyp/libv8_external_snapshot.a $
+    obj/net/libmojo_type_converters.a obj/net/libnet_interfaces.a $
+    obj/mojo/libmojo_cpp_bindings.a obj/mojo/libmojo_cpp_system.a $
+    obj/mojo/libmojo_common_lib.a obj/mojo/libmojo_url_type_converters.a | $
+    icudtl.dat lib/libbase.so.TOC lib/libnet.so.TOC lib/liburl_lib.so.TOC $
+    natives_blob.bin obj.host/v8/tools/gyp/js2c.actions_rules_copies.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    obj/net/net_derived_sources.actions_rules_copies.stamp $
+    obj/third_party/boringssl/libboringssl.a $
+    obj/third_party/protobuf/py_proto.actions_rules_copies.stamp $
+    obj/v8/tools/gyp/v8_maybe_snapshot.actions_depends.stamp || $
+    obj/net/net_unittests.actions_depends.stamp
+  ld = $ldxx
+  solibs = lib/libbase.so lib/libnet.so lib/liburl_lib.so

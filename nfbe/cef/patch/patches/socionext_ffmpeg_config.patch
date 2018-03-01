@@ -1,0 +1,16 @@
+diff --git config.h config.h
+index 444c949..58c4442
+--- config.h
++++ config.h
+@@ -497,7 +497,11 @@
+ #define CONFIG_SECURETRANSPORT 0
+ #define CONFIG_X11GRAB 0
+ #define CONFIG_XLIB 0
++#if defined(NFBE_DTV_SOCIO_DL11)
++#define CONFIG_ZLIB 1
++#else
+ #define CONFIG_ZLIB 0
++#endif
+ #define CONFIG_FTRAPV 0
+ #define CONFIG_GRAY 0
+ #define CONFIG_HARDCODED_TABLES 0

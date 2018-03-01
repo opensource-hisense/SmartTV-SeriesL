@@ -1,0 +1,151 @@
+build $
+    obj/third_party/libaddressinput/libaddressinput_util.actions_depends.stamp: $
+    stamp lib/libbase.so.TOC $
+    obj/third_party/libaddressinput/libaddressinput_strings.actions_rules_copies.stamp
+
+build $
+    obj/third_party/libaddressinput/libaddressinput_util.compile_depends.stamp: $
+    stamp obj/base/base.compile_depends.stamp $
+    obj/third_party/libaddressinput/libaddressinput_strings.actions_rules_copies.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 $
+    -DI18N_ADDRESSINPUT_USE_BASICTYPES_OVERRIDE=1 -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -Igen -I../../third_party/libaddressinput/chromium/override $
+    -I../../third_party/libaddressinput/src/cpp/include -I../.. $
+    -I../../third_party/re2/src -Igen/third_party/libaddressinput/
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-abi $
+    -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+build $
+    obj/third_party/libaddressinput/src/cpp/src/libaddressinput_util.address_data.o: $
+    cxx ../../third_party/libaddressinput/src/cpp/src/address_data.cc || $
+    obj/third_party/libaddressinput/libaddressinput_util.compile_depends.stamp
+build $
+    obj/third_party/libaddressinput/src/cpp/src/libaddressinput_util.address_field.o: $
+    cxx ../../third_party/libaddressinput/src/cpp/src/address_field.cc || $
+    obj/third_party/libaddressinput/libaddressinput_util.compile_depends.stamp
+build $
+    obj/third_party/libaddressinput/src/cpp/src/libaddressinput_util.address_field_util.o: $
+    cxx ../../third_party/libaddressinput/src/cpp/src/address_field_util.cc $
+    || $
+    obj/third_party/libaddressinput/libaddressinput_util.compile_depends.stamp
+build $
+    obj/third_party/libaddressinput/src/cpp/src/libaddressinput_util.address_formatter.o: $
+    cxx ../../third_party/libaddressinput/src/cpp/src/address_formatter.cc $
+    || $
+    obj/third_party/libaddressinput/libaddressinput_util.compile_depends.stamp
+build $
+    obj/third_party/libaddressinput/src/cpp/src/libaddressinput_util.address_metadata.o: $
+    cxx ../../third_party/libaddressinput/src/cpp/src/address_metadata.cc $
+    || $
+    obj/third_party/libaddressinput/libaddressinput_util.compile_depends.stamp
+build $
+    obj/third_party/libaddressinput/src/cpp/src/libaddressinput_util.address_ui.o: $
+    cxx ../../third_party/libaddressinput/src/cpp/src/address_ui.cc || $
+    obj/third_party/libaddressinput/libaddressinput_util.compile_depends.stamp
+build $
+    obj/third_party/libaddressinput/src/cpp/src/libaddressinput_util.format_element.o: $
+    cxx ../../third_party/libaddressinput/src/cpp/src/format_element.cc || $
+    obj/third_party/libaddressinput/libaddressinput_util.compile_depends.stamp
+build $
+    obj/third_party/libaddressinput/src/cpp/src/libaddressinput_util.language.o: $
+    cxx ../../third_party/libaddressinput/src/cpp/src/language.cc || $
+    obj/third_party/libaddressinput/libaddressinput_util.compile_depends.stamp
+build $
+    obj/third_party/libaddressinput/src/cpp/src/libaddressinput_util.localization.o: $
+    cxx ../../third_party/libaddressinput/src/cpp/src/localization.cc || $
+    obj/third_party/libaddressinput/libaddressinput_util.compile_depends.stamp
+build $
+    obj/third_party/libaddressinput/src/cpp/src/libaddressinput_util.lookup_key.o: $
+    cxx ../../third_party/libaddressinput/src/cpp/src/lookup_key.cc || $
+    obj/third_party/libaddressinput/libaddressinput_util.compile_depends.stamp
+build $
+    obj/third_party/libaddressinput/src/cpp/src/libaddressinput_util.region_data_constants.o: $
+    cxx $
+    ../../third_party/libaddressinput/src/cpp/src/region_data_constants.cc $
+    || $
+    obj/third_party/libaddressinput/libaddressinput_util.compile_depends.stamp
+build $
+    obj/third_party/libaddressinput/src/cpp/src/libaddressinput_util.rule.o: $
+    cxx ../../third_party/libaddressinput/src/cpp/src/rule.cc || $
+    obj/third_party/libaddressinput/libaddressinput_util.compile_depends.stamp
+build $
+    obj/third_party/libaddressinput/src/cpp/src/util/libaddressinput_util.cctype_tolower_equal.o: $
+    cxx $
+    ../../third_party/libaddressinput/src/cpp/src/util/cctype_tolower_equal.cc $
+    || $
+    obj/third_party/libaddressinput/libaddressinput_util.compile_depends.stamp
+build $
+    obj/third_party/libaddressinput/src/cpp/src/util/libaddressinput_util.string_split.o: $
+    cxx ../../third_party/libaddressinput/src/cpp/src/util/string_split.cc $
+    || $
+    obj/third_party/libaddressinput/libaddressinput_util.compile_depends.stamp
+build $
+    obj/third_party/libaddressinput/src/cpp/src/util/libaddressinput_util.string_util.o: $
+    cxx ../../third_party/libaddressinput/src/cpp/src/util/string_util.cc $
+    || $
+    obj/third_party/libaddressinput/libaddressinput_util.compile_depends.stamp
+build $
+    obj/third_party/libaddressinput/chromium/libaddressinput_util.addressinput_util.o: $
+    cxx ../../third_party/libaddressinput/chromium/addressinput_util.cc || $
+    obj/third_party/libaddressinput/libaddressinput_util.compile_depends.stamp
+build obj/third_party/libaddressinput/chromium/libaddressinput_util.json.o: $
+    cxx ../../third_party/libaddressinput/chromium/json.cc || $
+    obj/third_party/libaddressinput/libaddressinput_util.compile_depends.stamp
+
+build obj/third_party/libaddressinput/libaddressinput_util.a: alink_thin $
+    obj/third_party/libaddressinput/src/cpp/src/libaddressinput_util.address_data.o $
+    obj/third_party/libaddressinput/src/cpp/src/libaddressinput_util.address_field.o $
+    obj/third_party/libaddressinput/src/cpp/src/libaddressinput_util.address_field_util.o $
+    obj/third_party/libaddressinput/src/cpp/src/libaddressinput_util.address_formatter.o $
+    obj/third_party/libaddressinput/src/cpp/src/libaddressinput_util.address_metadata.o $
+    obj/third_party/libaddressinput/src/cpp/src/libaddressinput_util.address_ui.o $
+    obj/third_party/libaddressinput/src/cpp/src/libaddressinput_util.format_element.o $
+    obj/third_party/libaddressinput/src/cpp/src/libaddressinput_util.language.o $
+    obj/third_party/libaddressinput/src/cpp/src/libaddressinput_util.localization.o $
+    obj/third_party/libaddressinput/src/cpp/src/libaddressinput_util.lookup_key.o $
+    obj/third_party/libaddressinput/src/cpp/src/libaddressinput_util.region_data_constants.o $
+    obj/third_party/libaddressinput/src/cpp/src/libaddressinput_util.rule.o $
+    obj/third_party/libaddressinput/src/cpp/src/util/libaddressinput_util.cctype_tolower_equal.o $
+    obj/third_party/libaddressinput/src/cpp/src/util/libaddressinput_util.string_split.o $
+    obj/third_party/libaddressinput/src/cpp/src/util/libaddressinput_util.string_util.o $
+    obj/third_party/libaddressinput/chromium/libaddressinput_util.addressinput_util.o $
+    obj/third_party/libaddressinput/chromium/libaddressinput_util.json.o || $
+    obj/third_party/libaddressinput/libaddressinput_util.actions_depends.stamp

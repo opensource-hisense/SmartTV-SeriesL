@@ -1,0 +1,507 @@
+build obj/content/content_child.actions_depends.stamp: stamp $
+    obj/content/content_resources.actions_rules_copies.stamp $
+    lib/libbase.so.TOC obj/mojo/libmojo_application_bindings.a $
+    obj/skia/skia.actions_depends.stamp $
+    obj/third_party/WebKit/public/blink.actions_depends.stamp $
+    obj/third_party/WebKit/Source/platform/libblink_platform.a $
+    obj/third_party/WebKit/public/blink_image_resources.actions_rules_copies.stamp $
+    obj/third_party/WebKit/public/blink_resources.actions_rules_copies.stamp $
+    lib/liburl_lib.so.TOC $
+    obj/content/app/resources/content_resources.actions_rules_copies.stamp $
+    obj/content/app/strings/content_strings.actions_rules_copies.stamp $
+    obj/content/libcontent_common_mojo_bindings.a
+
+build obj/content/content_child.compile_depends.stamp: stamp $
+    obj/content/content_resources.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/mojo/mojo_application_bindings_mojom.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/third_party/WebKit/public/blink.compile_depends.stamp $
+    obj/third_party/WebKit/Source/platform/blink_platform.compile_depends.stamp $
+    obj/third_party/WebKit/public/blink_image_resources.actions_rules_copies.stamp $
+    obj/third_party/WebKit/public/blink_resources.actions_rules_copies.stamp $
+    obj/url/url_lib.compile_depends.stamp $
+    obj/content/app/resources/content_resources.actions_rules_copies.stamp $
+    obj/content/app/strings/content_strings.actions_rules_copies.stamp $
+    obj/content/content_common_mojo_bindings_mojom.actions_rules_copies.stamp
+
+defines = -DCONTENT_IMPLEMENTATION -DV8_DEPRECATION_WARNINGS $
+    -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 -DDISABLE_NACL -DCHROMIUM_BUILD $
+    -DCR_CLANG_REVISION=264915-1 -DUI_COMPOSITOR_IMAGE_TRANSPORT $
+    -DUSE_AURA=1 -DUSE_OZONE=1 -DUSE_DEFAULT_RENDER_THEME=1 $
+    -DUSE_LIBJPEG_TURBO=1 -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS $
+    -DENABLE_BROWSER_CDMS -DENABLE_TOPCHROME_MD=1 $
+    -DFIELDTRIAL_TESTING_ENABLED -DENABLE_TASK_MANAGER=1 $
+    -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 -DENABLE_SESSION_SERVICE=1 $
+    -DENABLE_AUTOFILL_DIALOG=1 -DENABLE_PRINTING=1 $
+    -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DMOJO_USE_SYSTEM_IMPL $
+    -DSK_SUPPORT_GPU=1 -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS $
+    -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= $
+    -DU_STATIC_IMPLEMENTATION -DCHROME_PNG_WRITE_SUPPORT -DPNG_USER_CONFIG $
+    -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 $
+    -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../third_party/khronos -I../../gpu $
+    -I../../skia/config -Igen/angle -I../../third_party/WebKit/Source $
+    -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../third_party/WebKit -I../../third_party/icu/source/common $
+    -I../../v8/include -I../../third_party/libpng -I../../third_party/zlib $
+    -I../../third_party/libwebp -I../../third_party/ots/include $
+    -I../../third_party/qcms/src -I../../third_party/iccjpeg $
+    -I../../third_party/libjpeg_turbo -I../../third_party/icu/source/i18n $
+    -Igen/content/app/resources/
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/content/public/child/content_child.fixed_received_data.o: cxx $
+    ../../content/public/child/fixed_received_data.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/appcache/content_child.appcache_backend_proxy.o: $
+    cxx ../../content/child/appcache/appcache_backend_proxy.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/appcache/content_child.appcache_dispatcher.o: cxx $
+    ../../content/child/appcache/appcache_dispatcher.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/appcache/content_child.appcache_frontend_impl.o: $
+    cxx ../../content/child/appcache/appcache_frontend_impl.cc || $
+    obj/content/content_child.compile_depends.stamp
+build $
+    obj/content/child/appcache/content_child.web_application_cache_host_impl.o: $
+    cxx ../../content/child/appcache/web_application_cache_host_impl.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.assert_matching_enums.o: cxx $
+    ../../content/child/assert_matching_enums.cc || $
+    obj/content/content_child.compile_depends.stamp
+build $
+    obj/content/child/background_sync/content_child.background_sync_provider.o: $
+    cxx ../../content/child/background_sync/background_sync_provider.cc || $
+    obj/content/content_child.compile_depends.stamp
+build $
+    obj/content/child/background_sync/content_child.background_sync_type_converters.o: $
+    cxx $
+    ../../content/child/background_sync/background_sync_type_converters.cc $
+    || obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.blink_platform_impl.o: cxx $
+    ../../content/child/blink_platform_impl.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/blob_storage/content_child.blob_consolidation.o: $
+    cxx ../../content/child/blob_storage/blob_consolidation.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/blob_storage/content_child.blob_message_filter.o: $
+    cxx ../../content/child/blob_storage/blob_message_filter.cc || $
+    obj/content/content_child.compile_depends.stamp
+build $
+    obj/content/child/blob_storage/content_child.blob_transport_controller.o: $
+    cxx ../../content/child/blob_storage/blob_transport_controller.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.browser_font_resource_trusted.o: cxx $
+    ../../content/child/browser_font_resource_trusted.cc || $
+    obj/content/content_child.compile_depends.stamp
+build $
+    obj/content/child/content_child.child_discardable_shared_memory_manager.o: $
+    cxx ../../content/child/child_discardable_shared_memory_manager.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.child_gpu_memory_buffer_manager.o: $
+    cxx ../../content/child/child_gpu_memory_buffer_manager.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.child_histogram_message_filter.o: cxx $
+    ../../content/child/child_histogram_message_filter.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.child_message_filter.o: cxx $
+    ../../content/child/child_message_filter.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.child_process.o: cxx $
+    ../../content/child/child_process.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.child_resource_message_filter.o: cxx $
+    ../../content/child/child_resource_message_filter.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.child_shared_bitmap_manager.o: cxx $
+    ../../content/child/child_shared_bitmap_manager.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.child_thread_impl.o: cxx $
+    ../../content/child/child_thread_impl.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.content_child_helpers.o: cxx $
+    ../../content/child/content_child_helpers.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.database_util.o: cxx $
+    ../../content/child/database_util.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.db_message_filter.o: cxx $
+    ../../content/child/db_message_filter.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.file_info_util.o: cxx $
+    ../../content/child/file_info_util.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/fileapi/content_child.file_system_dispatcher.o: cxx $
+    ../../content/child/fileapi/file_system_dispatcher.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/fileapi/content_child.webfilesystem_impl.o: cxx $
+    ../../content/child/fileapi/webfilesystem_impl.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/fileapi/content_child.webfilewriter_base.o: cxx $
+    ../../content/child/fileapi/webfilewriter_base.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/fileapi/content_child.webfilewriter_impl.o: cxx $
+    ../../content/child/fileapi/webfilewriter_impl.cc || $
+    obj/content/content_child.compile_depends.stamp
+build $
+    obj/content/child/content_child.ftp_directory_listing_response_delegate.o: $
+    cxx ../../content/child/ftp_directory_listing_response_delegate.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/geofencing/content_child.geofencing_dispatcher.o: $
+    cxx ../../content/child/geofencing/geofencing_dispatcher.cc || $
+    obj/content/content_child.compile_depends.stamp
+build $
+    obj/content/child/geofencing/content_child.geofencing_message_filter.o: $
+    cxx ../../content/child/geofencing/geofencing_message_filter.cc || $
+    obj/content/content_child.compile_depends.stamp
+build $
+    obj/content/child/geofencing/content_child.web_geofencing_provider_impl.o: $
+    cxx ../../content/child/geofencing/web_geofencing_provider_impl.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.image_decoder.o: cxx $
+    ../../content/child/image_decoder.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/indexed_db/content_child.indexed_db_dispatcher.o: $
+    cxx ../../content/child/indexed_db/indexed_db_dispatcher.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/indexed_db/content_child.indexed_db_key_builders.o: $
+    cxx ../../content/child/indexed_db/indexed_db_key_builders.cc || $
+    obj/content/content_child.compile_depends.stamp
+build $
+    obj/content/child/indexed_db/content_child.indexed_db_message_filter.o: $
+    cxx ../../content/child/indexed_db/indexed_db_message_filter.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/indexed_db/content_child.webidbcursor_impl.o: cxx $
+    ../../content/child/indexed_db/webidbcursor_impl.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/indexed_db/content_child.webidbdatabase_impl.o: cxx $
+    ../../content/child/indexed_db/webidbdatabase_impl.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/indexed_db/content_child.webidbfactory_impl.o: cxx $
+    ../../content/child/indexed_db/webidbfactory_impl.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/memory/content_child.child_memory_message_filter.o: $
+    cxx ../../content/child/memory/child_memory_message_filter.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/mojo/content_child.mojo_application.o: cxx $
+    ../../content/child/mojo/mojo_application.cc || $
+    obj/content/content_child.compile_depends.stamp
+build $
+    obj/content/child/notifications/content_child.notification_data_conversions.o: $
+    cxx ../../content/child/notifications/notification_data_conversions.cc $
+    || obj/content/content_child.compile_depends.stamp
+build $
+    obj/content/child/notifications/content_child.notification_dispatcher.o: $
+    cxx ../../content/child/notifications/notification_dispatcher.cc || $
+    obj/content/content_child.compile_depends.stamp
+build $
+    obj/content/child/notifications/content_child.notification_image_loader.o: $
+    cxx ../../content/child/notifications/notification_image_loader.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/notifications/content_child.notification_manager.o: $
+    cxx ../../content/child/notifications/notification_manager.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/notifications/content_child.pending_notification.o: $
+    cxx ../../content/child/notifications/pending_notification.cc || $
+    obj/content/content_child.compile_depends.stamp
+build $
+    obj/content/child/notifications/content_child.pending_notifications_tracker.o: $
+    cxx ../../content/child/notifications/pending_notifications_tracker.cc $
+    || obj/content/content_child.compile_depends.stamp
+build obj/content/child/permissions/content_child.permission_dispatcher.o: $
+    cxx ../../content/child/permissions/permission_dispatcher.cc || $
+    obj/content/content_child.compile_depends.stamp
+build $
+    obj/content/child/permissions/content_child.permission_dispatcher_thread_proxy.o: $
+    cxx $
+    ../../content/child/permissions/permission_dispatcher_thread_proxy.cc $
+    || obj/content/content_child.compile_depends.stamp
+build $
+    obj/content/child/permissions/content_child.permission_observers_registry.o: $
+    cxx ../../content/child/permissions/permission_observers_registry.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.power_monitor_broadcast_source.o: cxx $
+    ../../content/child/power_monitor_broadcast_source.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.process_control_impl.o: cxx $
+    ../../content/child/process_control_impl.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/push_messaging/content_child.push_dispatcher.o: cxx $
+    ../../content/child/push_messaging/push_dispatcher.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/push_messaging/content_child.push_provider.o: cxx $
+    ../../content/child/push_messaging/push_provider.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.quota_dispatcher.o: cxx $
+    ../../content/child/quota_dispatcher.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.quota_message_filter.o: cxx $
+    ../../content/child/quota_message_filter.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.request_extra_data.o: cxx $
+    ../../content/child/request_extra_data.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.request_info.o: cxx $
+    ../../content/child/request_info.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.resource_dispatcher.o: cxx $
+    ../../content/child/resource_dispatcher.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.resource_scheduling_filter.o: cxx $
+    ../../content/child/resource_scheduling_filter.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.runtime_features.o: cxx $
+    ../../content/child/runtime_features.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.scoped_child_process_reference.o: cxx $
+    ../../content/child/scoped_child_process_reference.cc || $
+    obj/content/content_child.compile_depends.stamp
+build $
+    obj/content/child/service_worker/content_child.service_worker_dispatcher.o: $
+    cxx ../../content/child/service_worker/service_worker_dispatcher.cc || $
+    obj/content/content_child.compile_depends.stamp
+build $
+    obj/content/child/service_worker/content_child.service_worker_handle_reference.o: $
+    cxx $
+    ../../content/child/service_worker/service_worker_handle_reference.cc $
+    || obj/content/content_child.compile_depends.stamp
+build $
+    obj/content/child/service_worker/content_child.service_worker_message_filter.o: $
+    cxx ../../content/child/service_worker/service_worker_message_filter.cc $
+    || obj/content/content_child.compile_depends.stamp
+build $
+    obj/content/child/service_worker/content_child.service_worker_network_provider.o: $
+    cxx $
+    ../../content/child/service_worker/service_worker_network_provider.cc $
+    || obj/content/content_child.compile_depends.stamp
+build $
+    obj/content/child/service_worker/content_child.service_worker_provider_context.o: $
+    cxx $
+    ../../content/child/service_worker/service_worker_provider_context.cc $
+    || obj/content/content_child.compile_depends.stamp
+build $
+    obj/content/child/service_worker/content_child.service_worker_registration_handle_reference.o: $
+    cxx $
+    ../../content/child/service_worker/service_worker_registration_handle_reference.cc $
+    || obj/content/content_child.compile_depends.stamp
+build $
+    obj/content/child/service_worker/content_child.web_service_worker_impl.o: $
+    cxx ../../content/child/service_worker/web_service_worker_impl.cc || $
+    obj/content/content_child.compile_depends.stamp
+build $
+    obj/content/child/service_worker/content_child.web_service_worker_provider_impl.o: $
+    cxx $
+    ../../content/child/service_worker/web_service_worker_provider_impl.cc $
+    || obj/content/content_child.compile_depends.stamp
+build $
+    obj/content/child/service_worker/content_child.web_service_worker_registration_impl.o: $
+    cxx $
+    ../../content/child/service_worker/web_service_worker_registration_impl.cc $
+    || obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.shared_memory_data_consumer_handle.o: $
+    cxx ../../content/child/shared_memory_data_consumer_handle.cc || $
+    obj/content/content_child.compile_depends.stamp
+build $
+    obj/content/child/content_child.shared_memory_received_data_factory.o: $
+    cxx ../../content/child/shared_memory_received_data_factory.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.shared_worker_devtools_agent.o: cxx $
+    ../../content/child/shared_worker_devtools_agent.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.simple_webmimeregistry_impl.o: cxx $
+    ../../content/child/simple_webmimeregistry_impl.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.site_isolation_stats_gatherer.o: cxx $
+    ../../content/child/site_isolation_stats_gatherer.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.storage_util.o: cxx $
+    ../../content/child/storage_util.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.sync_load_response.o: cxx $
+    ../../content/child/sync_load_response.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.thread_safe_sender.o: cxx $
+    ../../content/child/thread_safe_sender.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.v8_value_converter_impl.o: cxx $
+    ../../content/child/v8_value_converter_impl.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.web_data_consumer_handle_impl.o: cxx $
+    ../../content/child/web_data_consumer_handle_impl.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.web_database_observer_impl.o: cxx $
+    ../../content/child/web_database_observer_impl.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.web_url_loader_impl.o: cxx $
+    ../../content/child/web_url_loader_impl.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.web_url_request_util.o: cxx $
+    ../../content/child/web_url_request_util.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.webblobregistry_impl.o: cxx $
+    ../../content/child/webblobregistry_impl.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.webfallbackthemeengine_impl.o: cxx $
+    ../../content/child/webfallbackthemeengine_impl.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.webfileutilities_impl.o: cxx $
+    ../../content/child/webfileutilities_impl.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.webmessageportchannel_impl.o: cxx $
+    ../../content/child/webmessageportchannel_impl.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.websocket_bridge.o: cxx $
+    ../../content/child/websocket_bridge.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.websocket_dispatcher.o: cxx $
+    ../../content/child/websocket_dispatcher.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.webthemeengine_impl_default.o: cxx $
+    ../../content/child/webthemeengine_impl_default.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.weburlresponse_extradata_impl.o: cxx $
+    ../../content/child/weburlresponse_extradata_impl.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.worker_thread_message_filter.o: cxx $
+    ../../content/child/worker_thread_message_filter.cc || $
+    obj/content/content_child.compile_depends.stamp
+build obj/content/child/content_child.worker_thread_registry.o: cxx $
+    ../../content/child/worker_thread_registry.cc || $
+    obj/content/content_child.compile_depends.stamp
+
+build obj/content/libcontent_child.a: alink_thin $
+    obj/content/public/child/content_child.fixed_received_data.o $
+    obj/content/child/appcache/content_child.appcache_backend_proxy.o $
+    obj/content/child/appcache/content_child.appcache_dispatcher.o $
+    obj/content/child/appcache/content_child.appcache_frontend_impl.o $
+    obj/content/child/appcache/content_child.web_application_cache_host_impl.o $
+    obj/content/child/content_child.assert_matching_enums.o $
+    obj/content/child/background_sync/content_child.background_sync_provider.o $
+    obj/content/child/background_sync/content_child.background_sync_type_converters.o $
+    obj/content/child/content_child.blink_platform_impl.o $
+    obj/content/child/blob_storage/content_child.blob_consolidation.o $
+    obj/content/child/blob_storage/content_child.blob_message_filter.o $
+    obj/content/child/blob_storage/content_child.blob_transport_controller.o $
+    obj/content/child/content_child.browser_font_resource_trusted.o $
+    obj/content/child/content_child.child_discardable_shared_memory_manager.o $
+    obj/content/child/content_child.child_gpu_memory_buffer_manager.o $
+    obj/content/child/content_child.child_histogram_message_filter.o $
+    obj/content/child/content_child.child_message_filter.o $
+    obj/content/child/content_child.child_process.o $
+    obj/content/child/content_child.child_resource_message_filter.o $
+    obj/content/child/content_child.child_shared_bitmap_manager.o $
+    obj/content/child/content_child.child_thread_impl.o $
+    obj/content/child/content_child.content_child_helpers.o $
+    obj/content/child/content_child.database_util.o $
+    obj/content/child/content_child.db_message_filter.o $
+    obj/content/child/content_child.file_info_util.o $
+    obj/content/child/fileapi/content_child.file_system_dispatcher.o $
+    obj/content/child/fileapi/content_child.webfilesystem_impl.o $
+    obj/content/child/fileapi/content_child.webfilewriter_base.o $
+    obj/content/child/fileapi/content_child.webfilewriter_impl.o $
+    obj/content/child/content_child.ftp_directory_listing_response_delegate.o $
+    obj/content/child/geofencing/content_child.geofencing_dispatcher.o $
+    obj/content/child/geofencing/content_child.geofencing_message_filter.o $
+    obj/content/child/geofencing/content_child.web_geofencing_provider_impl.o $
+    obj/content/child/content_child.image_decoder.o $
+    obj/content/child/indexed_db/content_child.indexed_db_dispatcher.o $
+    obj/content/child/indexed_db/content_child.indexed_db_key_builders.o $
+    obj/content/child/indexed_db/content_child.indexed_db_message_filter.o $
+    obj/content/child/indexed_db/content_child.webidbcursor_impl.o $
+    obj/content/child/indexed_db/content_child.webidbdatabase_impl.o $
+    obj/content/child/indexed_db/content_child.webidbfactory_impl.o $
+    obj/content/child/memory/content_child.child_memory_message_filter.o $
+    obj/content/child/mojo/content_child.mojo_application.o $
+    obj/content/child/notifications/content_child.notification_data_conversions.o $
+    obj/content/child/notifications/content_child.notification_dispatcher.o $
+    obj/content/child/notifications/content_child.notification_image_loader.o $
+    obj/content/child/notifications/content_child.notification_manager.o $
+    obj/content/child/notifications/content_child.pending_notification.o $
+    obj/content/child/notifications/content_child.pending_notifications_tracker.o $
+    obj/content/child/permissions/content_child.permission_dispatcher.o $
+    obj/content/child/permissions/content_child.permission_dispatcher_thread_proxy.o $
+    obj/content/child/permissions/content_child.permission_observers_registry.o $
+    obj/content/child/content_child.power_monitor_broadcast_source.o $
+    obj/content/child/content_child.process_control_impl.o $
+    obj/content/child/push_messaging/content_child.push_dispatcher.o $
+    obj/content/child/push_messaging/content_child.push_provider.o $
+    obj/content/child/content_child.quota_dispatcher.o $
+    obj/content/child/content_child.quota_message_filter.o $
+    obj/content/child/content_child.request_extra_data.o $
+    obj/content/child/content_child.request_info.o $
+    obj/content/child/content_child.resource_dispatcher.o $
+    obj/content/child/content_child.resource_scheduling_filter.o $
+    obj/content/child/content_child.runtime_features.o $
+    obj/content/child/content_child.scoped_child_process_reference.o $
+    obj/content/child/service_worker/content_child.service_worker_dispatcher.o $
+    obj/content/child/service_worker/content_child.service_worker_handle_reference.o $
+    obj/content/child/service_worker/content_child.service_worker_message_filter.o $
+    obj/content/child/service_worker/content_child.service_worker_network_provider.o $
+    obj/content/child/service_worker/content_child.service_worker_provider_context.o $
+    obj/content/child/service_worker/content_child.service_worker_registration_handle_reference.o $
+    obj/content/child/service_worker/content_child.web_service_worker_impl.o $
+    obj/content/child/service_worker/content_child.web_service_worker_provider_impl.o $
+    obj/content/child/service_worker/content_child.web_service_worker_registration_impl.o $
+    obj/content/child/content_child.shared_memory_data_consumer_handle.o $
+    obj/content/child/content_child.shared_memory_received_data_factory.o $
+    obj/content/child/content_child.shared_worker_devtools_agent.o $
+    obj/content/child/content_child.simple_webmimeregistry_impl.o $
+    obj/content/child/content_child.site_isolation_stats_gatherer.o $
+    obj/content/child/content_child.storage_util.o $
+    obj/content/child/content_child.sync_load_response.o $
+    obj/content/child/content_child.thread_safe_sender.o $
+    obj/content/child/content_child.v8_value_converter_impl.o $
+    obj/content/child/content_child.web_data_consumer_handle_impl.o $
+    obj/content/child/content_child.web_database_observer_impl.o $
+    obj/content/child/content_child.web_url_loader_impl.o $
+    obj/content/child/content_child.web_url_request_util.o $
+    obj/content/child/content_child.webblobregistry_impl.o $
+    obj/content/child/content_child.webfallbackthemeengine_impl.o $
+    obj/content/child/content_child.webfileutilities_impl.o $
+    obj/content/child/content_child.webmessageportchannel_impl.o $
+    obj/content/child/content_child.websocket_bridge.o $
+    obj/content/child/content_child.websocket_dispatcher.o $
+    obj/content/child/content_child.webthemeengine_impl_default.o $
+    obj/content/child/content_child.weburlresponse_extradata_impl.o $
+    obj/content/child/content_child.worker_thread_message_filter.o $
+    obj/content/child/content_child.worker_thread_registry.o || $
+    obj/content/content_child.actions_depends.stamp

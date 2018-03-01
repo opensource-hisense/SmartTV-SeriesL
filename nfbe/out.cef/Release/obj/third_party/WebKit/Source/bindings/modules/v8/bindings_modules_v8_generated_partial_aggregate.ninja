@@ -1,0 +1,16 @@
+rule $
+    bindings_modules_v8_generated_partial_aggregate_target_generate_aggregate_bindings_modules_v8_partial_2c8b978011e6e53652262cad273f41cc
+  command = cd ../../third_party/WebKit/Source/bindings/modules/v8; python $
+      ../../scripts/aggregate_generated_bindings.py modules $
+      ../../../../../../out.cef/third_party/WebKit/Source/bindings/modules/v8/core_idl_with_modules_dependency_files_list.tmp $
+      -- $
+      ../../../../../../out.cef/Release/gen/blink/bindings/modules/v8/V8GeneratedModulesBindingsPartial.cpp
+  description = ACTION Generating aggregate generated modules V8 partial $
+      bindings files
+  restat = 1
+
+build gen/blink/bindings/modules/v8/V8GeneratedModulesBindingsPartial.cpp: $
+    bindings_modules_v8_generated_partial_aggregate_target_generate_aggregate_bindings_modules_v8_partial_2c8b978011e6e53652262cad273f41cc $
+    ../../third_party/WebKit/Source/bindings/scripts/aggregate_generated_bindings.py $
+    ../../out.cef/third_party/WebKit/Source/bindings/modules/v8/core_idl_with_modules_dependency_files_list.tmp
+

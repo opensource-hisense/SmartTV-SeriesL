@@ -1,0 +1,1109 @@
+rule $
+    components_strings_target_generate_components_strings_210a0443f5b9463b7e701872fe4b6cb6
+  command = cd ../../components; python ../tools/grit/grit.py -i $
+      components_strings.grd build -f ../tools/gritsettings/resource_ids -o $
+      ../out.cef/Release/gen/components/strings "--write-only-new=1" -D $
+      _chromium -E "CHROMIUM_BUILD=chromium" -D desktop_linux -D use_aura $
+      -D use_nss_certs -D use_nss_verifier -D use_ozone -D $
+      enable_extensions -D enable_plugins -D enable_printing -D $
+      enable_themes -D enable_app_list -D enable_settings_app -D $
+      use_concatenated_impulse_responses -D enable_media_router -D $
+      enable_task_manager -D enable_topchrome_md -D enable_service_discovery
+  description = ACTION Generating resources from components_strings.grd
+  restat = 1
+
+build gen/components/strings/grit/components_strings.h $
+    gen/components/strings/components_strings_am.pak $
+    gen/components/strings/components_strings_ar.pak $
+    gen/components/strings/components_strings_bg.pak $
+    gen/components/strings/components_strings_bn.pak $
+    gen/components/strings/components_strings_ca.pak $
+    gen/components/strings/components_strings_cs.pak $
+    gen/components/strings/components_strings_da.pak $
+    gen/components/strings/components_strings_de.pak $
+    gen/components/strings/components_strings_el.pak $
+    gen/components/strings/components_strings_en-GB.pak $
+    gen/components/strings/components_strings_en-US.pak $
+    gen/components/strings/components_strings_es.pak $
+    gen/components/strings/components_strings_es-419.pak $
+    gen/components/strings/components_strings_et.pak $
+    gen/components/strings/components_strings_fa.pak $
+    gen/components/strings/components_strings_fake-bidi.pak $
+    gen/components/strings/components_strings_fi.pak $
+    gen/components/strings/components_strings_fil.pak $
+    gen/components/strings/components_strings_fr.pak $
+    gen/components/strings/components_strings_gu.pak $
+    gen/components/strings/components_strings_he.pak $
+    gen/components/strings/components_strings_hi.pak $
+    gen/components/strings/components_strings_hr.pak $
+    gen/components/strings/components_strings_hu.pak $
+    gen/components/strings/components_strings_id.pak $
+    gen/components/strings/components_strings_it.pak $
+    gen/components/strings/components_strings_ja.pak $
+    gen/components/strings/components_strings_kn.pak $
+    gen/components/strings/components_strings_ko.pak $
+    gen/components/strings/components_strings_lt.pak $
+    gen/components/strings/components_strings_lv.pak $
+    gen/components/strings/components_strings_ml.pak $
+    gen/components/strings/components_strings_mr.pak $
+    gen/components/strings/components_strings_ms.pak $
+    gen/components/strings/components_strings_nl.pak $
+    gen/components/strings/components_strings_nb.pak $
+    gen/components/strings/components_strings_pl.pak $
+    gen/components/strings/components_strings_pt-BR.pak $
+    gen/components/strings/components_strings_pt-PT.pak $
+    gen/components/strings/components_strings_ro.pak $
+    gen/components/strings/components_strings_ru.pak $
+    gen/components/strings/components_strings_sk.pak $
+    gen/components/strings/components_strings_sl.pak $
+    gen/components/strings/components_strings_sr.pak $
+    gen/components/strings/components_strings_sv.pak $
+    gen/components/strings/components_strings_sw.pak $
+    gen/components/strings/components_strings_ta.pak $
+    gen/components/strings/components_strings_te.pak $
+    gen/components/strings/components_strings_th.pak $
+    gen/components/strings/components_strings_tr.pak $
+    gen/components/strings/components_strings_uk.pak $
+    gen/components/strings/components_strings_vi.pak $
+    gen/components/strings/components_strings_zh-CN.pak $
+    gen/components/strings/components_strings_zh-TW.pak: $
+    components_strings_target_generate_components_strings_210a0443f5b9463b7e701872fe4b6cb6 $
+    ../../tools/gritsettings/resource_ids $
+    ../../components/components_strings.grd $
+    ../../components/app_modal_strings.grdp $
+    ../../components/autofill_strings.grdp $
+    ../../components/bookmark_bar_strings.grdp $
+    ../../components/bookmark_component_strings.grdp $
+    ../../components/browser_sync_strings.grdp $
+    ../../components/components_settings_strings.grdp $
+    ../../components/crash_strings.grdp $
+    ../../components/dialog_strings.grdp $
+    ../../components/dom_distiller_strings.grdp $
+    ../../components/error_page_strings.grdp $
+    ../../components/find_in_page_strings.grdp $
+    ../../components/flags_ui_strings.grdp $
+    ../../components/history_strings.grdp $
+    ../../components/login_dialog_strings.grdp $
+    ../../components/new_or_sad_tab_strings.grdp $
+    ../../components/omnibox_strings.grdp $
+    ../../components/pageinfo_strings.grdp $
+    ../../components/password_manager_strings.grdp $
+    ../../components/pdf_strings.grdp ../../components/policy_strings.grdp $
+    ../../components/search_engines_strings.grdp $
+    ../../components/security_interstitials_strings.grdp $
+    ../../components/ssl_errors_strings.grdp $
+    ../../components/strings/components_strings_am.xtb $
+    ../../components/strings/components_strings_ar.xtb $
+    ../../components/strings/components_strings_bg.xtb $
+    ../../components/strings/components_strings_bn.xtb $
+    ../../components/strings/components_strings_ca.xtb $
+    ../../components/strings/components_strings_cs.xtb $
+    ../../components/strings/components_strings_da.xtb $
+    ../../components/strings/components_strings_de.xtb $
+    ../../components/strings/components_strings_el.xtb $
+    ../../components/strings/components_strings_en-GB.xtb $
+    ../../components/strings/components_strings_es-419.xtb $
+    ../../components/strings/components_strings_es.xtb $
+    ../../components/strings/components_strings_et.xtb $
+    ../../components/strings/components_strings_fa.xtb $
+    ../../components/strings/components_strings_fi.xtb $
+    ../../components/strings/components_strings_fil.xtb $
+    ../../components/strings/components_strings_fr.xtb $
+    ../../components/strings/components_strings_gu.xtb $
+    ../../components/strings/components_strings_hi.xtb $
+    ../../components/strings/components_strings_hr.xtb $
+    ../../components/strings/components_strings_hu.xtb $
+    ../../components/strings/components_strings_id.xtb $
+    ../../components/strings/components_strings_it.xtb $
+    ../../components/strings/components_strings_iw.xtb $
+    ../../components/strings/components_strings_ja.xtb $
+    ../../components/strings/components_strings_kn.xtb $
+    ../../components/strings/components_strings_ko.xtb $
+    ../../components/strings/components_strings_lt.xtb $
+    ../../components/strings/components_strings_lv.xtb $
+    ../../components/strings/components_strings_ml.xtb $
+    ../../components/strings/components_strings_mr.xtb $
+    ../../components/strings/components_strings_ms.xtb $
+    ../../components/strings/components_strings_nl.xtb $
+    ../../components/strings/components_strings_no.xtb $
+    ../../components/strings/components_strings_pl.xtb $
+    ../../components/strings/components_strings_pt-BR.xtb $
+    ../../components/strings/components_strings_pt-PT.xtb $
+    ../../components/strings/components_strings_ro.xtb $
+    ../../components/strings/components_strings_ru.xtb $
+    ../../components/strings/components_strings_sk.xtb $
+    ../../components/strings/components_strings_sl.xtb $
+    ../../components/strings/components_strings_sr.xtb $
+    ../../components/strings/components_strings_sv.xtb $
+    ../../components/strings/components_strings_sw.xtb $
+    ../../components/strings/components_strings_ta.xtb $
+    ../../components/strings/components_strings_te.xtb $
+    ../../components/strings/components_strings_th.xtb $
+    ../../components/strings/components_strings_tr.xtb $
+    ../../components/strings/components_strings_uk.xtb $
+    ../../components/strings/components_strings_vi.xtb $
+    ../../components/strings/components_strings_zh-CN.xtb $
+    ../../components/strings/components_strings_zh-TW.xtb $
+    ../../components/supervised_user_error_page_strings.grdp $
+    ../../components/sync_ui_strings.grdp $
+    ../../components/translate_strings.grdp $
+    ../../components/undo_strings.grdp $
+    ../../components/version_ui_strings.grdp ../../tools/grit/PRESUBMIT.py $
+    ../../tools/grit/grit.py ../../tools/grit/grit/__init__.py $
+    ../../tools/grit/grit/clique.py ../../tools/grit/grit/constants.py $
+    ../../tools/grit/grit/exception.py $
+    ../../tools/grit/grit/extern/BogoFP.py $
+    ../../tools/grit/grit/extern/FP.py $
+    ../../tools/grit/grit/extern/__init__.py $
+    ../../tools/grit/grit/extern/tclib.py $
+    ../../tools/grit/grit/format/__init__.py $
+    ../../tools/grit/grit/format/android_xml.py $
+    ../../tools/grit/grit/format/c_format.py $
+    ../../tools/grit/grit/format/chrome_messages_json.py $
+    ../../tools/grit/grit/format/data_pack.py $
+    ../../tools/grit/grit/format/html_inline.py $
+    ../../tools/grit/grit/format/js_map_format.py $
+    ../../tools/grit/grit/format/policy_templates/PRESUBMIT.py $
+    ../../tools/grit/grit/format/policy_templates/__init__.py $
+    ../../tools/grit/grit/format/policy_templates/policy_template_generator.py $
+    ../../tools/grit/grit/format/policy_templates/template_formatter.py $
+    ../../tools/grit/grit/format/policy_templates/writer_configuration.py $
+    ../../tools/grit/grit/format/policy_templates/writers/__init__.py $
+    ../../tools/grit/grit/format/policy_templates/writers/adm_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/adml_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/admx_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/android_policy_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/doc_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/ios_plist_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/json_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/mock_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/plist_helper.py $
+    ../../tools/grit/grit/format/policy_templates/writers/plist_strings_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/plist_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/reg_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/template_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/writer_unittest_common.py $
+    ../../tools/grit/grit/format/policy_templates/writers/xml_formatted_writer.py $
+    ../../tools/grit/grit/format/rc.py $
+    ../../tools/grit/grit/format/rc_header.py $
+    ../../tools/grit/grit/format/repack.py $
+    ../../tools/grit/grit/format/resource_map.py $
+    ../../tools/grit/grit/gather/__init__.py $
+    ../../tools/grit/grit/gather/admin_template.py $
+    ../../tools/grit/grit/gather/chrome_html.py $
+    ../../tools/grit/grit/gather/chrome_scaled_image.py $
+    ../../tools/grit/grit/gather/igoogle_strings.py $
+    ../../tools/grit/grit/gather/interface.py $
+    ../../tools/grit/grit/gather/json_loader.py $
+    ../../tools/grit/grit/gather/muppet_strings.py $
+    ../../tools/grit/grit/gather/policy_json.py $
+    ../../tools/grit/grit/gather/rc.py $
+    ../../tools/grit/grit/gather/regexp.py $
+    ../../tools/grit/grit/gather/skeleton_gatherer.py $
+    ../../tools/grit/grit/gather/tr_html.py $
+    ../../tools/grit/grit/gather/txt.py ../../tools/grit/grit/grd_reader.py $
+    ../../tools/grit/grit/grit_runner.py ../../tools/grit/grit/lazy_re.py $
+    ../../tools/grit/grit/node/__init__.py $
+    ../../tools/grit/grit/node/base.py $
+    ../../tools/grit/grit/node/custom/__init__.py $
+    ../../tools/grit/grit/node/custom/filename.py $
+    ../../tools/grit/grit/node/empty.py $
+    ../../tools/grit/grit/node/include.py ../../tools/grit/grit/node/io.py $
+    ../../tools/grit/grit/node/mapping.py $
+    ../../tools/grit/grit/node/message.py $
+    ../../tools/grit/grit/node/misc.py $
+    ../../tools/grit/grit/node/structure.py $
+    ../../tools/grit/grit/node/variant.py ../../tools/grit/grit/pseudo.py $
+    ../../tools/grit/grit/pseudo_rtl.py ../../tools/grit/grit/scons.py $
+    ../../tools/grit/grit/shortcuts.py $
+    ../../tools/grit/grit/shortcuts_unittests.py $
+    ../../tools/grit/grit/tclib.py ../../tools/grit/grit/test_suite_all.py $
+    ../../tools/grit/grit/tool/__init__.py $
+    ../../tools/grit/grit/tool/android2grd.py $
+    ../../tools/grit/grit/tool/build.py $
+    ../../tools/grit/grit/tool/buildinfo.py $
+    ../../tools/grit/grit/tool/count.py $
+    ../../tools/grit/grit/tool/diff_structures.py $
+    ../../tools/grit/grit/tool/interface.py $
+    ../../tools/grit/grit/tool/menu_from_parts.py $
+    ../../tools/grit/grit/tool/newgrd.py $
+    ../../tools/grit/grit/tool/postprocess_interface.py $
+    ../../tools/grit/grit/tool/preprocess_interface.py $
+    ../../tools/grit/grit/tool/rc2grd.py $
+    ../../tools/grit/grit/tool/resize.py ../../tools/grit/grit/tool/test.py $
+    ../../tools/grit/grit/tool/toolbar_postprocess.py $
+    ../../tools/grit/grit/tool/toolbar_preprocess.py $
+    ../../tools/grit/grit/tool/transl2tc.py $
+    ../../tools/grit/grit/tool/unit.py ../../tools/grit/grit/tool/xmb.py $
+    ../../tools/grit/grit/util.py ../../tools/grit/grit/xtb_reader.py $
+    ../../tools/grit/grit_info.py ../../tools/grit/stamp_grit_sources.py
+
+rule $
+    components_strings_target_generate_components_chromium_strings_210a0443f5b9463b7e701872fe4b6cb6
+  command = cd ../../components; python ../tools/grit/grit.py -i $
+      components_chromium_strings.grd build -f $
+      ../tools/gritsettings/resource_ids -o $
+      ../out.cef/Release/gen/components/strings "--write-only-new=1" -D $
+      _chromium -E "CHROMIUM_BUILD=chromium" -D desktop_linux -D use_aura $
+      -D use_nss_certs -D use_nss_verifier -D use_ozone -D $
+      enable_extensions -D enable_plugins -D enable_printing -D $
+      enable_themes -D enable_app_list -D enable_settings_app -D $
+      use_concatenated_impulse_responses -D enable_media_router -D $
+      enable_task_manager -D enable_topchrome_md -D enable_service_discovery
+  description = ACTION Generating resources from $
+      components_chromium_strings.grd
+  restat = 1
+
+build gen/components/strings/grit/components_chromium_strings.h $
+    gen/components/strings/components_chromium_strings_am.pak $
+    gen/components/strings/components_chromium_strings_ar.pak $
+    gen/components/strings/components_chromium_strings_bg.pak $
+    gen/components/strings/components_chromium_strings_bn.pak $
+    gen/components/strings/components_chromium_strings_ca.pak $
+    gen/components/strings/components_chromium_strings_cs.pak $
+    gen/components/strings/components_chromium_strings_da.pak $
+    gen/components/strings/components_chromium_strings_de.pak $
+    gen/components/strings/components_chromium_strings_el.pak $
+    gen/components/strings/components_chromium_strings_en-GB.pak $
+    gen/components/strings/components_chromium_strings_en-US.pak $
+    gen/components/strings/components_chromium_strings_es.pak $
+    gen/components/strings/components_chromium_strings_es-419.pak $
+    gen/components/strings/components_chromium_strings_et.pak $
+    gen/components/strings/components_chromium_strings_fa.pak $
+    gen/components/strings/components_chromium_strings_fake-bidi.pak $
+    gen/components/strings/components_chromium_strings_fi.pak $
+    gen/components/strings/components_chromium_strings_fil.pak $
+    gen/components/strings/components_chromium_strings_fr.pak $
+    gen/components/strings/components_chromium_strings_gu.pak $
+    gen/components/strings/components_chromium_strings_he.pak $
+    gen/components/strings/components_chromium_strings_hi.pak $
+    gen/components/strings/components_chromium_strings_hr.pak $
+    gen/components/strings/components_chromium_strings_hu.pak $
+    gen/components/strings/components_chromium_strings_id.pak $
+    gen/components/strings/components_chromium_strings_it.pak $
+    gen/components/strings/components_chromium_strings_ja.pak $
+    gen/components/strings/components_chromium_strings_kn.pak $
+    gen/components/strings/components_chromium_strings_ko.pak $
+    gen/components/strings/components_chromium_strings_lt.pak $
+    gen/components/strings/components_chromium_strings_lv.pak $
+    gen/components/strings/components_chromium_strings_ml.pak $
+    gen/components/strings/components_chromium_strings_mr.pak $
+    gen/components/strings/components_chromium_strings_ms.pak $
+    gen/components/strings/components_chromium_strings_nl.pak $
+    gen/components/strings/components_chromium_strings_nb.pak $
+    gen/components/strings/components_chromium_strings_pl.pak $
+    gen/components/strings/components_chromium_strings_pt-BR.pak $
+    gen/components/strings/components_chromium_strings_pt-PT.pak $
+    gen/components/strings/components_chromium_strings_ro.pak $
+    gen/components/strings/components_chromium_strings_ru.pak $
+    gen/components/strings/components_chromium_strings_sk.pak $
+    gen/components/strings/components_chromium_strings_sl.pak $
+    gen/components/strings/components_chromium_strings_sr.pak $
+    gen/components/strings/components_chromium_strings_sv.pak $
+    gen/components/strings/components_chromium_strings_sw.pak $
+    gen/components/strings/components_chromium_strings_ta.pak $
+    gen/components/strings/components_chromium_strings_te.pak $
+    gen/components/strings/components_chromium_strings_th.pak $
+    gen/components/strings/components_chromium_strings_tr.pak $
+    gen/components/strings/components_chromium_strings_uk.pak $
+    gen/components/strings/components_chromium_strings_vi.pak $
+    gen/components/strings/components_chromium_strings_zh-CN.pak $
+    gen/components/strings/components_chromium_strings_zh-TW.pak: $
+    components_strings_target_generate_components_chromium_strings_210a0443f5b9463b7e701872fe4b6cb6 $
+    ../../tools/gritsettings/resource_ids $
+    ../../components/components_chromium_strings.grd $
+    ../../components/strings/components_chromium_strings_am.xtb $
+    ../../components/strings/components_chromium_strings_ar.xtb $
+    ../../components/strings/components_chromium_strings_bg.xtb $
+    ../../components/strings/components_chromium_strings_bn.xtb $
+    ../../components/strings/components_chromium_strings_ca.xtb $
+    ../../components/strings/components_chromium_strings_cs.xtb $
+    ../../components/strings/components_chromium_strings_da.xtb $
+    ../../components/strings/components_chromium_strings_de.xtb $
+    ../../components/strings/components_chromium_strings_el.xtb $
+    ../../components/strings/components_chromium_strings_en-GB.xtb $
+    ../../components/strings/components_chromium_strings_es-419.xtb $
+    ../../components/strings/components_chromium_strings_es.xtb $
+    ../../components/strings/components_chromium_strings_et.xtb $
+    ../../components/strings/components_chromium_strings_fa.xtb $
+    ../../components/strings/components_chromium_strings_fi.xtb $
+    ../../components/strings/components_chromium_strings_fil.xtb $
+    ../../components/strings/components_chromium_strings_fr.xtb $
+    ../../components/strings/components_chromium_strings_gu.xtb $
+    ../../components/strings/components_chromium_strings_hi.xtb $
+    ../../components/strings/components_chromium_strings_hr.xtb $
+    ../../components/strings/components_chromium_strings_hu.xtb $
+    ../../components/strings/components_chromium_strings_id.xtb $
+    ../../components/strings/components_chromium_strings_it.xtb $
+    ../../components/strings/components_chromium_strings_iw.xtb $
+    ../../components/strings/components_chromium_strings_ja.xtb $
+    ../../components/strings/components_chromium_strings_kn.xtb $
+    ../../components/strings/components_chromium_strings_ko.xtb $
+    ../../components/strings/components_chromium_strings_lt.xtb $
+    ../../components/strings/components_chromium_strings_lv.xtb $
+    ../../components/strings/components_chromium_strings_ml.xtb $
+    ../../components/strings/components_chromium_strings_mr.xtb $
+    ../../components/strings/components_chromium_strings_ms.xtb $
+    ../../components/strings/components_chromium_strings_nl.xtb $
+    ../../components/strings/components_chromium_strings_no.xtb $
+    ../../components/strings/components_chromium_strings_pl.xtb $
+    ../../components/strings/components_chromium_strings_pt-BR.xtb $
+    ../../components/strings/components_chromium_strings_pt-PT.xtb $
+    ../../components/strings/components_chromium_strings_ro.xtb $
+    ../../components/strings/components_chromium_strings_ru.xtb $
+    ../../components/strings/components_chromium_strings_sk.xtb $
+    ../../components/strings/components_chromium_strings_sl.xtb $
+    ../../components/strings/components_chromium_strings_sr.xtb $
+    ../../components/strings/components_chromium_strings_sv.xtb $
+    ../../components/strings/components_chromium_strings_sw.xtb $
+    ../../components/strings/components_chromium_strings_ta.xtb $
+    ../../components/strings/components_chromium_strings_te.xtb $
+    ../../components/strings/components_chromium_strings_th.xtb $
+    ../../components/strings/components_chromium_strings_tr.xtb $
+    ../../components/strings/components_chromium_strings_uk.xtb $
+    ../../components/strings/components_chromium_strings_vi.xtb $
+    ../../components/strings/components_chromium_strings_zh-CN.xtb $
+    ../../components/strings/components_chromium_strings_zh-TW.xtb $
+    ../../tools/grit/PRESUBMIT.py ../../tools/grit/grit.py $
+    ../../tools/grit/grit/__init__.py ../../tools/grit/grit/clique.py $
+    ../../tools/grit/grit/constants.py ../../tools/grit/grit/exception.py $
+    ../../tools/grit/grit/extern/BogoFP.py $
+    ../../tools/grit/grit/extern/FP.py $
+    ../../tools/grit/grit/extern/__init__.py $
+    ../../tools/grit/grit/extern/tclib.py $
+    ../../tools/grit/grit/format/__init__.py $
+    ../../tools/grit/grit/format/android_xml.py $
+    ../../tools/grit/grit/format/c_format.py $
+    ../../tools/grit/grit/format/chrome_messages_json.py $
+    ../../tools/grit/grit/format/data_pack.py $
+    ../../tools/grit/grit/format/html_inline.py $
+    ../../tools/grit/grit/format/js_map_format.py $
+    ../../tools/grit/grit/format/policy_templates/PRESUBMIT.py $
+    ../../tools/grit/grit/format/policy_templates/__init__.py $
+    ../../tools/grit/grit/format/policy_templates/policy_template_generator.py $
+    ../../tools/grit/grit/format/policy_templates/template_formatter.py $
+    ../../tools/grit/grit/format/policy_templates/writer_configuration.py $
+    ../../tools/grit/grit/format/policy_templates/writers/__init__.py $
+    ../../tools/grit/grit/format/policy_templates/writers/adm_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/adml_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/admx_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/android_policy_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/doc_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/ios_plist_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/json_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/mock_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/plist_helper.py $
+    ../../tools/grit/grit/format/policy_templates/writers/plist_strings_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/plist_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/reg_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/template_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/writer_unittest_common.py $
+    ../../tools/grit/grit/format/policy_templates/writers/xml_formatted_writer.py $
+    ../../tools/grit/grit/format/rc.py $
+    ../../tools/grit/grit/format/rc_header.py $
+    ../../tools/grit/grit/format/repack.py $
+    ../../tools/grit/grit/format/resource_map.py $
+    ../../tools/grit/grit/gather/__init__.py $
+    ../../tools/grit/grit/gather/admin_template.py $
+    ../../tools/grit/grit/gather/chrome_html.py $
+    ../../tools/grit/grit/gather/chrome_scaled_image.py $
+    ../../tools/grit/grit/gather/igoogle_strings.py $
+    ../../tools/grit/grit/gather/interface.py $
+    ../../tools/grit/grit/gather/json_loader.py $
+    ../../tools/grit/grit/gather/muppet_strings.py $
+    ../../tools/grit/grit/gather/policy_json.py $
+    ../../tools/grit/grit/gather/rc.py $
+    ../../tools/grit/grit/gather/regexp.py $
+    ../../tools/grit/grit/gather/skeleton_gatherer.py $
+    ../../tools/grit/grit/gather/tr_html.py $
+    ../../tools/grit/grit/gather/txt.py ../../tools/grit/grit/grd_reader.py $
+    ../../tools/grit/grit/grit_runner.py ../../tools/grit/grit/lazy_re.py $
+    ../../tools/grit/grit/node/__init__.py $
+    ../../tools/grit/grit/node/base.py $
+    ../../tools/grit/grit/node/custom/__init__.py $
+    ../../tools/grit/grit/node/custom/filename.py $
+    ../../tools/grit/grit/node/empty.py $
+    ../../tools/grit/grit/node/include.py ../../tools/grit/grit/node/io.py $
+    ../../tools/grit/grit/node/mapping.py $
+    ../../tools/grit/grit/node/message.py $
+    ../../tools/grit/grit/node/misc.py $
+    ../../tools/grit/grit/node/structure.py $
+    ../../tools/grit/grit/node/variant.py ../../tools/grit/grit/pseudo.py $
+    ../../tools/grit/grit/pseudo_rtl.py ../../tools/grit/grit/scons.py $
+    ../../tools/grit/grit/shortcuts.py $
+    ../../tools/grit/grit/shortcuts_unittests.py $
+    ../../tools/grit/grit/tclib.py ../../tools/grit/grit/test_suite_all.py $
+    ../../tools/grit/grit/tool/__init__.py $
+    ../../tools/grit/grit/tool/android2grd.py $
+    ../../tools/grit/grit/tool/build.py $
+    ../../tools/grit/grit/tool/buildinfo.py $
+    ../../tools/grit/grit/tool/count.py $
+    ../../tools/grit/grit/tool/diff_structures.py $
+    ../../tools/grit/grit/tool/interface.py $
+    ../../tools/grit/grit/tool/menu_from_parts.py $
+    ../../tools/grit/grit/tool/newgrd.py $
+    ../../tools/grit/grit/tool/postprocess_interface.py $
+    ../../tools/grit/grit/tool/preprocess_interface.py $
+    ../../tools/grit/grit/tool/rc2grd.py $
+    ../../tools/grit/grit/tool/resize.py ../../tools/grit/grit/tool/test.py $
+    ../../tools/grit/grit/tool/toolbar_postprocess.py $
+    ../../tools/grit/grit/tool/toolbar_preprocess.py $
+    ../../tools/grit/grit/tool/transl2tc.py $
+    ../../tools/grit/grit/tool/unit.py ../../tools/grit/grit/tool/xmb.py $
+    ../../tools/grit/grit/util.py ../../tools/grit/grit/xtb_reader.py $
+    ../../tools/grit/grit_info.py ../../tools/grit/stamp_grit_sources.py
+
+rule $
+    components_strings_target_generate_components_google_chrome_strings_210a0443f5b9463b7e701872fe4b6cb6
+  command = cd ../../components; python ../tools/grit/grit.py -i $
+      components_google_chrome_strings.grd build -f $
+      ../tools/gritsettings/resource_ids -o $
+      ../out.cef/Release/gen/components/strings "--write-only-new=1" -D $
+      _chromium -E "CHROMIUM_BUILD=chromium" -D desktop_linux -D use_aura $
+      -D use_nss_certs -D use_nss_verifier -D use_ozone -D $
+      enable_extensions -D enable_plugins -D enable_printing -D $
+      enable_themes -D enable_app_list -D enable_settings_app -D $
+      use_concatenated_impulse_responses -D enable_media_router -D $
+      enable_task_manager -D enable_topchrome_md -D enable_service_discovery
+  description = ACTION Generating resources from $
+      components_google_chrome_strings.grd
+  restat = 1
+
+build gen/components/strings/grit/components_google_chrome_strings.h $
+    gen/components/strings/components_google_chrome_strings_am.pak $
+    gen/components/strings/components_google_chrome_strings_ar.pak $
+    gen/components/strings/components_google_chrome_strings_bg.pak $
+    gen/components/strings/components_google_chrome_strings_bn.pak $
+    gen/components/strings/components_google_chrome_strings_ca.pak $
+    gen/components/strings/components_google_chrome_strings_cs.pak $
+    gen/components/strings/components_google_chrome_strings_da.pak $
+    gen/components/strings/components_google_chrome_strings_de.pak $
+    gen/components/strings/components_google_chrome_strings_el.pak $
+    gen/components/strings/components_google_chrome_strings_en-GB.pak $
+    gen/components/strings/components_google_chrome_strings_en-US.pak $
+    gen/components/strings/components_google_chrome_strings_es.pak $
+    gen/components/strings/components_google_chrome_strings_es-419.pak $
+    gen/components/strings/components_google_chrome_strings_et.pak $
+    gen/components/strings/components_google_chrome_strings_fa.pak $
+    gen/components/strings/components_google_chrome_strings_fake-bidi.pak $
+    gen/components/strings/components_google_chrome_strings_fi.pak $
+    gen/components/strings/components_google_chrome_strings_fil.pak $
+    gen/components/strings/components_google_chrome_strings_fr.pak $
+    gen/components/strings/components_google_chrome_strings_gu.pak $
+    gen/components/strings/components_google_chrome_strings_he.pak $
+    gen/components/strings/components_google_chrome_strings_hi.pak $
+    gen/components/strings/components_google_chrome_strings_hr.pak $
+    gen/components/strings/components_google_chrome_strings_hu.pak $
+    gen/components/strings/components_google_chrome_strings_id.pak $
+    gen/components/strings/components_google_chrome_strings_it.pak $
+    gen/components/strings/components_google_chrome_strings_ja.pak $
+    gen/components/strings/components_google_chrome_strings_kn.pak $
+    gen/components/strings/components_google_chrome_strings_ko.pak $
+    gen/components/strings/components_google_chrome_strings_lt.pak $
+    gen/components/strings/components_google_chrome_strings_lv.pak $
+    gen/components/strings/components_google_chrome_strings_ml.pak $
+    gen/components/strings/components_google_chrome_strings_mr.pak $
+    gen/components/strings/components_google_chrome_strings_ms.pak $
+    gen/components/strings/components_google_chrome_strings_nl.pak $
+    gen/components/strings/components_google_chrome_strings_nb.pak $
+    gen/components/strings/components_google_chrome_strings_pl.pak $
+    gen/components/strings/components_google_chrome_strings_pt-BR.pak $
+    gen/components/strings/components_google_chrome_strings_pt-PT.pak $
+    gen/components/strings/components_google_chrome_strings_ro.pak $
+    gen/components/strings/components_google_chrome_strings_ru.pak $
+    gen/components/strings/components_google_chrome_strings_sk.pak $
+    gen/components/strings/components_google_chrome_strings_sl.pak $
+    gen/components/strings/components_google_chrome_strings_sr.pak $
+    gen/components/strings/components_google_chrome_strings_sv.pak $
+    gen/components/strings/components_google_chrome_strings_sw.pak $
+    gen/components/strings/components_google_chrome_strings_ta.pak $
+    gen/components/strings/components_google_chrome_strings_te.pak $
+    gen/components/strings/components_google_chrome_strings_th.pak $
+    gen/components/strings/components_google_chrome_strings_tr.pak $
+    gen/components/strings/components_google_chrome_strings_uk.pak $
+    gen/components/strings/components_google_chrome_strings_vi.pak $
+    gen/components/strings/components_google_chrome_strings_zh-CN.pak $
+    gen/components/strings/components_google_chrome_strings_zh-TW.pak: $
+    components_strings_target_generate_components_google_chrome_strings_210a0443f5b9463b7e701872fe4b6cb6 $
+    ../../tools/gritsettings/resource_ids $
+    ../../components/components_google_chrome_strings.grd $
+    ../../components/strings/components_google_chrome_strings_am.xtb $
+    ../../components/strings/components_google_chrome_strings_ar.xtb $
+    ../../components/strings/components_google_chrome_strings_bg.xtb $
+    ../../components/strings/components_google_chrome_strings_bn.xtb $
+    ../../components/strings/components_google_chrome_strings_ca.xtb $
+    ../../components/strings/components_google_chrome_strings_cs.xtb $
+    ../../components/strings/components_google_chrome_strings_da.xtb $
+    ../../components/strings/components_google_chrome_strings_de.xtb $
+    ../../components/strings/components_google_chrome_strings_el.xtb $
+    ../../components/strings/components_google_chrome_strings_en-GB.xtb $
+    ../../components/strings/components_google_chrome_strings_es-419.xtb $
+    ../../components/strings/components_google_chrome_strings_es.xtb $
+    ../../components/strings/components_google_chrome_strings_et.xtb $
+    ../../components/strings/components_google_chrome_strings_fa.xtb $
+    ../../components/strings/components_google_chrome_strings_fi.xtb $
+    ../../components/strings/components_google_chrome_strings_fil.xtb $
+    ../../components/strings/components_google_chrome_strings_fr.xtb $
+    ../../components/strings/components_google_chrome_strings_gu.xtb $
+    ../../components/strings/components_google_chrome_strings_hi.xtb $
+    ../../components/strings/components_google_chrome_strings_hr.xtb $
+    ../../components/strings/components_google_chrome_strings_hu.xtb $
+    ../../components/strings/components_google_chrome_strings_id.xtb $
+    ../../components/strings/components_google_chrome_strings_it.xtb $
+    ../../components/strings/components_google_chrome_strings_iw.xtb $
+    ../../components/strings/components_google_chrome_strings_ja.xtb $
+    ../../components/strings/components_google_chrome_strings_kn.xtb $
+    ../../components/strings/components_google_chrome_strings_ko.xtb $
+    ../../components/strings/components_google_chrome_strings_lt.xtb $
+    ../../components/strings/components_google_chrome_strings_lv.xtb $
+    ../../components/strings/components_google_chrome_strings_ml.xtb $
+    ../../components/strings/components_google_chrome_strings_mr.xtb $
+    ../../components/strings/components_google_chrome_strings_ms.xtb $
+    ../../components/strings/components_google_chrome_strings_nl.xtb $
+    ../../components/strings/components_google_chrome_strings_no.xtb $
+    ../../components/strings/components_google_chrome_strings_pl.xtb $
+    ../../components/strings/components_google_chrome_strings_pt-BR.xtb $
+    ../../components/strings/components_google_chrome_strings_pt-PT.xtb $
+    ../../components/strings/components_google_chrome_strings_ro.xtb $
+    ../../components/strings/components_google_chrome_strings_ru.xtb $
+    ../../components/strings/components_google_chrome_strings_sk.xtb $
+    ../../components/strings/components_google_chrome_strings_sl.xtb $
+    ../../components/strings/components_google_chrome_strings_sr.xtb $
+    ../../components/strings/components_google_chrome_strings_sv.xtb $
+    ../../components/strings/components_google_chrome_strings_sw.xtb $
+    ../../components/strings/components_google_chrome_strings_ta.xtb $
+    ../../components/strings/components_google_chrome_strings_te.xtb $
+    ../../components/strings/components_google_chrome_strings_th.xtb $
+    ../../components/strings/components_google_chrome_strings_tr.xtb $
+    ../../components/strings/components_google_chrome_strings_uk.xtb $
+    ../../components/strings/components_google_chrome_strings_vi.xtb $
+    ../../components/strings/components_google_chrome_strings_zh-CN.xtb $
+    ../../components/strings/components_google_chrome_strings_zh-TW.xtb $
+    ../../tools/grit/PRESUBMIT.py ../../tools/grit/grit.py $
+    ../../tools/grit/grit/__init__.py ../../tools/grit/grit/clique.py $
+    ../../tools/grit/grit/constants.py ../../tools/grit/grit/exception.py $
+    ../../tools/grit/grit/extern/BogoFP.py $
+    ../../tools/grit/grit/extern/FP.py $
+    ../../tools/grit/grit/extern/__init__.py $
+    ../../tools/grit/grit/extern/tclib.py $
+    ../../tools/grit/grit/format/__init__.py $
+    ../../tools/grit/grit/format/android_xml.py $
+    ../../tools/grit/grit/format/c_format.py $
+    ../../tools/grit/grit/format/chrome_messages_json.py $
+    ../../tools/grit/grit/format/data_pack.py $
+    ../../tools/grit/grit/format/html_inline.py $
+    ../../tools/grit/grit/format/js_map_format.py $
+    ../../tools/grit/grit/format/policy_templates/PRESUBMIT.py $
+    ../../tools/grit/grit/format/policy_templates/__init__.py $
+    ../../tools/grit/grit/format/policy_templates/policy_template_generator.py $
+    ../../tools/grit/grit/format/policy_templates/template_formatter.py $
+    ../../tools/grit/grit/format/policy_templates/writer_configuration.py $
+    ../../tools/grit/grit/format/policy_templates/writers/__init__.py $
+    ../../tools/grit/grit/format/policy_templates/writers/adm_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/adml_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/admx_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/android_policy_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/doc_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/ios_plist_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/json_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/mock_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/plist_helper.py $
+    ../../tools/grit/grit/format/policy_templates/writers/plist_strings_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/plist_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/reg_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/template_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/writer_unittest_common.py $
+    ../../tools/grit/grit/format/policy_templates/writers/xml_formatted_writer.py $
+    ../../tools/grit/grit/format/rc.py $
+    ../../tools/grit/grit/format/rc_header.py $
+    ../../tools/grit/grit/format/repack.py $
+    ../../tools/grit/grit/format/resource_map.py $
+    ../../tools/grit/grit/gather/__init__.py $
+    ../../tools/grit/grit/gather/admin_template.py $
+    ../../tools/grit/grit/gather/chrome_html.py $
+    ../../tools/grit/grit/gather/chrome_scaled_image.py $
+    ../../tools/grit/grit/gather/igoogle_strings.py $
+    ../../tools/grit/grit/gather/interface.py $
+    ../../tools/grit/grit/gather/json_loader.py $
+    ../../tools/grit/grit/gather/muppet_strings.py $
+    ../../tools/grit/grit/gather/policy_json.py $
+    ../../tools/grit/grit/gather/rc.py $
+    ../../tools/grit/grit/gather/regexp.py $
+    ../../tools/grit/grit/gather/skeleton_gatherer.py $
+    ../../tools/grit/grit/gather/tr_html.py $
+    ../../tools/grit/grit/gather/txt.py ../../tools/grit/grit/grd_reader.py $
+    ../../tools/grit/grit/grit_runner.py ../../tools/grit/grit/lazy_re.py $
+    ../../tools/grit/grit/node/__init__.py $
+    ../../tools/grit/grit/node/base.py $
+    ../../tools/grit/grit/node/custom/__init__.py $
+    ../../tools/grit/grit/node/custom/filename.py $
+    ../../tools/grit/grit/node/empty.py $
+    ../../tools/grit/grit/node/include.py ../../tools/grit/grit/node/io.py $
+    ../../tools/grit/grit/node/mapping.py $
+    ../../tools/grit/grit/node/message.py $
+    ../../tools/grit/grit/node/misc.py $
+    ../../tools/grit/grit/node/structure.py $
+    ../../tools/grit/grit/node/variant.py ../../tools/grit/grit/pseudo.py $
+    ../../tools/grit/grit/pseudo_rtl.py ../../tools/grit/grit/scons.py $
+    ../../tools/grit/grit/shortcuts.py $
+    ../../tools/grit/grit/shortcuts_unittests.py $
+    ../../tools/grit/grit/tclib.py ../../tools/grit/grit/test_suite_all.py $
+    ../../tools/grit/grit/tool/__init__.py $
+    ../../tools/grit/grit/tool/android2grd.py $
+    ../../tools/grit/grit/tool/build.py $
+    ../../tools/grit/grit/tool/buildinfo.py $
+    ../../tools/grit/grit/tool/count.py $
+    ../../tools/grit/grit/tool/diff_structures.py $
+    ../../tools/grit/grit/tool/interface.py $
+    ../../tools/grit/grit/tool/menu_from_parts.py $
+    ../../tools/grit/grit/tool/newgrd.py $
+    ../../tools/grit/grit/tool/postprocess_interface.py $
+    ../../tools/grit/grit/tool/preprocess_interface.py $
+    ../../tools/grit/grit/tool/rc2grd.py $
+    ../../tools/grit/grit/tool/resize.py ../../tools/grit/grit/tool/test.py $
+    ../../tools/grit/grit/tool/toolbar_postprocess.py $
+    ../../tools/grit/grit/tool/toolbar_preprocess.py $
+    ../../tools/grit/grit/tool/transl2tc.py $
+    ../../tools/grit/grit/tool/unit.py ../../tools/grit/grit/tool/xmb.py $
+    ../../tools/grit/grit/util.py ../../tools/grit/grit/xtb_reader.py $
+    ../../tools/grit/grit_info.py ../../tools/grit/stamp_grit_sources.py
+
+rule $
+    components_strings_target_generate_components_locale_settings_210a0443f5b9463b7e701872fe4b6cb6
+  command = cd ../../components; python ../tools/grit/grit.py -i $
+      components_locale_settings.grd build -f $
+      ../tools/gritsettings/resource_ids -o $
+      ../out.cef/Release/gen/components/strings "--write-only-new=1" -D $
+      _chromium -E "CHROMIUM_BUILD=chromium" -D desktop_linux -D use_aura $
+      -D use_nss_certs -D use_nss_verifier -D use_ozone -D $
+      enable_extensions -D enable_plugins -D enable_printing -D $
+      enable_themes -D enable_app_list -D enable_settings_app -D $
+      use_concatenated_impulse_responses -D enable_media_router -D $
+      enable_task_manager -D enable_topchrome_md -D enable_service_discovery
+  description = ACTION Generating resources from $
+      components_locale_settings.grd
+  restat = 1
+
+build gen/components/strings/grit/components_locale_settings.h $
+    gen/components/strings/components_locale_settings_am.pak $
+    gen/components/strings/components_locale_settings_ar.pak $
+    gen/components/strings/components_locale_settings_bg.pak $
+    gen/components/strings/components_locale_settings_bn.pak $
+    gen/components/strings/components_locale_settings_ca.pak $
+    gen/components/strings/components_locale_settings_cs.pak $
+    gen/components/strings/components_locale_settings_da.pak $
+    gen/components/strings/components_locale_settings_de.pak $
+    gen/components/strings/components_locale_settings_el.pak $
+    gen/components/strings/components_locale_settings_en-GB.pak $
+    gen/components/strings/components_locale_settings_en-US.pak $
+    gen/components/strings/components_locale_settings_es.pak $
+    gen/components/strings/components_locale_settings_es-419.pak $
+    gen/components/strings/components_locale_settings_et.pak $
+    gen/components/strings/components_locale_settings_fa.pak $
+    gen/components/strings/components_locale_settings_fake-bidi.pak $
+    gen/components/strings/components_locale_settings_fi.pak $
+    gen/components/strings/components_locale_settings_fil.pak $
+    gen/components/strings/components_locale_settings_fr.pak $
+    gen/components/strings/components_locale_settings_gu.pak $
+    gen/components/strings/components_locale_settings_he.pak $
+    gen/components/strings/components_locale_settings_hi.pak $
+    gen/components/strings/components_locale_settings_hr.pak $
+    gen/components/strings/components_locale_settings_hu.pak $
+    gen/components/strings/components_locale_settings_id.pak $
+    gen/components/strings/components_locale_settings_it.pak $
+    gen/components/strings/components_locale_settings_ja.pak $
+    gen/components/strings/components_locale_settings_kn.pak $
+    gen/components/strings/components_locale_settings_ko.pak $
+    gen/components/strings/components_locale_settings_lt.pak $
+    gen/components/strings/components_locale_settings_lv.pak $
+    gen/components/strings/components_locale_settings_ml.pak $
+    gen/components/strings/components_locale_settings_mr.pak $
+    gen/components/strings/components_locale_settings_ms.pak $
+    gen/components/strings/components_locale_settings_nl.pak $
+    gen/components/strings/components_locale_settings_nb.pak $
+    gen/components/strings/components_locale_settings_pl.pak $
+    gen/components/strings/components_locale_settings_pt-BR.pak $
+    gen/components/strings/components_locale_settings_pt-PT.pak $
+    gen/components/strings/components_locale_settings_ro.pak $
+    gen/components/strings/components_locale_settings_ru.pak $
+    gen/components/strings/components_locale_settings_sk.pak $
+    gen/components/strings/components_locale_settings_sl.pak $
+    gen/components/strings/components_locale_settings_sr.pak $
+    gen/components/strings/components_locale_settings_sv.pak $
+    gen/components/strings/components_locale_settings_sw.pak $
+    gen/components/strings/components_locale_settings_ta.pak $
+    gen/components/strings/components_locale_settings_te.pak $
+    gen/components/strings/components_locale_settings_th.pak $
+    gen/components/strings/components_locale_settings_tr.pak $
+    gen/components/strings/components_locale_settings_uk.pak $
+    gen/components/strings/components_locale_settings_vi.pak $
+    gen/components/strings/components_locale_settings_zh-CN.pak $
+    gen/components/strings/components_locale_settings_zh-TW.pak: $
+    components_strings_target_generate_components_locale_settings_210a0443f5b9463b7e701872fe4b6cb6 $
+    ../../tools/gritsettings/resource_ids $
+    ../../components/components_locale_settings.grd $
+    ../../components/resources/terms/terms_chromium.html $
+    ../../components/strings/components_locale_settings_am.xtb $
+    ../../components/strings/components_locale_settings_ar.xtb $
+    ../../components/strings/components_locale_settings_bg.xtb $
+    ../../components/strings/components_locale_settings_bn.xtb $
+    ../../components/strings/components_locale_settings_ca.xtb $
+    ../../components/strings/components_locale_settings_cs.xtb $
+    ../../components/strings/components_locale_settings_da.xtb $
+    ../../components/strings/components_locale_settings_de.xtb $
+    ../../components/strings/components_locale_settings_el.xtb $
+    ../../components/strings/components_locale_settings_en-GB.xtb $
+    ../../components/strings/components_locale_settings_es-419.xtb $
+    ../../components/strings/components_locale_settings_es.xtb $
+    ../../components/strings/components_locale_settings_et.xtb $
+    ../../components/strings/components_locale_settings_fa.xtb $
+    ../../components/strings/components_locale_settings_fake-bidi.xtb $
+    ../../components/strings/components_locale_settings_fi.xtb $
+    ../../components/strings/components_locale_settings_fil.xtb $
+    ../../components/strings/components_locale_settings_fr.xtb $
+    ../../components/strings/components_locale_settings_gu.xtb $
+    ../../components/strings/components_locale_settings_he.xtb $
+    ../../components/strings/components_locale_settings_hi.xtb $
+    ../../components/strings/components_locale_settings_hr.xtb $
+    ../../components/strings/components_locale_settings_hu.xtb $
+    ../../components/strings/components_locale_settings_id.xtb $
+    ../../components/strings/components_locale_settings_it.xtb $
+    ../../components/strings/components_locale_settings_ja.xtb $
+    ../../components/strings/components_locale_settings_kn.xtb $
+    ../../components/strings/components_locale_settings_ko.xtb $
+    ../../components/strings/components_locale_settings_lt.xtb $
+    ../../components/strings/components_locale_settings_lv.xtb $
+    ../../components/strings/components_locale_settings_ml.xtb $
+    ../../components/strings/components_locale_settings_mr.xtb $
+    ../../components/strings/components_locale_settings_ms.xtb $
+    ../../components/strings/components_locale_settings_nb.xtb $
+    ../../components/strings/components_locale_settings_nl.xtb $
+    ../../components/strings/components_locale_settings_pl.xtb $
+    ../../components/strings/components_locale_settings_pt-BR.xtb $
+    ../../components/strings/components_locale_settings_pt-PT.xtb $
+    ../../components/strings/components_locale_settings_ro.xtb $
+    ../../components/strings/components_locale_settings_ru.xtb $
+    ../../components/strings/components_locale_settings_sk.xtb $
+    ../../components/strings/components_locale_settings_sl.xtb $
+    ../../components/strings/components_locale_settings_sr.xtb $
+    ../../components/strings/components_locale_settings_sv.xtb $
+    ../../components/strings/components_locale_settings_sw.xtb $
+    ../../components/strings/components_locale_settings_ta.xtb $
+    ../../components/strings/components_locale_settings_te.xtb $
+    ../../components/strings/components_locale_settings_th.xtb $
+    ../../components/strings/components_locale_settings_tr.xtb $
+    ../../components/strings/components_locale_settings_uk.xtb $
+    ../../components/strings/components_locale_settings_vi.xtb $
+    ../../components/strings/components_locale_settings_zh-CN.xtb $
+    ../../components/strings/components_locale_settings_zh-TW.xtb $
+    ../../tools/grit/PRESUBMIT.py ../../tools/grit/grit.py $
+    ../../tools/grit/grit/__init__.py ../../tools/grit/grit/clique.py $
+    ../../tools/grit/grit/constants.py ../../tools/grit/grit/exception.py $
+    ../../tools/grit/grit/extern/BogoFP.py $
+    ../../tools/grit/grit/extern/FP.py $
+    ../../tools/grit/grit/extern/__init__.py $
+    ../../tools/grit/grit/extern/tclib.py $
+    ../../tools/grit/grit/format/__init__.py $
+    ../../tools/grit/grit/format/android_xml.py $
+    ../../tools/grit/grit/format/c_format.py $
+    ../../tools/grit/grit/format/chrome_messages_json.py $
+    ../../tools/grit/grit/format/data_pack.py $
+    ../../tools/grit/grit/format/html_inline.py $
+    ../../tools/grit/grit/format/js_map_format.py $
+    ../../tools/grit/grit/format/policy_templates/PRESUBMIT.py $
+    ../../tools/grit/grit/format/policy_templates/__init__.py $
+    ../../tools/grit/grit/format/policy_templates/policy_template_generator.py $
+    ../../tools/grit/grit/format/policy_templates/template_formatter.py $
+    ../../tools/grit/grit/format/policy_templates/writer_configuration.py $
+    ../../tools/grit/grit/format/policy_templates/writers/__init__.py $
+    ../../tools/grit/grit/format/policy_templates/writers/adm_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/adml_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/admx_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/android_policy_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/doc_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/ios_plist_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/json_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/mock_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/plist_helper.py $
+    ../../tools/grit/grit/format/policy_templates/writers/plist_strings_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/plist_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/reg_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/template_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/writer_unittest_common.py $
+    ../../tools/grit/grit/format/policy_templates/writers/xml_formatted_writer.py $
+    ../../tools/grit/grit/format/rc.py $
+    ../../tools/grit/grit/format/rc_header.py $
+    ../../tools/grit/grit/format/repack.py $
+    ../../tools/grit/grit/format/resource_map.py $
+    ../../tools/grit/grit/gather/__init__.py $
+    ../../tools/grit/grit/gather/admin_template.py $
+    ../../tools/grit/grit/gather/chrome_html.py $
+    ../../tools/grit/grit/gather/chrome_scaled_image.py $
+    ../../tools/grit/grit/gather/igoogle_strings.py $
+    ../../tools/grit/grit/gather/interface.py $
+    ../../tools/grit/grit/gather/json_loader.py $
+    ../../tools/grit/grit/gather/muppet_strings.py $
+    ../../tools/grit/grit/gather/policy_json.py $
+    ../../tools/grit/grit/gather/rc.py $
+    ../../tools/grit/grit/gather/regexp.py $
+    ../../tools/grit/grit/gather/skeleton_gatherer.py $
+    ../../tools/grit/grit/gather/tr_html.py $
+    ../../tools/grit/grit/gather/txt.py ../../tools/grit/grit/grd_reader.py $
+    ../../tools/grit/grit/grit_runner.py ../../tools/grit/grit/lazy_re.py $
+    ../../tools/grit/grit/node/__init__.py $
+    ../../tools/grit/grit/node/base.py $
+    ../../tools/grit/grit/node/custom/__init__.py $
+    ../../tools/grit/grit/node/custom/filename.py $
+    ../../tools/grit/grit/node/empty.py $
+    ../../tools/grit/grit/node/include.py ../../tools/grit/grit/node/io.py $
+    ../../tools/grit/grit/node/mapping.py $
+    ../../tools/grit/grit/node/message.py $
+    ../../tools/grit/grit/node/misc.py $
+    ../../tools/grit/grit/node/structure.py $
+    ../../tools/grit/grit/node/variant.py ../../tools/grit/grit/pseudo.py $
+    ../../tools/grit/grit/pseudo_rtl.py ../../tools/grit/grit/scons.py $
+    ../../tools/grit/grit/shortcuts.py $
+    ../../tools/grit/grit/shortcuts_unittests.py $
+    ../../tools/grit/grit/tclib.py ../../tools/grit/grit/test_suite_all.py $
+    ../../tools/grit/grit/tool/__init__.py $
+    ../../tools/grit/grit/tool/android2grd.py $
+    ../../tools/grit/grit/tool/build.py $
+    ../../tools/grit/grit/tool/buildinfo.py $
+    ../../tools/grit/grit/tool/count.py $
+    ../../tools/grit/grit/tool/diff_structures.py $
+    ../../tools/grit/grit/tool/interface.py $
+    ../../tools/grit/grit/tool/menu_from_parts.py $
+    ../../tools/grit/grit/tool/newgrd.py $
+    ../../tools/grit/grit/tool/postprocess_interface.py $
+    ../../tools/grit/grit/tool/preprocess_interface.py $
+    ../../tools/grit/grit/tool/rc2grd.py $
+    ../../tools/grit/grit/tool/resize.py ../../tools/grit/grit/tool/test.py $
+    ../../tools/grit/grit/tool/toolbar_postprocess.py $
+    ../../tools/grit/grit/tool/toolbar_preprocess.py $
+    ../../tools/grit/grit/tool/transl2tc.py $
+    ../../tools/grit/grit/tool/unit.py ../../tools/grit/grit/tool/xmb.py $
+    ../../tools/grit/grit/util.py ../../tools/grit/grit/xtb_reader.py $
+    ../../tools/grit/grit_info.py ../../tools/grit/stamp_grit_sources.py
+
+build obj/components/components_strings.actions_rules_copies.stamp: stamp $
+    gen/components/strings/grit/components_strings.h $
+    gen/components/strings/components_strings_am.pak $
+    gen/components/strings/components_strings_ar.pak $
+    gen/components/strings/components_strings_bg.pak $
+    gen/components/strings/components_strings_bn.pak $
+    gen/components/strings/components_strings_ca.pak $
+    gen/components/strings/components_strings_cs.pak $
+    gen/components/strings/components_strings_da.pak $
+    gen/components/strings/components_strings_de.pak $
+    gen/components/strings/components_strings_el.pak $
+    gen/components/strings/components_strings_en-GB.pak $
+    gen/components/strings/components_strings_en-US.pak $
+    gen/components/strings/components_strings_es.pak $
+    gen/components/strings/components_strings_es-419.pak $
+    gen/components/strings/components_strings_et.pak $
+    gen/components/strings/components_strings_fa.pak $
+    gen/components/strings/components_strings_fake-bidi.pak $
+    gen/components/strings/components_strings_fi.pak $
+    gen/components/strings/components_strings_fil.pak $
+    gen/components/strings/components_strings_fr.pak $
+    gen/components/strings/components_strings_gu.pak $
+    gen/components/strings/components_strings_he.pak $
+    gen/components/strings/components_strings_hi.pak $
+    gen/components/strings/components_strings_hr.pak $
+    gen/components/strings/components_strings_hu.pak $
+    gen/components/strings/components_strings_id.pak $
+    gen/components/strings/components_strings_it.pak $
+    gen/components/strings/components_strings_ja.pak $
+    gen/components/strings/components_strings_kn.pak $
+    gen/components/strings/components_strings_ko.pak $
+    gen/components/strings/components_strings_lt.pak $
+    gen/components/strings/components_strings_lv.pak $
+    gen/components/strings/components_strings_ml.pak $
+    gen/components/strings/components_strings_mr.pak $
+    gen/components/strings/components_strings_ms.pak $
+    gen/components/strings/components_strings_nl.pak $
+    gen/components/strings/components_strings_nb.pak $
+    gen/components/strings/components_strings_pl.pak $
+    gen/components/strings/components_strings_pt-BR.pak $
+    gen/components/strings/components_strings_pt-PT.pak $
+    gen/components/strings/components_strings_ro.pak $
+    gen/components/strings/components_strings_ru.pak $
+    gen/components/strings/components_strings_sk.pak $
+    gen/components/strings/components_strings_sl.pak $
+    gen/components/strings/components_strings_sr.pak $
+    gen/components/strings/components_strings_sv.pak $
+    gen/components/strings/components_strings_sw.pak $
+    gen/components/strings/components_strings_ta.pak $
+    gen/components/strings/components_strings_te.pak $
+    gen/components/strings/components_strings_th.pak $
+    gen/components/strings/components_strings_tr.pak $
+    gen/components/strings/components_strings_uk.pak $
+    gen/components/strings/components_strings_vi.pak $
+    gen/components/strings/components_strings_zh-CN.pak $
+    gen/components/strings/components_strings_zh-TW.pak $
+    gen/components/strings/grit/components_chromium_strings.h $
+    gen/components/strings/components_chromium_strings_am.pak $
+    gen/components/strings/components_chromium_strings_ar.pak $
+    gen/components/strings/components_chromium_strings_bg.pak $
+    gen/components/strings/components_chromium_strings_bn.pak $
+    gen/components/strings/components_chromium_strings_ca.pak $
+    gen/components/strings/components_chromium_strings_cs.pak $
+    gen/components/strings/components_chromium_strings_da.pak $
+    gen/components/strings/components_chromium_strings_de.pak $
+    gen/components/strings/components_chromium_strings_el.pak $
+    gen/components/strings/components_chromium_strings_en-GB.pak $
+    gen/components/strings/components_chromium_strings_en-US.pak $
+    gen/components/strings/components_chromium_strings_es.pak $
+    gen/components/strings/components_chromium_strings_es-419.pak $
+    gen/components/strings/components_chromium_strings_et.pak $
+    gen/components/strings/components_chromium_strings_fa.pak $
+    gen/components/strings/components_chromium_strings_fake-bidi.pak $
+    gen/components/strings/components_chromium_strings_fi.pak $
+    gen/components/strings/components_chromium_strings_fil.pak $
+    gen/components/strings/components_chromium_strings_fr.pak $
+    gen/components/strings/components_chromium_strings_gu.pak $
+    gen/components/strings/components_chromium_strings_he.pak $
+    gen/components/strings/components_chromium_strings_hi.pak $
+    gen/components/strings/components_chromium_strings_hr.pak $
+    gen/components/strings/components_chromium_strings_hu.pak $
+    gen/components/strings/components_chromium_strings_id.pak $
+    gen/components/strings/components_chromium_strings_it.pak $
+    gen/components/strings/components_chromium_strings_ja.pak $
+    gen/components/strings/components_chromium_strings_kn.pak $
+    gen/components/strings/components_chromium_strings_ko.pak $
+    gen/components/strings/components_chromium_strings_lt.pak $
+    gen/components/strings/components_chromium_strings_lv.pak $
+    gen/components/strings/components_chromium_strings_ml.pak $
+    gen/components/strings/components_chromium_strings_mr.pak $
+    gen/components/strings/components_chromium_strings_ms.pak $
+    gen/components/strings/components_chromium_strings_nl.pak $
+    gen/components/strings/components_chromium_strings_nb.pak $
+    gen/components/strings/components_chromium_strings_pl.pak $
+    gen/components/strings/components_chromium_strings_pt-BR.pak $
+    gen/components/strings/components_chromium_strings_pt-PT.pak $
+    gen/components/strings/components_chromium_strings_ro.pak $
+    gen/components/strings/components_chromium_strings_ru.pak $
+    gen/components/strings/components_chromium_strings_sk.pak $
+    gen/components/strings/components_chromium_strings_sl.pak $
+    gen/components/strings/components_chromium_strings_sr.pak $
+    gen/components/strings/components_chromium_strings_sv.pak $
+    gen/components/strings/components_chromium_strings_sw.pak $
+    gen/components/strings/components_chromium_strings_ta.pak $
+    gen/components/strings/components_chromium_strings_te.pak $
+    gen/components/strings/components_chromium_strings_th.pak $
+    gen/components/strings/components_chromium_strings_tr.pak $
+    gen/components/strings/components_chromium_strings_uk.pak $
+    gen/components/strings/components_chromium_strings_vi.pak $
+    gen/components/strings/components_chromium_strings_zh-CN.pak $
+    gen/components/strings/components_chromium_strings_zh-TW.pak $
+    gen/components/strings/grit/components_google_chrome_strings.h $
+    gen/components/strings/components_google_chrome_strings_am.pak $
+    gen/components/strings/components_google_chrome_strings_ar.pak $
+    gen/components/strings/components_google_chrome_strings_bg.pak $
+    gen/components/strings/components_google_chrome_strings_bn.pak $
+    gen/components/strings/components_google_chrome_strings_ca.pak $
+    gen/components/strings/components_google_chrome_strings_cs.pak $
+    gen/components/strings/components_google_chrome_strings_da.pak $
+    gen/components/strings/components_google_chrome_strings_de.pak $
+    gen/components/strings/components_google_chrome_strings_el.pak $
+    gen/components/strings/components_google_chrome_strings_en-GB.pak $
+    gen/components/strings/components_google_chrome_strings_en-US.pak $
+    gen/components/strings/components_google_chrome_strings_es.pak $
+    gen/components/strings/components_google_chrome_strings_es-419.pak $
+    gen/components/strings/components_google_chrome_strings_et.pak $
+    gen/components/strings/components_google_chrome_strings_fa.pak $
+    gen/components/strings/components_google_chrome_strings_fake-bidi.pak $
+    gen/components/strings/components_google_chrome_strings_fi.pak $
+    gen/components/strings/components_google_chrome_strings_fil.pak $
+    gen/components/strings/components_google_chrome_strings_fr.pak $
+    gen/components/strings/components_google_chrome_strings_gu.pak $
+    gen/components/strings/components_google_chrome_strings_he.pak $
+    gen/components/strings/components_google_chrome_strings_hi.pak $
+    gen/components/strings/components_google_chrome_strings_hr.pak $
+    gen/components/strings/components_google_chrome_strings_hu.pak $
+    gen/components/strings/components_google_chrome_strings_id.pak $
+    gen/components/strings/components_google_chrome_strings_it.pak $
+    gen/components/strings/components_google_chrome_strings_ja.pak $
+    gen/components/strings/components_google_chrome_strings_kn.pak $
+    gen/components/strings/components_google_chrome_strings_ko.pak $
+    gen/components/strings/components_google_chrome_strings_lt.pak $
+    gen/components/strings/components_google_chrome_strings_lv.pak $
+    gen/components/strings/components_google_chrome_strings_ml.pak $
+    gen/components/strings/components_google_chrome_strings_mr.pak $
+    gen/components/strings/components_google_chrome_strings_ms.pak $
+    gen/components/strings/components_google_chrome_strings_nl.pak $
+    gen/components/strings/components_google_chrome_strings_nb.pak $
+    gen/components/strings/components_google_chrome_strings_pl.pak $
+    gen/components/strings/components_google_chrome_strings_pt-BR.pak $
+    gen/components/strings/components_google_chrome_strings_pt-PT.pak $
+    gen/components/strings/components_google_chrome_strings_ro.pak $
+    gen/components/strings/components_google_chrome_strings_ru.pak $
+    gen/components/strings/components_google_chrome_strings_sk.pak $
+    gen/components/strings/components_google_chrome_strings_sl.pak $
+    gen/components/strings/components_google_chrome_strings_sr.pak $
+    gen/components/strings/components_google_chrome_strings_sv.pak $
+    gen/components/strings/components_google_chrome_strings_sw.pak $
+    gen/components/strings/components_google_chrome_strings_ta.pak $
+    gen/components/strings/components_google_chrome_strings_te.pak $
+    gen/components/strings/components_google_chrome_strings_th.pak $
+    gen/components/strings/components_google_chrome_strings_tr.pak $
+    gen/components/strings/components_google_chrome_strings_uk.pak $
+    gen/components/strings/components_google_chrome_strings_vi.pak $
+    gen/components/strings/components_google_chrome_strings_zh-CN.pak $
+    gen/components/strings/components_google_chrome_strings_zh-TW.pak $
+    gen/components/strings/grit/components_locale_settings.h $
+    gen/components/strings/components_locale_settings_am.pak $
+    gen/components/strings/components_locale_settings_ar.pak $
+    gen/components/strings/components_locale_settings_bg.pak $
+    gen/components/strings/components_locale_settings_bn.pak $
+    gen/components/strings/components_locale_settings_ca.pak $
+    gen/components/strings/components_locale_settings_cs.pak $
+    gen/components/strings/components_locale_settings_da.pak $
+    gen/components/strings/components_locale_settings_de.pak $
+    gen/components/strings/components_locale_settings_el.pak $
+    gen/components/strings/components_locale_settings_en-GB.pak $
+    gen/components/strings/components_locale_settings_en-US.pak $
+    gen/components/strings/components_locale_settings_es.pak $
+    gen/components/strings/components_locale_settings_es-419.pak $
+    gen/components/strings/components_locale_settings_et.pak $
+    gen/components/strings/components_locale_settings_fa.pak $
+    gen/components/strings/components_locale_settings_fake-bidi.pak $
+    gen/components/strings/components_locale_settings_fi.pak $
+    gen/components/strings/components_locale_settings_fil.pak $
+    gen/components/strings/components_locale_settings_fr.pak $
+    gen/components/strings/components_locale_settings_gu.pak $
+    gen/components/strings/components_locale_settings_he.pak $
+    gen/components/strings/components_locale_settings_hi.pak $
+    gen/components/strings/components_locale_settings_hr.pak $
+    gen/components/strings/components_locale_settings_hu.pak $
+    gen/components/strings/components_locale_settings_id.pak $
+    gen/components/strings/components_locale_settings_it.pak $
+    gen/components/strings/components_locale_settings_ja.pak $
+    gen/components/strings/components_locale_settings_kn.pak $
+    gen/components/strings/components_locale_settings_ko.pak $
+    gen/components/strings/components_locale_settings_lt.pak $
+    gen/components/strings/components_locale_settings_lv.pak $
+    gen/components/strings/components_locale_settings_ml.pak $
+    gen/components/strings/components_locale_settings_mr.pak $
+    gen/components/strings/components_locale_settings_ms.pak $
+    gen/components/strings/components_locale_settings_nl.pak $
+    gen/components/strings/components_locale_settings_nb.pak $
+    gen/components/strings/components_locale_settings_pl.pak $
+    gen/components/strings/components_locale_settings_pt-BR.pak $
+    gen/components/strings/components_locale_settings_pt-PT.pak $
+    gen/components/strings/components_locale_settings_ro.pak $
+    gen/components/strings/components_locale_settings_ru.pak $
+    gen/components/strings/components_locale_settings_sk.pak $
+    gen/components/strings/components_locale_settings_sl.pak $
+    gen/components/strings/components_locale_settings_sr.pak $
+    gen/components/strings/components_locale_settings_sv.pak $
+    gen/components/strings/components_locale_settings_sw.pak $
+    gen/components/strings/components_locale_settings_ta.pak $
+    gen/components/strings/components_locale_settings_te.pak $
+    gen/components/strings/components_locale_settings_th.pak $
+    gen/components/strings/components_locale_settings_tr.pak $
+    gen/components/strings/components_locale_settings_uk.pak $
+    gen/components/strings/components_locale_settings_vi.pak $
+    gen/components/strings/components_locale_settings_zh-CN.pak $
+    gen/components/strings/components_locale_settings_zh-TW.pak
+

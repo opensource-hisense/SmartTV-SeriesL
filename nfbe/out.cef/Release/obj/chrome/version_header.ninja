@@ -1,0 +1,14 @@
+rule version_header_target_version_header_13aeef334232857dc8a17ab3e47d74d9
+  command = cd ../../chrome; python ../build/util/version.py -f $
+      ../chrome/VERSION -f app/theme/chromium/BRANDING -f $
+      ../build/util/LASTCHANGE common/chrome_version.h.in $
+      ../out.cef/Release/gen/chrome/common/chrome_version.h
+  description = ACTION Generating version header file: $
+      "gen/chrome/common/chrome_version.h"
+  restat = 1
+
+build gen/chrome/common/chrome_version.h: $
+    version_header_target_version_header_13aeef334232857dc8a17ab3e47d74d9 $
+    ../../chrome/VERSION ../../chrome/app/theme/chromium/BRANDING $
+    ../../build/util/LASTCHANGE ../../chrome/common/chrome_version.h.in
+

@@ -1,0 +1,31 @@
+build $
+    obj/third_party/WebKit/Source/bindings/modules/interfaces_info.actions_depends.stamp: $
+    stamp $
+    obj/third_party/WebKit/Source/bindings/core/interfaces_info_individual_core.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/interfaces_info_individual_modules.actions_rules_copies.stamp
+
+build $
+    obj/third_party/WebKit/Source/bindings/modules/interfaces_info.compile_depends.stamp: $
+    stamp $
+    obj/third_party/WebKit/Source/bindings/core/interfaces_info_individual_core.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/interfaces_info_individual_modules.actions_rules_copies.stamp
+
+rule $
+    interfaces_info_target_compute_interfaces_info_184f7a545b184bfb5c3900fdbc156014
+  command = cd ../../third_party/WebKit/Source/bindings/modules; python $
+      ../scripts/compute_interfaces_info_overall.py $
+      --write-file-only-if-changed 1 -- $
+      ../../../../../out.cef/Release/gen/blink/bindings/core/InterfacesInfoCoreIndividual.pickle $
+      ../../../../../out.cef/Release/gen/blink/bindings/modules/InterfacesInfoOverallIndividual.pickle $
+      ../../../../../out.cef/Release/gen/blink/bindings/modules/InterfacesInfoOverall.pickle
+  description = ACTION Computing overall global information about IDL files $
+      for interfaces_info
+  restat = 1
+
+build gen/blink/bindings/modules/InterfacesInfoOverall.pickle: $
+    interfaces_info_target_compute_interfaces_info_184f7a545b184bfb5c3900fdbc156014 $
+    ../../third_party/WebKit/Source/bindings/scripts/compute_interfaces_info_overall.py $
+    gen/blink/bindings/core/InterfacesInfoCoreIndividual.pickle $
+    gen/blink/bindings/modules/InterfacesInfoOverallIndividual.pickle || $
+    obj/third_party/WebKit/Source/bindings/modules/interfaces_info.actions_depends.stamp
+

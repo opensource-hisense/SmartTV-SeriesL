@@ -1,0 +1,14 @@
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/bindings_core_v8_generated.actions_depends.stamp: $
+    stamp $
+    obj/third_party/WebKit/Source/bindings/core/v8/bindings_core_impl_generated.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/core/v8/bindings_core_v8_generated_aggregate.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/core/v8/bindings_core_v8_generated_individual.actions_rules_copies.stamp
+
+build $
+    obj/third_party/WebKit/Source/bindings/core/v8/bindings_core_v8_generated.compile_depends.stamp: $
+    stamp $
+    obj/third_party/WebKit/Source/bindings/core/v8/bindings_core_impl_generated.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/core/v8/bindings_core_v8_generated_aggregate.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/core/v8/bindings_core_v8_generated_individual.actions_rules_copies.stamp
+

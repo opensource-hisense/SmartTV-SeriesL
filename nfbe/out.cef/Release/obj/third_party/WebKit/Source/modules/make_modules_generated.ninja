@@ -1,0 +1,32 @@
+rule $
+    make_modules_generated_target_IndexedDBNames_bc01c50b4d3c8b0a045f401d3de21cba
+  command = cd ../../third_party/WebKit/Source/modules; python $
+      ../build/scripts/make_names.py indexeddb/IndexedDBNames.in $
+      --output_dir ../../../../out.cef/Release/gen/blink/modules
+  description = ACTION make_modules_generated: $
+      IndexedDBNames_bc01c50b4d3c8b0a045f401d3de21cba
+  restat = 1
+
+build gen/blink/modules/IndexedDBNames.cpp $
+    gen/blink/modules/IndexedDBNames.h: $
+    make_modules_generated_target_IndexedDBNames_bc01c50b4d3c8b0a045f401d3de21cba $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_names.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeNames.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeNames.h.tmpl $
+    ../../third_party/WebKit/Source/modules/indexeddb/IndexedDBNames.in || $
+    obj/third_party/WebKit/Source/bindings/modules/modules_event_generated.actions_rules_copies.stamp
+
+build $
+    obj/third_party/WebKit/Source/modules/make_modules_generated.actions_rules_copies.stamp: $
+    stamp gen/blink/modules/IndexedDBNames.cpp $
+    gen/blink/modules/IndexedDBNames.h
+

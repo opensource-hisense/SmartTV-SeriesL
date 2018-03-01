@@ -1,0 +1,599 @@
+rule opus_target_convert_assembler_be66cc978fd4984cd32f5ec0dd09d968
+  command = cd ../../third_party/opus; bash -c "perl $
+      src/celt/arm/arm2gnu.pl src/celt/arm/celt_pitch_xcorr_arm.s | sed $
+      \"s/OPUS_ARM_MAY_HAVE_[A-Z]*/1/g\" | sed \"/.include/d\" > $
+      ../../out.cef/Release/obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S"
+  description = ACTION Convert Opus assembler for ARM.
+  restat = 1
+
+build obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S: $
+    opus_target_convert_assembler_be66cc978fd4984cd32f5ec0dd09d968 $
+    ../../third_party/opus/src/celt/arm/arm2gnu.pl $
+    ../../third_party/opus/src/celt/arm/celt_pitch_xcorr_arm.s
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DOPUS_BUILD -DOPUS_EXPORT= $
+    -DHAVE_LRINT -DHAVE_LRINTF -DVAR_ARRAYS -DFIXED_POINT -DOPUS_ARM_ASM $
+    -DOPUS_ARM_INLINE_ASM -DOPUS_ARM_INLINE_EDSP -DOPUS_ARM_MAY_HAVE_EDSP $
+    -DOPUS_ARM_MAY_HAVE_MEDIA -DOPUS_ARM_MAY_HAVE_NEON $
+    -DOPUS_ARM_MAY_HAVE_NEON_INTR -DOPUS_HAVE_RTCD -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -Igen -I../../third_party/opus/src/celt $
+    -I../../third_party/opus/src/include -I../../third_party/opus/src/silk $
+    -I../../third_party/opus/src/silk/fixed
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -Wno-#pragma-messages -O3 -mfpu=neon $
+    -march=armv8-a -mtune=cortex-a53 -mfpu=crypto-neon-fp-armv8 $
+    -mfloat-abi=hard -mthumb --sysroot=/work/bsp/sc1400 -O2 -fno-ident $
+    -fdata-sections -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-abi $
+    -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+build obj/third_party/opus/src/celt/opus.bands.o: cc $
+    ../../third_party/opus/src/celt/bands.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/celt/opus.celt.o: cc $
+    ../../third_party/opus/src/celt/celt.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/celt/opus.celt_decoder.o: cc $
+    ../../third_party/opus/src/celt/celt_decoder.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/celt/opus.celt_encoder.o: cc $
+    ../../third_party/opus/src/celt/celt_encoder.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/celt/opus.celt_lpc.o: cc $
+    ../../third_party/opus/src/celt/celt_lpc.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/celt/opus.cwrs.o: cc $
+    ../../third_party/opus/src/celt/cwrs.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/celt/opus.entcode.o: cc $
+    ../../third_party/opus/src/celt/entcode.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/celt/opus.entdec.o: cc $
+    ../../third_party/opus/src/celt/entdec.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/celt/opus.entenc.o: cc $
+    ../../third_party/opus/src/celt/entenc.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/celt/opus.kiss_fft.o: cc $
+    ../../third_party/opus/src/celt/kiss_fft.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/celt/opus.laplace.o: cc $
+    ../../third_party/opus/src/celt/laplace.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/celt/opus.mathops.o: cc $
+    ../../third_party/opus/src/celt/mathops.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/celt/opus.mdct.o: cc $
+    ../../third_party/opus/src/celt/mdct.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/celt/opus.modes.o: cc $
+    ../../third_party/opus/src/celt/modes.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/celt/opus.pitch.o: cc $
+    ../../third_party/opus/src/celt/pitch.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/celt/opus.quant_bands.o: cc $
+    ../../third_party/opus/src/celt/quant_bands.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/celt/opus.rate.o: cc $
+    ../../third_party/opus/src/celt/rate.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/celt/opus.vq.o: cc $
+    ../../third_party/opus/src/celt/vq.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.A2NLSF.o: cc $
+    ../../third_party/opus/src/silk/A2NLSF.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.ana_filt_bank_1.o: cc $
+    ../../third_party/opus/src/silk/ana_filt_bank_1.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.biquad_alt.o: cc $
+    ../../third_party/opus/src/silk/biquad_alt.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.bwexpander.o: cc $
+    ../../third_party/opus/src/silk/bwexpander.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.bwexpander_32.o: cc $
+    ../../third_party/opus/src/silk/bwexpander_32.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.check_control_input.o: cc $
+    ../../third_party/opus/src/silk/check_control_input.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.CNG.o: cc $
+    ../../third_party/opus/src/silk/CNG.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.code_signs.o: cc $
+    ../../third_party/opus/src/silk/code_signs.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.control_audio_bandwidth.o: cc $
+    ../../third_party/opus/src/silk/control_audio_bandwidth.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.control_codec.o: cc $
+    ../../third_party/opus/src/silk/control_codec.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.control_SNR.o: cc $
+    ../../third_party/opus/src/silk/control_SNR.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.debug.o: cc $
+    ../../third_party/opus/src/silk/debug.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.dec_API.o: cc $
+    ../../third_party/opus/src/silk/dec_API.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.decode_core.o: cc $
+    ../../third_party/opus/src/silk/decode_core.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.decode_frame.o: cc $
+    ../../third_party/opus/src/silk/decode_frame.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.decode_indices.o: cc $
+    ../../third_party/opus/src/silk/decode_indices.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.decode_parameters.o: cc $
+    ../../third_party/opus/src/silk/decode_parameters.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.decode_pitch.o: cc $
+    ../../third_party/opus/src/silk/decode_pitch.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.decode_pulses.o: cc $
+    ../../third_party/opus/src/silk/decode_pulses.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.decoder_set_fs.o: cc $
+    ../../third_party/opus/src/silk/decoder_set_fs.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.enc_API.o: cc $
+    ../../third_party/opus/src/silk/enc_API.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.encode_indices.o: cc $
+    ../../third_party/opus/src/silk/encode_indices.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.encode_pulses.o: cc $
+    ../../third_party/opus/src/silk/encode_pulses.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.gain_quant.o: cc $
+    ../../third_party/opus/src/silk/gain_quant.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.HP_variable_cutoff.o: cc $
+    ../../third_party/opus/src/silk/HP_variable_cutoff.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.init_decoder.o: cc $
+    ../../third_party/opus/src/silk/init_decoder.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.init_encoder.o: cc $
+    ../../third_party/opus/src/silk/init_encoder.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.inner_prod_aligned.o: cc $
+    ../../third_party/opus/src/silk/inner_prod_aligned.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.interpolate.o: cc $
+    ../../third_party/opus/src/silk/interpolate.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.lin2log.o: cc $
+    ../../third_party/opus/src/silk/lin2log.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.log2lin.o: cc $
+    ../../third_party/opus/src/silk/log2lin.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.LP_variable_cutoff.o: cc $
+    ../../third_party/opus/src/silk/LP_variable_cutoff.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.LPC_analysis_filter.o: cc $
+    ../../third_party/opus/src/silk/LPC_analysis_filter.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.LPC_inv_pred_gain.o: cc $
+    ../../third_party/opus/src/silk/LPC_inv_pred_gain.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.NLSF2A.o: cc $
+    ../../third_party/opus/src/silk/NLSF2A.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.NLSF_decode.o: cc $
+    ../../third_party/opus/src/silk/NLSF_decode.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.NLSF_del_dec_quant.o: cc $
+    ../../third_party/opus/src/silk/NLSF_del_dec_quant.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.NLSF_encode.o: cc $
+    ../../third_party/opus/src/silk/NLSF_encode.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.NLSF_stabilize.o: cc $
+    ../../third_party/opus/src/silk/NLSF_stabilize.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.NLSF_unpack.o: cc $
+    ../../third_party/opus/src/silk/NLSF_unpack.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.NLSF_VQ.o: cc $
+    ../../third_party/opus/src/silk/NLSF_VQ.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.NLSF_VQ_weights_laroia.o: cc $
+    ../../third_party/opus/src/silk/NLSF_VQ_weights_laroia.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.NSQ.o: cc $
+    ../../third_party/opus/src/silk/NSQ.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.NSQ_del_dec.o: cc $
+    ../../third_party/opus/src/silk/NSQ_del_dec.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.pitch_est_tables.o: cc $
+    ../../third_party/opus/src/silk/pitch_est_tables.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.PLC.o: cc $
+    ../../third_party/opus/src/silk/PLC.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.process_NLSFs.o: cc $
+    ../../third_party/opus/src/silk/process_NLSFs.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.quant_LTP_gains.o: cc $
+    ../../third_party/opus/src/silk/quant_LTP_gains.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.resampler.o: cc $
+    ../../third_party/opus/src/silk/resampler.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.resampler_down2.o: cc $
+    ../../third_party/opus/src/silk/resampler_down2.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.resampler_down2_3.o: cc $
+    ../../third_party/opus/src/silk/resampler_down2_3.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.resampler_private_AR2.o: cc $
+    ../../third_party/opus/src/silk/resampler_private_AR2.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.resampler_private_down_FIR.o: cc $
+    ../../third_party/opus/src/silk/resampler_private_down_FIR.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.resampler_private_IIR_FIR.o: cc $
+    ../../third_party/opus/src/silk/resampler_private_IIR_FIR.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.resampler_private_up2_HQ.o: cc $
+    ../../third_party/opus/src/silk/resampler_private_up2_HQ.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.resampler_rom.o: cc $
+    ../../third_party/opus/src/silk/resampler_rom.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.shell_coder.o: cc $
+    ../../third_party/opus/src/silk/shell_coder.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.sigm_Q15.o: cc $
+    ../../third_party/opus/src/silk/sigm_Q15.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.sort.o: cc $
+    ../../third_party/opus/src/silk/sort.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.stereo_decode_pred.o: cc $
+    ../../third_party/opus/src/silk/stereo_decode_pred.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.stereo_encode_pred.o: cc $
+    ../../third_party/opus/src/silk/stereo_encode_pred.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.stereo_find_predictor.o: cc $
+    ../../third_party/opus/src/silk/stereo_find_predictor.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.stereo_LR_to_MS.o: cc $
+    ../../third_party/opus/src/silk/stereo_LR_to_MS.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.stereo_MS_to_LR.o: cc $
+    ../../third_party/opus/src/silk/stereo_MS_to_LR.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.stereo_quant_pred.o: cc $
+    ../../third_party/opus/src/silk/stereo_quant_pred.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.sum_sqr_shift.o: cc $
+    ../../third_party/opus/src/silk/sum_sqr_shift.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.table_LSF_cos.o: cc $
+    ../../third_party/opus/src/silk/table_LSF_cos.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.tables_gain.o: cc $
+    ../../third_party/opus/src/silk/tables_gain.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.tables_LTP.o: cc $
+    ../../third_party/opus/src/silk/tables_LTP.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.tables_NLSF_CB_NB_MB.o: cc $
+    ../../third_party/opus/src/silk/tables_NLSF_CB_NB_MB.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.tables_NLSF_CB_WB.o: cc $
+    ../../third_party/opus/src/silk/tables_NLSF_CB_WB.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.tables_other.o: cc $
+    ../../third_party/opus/src/silk/tables_other.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.tables_pitch_lag.o: cc $
+    ../../third_party/opus/src/silk/tables_pitch_lag.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.tables_pulses_per_block.o: cc $
+    ../../third_party/opus/src/silk/tables_pulses_per_block.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.VAD.o: cc $
+    ../../third_party/opus/src/silk/VAD.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/opus.VQ_WMat_EC.o: cc $
+    ../../third_party/opus/src/silk/VQ_WMat_EC.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/src/opus.analysis.o: cc $
+    ../../third_party/opus/src/src/analysis.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/src/opus.mlp.o: cc $
+    ../../third_party/opus/src/src/mlp.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/src/opus.mlp_data.o: cc $
+    ../../third_party/opus/src/src/mlp_data.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/src/opus.opus.o: cc $
+    ../../third_party/opus/src/src/opus.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/src/opus.opus_decoder.o: cc $
+    ../../third_party/opus/src/src/opus_decoder.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/src/opus.opus_encoder.o: cc $
+    ../../third_party/opus/src/src/opus_encoder.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/src/opus.opus_multistream.o: cc $
+    ../../third_party/opus/src/src/opus_multistream.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/src/opus.opus_multistream_decoder.o: cc $
+    ../../third_party/opus/src/src/opus_multistream_decoder.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/src/opus.opus_multistream_encoder.o: cc $
+    ../../third_party/opus/src/src/opus_multistream_encoder.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/src/opus.repacketizer.o: cc $
+    ../../third_party/opus/src/src/repacketizer.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/fixed/opus.apply_sine_window_FIX.o: cc $
+    ../../third_party/opus/src/silk/fixed/apply_sine_window_FIX.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/fixed/opus.autocorr_FIX.o: cc $
+    ../../third_party/opus/src/silk/fixed/autocorr_FIX.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/fixed/opus.burg_modified_FIX.o: cc $
+    ../../third_party/opus/src/silk/fixed/burg_modified_FIX.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/fixed/opus.corrMatrix_FIX.o: cc $
+    ../../third_party/opus/src/silk/fixed/corrMatrix_FIX.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/fixed/opus.encode_frame_FIX.o: cc $
+    ../../third_party/opus/src/silk/fixed/encode_frame_FIX.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/fixed/opus.find_LPC_FIX.o: cc $
+    ../../third_party/opus/src/silk/fixed/find_LPC_FIX.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/fixed/opus.find_LTP_FIX.o: cc $
+    ../../third_party/opus/src/silk/fixed/find_LTP_FIX.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/fixed/opus.find_pitch_lags_FIX.o: cc $
+    ../../third_party/opus/src/silk/fixed/find_pitch_lags_FIX.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/fixed/opus.find_pred_coefs_FIX.o: cc $
+    ../../third_party/opus/src/silk/fixed/find_pred_coefs_FIX.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/fixed/opus.k2a_FIX.o: cc $
+    ../../third_party/opus/src/silk/fixed/k2a_FIX.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/fixed/opus.k2a_Q16_FIX.o: cc $
+    ../../third_party/opus/src/silk/fixed/k2a_Q16_FIX.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/fixed/opus.LTP_analysis_filter_FIX.o: $
+    cc ../../third_party/opus/src/silk/fixed/LTP_analysis_filter_FIX.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/fixed/opus.LTP_scale_ctrl_FIX.o: cc $
+    ../../third_party/opus/src/silk/fixed/LTP_scale_ctrl_FIX.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/fixed/opus.noise_shape_analysis_FIX.o: $
+    cc ../../third_party/opus/src/silk/fixed/noise_shape_analysis_FIX.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/fixed/opus.pitch_analysis_core_FIX.o: $
+    cc ../../third_party/opus/src/silk/fixed/pitch_analysis_core_FIX.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/fixed/opus.prefilter_FIX.o: cc $
+    ../../third_party/opus/src/silk/fixed/prefilter_FIX.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/fixed/opus.process_gains_FIX.o: cc $
+    ../../third_party/opus/src/silk/fixed/process_gains_FIX.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build $
+    obj/third_party/opus/src/silk/fixed/opus.regularize_correlations_FIX.o: $
+    cc ../../third_party/opus/src/silk/fixed/regularize_correlations_FIX.c $
+    || obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/fixed/opus.residual_energy16_FIX.o: cc $
+    ../../third_party/opus/src/silk/fixed/residual_energy16_FIX.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/fixed/opus.residual_energy_FIX.o: cc $
+    ../../third_party/opus/src/silk/fixed/residual_energy_FIX.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/fixed/opus.schur64_FIX.o: cc $
+    ../../third_party/opus/src/silk/fixed/schur64_FIX.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/fixed/opus.schur_FIX.o: cc $
+    ../../third_party/opus/src/silk/fixed/schur_FIX.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/fixed/opus.solve_LS_FIX.o: cc $
+    ../../third_party/opus/src/silk/fixed/solve_LS_FIX.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/silk/fixed/opus.vector_ops_FIX.o: cc $
+    ../../third_party/opus/src/silk/fixed/vector_ops_FIX.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build $
+    obj/third_party/opus/src/silk/fixed/opus.warped_autocorrelation_FIX.o: $
+    cc ../../third_party/opus/src/silk/fixed/warped_autocorrelation_FIX.c $
+    || obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/celt/arm/opus.arm_celt_map.o: cc $
+    ../../third_party/opus/src/celt/arm/arm_celt_map.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/celt/arm/opus.armcpu.o: cc $
+    ../../third_party/opus/src/celt/arm/armcpu.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build obj/third_party/opus/src/celt/arm/opus.celt_neon_intr.o: cc $
+    ../../third_party/opus/src/celt/arm/celt_neon_intr.c || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+build $
+    obj/third_party/opus/obj/third_party/opus/opus.gen/opus.celt_pitch_xcorr_arm_gnu.o: $
+    cc obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S || $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S
+
+build obj/third_party/opus/libopus.a: alink_thin $
+    obj/third_party/opus/src/celt/opus.bands.o $
+    obj/third_party/opus/src/celt/opus.celt.o $
+    obj/third_party/opus/src/celt/opus.celt_decoder.o $
+    obj/third_party/opus/src/celt/opus.celt_encoder.o $
+    obj/third_party/opus/src/celt/opus.celt_lpc.o $
+    obj/third_party/opus/src/celt/opus.cwrs.o $
+    obj/third_party/opus/src/celt/opus.entcode.o $
+    obj/third_party/opus/src/celt/opus.entdec.o $
+    obj/third_party/opus/src/celt/opus.entenc.o $
+    obj/third_party/opus/src/celt/opus.kiss_fft.o $
+    obj/third_party/opus/src/celt/opus.laplace.o $
+    obj/third_party/opus/src/celt/opus.mathops.o $
+    obj/third_party/opus/src/celt/opus.mdct.o $
+    obj/third_party/opus/src/celt/opus.modes.o $
+    obj/third_party/opus/src/celt/opus.pitch.o $
+    obj/third_party/opus/src/celt/opus.quant_bands.o $
+    obj/third_party/opus/src/celt/opus.rate.o $
+    obj/third_party/opus/src/celt/opus.vq.o $
+    obj/third_party/opus/src/silk/opus.A2NLSF.o $
+    obj/third_party/opus/src/silk/opus.ana_filt_bank_1.o $
+    obj/third_party/opus/src/silk/opus.biquad_alt.o $
+    obj/third_party/opus/src/silk/opus.bwexpander.o $
+    obj/third_party/opus/src/silk/opus.bwexpander_32.o $
+    obj/third_party/opus/src/silk/opus.check_control_input.o $
+    obj/third_party/opus/src/silk/opus.CNG.o $
+    obj/third_party/opus/src/silk/opus.code_signs.o $
+    obj/third_party/opus/src/silk/opus.control_audio_bandwidth.o $
+    obj/third_party/opus/src/silk/opus.control_codec.o $
+    obj/third_party/opus/src/silk/opus.control_SNR.o $
+    obj/third_party/opus/src/silk/opus.debug.o $
+    obj/third_party/opus/src/silk/opus.dec_API.o $
+    obj/third_party/opus/src/silk/opus.decode_core.o $
+    obj/third_party/opus/src/silk/opus.decode_frame.o $
+    obj/third_party/opus/src/silk/opus.decode_indices.o $
+    obj/third_party/opus/src/silk/opus.decode_parameters.o $
+    obj/third_party/opus/src/silk/opus.decode_pitch.o $
+    obj/third_party/opus/src/silk/opus.decode_pulses.o $
+    obj/third_party/opus/src/silk/opus.decoder_set_fs.o $
+    obj/third_party/opus/src/silk/opus.enc_API.o $
+    obj/third_party/opus/src/silk/opus.encode_indices.o $
+    obj/third_party/opus/src/silk/opus.encode_pulses.o $
+    obj/third_party/opus/src/silk/opus.gain_quant.o $
+    obj/third_party/opus/src/silk/opus.HP_variable_cutoff.o $
+    obj/third_party/opus/src/silk/opus.init_decoder.o $
+    obj/third_party/opus/src/silk/opus.init_encoder.o $
+    obj/third_party/opus/src/silk/opus.inner_prod_aligned.o $
+    obj/third_party/opus/src/silk/opus.interpolate.o $
+    obj/third_party/opus/src/silk/opus.lin2log.o $
+    obj/third_party/opus/src/silk/opus.log2lin.o $
+    obj/third_party/opus/src/silk/opus.LP_variable_cutoff.o $
+    obj/third_party/opus/src/silk/opus.LPC_analysis_filter.o $
+    obj/third_party/opus/src/silk/opus.LPC_inv_pred_gain.o $
+    obj/third_party/opus/src/silk/opus.NLSF2A.o $
+    obj/third_party/opus/src/silk/opus.NLSF_decode.o $
+    obj/third_party/opus/src/silk/opus.NLSF_del_dec_quant.o $
+    obj/third_party/opus/src/silk/opus.NLSF_encode.o $
+    obj/third_party/opus/src/silk/opus.NLSF_stabilize.o $
+    obj/third_party/opus/src/silk/opus.NLSF_unpack.o $
+    obj/third_party/opus/src/silk/opus.NLSF_VQ.o $
+    obj/third_party/opus/src/silk/opus.NLSF_VQ_weights_laroia.o $
+    obj/third_party/opus/src/silk/opus.NSQ.o $
+    obj/third_party/opus/src/silk/opus.NSQ_del_dec.o $
+    obj/third_party/opus/src/silk/opus.pitch_est_tables.o $
+    obj/third_party/opus/src/silk/opus.PLC.o $
+    obj/third_party/opus/src/silk/opus.process_NLSFs.o $
+    obj/third_party/opus/src/silk/opus.quant_LTP_gains.o $
+    obj/third_party/opus/src/silk/opus.resampler.o $
+    obj/third_party/opus/src/silk/opus.resampler_down2.o $
+    obj/third_party/opus/src/silk/opus.resampler_down2_3.o $
+    obj/third_party/opus/src/silk/opus.resampler_private_AR2.o $
+    obj/third_party/opus/src/silk/opus.resampler_private_down_FIR.o $
+    obj/third_party/opus/src/silk/opus.resampler_private_IIR_FIR.o $
+    obj/third_party/opus/src/silk/opus.resampler_private_up2_HQ.o $
+    obj/third_party/opus/src/silk/opus.resampler_rom.o $
+    obj/third_party/opus/src/silk/opus.shell_coder.o $
+    obj/third_party/opus/src/silk/opus.sigm_Q15.o $
+    obj/third_party/opus/src/silk/opus.sort.o $
+    obj/third_party/opus/src/silk/opus.stereo_decode_pred.o $
+    obj/third_party/opus/src/silk/opus.stereo_encode_pred.o $
+    obj/third_party/opus/src/silk/opus.stereo_find_predictor.o $
+    obj/third_party/opus/src/silk/opus.stereo_LR_to_MS.o $
+    obj/third_party/opus/src/silk/opus.stereo_MS_to_LR.o $
+    obj/third_party/opus/src/silk/opus.stereo_quant_pred.o $
+    obj/third_party/opus/src/silk/opus.sum_sqr_shift.o $
+    obj/third_party/opus/src/silk/opus.table_LSF_cos.o $
+    obj/third_party/opus/src/silk/opus.tables_gain.o $
+    obj/third_party/opus/src/silk/opus.tables_LTP.o $
+    obj/third_party/opus/src/silk/opus.tables_NLSF_CB_NB_MB.o $
+    obj/third_party/opus/src/silk/opus.tables_NLSF_CB_WB.o $
+    obj/third_party/opus/src/silk/opus.tables_other.o $
+    obj/third_party/opus/src/silk/opus.tables_pitch_lag.o $
+    obj/third_party/opus/src/silk/opus.tables_pulses_per_block.o $
+    obj/third_party/opus/src/silk/opus.VAD.o $
+    obj/third_party/opus/src/silk/opus.VQ_WMat_EC.o $
+    obj/third_party/opus/src/src/opus.analysis.o $
+    obj/third_party/opus/src/src/opus.mlp.o $
+    obj/third_party/opus/src/src/opus.mlp_data.o $
+    obj/third_party/opus/src/src/opus.opus.o $
+    obj/third_party/opus/src/src/opus.opus_decoder.o $
+    obj/third_party/opus/src/src/opus.opus_encoder.o $
+    obj/third_party/opus/src/src/opus.opus_multistream.o $
+    obj/third_party/opus/src/src/opus.opus_multistream_decoder.o $
+    obj/third_party/opus/src/src/opus.opus_multistream_encoder.o $
+    obj/third_party/opus/src/src/opus.repacketizer.o $
+    obj/third_party/opus/src/silk/fixed/opus.apply_sine_window_FIX.o $
+    obj/third_party/opus/src/silk/fixed/opus.autocorr_FIX.o $
+    obj/third_party/opus/src/silk/fixed/opus.burg_modified_FIX.o $
+    obj/third_party/opus/src/silk/fixed/opus.corrMatrix_FIX.o $
+    obj/third_party/opus/src/silk/fixed/opus.encode_frame_FIX.o $
+    obj/third_party/opus/src/silk/fixed/opus.find_LPC_FIX.o $
+    obj/third_party/opus/src/silk/fixed/opus.find_LTP_FIX.o $
+    obj/third_party/opus/src/silk/fixed/opus.find_pitch_lags_FIX.o $
+    obj/third_party/opus/src/silk/fixed/opus.find_pred_coefs_FIX.o $
+    obj/third_party/opus/src/silk/fixed/opus.k2a_FIX.o $
+    obj/third_party/opus/src/silk/fixed/opus.k2a_Q16_FIX.o $
+    obj/third_party/opus/src/silk/fixed/opus.LTP_analysis_filter_FIX.o $
+    obj/third_party/opus/src/silk/fixed/opus.LTP_scale_ctrl_FIX.o $
+    obj/third_party/opus/src/silk/fixed/opus.noise_shape_analysis_FIX.o $
+    obj/third_party/opus/src/silk/fixed/opus.pitch_analysis_core_FIX.o $
+    obj/third_party/opus/src/silk/fixed/opus.prefilter_FIX.o $
+    obj/third_party/opus/src/silk/fixed/opus.process_gains_FIX.o $
+    obj/third_party/opus/src/silk/fixed/opus.regularize_correlations_FIX.o $
+    obj/third_party/opus/src/silk/fixed/opus.residual_energy16_FIX.o $
+    obj/third_party/opus/src/silk/fixed/opus.residual_energy_FIX.o $
+    obj/third_party/opus/src/silk/fixed/opus.schur64_FIX.o $
+    obj/third_party/opus/src/silk/fixed/opus.schur_FIX.o $
+    obj/third_party/opus/src/silk/fixed/opus.solve_LS_FIX.o $
+    obj/third_party/opus/src/silk/fixed/opus.vector_ops_FIX.o $
+    obj/third_party/opus/src/silk/fixed/opus.warped_autocorrelation_FIX.o $
+    obj/third_party/opus/src/celt/arm/opus.arm_celt_map.o $
+    obj/third_party/opus/src/celt/arm/opus.armcpu.o $
+    obj/third_party/opus/src/celt/arm/opus.celt_neon_intr.o $
+    obj/third_party/opus/obj/third_party/opus/opus.gen/opus.celt_pitch_xcorr_arm_gnu.o $
+    || obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S

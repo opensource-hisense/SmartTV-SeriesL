@@ -1,0 +1,771 @@
+rule sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8
+  command = cd ../../sync; python ../tools/protoc_wrapper/protoc_wrapper.py $
+      --include sync/protocol/sync_proto_export.h --protobuf $
+      "../out.cef/Release/gen/protoc_out/sync/protocol/${root}.pb.h" $
+      --proto-in-dir ./protocol --proto-in-file "${root}${ext}" $
+      "--use-system-protobuf=0" -- ../out.cef/Release/protoc --cpp_out $
+      "dllexport_decl=SYNC_PROTO_EXPORT:../out.cef/Release/gen/protoc_out/sync/protocol" $
+      --python_out ../out.cef/Release/pyproto/sync/protocol
+  description = RULE Generating C++ and Python code from ${source}
+  restat = 1
+
+build obj/sync/sync_proto.genproto.stamp: stamp $
+    ../../tools/protoc_wrapper/protoc_wrapper.py protoc || protoc
+
+build pyproto/sync/protocol/app_notification_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/app_notification_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/app_notification_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/app_notification_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = app_notification_specifics
+  source = protocol/app_notification_specifics.proto
+build pyproto/sync/protocol/app_setting_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/app_setting_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/app_setting_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/app_setting_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = app_setting_specifics
+  source = protocol/app_setting_specifics.proto
+build pyproto/sync/protocol/app_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/app_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/app_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/app_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = app_specifics
+  source = protocol/app_specifics.proto
+build pyproto/sync/protocol/app_list_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/app_list_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/app_list_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/app_list_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = app_list_specifics
+  source = protocol/app_list_specifics.proto
+build pyproto/sync/protocol/article_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/article_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/article_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/article_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = article_specifics
+  source = protocol/article_specifics.proto
+build pyproto/sync/protocol/attachments_pb2.py $
+    gen/protoc_out/sync/protocol/attachments.pb.cc $
+    gen/protoc_out/sync/protocol/attachments.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/attachments.proto | obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = attachments
+  source = protocol/attachments.proto
+build pyproto/sync/protocol/autofill_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/autofill_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/autofill_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/autofill_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = autofill_specifics
+  source = protocol/autofill_specifics.proto
+build pyproto/sync/protocol/bookmark_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/bookmark_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/bookmark_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/bookmark_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = bookmark_specifics
+  source = protocol/bookmark_specifics.proto
+build pyproto/sync/protocol/client_commands_pb2.py $
+    gen/protoc_out/sync/protocol/client_commands.pb.cc $
+    gen/protoc_out/sync/protocol/client_commands.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/client_commands.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = client_commands
+  source = protocol/client_commands.proto
+build pyproto/sync/protocol/client_debug_info_pb2.py $
+    gen/protoc_out/sync/protocol/client_debug_info.pb.cc $
+    gen/protoc_out/sync/protocol/client_debug_info.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/client_debug_info.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = client_debug_info
+  source = protocol/client_debug_info.proto
+build pyproto/sync/protocol/data_type_state_pb2.py $
+    gen/protoc_out/sync/protocol/data_type_state.pb.cc $
+    gen/protoc_out/sync/protocol/data_type_state.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/data_type_state.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = data_type_state
+  source = protocol/data_type_state.proto
+build pyproto/sync/protocol/device_info_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/device_info_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/device_info_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/device_info_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = device_info_specifics
+  source = protocol/device_info_specifics.proto
+build pyproto/sync/protocol/dictionary_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/dictionary_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/dictionary_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/dictionary_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = dictionary_specifics
+  source = protocol/dictionary_specifics.proto
+build pyproto/sync/protocol/encryption_pb2.py $
+    gen/protoc_out/sync/protocol/encryption.pb.cc $
+    gen/protoc_out/sync/protocol/encryption.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/encryption.proto | obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = encryption
+  source = protocol/encryption.proto
+build pyproto/sync/protocol/entity_metadata_pb2.py $
+    gen/protoc_out/sync/protocol/entity_metadata.pb.cc $
+    gen/protoc_out/sync/protocol/entity_metadata.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/entity_metadata.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = entity_metadata
+  source = protocol/entity_metadata.proto
+build pyproto/sync/protocol/experiment_status_pb2.py $
+    gen/protoc_out/sync/protocol/experiment_status.pb.cc $
+    gen/protoc_out/sync/protocol/experiment_status.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/experiment_status.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = experiment_status
+  source = protocol/experiment_status.proto
+build pyproto/sync/protocol/experiments_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/experiments_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/experiments_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/experiments_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = experiments_specifics
+  source = protocol/experiments_specifics.proto
+build pyproto/sync/protocol/extension_setting_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/extension_setting_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/extension_setting_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/extension_setting_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = extension_setting_specifics
+  source = protocol/extension_setting_specifics.proto
+build pyproto/sync/protocol/extension_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/extension_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/extension_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/extension_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = extension_specifics
+  source = protocol/extension_specifics.proto
+build pyproto/sync/protocol/favicon_image_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/favicon_image_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/favicon_image_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/favicon_image_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = favicon_image_specifics
+  source = protocol/favicon_image_specifics.proto
+build pyproto/sync/protocol/favicon_tracking_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/favicon_tracking_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/favicon_tracking_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/favicon_tracking_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = favicon_tracking_specifics
+  source = protocol/favicon_tracking_specifics.proto
+build pyproto/sync/protocol/get_updates_caller_info_pb2.py $
+    gen/protoc_out/sync/protocol/get_updates_caller_info.pb.cc $
+    gen/protoc_out/sync/protocol/get_updates_caller_info.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/get_updates_caller_info.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = get_updates_caller_info
+  source = protocol/get_updates_caller_info.proto
+build pyproto/sync/protocol/history_delete_directive_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/history_delete_directive_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/history_delete_directive_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/history_delete_directive_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = history_delete_directive_specifics
+  source = protocol/history_delete_directive_specifics.proto
+build pyproto/sync/protocol/nigori_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/nigori_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/nigori_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/nigori_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = nigori_specifics
+  source = protocol/nigori_specifics.proto
+build pyproto/sync/protocol/managed_user_setting_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/managed_user_setting_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/managed_user_setting_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/managed_user_setting_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = managed_user_setting_specifics
+  source = protocol/managed_user_setting_specifics.proto
+build pyproto/sync/protocol/managed_user_shared_setting_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/managed_user_shared_setting_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/managed_user_shared_setting_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/managed_user_shared_setting_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = managed_user_shared_setting_specifics
+  source = protocol/managed_user_shared_setting_specifics.proto
+build pyproto/sync/protocol/managed_user_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/managed_user_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/managed_user_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/managed_user_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = managed_user_specifics
+  source = protocol/managed_user_specifics.proto
+build pyproto/sync/protocol/managed_user_whitelist_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/managed_user_whitelist_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/managed_user_whitelist_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/managed_user_whitelist_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = managed_user_whitelist_specifics
+  source = protocol/managed_user_whitelist_specifics.proto
+build pyproto/sync/protocol/password_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/password_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/password_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/password_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = password_specifics
+  source = protocol/password_specifics.proto
+build pyproto/sync/protocol/preference_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/preference_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/preference_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/preference_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = preference_specifics
+  source = protocol/preference_specifics.proto
+build pyproto/sync/protocol/priority_preference_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/priority_preference_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/priority_preference_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/priority_preference_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = priority_preference_specifics
+  source = protocol/priority_preference_specifics.proto
+build pyproto/sync/protocol/search_engine_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/search_engine_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/search_engine_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/search_engine_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = search_engine_specifics
+  source = protocol/search_engine_specifics.proto
+build pyproto/sync/protocol/session_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/session_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/session_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/session_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = session_specifics
+  source = protocol/session_specifics.proto
+build pyproto/sync/protocol/sync_pb2.py $
+    gen/protoc_out/sync/protocol/sync.pb.cc $
+    gen/protoc_out/sync/protocol/sync.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/sync.proto | obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = sync
+  source = protocol/sync.proto
+build pyproto/sync/protocol/sync_enums_pb2.py $
+    gen/protoc_out/sync/protocol/sync_enums.pb.cc $
+    gen/protoc_out/sync/protocol/sync_enums.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/sync_enums.proto | obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = sync_enums
+  source = protocol/sync_enums.proto
+build pyproto/sync/protocol/synced_notification_app_info_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/synced_notification_app_info_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/synced_notification_app_info_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/synced_notification_app_info_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = synced_notification_app_info_specifics
+  source = protocol/synced_notification_app_info_specifics.proto
+build pyproto/sync/protocol/synced_notification_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/synced_notification_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/synced_notification_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/synced_notification_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = synced_notification_specifics
+  source = protocol/synced_notification_specifics.proto
+build pyproto/sync/protocol/test_pb2.py $
+    gen/protoc_out/sync/protocol/test.pb.cc $
+    gen/protoc_out/sync/protocol/test.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/test.proto | obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = test
+  source = protocol/test.proto
+build pyproto/sync/protocol/theme_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/theme_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/theme_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/theme_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = theme_specifics
+  source = protocol/theme_specifics.proto
+build pyproto/sync/protocol/typed_url_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/typed_url_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/typed_url_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/typed_url_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = typed_url_specifics
+  source = protocol/typed_url_specifics.proto
+build pyproto/sync/protocol/unique_position_pb2.py $
+    gen/protoc_out/sync/protocol/unique_position.pb.cc $
+    gen/protoc_out/sync/protocol/unique_position.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/unique_position.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = unique_position
+  source = protocol/unique_position.proto
+build pyproto/sync/protocol/wifi_credential_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/wifi_credential_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/wifi_credential_specifics.pb.h: $
+    sync_proto_target_genproto_3f46245a2e257839e324bc9457d1a3d8 $
+    ../../sync/protocol/wifi_credential_specifics.proto | $
+    obj/sync/sync_proto.genproto.stamp
+  ext = .proto
+  root = wifi_credential_specifics
+  source = protocol/wifi_credential_specifics.proto
+build obj/sync/sync_proto.actions_rules_copies.stamp: stamp $
+    pyproto/sync/protocol/app_notification_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/app_notification_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/app_notification_specifics.pb.h $
+    pyproto/sync/protocol/app_setting_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/app_setting_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/app_setting_specifics.pb.h $
+    pyproto/sync/protocol/app_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/app_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/app_specifics.pb.h $
+    pyproto/sync/protocol/app_list_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/app_list_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/app_list_specifics.pb.h $
+    pyproto/sync/protocol/article_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/article_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/article_specifics.pb.h $
+    pyproto/sync/protocol/attachments_pb2.py $
+    gen/protoc_out/sync/protocol/attachments.pb.cc $
+    gen/protoc_out/sync/protocol/attachments.pb.h $
+    pyproto/sync/protocol/autofill_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/autofill_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/autofill_specifics.pb.h $
+    pyproto/sync/protocol/bookmark_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/bookmark_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/bookmark_specifics.pb.h $
+    pyproto/sync/protocol/client_commands_pb2.py $
+    gen/protoc_out/sync/protocol/client_commands.pb.cc $
+    gen/protoc_out/sync/protocol/client_commands.pb.h $
+    pyproto/sync/protocol/client_debug_info_pb2.py $
+    gen/protoc_out/sync/protocol/client_debug_info.pb.cc $
+    gen/protoc_out/sync/protocol/client_debug_info.pb.h $
+    pyproto/sync/protocol/data_type_state_pb2.py $
+    gen/protoc_out/sync/protocol/data_type_state.pb.cc $
+    gen/protoc_out/sync/protocol/data_type_state.pb.h $
+    pyproto/sync/protocol/device_info_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/device_info_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/device_info_specifics.pb.h $
+    pyproto/sync/protocol/dictionary_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/dictionary_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/dictionary_specifics.pb.h $
+    pyproto/sync/protocol/encryption_pb2.py $
+    gen/protoc_out/sync/protocol/encryption.pb.cc $
+    gen/protoc_out/sync/protocol/encryption.pb.h $
+    pyproto/sync/protocol/entity_metadata_pb2.py $
+    gen/protoc_out/sync/protocol/entity_metadata.pb.cc $
+    gen/protoc_out/sync/protocol/entity_metadata.pb.h $
+    pyproto/sync/protocol/experiment_status_pb2.py $
+    gen/protoc_out/sync/protocol/experiment_status.pb.cc $
+    gen/protoc_out/sync/protocol/experiment_status.pb.h $
+    pyproto/sync/protocol/experiments_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/experiments_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/experiments_specifics.pb.h $
+    pyproto/sync/protocol/extension_setting_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/extension_setting_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/extension_setting_specifics.pb.h $
+    pyproto/sync/protocol/extension_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/extension_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/extension_specifics.pb.h $
+    pyproto/sync/protocol/favicon_image_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/favicon_image_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/favicon_image_specifics.pb.h $
+    pyproto/sync/protocol/favicon_tracking_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/favicon_tracking_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/favicon_tracking_specifics.pb.h $
+    pyproto/sync/protocol/get_updates_caller_info_pb2.py $
+    gen/protoc_out/sync/protocol/get_updates_caller_info.pb.cc $
+    gen/protoc_out/sync/protocol/get_updates_caller_info.pb.h $
+    pyproto/sync/protocol/history_delete_directive_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/history_delete_directive_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/history_delete_directive_specifics.pb.h $
+    pyproto/sync/protocol/nigori_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/nigori_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/nigori_specifics.pb.h $
+    pyproto/sync/protocol/managed_user_setting_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/managed_user_setting_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/managed_user_setting_specifics.pb.h $
+    pyproto/sync/protocol/managed_user_shared_setting_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/managed_user_shared_setting_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/managed_user_shared_setting_specifics.pb.h $
+    pyproto/sync/protocol/managed_user_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/managed_user_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/managed_user_specifics.pb.h $
+    pyproto/sync/protocol/managed_user_whitelist_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/managed_user_whitelist_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/managed_user_whitelist_specifics.pb.h $
+    pyproto/sync/protocol/password_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/password_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/password_specifics.pb.h $
+    pyproto/sync/protocol/preference_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/preference_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/preference_specifics.pb.h $
+    pyproto/sync/protocol/priority_preference_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/priority_preference_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/priority_preference_specifics.pb.h $
+    pyproto/sync/protocol/search_engine_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/search_engine_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/search_engine_specifics.pb.h $
+    pyproto/sync/protocol/session_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/session_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/session_specifics.pb.h $
+    pyproto/sync/protocol/sync_pb2.py $
+    gen/protoc_out/sync/protocol/sync.pb.cc $
+    gen/protoc_out/sync/protocol/sync.pb.h $
+    pyproto/sync/protocol/sync_enums_pb2.py $
+    gen/protoc_out/sync/protocol/sync_enums.pb.cc $
+    gen/protoc_out/sync/protocol/sync_enums.pb.h $
+    pyproto/sync/protocol/synced_notification_app_info_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/synced_notification_app_info_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/synced_notification_app_info_specifics.pb.h $
+    pyproto/sync/protocol/synced_notification_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/synced_notification_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/synced_notification_specifics.pb.h $
+    pyproto/sync/protocol/test_pb2.py $
+    gen/protoc_out/sync/protocol/test.pb.cc $
+    gen/protoc_out/sync/protocol/test.pb.h $
+    pyproto/sync/protocol/theme_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/theme_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/theme_specifics.pb.h $
+    pyproto/sync/protocol/typed_url_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/typed_url_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/typed_url_specifics.pb.h $
+    pyproto/sync/protocol/unique_position_pb2.py $
+    gen/protoc_out/sync/protocol/unique_position.pb.cc $
+    gen/protoc_out/sync/protocol/unique_position.pb.h $
+    pyproto/sync/protocol/wifi_credential_specifics_pb2.py $
+    gen/protoc_out/sync/protocol/wifi_credential_specifics.pb.cc $
+    gen/protoc_out/sync/protocol/wifi_credential_specifics.pb.h
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DSYNC_PROTO_IMPLEMENTATION $
+    -DPROTOBUF_USE_DLLS -DGOOGLE_PROTOBUF_NO_RTTI $
+    -DGOOGLE_PROTOBUF_NO_STATIC_INITIALIZER -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS $
+    -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -Igen/protoc_out -I../../third_party/protobuf $
+    -I../../third_party/protobuf/src
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.app_notification_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/app_notification_specifics.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.app_setting_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/app_setting_specifics.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build obj/sync/gen/protoc_out/sync/protocol/sync_proto.app_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/app_specifics.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.app_list_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/app_list_specifics.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.article_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/article_specifics.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build obj/sync/gen/protoc_out/sync/protocol/sync_proto.attachments.pb.o: $
+    cxx gen/protoc_out/sync/protocol/attachments.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.autofill_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/autofill_specifics.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.bookmark_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/bookmark_specifics.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.client_commands.pb.o: $
+    cxx gen/protoc_out/sync/protocol/client_commands.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.client_debug_info.pb.o: $
+    cxx gen/protoc_out/sync/protocol/client_debug_info.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.data_type_state.pb.o: $
+    cxx gen/protoc_out/sync/protocol/data_type_state.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.device_info_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/device_info_specifics.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.dictionary_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/dictionary_specifics.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build obj/sync/gen/protoc_out/sync/protocol/sync_proto.encryption.pb.o: cxx $
+    gen/protoc_out/sync/protocol/encryption.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.entity_metadata.pb.o: $
+    cxx gen/protoc_out/sync/protocol/entity_metadata.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.experiment_status.pb.o: $
+    cxx gen/protoc_out/sync/protocol/experiment_status.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.experiments_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/experiments_specifics.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.extension_setting_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/extension_setting_specifics.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.extension_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/extension_specifics.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.favicon_image_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/favicon_image_specifics.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.favicon_tracking_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/favicon_tracking_specifics.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.get_updates_caller_info.pb.o: $
+    cxx gen/protoc_out/sync/protocol/get_updates_caller_info.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.history_delete_directive_specifics.pb.o: $
+    cxx $
+    gen/protoc_out/sync/protocol/history_delete_directive_specifics.pb.cc $
+    || obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.nigori_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/nigori_specifics.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.managed_user_setting_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/managed_user_setting_specifics.pb.cc $
+    || obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.managed_user_shared_setting_specifics.pb.o: $
+    cxx $
+    gen/protoc_out/sync/protocol/managed_user_shared_setting_specifics.pb.cc $
+    || obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.managed_user_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/managed_user_specifics.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.managed_user_whitelist_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/managed_user_whitelist_specifics.pb.cc $
+    || obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.password_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/password_specifics.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.preference_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/preference_specifics.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.priority_preference_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/priority_preference_specifics.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.search_engine_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/search_engine_specifics.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.session_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/session_specifics.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build obj/sync/gen/protoc_out/sync/protocol/sync_proto.sync.pb.o: cxx $
+    gen/protoc_out/sync/protocol/sync.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build obj/sync/gen/protoc_out/sync/protocol/sync_proto.sync_enums.pb.o: cxx $
+    gen/protoc_out/sync/protocol/sync_enums.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.synced_notification_app_info_specifics.pb.o: $
+    cxx $
+    gen/protoc_out/sync/protocol/synced_notification_app_info_specifics.pb.cc $
+    || obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.synced_notification_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/synced_notification_specifics.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build obj/sync/gen/protoc_out/sync/protocol/sync_proto.test.pb.o: cxx $
+    gen/protoc_out/sync/protocol/test.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.theme_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/theme_specifics.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.typed_url_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/typed_url_specifics.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.unique_position.pb.o: $
+    cxx gen/protoc_out/sync/protocol/unique_position.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+build $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.wifi_credential_specifics.pb.o: $
+    cxx gen/protoc_out/sync/protocol/wifi_credential_specifics.pb.cc || $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+
+build obj/sync/libsync_proto.a: alink_thin $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.app_notification_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.app_setting_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.app_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.app_list_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.article_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.attachments.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.autofill_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.bookmark_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.client_commands.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.client_debug_info.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.data_type_state.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.device_info_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.dictionary_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.encryption.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.entity_metadata.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.experiment_status.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.experiments_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.extension_setting_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.extension_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.favicon_image_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.favicon_tracking_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.get_updates_caller_info.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.history_delete_directive_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.nigori_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.managed_user_setting_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.managed_user_shared_setting_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.managed_user_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.managed_user_whitelist_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.password_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.preference_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.priority_preference_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.search_engine_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.session_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.sync.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.sync_enums.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.synced_notification_app_info_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.synced_notification_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.test.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.theme_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.typed_url_specifics.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.unique_position.pb.o $
+    obj/sync/gen/protoc_out/sync/protocol/sync_proto.wifi_credential_specifics.pb.o $
+    || obj/sync/sync_proto.actions_rules_copies.stamp

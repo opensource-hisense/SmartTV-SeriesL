@@ -1,0 +1,16 @@
+rule $
+    content_app_renderer_manifest_target_content_app_renderer_manifest_collation_0d6bda182780bc87096d17f54610e124
+  command = cd ../../content; python $
+      ../mojo/public/tools/manifest/manifest_collator.py --application-name $
+      content_renderer $
+      "--parent=../content/public/app/mojo/content_renderer_manifest.json" $
+      "--output=../out.cef/Release/content_renderer_manifest.json"
+  description = ACTION content_app_renderer_manifest: $
+      content_app_renderer_manifest_collation_0d6bda182780bc87096d17f54610e124
+  restat = 1
+
+build content_renderer_manifest.json: $
+    content_app_renderer_manifest_target_content_app_renderer_manifest_collation_0d6bda182780bc87096d17f54610e124 $
+    ../../mojo/public/tools/manifest/manifest_collator.py $
+    ../../content/public/app/mojo/content_renderer_manifest.json
+

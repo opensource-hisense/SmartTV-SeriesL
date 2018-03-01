@@ -1,0 +1,97 @@
+build obj.host/third_party/yasm/generate_files.actions_depends.stamp: stamp $
+    genperf genversion
+
+rule generate_files_generate_x86_insn_a567bc194ba1ff3e31bcf4bb5309b116
+  command = cd ../../third_party/yasm; python $
+      source/patched-yasm/modules/arch/x86/gen_x86_insn.py $
+      ../../out.cef/Release/gen/third_party/yasm
+  description = ACTION(host) Running $
+      source/patched-yasm/modules/arch/x86/gen_x86_insn.py
+  restat = 1
+
+build gen/third_party/yasm/x86insns.c $
+    gen/third_party/yasm/x86insn_gas.gperf $
+    gen/third_party/yasm/x86insn_nasm.gperf: $
+    generate_files_generate_x86_insn_a567bc194ba1ff3e31bcf4bb5309b116 $
+    ../../third_party/yasm/source/patched-yasm/modules/arch/x86/gen_x86_insn.py $
+    || obj.host/third_party/yasm/generate_files.actions_depends.stamp
+
+rule generate_files_generate_version_a567bc194ba1ff3e31bcf4bb5309b116
+  command = cd ../../third_party/yasm; ../../out.cef/Release/genversion $
+      ../../out.cef/Release/gen/third_party/yasm/version.mac
+  description = ACTION(host) Generating yasm version file: $
+      gen/third_party/yasm/version.mac
+  restat = 1
+
+build gen/third_party/yasm/version.mac: $
+    generate_files_generate_version_a567bc194ba1ff3e31bcf4bb5309b116 $
+    genversion || $
+    obj.host/third_party/yasm/generate_files.actions_depends.stamp
+
+rule generate_files_generate_gperf_a567bc194ba1ff3e31bcf4bb5309b116
+  command = cd ../../third_party/yasm; ../../out.cef/Release/genperf $
+      "${source}" "../../out.cef/Release/gen/third_party/yasm/${root}.c"
+  description = RULE(host) yasm genperf for ${source}
+  restat = 1
+
+build gen/third_party/yasm/x86cpu.c: $
+    generate_files_generate_gperf_a567bc194ba1ff3e31bcf4bb5309b116 $
+    ../../third_party/yasm/source/patched-yasm/modules/arch/x86/x86cpu.gperf $
+    | genperf || $
+    obj.host/third_party/yasm/generate_files.actions_depends.stamp
+  root = x86cpu
+  source = source/patched-yasm/modules/arch/x86/x86cpu.gperf
+build gen/third_party/yasm/x86regtmod.c: $
+    generate_files_generate_gperf_a567bc194ba1ff3e31bcf4bb5309b116 $
+    ../../third_party/yasm/source/patched-yasm/modules/arch/x86/x86regtmod.gperf $
+    | genperf || $
+    obj.host/third_party/yasm/generate_files.actions_depends.stamp
+  root = x86regtmod
+  source = source/patched-yasm/modules/arch/x86/x86regtmod.gperf
+build obj.host/third_party/yasm/generate_files.actions_rules_copies.stamp: $
+    stamp gen/third_party/yasm/x86insns.c $
+    gen/third_party/yasm/x86insn_gas.gperf $
+    gen/third_party/yasm/x86insn_nasm.gperf $
+    gen/third_party/yasm/version.mac gen/third_party/yasm/x86cpu.c $
+    gen/third_party/yasm/x86regtmod.c
+
+ar = $ar_host
+cc = $cc_host
+cxx = $cxx_host
+ld = $ld_host
+ldxx = $ldxx_host
+nm = $nm_host
+readelf = $readelf_host
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -Igen
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-char-subscripts -Wno-unneeded-internal-declaration $
+    -Wno-covered-switch-default -Wno-c++11-narrowing $
+    -Wno-deprecated-register -Wno-inconsistent-missing-override $
+    -Wno-shift-negative-value -Wno-unused-variable -O2 -fno-ident $
+    -fdata-sections -ffunction-sections -funwind-tables
+cflags_c = 
+cflags_cc = -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-literal-suffix $
+    -std=gnu++11
+arflags = 
+
+

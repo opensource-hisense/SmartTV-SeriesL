@@ -1,0 +1,191 @@
+build obj/components/webcrypto/webcrypto.actions_depends.stamp: stamp $
+    lib/libbase.so.TOC $
+    obj/third_party/WebKit/public/blink.actions_depends.stamp $
+    obj/third_party/WebKit/Source/platform/libblink_platform.a
+
+build obj/components/webcrypto/webcrypto.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/third_party/WebKit/public/blink.compile_depends.stamp $
+    obj/third_party/WebKit/Source/platform/blink_platform.compile_depends.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DMOJO_USE_SYSTEM_IMPL $
+    -DSK_SUPPORT_GPU=1 -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS $
+    -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= $
+    -DU_STATIC_IMPLEMENTATION -DCHROME_PNG_WRITE_SUPPORT -DPNG_USER_CONFIG $
+    -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -Igen -I../../components -I../.. -I../../skia/config $
+    -I../../third_party/WebKit/Source -I../../third_party/khronos $
+    -I../../gpu -Igen/angle -I../../third_party/boringssl/src/include $
+    -I../../third_party/WebKit -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../third_party/icu/source/common -I../../v8/include $
+    -I../../third_party/libpng -I../../third_party/zlib $
+    -I../../third_party/libwebp -I../../third_party/ots/include $
+    -I../../third_party/qcms/src -I../../third_party/iccjpeg $
+    -I../../third_party/libjpeg_turbo
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -I/work/bsp/sc1400/usr/include/nss3 $
+    -I/work/bsp/sc1400/usr/include/nspr -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-abi $
+    -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+build obj/components/webcrypto/webcrypto.algorithm_dispatch.o: cxx $
+    ../../components/webcrypto/algorithm_dispatch.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/webcrypto.algorithm_implementation.o: cxx $
+    ../../components/webcrypto/algorithm_implementation.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/webcrypto.algorithm_registry.o: cxx $
+    ../../components/webcrypto/algorithm_registry.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/algorithms/webcrypto.aes.o: cxx $
+    ../../components/webcrypto/algorithms/aes.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/algorithms/webcrypto.aes_cbc.o: cxx $
+    ../../components/webcrypto/algorithms/aes_cbc.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/algorithms/webcrypto.aes_ctr.o: cxx $
+    ../../components/webcrypto/algorithms/aes_ctr.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/algorithms/webcrypto.aes_gcm.o: cxx $
+    ../../components/webcrypto/algorithms/aes_gcm.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/algorithms/webcrypto.aes_kw.o: cxx $
+    ../../components/webcrypto/algorithms/aes_kw.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/algorithms/webcrypto.asymmetric_key_util.o: $
+    cxx ../../components/webcrypto/algorithms/asymmetric_key_util.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/algorithms/webcrypto.ec.o: cxx $
+    ../../components/webcrypto/algorithms/ec.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/algorithms/webcrypto.ecdh.o: cxx $
+    ../../components/webcrypto/algorithms/ecdh.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/algorithms/webcrypto.ecdsa.o: cxx $
+    ../../components/webcrypto/algorithms/ecdsa.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/algorithms/webcrypto.hkdf.o: cxx $
+    ../../components/webcrypto/algorithms/hkdf.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/algorithms/webcrypto.hmac.o: cxx $
+    ../../components/webcrypto/algorithms/hmac.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/algorithms/webcrypto.pbkdf2.o: cxx $
+    ../../components/webcrypto/algorithms/pbkdf2.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/algorithms/webcrypto.rsa.o: cxx $
+    ../../components/webcrypto/algorithms/rsa.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/algorithms/webcrypto.rsa_oaep.o: cxx $
+    ../../components/webcrypto/algorithms/rsa_oaep.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/algorithms/webcrypto.rsa_pss.o: cxx $
+    ../../components/webcrypto/algorithms/rsa_pss.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/algorithms/webcrypto.rsa_sign.o: cxx $
+    ../../components/webcrypto/algorithms/rsa_sign.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/algorithms/webcrypto.rsa_ssa.o: cxx $
+    ../../components/webcrypto/algorithms/rsa_ssa.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/algorithms/webcrypto.secret_key_util.o: cxx $
+    ../../components/webcrypto/algorithms/secret_key_util.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/algorithms/webcrypto.sha.o: cxx $
+    ../../components/webcrypto/algorithms/sha.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/algorithms/webcrypto.util.o: cxx $
+    ../../components/webcrypto/algorithms/util.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/webcrypto.blink_key_handle.o: cxx $
+    ../../components/webcrypto/blink_key_handle.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/webcrypto.crypto_data.o: cxx $
+    ../../components/webcrypto/crypto_data.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/webcrypto.generate_key_result.o: cxx $
+    ../../components/webcrypto/generate_key_result.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/webcrypto.jwk.o: cxx $
+    ../../components/webcrypto/jwk.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/webcrypto.status.o: cxx $
+    ../../components/webcrypto/status.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+build obj/components/webcrypto/webcrypto.webcrypto_impl.o: cxx $
+    ../../components/webcrypto/webcrypto_impl.cc || $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp
+
+build obj/components/webcrypto/libwebcrypto.a: alink_thin $
+    obj/components/webcrypto/webcrypto.algorithm_dispatch.o $
+    obj/components/webcrypto/webcrypto.algorithm_implementation.o $
+    obj/components/webcrypto/webcrypto.algorithm_registry.o $
+    obj/components/webcrypto/algorithms/webcrypto.aes.o $
+    obj/components/webcrypto/algorithms/webcrypto.aes_cbc.o $
+    obj/components/webcrypto/algorithms/webcrypto.aes_ctr.o $
+    obj/components/webcrypto/algorithms/webcrypto.aes_gcm.o $
+    obj/components/webcrypto/algorithms/webcrypto.aes_kw.o $
+    obj/components/webcrypto/algorithms/webcrypto.asymmetric_key_util.o $
+    obj/components/webcrypto/algorithms/webcrypto.ec.o $
+    obj/components/webcrypto/algorithms/webcrypto.ecdh.o $
+    obj/components/webcrypto/algorithms/webcrypto.ecdsa.o $
+    obj/components/webcrypto/algorithms/webcrypto.hkdf.o $
+    obj/components/webcrypto/algorithms/webcrypto.hmac.o $
+    obj/components/webcrypto/algorithms/webcrypto.pbkdf2.o $
+    obj/components/webcrypto/algorithms/webcrypto.rsa.o $
+    obj/components/webcrypto/algorithms/webcrypto.rsa_oaep.o $
+    obj/components/webcrypto/algorithms/webcrypto.rsa_pss.o $
+    obj/components/webcrypto/algorithms/webcrypto.rsa_sign.o $
+    obj/components/webcrypto/algorithms/webcrypto.rsa_ssa.o $
+    obj/components/webcrypto/algorithms/webcrypto.secret_key_util.o $
+    obj/components/webcrypto/algorithms/webcrypto.sha.o $
+    obj/components/webcrypto/algorithms/webcrypto.util.o $
+    obj/components/webcrypto/webcrypto.blink_key_handle.o $
+    obj/components/webcrypto/webcrypto.crypto_data.o $
+    obj/components/webcrypto/webcrypto.generate_key_result.o $
+    obj/components/webcrypto/webcrypto.jwk.o $
+    obj/components/webcrypto/webcrypto.status.o $
+    obj/components/webcrypto/webcrypto.webcrypto_impl.o || $
+    obj/components/webcrypto/webcrypto.actions_depends.stamp

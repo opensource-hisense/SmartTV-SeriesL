@@ -1,0 +1,18 @@
+rule natives_blob_concatenate_natives_blob_5eb31b7bdf9aa6f14cbd6312e600d807
+  command = cd ../../v8/tools/gyp; python ../../tools/concatenate-files.py $
+      ../../../out.cef/Release/gen/libraries.bin $
+      ../../../out.cef/Release/gen/libraries-experimental.bin $
+      ../../../out.cef/Release/gen/libraries-extras.bin $
+      ../../../out.cef/Release/gen/libraries-experimental-extras.bin $
+      ../../../out.cef/Release/natives_blob_host.bin
+  description = ACTION(host) natives_blob: $
+      concatenate_natives_blob_5eb31b7bdf9aa6f14cbd6312e600d807
+  restat = 1
+
+build natives_blob_host.bin: $
+    natives_blob_concatenate_natives_blob_5eb31b7bdf9aa6f14cbd6312e600d807 $
+    ../../v8/tools/concatenate-files.py gen/libraries.bin $
+    gen/libraries-experimental.bin gen/libraries-extras.bin $
+    gen/libraries-experimental-extras.bin || $
+    obj.host/v8/tools/gyp/js2c.actions_rules_copies.stamp
+

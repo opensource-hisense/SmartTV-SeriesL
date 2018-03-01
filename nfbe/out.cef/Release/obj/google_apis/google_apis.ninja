@@ -1,0 +1,188 @@
+build obj/google_apis/google_apis.actions_depends.stamp: stamp $
+    lib/libbase.so.TOC lib/libnet.so.TOC lib/liburl_lib.so.TOC
+
+build obj/google_apis/google_apis.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp obj/net/net.compile_depends.stamp $
+    obj/url/url_lib.compile_depends.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DLIBXML_STATIC $
+    -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= $
+    -DU_STATIC_IMPLEMENTATION -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS $
+    -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../third_party/libxml/linux/include $
+    -I../../third_party/libxml/src/include $
+    -I../../third_party/icu/source/common
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -I/work/bsp/sc1400/usr/include/nss3 $
+    -I/work/bsp/sc1400/usr/include/nspr -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/google_apis/gaia/google_apis.account_tracker.o: cxx $
+    ../../google_apis/gaia/account_tracker.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/gaia/google_apis.gaia_auth_consumer.o: cxx $
+    ../../google_apis/gaia/gaia_auth_consumer.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/gaia/google_apis.gaia_auth_fetcher.o: cxx $
+    ../../google_apis/gaia/gaia_auth_fetcher.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/gaia/google_apis.gaia_auth_util.o: cxx $
+    ../../google_apis/gaia/gaia_auth_util.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/gaia/google_apis.gaia_constants.o: cxx $
+    ../../google_apis/gaia/gaia_constants.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/gaia/google_apis.gaia_oauth_client.o: cxx $
+    ../../google_apis/gaia/gaia_oauth_client.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/gaia/google_apis.gaia_switches.o: cxx $
+    ../../google_apis/gaia/gaia_switches.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/gaia/google_apis.gaia_urls.o: cxx $
+    ../../google_apis/gaia/gaia_urls.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/gaia/google_apis.google_service_auth_error.o: cxx $
+    ../../google_apis/gaia/google_service_auth_error.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/gaia/google_apis.identity_provider.o: cxx $
+    ../../google_apis/gaia/identity_provider.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/gaia/google_apis.oauth2_access_token_fetcher.o: cxx $
+    ../../google_apis/gaia/oauth2_access_token_fetcher.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/gaia/google_apis.oauth2_access_token_fetcher_impl.o: $
+    cxx ../../google_apis/gaia/oauth2_access_token_fetcher_impl.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build $
+    obj/google_apis/gaia/google_apis.oauth2_access_token_fetcher_immediate_error.o: $
+    cxx $
+    ../../google_apis/gaia/oauth2_access_token_fetcher_immediate_error.cc $
+    || obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/gaia/google_apis.oauth2_api_call_flow.o: cxx $
+    ../../google_apis/gaia/oauth2_api_call_flow.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/gaia/google_apis.oauth2_mint_token_flow.o: cxx $
+    ../../google_apis/gaia/oauth2_mint_token_flow.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/gaia/google_apis.oauth2_token_service.o: cxx $
+    ../../google_apis/gaia/oauth2_token_service.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/gaia/google_apis.oauth2_token_service_delegate.o: cxx $
+    ../../google_apis/gaia/oauth2_token_service_delegate.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/gaia/google_apis.oauth2_token_service_request.o: cxx $
+    ../../google_apis/gaia/oauth2_token_service_request.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/gaia/google_apis.oauth_request_signer.o: cxx $
+    ../../google_apis/gaia/oauth_request_signer.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/gaia/google_apis.ubertoken_fetcher.o: cxx $
+    ../../google_apis/gaia/ubertoken_fetcher.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/google_apis.google_api_keys.o: cxx $
+    ../../google_apis/google_api_keys.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/drive/google_apis.auth_service.o: cxx $
+    ../../google_apis/drive/auth_service.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/drive/google_apis.base_requests.o: cxx $
+    ../../google_apis/drive/base_requests.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/drive/google_apis.drive_api_error_codes.o: cxx $
+    ../../google_apis/drive/drive_api_error_codes.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/drive/google_apis.drive_api_parser.o: cxx $
+    ../../google_apis/drive/drive_api_parser.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/drive/google_apis.drive_api_requests.o: cxx $
+    ../../google_apis/drive/drive_api_requests.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/drive/google_apis.drive_api_url_generator.o: cxx $
+    ../../google_apis/drive/drive_api_url_generator.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/drive/google_apis.files_list_request_runner.o: cxx $
+    ../../google_apis/drive/files_list_request_runner.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/drive/google_apis.request_sender.o: cxx $
+    ../../google_apis/drive/request_sender.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/drive/google_apis.request_util.o: cxx $
+    ../../google_apis/drive/request_util.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/drive/google_apis.task_util.o: cxx $
+    ../../google_apis/drive/task_util.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+build obj/google_apis/drive/google_apis.time_util.o: cxx $
+    ../../google_apis/drive/time_util.cc || $
+    obj/google_apis/google_apis.compile_depends.stamp
+
+build obj/google_apis/libgoogle_apis.a: alink_thin $
+    obj/google_apis/gaia/google_apis.account_tracker.o $
+    obj/google_apis/gaia/google_apis.gaia_auth_consumer.o $
+    obj/google_apis/gaia/google_apis.gaia_auth_fetcher.o $
+    obj/google_apis/gaia/google_apis.gaia_auth_util.o $
+    obj/google_apis/gaia/google_apis.gaia_constants.o $
+    obj/google_apis/gaia/google_apis.gaia_oauth_client.o $
+    obj/google_apis/gaia/google_apis.gaia_switches.o $
+    obj/google_apis/gaia/google_apis.gaia_urls.o $
+    obj/google_apis/gaia/google_apis.google_service_auth_error.o $
+    obj/google_apis/gaia/google_apis.identity_provider.o $
+    obj/google_apis/gaia/google_apis.oauth2_access_token_fetcher.o $
+    obj/google_apis/gaia/google_apis.oauth2_access_token_fetcher_impl.o $
+    obj/google_apis/gaia/google_apis.oauth2_access_token_fetcher_immediate_error.o $
+    obj/google_apis/gaia/google_apis.oauth2_api_call_flow.o $
+    obj/google_apis/gaia/google_apis.oauth2_mint_token_flow.o $
+    obj/google_apis/gaia/google_apis.oauth2_token_service.o $
+    obj/google_apis/gaia/google_apis.oauth2_token_service_delegate.o $
+    obj/google_apis/gaia/google_apis.oauth2_token_service_request.o $
+    obj/google_apis/gaia/google_apis.oauth_request_signer.o $
+    obj/google_apis/gaia/google_apis.ubertoken_fetcher.o $
+    obj/google_apis/google_apis.google_api_keys.o $
+    obj/google_apis/drive/google_apis.auth_service.o $
+    obj/google_apis/drive/google_apis.base_requests.o $
+    obj/google_apis/drive/google_apis.drive_api_error_codes.o $
+    obj/google_apis/drive/google_apis.drive_api_parser.o $
+    obj/google_apis/drive/google_apis.drive_api_requests.o $
+    obj/google_apis/drive/google_apis.drive_api_url_generator.o $
+    obj/google_apis/drive/google_apis.files_list_request_runner.o $
+    obj/google_apis/drive/google_apis.request_sender.o $
+    obj/google_apis/drive/google_apis.request_util.o $
+    obj/google_apis/drive/google_apis.task_util.o $
+    obj/google_apis/drive/google_apis.time_util.o || $
+    obj/google_apis/google_apis.actions_depends.stamp

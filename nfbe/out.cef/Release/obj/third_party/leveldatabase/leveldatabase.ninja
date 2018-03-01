@@ -1,0 +1,206 @@
+defines = -DLEVELDB_PLATFORM_CHROMIUM=1 -DV8_DEPRECATION_WARNINGS $
+    -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 -DDISABLE_NACL -DCHROMIUM_BUILD $
+    -DCR_CLANG_REVISION=264915-1 -DUI_COMPOSITOR_IMAGE_TRANSPORT $
+    -DUSE_AURA=1 -DUSE_OZONE=1 -DUSE_DEFAULT_RENDER_THEME=1 $
+    -DUSE_LIBJPEG_TURBO=1 -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS $
+    -DENABLE_BROWSER_CDMS -DENABLE_TOPCHROME_MD=1 $
+    -DFIELDTRIAL_TESTING_ENABLED -DENABLE_TASK_MANAGER=1 $
+    -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 -DENABLE_SESSION_SERVICE=1 $
+    -DENABLE_AUTOFILL_DIALOG=1 -DENABLE_PRINTING=1 $
+    -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -I../../third_party/leveldatabase $
+    -I../../third_party/leveldatabase/src $
+    -I../../third_party/leveldatabase/src/include -Igen -I../.. $
+    -I../../third_party/re2/src -I../../third_party/snappy/linux $
+    -I../../third_party/snappy/src
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-abi $
+    -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+build obj/third_party/leveldatabase/leveldatabase.env_chromium.o: cxx $
+    ../../third_party/leveldatabase/env_chromium.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/port/leveldatabase.port_chromium.o: cxx $
+    ../../third_party/leveldatabase/port/port_chromium.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/db/leveldatabase.builder.o: cxx $
+    ../../third_party/leveldatabase/src/db/builder.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/db/leveldatabase.db_impl.o: cxx $
+    ../../third_party/leveldatabase/src/db/db_impl.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/db/leveldatabase.db_iter.o: cxx $
+    ../../third_party/leveldatabase/src/db/db_iter.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/db/leveldatabase.dbformat.o: cxx $
+    ../../third_party/leveldatabase/src/db/dbformat.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/db/leveldatabase.dumpfile.o: cxx $
+    ../../third_party/leveldatabase/src/db/dumpfile.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/db/leveldatabase.filename.o: cxx $
+    ../../third_party/leveldatabase/src/db/filename.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/db/leveldatabase.log_reader.o: cxx $
+    ../../third_party/leveldatabase/src/db/log_reader.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/db/leveldatabase.log_writer.o: cxx $
+    ../../third_party/leveldatabase/src/db/log_writer.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/db/leveldatabase.memtable.o: cxx $
+    ../../third_party/leveldatabase/src/db/memtable.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/db/leveldatabase.repair.o: cxx $
+    ../../third_party/leveldatabase/src/db/repair.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/db/leveldatabase.table_cache.o: cxx $
+    ../../third_party/leveldatabase/src/db/table_cache.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/db/leveldatabase.version_edit.o: $
+    cxx ../../third_party/leveldatabase/src/db/version_edit.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/db/leveldatabase.version_set.o: cxx $
+    ../../third_party/leveldatabase/src/db/version_set.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/db/leveldatabase.write_batch.o: cxx $
+    ../../third_party/leveldatabase/src/db/write_batch.cc || $
+    obj/base/base.compile_depends.stamp
+build $
+    obj/third_party/leveldatabase/src/helpers/memenv/leveldatabase.memenv.o: $
+    cxx ../../third_party/leveldatabase/src/helpers/memenv/memenv.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/table/leveldatabase.block.o: cxx $
+    ../../third_party/leveldatabase/src/table/block.cc || $
+    obj/base/base.compile_depends.stamp
+build $
+    obj/third_party/leveldatabase/src/table/leveldatabase.block_builder.o: $
+    cxx ../../third_party/leveldatabase/src/table/block_builder.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/table/leveldatabase.filter_block.o: $
+    cxx ../../third_party/leveldatabase/src/table/filter_block.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/table/leveldatabase.format.o: cxx $
+    ../../third_party/leveldatabase/src/table/format.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/table/leveldatabase.iterator.o: cxx $
+    ../../third_party/leveldatabase/src/table/iterator.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/table/leveldatabase.merger.o: cxx $
+    ../../third_party/leveldatabase/src/table/merger.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/table/leveldatabase.table.o: cxx $
+    ../../third_party/leveldatabase/src/table/table.cc || $
+    obj/base/base.compile_depends.stamp
+build $
+    obj/third_party/leveldatabase/src/table/leveldatabase.table_builder.o: $
+    cxx ../../third_party/leveldatabase/src/table/table_builder.cc || $
+    obj/base/base.compile_depends.stamp
+build $
+    obj/third_party/leveldatabase/src/table/leveldatabase.two_level_iterator.o: $
+    cxx ../../third_party/leveldatabase/src/table/two_level_iterator.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/util/leveldatabase.arena.o: cxx $
+    ../../third_party/leveldatabase/src/util/arena.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/util/leveldatabase.bloom.o: cxx $
+    ../../third_party/leveldatabase/src/util/bloom.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/util/leveldatabase.cache.o: cxx $
+    ../../third_party/leveldatabase/src/util/cache.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/util/leveldatabase.coding.o: cxx $
+    ../../third_party/leveldatabase/src/util/coding.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/util/leveldatabase.comparator.o: $
+    cxx ../../third_party/leveldatabase/src/util/comparator.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/util/leveldatabase.crc32c.o: cxx $
+    ../../third_party/leveldatabase/src/util/crc32c.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/util/leveldatabase.env.o: cxx $
+    ../../third_party/leveldatabase/src/util/env.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/util/leveldatabase.filter_policy.o: $
+    cxx ../../third_party/leveldatabase/src/util/filter_policy.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/util/leveldatabase.hash.o: cxx $
+    ../../third_party/leveldatabase/src/util/hash.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/util/leveldatabase.logging.o: cxx $
+    ../../third_party/leveldatabase/src/util/logging.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/util/leveldatabase.options.o: cxx $
+    ../../third_party/leveldatabase/src/util/options.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/third_party/leveldatabase/src/util/leveldatabase.status.o: cxx $
+    ../../third_party/leveldatabase/src/util/status.cc || $
+    obj/base/base.compile_depends.stamp
+
+build obj/third_party/leveldatabase/libleveldatabase.a: alink_thin $
+    obj/third_party/leveldatabase/leveldatabase.env_chromium.o $
+    obj/third_party/leveldatabase/port/leveldatabase.port_chromium.o $
+    obj/third_party/leveldatabase/src/db/leveldatabase.builder.o $
+    obj/third_party/leveldatabase/src/db/leveldatabase.db_impl.o $
+    obj/third_party/leveldatabase/src/db/leveldatabase.db_iter.o $
+    obj/third_party/leveldatabase/src/db/leveldatabase.dbformat.o $
+    obj/third_party/leveldatabase/src/db/leveldatabase.dumpfile.o $
+    obj/third_party/leveldatabase/src/db/leveldatabase.filename.o $
+    obj/third_party/leveldatabase/src/db/leveldatabase.log_reader.o $
+    obj/third_party/leveldatabase/src/db/leveldatabase.log_writer.o $
+    obj/third_party/leveldatabase/src/db/leveldatabase.memtable.o $
+    obj/third_party/leveldatabase/src/db/leveldatabase.repair.o $
+    obj/third_party/leveldatabase/src/db/leveldatabase.table_cache.o $
+    obj/third_party/leveldatabase/src/db/leveldatabase.version_edit.o $
+    obj/third_party/leveldatabase/src/db/leveldatabase.version_set.o $
+    obj/third_party/leveldatabase/src/db/leveldatabase.write_batch.o $
+    obj/third_party/leveldatabase/src/helpers/memenv/leveldatabase.memenv.o $
+    obj/third_party/leveldatabase/src/table/leveldatabase.block.o $
+    obj/third_party/leveldatabase/src/table/leveldatabase.block_builder.o $
+    obj/third_party/leveldatabase/src/table/leveldatabase.filter_block.o $
+    obj/third_party/leveldatabase/src/table/leveldatabase.format.o $
+    obj/third_party/leveldatabase/src/table/leveldatabase.iterator.o $
+    obj/third_party/leveldatabase/src/table/leveldatabase.merger.o $
+    obj/third_party/leveldatabase/src/table/leveldatabase.table.o $
+    obj/third_party/leveldatabase/src/table/leveldatabase.table_builder.o $
+    obj/third_party/leveldatabase/src/table/leveldatabase.two_level_iterator.o $
+    obj/third_party/leveldatabase/src/util/leveldatabase.arena.o $
+    obj/third_party/leveldatabase/src/util/leveldatabase.bloom.o $
+    obj/third_party/leveldatabase/src/util/leveldatabase.cache.o $
+    obj/third_party/leveldatabase/src/util/leveldatabase.coding.o $
+    obj/third_party/leveldatabase/src/util/leveldatabase.comparator.o $
+    obj/third_party/leveldatabase/src/util/leveldatabase.crc32c.o $
+    obj/third_party/leveldatabase/src/util/leveldatabase.env.o $
+    obj/third_party/leveldatabase/src/util/leveldatabase.filter_policy.o $
+    obj/third_party/leveldatabase/src/util/leveldatabase.hash.o $
+    obj/third_party/leveldatabase/src/util/leveldatabase.logging.o $
+    obj/third_party/leveldatabase/src/util/leveldatabase.options.o $
+    obj/third_party/leveldatabase/src/util/leveldatabase.status.o || $
+    lib/libbase.so.TOC

@@ -1,0 +1,13 @@
+rule media_features_target_buildflag_header_3f65a2f1c2af2e0ea32912302af7cc4a
+  command = cd ../../media; python ../build/write_buildflag_header.py $
+      --output media/media_features.h --rulename media_features --gen-dir $
+      ../out.cef/Release/gen --definitions $
+      ../out.cef/media/media_features_buildflag_header.rsp
+  description = ACTION Generating build header.
+  restat = 1
+
+build gen/media/media_features.h: $
+    media_features_target_buildflag_header_3f65a2f1c2af2e0ea32912302af7cc4a $
+    ../../build/write_buildflag_header.py $
+    ../../out.cef/media/media_features_buildflag_header.rsp
+

@@ -1,0 +1,15 @@
+rule $
+    allocator_features_target_buildflag_header_19d766e24cb87d9ab1b1bcc6dceb84e6
+  command = cd ../../base/allocator; python $
+      ../../build/write_buildflag_header.py --output $
+      base/allocator/features.h --rulename allocator_features --gen-dir $
+      ../../out.cef/Release/gen --definitions $
+      ../../out.cef/base/allocator/allocator_features_buildflag_header.rsp
+  description = ACTION Generating build header.
+  restat = 1
+
+build gen/base/allocator/features.h: $
+    allocator_features_target_buildflag_header_19d766e24cb87d9ab1b1bcc6dceb84e6 $
+    ../../build/write_buildflag_header.py $
+    ../../out.cef/base/allocator/allocator_features_buildflag_header.rsp
+

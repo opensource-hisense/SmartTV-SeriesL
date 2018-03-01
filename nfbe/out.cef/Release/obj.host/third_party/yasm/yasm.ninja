@@ -1,0 +1,579 @@
+build obj.host/third_party/yasm/yasm.actions_depends.stamp: stamp genmacro $
+    genmodule genperf obj.host/third_party/yasm/libgenperf_libs.a $
+    obj.host/third_party/yasm/generate_files.actions_rules_copies.stamp $
+    genstring re2c
+
+rule yasm_generate_nasm_macros_46f1c6734472c9b51966fa842eb078c9
+  command = cd ../../third_party/yasm; ../../out.cef/Release/genmacro $
+      ../../out.cef/Release/obj.host/third_party/yasm/yasm.gen/third_party/yasm/nasm-macros.c $
+      nasm_standard_mac source/patched-yasm/modules/parsers/nasm/nasm-std.mac
+  description = ACTION(host) yasm genmacro for $
+      source/patched-yasm/modules/parsers/nasm/nasm-std.mac
+  restat = 1
+
+build obj.host/third_party/yasm/yasm.gen/third_party/yasm/nasm-macros.c: $
+    yasm_generate_nasm_macros_46f1c6734472c9b51966fa842eb078c9 genmacro $
+    ../../third_party/yasm/source/patched-yasm/modules/parsers/nasm/nasm-std.mac $
+    || obj.host/third_party/yasm/yasm.actions_depends.stamp
+
+rule yasm_generate_nasm_version_46f1c6734472c9b51966fa842eb078c9
+  command = cd ../../third_party/yasm; ../../out.cef/Release/genmacro $
+      ../../out.cef/Release/obj.host/third_party/yasm/yasm.gen/third_party/yasm/nasm-version.c $
+      nasm_version_mac ../../out.cef/Release/gen/third_party/yasm/version.mac
+  description = ACTION(host) yasm genmacro for $
+      gen/third_party/yasm/version.mac
+  restat = 1
+
+build obj.host/third_party/yasm/yasm.gen/third_party/yasm/nasm-version.c: $
+    yasm_generate_nasm_version_46f1c6734472c9b51966fa842eb078c9 genmacro $
+    gen/third_party/yasm/version.mac || $
+    obj.host/third_party/yasm/yasm.actions_depends.stamp
+
+rule yasm_generate_win64_gas_46f1c6734472c9b51966fa842eb078c9
+  command = cd ../../third_party/yasm; ../../out.cef/Release/genmacro $
+      ../../out.cef/Release/obj.host/third_party/yasm/yasm.gen/third_party/yasm/win64-gas.c $
+      win64_gas_stdmac source/patched-yasm/modules/objfmts/coff/win64-gas.mac
+  description = ACTION(host) yasm genmacro for $
+      source/patched-yasm/modules/objfmts/coff/win64-gas.mac
+  restat = 1
+
+build obj.host/third_party/yasm/yasm.gen/third_party/yasm/win64-gas.c: $
+    yasm_generate_win64_gas_46f1c6734472c9b51966fa842eb078c9 genmacro $
+    ../../third_party/yasm/source/patched-yasm/modules/objfmts/coff/win64-gas.mac $
+    || obj.host/third_party/yasm/yasm.actions_depends.stamp
+
+rule yasm_generate_win64_nasm_46f1c6734472c9b51966fa842eb078c9
+  command = cd ../../third_party/yasm; ../../out.cef/Release/genmacro $
+      ../../out.cef/Release/obj.host/third_party/yasm/yasm.gen/third_party/yasm/win64-nasm.c $
+      win64_nasm_stdmac $
+      source/patched-yasm/modules/objfmts/coff/win64-nasm.mac
+  description = ACTION(host) yasm genmacro for $
+      source/patched-yasm/modules/objfmts/coff/win64-nasm.mac
+  restat = 1
+
+build obj.host/third_party/yasm/yasm.gen/third_party/yasm/win64-nasm.c: $
+    yasm_generate_win64_nasm_46f1c6734472c9b51966fa842eb078c9 genmacro $
+    ../../third_party/yasm/source/patched-yasm/modules/objfmts/coff/win64-nasm.mac $
+    || obj.host/third_party/yasm/yasm.actions_depends.stamp
+
+rule yasm_generate_license_46f1c6734472c9b51966fa842eb078c9
+  command = cd ../../third_party/yasm; ../../out.cef/Release/genstring $
+      license_msg $
+      ../../out.cef/Release/obj.host/third_party/yasm/yasm.gen/third_party/yasm/license.c $
+      source/patched-yasm/COPYING
+  description = ACTION(host) Generating yasm embeddable license
+  restat = 1
+
+build obj.host/third_party/yasm/yasm.gen/third_party/yasm/license.c: $
+    yasm_generate_license_46f1c6734472c9b51966fa842eb078c9 genstring $
+    ../../third_party/yasm/source/patched-yasm/COPYING || $
+    obj.host/third_party/yasm/yasm.actions_depends.stamp
+
+rule yasm_generate_lc3b_token_46f1c6734472c9b51966fa842eb078c9
+  command = cd ../../third_party/yasm; ../../out.cef/Release/re2c -s -o $
+      ../../out.cef/Release/obj.host/third_party/yasm/yasm.gen/third_party/yasm/lc3bid.c $
+      source/patched-yasm/modules/arch/lc3b/lc3bid.re
+  description = ACTION(host) Generating yasm tokens for lc3b
+  restat = 1
+
+build obj.host/third_party/yasm/yasm.gen/third_party/yasm/lc3bid.c: $
+    yasm_generate_lc3b_token_46f1c6734472c9b51966fa842eb078c9 re2c $
+    ../../third_party/yasm/source/patched-yasm/modules/arch/lc3b/lc3bid.re $
+    || obj.host/third_party/yasm/yasm.actions_depends.stamp
+
+rule yasm_generate_module_46f1c6734472c9b51966fa842eb078c9
+  command = cd ../../third_party/yasm; ../../out.cef/Release/genmodule $
+      source/patched-yasm/libyasm/module.in source/config/linux/Makefile $
+      ../../out.cef/Release/obj.host/third_party/yasm/yasm.gen/third_party/yasm/module.c
+  description = ACTION(host) Generating yasm module information
+  restat = 1
+
+build obj.host/third_party/yasm/yasm.gen/third_party/yasm/module.c: $
+    yasm_generate_module_46f1c6734472c9b51966fa842eb078c9 genmodule $
+    ../../third_party/yasm/source/patched-yasm/libyasm/module.in $
+    ../../third_party/yasm/source/config/linux/Makefile || $
+    obj.host/third_party/yasm/yasm.actions_depends.stamp
+
+rule yasm_generate_gperf_46f1c6734472c9b51966fa842eb078c9
+  command = cd ../../third_party/yasm; ../../out.cef/Release/genperf $
+      "${source}" $
+      "../../out.cef/Release/obj.host/third_party/yasm/yasm.gen/third_party/yasm/${root}.c"
+  description = RULE(host) yasm gperf for ${source}
+  restat = 1
+
+build obj.host/third_party/yasm/yasm.gen/third_party/yasm/x86insn_nasm.c: $
+    yasm_generate_gperf_46f1c6734472c9b51966fa842eb078c9 $
+    gen/third_party/yasm/x86insn_nasm.gperf | genperf || $
+    obj.host/third_party/yasm/yasm.actions_depends.stamp
+  root = x86insn_nasm
+  source = ../../out.cef/Release/gen/third_party/yasm/x86insn_nasm.gperf
+build obj.host/third_party/yasm/yasm.gen/third_party/yasm/x86insn_gas.c: $
+    yasm_generate_gperf_46f1c6734472c9b51966fa842eb078c9 $
+    gen/third_party/yasm/x86insn_gas.gperf | genperf || $
+    obj.host/third_party/yasm/yasm.actions_depends.stamp
+  root = x86insn_gas
+  source = ../../out.cef/Release/gen/third_party/yasm/x86insn_gas.gperf
+rule yasm_generate_re2c_46f1c6734472c9b51966fa842eb078c9
+  command = cd ../../third_party/yasm; ../../out.cef/Release/re2c -b -o $
+      "../../out.cef/Release/obj.host/third_party/yasm/yasm.gen/third_party/yasm/${root}.c" $
+      "${source}"
+  description = RULE(host) yasm re2c for ${source}
+  restat = 1
+
+build obj.host/third_party/yasm/yasm.gen/third_party/yasm/gas-token.c: $
+    yasm_generate_re2c_46f1c6734472c9b51966fa842eb078c9 $
+    ../../third_party/yasm/source/patched-yasm/modules/parsers/gas/gas-token.re $
+    | re2c || obj.host/third_party/yasm/yasm.actions_depends.stamp
+  root = gas-token
+  source = source/patched-yasm/modules/parsers/gas/gas-token.re
+build obj.host/third_party/yasm/yasm.gen/third_party/yasm/nasm-token.c: $
+    yasm_generate_re2c_46f1c6734472c9b51966fa842eb078c9 $
+    ../../third_party/yasm/source/patched-yasm/modules/parsers/nasm/nasm-token.re $
+    | re2c || obj.host/third_party/yasm/yasm.actions_depends.stamp
+  root = nasm-token
+  source = source/patched-yasm/modules/parsers/nasm/nasm-token.re
+build obj.host/third_party/yasm/yasm.actions_rules_copies.stamp: stamp $
+    obj.host/third_party/yasm/yasm.gen/third_party/yasm/nasm-macros.c $
+    obj.host/third_party/yasm/yasm.gen/third_party/yasm/nasm-version.c $
+    obj.host/third_party/yasm/yasm.gen/third_party/yasm/win64-gas.c $
+    obj.host/third_party/yasm/yasm.gen/third_party/yasm/win64-nasm.c $
+    obj.host/third_party/yasm/yasm.gen/third_party/yasm/license.c $
+    obj.host/third_party/yasm/yasm.gen/third_party/yasm/lc3bid.c $
+    obj.host/third_party/yasm/yasm.gen/third_party/yasm/module.c $
+    obj.host/third_party/yasm/yasm.gen/third_party/yasm/x86insn_nasm.c $
+    obj.host/third_party/yasm/yasm.gen/third_party/yasm/x86insn_gas.c $
+    obj.host/third_party/yasm/yasm.gen/third_party/yasm/gas-token.c $
+    obj.host/third_party/yasm/yasm.gen/third_party/yasm/nasm-token.c
+
+ar = $ar_host
+cc = $cc_host
+cxx = $cxx_host
+ld = $ld_host
+ldxx = $ldxx_host
+nm = $nm_host
+readelf = $readelf_host
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DHAVE_CONFIG_H -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -Igen -I../../third_party/yasm/source/config/linux $
+    -I../../third_party/yasm/source/patched-yasm -Igen/third_party/yasm $
+    -Iobj.host/third_party/yasm/yasm.gen/third_party/yasm
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -std=c89 -pedantic -Wno-char-subscripts $
+    -Wno-unneeded-internal-declaration -Wno-covered-switch-default $
+    -Wno-c++11-narrowing -Wno-deprecated-register $
+    -Wno-inconsistent-missing-override -Wno-shift-negative-value $
+    -Wno-incompatible-pointer-types -Wno-unused-local-typedef $
+    -Wno-unused-variable -O2 -fno-ident -fdata-sections -ffunction-sections $
+    -funwind-tables
+cflags_c = 
+cflags_cc = -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-literal-suffix $
+    -std=gnu++11
+arflags = 
+
+build $
+    obj.host/third_party/yasm/obj.host/third_party/yasm/yasm.gen/third_party/yasm/yasm.nasm-macros.o: $
+    cc obj.host/third_party/yasm/yasm.gen/third_party/yasm/nasm-macros.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/obj.host/third_party/yasm/yasm.gen/third_party/yasm/yasm.lc3bid.o: $
+    cc obj.host/third_party/yasm/yasm.gen/third_party/yasm/lc3bid.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/obj.host/third_party/yasm/yasm.gen/third_party/yasm/yasm.module.o: $
+    cc obj.host/third_party/yasm/yasm.gen/third_party/yasm/module.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/obj.host/third_party/yasm/yasm.gen/third_party/yasm/yasm.gas-token.o: $
+    cc obj.host/third_party/yasm/yasm.gen/third_party/yasm/gas-token.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/obj.host/third_party/yasm/yasm.gen/third_party/yasm/yasm.nasm-token.o: $
+    cc obj.host/third_party/yasm/yasm.gen/third_party/yasm/nasm-token.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/frontends/yasm/yasm.yasm-options.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/frontends/yasm/yasm-options.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/frontends/yasm/yasm.yasm.o: $
+    cc ../../third_party/yasm/source/patched-yasm/frontends/yasm/yasm.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.assocdat.o: $
+    cc ../../third_party/yasm/source/patched-yasm/libyasm/assocdat.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.bc-align.o: $
+    cc ../../third_party/yasm/source/patched-yasm/libyasm/bc-align.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.bc-data.o: $
+    cc ../../third_party/yasm/source/patched-yasm/libyasm/bc-data.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.bc-incbin.o: $
+    cc ../../third_party/yasm/source/patched-yasm/libyasm/bc-incbin.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.bc-org.o: $
+    cc ../../third_party/yasm/source/patched-yasm/libyasm/bc-org.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.bc-reserve.o: $
+    cc ../../third_party/yasm/source/patched-yasm/libyasm/bc-reserve.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.bitvect.o: $
+    cc ../../third_party/yasm/source/patched-yasm/libyasm/bitvect.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.bytecode.o: $
+    cc ../../third_party/yasm/source/patched-yasm/libyasm/bytecode.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.errwarn.o: $
+    cc ../../third_party/yasm/source/patched-yasm/libyasm/errwarn.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.expr.o: cc $
+    ../../third_party/yasm/source/patched-yasm/libyasm/expr.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.file.o: cc $
+    ../../third_party/yasm/source/patched-yasm/libyasm/file.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.floatnum.o: $
+    cc ../../third_party/yasm/source/patched-yasm/libyasm/floatnum.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.hamt.o: cc $
+    ../../third_party/yasm/source/patched-yasm/libyasm/hamt.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.insn.o: cc $
+    ../../third_party/yasm/source/patched-yasm/libyasm/insn.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.intnum.o: $
+    cc ../../third_party/yasm/source/patched-yasm/libyasm/intnum.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.inttree.o: $
+    cc ../../third_party/yasm/source/patched-yasm/libyasm/inttree.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.linemap.o: $
+    cc ../../third_party/yasm/source/patched-yasm/libyasm/linemap.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.md5.o: cc $
+    ../../third_party/yasm/source/patched-yasm/libyasm/md5.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.mergesort.o: $
+    cc ../../third_party/yasm/source/patched-yasm/libyasm/mergesort.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.section.o: $
+    cc ../../third_party/yasm/source/patched-yasm/libyasm/section.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.strcasecmp.o: $
+    cc ../../third_party/yasm/source/patched-yasm/libyasm/strcasecmp.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.strsep.o: $
+    cc ../../third_party/yasm/source/patched-yasm/libyasm/strsep.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.symrec.o: $
+    cc ../../third_party/yasm/source/patched-yasm/libyasm/symrec.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.valparam.o: $
+    cc ../../third_party/yasm/source/patched-yasm/libyasm/valparam.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.value.o: $
+    cc ../../third_party/yasm/source/patched-yasm/libyasm/value.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/arch/lc3b/yasm.lc3barch.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/arch/lc3b/lc3barch.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/arch/lc3b/yasm.lc3bbc.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/arch/lc3b/lc3bbc.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/arch/x86/yasm.x86arch.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/arch/x86/x86arch.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/arch/x86/yasm.x86bc.o: $
+    cc ../../third_party/yasm/source/patched-yasm/modules/arch/x86/x86bc.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/arch/x86/yasm.x86expr.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/arch/x86/x86expr.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/arch/x86/yasm.x86id.o: $
+    cc ../../third_party/yasm/source/patched-yasm/modules/arch/x86/x86id.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/dbgfmts/codeview/yasm.cv-dbgfmt.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/dbgfmts/codeview/cv-dbgfmt.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/dbgfmts/codeview/yasm.cv-symline.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/dbgfmts/codeview/cv-symline.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/dbgfmts/codeview/yasm.cv-type.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/dbgfmts/codeview/cv-type.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/dbgfmts/dwarf2/yasm.dwarf2-aranges.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/dbgfmts/dwarf2/dwarf2-aranges.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/dbgfmts/dwarf2/yasm.dwarf2-dbgfmt.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/dbgfmts/dwarf2/dwarf2-dbgfmt.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/dbgfmts/dwarf2/yasm.dwarf2-info.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/dbgfmts/dwarf2/dwarf2-info.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/dbgfmts/dwarf2/yasm.dwarf2-line.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/dbgfmts/dwarf2/dwarf2-line.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/dbgfmts/null/yasm.null-dbgfmt.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/dbgfmts/null/null-dbgfmt.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/dbgfmts/stabs/yasm.stabs-dbgfmt.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/dbgfmts/stabs/stabs-dbgfmt.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/listfmts/nasm/yasm.nasm-listfmt.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/listfmts/nasm/nasm-listfmt.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/objfmts/bin/yasm.bin-objfmt.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/objfmts/bin/bin-objfmt.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/objfmts/coff/yasm.coff-objfmt.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/objfmts/coff/coff-objfmt.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/objfmts/coff/yasm.win64-except.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/objfmts/coff/win64-except.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/objfmts/dbg/yasm.dbg-objfmt.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/objfmts/dbg/dbg-objfmt.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/objfmts/elf/yasm.elf-objfmt.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/objfmts/elf/elf-objfmt.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/objfmts/elf/yasm.elf-x86-amd64.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/objfmts/elf/elf-x86-amd64.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/objfmts/elf/yasm.elf-x86-x86.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/objfmts/elf/elf-x86-x86.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/objfmts/elf/yasm.elf.o: $
+    cc ../../third_party/yasm/source/patched-yasm/modules/objfmts/elf/elf.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/objfmts/macho/yasm.macho-objfmt.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/objfmts/macho/macho-objfmt.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/objfmts/rdf/yasm.rdf-objfmt.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/objfmts/rdf/rdf-objfmt.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/objfmts/xdf/yasm.xdf-objfmt.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/objfmts/xdf/xdf-objfmt.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/parsers/gas/yasm.gas-parse.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/parsers/gas/gas-parse.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/parsers/gas/yasm.gas-parse-intel.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/parsers/gas/gas-parse-intel.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/parsers/gas/yasm.gas-parser.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/parsers/gas/gas-parser.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/parsers/nasm/yasm.nasm-parse.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/parsers/nasm/nasm-parse.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/parsers/nasm/yasm.nasm-parser.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/parsers/nasm/nasm-parser.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/preprocs/cpp/yasm.cpp-preproc.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/preprocs/cpp/cpp-preproc.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/preprocs/nasm/yasm.nasm-eval.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/preprocs/nasm/nasm-eval.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/preprocs/nasm/yasm.nasm-pp.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/preprocs/nasm/nasm-pp.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/preprocs/nasm/yasm.nasm-preproc.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/preprocs/nasm/nasm-preproc.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/preprocs/nasm/yasm.nasmlib.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/preprocs/nasm/nasmlib.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build $
+    obj.host/third_party/yasm/source/patched-yasm/modules/preprocs/raw/yasm.raw-preproc.o: $
+    cc $
+    ../../third_party/yasm/source/patched-yasm/modules/preprocs/raw/raw-preproc.c $
+    || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj.host/third_party/yasm/gen/third_party/yasm/yasm.x86cpu.o: cc $
+    gen/third_party/yasm/x86cpu.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj.host/third_party/yasm/gen/third_party/yasm/yasm.x86regtmod.o: cc $
+    gen/third_party/yasm/x86regtmod.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+
+ldflags = -L/work/bsp/sc1400/usr/local/lib -L/work/bsp/sc1400/lib $
+    -L/work/bsp/sc1400/usr/lib -Wl,-z,now -Wl,-z,relro -Wl,-z,defs -pthread $
+    -Wl,-z,noexecstack -fPIC -Wl,--disable-new-dtags -Wl,-O1 $
+    -Wl,--as-needed -Wl,--gc-sections
+libs = 
+build yasm: link $
+    obj.host/third_party/yasm/obj.host/third_party/yasm/yasm.gen/third_party/yasm/yasm.nasm-macros.o $
+    obj.host/third_party/yasm/obj.host/third_party/yasm/yasm.gen/third_party/yasm/yasm.lc3bid.o $
+    obj.host/third_party/yasm/obj.host/third_party/yasm/yasm.gen/third_party/yasm/yasm.module.o $
+    obj.host/third_party/yasm/obj.host/third_party/yasm/yasm.gen/third_party/yasm/yasm.gas-token.o $
+    obj.host/third_party/yasm/obj.host/third_party/yasm/yasm.gen/third_party/yasm/yasm.nasm-token.o $
+    obj.host/third_party/yasm/source/patched-yasm/frontends/yasm/yasm.yasm-options.o $
+    obj.host/third_party/yasm/source/patched-yasm/frontends/yasm/yasm.yasm.o $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.assocdat.o $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.bc-align.o $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.bc-data.o $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.bc-incbin.o $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.bc-org.o $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.bc-reserve.o $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.bitvect.o $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.bytecode.o $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.errwarn.o $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.expr.o $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.file.o $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.floatnum.o $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.hamt.o $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.insn.o $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.intnum.o $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.inttree.o $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.linemap.o $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.md5.o $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.mergesort.o $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.section.o $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.strcasecmp.o $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.strsep.o $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.symrec.o $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.valparam.o $
+    obj.host/third_party/yasm/source/patched-yasm/libyasm/yasm.value.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/arch/lc3b/yasm.lc3barch.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/arch/lc3b/yasm.lc3bbc.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/arch/x86/yasm.x86arch.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/arch/x86/yasm.x86bc.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/arch/x86/yasm.x86expr.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/arch/x86/yasm.x86id.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/dbgfmts/codeview/yasm.cv-dbgfmt.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/dbgfmts/codeview/yasm.cv-symline.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/dbgfmts/codeview/yasm.cv-type.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/dbgfmts/dwarf2/yasm.dwarf2-aranges.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/dbgfmts/dwarf2/yasm.dwarf2-dbgfmt.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/dbgfmts/dwarf2/yasm.dwarf2-info.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/dbgfmts/dwarf2/yasm.dwarf2-line.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/dbgfmts/null/yasm.null-dbgfmt.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/dbgfmts/stabs/yasm.stabs-dbgfmt.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/listfmts/nasm/yasm.nasm-listfmt.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/objfmts/bin/yasm.bin-objfmt.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/objfmts/coff/yasm.coff-objfmt.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/objfmts/coff/yasm.win64-except.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/objfmts/dbg/yasm.dbg-objfmt.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/objfmts/elf/yasm.elf-objfmt.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/objfmts/elf/yasm.elf-x86-amd64.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/objfmts/elf/yasm.elf-x86-x86.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/objfmts/elf/yasm.elf.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/objfmts/macho/yasm.macho-objfmt.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/objfmts/rdf/yasm.rdf-objfmt.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/objfmts/xdf/yasm.xdf-objfmt.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/parsers/gas/yasm.gas-parse.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/parsers/gas/yasm.gas-parse-intel.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/parsers/gas/yasm.gas-parser.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/parsers/nasm/yasm.nasm-parse.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/parsers/nasm/yasm.nasm-parser.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/preprocs/cpp/yasm.cpp-preproc.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/preprocs/nasm/yasm.nasm-eval.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/preprocs/nasm/yasm.nasm-pp.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/preprocs/nasm/yasm.nasm-preproc.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/preprocs/nasm/yasm.nasmlib.o $
+    obj.host/third_party/yasm/source/patched-yasm/modules/preprocs/raw/yasm.raw-preproc.o $
+    obj.host/third_party/yasm/gen/third_party/yasm/yasm.x86cpu.o $
+    obj.host/third_party/yasm/gen/third_party/yasm/yasm.x86regtmod.o $
+    obj.host/third_party/yasm/libgenperf_libs.a | genmacro genmodule $
+    genperf genstring $
+    obj.host/third_party/yasm/generate_files.actions_rules_copies.stamp $
+    re2c || obj.host/third_party/yasm/yasm.actions_rules_copies.stamp

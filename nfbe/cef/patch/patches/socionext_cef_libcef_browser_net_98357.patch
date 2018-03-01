@@ -1,0 +1,16 @@
+diff --git url_request_context_getter_impl.cc url_request_context_getter_impl.cc
+index 6a3afc7..e17b26f 100644
+--- url_request_context_getter_impl.cc
++++ url_request_context_getter_impl.cc
+@@ -204,7 +204,11 @@ net::URLRequestContext* CefURLRequestContextGetterImpl::GetURLRequestContext() {
+ 
+     std::unique_ptr<net::HttpCache::DefaultBackend> main_backend(
+         new net::HttpCache::DefaultBackend(
++#if defined(NFBE_DTV_SOCIO)
++        	net::MEMORY_CACHE,
++#else
+             cache_path.empty() ? net::MEMORY_CACHE : net::DISK_CACHE,
++#endif
+             net::CACHE_BACKEND_DEFAULT,
+             cache_path,
+             0,

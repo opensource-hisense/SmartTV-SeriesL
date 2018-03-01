@@ -1,0 +1,5 @@
+build $
+    obj/components/crash_component_breakpad_to_be_deleted.actions_depends.stamp: $
+    stamp obj/components/libcrash_component_non_mac_win.a $
+    obj/components/libcrash_component_lib.a
+

@@ -1,0 +1,1723 @@
+build obj/chrome/chrome_initial.actions_depends.stamp: stamp $
+    gen/chrome/common/chrome_version.h gen/chrome/common/features.h $
+    obj/chrome/libcommon.a obj/chrome/libbrowser.a $
+    obj/sync/sync.actions_depends.stamp obj/chrome/libdebugger.a $
+    obj/ppapi/libppapi_host.a obj/printing/libprinting.a $
+    obj/chrome/libchild.a obj/chrome/librenderer.a obj/chrome/libutility.a $
+    obj/content/libcontent_gpu.a obj/content/libcontent_ppapi_plugin.a $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_rules_copies.stamp $
+    obj/third_party/cld_2/libcld2_static.a $
+    obj/content/libcontent_app_both.a obj/chrome/libinstaller_util.a $
+    obj/pdf/libpdf.a obj/components/libstartup_metric_utils_browser.a $
+    obj/chrome/packed_extra_resources.actions_rules_copies.stamp $
+    obj/chrome/packed_resources.actions_rules_copies.stamp $
+    obj/sandbox/sandbox.actions_depends.stamp lib/libbase.so.TOC $
+    obj/chrome/chrome_resources.actions_rules_copies.stamp $
+    obj/chrome/web_ui_mojo_bindings.actions_rules_copies.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    obj/chrome/chrome_strings.actions_rules_copies.stamp $
+    obj/components/libvariations.a obj/crypto/libcrcrypto.a $
+    obj/base/third_party/dynamic_annotations/libdynamic_annotations.a $
+    obj/third_party/boringssl/libboringssl.a $
+    obj/third_party/boringssl/libboringssl.a $
+    obj/third_party/boringssl/libboringssl_asm.a $
+    obj/third_party/mt19937ar/libmt19937ar.a $
+    obj/third_party/protobuf/libprotobuf_lite.a $
+    obj/third_party/zlib/google/libcompression_utils.a $
+    obj/third_party/zlib/libchrome_zlib.a $
+    obj/third_party/zlib/libzlib_x86_simd.a $
+    obj/components/libcrash_core_common.a obj/components/prefs/libprefs.a $
+    obj/chrome/libsafe_browsing_proto.a obj/base/libbase_i18n.a $
+    obj/third_party/icu/libicui18n.a obj/third_party/icu/libicuuc.a $
+    icudtl.dat icudtl.dat obj/base/libbase_static.a $
+    obj/chrome/theme_resources.actions_rules_copies.stamp $
+    obj/ui/resources/ui_resources.actions_rules_copies.stamp $
+    obj/chrome/chrome_unscaled_resources.actions_rules_copies.stamp $
+    obj/chrome/libcommon_constants.a obj/components/libbookmarks_common.a $
+    gen/widevine_cdm_version.h $
+    obj/chrome/common/variations/libfieldtrial_testing_config.a $
+    obj/components/libcloud_devices_common.a $
+    obj/google_apis/libgoogle_apis.a lib/libnet.so.TOC $
+    obj/third_party/libxml/libxml2.a lib/liburl_lib.so.TOC $
+    obj/components/libcomponent_updater.a obj/ui/base/libui_base.a $
+    obj/ui/base/libui_data_pack.a gen/ui/base/ui_features.h $
+    obj/skia/skia.actions_depends.stamp obj/skia/libskia_library.a $
+    obj/skia/libskia_opts.a obj/skia/libskia_opts_neon.a $
+    obj/third_party/sfntly/libsfntly.a $
+    obj/third_party/fontconfig/libfontconfig.a $
+    obj/third_party/fontconfig/libfontconfig.a obj/skia/libskia_chrome.a $
+    obj/ui/events/libevents.a obj/ui/gfx/libgfx.a $
+    obj/third_party/harfbuzz-ng/libharfbuzz-ng.a $
+    obj/third_party/libpng/libpng.a obj/ui/gfx/libgfx_geometry.a $
+    obj/third_party/libjpeg_turbo/libjpeg_turbo.a $
+    obj/ui/events/libdom_keycode_converter.a obj/ui/events/libevents_base.a $
+    obj/ui/events/libgesture_detection.a $
+    obj/ui/events/ozone/libevents_ozone_layout.a $
+    obj/ui/events/platform/libevents_platform.a $
+    obj/ui/strings/ui_strings.actions_rules_copies.stamp $
+    obj/ui/events/devices/libevents_devices.a $
+    obj/ui/events/ozone/libevents_ozone_evdev.a $
+    obj/ui/ozone/libozone_base.a obj/ipc/libipc.a $
+    obj/ui/display/libdisplay_types.a obj/ui/display/libdisplay_util.a $
+    obj/ui/gfx/ipc/libgfx_ipc.a obj/ui/gfx/ipc/skia/libgfx_ipc_skia.a $
+    obj/ui/events/ozone/libevents_ozone.a obj/components/libupdate_client.a $
+    obj/courgette/libcourgette_lib.a obj/third_party/lzma_sdk/liblzma_sdk.a $
+    obj/third_party/zlib/google/libzip.a obj/third_party/zlib/libminizip.a $
+    obj/components/libclient_update_protocol.a obj/components/libcrx_file.a $
+    obj/components/libversion_info.a $
+    obj/components/components_strings.actions_rules_copies.stamp $
+    gen/components/version_info/version_info_values.h $
+    obj/components/libcontent_settings_core_common.a $
+    obj/components/liberror_page_common.a obj/components/liboffline_pages.a $
+    obj/third_party/leveldatabase/libleveldatabase.a $
+    obj/third_party/re2/libre2.a obj/third_party/snappy/libsnappy.a $
+    obj/components/libleveldb_proto.a $
+    obj/components/libkeyed_service_core.a obj/components/libuser_prefs.a $
+    obj/components/liboffline_pages_proto.a $
+    obj/components/url_formatter/liburl_formatter.a $
+    obj/components/libfavicon_base.a obj/components/libflags_ui_switches.a $
+    obj/components/libgcm_driver_common.a obj/components/libjson_schema.a $
+    obj/components/libmetrics.a obj/components/libcomponent_metrics_proto.a $
+    obj/components/libmetrics_net.a $
+    obj/components/libdata_use_measurement_core.a $
+    obj/components/libpolicy.a $
+    obj/components/cloud_policy_code_generate.actions_rules_copies.stamp $
+    obj/components/libcloud_policy_proto_generated_compile.a $
+    obj/components/libpolicy_component_common.a $
+    obj/components/libcloud_policy_proto.a $
+    obj/components/libstartup_metric_utils_common.a $
+    obj/components/libtranslate_core_common.a $
+    obj/content/libcontent_common.a $
+    obj/content/content_resources.actions_rules_copies.stamp $
+    catalog/manifest.json content_browser_manifest.json $
+    content_renderer_manifest.json obj/cc/libcc.a obj/cc/libcc_proto.a $
+    obj/gpu/gpu.actions_depends.stamp obj/gpu/libcommand_buffer_client.a $
+    obj/gpu/libcommand_buffer_common.a $
+    obj/gpu/command_buffer/libgles2_utils.a $
+    obj/gpu/libcommand_buffer_service.a obj/gpu/libdisk_cache_proto.a $
+    obj/gpu/libgpu_config.a obj/ui/gl/libgl_wrapper.a $
+    obj/ui/ozone/libozone.a obj/ui/ozone/libozone_platform.a $
+    obj/ui/ozone/libozone_platform_egltest.a obj/ui/ozone/libozone_common.a $
+    obj/ui/ozone/libeglplatform_shim.a $
+    obj/ui/ozone/libozone_platform_headless.a $
+    obj/third_party/smhasher/libcityhash.a gen/angle/id/commit.h $
+    obj/third_party/angle/src/copy_scripts.actions_rules_copies.stamp $
+    obj/third_party/angle/src/libtranslator.a $
+    obj/third_party/angle/src/libtranslator_lib.a $
+    obj/third_party/angle/src/libpreprocessor.a $
+    obj/third_party/angle/src/libangle_common.a $
+    obj/gpu/libgles2_cmd_helper.a obj/gpu/libgpu_ipc_client.a $
+    obj/gpu/libcommand_buffer_traits.a obj/ui/events/libevents_ipc.a $
+    obj/url/ipc/liburl_ipc.a obj/gpu/libgpu_ipc_common.a $
+    obj/gpu/libgpu_ipc_service.a obj/media/libmedia.a $
+    gen/media/media_features.h obj/third_party/libwebm/libwebm.a libyuv.a $
+    obj/third_party/opus/libopus.a obj/media/libshared_memory_support.a $
+    lib/libffmpeg.so.TOC obj/third_party/libvpx/libvpx.a $
+    obj/components/libtracing.a obj/device/bluetooth/libdevice_bluetooth.a $
+    obj/device/bluetooth/bluetooth_strings.actions_rules_copies.stamp $
+    obj/device/bluetooth/liburibeacon.a obj/gpu/blink/libgpu_blink.a $
+    obj/gpu/libgles2_c_lib.a obj/gpu/libgles2_implementation.a $
+    obj/gpu/libgl_in_process_context.a $
+    obj/gpu/skia_bindings/libgpu_skia_bindings.a $
+    obj/third_party/WebKit/Source/platform/libblink_common.a $
+    obj/third_party/WebKit/Source/platform/libblink_common.a $
+    obj/third_party/WebKit/Source/wtf/libwtf.a obj/ipc/mojo/libipc_mojo.a $
+    obj/mojo/libmojo_system_impl.a obj/mojo/libmojo_cpp_bindings.a $
+    obj/mojo/libmojo_cpp_system.a $
+    obj/media/gpu/ipc/libmedia_gpu_ipc_client.a $
+    obj/media/gpu/ipc/libmedia_gpu_ipc_common.a obj/media/midi/libmidi.a $
+    obj/mojo/libmojo_application_bindings.a $
+    obj/mojo/mojo_application_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/libmojo_runner_common_lib.a obj/storage/libstorage_common.a $
+    obj/third_party/WebKit/public/blink.actions_depends.stamp $
+    obj/third_party/WebKit/public/libmojo_bindings.a $
+    obj/third_party/WebKit/public/mojo_bindings_blink_mojom.actions_rules_copies.stamp $
+    obj/mojo/libmojo_cpp_bindings_wtf_support.a $
+    obj/third_party/WebKit/public/mojo_bindings_mojom.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/platform/libblink_platform.a $
+    obj/third_party/WebKit/Source/platform/libblink_heap_asm_stubs.a $
+    obj/third_party/WebKit/Source/platform/make_platform_generated.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/platform/inspector_protocol/protocol_sources.actions_rules_copies.stamp $
+    gen/blink/platform/inspector_protocol/InspectorProtocolVersion.h $
+    gen/blink/platform/v8_inspector/DebuggerScript.h $
+    gen/blink/platform/v8_inspector/InjectedScriptSource.h $
+    obj/third_party/iccjpeg/libiccjpeg.a $
+    obj/third_party/libwebp/libwebp.actions_depends.stamp $
+    obj/third_party/libwebp/libwebp_dec.a $
+    obj/third_party/libwebp/libwebp_dsp.a $
+    obj/third_party/libwebp/libwebp_dsp_sse2.a $
+    obj/third_party/libwebp/libwebp_dsp_sse41.a $
+    obj/third_party/libwebp/libwebp_utils.a $
+    obj/third_party/libwebp/libwebp_dsp_neon.a $
+    obj/third_party/libwebp/libwebp_demux.a $
+    obj/third_party/libwebp/libwebp_enc.a obj/third_party/ots/libots.a $
+    obj/third_party/brotli/libbrotli.a obj/third_party/woff2/libwoff2_dec.a $
+    obj/third_party/qcms/libqcms.a $
+    obj/v8/tools/gyp/v8_maybe_snapshot.actions_depends.stamp $
+    obj/v8/tools/gyp/v8_maybe_snapshot.actions_depends.stamp $
+    obj/v8/tools/gyp/libv8_base.a obj/v8/tools/gyp/libv8_libbase.a $
+    obj/v8/tools/gyp/libv8_external_snapshot.a $
+    obj.host/v8/tools/gyp/js2c.actions_rules_copies.stamp natives_blob.bin $
+    obj/third_party/WebKit/Source/web/libblink_web.a $
+    obj/third_party/WebKit/Source/modules/libmodules.a $
+    obj/device/battery/libdevice_battery_mojo_bindings.a $
+    obj/third_party/sqlite/libchromium_sqlite3.a $
+    obj/third_party/WebKit/Source/modules/make_modules_generated.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/modules_event_generated.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/core/webcore.actions_depends.stamp $
+    obj/third_party/WebKit/Source/core/libwebcore_dom.a $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.actions_depends.stamp $
+    obj/third_party/WebKit/Source/core/inspector_instrumentation_sources.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/core/generated_testing_idls.actions_rules_copies.stamp $
+    gen/blink/core/EventInterfaces.in $
+    obj/third_party/WebKit/Source/bindings/core/v8/bindings_core_v8_generated.actions_depends.stamp $
+    obj/third_party/WebKit/Source/bindings/core/v8/bindings_core_impl_generated.actions_rules_copies.stamp $
+    gen/blink/bindings/scripts/cached_jinja_templates.stamp $
+    obj/third_party/WebKit/Source/bindings/scripts/cached_lex_yacc_tables.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/core/interfaces_info_individual_core.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/core/core_global_constructors_idls.actions_rules_copies.stamp $
+    gen/blink/bindings/core/GlobalObjectsCore.pickle $
+    gen/blink/bindings/modules/InterfacesInfoOverall.pickle $
+    obj/third_party/WebKit/Source/bindings/modules/interfaces_info_individual_modules.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/modules_core_global_constructors_idls.actions_rules_copies.stamp $
+    gen/blink/bindings/modules/GlobalObjectsModules.pickle $
+    obj/third_party/WebKit/Source/bindings/modules/modules_global_constructors_idls.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/core/v8/bindings_core_v8_generated_aggregate.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/core/v8/bindings_core_v8_generated_individual.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated.actions_depends.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_impl_generated.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_aggregate.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_individual.actions_rules_copies.stamp $
+    gen/blink/bindings/modules/v8/initPartialInterfacesInModules.cpp $
+    gen/blink/bindings/modules/v8/V8GeneratedModulesBindingsPartial.cpp $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.actions_rules_copies.stamp $
+    obj/third_party/libxslt/libxslt.a $
+    obj/third_party/WebKit/Source/core/libwebcore_html.a $
+    obj/third_party/WebKit/Source/core/libwebcore_remaining.a $
+    obj/third_party/WebKit/Source/core/libwebcore_rendering.a $
+    obj/third_party/WebKit/Source/core/libwebcore_svg.a $
+    obj/third_party/WebKit/Source/core/libwebcore_generated.a $
+    obj/gin/libgin.a obj/ui/accessibility/libaccessibility.a $
+    obj/ui/accessibility/libax_gen.a $
+    obj/tools/json_schema_compiler/libapi_gen_util.a $
+    obj/ui/base/ime/libui_base_ime.a $
+    obj/ui/shell_dialogs/libshell_dialogs.a obj/ui/aura/libaura.a $
+    obj/ui/compositor/libcompositor.a obj/cc/libcc_surfaces.a $
+    gen/content/public/common/features.h $
+    obj/content/libcontent_common_mojo_bindings.a $
+    obj/content/content_common_mojo_bindings_mojom.actions_rules_copies.stamp $
+    obj/components/leveldb/leveldb_bindings_mojom.actions_rules_copies.stamp $
+    obj/components/filesystem/filesystem_bindings_mojom.actions_rules_copies.stamp $
+    obj/skia/libskia_mojo.a $
+    obj/ui/mojo/geometry/libmojo_geometry_bindings.a $
+    obj/ui/mojo/geometry/mojo_geometry_bindings_mojom.actions_rules_copies.stamp $
+    obj/url/url_interfaces_mojom.actions_rules_copies.stamp $
+    obj/ppapi/libppapi_shared.a obj/ui/surface/libsurface.a $
+    gen/third_party/kasko/kasko_features.h obj/device/usb/libdevice_usb.a $
+    obj/device/usb/libdevice_usb_mojo_bindings.a $
+    obj/components/libdevice_event_log_component.a lib/libusb.so.TOC $
+    obj/device/core/libdevice_core.a $
+    obj/chrome/common/extensions/api/libchrome_api.a $
+    obj/extensions/common/api/libextensions_api.a $
+    obj/extensions/common/api/extensions_api_mojom.actions_rules_copies.stamp $
+    obj/extensions/libextensions_common.a obj/components/liburl_matcher.a $
+    obj/device/serial/device_serial_mojo.actions_rules_copies.stamp $
+    obj/extensions/extensions_resources.actions_rules_copies.stamp $
+    obj/extensions/extensions_strings.actions_rules_copies.stamp $
+    obj/extensions/libextensions_common_constants.a $
+    obj/extensions/extensions_common_mojo.actions_rules_copies.stamp $
+    obj/media/cast/libcast_net.a obj/media/cast/libcast_common.a $
+    obj/media/cast/libcast_logging_proto.a $
+    obj/chrome/libcommon_mojo_bindings.a $
+    obj/components/libautofill_core_common.a $
+    obj/components/libautofill_content_common.a $
+    obj/components/libpassword_manager_core_common.a $
+    obj/components/libpassword_manager_content_common.a $
+    obj/components/libsignin_core_common.a $
+    obj/components/libtranslate_content_common.a $
+    obj/components/libtranslate_core_language_detection.a $
+    obj/components/libvisitedlink_common.a gen/flapper_version.h $
+    obj/components/libprinting_common.a obj/chrome/libbrowser_ui.a $
+    obj/chrome/libbrowser_ui_views.a $
+    obj/chrome/chrome_extra_resources.actions_rules_copies.stamp $
+    obj/components/components_resources.actions_rules_copies.stamp $
+    gen/about_credits.html $
+    obj/content/browser/devtools/devtools_resources.actions_rules_copies.stamp $
+    gen/devtools/devtools_resources.grd gen/devtools/devtools_resources.grd $
+    resources/inspector/devtools_extension_api.js $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_rules_copies.stamp $
+    resources/inspector/SupportedCSSProperties.js $
+    resources/inspector/InspectorBackendCommands.js $
+    obj/third_party/WebKit/Source/devtools/build_applications.actions_rules_copies.stamp $
+    obj/content/browser/tracing/tracing_resources.actions_rules_copies.stamp $
+    obj/third_party/catapult/tracing/generate_about_tracing.actions_rules_copies.stamp $
+    gen/content/browser/tracing/tracing_resources.grd $
+    obj/chrome/platform_locale_settings.actions_rules_copies.stamp $
+    gen/base/debug/debugging_flags.h $
+    obj/components/libcertificate_reporting.a $
+    obj/components/libcert_logger_proto.a $
+    obj/components/libencrypted_cert_logger_proto.a $
+    obj/components/libdom_distiller_core.a obj/sync/libsync_core.a $
+    obj/sql/libsql.a obj/sync/libattachment_store_proto.a $
+    obj/sync/libsync_proto.a $
+    obj/third_party/dom_distiller_js/libdom_distiller_js_proto.a $
+    obj/components/libdom_distiller_protos.a $
+    obj/components/libpref_registry.a $
+    obj/components/libdom_distiller_webui.a $
+    obj/content/libcontent_browser.a obj/content/libcontent_child.a $
+    obj/components/mime_util/libmime_util.a $
+    obj/components/scheduler/libscheduler.a $
+    obj/components/scheduler/libscheduler_common.a $
+    obj/components/webcrypto/libwebcrypto.a obj/mojo/libmojo_common_lib.a $
+    obj/mojo/libmojo_message_pump_lib.a $
+    obj/third_party/WebKit/public/blink_image_resources.actions_rules_copies.stamp $
+    obj/third_party/WebKit/public/blink_resources.actions_rules_copies.stamp $
+    obj/ui/events/libgestures_blink.a $
+    obj/content/app/resources/content_resources.actions_rules_copies.stamp $
+    obj/content/app/strings/content_strings.actions_rules_copies.stamp $
+    obj/access/libmedia_peer.a obj/components/leveldb/libleveldb_lib.a $
+    obj/components/leveldb/libleveldb_public_lib.a $
+    obj/mojo/libmojo_application_base.a $
+    obj/components/filesystem/libfilesystem_lib.a $
+    obj/components/filesystem/libfilesystem_bindings.a $
+    obj/mojo/libplatform_handle.a $
+    obj/components/profile_service/libprofile_service_lib.a $
+    obj/components/profile_service/libprofile_service_bindings.a $
+    obj/components/profile_service/profile_service_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/libtracing_service.a $
+    obj/mojo/libtracing_service_bindings_lib.a $
+    obj/mojo/tracing_service_bindings_mojom.actions_rules_copies.stamp $
+    obj/device/battery/libdevice_battery.a $
+    obj/device/vibration/libdevice_vibration.a $
+    obj/device/vibration/libdevice_vibration_mojo_bindings.a $
+    obj/mojo/libmojo_geometry_lib.a obj/mojo/libmojo_url_type_converters.a $
+    obj/mojo/libtracing_service_lib.a obj/mojo/libmojo_js_bindings.a $
+    obj/mojo/libmojo_runner_host_lib.a obj/mojo/libmojo_shell_lib.a $
+    obj/sandbox/libsandbox_services.a obj/sandbox/libsuid_sandbox_client.a $
+    obj/sandbox/libseccomp_bpf.a obj/sandbox/libseccomp_bpf_helpers.a $
+    obj/net/libhttp_server.a obj/net/libnet_extras.a $
+    obj/storage/libstorage.a obj/ui/display/libdisplay.a $
+    obj/ui/events/blink/libevents_blink.a obj/ui/snapshot/libsnapshot.a $
+    obj/ui/touch_selection/libui_touch_selection.a $
+    obj/ui/aura_extra/libaura_extra.a $
+    obj/content/browser/background_sync/libbackground_sync_proto.a $
+    obj/content/browser/cache_storage/libcache_storage_proto.a $
+    obj/content/browser/devtools/devtools_protocol_handler.actions_rules_copies.stamp $
+    obj/content/browser/notifications/libnotification_proto.a $
+    obj/content/browser/service_worker/libservice_worker_proto.a $
+    obj/content/browser/speech/proto/libspeech_proto.a $
+    obj/ppapi/libppapi_ipc.a obj/third_party/flac/libflac.a $
+    obj/components/libinvalidation_impl.a $
+    obj/components/libinvalidation_public.a $
+    obj/third_party/cacheinvalidation/libcacheinvalidation.a $
+    obj/third_party/cacheinvalidation/libcacheinvalidation_proto_cpp.a $
+    obj/jingle/libnotifier.a obj/third_party/libjingle/libjingle.a $
+    obj/third_party/webrtc/base/librtc_base.a $
+    obj/third_party/webrtc/libwebrtc_common.a $
+    obj/third_party/webrtc/base/librtc_base_approved.a $
+    obj/third_party/webrtc/libjingle/xmllite/librtc_xmllite.a $
+    obj/jingle/libjingle_glue.a obj/components/libgcm_driver.a $
+    obj/components/libgcm_driver_crypto.a $
+    obj/components/libgcm_driver_crypto_proto.a $
+    obj/components/libos_crypt.a obj/components/libsync_driver.a $
+    obj/components/libsignin_core_browser.a $
+    obj/components/libcontent_settings_core_browser.a $
+    obj/components/libgoogle_core_browser.a $
+    obj/components/libsignin_core_account_id.a $
+    obj/components/libwebdata_common.a $
+    obj/components/policy_component.actions_depends.stamp $
+    obj/components/libpolicy_component_browser.a $
+    obj/components/libbookmarks_browser.a obj/components/libquery_parser.a $
+    obj/components/libbookmarks_managed.a obj/components/libproxy_config.a $
+    obj/google_apis/gcm/libgcm.a obj/components/libonc_component.a $
+    obj/components/libpassword_manager_core_browser.a $
+    obj/components/libpassword_manager_core_browser_proto.a $
+    obj/components/libtoolbar.a obj/ui/gfx/libgfx_vector_icons.a $
+    obj/components/libsecurity_state.a obj/components/libui_zoom.a $
+    obj/components/libversion_ui.a $
+    obj/ui/content_accelerators/libui_content_accelerators.a $
+    obj/ui/message_center/libmessage_center.a obj/chrome/libcommon_net.a $
+    obj/net/net_resources.actions_rules_copies.stamp $
+    obj/chrome/browser/devtools/devtools_protocol_constants.actions_rules_copies.stamp $
+    obj/components/libdevtools_http_handler.a $
+    obj/components/libdevtools_discovery.a obj/components/libapp_modal.a $
+    obj/components/libautofill_content_risk_proto.a $
+    obj/components/libbrowsing_data_ui.a $
+    obj/components/libbrowser_sync_browser.a $
+    obj/components/libautofill_core_browser.a $
+    obj/third_party/fips181/libfips181.a $
+    obj/third_party/libaddressinput/libaddressinput_util.a $
+    obj/third_party/libaddressinput/libaddressinput_strings.actions_rules_copies.stamp $
+    obj/third_party/libphonenumber/libphonenumber.a $
+    obj/third_party/libphonenumber/libphonenumber_without_metadata.a $
+    obj/components/libautofill_server_proto.a $
+    obj/components/libinfobars_core.a obj/ui/native_theme/libnative_theme.a $
+    obj/components/librappor.a obj/components/libvariations_net.a $
+    obj/components/libbrowser_sync_common.a $
+    obj/components/libhistory_core_browser.a $
+    obj/components/libhistory_core_common.a $
+    obj/components/libpassword_manager_sync_browser.a $
+    obj/components/libsyncable_prefs.a obj/components/libsync_bookmarks.a $
+    obj/components/libfavicon_core.a obj/components/libundo_component.a $
+    obj/components/libsync_sessions.a obj/components/libsessions_content.a $
+    obj/components/libcrash_core_browser.a obj/components/libupload_list.a $
+    obj/components/libflags_ui.a obj/components/libnet_log.a $
+    obj/components/libdata_reduction_proxy_core_common.a $
+    obj/components/libdata_reduction_proxy_proto.a $
+    obj/components/libpage_load_metrics_browser.a $
+    obj/components/libpage_load_metrics_common.a obj/net/libnet_with_v8.a $
+    obj/net/libstale_while_revalidate_experiment_domains.a $
+    obj/net/net_derived_sources.actions_rules_copies.stamp $
+    obj/ui/web_dialogs/libweb_dialogs.a $
+    obj/ash/ash_resources.actions_rules_copies.stamp $
+    obj/ui/keyboard/libkeyboard.a $
+    obj/ui/keyboard/keyboard_resources.actions_rules_copies.stamp $
+    gen/ui/keyboard/resources/inputview.js $
+    obj/ui/keyboard/libkeyboard_with_content.a obj/ui/wm/libwm.a $
+    obj/dbus/libdbus.a obj/ui/app_list/libapp_list.a $
+    obj/ui/app_list/resources/app_list_resources.actions_rules_copies.stamp $
+    obj/third_party/libaddressinput/libaddressinput.a $
+    obj/chrome/libbrowser_extensions.a $
+    obj/chrome/browser/extensions/api/libchrome_api_registration.a $
+    obj/components/libcopresence_proto.a obj/components/libcopresence.a $
+    obj/third_party/webrtc/common_audio/libcommon_audio.a $
+    obj/third_party/webrtc/system_wrappers/libsystem_wrappers.a $
+    obj/third_party/openmax_dl/dl/libopenmax_dl.a $
+    obj/third_party/openmax_dl/dl/libopenmax_dl_armv7.a $
+    obj/third_party/openmax_dl/dl/libopenmax_dl_neon.a $
+    obj/third_party/webrtc/common_audio/libcommon_audio_neon.a $
+    obj/components/libaudio_modem.a obj/components/libproximity_auth.a $
+    obj/components/libcryptauth.a obj/components/libcryptauth_proto.a $
+    obj/components/libproximity_auth_logging.a $
+    obj/device/hid/libdevice_hid.a $
+    obj/extensions/browser/api/libextensions_api_registration.a $
+    obj/extensions/common/api/libcast_channel_proto.a $
+    obj/extensions/libextensions_browser.a $
+    obj/components/libbrowsing_data.a $
+    obj/components/libguest_view_browser.a $
+    obj/components/libguest_view_common.a $
+    obj/components/libkeyed_service_content.a $
+    obj/components/libstorage_monitor.a $
+    obj/device/media_transfer_protocol/libdevice_media_transfer_protocol.a $
+    obj/device/media_transfer_protocol/libmtp_file_entry_proto.a $
+    obj/device/media_transfer_protocol/libmtp_storage_info_proto.a $
+    obj/components/libweb_cache_browser.a $
+    obj/components/libweb_cache_mojo_bindings.a $
+    obj/components/libweb_modal.a obj/device/serial/libdevice_serial.a $
+    obj/third_party/webrtc/modules/libdesktop_capture.a $
+    obj/chrome/browser/media/router/libmedia_router.a $
+    obj/chrome/browser/media/router/media_router_mojo_gen.actions_rules_copies.stamp $
+    obj/chrome/browser/media/router/libmedia_router_mojo.a $
+    obj/extensions/components/libjavascript_dialog_extensions_client.a $
+    obj/components/libbubble.a obj/components/libfeedback_proto.a $
+    obj/chrome/libchrome_ui_string_overrider_factory.a $
+    obj/components/libvariations_service.a obj/components/libnetwork_time.a $
+    obj/components/libweb_resource.a $
+    obj/chrome/make_chrome_ui_string_overrider_factory.actions_rules_copies.stamp $
+    obj/chrome/libprobe_message_proto.a obj/components/libcaptive_portal.a $
+    obj/components/libcontent_settings_content_common.a $
+    obj/components/libdata_reduction_proxy_core_browser.a $
+    gen/components/data_reduction_proxy/core/common/version.h $
+    obj/components/libdata_usage_core.a obj/components/libinstance_id.a $
+    obj/components/libmetrics_services_manager.a $
+    obj/components/libmetrics_ui.a obj/components/libnavigation_metrics.a $
+    obj/components/libomnibox_browser.a $
+    obj/components/libomnibox_in_memory_url_index_cache_proto.a $
+    obj/components/libopen_from_clipboard.a obj/components/libsearch.a $
+    obj/components/libsearch_engines.a $
+    obj/components/search_engines/libprepopulated_engines.a $
+    obj/components/libsearch_provider_logos.a $
+    obj/components/libsecurity_interstitials_core.a $
+    obj/components/libssl_errors.a obj/components/libsuggestions.a $
+    obj/components/libstartup_metric_utils_browser_message_filter.a $
+    obj/components/libsupervised_user_error_page.a $
+    obj/components/libtranslate_core_browser.a $
+    obj/components/liblanguage_usage_metrics.a $
+    obj/components/libwebdata_services.a obj/chrome/libapps.a $
+    obj/components/libabout_handler.a $
+    obj/components/libautofill_content_browser.a $
+    obj/components/libcontextual_search_browser.a $
+    obj/components/libcontextual_search_mojo_bindings.a $
+    obj/components/libcookie_config.a $
+    obj/components/libdata_reduction_proxy_content_browser.a $
+    obj/components/libdata_reduction_proxy_content_common.a $
+    obj/components/libdata_use_measurement_content.a $
+    obj/components/libdom_distiller_content_browser.a $
+    obj/components/libdom_distiller_content_common.a $
+    obj/components/libdom_distiller_mojo_bindings.a $
+    obj/components/libdomain_reliability.a $
+    obj/components/libfavicon_content.a $
+    obj/components/libhistory_content_browser.a $
+    obj/components/libvisitedlink_browser.a $
+    obj/components/libnavigation_interception.a $
+    obj/components/libnetwork_hints_common.a $
+    obj/components/libmetrics_gpu.a obj/components/libmetrics_profiler.a $
+    obj/components/libmetrics_profiler_content.a $
+    obj/components/libntp_snippets.a $
+    obj/components/libpacked_ct_ev_whitelist.a $
+    obj/components/libpassword_manager_content_browser.a $
+    obj/components/libpower.a obj/components/libprofile_metrics.a $
+    obj/components/librenderer_context_menu.a $
+    obj/components/libsafe_browsing_db_shared.a $
+    obj/components/libsafebrowsing_proto.a obj/components/libsafe_json.a $
+    obj/components/libsafe_json_parser_message_filter.a $
+    obj/content/libcontent_utility.a obj/components/libssl_config.a $
+    obj/components/libtranslate_content_browser.a $
+    obj/components/libuser_prefs_tracked.a obj/components/libwallpaper.a $
+    obj/content/content.actions_depends.stamp $
+    obj/content/libcontent_renderer.a $
+    obj/third_party/webrtc/modules/libwebrtc_h264.a $
+    obj/third_party/openh264/libopenh264_encoder.a $
+    obj/third_party/openh264/libopenh264_common.a $
+    obj/third_party/openh264/libopenh264_processing.a $
+    obj/third_party/webrtc/common_video/libcommon_video.a $
+    obj/third_party/webrtc/system_wrappers/libmetrics_default.a $
+    obj/cc/blink/libcc_blink.a obj/components/libmemory_pressure.a $
+    obj/media/blink/libmedia_blink.a obj/mojo/libmojo_js_lib.a $
+    obj/media/cast/libcast_sender.a obj/ppapi/libppapi_proxy.a $
+    obj/components/libwebusb.a $
+    obj/content/libfeature_h264_with_openh264_ffmpeg.a $
+    obj/media/mojo/interfaces/libplatform_verification_api.a $
+    obj/media/mojo/interfaces/platform_verification_mojo_bindings.actions_rules_copies.stamp $
+    obj/chrome/libsync_file_system_drive_proto.a obj/components/libdrive.a $
+    obj/components/libdrive_proto.a lib/libhunspell.so.TOC $
+    obj/components/libpdf_browser.a obj/components/libpdf_common.a $
+    obj/build/linux/libspeechd.a obj/components/libbreakpad_host.a $
+    obj/components/crash_component.actions_depends.stamp $
+    obj/components/libcrash_component_non_mac_win.a $
+    obj/components/libcrash_component_lib.a $
+    obj/breakpad/libbreakpad_client.a $
+    gen/third_party/kasko/kasko_features.h $
+    obj/components/libfeedback_component.a $
+    obj/net/libnet_browser_services.a obj/net/libmojo_type_converters.a $
+    obj/net/libnet_interfaces.a obj/net/libnet_utility_services.a $
+    obj/chrome/libpolicy_path_parser.a $
+    obj/chrome/libprofile_reset_report_proto.a $
+    obj/ui/views/controls/webview/libwebview.a obj/ui/views/libviews.a $
+    obj/ui/views/resources/views_resources.actions_rules_copies.stamp $
+    obj/components/libprinting_browser.a $
+    obj/components/libautofill_content_renderer.a $
+    obj/components/libcdm_renderer.a obj/components/libcdm_common.a $
+    obj/components/libguest_view_renderer.a $
+    obj/components/libnetwork_hints_renderer.a $
+    obj/components/liberror_page_renderer.a $
+    obj/components/libpage_load_metrics_renderer.a $
+    obj/components/libpassword_manager_content_renderer.a $
+    obj/components/libplugins_renderer.a $
+    obj/components/libtranslate_content_renderer.a $
+    obj/components/libvisitedlink_renderer.a $
+    obj/components/libweb_cache_renderer.a $
+    obj/components/libcontextual_search_renderer.a $
+    obj/components/libdom_distiller_content_renderer.a $
+    obj/components/libpdf_renderer.a $
+    obj/extensions/libextensions_renderer.a $
+    obj/media/cast/libcast_receiver.a obj/components/libprinting_renderer.a $
+    obj/extensions/libextensions_utility.a $
+    obj/third_party/cld_2/libcld2_static.a obj/ppapi/libppapi_cpp_objects.a $
+    obj/ppapi/libppapi_internal_module.a obj/third_party/pdfium/libpdfium.a $
+    obj/third_party/pdfium/third_party/libbigint.a $
+    obj/third_party/pdfium/libfdrm.a obj/third_party/pdfium/libfpdfdoc.a $
+    obj/third_party/pdfium/libfpdfapi.a $
+    obj/third_party/pdfium/libfpdftext.a $
+    obj/third_party/pdfium/libformfiller.a $
+    obj/third_party/pdfium/libfxcodec.a $
+    obj/third_party/pdfium/third_party/libfx_lcms2.a $
+    obj/third_party/pdfium/third_party/libfx_libopenjpeg.a $
+    obj/third_party/pdfium/third_party/libfx_zlib.a $
+    obj/third_party/pdfium/libfxcrt.a obj/third_party/pdfium/libfxedit.a $
+    obj/third_party/pdfium/libfxge.a $
+    obj/third_party/pdfium/third_party/libfx_agg.a $
+    obj/third_party/pdfium/libjavascript.a $
+    obj/third_party/pdfium/libpdfwindow.a
+
+build obj/chrome/chrome_initial.compile_depends.stamp: stamp $
+    gen/chrome/common/chrome_version.h gen/chrome/common/features.h $
+    obj/chrome/common.compile_depends.stamp $
+    obj/chrome/browser.compile_depends.stamp $
+    obj/sync/sync.compile_depends.stamp $
+    obj/chrome/debugger.compile_depends.stamp $
+    obj/ppapi/ppapi_host.compile_depends.stamp $
+    obj/printing/printing.compile_depends.stamp $
+    obj/chrome/child.compile_depends.stamp $
+    obj/chrome/renderer.compile_depends.stamp $
+    obj/chrome/utility.compile_depends.stamp $
+    obj/content/content_gpu.compile_depends.stamp $
+    obj/content/content_ppapi_plugin.compile_depends.stamp $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_rules_copies.stamp $
+    obj/content/content_app_both.compile_depends.stamp $
+    obj/chrome/installer_util.compile_depends.stamp $
+    obj/pdf/pdf.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/chrome/packed_extra_resources.actions_rules_copies.stamp $
+    obj/chrome/packed_resources.actions_rules_copies.stamp $
+    obj/sandbox/sandbox.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/chrome/chrome_resources.actions_rules_copies.stamp $
+    obj/chrome/web_ui_mojo_bindings.actions_rules_copies.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    obj/chrome/chrome_strings.actions_rules_copies.stamp $
+    obj/components/variations.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/chrome/safe_browsing_proto.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp icudtl.dat icudtl.dat icudtl.dat $
+    obj/chrome/theme_resources.actions_rules_copies.stamp $
+    obj/ui/resources/ui_resources.actions_rules_copies.stamp $
+    obj/chrome/chrome_unscaled_resources.actions_rules_copies.stamp $
+    obj/chrome/common_constants.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp gen/widevine_cdm_version.h $
+    obj/chrome/common/variations/fieldtrial_testing_config.actions_rules_copies.stamp $
+    obj/components/cloud_devices_common.compile_depends.stamp $
+    obj/google_apis/google_apis.compile_depends.stamp $
+    obj/net/net.compile_depends.stamp obj/url/url_lib.compile_depends.stamp $
+    obj/components/component_updater.compile_depends.stamp $
+    obj/ui/base/ui_base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp gen/ui/base/ui_features.h $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/ui/events/events.compile_depends.stamp $
+    obj/ui/gfx/gfx.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/ui/events/events_base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/ui/strings/ui_strings.actions_rules_copies.stamp $
+    obj/ui/events/devices/events_devices.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/ui/ozone/ozone_base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/ui/gfx/ipc/skia/gfx_ipc_skia.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/components/update_client.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/components/version_info.compile_depends.stamp $
+    obj/components/components_strings.actions_rules_copies.stamp $
+    gen/components/version_info/version_info_values.h $
+    obj/components/content_settings_core_common.compile_depends.stamp $
+    obj/components/error_page_common.compile_depends.stamp $
+    obj/components/offline_pages.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/components/offline_pages_proto.actions_rules_copies.stamp $
+    obj/components/url_formatter/url_formatter.compile_depends.stamp $
+    obj/components/favicon_base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/components/metrics.compile_depends.stamp $
+    obj/components/component_metrics_proto.actions_rules_copies.stamp $
+    obj/components/metrics_net.compile_depends.stamp $
+    obj/components/data_use_measurement_core.compile_depends.stamp $
+    obj/components/policy.compile_depends.stamp $
+    obj/components/cloud_policy_code_generate.actions_rules_copies.stamp $
+    obj/components/cloud_policy_proto_generated_compile.actions_rules_copies.stamp $
+    obj/components/policy_component_common.compile_depends.stamp $
+    obj/components/cloud_policy_proto.actions_rules_copies.stamp $
+    obj/components/startup_metric_utils_common.compile_depends.stamp $
+    obj/components/translate_core_common.compile_depends.stamp $
+    gen/build/util/webkit_version.h $
+    obj/content/content_resources.actions_rules_copies.stamp $
+    catalog/manifest.json content_browser_manifest.json $
+    content_renderer_manifest.json obj/cc/cc.compile_depends.stamp $
+    obj/cc/cc_proto.actions_rules_copies.stamp $
+    obj/gpu/gpu.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/gpu/command_buffer_service.compile_depends.stamp $
+    obj/gpu/disk_cache_proto.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp obj/ui/gl/gl.compile_depends.stamp $
+    obj/ui/ozone/ozone_platform.actions_rules_copies.stamp $
+    obj/ui/ozone/ozone_platform_egltest.compile_depends.stamp $
+    obj/ui/ozone/ozone_common.compile_depends.stamp $
+    obj/ui/ozone/eglplatform_shim.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp gen/angle/id/commit.h $
+    obj/third_party/angle/src/copy_scripts.actions_rules_copies.stamp $
+    obj/gpu/gpu_ipc_client.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/url/ipc/url_ipc.compile_depends.stamp $
+    obj/gpu/gpu_ipc_common.compile_depends.stamp $
+    obj/gpu/gpu_ipc_service.compile_depends.stamp $
+    obj/media/media.compile_depends.stamp gen/media/media_features.h $
+    obj/third_party/opus/opus.gen/celt_pitch_xcorr_arm_gnu.S $
+    obj/base/base.compile_depends.stamp $
+    obj/third_party/libvpx/libvpx.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/device/bluetooth/device_bluetooth.compile_depends.stamp $
+    obj/device/bluetooth/bluetooth_strings.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/gpu/blink/gpu_blink.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/gpu/gl_in_process_context.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/third_party/WebKit/Source/platform/blink_common.compile_depends.stamp $
+    obj/third_party/WebKit/Source/platform/blink_common.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/ipc/mojo/ipc_mojo.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/mojo/mojo_cpp_bindings.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/mojo/mojo_application_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_application_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_runner_common_lib.compile_depends.stamp $
+    obj/storage/storage_common.compile_depends.stamp $
+    obj/third_party/WebKit/public/blink.compile_depends.stamp $
+    obj/third_party/WebKit/public/mojo_bindings.compile_depends.stamp $
+    obj/third_party/WebKit/public/mojo_bindings_blink_mojom.actions_rules_copies.stamp $
+    obj/third_party/WebKit/public/mojo_bindings_mojom.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/platform/blink_platform.compile_depends.stamp $
+    obj/third_party/WebKit/Source/platform/make_platform_generated.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/platform/inspector_protocol/protocol_sources.actions_rules_copies.stamp $
+    gen/blink/platform/inspector_protocol/InspectorProtocolVersion.h $
+    gen/blink/platform/v8_inspector/DebuggerScript.h $
+    gen/blink/platform/v8_inspector/InjectedScriptSource.h $
+    snapshot_blob.bin snapshot_blob.bin snapshot_blob.bin $
+    obj.host/v8/tools/gyp/js2c.actions_rules_copies.stamp natives_blob.bin $
+    obj/third_party/WebKit/Source/web/blink_web.compile_depends.stamp $
+    obj/third_party/WebKit/Source/modules/modules.compile_depends.stamp $
+    obj/device/battery/device_battery_mojo_bindings.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/modules/make_modules_generated.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/modules_event_generated.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/core/webcore.compile_depends.stamp $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp $
+    obj/third_party/WebKit/Source/core/inspector_instrumentation_sources.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/core/generated_testing_idls.actions_rules_copies.stamp $
+    gen/blink/core/EventInterfaces.in $
+    obj/third_party/WebKit/Source/bindings/core/v8/bindings_core_v8_generated.compile_depends.stamp $
+    obj/third_party/WebKit/Source/bindings/core/v8/bindings_core_impl_generated.actions_rules_copies.stamp $
+    gen/blink/bindings/scripts/cached_jinja_templates.stamp $
+    obj/third_party/WebKit/Source/bindings/scripts/cached_lex_yacc_tables.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/core/interfaces_info_individual_core.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/core/core_global_constructors_idls.actions_rules_copies.stamp $
+    gen/blink/bindings/core/GlobalObjectsCore.pickle $
+    gen/blink/bindings/modules/InterfacesInfoOverall.pickle $
+    obj/third_party/WebKit/Source/bindings/modules/interfaces_info_individual_modules.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/modules_core_global_constructors_idls.actions_rules_copies.stamp $
+    gen/blink/bindings/modules/GlobalObjectsModules.pickle $
+    obj/third_party/WebKit/Source/bindings/modules/modules_global_constructors_idls.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/core/v8/bindings_core_v8_generated_aggregate.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/core/v8/bindings_core_v8_generated_individual.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated.compile_depends.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_impl_generated.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_aggregate.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_individual.actions_rules_copies.stamp $
+    gen/blink/bindings/modules/v8/initPartialInterfacesInModules.cpp $
+    gen/blink/bindings/modules/v8/V8GeneratedModulesBindingsPartial.cpp $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.compile_depends.stamp $
+    obj/third_party/WebKit/Source/core/webcore_generated.compile_depends.stamp $
+    obj/gin/gin.compile_depends.stamp $
+    obj/ui/accessibility/accessibility.compile_depends.stamp $
+    obj/ui/accessibility/ax_gen.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/ui/base/ime/ui_base_ime.compile_depends.stamp $
+    obj/ui/shell_dialogs/shell_dialogs.compile_depends.stamp $
+    obj/ui/aura/aura.compile_depends.stamp $
+    obj/ui/compositor/compositor.compile_depends.stamp $
+    obj/cc/cc_surfaces.compile_depends.stamp $
+    gen/content/public/common/features.h $
+    obj/content/content_common_mojo_bindings_mojom.actions_rules_copies.stamp $
+    obj/content/content_common_mojo_bindings_mojom.actions_rules_copies.stamp $
+    obj/components/leveldb/leveldb_bindings_mojom.actions_rules_copies.stamp $
+    obj/components/filesystem/filesystem_bindings_mojom.actions_rules_copies.stamp $
+    obj/skia/skia_mojo.actions_rules_copies.stamp $
+    obj/ui/mojo/geometry/mojo_geometry_bindings_mojom.actions_rules_copies.stamp $
+    obj/ui/mojo/geometry/mojo_geometry_bindings_mojom.actions_rules_copies.stamp $
+    obj/url/url_interfaces_mojom.actions_rules_copies.stamp $
+    obj/ppapi/ppapi_shared.compile_depends.stamp $
+    obj/ui/surface/surface.compile_depends.stamp $
+    gen/third_party/kasko/kasko_features.h gen/device/usb/usb_ids_gen.cc $
+    obj/device/usb/device_usb_mojo_bindings.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp $
+    obj/extensions/common/api/extensions_api_mojom.actions_rules_copies.stamp $
+    obj/extensions/extensions_common.compile_depends.stamp $
+    obj/components/url_matcher.compile_depends.stamp $
+    obj/device/serial/device_serial_mojo.actions_rules_copies.stamp $
+    obj/extensions/extensions_resources.actions_rules_copies.stamp $
+    obj/extensions/extensions_strings.actions_rules_copies.stamp $
+    obj/extensions/extensions_common_mojo.actions_rules_copies.stamp $
+    obj/media/cast/cast_net.compile_depends.stamp $
+    obj/media/cast/cast_common.compile_depends.stamp $
+    obj/media/cast/cast_logging_proto.actions_rules_copies.stamp $
+    obj/chrome/common_mojo_bindings.actions_rules_copies.stamp $
+    obj/components/autofill_core_common.compile_depends.stamp $
+    obj/components/autofill_content_common.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/components/password_manager_content_common.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/components/translate_core_language_detection.compile_depends.stamp $
+    obj/components/visitedlink_common.compile_depends.stamp $
+    gen/flapper_version.h $
+    obj/components/printing_common.compile_depends.stamp $
+    obj/chrome/browser_ui.compile_depends.stamp $
+    obj/chrome/browser_ui_views.compile_depends.stamp $
+    obj/chrome/chrome_extra_resources.actions_rules_copies.stamp $
+    obj/components/components_resources.actions_rules_copies.stamp $
+    gen/about_credits.html $
+    obj/content/browser/devtools/devtools_resources.actions_rules_copies.stamp $
+    gen/devtools/devtools_resources.grd gen/devtools/devtools_resources.grd $
+    resources/inspector/devtools_extension_api.js $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_rules_copies.stamp $
+    resources/inspector/SupportedCSSProperties.js $
+    resources/inspector/InspectorBackendCommands.js $
+    obj/third_party/WebKit/Source/devtools/build_applications.actions_rules_copies.stamp $
+    obj/content/browser/tracing/tracing_resources.actions_rules_copies.stamp $
+    obj/third_party/catapult/tracing/generate_about_tracing.actions_rules_copies.stamp $
+    gen/content/browser/tracing/tracing_resources.grd $
+    obj/chrome/platform_locale_settings.actions_rules_copies.stamp $
+    gen/base/debug/debugging_flags.h $
+    obj/components/certificate_reporting.compile_depends.stamp $
+    obj/components/cert_logger_proto.actions_rules_copies.stamp $
+    obj/components/encrypted_cert_logger_proto.actions_rules_copies.stamp $
+    obj/components/dom_distiller_core.compile_depends.stamp $
+    obj/sync/sync_core.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/sync/attachment_store_proto.actions_rules_copies.stamp $
+    obj/sync/sync_proto.actions_rules_copies.stamp $
+    obj/third_party/dom_distiller_js/dom_distiller_js_proto.actions_rules_copies.stamp $
+    obj/components/dom_distiller_protos.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/components/dom_distiller_webui.compile_depends.stamp $
+    obj/content/content_browser.compile_depends.stamp $
+    obj/content/content_child.compile_depends.stamp $
+    obj/components/mime_util/mime_util.compile_depends.stamp $
+    obj/components/scheduler/scheduler.compile_depends.stamp $
+    obj/components/webcrypto/webcrypto.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/third_party/WebKit/public/blink_image_resources.actions_rules_copies.stamp $
+    obj/third_party/WebKit/public/blink_resources.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/content/app/resources/content_resources.actions_rules_copies.stamp $
+    obj/content/app/strings/content_strings.actions_rules_copies.stamp $
+    obj/components/leveldb/leveldb_lib.compile_depends.stamp $
+    obj/components/leveldb/leveldb_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_application_bindings_mojom.actions_rules_copies.stamp $
+    obj/components/filesystem/filesystem_lib.compile_depends.stamp $
+    obj/components/filesystem/filesystem_bindings_mojom.actions_rules_copies.stamp $
+    obj/components/profile_service/profile_service_lib.compile_depends.stamp $
+    obj/components/profile_service/profile_service_bindings_mojom.actions_rules_copies.stamp $
+    obj/components/profile_service/profile_service_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/tracing_service.compile_depends.stamp $
+    obj/mojo/tracing_service_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/tracing_service_bindings_mojom.actions_rules_copies.stamp $
+    obj/device/battery/device_battery.compile_depends.stamp $
+    obj/device/vibration/device_vibration.compile_depends.stamp $
+    obj/device/vibration/device_vibration_mojo_bindings.actions_rules_copies.stamp $
+    obj/ui/mojo/geometry/mojo_geometry_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_url_type_converters.compile_depends.stamp $
+    obj/mojo/tracing_service_lib.compile_depends.stamp $
+    obj/mojo/mojo_runner_host_lib.compile_depends.stamp $
+    obj/mojo/mojo_shell_lib.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/net/http_server.compile_depends.stamp $
+    obj/net/net_extras.compile_depends.stamp $
+    obj/storage/storage.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/ui/snapshot/snapshot.compile_depends.stamp $
+    obj/ui/touch_selection/ui_touch_selection.compile_depends.stamp $
+    obj/ui/aura_extra/aura_extra.compile_depends.stamp $
+    obj/content/browser/background_sync/background_sync_proto.actions_rules_copies.stamp $
+    obj/content/browser/cache_storage/cache_storage_proto.actions_rules_copies.stamp $
+    obj/content/browser/devtools/devtools_protocol_handler.actions_rules_copies.stamp $
+    obj/content/browser/notifications/notification_proto.actions_rules_copies.stamp $
+    obj/content/browser/service_worker/service_worker_proto.actions_rules_copies.stamp $
+    obj/content/browser/speech/proto/speech_proto.actions_rules_copies.stamp $
+    obj/ppapi/ppapi_ipc.compile_depends.stamp $
+    obj/components/invalidation_impl.compile_depends.stamp $
+    obj/components/invalidation_public.compile_depends.stamp $
+    obj/third_party/cacheinvalidation/cacheinvalidation.compile_depends.stamp $
+    obj/third_party/cacheinvalidation/cacheinvalidation_proto_cpp.actions_rules_copies.stamp $
+    obj/jingle/notifier.compile_depends.stamp $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/jingle/jingle_glue.compile_depends.stamp $
+    obj/components/gcm_driver.compile_depends.stamp $
+    obj/components/gcm_driver_crypto.compile_depends.stamp $
+    obj/components/gcm_driver_crypto_proto.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/components/sync_driver.compile_depends.stamp $
+    obj/components/signin_core_browser.compile_depends.stamp $
+    obj/components/content_settings_core_browser.compile_depends.stamp $
+    obj/components/google_core_browser.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/components/policy_component.compile_depends.stamp $
+    obj/components/policy_component_browser.compile_depends.stamp $
+    obj/components/bookmarks_browser.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/components/components_strings.actions_rules_copies.stamp $
+    obj/components/proxy_config.compile_depends.stamp $
+    obj/google_apis/gcm/gcm.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/components/password_manager_core_browser.compile_depends.stamp $
+    obj/components/password_manager_core_browser_proto.actions_rules_copies.stamp $
+    obj/components/toolbar.compile_depends.stamp $
+    obj/ui/gfx/gfx_vector_icons.actions_rules_copies.stamp $
+    obj/components/security_state.compile_depends.stamp $
+    obj/components/ui_zoom.compile_depends.stamp $
+    obj/components/version_ui.compile_depends.stamp $
+    obj/ui/content_accelerators/ui_content_accelerators.compile_depends.stamp $
+    obj/ui/message_center/message_center.compile_depends.stamp $
+    obj/chrome/common_net.compile_depends.stamp $
+    obj/net/net_resources.actions_rules_copies.stamp $
+    obj/chrome/browser/devtools/devtools_protocol_constants.actions_rules_copies.stamp $
+    obj/components/devtools_http_handler.compile_depends.stamp $
+    obj/components/devtools_discovery.compile_depends.stamp $
+    obj/components/app_modal.compile_depends.stamp $
+    obj/components/autofill_content_risk_proto.actions_rules_copies.stamp $
+    obj/components/browsing_data_ui.compile_depends.stamp $
+    obj/components/browser_sync_browser.compile_depends.stamp $
+    obj/components/autofill_core_browser.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/third_party/libaddressinput/libaddressinput_util.compile_depends.stamp $
+    obj/third_party/libaddressinput/libaddressinput_strings.actions_rules_copies.stamp $
+    obj/third_party/libphonenumber/libphonenumber_without_metadata.actions_rules_copies.stamp $
+    obj/third_party/libphonenumber/libphonenumber_without_metadata.actions_rules_copies.stamp $
+    obj/components/autofill_server_proto.actions_rules_copies.stamp $
+    obj/components/infobars_core.compile_depends.stamp $
+    obj/ui/native_theme/native_theme.compile_depends.stamp $
+    obj/components/rappor.actions_rules_copies.stamp $
+    obj/components/variations_net.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/components/history_core_browser.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/components/password_manager_sync_browser.compile_depends.stamp $
+    obj/components/syncable_prefs.compile_depends.stamp $
+    obj/components/sync_bookmarks.compile_depends.stamp $
+    obj/components/favicon_core.compile_depends.stamp $
+    obj/components/undo_component.compile_depends.stamp $
+    obj/components/sync_sessions.compile_depends.stamp $
+    obj/components/sessions_content.compile_depends.stamp $
+    obj/components/crash_core_browser.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/components/flags_ui.compile_depends.stamp $
+    obj/components/net_log.compile_depends.stamp $
+    obj/components/data_reduction_proxy_core_common.compile_depends.stamp $
+    obj/components/data_reduction_proxy_proto.actions_rules_copies.stamp $
+    obj/components/page_load_metrics_browser.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/net/net_with_v8.compile_depends.stamp $
+    obj/net/stale_while_revalidate_experiment_domains.compile_depends.stamp $
+    obj/net/net_derived_sources.actions_rules_copies.stamp $
+    obj/ui/web_dialogs/web_dialogs.compile_depends.stamp $
+    obj/ash/ash_resources.actions_rules_copies.stamp $
+    obj/ui/keyboard/keyboard.compile_depends.stamp $
+    obj/ui/keyboard/keyboard_resources.actions_rules_copies.stamp $
+    gen/ui/keyboard/resources/inputview.js $
+    obj/ui/keyboard/keyboard_with_content.compile_depends.stamp $
+    obj/ui/wm/wm.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/ui/app_list/app_list.compile_depends.stamp $
+    obj/ui/app_list/resources/app_list_resources.actions_rules_copies.stamp $
+    obj/third_party/libaddressinput/libaddressinput.compile_depends.stamp $
+    obj/chrome/browser_extensions.compile_depends.stamp $
+    obj/chrome/browser/extensions/api/chrome_api_registration.actions_rules_copies.stamp $
+    obj/components/copresence_proto.actions_rules_copies.stamp $
+    obj/components/copresence.compile_depends.stamp $
+    obj/components/audio_modem.compile_depends.stamp $
+    obj/components/proximity_auth.compile_depends.stamp $
+    obj/components/cryptauth.compile_depends.stamp $
+    obj/components/cryptauth_proto.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp obj/net/net.compile_depends.stamp $
+    obj/extensions/browser/api/extensions_api_registration.actions_rules_copies.stamp $
+    obj/extensions/common/api/cast_channel_proto.actions_rules_copies.stamp $
+    obj/extensions/extensions_browser.compile_depends.stamp $
+    obj/components/browsing_data.compile_depends.stamp $
+    obj/components/guest_view_browser.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/components/keyed_service_content.compile_depends.stamp $
+    obj/components/storage_monitor.compile_depends.stamp $
+    obj/device/media_transfer_protocol/device_media_transfer_protocol.compile_depends.stamp $
+    obj/device/media_transfer_protocol/mtp_file_entry_proto.actions_rules_copies.stamp $
+    obj/device/media_transfer_protocol/mtp_storage_info_proto.actions_rules_copies.stamp $
+    obj/components/web_cache_browser.compile_depends.stamp $
+    obj/components/web_cache_mojo_bindings.actions_rules_copies.stamp $
+    obj/components/web_modal.compile_depends.stamp $
+    obj/device/serial/device_serial.compile_depends.stamp $
+    obj/chrome/browser/media/router/media_router.compile_depends.stamp $
+    obj/chrome/browser/media/router/media_router_mojo_gen.actions_rules_copies.stamp $
+    obj/chrome/browser/media/router/media_router_mojo_gen.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/components/feedback_proto.actions_rules_copies.stamp $
+    obj/chrome/make_chrome_ui_string_overrider_factory.actions_rules_copies.stamp $
+    obj/components/variations_service.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/components/web_resource.compile_depends.stamp $
+    obj/chrome/make_chrome_ui_string_overrider_factory.actions_rules_copies.stamp $
+    obj/chrome/probe_message_proto.actions_rules_copies.stamp $
+    obj/components/captive_portal.compile_depends.stamp $
+    obj/components/content_settings_content_common.compile_depends.stamp $
+    obj/components/data_reduction_proxy_core_browser.compile_depends.stamp $
+    gen/components/data_reduction_proxy/core/common/version.h $
+    obj/components/data_usage_core.compile_depends.stamp $
+    obj/components/metrics_services_manager.compile_depends.stamp $
+    obj/components/metrics_ui.compile_depends.stamp $
+    obj/components/navigation_metrics.compile_depends.stamp $
+    obj/components/omnibox_browser.compile_depends.stamp $
+    obj/components/omnibox_in_memory_url_index_cache_proto.actions_rules_copies.stamp $
+    obj/components/open_from_clipboard.compile_depends.stamp $
+    obj/components/search.compile_depends.stamp $
+    obj/components/search_engines.compile_depends.stamp $
+    obj/components/search_engines/prepopulated_engines.actions_rules_copies.stamp $
+    obj/components/search_provider_logos.compile_depends.stamp $
+    obj/components/security_interstitials_core.compile_depends.stamp $
+    obj/components/ssl_errors.compile_depends.stamp $
+    obj/components/suggestions.actions_rules_copies.stamp $
+    obj/components/startup_metric_utils_browser_message_filter.compile_depends.stamp $
+    obj/components/supervised_user_error_page.compile_depends.stamp $
+    obj/components/translate_core_browser.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/components/webdata_services.compile_depends.stamp $
+    obj/chrome/apps.compile_depends.stamp $
+    obj/components/about_handler.compile_depends.stamp $
+    obj/components/autofill_content_browser.compile_depends.stamp $
+    obj/components/contextual_search_browser.compile_depends.stamp $
+    obj/components/contextual_search_mojo_bindings.actions_rules_copies.stamp $
+    obj/components/cookie_config.compile_depends.stamp $
+    obj/components/data_reduction_proxy_content_browser.compile_depends.stamp $
+    obj/components/data_reduction_proxy_content_common.compile_depends.stamp $
+    obj/components/data_use_measurement_content.compile_depends.stamp $
+    obj/components/dom_distiller_content_browser.compile_depends.stamp $
+    obj/components/dom_distiller_content_common.compile_depends.stamp $
+    obj/components/dom_distiller_mojo_bindings.actions_rules_copies.stamp $
+    obj/components/domain_reliability.gen/domain_reliability/baked_in_configs.cc $
+    obj/components/favicon_content.compile_depends.stamp $
+    obj/components/history_content_browser.compile_depends.stamp $
+    obj/components/visitedlink_browser.compile_depends.stamp $
+    obj/components/navigation_interception.compile_depends.stamp $
+    obj/components/network_hints_common.compile_depends.stamp $
+    obj/components/metrics_gpu.compile_depends.stamp $
+    obj/components/metrics_profiler.compile_depends.stamp $
+    obj/components/metrics_profiler_content.compile_depends.stamp $
+    obj/components/ntp_snippets.compile_depends.stamp $
+    obj/components/packed_ct_ev_whitelist.compile_depends.stamp $
+    obj/components/password_manager_content_browser.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/components/renderer_context_menu.compile_depends.stamp $
+    obj/components/safe_browsing_db_shared.compile_depends.stamp $
+    obj/components/safebrowsing_proto.actions_rules_copies.stamp $
+    obj/components/safe_json.compile_depends.stamp $
+    obj/components/safe_json_parser_message_filter.compile_depends.stamp $
+    obj/content/content_utility.compile_depends.stamp $
+    obj/components/ssl_config.compile_depends.stamp $
+    obj/components/translate_content_browser.compile_depends.stamp $
+    obj/components/wallpaper.compile_depends.stamp $
+    obj/content/content.compile_depends.stamp $
+    obj/content/content_renderer.compile_depends.stamp $
+    obj/cc/blink/cc_blink.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/media/blink/media_blink.compile_depends.stamp $
+    obj/mojo/mojo_js_lib.compile_depends.stamp $
+    obj/media/cast/cast_logging_proto.actions_rules_copies.stamp $
+    obj/ppapi/ppapi_proxy.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    gen/content/public/common/features.h $
+    obj/media/mojo/interfaces/platform_verification_api.compile_depends.stamp $
+    obj/media/mojo/interfaces/platform_verification_mojo_bindings.actions_rules_copies.stamp $
+    obj/chrome/sync_file_system_drive_proto.actions_rules_copies.stamp $
+    obj/components/drive.compile_depends.stamp $
+    obj/components/drive_proto.actions_rules_copies.stamp $
+    obj/third_party/hunspell/hunspell.compile_depends.stamp $
+    obj/components/pdf_browser.compile_depends.stamp $
+    obj/components/pdf_common.compile_depends.stamp $
+    obj/build/linux/libspeechd.actions_rules_copies.stamp $
+    obj/components/breakpad_host.compile_depends.stamp $
+    obj/components/crash_component.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    gen/third_party/kasko/kasko_features.h $
+    obj/components/feedback_component.compile_depends.stamp $
+    obj/net/net_browser_services.compile_depends.stamp $
+    obj/net/mojo_type_converters.compile_depends.stamp $
+    obj/net/net_interfaces.actions_rules_copies.stamp $
+    obj/net/net_interfaces.actions_rules_copies.stamp $
+    obj/chrome/policy_path_parser.compile_depends.stamp $
+    obj/chrome/profile_reset_report_proto.actions_rules_copies.stamp $
+    obj/ui/views/controls/webview/webview.compile_depends.stamp $
+    obj/ui/views/views.compile_depends.stamp $
+    obj/ui/views/resources/views_resources.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/components/autofill_content_renderer.compile_depends.stamp $
+    obj/components/cdm_renderer.compile_depends.stamp $
+    obj/components/cdm_common.compile_depends.stamp $
+    obj/components/guest_view_renderer.compile_depends.stamp $
+    obj/components/network_hints_renderer.compile_depends.stamp $
+    obj/components/error_page_renderer.compile_depends.stamp $
+    obj/components/page_load_metrics_renderer.compile_depends.stamp $
+    obj/components/password_manager_content_renderer.compile_depends.stamp $
+    obj/components/plugins_renderer.compile_depends.stamp $
+    obj/components/translate_content_renderer.compile_depends.stamp $
+    obj/components/visitedlink_renderer.compile_depends.stamp $
+    obj/components/web_cache_renderer.compile_depends.stamp $
+    obj/components/contextual_search_renderer.compile_depends.stamp $
+    obj/components/dom_distiller_content_renderer.compile_depends.stamp $
+    obj/components/pdf_renderer.compile_depends.stamp $
+    obj/extensions/extensions_renderer.compile_depends.stamp $
+    obj/media/cast/cast_receiver.compile_depends.stamp $
+    obj/components/printing_renderer.compile_depends.stamp $
+    obj/extensions/extensions_utility.compile_depends.stamp
+
+rule chrome_initial_target_manpage_ebccf325499610d7e8f37e739720fe8d
+  command = cd ../../chrome; python tools/build/linux/sed.py $
+      app/resources/manpage.1.in ../out.cef/Release/chrome.1 -e $
+      s/@@NAME@@/Chromium/ -e s/@@FILENAME@@/chromium-browser/ -e $
+      s/@@CONFDIR@@/chromium/
+  description = ACTION Generating manpage
+  restat = 1
+
+build chrome.1: $
+    chrome_initial_target_manpage_ebccf325499610d7e8f37e739720fe8d $
+    ../../chrome/tools/build/linux/sed.py $
+    ../../chrome/app/resources/manpage.1.in || $
+    obj/chrome/chrome_initial.actions_depends.stamp
+
+build chrome-wrapper: copy ../../chrome/tools/build/linux/chrome-wrapper || $
+    obj/chrome/chrome_initial.actions_depends.stamp
+build xdg-mime: copy ../../third_party/xdg-utils/scripts/xdg-mime || $
+    obj/chrome/chrome_initial.actions_depends.stamp
+build xdg-settings: copy ../../third_party/xdg-utils/scripts/xdg-settings $
+    || obj/chrome/chrome_initial.actions_depends.stamp
+build product_logo_48.png: copy $
+    ../../chrome/app/theme/chromium/product_logo_48.png || $
+    obj/chrome/chrome_initial.actions_depends.stamp
+build obj/chrome/chrome_initial.actions_rules_copies.stamp: stamp chrome.1 $
+    chrome-wrapper xdg-mime xdg-settings product_logo_48.png
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DMOJO_USE_SYSTEM_IMPL $
+    -DTOOLKIT_VIEWS=1 -DPROTOBUF_USE_DLLS -DGOOGLE_PROTOBUF_NO_RTTI $
+    -DGOOGLE_PROTOBUF_NO_STATIC_INITIALIZER -DSK_SUPPORT_GPU=1 $
+    -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS $
+    -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../skia/config -I../../third_party/khronos $
+    -I../../gpu -Igen/angle -I../../third_party/WebKit/Source $
+    -Igen/protoc_out -I../../third_party/protobuf $
+    -I../../third_party/protobuf/src -I../../third_party/WebKit $
+    -Igen/third_party/WebKit -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/content/public/common/chrome_initial.content_switches.o: cxx $
+    ../../content/public/common/content_switches.cc || $
+    obj/chrome/chrome_initial.actions_rules_copies.stamp
+build obj/chrome/app/chrome_initial.chrome_exe_main_aura.o: cxx $
+    ../../chrome/app/chrome_exe_main_aura.cc || $
+    obj/chrome/chrome_initial.actions_rules_copies.stamp
+build obj/chrome/app/chrome_initial.kasko_client.o: cxx $
+    ../../chrome/app/kasko_client.cc || $
+    obj/chrome/chrome_initial.actions_rules_copies.stamp
+build obj/chrome/app/chrome_initial.chrome_main.o: cxx $
+    ../../chrome/app/chrome_main.cc || $
+    obj/chrome/chrome_initial.actions_rules_copies.stamp
+build obj/chrome/app/chrome_initial.chrome_main_delegate.o: cxx $
+    ../../chrome/app/chrome_main_delegate.cc || $
+    obj/chrome/chrome_initial.actions_rules_copies.stamp
+
+ldflags = -L/work/bsp/sc1400/usr/local/lib -L/work/bsp/sc1400/lib $
+    -L/work/bsp/sc1400/usr/lib -Wl,-z,now -Wl,-z,relro -Wl,-z,defs -pthread $
+    -Wl,-z,noexecstack -fPIC -Wl,--disable-new-dtags -pie $
+    -L/work/bsp/sc1400/usr/lib -L/work/bsp/sc1400/usr/lib $
+    --sysroot=/work/bsp/sc1400 -L/work/bsp/sc1400/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/lib/ -L/work/bsp/sc1400/usr/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/lib/ $
+    -L/work/bsp/sc1400/usr/dtvrec/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/dtvrec/lib/ $
+    -L/work/bsp/sc1400/usr/local/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/local/lib/ $
+    -L/work/bsp/sc1400/usr/local/netfrontbe/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/local/netfrontbe/lib/ -Wl,-O1 $
+    -Wl,--as-needed -Wl,--gc-sections -Wl,-rpath=\$$ORIGIN/lib/ $
+    -Wl,-rpath-link=lib/
+libs =  -lrt -ldl -latomic -lnss3 -lnssutil3 -lsmime3 -lplds4 -lplc4 $
+    -lnspr4 -lm -lfreetype -lexpat -lz -ldbus-1 -lpthread
+build chrome: link $
+    obj/content/public/common/chrome_initial.content_switches.o $
+    obj/chrome/app/chrome_initial.chrome_exe_main_aura.o $
+    obj/chrome/app/chrome_initial.kasko_client.o $
+    obj/chrome/app/chrome_initial.chrome_main.o $
+    obj/chrome/app/chrome_initial.chrome_main_delegate.o $
+    obj/chrome/libcommon.a obj/chrome/libbrowser.a obj/chrome/libdebugger.a $
+    obj/ppapi/libppapi_host.a obj/printing/libprinting.a $
+    obj/chrome/libchild.a obj/chrome/librenderer.a obj/chrome/libutility.a $
+    obj/content/libcontent_gpu.a obj/content/libcontent_ppapi_plugin.a $
+    obj/content/libcontent_app_both.a obj/chrome/libinstaller_util.a $
+    obj/pdf/libpdf.a obj/components/libstartup_metric_utils_browser.a $
+    obj/components/libvariations.a obj/crypto/libcrcrypto.a $
+    obj/base/third_party/dynamic_annotations/libdynamic_annotations.a $
+    obj/third_party/boringssl/libboringssl.a $
+    obj/third_party/boringssl/libboringssl_asm.a $
+    obj/third_party/mt19937ar/libmt19937ar.a $
+    obj/third_party/protobuf/libprotobuf_lite.a $
+    obj/third_party/zlib/google/libcompression_utils.a $
+    obj/third_party/zlib/libchrome_zlib.a $
+    obj/third_party/zlib/libzlib_x86_simd.a $
+    obj/components/libcrash_core_common.a obj/components/prefs/libprefs.a $
+    obj/chrome/libsafe_browsing_proto.a obj/base/libbase_i18n.a $
+    obj/third_party/icu/libicui18n.a obj/third_party/icu/libicuuc.a $
+    obj/base/libbase_static.a obj/chrome/libcommon_constants.a $
+    obj/components/libbookmarks_common.a $
+    obj/chrome/common/variations/libfieldtrial_testing_config.a $
+    obj/components/libcloud_devices_common.a $
+    obj/google_apis/libgoogle_apis.a obj/third_party/libxml/libxml2.a $
+    obj/components/libcomponent_updater.a obj/ui/base/libui_base.a $
+    obj/ui/base/libui_data_pack.a obj/skia/libskia_library.a $
+    obj/skia/libskia_opts.a obj/skia/libskia_opts_neon.a $
+    obj/third_party/sfntly/libsfntly.a $
+    obj/third_party/fontconfig/libfontconfig.a obj/skia/libskia_chrome.a $
+    obj/ui/events/libevents.a obj/ui/gfx/libgfx.a $
+    obj/third_party/harfbuzz-ng/libharfbuzz-ng.a $
+    obj/third_party/libpng/libpng.a obj/ui/gfx/libgfx_geometry.a $
+    obj/third_party/libjpeg_turbo/libjpeg_turbo.a $
+    obj/ui/events/libdom_keycode_converter.a obj/ui/events/libevents_base.a $
+    obj/ui/events/libgesture_detection.a $
+    obj/ui/events/ozone/libevents_ozone_layout.a $
+    obj/ui/events/platform/libevents_platform.a $
+    obj/ui/events/devices/libevents_devices.a $
+    obj/ui/events/ozone/libevents_ozone_evdev.a $
+    obj/ui/ozone/libozone_base.a obj/ipc/libipc.a $
+    obj/ui/display/libdisplay_types.a obj/ui/display/libdisplay_util.a $
+    obj/ui/gfx/ipc/libgfx_ipc.a obj/ui/gfx/ipc/skia/libgfx_ipc_skia.a $
+    obj/ui/events/ozone/libevents_ozone.a obj/components/libupdate_client.a $
+    obj/courgette/libcourgette_lib.a obj/third_party/lzma_sdk/liblzma_sdk.a $
+    obj/third_party/zlib/google/libzip.a obj/third_party/zlib/libminizip.a $
+    obj/components/libclient_update_protocol.a obj/components/libcrx_file.a $
+    obj/components/libversion_info.a $
+    obj/components/libcontent_settings_core_common.a $
+    obj/components/liberror_page_common.a obj/components/liboffline_pages.a $
+    obj/third_party/leveldatabase/libleveldatabase.a $
+    obj/third_party/re2/libre2.a obj/third_party/snappy/libsnappy.a $
+    obj/components/libleveldb_proto.a $
+    obj/components/libkeyed_service_core.a obj/components/libuser_prefs.a $
+    obj/components/liboffline_pages_proto.a $
+    obj/components/url_formatter/liburl_formatter.a $
+    obj/components/libfavicon_base.a obj/components/libflags_ui_switches.a $
+    obj/components/libgcm_driver_common.a obj/components/libjson_schema.a $
+    obj/components/libmetrics.a obj/components/libcomponent_metrics_proto.a $
+    obj/components/libmetrics_net.a $
+    obj/components/libdata_use_measurement_core.a $
+    obj/components/libpolicy.a $
+    obj/components/libcloud_policy_proto_generated_compile.a $
+    obj/components/libpolicy_component_common.a $
+    obj/components/libcloud_policy_proto.a $
+    obj/components/libstartup_metric_utils_common.a $
+    obj/components/libtranslate_core_common.a $
+    obj/content/libcontent_common.a obj/cc/libcc.a obj/cc/libcc_proto.a $
+    obj/gpu/libcommand_buffer_client.a obj/gpu/libcommand_buffer_common.a $
+    obj/gpu/command_buffer/libgles2_utils.a $
+    obj/gpu/libcommand_buffer_service.a obj/gpu/libdisk_cache_proto.a $
+    obj/gpu/libgpu_config.a obj/ui/gl/libgl_wrapper.a $
+    obj/ui/ozone/libozone.a obj/ui/ozone/libozone_platform.a $
+    obj/ui/ozone/libozone_platform_egltest.a obj/ui/ozone/libozone_common.a $
+    obj/ui/ozone/libeglplatform_shim.a $
+    obj/ui/ozone/libozone_platform_headless.a $
+    obj/third_party/smhasher/libcityhash.a $
+    obj/third_party/angle/src/libtranslator.a $
+    obj/third_party/angle/src/libtranslator_lib.a $
+    obj/third_party/angle/src/libpreprocessor.a $
+    obj/third_party/angle/src/libangle_common.a $
+    obj/gpu/libgles2_cmd_helper.a obj/gpu/libgpu_ipc_client.a $
+    obj/gpu/libcommand_buffer_traits.a obj/ui/events/libevents_ipc.a $
+    obj/url/ipc/liburl_ipc.a obj/gpu/libgpu_ipc_common.a $
+    obj/gpu/libgpu_ipc_service.a obj/media/libmedia.a $
+    obj/third_party/libwebm/libwebm.a libyuv.a $
+    obj/third_party/opus/libopus.a obj/media/libshared_memory_support.a $
+    obj/third_party/libvpx/libvpx.a obj/components/libtracing.a $
+    obj/device/bluetooth/libdevice_bluetooth.a $
+    obj/device/bluetooth/liburibeacon.a obj/gpu/blink/libgpu_blink.a $
+    obj/gpu/libgles2_c_lib.a obj/gpu/libgles2_implementation.a $
+    obj/gpu/libgl_in_process_context.a $
+    obj/gpu/skia_bindings/libgpu_skia_bindings.a $
+    obj/third_party/WebKit/Source/platform/libblink_common.a $
+    obj/third_party/WebKit/Source/wtf/libwtf.a obj/ipc/mojo/libipc_mojo.a $
+    obj/mojo/libmojo_system_impl.a obj/mojo/libmojo_cpp_bindings.a $
+    obj/mojo/libmojo_cpp_system.a $
+    obj/media/gpu/ipc/libmedia_gpu_ipc_client.a $
+    obj/media/gpu/ipc/libmedia_gpu_ipc_common.a obj/media/midi/libmidi.a $
+    obj/mojo/libmojo_application_bindings.a $
+    obj/mojo/libmojo_runner_common_lib.a obj/storage/libstorage_common.a $
+    obj/third_party/WebKit/public/libmojo_bindings.a $
+    obj/mojo/libmojo_cpp_bindings_wtf_support.a $
+    obj/third_party/WebKit/Source/platform/libblink_platform.a $
+    obj/third_party/WebKit/Source/platform/libblink_heap_asm_stubs.a $
+    obj/third_party/iccjpeg/libiccjpeg.a $
+    obj/third_party/libwebp/libwebp_dec.a $
+    obj/third_party/libwebp/libwebp_dsp.a $
+    obj/third_party/libwebp/libwebp_dsp_sse2.a $
+    obj/third_party/libwebp/libwebp_dsp_sse41.a $
+    obj/third_party/libwebp/libwebp_utils.a $
+    obj/third_party/libwebp/libwebp_dsp_neon.a $
+    obj/third_party/libwebp/libwebp_demux.a $
+    obj/third_party/libwebp/libwebp_enc.a obj/third_party/ots/libots.a $
+    obj/third_party/brotli/libbrotli.a obj/third_party/woff2/libwoff2_dec.a $
+    obj/third_party/qcms/libqcms.a obj/v8/tools/gyp/libv8_base.a $
+    obj/v8/tools/gyp/libv8_libbase.a $
+    obj/v8/tools/gyp/libv8_external_snapshot.a $
+    obj/third_party/WebKit/Source/web/libblink_web.a $
+    obj/third_party/WebKit/Source/modules/libmodules.a $
+    obj/device/battery/libdevice_battery_mojo_bindings.a $
+    obj/third_party/sqlite/libchromium_sqlite3.a $
+    obj/third_party/WebKit/Source/core/libwebcore_dom.a $
+    obj/third_party/libxslt/libxslt.a $
+    obj/third_party/WebKit/Source/core/libwebcore_html.a $
+    obj/third_party/WebKit/Source/core/libwebcore_remaining.a $
+    obj/third_party/WebKit/Source/core/libwebcore_rendering.a $
+    obj/third_party/WebKit/Source/core/libwebcore_svg.a $
+    obj/third_party/WebKit/Source/core/libwebcore_generated.a $
+    obj/gin/libgin.a obj/ui/accessibility/libaccessibility.a $
+    obj/ui/accessibility/libax_gen.a $
+    obj/tools/json_schema_compiler/libapi_gen_util.a $
+    obj/ui/base/ime/libui_base_ime.a $
+    obj/ui/shell_dialogs/libshell_dialogs.a obj/ui/aura/libaura.a $
+    obj/ui/compositor/libcompositor.a obj/cc/libcc_surfaces.a $
+    obj/content/libcontent_common_mojo_bindings.a obj/skia/libskia_mojo.a $
+    obj/ui/mojo/geometry/libmojo_geometry_bindings.a $
+    obj/ppapi/libppapi_shared.a obj/ui/surface/libsurface.a $
+    obj/device/usb/libdevice_usb.a $
+    obj/device/usb/libdevice_usb_mojo_bindings.a $
+    obj/components/libdevice_event_log_component.a $
+    obj/device/core/libdevice_core.a $
+    obj/chrome/common/extensions/api/libchrome_api.a $
+    obj/extensions/common/api/libextensions_api.a $
+    obj/extensions/libextensions_common.a obj/components/liburl_matcher.a $
+    obj/extensions/libextensions_common_constants.a $
+    obj/media/cast/libcast_net.a obj/media/cast/libcast_common.a $
+    obj/media/cast/libcast_logging_proto.a $
+    obj/chrome/libcommon_mojo_bindings.a $
+    obj/components/libautofill_core_common.a $
+    obj/components/libautofill_content_common.a $
+    obj/components/libpassword_manager_core_common.a $
+    obj/components/libpassword_manager_content_common.a $
+    obj/components/libsignin_core_common.a $
+    obj/components/libtranslate_content_common.a $
+    obj/components/libtranslate_core_language_detection.a $
+    obj/components/libvisitedlink_common.a $
+    obj/components/libprinting_common.a obj/chrome/libbrowser_ui.a $
+    obj/chrome/libbrowser_ui_views.a $
+    obj/components/libcertificate_reporting.a $
+    obj/components/libcert_logger_proto.a $
+    obj/components/libencrypted_cert_logger_proto.a $
+    obj/components/libdom_distiller_core.a obj/sync/libsync_core.a $
+    obj/sql/libsql.a obj/sync/libattachment_store_proto.a $
+    obj/sync/libsync_proto.a $
+    obj/third_party/dom_distiller_js/libdom_distiller_js_proto.a $
+    obj/components/libdom_distiller_protos.a $
+    obj/components/libpref_registry.a $
+    obj/components/libdom_distiller_webui.a $
+    obj/content/libcontent_browser.a obj/content/libcontent_child.a $
+    obj/components/mime_util/libmime_util.a $
+    obj/components/scheduler/libscheduler.a $
+    obj/components/scheduler/libscheduler_common.a $
+    obj/components/webcrypto/libwebcrypto.a obj/mojo/libmojo_common_lib.a $
+    obj/mojo/libmojo_message_pump_lib.a obj/ui/events/libgestures_blink.a $
+    obj/access/libmedia_peer.a obj/components/leveldb/libleveldb_lib.a $
+    obj/components/leveldb/libleveldb_public_lib.a $
+    obj/mojo/libmojo_application_base.a $
+    obj/components/filesystem/libfilesystem_lib.a $
+    obj/components/filesystem/libfilesystem_bindings.a $
+    obj/mojo/libplatform_handle.a $
+    obj/components/profile_service/libprofile_service_lib.a $
+    obj/components/profile_service/libprofile_service_bindings.a $
+    obj/mojo/libtracing_service.a $
+    obj/mojo/libtracing_service_bindings_lib.a $
+    obj/device/battery/libdevice_battery.a $
+    obj/device/vibration/libdevice_vibration.a $
+    obj/device/vibration/libdevice_vibration_mojo_bindings.a $
+    obj/mojo/libmojo_geometry_lib.a obj/mojo/libmojo_url_type_converters.a $
+    obj/mojo/libtracing_service_lib.a obj/mojo/libmojo_js_bindings.a $
+    obj/mojo/libmojo_runner_host_lib.a obj/mojo/libmojo_shell_lib.a $
+    obj/sandbox/libsandbox_services.a obj/sandbox/libsuid_sandbox_client.a $
+    obj/sandbox/libseccomp_bpf.a obj/sandbox/libseccomp_bpf_helpers.a $
+    obj/net/libhttp_server.a obj/net/libnet_extras.a $
+    obj/storage/libstorage.a obj/ui/display/libdisplay.a $
+    obj/ui/events/blink/libevents_blink.a obj/ui/snapshot/libsnapshot.a $
+    obj/ui/touch_selection/libui_touch_selection.a $
+    obj/ui/aura_extra/libaura_extra.a $
+    obj/content/browser/background_sync/libbackground_sync_proto.a $
+    obj/content/browser/cache_storage/libcache_storage_proto.a $
+    obj/content/browser/notifications/libnotification_proto.a $
+    obj/content/browser/service_worker/libservice_worker_proto.a $
+    obj/content/browser/speech/proto/libspeech_proto.a $
+    obj/ppapi/libppapi_ipc.a obj/third_party/flac/libflac.a $
+    obj/components/libinvalidation_impl.a $
+    obj/components/libinvalidation_public.a $
+    obj/third_party/cacheinvalidation/libcacheinvalidation.a $
+    obj/third_party/cacheinvalidation/libcacheinvalidation_proto_cpp.a $
+    obj/jingle/libnotifier.a obj/third_party/libjingle/libjingle.a $
+    obj/third_party/webrtc/base/librtc_base.a $
+    obj/third_party/webrtc/libwebrtc_common.a $
+    obj/third_party/webrtc/base/librtc_base_approved.a $
+    obj/third_party/webrtc/libjingle/xmllite/librtc_xmllite.a $
+    obj/jingle/libjingle_glue.a obj/components/libgcm_driver.a $
+    obj/components/libgcm_driver_crypto.a $
+    obj/components/libgcm_driver_crypto_proto.a $
+    obj/components/libos_crypt.a obj/components/libsync_driver.a $
+    obj/components/libsignin_core_browser.a $
+    obj/components/libcontent_settings_core_browser.a $
+    obj/components/libgoogle_core_browser.a $
+    obj/components/libsignin_core_account_id.a $
+    obj/components/libwebdata_common.a $
+    obj/components/libpolicy_component_browser.a $
+    obj/components/libbookmarks_browser.a obj/components/libquery_parser.a $
+    obj/components/libbookmarks_managed.a obj/components/libproxy_config.a $
+    obj/google_apis/gcm/libgcm.a obj/components/libonc_component.a $
+    obj/components/libpassword_manager_core_browser.a $
+    obj/components/libpassword_manager_core_browser_proto.a $
+    obj/components/libtoolbar.a obj/ui/gfx/libgfx_vector_icons.a $
+    obj/components/libsecurity_state.a obj/components/libui_zoom.a $
+    obj/components/libversion_ui.a $
+    obj/ui/content_accelerators/libui_content_accelerators.a $
+    obj/ui/message_center/libmessage_center.a obj/chrome/libcommon_net.a $
+    obj/components/libdevtools_http_handler.a $
+    obj/components/libdevtools_discovery.a obj/components/libapp_modal.a $
+    obj/components/libautofill_content_risk_proto.a $
+    obj/components/libbrowsing_data_ui.a $
+    obj/components/libbrowser_sync_browser.a $
+    obj/components/libautofill_core_browser.a $
+    obj/third_party/fips181/libfips181.a $
+    obj/third_party/libaddressinput/libaddressinput_util.a $
+    obj/third_party/libphonenumber/libphonenumber.a $
+    obj/third_party/libphonenumber/libphonenumber_without_metadata.a $
+    obj/components/libautofill_server_proto.a $
+    obj/components/libinfobars_core.a obj/ui/native_theme/libnative_theme.a $
+    obj/components/librappor.a obj/components/libvariations_net.a $
+    obj/components/libbrowser_sync_common.a $
+    obj/components/libhistory_core_browser.a $
+    obj/components/libhistory_core_common.a $
+    obj/components/libpassword_manager_sync_browser.a $
+    obj/components/libsyncable_prefs.a obj/components/libsync_bookmarks.a $
+    obj/components/libfavicon_core.a obj/components/libundo_component.a $
+    obj/components/libsync_sessions.a obj/components/libsessions_content.a $
+    obj/components/libcrash_core_browser.a obj/components/libupload_list.a $
+    obj/components/libflags_ui.a obj/components/libnet_log.a $
+    obj/components/libdata_reduction_proxy_core_common.a $
+    obj/components/libdata_reduction_proxy_proto.a $
+    obj/components/libpage_load_metrics_browser.a $
+    obj/components/libpage_load_metrics_common.a obj/net/libnet_with_v8.a $
+    obj/net/libstale_while_revalidate_experiment_domains.a $
+    obj/ui/web_dialogs/libweb_dialogs.a obj/ui/keyboard/libkeyboard.a $
+    obj/ui/keyboard/libkeyboard_with_content.a obj/ui/wm/libwm.a $
+    obj/dbus/libdbus.a obj/ui/app_list/libapp_list.a $
+    obj/third_party/libaddressinput/libaddressinput.a $
+    obj/chrome/libbrowser_extensions.a $
+    obj/chrome/browser/extensions/api/libchrome_api_registration.a $
+    obj/components/libcopresence_proto.a obj/components/libcopresence.a $
+    obj/third_party/webrtc/common_audio/libcommon_audio.a $
+    obj/third_party/webrtc/system_wrappers/libsystem_wrappers.a $
+    obj/third_party/openmax_dl/dl/libopenmax_dl.a $
+    obj/third_party/openmax_dl/dl/libopenmax_dl_armv7.a $
+    obj/third_party/openmax_dl/dl/libopenmax_dl_neon.a $
+    obj/third_party/webrtc/common_audio/libcommon_audio_neon.a $
+    obj/components/libaudio_modem.a obj/components/libproximity_auth.a $
+    obj/components/libcryptauth.a obj/components/libcryptauth_proto.a $
+    obj/components/libproximity_auth_logging.a $
+    obj/device/hid/libdevice_hid.a $
+    obj/extensions/browser/api/libextensions_api_registration.a $
+    obj/extensions/common/api/libcast_channel_proto.a $
+    obj/extensions/libextensions_browser.a $
+    obj/components/libbrowsing_data.a $
+    obj/components/libguest_view_browser.a $
+    obj/components/libguest_view_common.a $
+    obj/components/libkeyed_service_content.a $
+    obj/components/libstorage_monitor.a $
+    obj/device/media_transfer_protocol/libdevice_media_transfer_protocol.a $
+    obj/device/media_transfer_protocol/libmtp_file_entry_proto.a $
+    obj/device/media_transfer_protocol/libmtp_storage_info_proto.a $
+    obj/components/libweb_cache_browser.a $
+    obj/components/libweb_cache_mojo_bindings.a $
+    obj/components/libweb_modal.a obj/device/serial/libdevice_serial.a $
+    obj/third_party/webrtc/modules/libdesktop_capture.a $
+    obj/chrome/browser/media/router/libmedia_router.a $
+    obj/chrome/browser/media/router/libmedia_router_mojo.a $
+    obj/extensions/components/libjavascript_dialog_extensions_client.a $
+    obj/components/libbubble.a obj/components/libfeedback_proto.a $
+    obj/chrome/libchrome_ui_string_overrider_factory.a $
+    obj/components/libvariations_service.a obj/components/libnetwork_time.a $
+    obj/components/libweb_resource.a obj/chrome/libprobe_message_proto.a $
+    obj/components/libcaptive_portal.a $
+    obj/components/libcontent_settings_content_common.a $
+    obj/components/libdata_reduction_proxy_core_browser.a $
+    obj/components/libdata_usage_core.a obj/components/libinstance_id.a $
+    obj/components/libmetrics_services_manager.a $
+    obj/components/libmetrics_ui.a obj/components/libnavigation_metrics.a $
+    obj/components/libomnibox_browser.a $
+    obj/components/libomnibox_in_memory_url_index_cache_proto.a $
+    obj/components/libopen_from_clipboard.a obj/components/libsearch.a $
+    obj/components/libsearch_engines.a $
+    obj/components/search_engines/libprepopulated_engines.a $
+    obj/components/libsearch_provider_logos.a $
+    obj/components/libsecurity_interstitials_core.a $
+    obj/components/libssl_errors.a obj/components/libsuggestions.a $
+    obj/components/libstartup_metric_utils_browser_message_filter.a $
+    obj/components/libsupervised_user_error_page.a $
+    obj/components/libtranslate_core_browser.a $
+    obj/components/liblanguage_usage_metrics.a $
+    obj/components/libwebdata_services.a obj/chrome/libapps.a $
+    obj/components/libabout_handler.a $
+    obj/components/libautofill_content_browser.a $
+    obj/components/libcontextual_search_browser.a $
+    obj/components/libcontextual_search_mojo_bindings.a $
+    obj/components/libcookie_config.a $
+    obj/components/libdata_reduction_proxy_content_browser.a $
+    obj/components/libdata_reduction_proxy_content_common.a $
+    obj/components/libdata_use_measurement_content.a $
+    obj/components/libdom_distiller_content_browser.a $
+    obj/components/libdom_distiller_content_common.a $
+    obj/components/libdom_distiller_mojo_bindings.a $
+    obj/components/libdomain_reliability.a $
+    obj/components/libfavicon_content.a $
+    obj/components/libhistory_content_browser.a $
+    obj/components/libvisitedlink_browser.a $
+    obj/components/libnavigation_interception.a $
+    obj/components/libnetwork_hints_common.a $
+    obj/components/libmetrics_gpu.a obj/components/libmetrics_profiler.a $
+    obj/components/libmetrics_profiler_content.a $
+    obj/components/libntp_snippets.a $
+    obj/components/libpacked_ct_ev_whitelist.a $
+    obj/components/libpassword_manager_content_browser.a $
+    obj/components/libpower.a obj/components/libprofile_metrics.a $
+    obj/components/librenderer_context_menu.a $
+    obj/components/libsafe_browsing_db_shared.a $
+    obj/components/libsafebrowsing_proto.a obj/components/libsafe_json.a $
+    obj/components/libsafe_json_parser_message_filter.a $
+    obj/content/libcontent_utility.a obj/components/libssl_config.a $
+    obj/components/libtranslate_content_browser.a $
+    obj/components/libuser_prefs_tracked.a obj/components/libwallpaper.a $
+    obj/content/libcontent_renderer.a $
+    obj/third_party/webrtc/modules/libwebrtc_h264.a $
+    obj/third_party/openh264/libopenh264_encoder.a $
+    obj/third_party/openh264/libopenh264_common.a $
+    obj/third_party/openh264/libopenh264_processing.a $
+    obj/third_party/webrtc/common_video/libcommon_video.a $
+    obj/third_party/webrtc/system_wrappers/libmetrics_default.a $
+    obj/cc/blink/libcc_blink.a obj/components/libmemory_pressure.a $
+    obj/media/blink/libmedia_blink.a obj/mojo/libmojo_js_lib.a $
+    obj/media/cast/libcast_sender.a obj/ppapi/libppapi_proxy.a $
+    obj/components/libwebusb.a $
+    obj/content/libfeature_h264_with_openh264_ffmpeg.a $
+    obj/media/mojo/interfaces/libplatform_verification_api.a $
+    obj/chrome/libsync_file_system_drive_proto.a obj/components/libdrive.a $
+    obj/components/libdrive_proto.a obj/components/libpdf_browser.a $
+    obj/components/libpdf_common.a obj/build/linux/libspeechd.a $
+    obj/components/libbreakpad_host.a $
+    obj/components/libcrash_component_non_mac_win.a $
+    obj/components/libcrash_component_lib.a $
+    obj/breakpad/libbreakpad_client.a $
+    obj/components/libfeedback_component.a $
+    obj/net/libnet_browser_services.a obj/net/libmojo_type_converters.a $
+    obj/net/libnet_interfaces.a obj/net/libnet_utility_services.a $
+    obj/chrome/libpolicy_path_parser.a $
+    obj/chrome/libprofile_reset_report_proto.a $
+    obj/ui/views/controls/webview/libwebview.a obj/ui/views/libviews.a $
+    obj/components/libprinting_browser.a $
+    obj/components/libautofill_content_renderer.a $
+    obj/components/libcdm_renderer.a obj/components/libcdm_common.a $
+    obj/components/libguest_view_renderer.a $
+    obj/components/libnetwork_hints_renderer.a $
+    obj/components/liberror_page_renderer.a $
+    obj/components/libpage_load_metrics_renderer.a $
+    obj/components/libpassword_manager_content_renderer.a $
+    obj/components/libplugins_renderer.a $
+    obj/components/libtranslate_content_renderer.a $
+    obj/components/libvisitedlink_renderer.a $
+    obj/components/libweb_cache_renderer.a $
+    obj/components/libcontextual_search_renderer.a $
+    obj/components/libdom_distiller_content_renderer.a $
+    obj/components/libpdf_renderer.a $
+    obj/extensions/libextensions_renderer.a $
+    obj/media/cast/libcast_receiver.a obj/components/libprinting_renderer.a $
+    obj/extensions/libextensions_utility.a $
+    obj/third_party/cld_2/libcld2_static.a obj/ppapi/libppapi_cpp_objects.a $
+    obj/ppapi/libppapi_internal_module.a obj/third_party/pdfium/libpdfium.a $
+    obj/third_party/pdfium/third_party/libbigint.a $
+    obj/third_party/pdfium/libfdrm.a obj/third_party/pdfium/libfpdfdoc.a $
+    obj/third_party/pdfium/libfpdfapi.a $
+    obj/third_party/pdfium/libfpdftext.a $
+    obj/third_party/pdfium/libformfiller.a $
+    obj/third_party/pdfium/libfxcodec.a $
+    obj/third_party/pdfium/third_party/libfx_lcms2.a $
+    obj/third_party/pdfium/third_party/libfx_libopenjpeg.a $
+    obj/third_party/pdfium/third_party/libfx_zlib.a $
+    obj/third_party/pdfium/libfxcrt.a obj/third_party/pdfium/libfxedit.a $
+    obj/third_party/pdfium/libfxge.a $
+    obj/third_party/pdfium/third_party/libfx_agg.a $
+    obj/third_party/pdfium/libjavascript.a $
+    obj/third_party/pdfium/libpdfwindow.a | catalog/manifest.json $
+    content_browser_manifest.json content_renderer_manifest.json $
+    gen/about_credits.html gen/angle/id/commit.h $
+    gen/base/debug/debugging_flags.h $
+    gen/blink/bindings/core/GlobalObjectsCore.pickle $
+    gen/blink/bindings/modules/GlobalObjectsModules.pickle $
+    gen/blink/bindings/modules/InterfacesInfoOverall.pickle $
+    gen/blink/bindings/modules/v8/V8GeneratedModulesBindingsPartial.cpp $
+    gen/blink/bindings/modules/v8/initPartialInterfacesInModules.cpp $
+    gen/blink/bindings/scripts/cached_jinja_templates.stamp $
+    gen/blink/core/EventInterfaces.in $
+    gen/blink/platform/inspector_protocol/InspectorProtocolVersion.h $
+    gen/blink/platform/v8_inspector/DebuggerScript.h $
+    gen/blink/platform/v8_inspector/InjectedScriptSource.h $
+    gen/chrome/common/chrome_version.h gen/chrome/common/features.h $
+    gen/components/data_reduction_proxy/core/common/version.h $
+    gen/components/version_info/version_info_values.h $
+    gen/content/browser/tracing/tracing_resources.grd $
+    gen/content/public/common/features.h $
+    gen/devtools/devtools_resources.grd gen/flapper_version.h $
+    gen/media/media_features.h gen/third_party/kasko/kasko_features.h $
+    gen/ui/base/ui_features.h gen/ui/keyboard/resources/inputview.js $
+    gen/widevine_cdm_version.h icudtl.dat lib/libbase.so.TOC $
+    lib/libffmpeg.so.TOC lib/libhunspell.so.TOC lib/libnet.so.TOC $
+    lib/liburl_lib.so.TOC lib/libusb.so.TOC natives_blob.bin $
+    obj.host/v8/tools/gyp/js2c.actions_rules_copies.stamp $
+    obj/ash/ash_resources.actions_rules_copies.stamp $
+    obj/chrome/browser/devtools/devtools_protocol_constants.actions_rules_copies.stamp $
+    obj/chrome/browser/media/router/media_router_mojo_gen.actions_rules_copies.stamp $
+    obj/chrome/chrome_extra_resources.actions_rules_copies.stamp $
+    obj/chrome/chrome_resources.actions_rules_copies.stamp $
+    obj/chrome/chrome_strings.actions_rules_copies.stamp $
+    obj/chrome/chrome_unscaled_resources.actions_rules_copies.stamp $
+    obj/chrome/make_chrome_ui_string_overrider_factory.actions_rules_copies.stamp $
+    obj/chrome/packed_extra_resources.actions_rules_copies.stamp $
+    obj/chrome/packed_resources.actions_rules_copies.stamp $
+    obj/chrome/platform_locale_settings.actions_rules_copies.stamp $
+    obj/chrome/theme_resources.actions_rules_copies.stamp $
+    obj/chrome/web_ui_mojo_bindings.actions_rules_copies.stamp $
+    obj/components/cloud_policy_code_generate.actions_rules_copies.stamp $
+    obj/components/components_resources.actions_rules_copies.stamp $
+    obj/components/components_strings.actions_rules_copies.stamp $
+    obj/components/crash_component.actions_depends.stamp $
+    obj/components/filesystem/filesystem_bindings_mojom.actions_rules_copies.stamp $
+    obj/components/leveldb/leveldb_bindings_mojom.actions_rules_copies.stamp $
+    obj/components/policy_component.actions_depends.stamp $
+    obj/components/profile_service/profile_service_bindings_mojom.actions_rules_copies.stamp $
+    obj/content/app/resources/content_resources.actions_rules_copies.stamp $
+    obj/content/app/strings/content_strings.actions_rules_copies.stamp $
+    obj/content/browser/devtools/devtools_protocol_handler.actions_rules_copies.stamp $
+    obj/content/browser/devtools/devtools_resources.actions_rules_copies.stamp $
+    obj/content/browser/tracing/tracing_resources.actions_rules_copies.stamp $
+    obj/content/content.actions_depends.stamp $
+    obj/content/content_common_mojo_bindings_mojom.actions_rules_copies.stamp $
+    obj/content/content_resources.actions_rules_copies.stamp $
+    obj/device/bluetooth/bluetooth_strings.actions_rules_copies.stamp $
+    obj/device/serial/device_serial_mojo.actions_rules_copies.stamp $
+    obj/extensions/common/api/extensions_api_mojom.actions_rules_copies.stamp $
+    obj/extensions/extensions_common_mojo.actions_rules_copies.stamp $
+    obj/extensions/extensions_resources.actions_rules_copies.stamp $
+    obj/extensions/extensions_strings.actions_rules_copies.stamp $
+    obj/gpu/gpu.actions_depends.stamp $
+    obj/media/mojo/interfaces/platform_verification_mojo_bindings.actions_rules_copies.stamp $
+    obj/mojo/mojo_application_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    obj/mojo/tracing_service_bindings_mojom.actions_rules_copies.stamp $
+    obj/net/net_derived_sources.actions_rules_copies.stamp $
+    obj/net/net_resources.actions_rules_copies.stamp $
+    obj/sandbox/sandbox.actions_depends.stamp $
+    obj/skia/skia.actions_depends.stamp obj/sync/sync.actions_depends.stamp $
+    obj/third_party/WebKit/Source/bindings/core/core_global_constructors_idls.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/core/interfaces_info_individual_core.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/core/v8/bindings_core_impl_generated.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/core/v8/bindings_core_v8_generated.actions_depends.stamp $
+    obj/third_party/WebKit/Source/bindings/core/v8/bindings_core_v8_generated_aggregate.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/core/v8/bindings_core_v8_generated_individual.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/interfaces_info_individual_modules.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/modules_core_global_constructors_idls.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/modules_event_generated.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/modules_global_constructors_idls.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_impl_generated.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated.actions_depends.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_aggregate.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_individual.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/scripts/cached_lex_yacc_tables.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/core/generated_testing_idls.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/core/inspector_instrumentation_sources.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/core/make_core_generated.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/core/webcore.actions_depends.stamp $
+    obj/third_party/WebKit/Source/core/webcore_prerequisites.actions_depends.stamp $
+    obj/third_party/WebKit/Source/devtools/build_applications.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/devtools/devtools_frontend_resources.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/modules/make_modules_generated.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/platform/inspector_protocol/protocol_sources.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/platform/libblink_common.a $
+    obj/third_party/WebKit/Source/platform/make_platform_generated.actions_rules_copies.stamp $
+    obj/third_party/WebKit/public/blink.actions_depends.stamp $
+    obj/third_party/WebKit/public/blink_image_resources.actions_rules_copies.stamp $
+    obj/third_party/WebKit/public/blink_resources.actions_rules_copies.stamp $
+    obj/third_party/WebKit/public/mojo_bindings_blink_mojom.actions_rules_copies.stamp $
+    obj/third_party/WebKit/public/mojo_bindings_mojom.actions_rules_copies.stamp $
+    obj/third_party/angle/src/copy_scripts.actions_rules_copies.stamp $
+    obj/third_party/boringssl/libboringssl.a $
+    obj/third_party/catapult/tracing/generate_about_tracing.actions_rules_copies.stamp $
+    obj/third_party/cld_2/libcld2_static.a $
+    obj/third_party/fontconfig/libfontconfig.a $
+    obj/third_party/libaddressinput/libaddressinput_strings.actions_rules_copies.stamp $
+    obj/third_party/libwebp/libwebp.actions_depends.stamp $
+    obj/ui/app_list/resources/app_list_resources.actions_rules_copies.stamp $
+    obj/ui/keyboard/keyboard_resources.actions_rules_copies.stamp $
+    obj/ui/mojo/geometry/mojo_geometry_bindings_mojom.actions_rules_copies.stamp $
+    obj/ui/resources/ui_resources.actions_rules_copies.stamp $
+    obj/ui/strings/ui_strings.actions_rules_copies.stamp $
+    obj/ui/views/resources/views_resources.actions_rules_copies.stamp $
+    obj/url/url_interfaces_mojom.actions_rules_copies.stamp $
+    obj/v8/tools/gyp/v8_maybe_snapshot.actions_depends.stamp $
+    resources/inspector/InspectorBackendCommands.js $
+    resources/inspector/SupportedCSSProperties.js $
+    resources/inspector/devtools_extension_api.js || $
+    obj/chrome/chrome_initial.actions_rules_copies.stamp
+  ld = $ldxx
+  solibs = lib/libbase.so lib/libffmpeg.so lib/libhunspell.so lib/libnet.so $
+      lib/liburl_lib.so lib/libusb.so

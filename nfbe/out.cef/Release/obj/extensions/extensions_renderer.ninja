@@ -1,0 +1,389 @@
+build obj/extensions/extensions_renderer.actions_depends.stamp: stamp $
+    obj/extensions/extensions_resources.actions_rules_copies.stamp $
+    obj/mojo/libmojo_application_bindings.a $
+    obj/ui/accessibility/libax_gen.a $
+    obj/content/content_resources.actions_rules_copies.stamp $
+    obj/third_party/WebKit/public/blink.actions_depends.stamp $
+    obj/third_party/WebKit/Source/platform/libblink_platform.a
+
+build obj/extensions/extensions_renderer.compile_depends.stamp: stamp $
+    obj/extensions/extensions_resources.actions_rules_copies.stamp $
+    obj/mojo/mojo_application_bindings_mojom.actions_rules_copies.stamp $
+    obj/ui/accessibility/ax_gen.actions_rules_copies.stamp $
+    obj/content/content_resources.actions_rules_copies.stamp $
+    obj/third_party/WebKit/public/blink.compile_depends.stamp $
+    obj/third_party/WebKit/Source/platform/blink_platform.compile_depends.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DMOJO_USE_SYSTEM_IMPL $
+    -DSK_SUPPORT_GPU=1 -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS $
+    -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= $
+    -DU_STATIC_IMPLEMENTATION -DCHROME_PNG_WRITE_SUPPORT -DPNG_USER_CONFIG $
+    -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 $
+    -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../third_party/khronos -I../../gpu $
+    -I../../skia/config -Igen/angle -I../../third_party/WebKit/Source $
+    -Igen/extensions -I../../third_party/WebKit -Igen/third_party/WebKit $
+    -I../../v8/include -I../../third_party/WebKit $
+    -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../third_party/icu/source/common -I../../third_party/libpng $
+    -I../../third_party/zlib -I../../third_party/libwebp $
+    -I../../third_party/ots/include -I../../third_party/qcms/src $
+    -I../../third_party/iccjpeg -I../../third_party/libjpeg_turbo
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/extensions/renderer/extensions_renderer.activity_log_converter_strategy.o: $
+    cxx ../../extensions/renderer/activity_log_converter_strategy.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/api/automation/extensions_renderer.automation_api_helper.o: $
+    cxx ../../extensions/renderer/api/automation/automation_api_helper.cc $
+    || obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/api/display_source/extensions_renderer.display_source_session.o: $
+    cxx $
+    ../../extensions/renderer/api/display_source/display_source_session.cc $
+    || obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.api_activity_logger.o: $
+    cxx ../../extensions/renderer/api_activity_logger.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_renderer.api_definitions_natives.o: $
+    cxx ../../extensions/renderer/api_definitions_natives.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_renderer.app_window_custom_bindings.o: $
+    cxx ../../extensions/renderer/app_window_custom_bindings.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_renderer.binding_generating_native_handler.o: $
+    cxx ../../extensions/renderer/binding_generating_native_handler.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.blob_native_handler.o: $
+    cxx ../../extensions/renderer/blob_native_handler.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.console.o: cxx $
+    ../../extensions/renderer/console.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.content_watcher.o: cxx $
+    ../../extensions/renderer/content_watcher.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_renderer.context_menus_custom_bindings.o: $
+    cxx ../../extensions/renderer/context_menus_custom_bindings.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.css_native_handler.o: cxx $
+    ../../extensions/renderer/css_native_handler.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.dispatcher.o: cxx $
+    ../../extensions/renderer/dispatcher.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_renderer.display_source_custom_bindings.o: $
+    cxx ../../extensions/renderer/display_source_custom_bindings.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_renderer.document_custom_bindings.o: $
+    cxx ../../extensions/renderer/document_custom_bindings.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.dom_activity_logger.o: $
+    cxx ../../extensions/renderer/dom_activity_logger.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.event_bindings.o: cxx $
+    ../../extensions/renderer/event_bindings.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.extension_frame_helper.o: $
+    cxx ../../extensions/renderer/extension_frame_helper.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.extension_helper.o: cxx $
+    ../../extensions/renderer/extension_helper.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_renderer.extension_injection_host.o: $
+    cxx ../../extensions/renderer/extension_injection_host.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_renderer.extensions_render_frame_observer.o: $
+    cxx ../../extensions/renderer/extensions_render_frame_observer.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_renderer.extensions_renderer_client.o: $
+    cxx ../../extensions/renderer/extensions_renderer_client.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.file_system_natives.o: $
+    cxx ../../extensions/renderer/file_system_natives.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.gc_callback.o: cxx $
+    ../../extensions/renderer/gc_callback.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/guest_view/extensions_renderer.extensions_guest_view_container.o: $
+    cxx $
+    ../../extensions/renderer/guest_view/extensions_guest_view_container.cc $
+    || obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/guest_view/extensions_renderer.extensions_guest_view_container_dispatcher.o: $
+    cxx $
+    ../../extensions/renderer/guest_view/extensions_guest_view_container_dispatcher.cc $
+    || obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/guest_view/extensions_renderer.guest_view_internal_custom_bindings.o: $
+    cxx $
+    ../../extensions/renderer/guest_view/guest_view_internal_custom_bindings.cc $
+    || obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/guest_view/mime_handler_view/extensions_renderer.mime_handler_view_container.o: $
+    cxx $
+    ../../extensions/renderer/guest_view/mime_handler_view/mime_handler_view_container.cc $
+    || obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.i18n_custom_bindings.o: $
+    cxx ../../extensions/renderer/i18n_custom_bindings.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_renderer.id_generator_custom_bindings.o: $
+    cxx ../../extensions/renderer/id_generator_custom_bindings.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.injection_host.o: cxx $
+    ../../extensions/renderer/injection_host.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_renderer.lazy_background_page_native_handler.o: $
+    cxx ../../extensions/renderer/lazy_background_page_native_handler.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.logging_native_handler.o: $
+    cxx ../../extensions/renderer/logging_native_handler.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.messaging_bindings.o: cxx $
+    ../../extensions/renderer/messaging_bindings.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.module_system.o: cxx $
+    ../../extensions/renderer/module_system.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.native_handler.o: cxx $
+    ../../extensions/renderer/native_handler.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_renderer.object_backed_native_handler.o: $
+    cxx ../../extensions/renderer/object_backed_native_handler.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.print_native_handler.o: $
+    cxx ../../extensions/renderer/print_native_handler.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_renderer.process_info_native_handler.o: $
+    cxx ../../extensions/renderer/process_info_native_handler.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_renderer.programmatic_script_injector.o: $
+    cxx ../../extensions/renderer/programmatic_script_injector.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_renderer.render_frame_observer_natives.o: $
+    cxx ../../extensions/renderer/render_frame_observer_natives.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_renderer.renderer_extension_registry.o: $
+    cxx ../../extensions/renderer/renderer_extension_registry.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.request_sender.o: cxx $
+    ../../extensions/renderer/request_sender.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_renderer.resource_bundle_source_map.o: $
+    cxx ../../extensions/renderer/resource_bundle_source_map.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_renderer.runtime_custom_bindings.o: $
+    cxx ../../extensions/renderer/runtime_custom_bindings.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.safe_builtins.o: cxx $
+    ../../extensions/renderer/safe_builtins.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.script_context.o: cxx $
+    ../../extensions/renderer/script_context.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.script_context_set.o: cxx $
+    ../../extensions/renderer/script_context_set.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.script_injection.o: cxx $
+    ../../extensions/renderer/script_injection.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_renderer.script_injection_callback.o: $
+    cxx ../../extensions/renderer/script_injection_callback.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_renderer.script_injection_manager.o: $
+    cxx ../../extensions/renderer/script_injection_manager.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.scripts_run_info.o: cxx $
+    ../../extensions/renderer/scripts_run_info.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.send_request_natives.o: $
+    cxx ../../extensions/renderer/send_request_natives.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.set_icon_natives.o: cxx $
+    ../../extensions/renderer/set_icon_natives.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_renderer.static_v8_external_one_byte_string_resource.o: $
+    cxx $
+    ../../extensions/renderer/static_v8_external_one_byte_string_resource.cc $
+    || obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_renderer.test_features_native_handler.o: $
+    cxx ../../extensions/renderer/test_features_native_handler.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.test_native_handler.o: $
+    cxx ../../extensions/renderer/test_native_handler.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_renderer.user_gestures_native_handler.o: $
+    cxx ../../extensions/renderer/user_gestures_native_handler.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.user_script_injector.o: $
+    cxx ../../extensions/renderer/user_script_injector.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.user_script_set.o: cxx $
+    ../../extensions/renderer/user_script_set.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_renderer.user_script_set_manager.o: $
+    cxx ../../extensions/renderer/user_script_set_manager.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.utils_native_handler.o: $
+    cxx ../../extensions/renderer/utils_native_handler.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_renderer.v8_context_native_handler.o: $
+    cxx ../../extensions/renderer/v8_context_native_handler.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.v8_schema_registry.o: cxx $
+    ../../extensions/renderer/v8_schema_registry.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.wake_event_page.o: cxx $
+    ../../extensions/renderer/wake_event_page.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build obj/extensions/renderer/extensions_renderer.web_ui_injection_host.o: $
+    cxx ../../extensions/renderer/web_ui_injection_host.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+build $
+    obj/extensions/renderer/extensions_renderer.worker_script_context_set.o: $
+    cxx ../../extensions/renderer/worker_script_context_set.cc || $
+    obj/extensions/extensions_renderer.compile_depends.stamp
+
+build obj/extensions/libextensions_renderer.a: alink_thin $
+    obj/extensions/renderer/extensions_renderer.activity_log_converter_strategy.o $
+    obj/extensions/renderer/api/automation/extensions_renderer.automation_api_helper.o $
+    obj/extensions/renderer/api/display_source/extensions_renderer.display_source_session.o $
+    obj/extensions/renderer/extensions_renderer.api_activity_logger.o $
+    obj/extensions/renderer/extensions_renderer.api_definitions_natives.o $
+    obj/extensions/renderer/extensions_renderer.app_window_custom_bindings.o $
+    obj/extensions/renderer/extensions_renderer.binding_generating_native_handler.o $
+    obj/extensions/renderer/extensions_renderer.blob_native_handler.o $
+    obj/extensions/renderer/extensions_renderer.console.o $
+    obj/extensions/renderer/extensions_renderer.content_watcher.o $
+    obj/extensions/renderer/extensions_renderer.context_menus_custom_bindings.o $
+    obj/extensions/renderer/extensions_renderer.css_native_handler.o $
+    obj/extensions/renderer/extensions_renderer.dispatcher.o $
+    obj/extensions/renderer/extensions_renderer.display_source_custom_bindings.o $
+    obj/extensions/renderer/extensions_renderer.document_custom_bindings.o $
+    obj/extensions/renderer/extensions_renderer.dom_activity_logger.o $
+    obj/extensions/renderer/extensions_renderer.event_bindings.o $
+    obj/extensions/renderer/extensions_renderer.extension_frame_helper.o $
+    obj/extensions/renderer/extensions_renderer.extension_helper.o $
+    obj/extensions/renderer/extensions_renderer.extension_injection_host.o $
+    obj/extensions/renderer/extensions_renderer.extensions_render_frame_observer.o $
+    obj/extensions/renderer/extensions_renderer.extensions_renderer_client.o $
+    obj/extensions/renderer/extensions_renderer.file_system_natives.o $
+    obj/extensions/renderer/extensions_renderer.gc_callback.o $
+    obj/extensions/renderer/guest_view/extensions_renderer.extensions_guest_view_container.o $
+    obj/extensions/renderer/guest_view/extensions_renderer.extensions_guest_view_container_dispatcher.o $
+    obj/extensions/renderer/guest_view/extensions_renderer.guest_view_internal_custom_bindings.o $
+    obj/extensions/renderer/guest_view/mime_handler_view/extensions_renderer.mime_handler_view_container.o $
+    obj/extensions/renderer/extensions_renderer.i18n_custom_bindings.o $
+    obj/extensions/renderer/extensions_renderer.id_generator_custom_bindings.o $
+    obj/extensions/renderer/extensions_renderer.injection_host.o $
+    obj/extensions/renderer/extensions_renderer.lazy_background_page_native_handler.o $
+    obj/extensions/renderer/extensions_renderer.logging_native_handler.o $
+    obj/extensions/renderer/extensions_renderer.messaging_bindings.o $
+    obj/extensions/renderer/extensions_renderer.module_system.o $
+    obj/extensions/renderer/extensions_renderer.native_handler.o $
+    obj/extensions/renderer/extensions_renderer.object_backed_native_handler.o $
+    obj/extensions/renderer/extensions_renderer.print_native_handler.o $
+    obj/extensions/renderer/extensions_renderer.process_info_native_handler.o $
+    obj/extensions/renderer/extensions_renderer.programmatic_script_injector.o $
+    obj/extensions/renderer/extensions_renderer.render_frame_observer_natives.o $
+    obj/extensions/renderer/extensions_renderer.renderer_extension_registry.o $
+    obj/extensions/renderer/extensions_renderer.request_sender.o $
+    obj/extensions/renderer/extensions_renderer.resource_bundle_source_map.o $
+    obj/extensions/renderer/extensions_renderer.runtime_custom_bindings.o $
+    obj/extensions/renderer/extensions_renderer.safe_builtins.o $
+    obj/extensions/renderer/extensions_renderer.script_context.o $
+    obj/extensions/renderer/extensions_renderer.script_context_set.o $
+    obj/extensions/renderer/extensions_renderer.script_injection.o $
+    obj/extensions/renderer/extensions_renderer.script_injection_callback.o $
+    obj/extensions/renderer/extensions_renderer.script_injection_manager.o $
+    obj/extensions/renderer/extensions_renderer.scripts_run_info.o $
+    obj/extensions/renderer/extensions_renderer.send_request_natives.o $
+    obj/extensions/renderer/extensions_renderer.set_icon_natives.o $
+    obj/extensions/renderer/extensions_renderer.static_v8_external_one_byte_string_resource.o $
+    obj/extensions/renderer/extensions_renderer.test_features_native_handler.o $
+    obj/extensions/renderer/extensions_renderer.test_native_handler.o $
+    obj/extensions/renderer/extensions_renderer.user_gestures_native_handler.o $
+    obj/extensions/renderer/extensions_renderer.user_script_injector.o $
+    obj/extensions/renderer/extensions_renderer.user_script_set.o $
+    obj/extensions/renderer/extensions_renderer.user_script_set_manager.o $
+    obj/extensions/renderer/extensions_renderer.utils_native_handler.o $
+    obj/extensions/renderer/extensions_renderer.v8_context_native_handler.o $
+    obj/extensions/renderer/extensions_renderer.v8_schema_registry.o $
+    obj/extensions/renderer/extensions_renderer.wake_event_page.o $
+    obj/extensions/renderer/extensions_renderer.web_ui_injection_host.o $
+    obj/extensions/renderer/extensions_renderer.worker_script_context_set.o $
+    || obj/extensions/extensions_renderer.actions_depends.stamp

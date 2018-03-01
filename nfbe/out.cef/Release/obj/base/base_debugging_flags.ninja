@@ -1,0 +1,14 @@
+rule $
+    base_debugging_flags_target_buildflag_header_5383dd59b66de0d30f7091069e05866f
+  command = cd ../../base; python ../build/write_buildflag_header.py $
+      --output base/debug/debugging_flags.h --rulename base_debugging_flags $
+      --gen-dir ../out.cef/Release/gen --definitions $
+      ../out.cef/base/base_debugging_flags_buildflag_header.rsp
+  description = ACTION Generating build header.
+  restat = 1
+
+build gen/base/debug/debugging_flags.h: $
+    base_debugging_flags_target_buildflag_header_5383dd59b66de0d30f7091069e05866f $
+    ../../build/write_buildflag_header.py $
+    ../../out.cef/base/base_debugging_flags_buildflag_header.rsp
+

@@ -1,0 +1,6 @@
+build $
+    obj/third_party/angle/src/tests/angle_deqp_gtest_support.actions_depends.stamp: $
+    stamp $
+    obj/third_party/angle/src/tests/angle_test_support.actions_depends.stamp $
+    obj/third_party/angle/util/libangle_util.a
+

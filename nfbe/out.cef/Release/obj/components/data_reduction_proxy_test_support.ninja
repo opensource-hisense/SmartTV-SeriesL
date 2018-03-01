@@ -1,0 +1,105 @@
+build $
+    obj/components/data_reduction_proxy_test_support.actions_depends.stamp: $
+    stamp lib/libbase.so.TOC lib/libnet.so.TOC $
+    obj/components/libdata_reduction_proxy_proto.a
+
+build $
+    obj/components/data_reduction_proxy_test_support.compile_depends.stamp: $
+    stamp obj/base/base.compile_depends.stamp $
+    obj/net/net.compile_depends.stamp $
+    obj/components/data_reduction_proxy_proto.actions_rules_copies.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DGTEST_HAS_POSIX_RE=0 $
+    -DGTEST_LANG_CXX11=0 -DUNIT_TEST -DGTEST_HAS_RTTI=0 -DPROTOBUF_USE_DLLS $
+    -DGOOGLE_PROTOBUF_NO_RTTI -DGOOGLE_PROTOBUF_NO_STATIC_INITIALIZER $
+    -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 $
+    -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../testing/gmock/include $
+    -I../../testing/gtest/include -Igen/protoc_out $
+    -I../../third_party/protobuf -I../../third_party/protobuf/src
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -I/work/bsp/sc1400/usr/include/nss3 $
+    -I/work/bsp/sc1400/usr/include/nspr -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/components/data_reduction_proxy/core/browser/data_reduction_proxy_test_support.data_reduction_proxy_config_test_utils.o: $
+    cxx $
+    ../../components/data_reduction_proxy/core/browser/data_reduction_proxy_config_test_utils.cc $
+    || obj/components/data_reduction_proxy_test_support.compile_depends.stamp
+build $
+    obj/components/data_reduction_proxy/core/browser/data_reduction_proxy_test_support.data_reduction_proxy_configurator_test_utils.o: $
+    cxx $
+    ../../components/data_reduction_proxy/core/browser/data_reduction_proxy_configurator_test_utils.cc $
+    || obj/components/data_reduction_proxy_test_support.compile_depends.stamp
+build $
+    obj/components/data_reduction_proxy/core/browser/data_reduction_proxy_test_support.data_reduction_proxy_settings_test_utils.o: $
+    cxx $
+    ../../components/data_reduction_proxy/core/browser/data_reduction_proxy_settings_test_utils.cc $
+    || obj/components/data_reduction_proxy_test_support.compile_depends.stamp
+build $
+    obj/components/data_reduction_proxy/core/browser/data_reduction_proxy_test_support.data_reduction_proxy_test_utils.o: $
+    cxx $
+    ../../components/data_reduction_proxy/core/browser/data_reduction_proxy_test_utils.cc $
+    || obj/components/data_reduction_proxy_test_support.compile_depends.stamp
+build $
+    obj/components/data_reduction_proxy/core/common/data_reduction_proxy_test_support.data_reduction_proxy_event_storage_delegate_test_utils.o: $
+    cxx $
+    ../../components/data_reduction_proxy/core/common/data_reduction_proxy_event_storage_delegate_test_utils.cc $
+    || obj/components/data_reduction_proxy_test_support.compile_depends.stamp
+build $
+    obj/components/data_reduction_proxy/core/common/data_reduction_proxy_test_support.data_reduction_proxy_headers_test_utils.o: $
+    cxx $
+    ../../components/data_reduction_proxy/core/common/data_reduction_proxy_headers_test_utils.cc $
+    || obj/components/data_reduction_proxy_test_support.compile_depends.stamp
+build $
+    obj/components/data_reduction_proxy/core/common/data_reduction_proxy_test_support.data_reduction_proxy_params_test_utils.o: $
+    cxx $
+    ../../components/data_reduction_proxy/core/common/data_reduction_proxy_params_test_utils.cc $
+    || obj/components/data_reduction_proxy_test_support.compile_depends.stamp
+
+build obj/components/libdata_reduction_proxy_test_support.a: alink_thin $
+    obj/components/data_reduction_proxy/core/browser/data_reduction_proxy_test_support.data_reduction_proxy_config_test_utils.o $
+    obj/components/data_reduction_proxy/core/browser/data_reduction_proxy_test_support.data_reduction_proxy_configurator_test_utils.o $
+    obj/components/data_reduction_proxy/core/browser/data_reduction_proxy_test_support.data_reduction_proxy_settings_test_utils.o $
+    obj/components/data_reduction_proxy/core/browser/data_reduction_proxy_test_support.data_reduction_proxy_test_utils.o $
+    obj/components/data_reduction_proxy/core/common/data_reduction_proxy_test_support.data_reduction_proxy_event_storage_delegate_test_utils.o $
+    obj/components/data_reduction_proxy/core/common/data_reduction_proxy_test_support.data_reduction_proxy_headers_test_utils.o $
+    obj/components/data_reduction_proxy/core/common/data_reduction_proxy_test_support.data_reduction_proxy_params_test_utils.o $
+    || obj/components/data_reduction_proxy_test_support.actions_depends.stamp

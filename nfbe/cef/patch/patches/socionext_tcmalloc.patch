@@ -1,0 +1,13 @@
+diff --git linux_syscall_support.h linux_syscall_support.h
+index bdbc4b7..60fc820 100644
+--- linux_syscall_support.h
++++ linux_syscall_support.h
+@@ -556,6 +556,8 @@ typedef unsigned long int ulong;
+ #define __syscall(name) "swi\t" __sys1(__NR_##name) ""
+ #define __syscall_safe(name) __syscall(name)
+ #endif
++#elif !defined(__syscall_safe) && defined(NFBE_DTV_SOCIO) /* Socio (LD6b/LD11) correspond */
++#define __syscall_safe(name) __syscall(name)
+ #endif
+ #ifndef __NR_rt_sigaction
+ #define __NR_rt_sigaction       (__NR_SYSCALL_BASE + 174)

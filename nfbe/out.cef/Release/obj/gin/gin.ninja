@@ -1,0 +1,125 @@
+build obj/gin/gin.actions_depends.stamp: stamp lib/libbase.so.TOC $
+    obj/v8/tools/gyp/v8_maybe_snapshot.actions_depends.stamp
+
+build obj/gin/gin.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp snapshot_blob.bin
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DGIN_IMPLEMENTATION $
+    -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 $
+    -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../v8/include
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/gin/gin.arguments.o: cxx ../../gin/arguments.cc || $
+    obj/gin/gin.compile_depends.stamp
+build obj/gin/gin.array_buffer.o: cxx ../../gin/array_buffer.cc || $
+    obj/gin/gin.compile_depends.stamp
+build obj/gin/gin.context_holder.o: cxx ../../gin/context_holder.cc || $
+    obj/gin/gin.compile_depends.stamp
+build obj/gin/gin.converter.o: cxx ../../gin/converter.cc || $
+    obj/gin/gin.compile_depends.stamp
+build obj/gin/gin.debug_impl.o: cxx ../../gin/debug_impl.cc || $
+    obj/gin/gin.compile_depends.stamp
+build obj/gin/gin.dictionary.o: cxx ../../gin/dictionary.cc || $
+    obj/gin/gin.compile_depends.stamp
+build obj/gin/gin.function_template.o: cxx ../../gin/function_template.cc $
+    || obj/gin/gin.compile_depends.stamp
+build obj/gin/gin.gin_features.o: cxx ../../gin/gin_features.cc || $
+    obj/gin/gin.compile_depends.stamp
+build obj/gin/gin.interceptor.o: cxx ../../gin/interceptor.cc || $
+    obj/gin/gin.compile_depends.stamp
+build obj/gin/gin.isolate_holder.o: cxx ../../gin/isolate_holder.cc || $
+    obj/gin/gin.compile_depends.stamp
+build obj/gin/modules/gin.console.o: cxx ../../gin/modules/console.cc || $
+    obj/gin/gin.compile_depends.stamp
+build obj/gin/modules/gin.file_module_provider.o: cxx $
+    ../../gin/modules/file_module_provider.cc || $
+    obj/gin/gin.compile_depends.stamp
+build obj/gin/modules/gin.module_registry.o: cxx $
+    ../../gin/modules/module_registry.cc || obj/gin/gin.compile_depends.stamp
+build obj/gin/modules/gin.module_runner_delegate.o: cxx $
+    ../../gin/modules/module_runner_delegate.cc || $
+    obj/gin/gin.compile_depends.stamp
+build obj/gin/modules/gin.timer.o: cxx ../../gin/modules/timer.cc || $
+    obj/gin/gin.compile_depends.stamp
+build obj/gin/gin.object_template_builder.o: cxx $
+    ../../gin/object_template_builder.cc || obj/gin/gin.compile_depends.stamp
+build obj/gin/gin.per_context_data.o: cxx ../../gin/per_context_data.cc || $
+    obj/gin/gin.compile_depends.stamp
+build obj/gin/gin.per_isolate_data.o: cxx ../../gin/per_isolate_data.cc || $
+    obj/gin/gin.compile_depends.stamp
+build obj/gin/gin.runner.o: cxx ../../gin/runner.cc || $
+    obj/gin/gin.compile_depends.stamp
+build obj/gin/gin.run_microtasks_observer.o: cxx $
+    ../../gin/run_microtasks_observer.cc || obj/gin/gin.compile_depends.stamp
+build obj/gin/gin.shell_runner.o: cxx ../../gin/shell_runner.cc || $
+    obj/gin/gin.compile_depends.stamp
+build obj/gin/gin.try_catch.o: cxx ../../gin/try_catch.cc || $
+    obj/gin/gin.compile_depends.stamp
+build obj/gin/gin.v8_initializer.o: cxx ../../gin/v8_initializer.cc || $
+    obj/gin/gin.compile_depends.stamp
+build obj/gin/gin.v8_isolate_memory_dump_provider.o: cxx $
+    ../../gin/v8_isolate_memory_dump_provider.cc || $
+    obj/gin/gin.compile_depends.stamp
+build obj/gin/gin.v8_platform.o: cxx ../../gin/v8_platform.cc || $
+    obj/gin/gin.compile_depends.stamp
+build obj/gin/gin.wrappable.o: cxx ../../gin/wrappable.cc || $
+    obj/gin/gin.compile_depends.stamp
+build obj/gin/gin.wrapper_info.o: cxx ../../gin/wrapper_info.cc || $
+    obj/gin/gin.compile_depends.stamp
+
+build obj/gin/libgin.a: alink_thin obj/gin/gin.arguments.o $
+    obj/gin/gin.array_buffer.o obj/gin/gin.context_holder.o $
+    obj/gin/gin.converter.o obj/gin/gin.debug_impl.o $
+    obj/gin/gin.dictionary.o obj/gin/gin.function_template.o $
+    obj/gin/gin.gin_features.o obj/gin/gin.interceptor.o $
+    obj/gin/gin.isolate_holder.o obj/gin/modules/gin.console.o $
+    obj/gin/modules/gin.file_module_provider.o $
+    obj/gin/modules/gin.module_registry.o $
+    obj/gin/modules/gin.module_runner_delegate.o $
+    obj/gin/modules/gin.timer.o obj/gin/gin.object_template_builder.o $
+    obj/gin/gin.per_context_data.o obj/gin/gin.per_isolate_data.o $
+    obj/gin/gin.runner.o obj/gin/gin.run_microtasks_observer.o $
+    obj/gin/gin.shell_runner.o obj/gin/gin.try_catch.o $
+    obj/gin/gin.v8_initializer.o $
+    obj/gin/gin.v8_isolate_memory_dump_provider.o obj/gin/gin.v8_platform.o $
+    obj/gin/gin.wrappable.o obj/gin/gin.wrapper_info.o || $
+    obj/gin/gin.actions_depends.stamp

@@ -1,0 +1,153 @@
+diff --git url/url.gyp url/url.gyp
+index 9ab87e1..b8693a5 100644
+--- url/url.gyp
++++ url/url.gyp
+@@ -5,6 +5,12 @@
+ {
+   'variables': {
+     'chromium_code': 1,
++    'conditions': [
++      # split LGPL component
++      ['split_lgpl_component == 1', {
++        'component': 'shared_library',
++      }],
++    ],
+   },
+   'includes': [
+     'url_srcs.gypi',
+diff --git url/url_srcs.gypi url/url_srcs.gypi
+index 4eeacbc..b1c6a81 100644
+--- url/url_srcs.gypi
++++ url/url_srcs.gypi
+@@ -16,9 +16,6 @@
+       'third_party/mozilla/url_parse.cc',
+       'third_party/mozilla/url_parse.h',
+       'url_canon.h',
+-      'url_canon_dvb.cc',
+-      'url_canon_dvb.h',
+-      'url_canon_dvburl.cc',
+       'url_canon_etc.cc',
+       'url_canon_filesystemurl.cc',
+       'url_canon_fileurl.cc',
+@@ -45,5 +42,14 @@
+       'url_util.cc',
+       'url_util.h',
+     ],
++    'conditions': [
++      ['use_hbbtv == 1', {
++        'gurl_sources': [
++          'url_canon_dvb.cc',
++          'url_canon_dvb.h',
++          'url_canon_dvburl.cc',
++        ],
++      }],
++    ],
+   },
+ }
+diff --git url/url_canon_host.cc url/url_canon_host.cc
+index 40c4032..894a57b 100644
+--- url/url_canon_host.cc
++++ url/url_canon_host.cc
+@@ -360,6 +360,7 @@ void DoHost(const CHAR* spec,
+   host_info->out_host = MakeRange(output_begin, output->length());
+ }
+ 
++#if defined(HBBTV_ON)
+ template <typename CHAR, typename UCHAR>
+ void DoDvbHost(const CHAR* spec,
+                const Component& host,
+@@ -394,6 +395,7 @@ void DoDvbHost(const CHAR* spec,
+ 
+   host_info->out_host = MakeRange(output_begin, output->length());
+ }
++#endif
+ 
+ }  // namespace
+ 
+@@ -417,6 +419,7 @@ bool CanonicalizeHost(const base::char16* spec,
+   return (host_info.family != CanonHostInfo::BROKEN);
+ }
+ 
++#if defined(HBBTV_ON)
+ bool CanonicalizeDvbHost(const char* spec,
+                          const Component& host,
+                          CanonOutput* output,
+@@ -436,6 +439,7 @@ bool CanonicalizeDvbHost(const base::char16* spec,
+   *out_host = host_info.out_host;
+   return (host_info.family != CanonHostInfo::BROKEN);
+ }
++#endif
+ 
+ void CanonicalizeHostVerbose(const char* spec,
+                              const Component& host,
+diff --git third_party/WebKit/Source/modules/modules.gypi third_party/WebKit/Source/modules/modules.gypi
+index 22a6ba7..e3e8f88 100644
+--- third_party/WebKit/Source/modules/modules.gypi
++++ third_party/WebKit/Source/modules/modules.gypi
+@@ -151,10 +151,6 @@
+       'notifications/NotificationPermissionCallback.idl',
+       'offscreencanvas/OffscreenCanvas.idl',
+       'offscreencanvas2d/OffscreenCanvasRenderingContext2D.idl',
+-      'oipf/Channel.idl',
+-      'oipf/ChannelConfig.idl',
+-      'oipf/ChannelList.idl',
+-      'oipf/OipfObjectFactory.idl',
+       'payments/PaymentRequest.idl',
+       'payments/PaymentResponse.idl',
+       'payments/ShippingAddress.idl',
+@@ -387,7 +383,6 @@
+       'netinfo/WorkerNavigatorNetworkInformation.idl',
+       'notifications/ServiceWorkerGlobalScopeNotifications.idl',
+       'notifications/ServiceWorkerRegistrationNotifications.idl',
+-      'oipf/WindowOipfObjectFactory.idl',
+       'permissions/NavigatorPermissions.idl',
+       'permissions/WorkerNavigatorPermissions.idl',
+       'plugins/NavigatorPlugins.idl',
+@@ -1337,16 +1332,6 @@
+       'offscreencanvas/OffscreenCanvasRenderingContextFactory.h',
+       'offscreencanvas2d/OffscreenCanvasRenderingContext2D.cpp',
+       'offscreencanvas2d/OffscreenCanvasRenderingContext2D.h',
+-      'oipf/Channel.cpp',
+-      'oipf/Channel.h',
+-      'oipf/ChannelConfig.cpp',
+-      'oipf/ChannelConfig.h',
+-      'oipf/ChannelList.cpp',
+-      'oipf/ChannelList.h',
+-      'oipf/DOMWindowOipfObjectFactory.cpp',
+-      'oipf/DOMWindowOipfObjectFactory.h',
+-      'oipf/OipfObjectFactory.cpp',
+-      'oipf/OipfObjectFactory.h',
+       'payments/PaymentCompleter.h',
+       'payments/PaymentRequest.cpp',
+       'payments/PaymentRequest.h',
+@@ -2017,5 +2002,30 @@
+       'websockets/DOMWebSocketTest.cpp',
+       'websockets/DocumentWebSocketChannelTest.cpp',
+     ],
++    'conditions': [
++      ['use_hbbtv == 1', {
++        'modules_idl_files': [
++          'oipf/Channel.idl',
++          'oipf/ChannelConfig.idl',
++          'oipf/ChannelList.idl',
++          'oipf/OipfObjectFactory.idl',
++        ],
++        'modules_dependency_idl_files': [
++          'oipf/WindowOipfObjectFactory.idl',
++        ],
++        'modules_files': [
++          'oipf/Channel.cpp',
++          'oipf/Channel.h',
++          'oipf/ChannelConfig.cpp',
++          'oipf/ChannelConfig.h',
++          'oipf/ChannelList.cpp',
++          'oipf/ChannelList.h',
++          'oipf/DOMWindowOipfObjectFactory.cpp',
++          'oipf/DOMWindowOipfObjectFactory.h',
++          'oipf/OipfObjectFactory.cpp',
++          'oipf/OipfObjectFactory.h',
++        ],
++      }],
++    ],
+   },
+ }

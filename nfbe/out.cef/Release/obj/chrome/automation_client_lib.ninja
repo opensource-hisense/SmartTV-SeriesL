@@ -1,0 +1,347 @@
+build obj/chrome/automation_client_lib.actions_depends.stamp: stamp $
+    lib/libbase.so.TOC lib/libnet.so.TOC obj/ui/accessibility/libax_gen.a $
+    lib/liburl_lib.so.TOC
+
+build obj/chrome/automation_client_lib.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp obj/net/net.compile_depends.stamp $
+    obj/ui/accessibility/ax_gen.actions_rules_copies.stamp $
+    obj/url/url_lib.compile_depends.stamp
+
+rule $
+    automation_client_lib_target_embed_js_in_cpp_3e2b19ee2f09aec857becb6a5c914aed
+  command = cd ../../chrome; python test/chromedriver/embed_js_in_cpp.py $
+      --directory ../out.cef/Release/gen/chrome/test/chromedriver/chrome $
+      test/chromedriver/js/add_cookie.js $
+      test/chromedriver/js/call_function.js $
+      test/chromedriver/js/execute_async_script.js $
+      test/chromedriver/js/focus.js $
+      test/chromedriver/js/get_element_region.js $
+      test/chromedriver/js/is_option_element_toggleable.js
+  description = ACTION Generating sources for embedding js in chromedriver
+  restat = 1
+
+build gen/chrome/test/chromedriver/chrome/js.cc $
+    gen/chrome/test/chromedriver/chrome/js.h: $
+    automation_client_lib_target_embed_js_in_cpp_3e2b19ee2f09aec857becb6a5c914aed $
+    ../../chrome/test/chromedriver/cpp_source.py $
+    ../../chrome/test/chromedriver/embed_js_in_cpp.py $
+    ../../chrome/test/chromedriver/js/add_cookie.js $
+    ../../chrome/test/chromedriver/js/call_function.js $
+    ../../chrome/test/chromedriver/js/execute_async_script.js $
+    ../../chrome/test/chromedriver/js/focus.js $
+    ../../chrome/test/chromedriver/js/get_element_region.js $
+    ../../chrome/test/chromedriver/js/is_option_element_toggleable.js || $
+    obj/chrome/automation_client_lib.actions_depends.stamp
+
+rule $
+    automation_client_lib_target_embed_user_data_dir_in_cpp_3e2b19ee2f09aec857becb6a5c914aed
+  command = cd ../../chrome; python $
+      test/chromedriver/embed_user_data_dir_in_cpp.py --directory $
+      ../out.cef/Release/gen/chrome/test/chromedriver/chrome $
+      test/chromedriver/chrome/preferences.txt $
+      test/chromedriver/chrome/local_state.txt
+  description = ACTION Generating sources for embedding user data dir in $
+      chromedriver
+  restat = 1
+
+build gen/chrome/test/chromedriver/chrome/user_data_dir.cc $
+    gen/chrome/test/chromedriver/chrome/user_data_dir.h: $
+    automation_client_lib_target_embed_user_data_dir_in_cpp_3e2b19ee2f09aec857becb6a5c914aed $
+    ../../chrome/test/chromedriver/cpp_source.py $
+    ../../chrome/test/chromedriver/embed_user_data_dir_in_cpp.py $
+    ../../chrome/test/chromedriver/chrome/preferences.txt $
+    ../../chrome/test/chromedriver/chrome/local_state.txt || $
+    obj/chrome/automation_client_lib.actions_depends.stamp
+
+rule $
+    automation_client_lib_target_embed_extension_in_cpp_3e2b19ee2f09aec857becb6a5c914aed
+  command = cd ../../chrome; python $
+      test/chromedriver/embed_extension_in_cpp.py --directory $
+      ../out.cef/Release/gen/chrome/test/chromedriver/chrome $
+      test/chromedriver/extension/background.js $
+      test/chromedriver/extension/manifest.json
+  description = ACTION Generating sources for embedding automation extension
+  restat = 1
+
+build gen/chrome/test/chromedriver/chrome/embedded_automation_extension.cc $
+    gen/chrome/test/chromedriver/chrome/embedded_automation_extension.h: $
+    automation_client_lib_target_embed_extension_in_cpp_3e2b19ee2f09aec857becb6a5c914aed $
+    ../../chrome/test/chromedriver/cpp_source.py $
+    ../../chrome/test/chromedriver/embed_extension_in_cpp.py $
+    ../../chrome/test/chromedriver/extension/background.js $
+    ../../chrome/test/chromedriver/extension/manifest.json || $
+    obj/chrome/automation_client_lib.actions_depends.stamp
+
+build obj/chrome/automation_client_lib.actions_rules_copies.stamp: stamp $
+    gen/chrome/test/chromedriver/chrome/js.cc $
+    gen/chrome/test/chromedriver/chrome/js.h $
+    gen/chrome/test/chromedriver/chrome/user_data_dir.cc $
+    gen/chrome/test/chromedriver/chrome/user_data_dir.h $
+    gen/chrome/test/chromedriver/chrome/embedded_automation_extension.cc $
+    gen/chrome/test/chromedriver/chrome/embedded_automation_extension.h
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DSK_SUPPORT_GPU=1 $
+    -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS -DU_USING_ICU_NAMESPACE=0 $
+    -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= -DU_STATIC_IMPLEMENTATION $
+    -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 $
+    -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../skia/config -I../../third_party/zlib $
+    -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../third_party/icu/source/i18n -I../../third_party/icu/source/common
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/chrome/test/chromedriver/chrome/automation_client_lib.adb_impl.o: $
+    cxx ../../chrome/test/chromedriver/chrome/adb_impl.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.automation_extension.o: $
+    cxx ../../chrome/test/chromedriver/chrome/automation_extension.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.chrome_android_impl.o: $
+    cxx ../../chrome/test/chromedriver/chrome/chrome_android_impl.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.chrome_desktop_impl.o: $
+    cxx ../../chrome/test/chromedriver/chrome/chrome_desktop_impl.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.chrome_finder.o: $
+    cxx ../../chrome/test/chromedriver/chrome/chrome_finder.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.chrome_impl.o: $
+    cxx ../../chrome/test/chromedriver/chrome/chrome_impl.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.chrome_remote_impl.o: $
+    cxx ../../chrome/test/chromedriver/chrome/chrome_remote_impl.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.console_logger.o: $
+    cxx ../../chrome/test/chromedriver/chrome/console_logger.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.debugger_tracker.o: $
+    cxx ../../chrome/test/chromedriver/chrome/debugger_tracker.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.device_manager.o: $
+    cxx ../../chrome/test/chromedriver/chrome/device_manager.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.device_metrics.o: $
+    cxx ../../chrome/test/chromedriver/chrome/device_metrics.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.devtools_client_impl.o: $
+    cxx ../../chrome/test/chromedriver/chrome/devtools_client_impl.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.devtools_event_listener.o: $
+    cxx ../../chrome/test/chromedriver/chrome/devtools_event_listener.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.devtools_http_client.o: $
+    cxx ../../chrome/test/chromedriver/chrome/devtools_http_client.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.dom_tracker.o: $
+    cxx ../../chrome/test/chromedriver/chrome/dom_tracker.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.frame_tracker.o: $
+    cxx ../../chrome/test/chromedriver/chrome/frame_tracker.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.geolocation_override_manager.o: $
+    cxx $
+    ../../chrome/test/chromedriver/chrome/geolocation_override_manager.cc $
+    || obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.heap_snapshot_taker.o: $
+    cxx ../../chrome/test/chromedriver/chrome/heap_snapshot_taker.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.javascript_dialog_manager.o: $
+    cxx ../../chrome/test/chromedriver/chrome/javascript_dialog_manager.cc $
+    || obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build obj/chrome/test/chromedriver/chrome/automation_client_lib.log.o: cxx $
+    ../../chrome/test/chromedriver/chrome/log.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.mobile_device.o: $
+    cxx ../../chrome/test/chromedriver/chrome/mobile_device.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.mobile_device_list.o: $
+    cxx ../../chrome/test/chromedriver/chrome/mobile_device_list.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.mobile_emulation_override_manager.o: $
+    cxx $
+    ../../chrome/test/chromedriver/chrome/mobile_emulation_override_manager.cc $
+    || obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.navigation_tracker.o: $
+    cxx ../../chrome/test/chromedriver/chrome/navigation_tracker.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.network_conditions.o: $
+    cxx ../../chrome/test/chromedriver/chrome/network_conditions.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.network_conditions_override_manager.o: $
+    cxx $
+    ../../chrome/test/chromedriver/chrome/network_conditions_override_manager.cc $
+    || obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.network_list.o: $
+    cxx ../../chrome/test/chromedriver/chrome/network_list.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build obj/chrome/test/chromedriver/chrome/automation_client_lib.status.o: $
+    cxx ../../chrome/test/chromedriver/chrome/status.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.ui_events.o: $
+    cxx ../../chrome/test/chromedriver/chrome/ui_events.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build obj/chrome/test/chromedriver/chrome/automation_client_lib.util.o: cxx $
+    ../../chrome/test/chromedriver/chrome/util.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build obj/chrome/test/chromedriver/chrome/automation_client_lib.version.o: $
+    cxx ../../chrome/test/chromedriver/chrome/version.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.web_view_impl.o: $
+    cxx ../../chrome/test/chromedriver/chrome/web_view_impl.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/net/automation_client_lib.adb_client_socket.o: $
+    cxx ../../chrome/test/chromedriver/net/adb_client_socket.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build obj/chrome/test/chromedriver/net/automation_client_lib.net_util.o: $
+    cxx ../../chrome/test/chromedriver/net/net_util.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build obj/chrome/test/chromedriver/net/automation_client_lib.port_server.o: $
+    cxx ../../chrome/test/chromedriver/net/port_server.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/net/automation_client_lib.sync_websocket_factory.o: $
+    cxx ../../chrome/test/chromedriver/net/sync_websocket_factory.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/net/automation_client_lib.sync_websocket_impl.o: $
+    cxx ../../chrome/test/chromedriver/net/sync_websocket_impl.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/net/automation_client_lib.url_request_context_getter.o: $
+    cxx ../../chrome/test/chromedriver/net/url_request_context_getter.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build obj/chrome/test/chromedriver/net/automation_client_lib.websocket.o: $
+    cxx ../../chrome/test/chromedriver/net/websocket.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/gen/chrome/test/chromedriver/chrome/automation_client_lib.embedded_automation_extension.o: $
+    cxx $
+    gen/chrome/test/chromedriver/chrome/embedded_automation_extension.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/gen/chrome/test/chromedriver/chrome/automation_client_lib.js.o: $
+    cxx gen/chrome/test/chromedriver/chrome/js.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/gen/chrome/test/chromedriver/chrome/automation_client_lib.user_data_dir.o: $
+    cxx gen/chrome/test/chromedriver/chrome/user_data_dir.cc || $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp
+
+build obj/chrome/libautomation_client_lib.a: alink_thin $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.adb_impl.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.automation_extension.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.chrome_android_impl.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.chrome_desktop_impl.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.chrome_finder.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.chrome_impl.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.chrome_remote_impl.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.console_logger.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.debugger_tracker.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.device_manager.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.device_metrics.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.devtools_client_impl.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.devtools_event_listener.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.devtools_http_client.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.dom_tracker.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.frame_tracker.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.geolocation_override_manager.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.heap_snapshot_taker.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.javascript_dialog_manager.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.log.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.mobile_device.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.mobile_device_list.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.mobile_emulation_override_manager.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.navigation_tracker.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.network_conditions.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.network_conditions_override_manager.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.network_list.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.status.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.ui_events.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.util.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.version.o $
+    obj/chrome/test/chromedriver/chrome/automation_client_lib.web_view_impl.o $
+    obj/chrome/test/chromedriver/net/automation_client_lib.adb_client_socket.o $
+    obj/chrome/test/chromedriver/net/automation_client_lib.net_util.o $
+    obj/chrome/test/chromedriver/net/automation_client_lib.port_server.o $
+    obj/chrome/test/chromedriver/net/automation_client_lib.sync_websocket_factory.o $
+    obj/chrome/test/chromedriver/net/automation_client_lib.sync_websocket_impl.o $
+    obj/chrome/test/chromedriver/net/automation_client_lib.url_request_context_getter.o $
+    obj/chrome/test/chromedriver/net/automation_client_lib.websocket.o $
+    obj/chrome/gen/chrome/test/chromedriver/chrome/automation_client_lib.embedded_automation_extension.o $
+    obj/chrome/gen/chrome/test/chromedriver/chrome/automation_client_lib.js.o $
+    obj/chrome/gen/chrome/test/chromedriver/chrome/automation_client_lib.user_data_dir.o $
+    || obj/chrome/automation_client_lib.actions_rules_copies.stamp

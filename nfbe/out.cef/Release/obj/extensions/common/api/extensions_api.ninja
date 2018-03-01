@@ -1,0 +1,781 @@
+rule $
+    extensions_api_target_genapi_bundle_schema_5f93a1dac2f4275c4e0eee97b3895550
+  command = cd ../../extensions/common/api; python $
+      ../../../tools/json_schema_compiler/compiler.py "--root=../../.." $
+      "--destdir=../../../out.cef/Release/gen" $
+      "--namespace=extensions::api::%(namespace)s" "--bundle-name=" $
+      "--generator=cpp-bundle-schema" "--include-rules=" alarms.idl $
+      app_current_window_internal.idl app_runtime.idl $
+      app_view_guest_internal.json app_window.idl audio.idl bluetooth.idl $
+      bluetooth_private.idl bluetooth_socket.idl cast_channel.idl $
+      document_scan.idl display_source.idl dns.idl events.json $
+      extensions_manifest_types.json extension_options_internal.idl $
+      extension_view_internal.json extension_types.json $
+      guest_view_internal.json management.json hid.idl idle.json $
+      mime_handler_private.idl mime_handler_view_guest_internal.json $
+      mojo_private.idl networking_private.idl power.idl $
+      printer_provider.idl printer_provider_internal.idl runtime.json $
+      serial.idl socket.idl sockets_tcp.idl sockets_tcp_server.idl $
+      sockets_udp.idl storage.json system_cpu.idl system_display.idl $
+      system_memory.idl system_network.idl system_storage.idl test.json $
+      usb.idl virtual_keyboard_private.json web_request.json $
+      web_view_internal.json web_request_internal.json
+  description = ACTION Generating C++ API bundle code for schemas
+  restat = 1
+
+build gen/extensions/common/api/generated_schemas.h $
+    gen/extensions/common/api/generated_schemas.cc: $
+    extensions_api_target_genapi_bundle_schema_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../tools/json_schema_compiler/cc_generator.py $
+    ../../tools/json_schema_compiler/code.py $
+    ../../tools/json_schema_compiler/compiler.py $
+    ../../tools/json_schema_compiler/cpp_bundle_generator.py $
+    ../../tools/json_schema_compiler/cpp_type_generator.py $
+    ../../tools/json_schema_compiler/cpp_util.py $
+    ../../tools/json_schema_compiler/h_generator.py $
+    ../../tools/json_schema_compiler/idl_schema.py $
+    ../../tools/json_schema_compiler/json_schema.py $
+    ../../tools/json_schema_compiler/model.py $
+    ../../tools/json_schema_compiler/util_cc_helper.py $
+    ../../extensions/common/api/alarms.idl $
+    ../../extensions/common/api/app_current_window_internal.idl $
+    ../../extensions/common/api/app_runtime.idl $
+    ../../extensions/common/api/app_view_guest_internal.json $
+    ../../extensions/common/api/app_window.idl $
+    ../../extensions/common/api/audio.idl $
+    ../../extensions/common/api/bluetooth.idl $
+    ../../extensions/common/api/bluetooth_private.idl $
+    ../../extensions/common/api/bluetooth_socket.idl $
+    ../../extensions/common/api/cast_channel.idl $
+    ../../extensions/common/api/document_scan.idl $
+    ../../extensions/common/api/display_source.idl $
+    ../../extensions/common/api/dns.idl $
+    ../../extensions/common/api/events.json $
+    ../../extensions/common/api/extensions_manifest_types.json $
+    ../../extensions/common/api/extension_options_internal.idl $
+    ../../extensions/common/api/extension_view_internal.json $
+    ../../extensions/common/api/extension_types.json $
+    ../../extensions/common/api/guest_view_internal.json $
+    ../../extensions/common/api/management.json $
+    ../../extensions/common/api/hid.idl $
+    ../../extensions/common/api/idle.json $
+    ../../extensions/common/api/mime_handler_private.idl $
+    ../../extensions/common/api/mime_handler_view_guest_internal.json $
+    ../../extensions/common/api/mojo_private.idl $
+    ../../extensions/common/api/networking_private.idl $
+    ../../extensions/common/api/power.idl $
+    ../../extensions/common/api/printer_provider.idl $
+    ../../extensions/common/api/printer_provider_internal.idl $
+    ../../extensions/common/api/runtime.json $
+    ../../extensions/common/api/serial.idl $
+    ../../extensions/common/api/socket.idl $
+    ../../extensions/common/api/sockets_tcp.idl $
+    ../../extensions/common/api/sockets_tcp_server.idl $
+    ../../extensions/common/api/sockets_udp.idl $
+    ../../extensions/common/api/storage.json $
+    ../../extensions/common/api/system_cpu.idl $
+    ../../extensions/common/api/system_display.idl $
+    ../../extensions/common/api/system_memory.idl $
+    ../../extensions/common/api/system_network.idl $
+    ../../extensions/common/api/system_storage.idl $
+    ../../extensions/common/api/test.json $
+    ../../extensions/common/api/usb.idl $
+    ../../extensions/common/api/virtual_keyboard_private.json $
+    ../../extensions/common/api/web_request.json $
+    ../../extensions/common/api/web_view_internal.json $
+    ../../extensions/common/api/web_request_internal.json || $
+    obj/extensions/common/api/extensions_api_mojom.actions_rules_copies.stamp
+
+rule extensions_api_target_genapi_5f93a1dac2f4275c4e0eee97b3895550
+  command = cd ../../extensions/common/api; python $
+      ../../../tools/json_schema_compiler/compiler.py "${source}" $
+      "--root=../../.." "--destdir=../../../out.cef/Release/gen" $
+      "--namespace=extensions::api::%(namespace)s" "--generator=cpp" $
+      "--include-rules="
+  description = RULE Generating C++ code from ${source} json files
+  restat = 1
+
+build obj/extensions/common/api/extensions_api.genapi.stamp: stamp $
+    ../../tools/json_schema_compiler/cc_generator.py $
+    ../../tools/json_schema_compiler/code.py $
+    ../../tools/json_schema_compiler/compiler.py $
+    ../../tools/json_schema_compiler/cpp_generator.py $
+    ../../tools/json_schema_compiler/cpp_type_generator.py $
+    ../../tools/json_schema_compiler/cpp_util.py $
+    ../../tools/json_schema_compiler/h_generator.py $
+    ../../tools/json_schema_compiler/json_schema.py $
+    ../../tools/json_schema_compiler/model.py $
+    ../../tools/json_schema_compiler/util.cc $
+    ../../tools/json_schema_compiler/util.h $
+    ../../tools/json_schema_compiler/util_cc_helper.py || $
+    obj/extensions/common/api/extensions_api_mojom.actions_rules_copies.stamp
+
+build gen/extensions/common/api//app_view_guest_internal.cc $
+    gen/extensions/common/api//app_view_guest_internal.h: $
+    extensions_api_target_genapi_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/app_view_guest_internal.json | $
+    obj/extensions/common/api/extensions_api.genapi.stamp
+  source = app_view_guest_internal.json
+build gen/extensions/common/api//events.cc $
+    gen/extensions/common/api//events.h: $
+    extensions_api_target_genapi_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/events.json | $
+    obj/extensions/common/api/extensions_api.genapi.stamp
+  source = events.json
+build gen/extensions/common/api//extensions_manifest_types.cc $
+    gen/extensions/common/api//extensions_manifest_types.h: $
+    extensions_api_target_genapi_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/extensions_manifest_types.json | $
+    obj/extensions/common/api/extensions_api.genapi.stamp
+  source = extensions_manifest_types.json
+build gen/extensions/common/api//extension_view_internal.cc $
+    gen/extensions/common/api//extension_view_internal.h: $
+    extensions_api_target_genapi_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/extension_view_internal.json | $
+    obj/extensions/common/api/extensions_api.genapi.stamp
+  source = extension_view_internal.json
+build gen/extensions/common/api//extension_types.cc $
+    gen/extensions/common/api//extension_types.h: $
+    extensions_api_target_genapi_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/extension_types.json | $
+    obj/extensions/common/api/extensions_api.genapi.stamp
+  source = extension_types.json
+build gen/extensions/common/api//guest_view_internal.cc $
+    gen/extensions/common/api//guest_view_internal.h: $
+    extensions_api_target_genapi_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/guest_view_internal.json | $
+    obj/extensions/common/api/extensions_api.genapi.stamp
+  source = guest_view_internal.json
+build gen/extensions/common/api//management.cc $
+    gen/extensions/common/api//management.h: $
+    extensions_api_target_genapi_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/management.json | $
+    obj/extensions/common/api/extensions_api.genapi.stamp
+  source = management.json
+build gen/extensions/common/api//idle.cc gen/extensions/common/api//idle.h: $
+    extensions_api_target_genapi_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/idle.json | $
+    obj/extensions/common/api/extensions_api.genapi.stamp
+  source = idle.json
+build gen/extensions/common/api//mime_handler_view_guest_internal.cc $
+    gen/extensions/common/api//mime_handler_view_guest_internal.h: $
+    extensions_api_target_genapi_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/mime_handler_view_guest_internal.json | $
+    obj/extensions/common/api/extensions_api.genapi.stamp
+  source = mime_handler_view_guest_internal.json
+build gen/extensions/common/api//runtime.cc $
+    gen/extensions/common/api//runtime.h: $
+    extensions_api_target_genapi_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/runtime.json | $
+    obj/extensions/common/api/extensions_api.genapi.stamp
+  source = runtime.json
+build gen/extensions/common/api//storage.cc $
+    gen/extensions/common/api//storage.h: $
+    extensions_api_target_genapi_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/storage.json | $
+    obj/extensions/common/api/extensions_api.genapi.stamp
+  source = storage.json
+build gen/extensions/common/api//test.cc gen/extensions/common/api//test.h: $
+    extensions_api_target_genapi_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/test.json | $
+    obj/extensions/common/api/extensions_api.genapi.stamp
+  source = test.json
+build gen/extensions/common/api//virtual_keyboard_private.cc $
+    gen/extensions/common/api//virtual_keyboard_private.h: $
+    extensions_api_target_genapi_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/virtual_keyboard_private.json | $
+    obj/extensions/common/api/extensions_api.genapi.stamp
+  source = virtual_keyboard_private.json
+build gen/extensions/common/api//web_request.cc $
+    gen/extensions/common/api//web_request.h: $
+    extensions_api_target_genapi_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/web_request.json | $
+    obj/extensions/common/api/extensions_api.genapi.stamp
+  source = web_request.json
+build gen/extensions/common/api//web_view_internal.cc $
+    gen/extensions/common/api//web_view_internal.h: $
+    extensions_api_target_genapi_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/web_view_internal.json | $
+    obj/extensions/common/api/extensions_api.genapi.stamp
+  source = web_view_internal.json
+rule extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550
+  command = cd ../../extensions/common/api; python $
+      ../../../tools/json_schema_compiler/compiler.py "${source}" $
+      "--root=../../.." "--destdir=../../../out.cef/Release/gen" $
+      "--namespace=extensions::api::%(namespace)s" "--generator=cpp" $
+      "--include-rules="
+  description = RULE Generating C++ code from ${source} IDL files
+  restat = 1
+
+build obj/extensions/common/api/extensions_api.genapi_idl.stamp: stamp $
+    ../../tools/json_schema_compiler/cc_generator.py $
+    ../../tools/json_schema_compiler/code.py $
+    ../../tools/json_schema_compiler/compiler.py $
+    ../../tools/json_schema_compiler/cpp_generator.py $
+    ../../tools/json_schema_compiler/cpp_type_generator.py $
+    ../../tools/json_schema_compiler/cpp_util.py $
+    ../../tools/json_schema_compiler/h_generator.py $
+    ../../tools/json_schema_compiler/idl_schema.py $
+    ../../tools/json_schema_compiler/model.py $
+    ../../tools/json_schema_compiler/util.cc $
+    ../../tools/json_schema_compiler/util.h $
+    ../../tools/json_schema_compiler/util_cc_helper.py
+
+build gen/extensions/common/api//alarms.cc $
+    gen/extensions/common/api//alarms.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/alarms.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = alarms.idl
+build gen/extensions/common/api//app_current_window_internal.cc $
+    gen/extensions/common/api//app_current_window_internal.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/app_current_window_internal.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = app_current_window_internal.idl
+build gen/extensions/common/api//app_runtime.cc $
+    gen/extensions/common/api//app_runtime.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/app_runtime.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = app_runtime.idl
+build gen/extensions/common/api//app_window.cc $
+    gen/extensions/common/api//app_window.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/app_window.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = app_window.idl
+build gen/extensions/common/api//audio.cc $
+    gen/extensions/common/api//audio.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/audio.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = audio.idl
+build gen/extensions/common/api//bluetooth.cc $
+    gen/extensions/common/api//bluetooth.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/bluetooth.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = bluetooth.idl
+build gen/extensions/common/api//bluetooth_private.cc $
+    gen/extensions/common/api//bluetooth_private.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/bluetooth_private.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = bluetooth_private.idl
+build gen/extensions/common/api//bluetooth_socket.cc $
+    gen/extensions/common/api//bluetooth_socket.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/bluetooth_socket.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = bluetooth_socket.idl
+build gen/extensions/common/api//cast_channel.cc $
+    gen/extensions/common/api//cast_channel.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/cast_channel.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = cast_channel.idl
+build gen/extensions/common/api//document_scan.cc $
+    gen/extensions/common/api//document_scan.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/document_scan.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = document_scan.idl
+build gen/extensions/common/api//display_source.cc $
+    gen/extensions/common/api//display_source.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/display_source.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = display_source.idl
+build gen/extensions/common/api//dns.cc gen/extensions/common/api//dns.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/dns.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = dns.idl
+build gen/extensions/common/api//extension_options_internal.cc $
+    gen/extensions/common/api//extension_options_internal.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/extension_options_internal.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = extension_options_internal.idl
+build gen/extensions/common/api//hid.cc gen/extensions/common/api//hid.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/hid.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = hid.idl
+build gen/extensions/common/api//mime_handler_private.cc $
+    gen/extensions/common/api//mime_handler_private.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/mime_handler_private.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = mime_handler_private.idl
+build gen/extensions/common/api//mojo_private.cc $
+    gen/extensions/common/api//mojo_private.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/mojo_private.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = mojo_private.idl
+build gen/extensions/common/api//networking_private.cc $
+    gen/extensions/common/api//networking_private.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/networking_private.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = networking_private.idl
+build gen/extensions/common/api//power.cc $
+    gen/extensions/common/api//power.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/power.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = power.idl
+build gen/extensions/common/api//printer_provider.cc $
+    gen/extensions/common/api//printer_provider.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/printer_provider.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = printer_provider.idl
+build gen/extensions/common/api//printer_provider_internal.cc $
+    gen/extensions/common/api//printer_provider_internal.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/printer_provider_internal.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = printer_provider_internal.idl
+build gen/extensions/common/api//serial.cc $
+    gen/extensions/common/api//serial.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/serial.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = serial.idl
+build gen/extensions/common/api//socket.cc $
+    gen/extensions/common/api//socket.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/socket.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = socket.idl
+build gen/extensions/common/api//sockets_tcp.cc $
+    gen/extensions/common/api//sockets_tcp.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/sockets_tcp.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = sockets_tcp.idl
+build gen/extensions/common/api//sockets_tcp_server.cc $
+    gen/extensions/common/api//sockets_tcp_server.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/sockets_tcp_server.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = sockets_tcp_server.idl
+build gen/extensions/common/api//sockets_udp.cc $
+    gen/extensions/common/api//sockets_udp.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/sockets_udp.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = sockets_udp.idl
+build gen/extensions/common/api//system_cpu.cc $
+    gen/extensions/common/api//system_cpu.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/system_cpu.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = system_cpu.idl
+build gen/extensions/common/api//system_display.cc $
+    gen/extensions/common/api//system_display.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/system_display.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = system_display.idl
+build gen/extensions/common/api//system_memory.cc $
+    gen/extensions/common/api//system_memory.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/system_memory.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = system_memory.idl
+build gen/extensions/common/api//system_network.cc $
+    gen/extensions/common/api//system_network.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/system_network.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = system_network.idl
+build gen/extensions/common/api//system_storage.cc $
+    gen/extensions/common/api//system_storage.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/system_storage.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = system_storage.idl
+build gen/extensions/common/api//usb.cc gen/extensions/common/api//usb.h: $
+    extensions_api_target_genapi_idl_5f93a1dac2f4275c4e0eee97b3895550 $
+    ../../extensions/common/api/usb.idl | $
+    obj/extensions/common/api/extensions_api.genapi_idl.stamp
+  source = usb.idl
+build obj/extensions/common/api/extensions_api.actions_rules_copies.stamp: $
+    stamp gen/extensions/common/api/generated_schemas.h $
+    gen/extensions/common/api/generated_schemas.cc $
+    gen/extensions/common/api//app_view_guest_internal.cc $
+    gen/extensions/common/api//app_view_guest_internal.h $
+    gen/extensions/common/api//events.cc $
+    gen/extensions/common/api//events.h $
+    gen/extensions/common/api//extensions_manifest_types.cc $
+    gen/extensions/common/api//extensions_manifest_types.h $
+    gen/extensions/common/api//extension_view_internal.cc $
+    gen/extensions/common/api//extension_view_internal.h $
+    gen/extensions/common/api//extension_types.cc $
+    gen/extensions/common/api//extension_types.h $
+    gen/extensions/common/api//guest_view_internal.cc $
+    gen/extensions/common/api//guest_view_internal.h $
+    gen/extensions/common/api//management.cc $
+    gen/extensions/common/api//management.h $
+    gen/extensions/common/api//idle.cc gen/extensions/common/api//idle.h $
+    gen/extensions/common/api//mime_handler_view_guest_internal.cc $
+    gen/extensions/common/api//mime_handler_view_guest_internal.h $
+    gen/extensions/common/api//runtime.cc $
+    gen/extensions/common/api//runtime.h $
+    gen/extensions/common/api//storage.cc $
+    gen/extensions/common/api//storage.h gen/extensions/common/api//test.cc $
+    gen/extensions/common/api//test.h $
+    gen/extensions/common/api//virtual_keyboard_private.cc $
+    gen/extensions/common/api//virtual_keyboard_private.h $
+    gen/extensions/common/api//web_request.cc $
+    gen/extensions/common/api//web_request.h $
+    gen/extensions/common/api//web_view_internal.cc $
+    gen/extensions/common/api//web_view_internal.h $
+    gen/extensions/common/api//alarms.cc $
+    gen/extensions/common/api//alarms.h $
+    gen/extensions/common/api//app_current_window_internal.cc $
+    gen/extensions/common/api//app_current_window_internal.h $
+    gen/extensions/common/api//app_runtime.cc $
+    gen/extensions/common/api//app_runtime.h $
+    gen/extensions/common/api//app_window.cc $
+    gen/extensions/common/api//app_window.h $
+    gen/extensions/common/api//audio.cc gen/extensions/common/api//audio.h $
+    gen/extensions/common/api//bluetooth.cc $
+    gen/extensions/common/api//bluetooth.h $
+    gen/extensions/common/api//bluetooth_private.cc $
+    gen/extensions/common/api//bluetooth_private.h $
+    gen/extensions/common/api//bluetooth_socket.cc $
+    gen/extensions/common/api//bluetooth_socket.h $
+    gen/extensions/common/api//cast_channel.cc $
+    gen/extensions/common/api//cast_channel.h $
+    gen/extensions/common/api//document_scan.cc $
+    gen/extensions/common/api//document_scan.h $
+    gen/extensions/common/api//display_source.cc $
+    gen/extensions/common/api//display_source.h $
+    gen/extensions/common/api//dns.cc gen/extensions/common/api//dns.h $
+    gen/extensions/common/api//extension_options_internal.cc $
+    gen/extensions/common/api//extension_options_internal.h $
+    gen/extensions/common/api//hid.cc gen/extensions/common/api//hid.h $
+    gen/extensions/common/api//mime_handler_private.cc $
+    gen/extensions/common/api//mime_handler_private.h $
+    gen/extensions/common/api//mojo_private.cc $
+    gen/extensions/common/api//mojo_private.h $
+    gen/extensions/common/api//networking_private.cc $
+    gen/extensions/common/api//networking_private.h $
+    gen/extensions/common/api//power.cc gen/extensions/common/api//power.h $
+    gen/extensions/common/api//printer_provider.cc $
+    gen/extensions/common/api//printer_provider.h $
+    gen/extensions/common/api//printer_provider_internal.cc $
+    gen/extensions/common/api//printer_provider_internal.h $
+    gen/extensions/common/api//serial.cc $
+    gen/extensions/common/api//serial.h $
+    gen/extensions/common/api//socket.cc $
+    gen/extensions/common/api//socket.h $
+    gen/extensions/common/api//sockets_tcp.cc $
+    gen/extensions/common/api//sockets_tcp.h $
+    gen/extensions/common/api//sockets_tcp_server.cc $
+    gen/extensions/common/api//sockets_tcp_server.h $
+    gen/extensions/common/api//sockets_udp.cc $
+    gen/extensions/common/api//sockets_udp.h $
+    gen/extensions/common/api//system_cpu.cc $
+    gen/extensions/common/api//system_cpu.h $
+    gen/extensions/common/api//system_display.cc $
+    gen/extensions/common/api//system_display.h $
+    gen/extensions/common/api//system_memory.cc $
+    gen/extensions/common/api//system_memory.h $
+    gen/extensions/common/api//system_network.cc $
+    gen/extensions/common/api//system_network.h $
+    gen/extensions/common/api//system_storage.cc $
+    gen/extensions/common/api//system_storage.h $
+    gen/extensions/common/api//usb.cc gen/extensions/common/api//usb.h
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS $
+    -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../..
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.generated_schemas.o: $
+    cxx gen/extensions/common/api/generated_schemas.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.app_view_guest_internal.o: $
+    cxx gen/extensions/common/api//app_view_guest_internal.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.events.o: $
+    cxx gen/extensions/common/api//events.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.extensions_manifest_types.o: $
+    cxx gen/extensions/common/api//extensions_manifest_types.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.extension_view_internal.o: $
+    cxx gen/extensions/common/api//extension_view_internal.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.extension_types.o: $
+    cxx gen/extensions/common/api//extension_types.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.guest_view_internal.o: $
+    cxx gen/extensions/common/api//guest_view_internal.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.management.o: $
+    cxx gen/extensions/common/api//management.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.idle.o: $
+    cxx gen/extensions/common/api//idle.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.mime_handler_view_guest_internal.o: $
+    cxx gen/extensions/common/api//mime_handler_view_guest_internal.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.runtime.o: $
+    cxx gen/extensions/common/api//runtime.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.storage.o: $
+    cxx gen/extensions/common/api//storage.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.test.o: $
+    cxx gen/extensions/common/api//test.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.virtual_keyboard_private.o: $
+    cxx gen/extensions/common/api//virtual_keyboard_private.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.web_request.o: $
+    cxx gen/extensions/common/api//web_request.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.web_view_internal.o: $
+    cxx gen/extensions/common/api//web_view_internal.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.alarms.o: $
+    cxx gen/extensions/common/api//alarms.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.app_current_window_internal.o: $
+    cxx gen/extensions/common/api//app_current_window_internal.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.app_runtime.o: $
+    cxx gen/extensions/common/api//app_runtime.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.app_window.o: $
+    cxx gen/extensions/common/api//app_window.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.audio.o: $
+    cxx gen/extensions/common/api//audio.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.bluetooth.o: $
+    cxx gen/extensions/common/api//bluetooth.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.bluetooth_private.o: $
+    cxx gen/extensions/common/api//bluetooth_private.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.bluetooth_socket.o: $
+    cxx gen/extensions/common/api//bluetooth_socket.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.cast_channel.o: $
+    cxx gen/extensions/common/api//cast_channel.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.document_scan.o: $
+    cxx gen/extensions/common/api//document_scan.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.display_source.o: $
+    cxx gen/extensions/common/api//display_source.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.dns.o: $
+    cxx gen/extensions/common/api//dns.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.extension_options_internal.o: $
+    cxx gen/extensions/common/api//extension_options_internal.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.hid.o: $
+    cxx gen/extensions/common/api//hid.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.mime_handler_private.o: $
+    cxx gen/extensions/common/api//mime_handler_private.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.mojo_private.o: $
+    cxx gen/extensions/common/api//mojo_private.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.networking_private.o: $
+    cxx gen/extensions/common/api//networking_private.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.power.o: $
+    cxx gen/extensions/common/api//power.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.printer_provider.o: $
+    cxx gen/extensions/common/api//printer_provider.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.printer_provider_internal.o: $
+    cxx gen/extensions/common/api//printer_provider_internal.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.serial.o: $
+    cxx gen/extensions/common/api//serial.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.socket.o: $
+    cxx gen/extensions/common/api//socket.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.sockets_tcp.o: $
+    cxx gen/extensions/common/api//sockets_tcp.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.sockets_tcp_server.o: $
+    cxx gen/extensions/common/api//sockets_tcp_server.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.sockets_udp.o: $
+    cxx gen/extensions/common/api//sockets_udp.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.system_cpu.o: $
+    cxx gen/extensions/common/api//system_cpu.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.system_display.o: $
+    cxx gen/extensions/common/api//system_display.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.system_memory.o: $
+    cxx gen/extensions/common/api//system_memory.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.system_network.o: $
+    cxx gen/extensions/common/api//system_network.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.system_storage.o: $
+    cxx gen/extensions/common/api//system_storage.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.usb.o: $
+    cxx gen/extensions/common/api//usb.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+build $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.mime_handler.mojom.o: $
+    cxx gen/extensions/common/api/mime_handler.mojom.cc || $
+    obj/extensions/common/api/extensions_api.actions_rules_copies.stamp
+
+build obj/extensions/common/api/libextensions_api.a: alink_thin $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.generated_schemas.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.app_view_guest_internal.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.events.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.extensions_manifest_types.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.extension_view_internal.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.extension_types.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.guest_view_internal.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.management.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.idle.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.mime_handler_view_guest_internal.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.runtime.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.storage.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.test.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.virtual_keyboard_private.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.web_request.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.web_view_internal.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.alarms.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.app_current_window_internal.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.app_runtime.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.app_window.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.audio.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.bluetooth.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.bluetooth_private.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.bluetooth_socket.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.cast_channel.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.document_scan.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.display_source.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.dns.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.extension_options_internal.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.hid.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.mime_handler_private.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.mojo_private.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.networking_private.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.power.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.printer_provider.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.printer_provider_internal.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.serial.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.socket.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.sockets_tcp.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.sockets_tcp_server.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.sockets_udp.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.system_cpu.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.system_display.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.system_memory.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.system_network.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.system_storage.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.usb.o $
+    obj/extensions/common/api/gen/extensions/common/api/extensions_api.mime_handler.mojom.o $
+    || obj/extensions/common/api/extensions_api.actions_rules_copies.stamp

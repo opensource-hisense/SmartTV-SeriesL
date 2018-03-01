@@ -1,0 +1,335 @@
+build obj/cef/cefclient.actions_depends.stamp: stamp $
+    obj/cef/libcef_dll_wrapper.a lib/libcef.so.TOC
+
+build obj/cef/cefclient.compile_depends.stamp: stamp $
+    obj/cef/libcef.compile_depends.stamp obj/cef/libcef.compile_depends.stamp
+
+build files/binding.html: copy $
+    ../../cef/tests/cefclient/resources/binding.html || $
+    obj/cef/cefclient.actions_depends.stamp
+build files/dialogs.html: copy $
+    ../../cef/tests/cefclient/resources/dialogs.html || $
+    obj/cef/cefclient.actions_depends.stamp
+build files/draggable.html: copy $
+    ../../cef/tests/cefclient/resources/draggable.html || $
+    obj/cef/cefclient.actions_depends.stamp
+build files/localstorage.html: copy $
+    ../../cef/tests/cefclient/resources/localstorage.html || $
+    obj/cef/cefclient.actions_depends.stamp
+build files/logo.png: copy ../../cef/tests/cefclient/resources/logo.png || $
+    obj/cef/cefclient.actions_depends.stamp
+build files/menu_icon.1x.png: copy $
+    ../../cef/tests/cefclient/resources/menu_icon.1x.png || $
+    obj/cef/cefclient.actions_depends.stamp
+build files/menu_icon.2x.png: copy $
+    ../../cef/tests/cefclient/resources/menu_icon.2x.png || $
+    obj/cef/cefclient.actions_depends.stamp
+build files/osr_test.html: copy $
+    ../../cef/tests/cefclient/resources/osr_test.html || $
+    obj/cef/cefclient.actions_depends.stamp
+build files/other_tests.html: copy $
+    ../../cef/tests/cefclient/resources/other_tests.html || $
+    obj/cef/cefclient.actions_depends.stamp
+build files/pdf.html: copy ../../cef/tests/cefclient/resources/pdf.html || $
+    obj/cef/cefclient.actions_depends.stamp
+build files/pdf.pdf: copy ../../cef/tests/cefclient/resources/pdf.pdf || $
+    obj/cef/cefclient.actions_depends.stamp
+build files/performance.html: copy $
+    ../../cef/tests/cefclient/resources/performance.html || $
+    obj/cef/cefclient.actions_depends.stamp
+build files/performance2.html: copy $
+    ../../cef/tests/cefclient/resources/performance2.html || $
+    obj/cef/cefclient.actions_depends.stamp
+build files/preferences.html: copy $
+    ../../cef/tests/cefclient/resources/preferences.html || $
+    obj/cef/cefclient.actions_depends.stamp
+build files/response_filter.html: copy $
+    ../../cef/tests/cefclient/resources/response_filter.html || $
+    obj/cef/cefclient.actions_depends.stamp
+build files/transparency.html: copy $
+    ../../cef/tests/cefclient/resources/transparency.html || $
+    obj/cef/cefclient.actions_depends.stamp
+build files/urlrequest.html: copy $
+    ../../cef/tests/cefclient/resources/urlrequest.html || $
+    obj/cef/cefclient.actions_depends.stamp
+build files/window.html: copy $
+    ../../cef/tests/cefclient/resources/window.html || $
+    obj/cef/cefclient.actions_depends.stamp
+build files/window_icon.1x.png: copy $
+    ../../cef/tests/cefclient/resources/window_icon.1x.png || $
+    obj/cef/cefclient.actions_depends.stamp
+build files/window_icon.2x.png: copy $
+    ../../cef/tests/cefclient/resources/window_icon.2x.png || $
+    obj/cef/cefclient.actions_depends.stamp
+build files/xmlhttprequest.html: copy $
+    ../../cef/tests/cefclient/resources/xmlhttprequest.html || $
+    obj/cef/cefclient.actions_depends.stamp
+build obj/cef/cefclient.actions_rules_copies.stamp: stamp $
+    files/binding.html files/dialogs.html files/draggable.html $
+    files/localstorage.html files/logo.png files/menu_icon.1x.png $
+    files/menu_icon.2x.png files/osr_test.html files/other_tests.html $
+    files/pdf.html files/pdf.pdf files/performance.html $
+    files/performance2.html files/preferences.html $
+    files/response_filter.html files/transparency.html $
+    files/urlrequest.html files/window.html files/window_icon.1x.png $
+    files/window_icon.2x.png files/xmlhttprequest.html
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DMOJO_USE_SYSTEM_IMPL $
+    -DGTEST_HAS_POSIX_RE=0 -DGTEST_LANG_CXX11=0 -DUSING_CEF_SHARED $
+    -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 $
+    -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../../cef -I../../cef/tests -I../../third_party/khronos $
+    -I../../gpu -I../.. -I../../skia/config $
+    -I../../third_party/WebKit/Source -Igen/angle
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -Wno-c++0x-compat -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/cef/tests/cefclient/browser/cefclient.browser_window_osr_gtk.o: $
+    cxx ../../cef/tests/cefclient/browser/browser_window_osr_gtk.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.browser_window_std_gtk.o: $
+    cxx ../../cef/tests/cefclient/browser/browser_window_std_gtk.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.dialog_handler_gtk.o: cxx $
+    ../../cef/tests/cefclient/browser/dialog_handler_gtk.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.main_context_impl_posix.o: $
+    cxx ../../cef/tests/cefclient/browser/main_context_impl_posix.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.print_handler_gtk.o: cxx $
+    ../../cef/tests/cefclient/browser/print_handler_gtk.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.resource_util_linux.o: cxx $
+    ../../cef/tests/cefclient/browser/resource_util_linux.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.resource_util_posix.o: cxx $
+    ../../cef/tests/cefclient/browser/resource_util_posix.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.root_window_gtk.o: cxx $
+    ../../cef/tests/cefclient/browser/root_window_gtk.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.views_window.o: cxx $
+    ../../cef/tests/cefclient/browser/views_window.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.window_test_runner_gtk.o: $
+    cxx ../../cef/tests/cefclient/browser/window_test_runner_gtk.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/cefclient.cefclient_gtk.o: cxx $
+    ../../cef/tests/cefclient/cefclient_gtk.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.binding_test.o: cxx $
+    ../../cef/tests/cefclient/browser/binding_test.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.browser_window.o: cxx $
+    ../../cef/tests/cefclient/browser/browser_window.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.bytes_write_handler.o: cxx $
+    ../../cef/tests/cefclient/browser/bytes_write_handler.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.client_app_browser.o: cxx $
+    ../../cef/tests/cefclient/browser/client_app_browser.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build $
+    obj/cef/tests/cefclient/browser/cefclient.client_app_delegates_browser.o: $
+    cxx ../../cef/tests/cefclient/browser/client_app_delegates_browser.cc $
+    || obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.client_handler.o: cxx $
+    ../../cef/tests/cefclient/browser/client_handler.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.client_handler_osr.o: cxx $
+    ../../cef/tests/cefclient/browser/client_handler_osr.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.client_handler_std.o: cxx $
+    ../../cef/tests/cefclient/browser/client_handler_std.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.dialog_test.o: cxx $
+    ../../cef/tests/cefclient/browser/dialog_test.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.geometry_util.o: cxx $
+    ../../cef/tests/cefclient/browser/geometry_util.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.main_context.o: cxx $
+    ../../cef/tests/cefclient/browser/main_context.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.main_context_impl.o: cxx $
+    ../../cef/tests/cefclient/browser/main_context_impl.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.main_message_loop.o: cxx $
+    ../../cef/tests/cefclient/browser/main_message_loop.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.main_message_loop_std.o: $
+    cxx ../../cef/tests/cefclient/browser/main_message_loop_std.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.osr_renderer.o: cxx $
+    ../../cef/tests/cefclient/browser/osr_renderer.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.preferences_test.o: cxx $
+    ../../cef/tests/cefclient/browser/preferences_test.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.resource_util.o: cxx $
+    ../../cef/tests/cefclient/browser/resource_util.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.response_filter_test.o: cxx $
+    ../../cef/tests/cefclient/browser/response_filter_test.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.root_window.o: cxx $
+    ../../cef/tests/cefclient/browser/root_window.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.root_window_create.o: cxx $
+    ../../cef/tests/cefclient/browser/root_window_create.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.root_window_manager.o: cxx $
+    ../../cef/tests/cefclient/browser/root_window_manager.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.scheme_test.o: cxx $
+    ../../cef/tests/cefclient/browser/scheme_test.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.test_runner.o: cxx $
+    ../../cef/tests/cefclient/browser/test_runner.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.urlrequest_test.o: cxx $
+    ../../cef/tests/cefclient/browser/urlrequest_test.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.window_test.o: cxx $
+    ../../cef/tests/cefclient/browser/window_test.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/browser/cefclient.window_test_runner.o: cxx $
+    ../../cef/tests/cefclient/browser/window_test_runner.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/common/cefclient.client_app.o: cxx $
+    ../../cef/tests/cefclient/common/client_app.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build $
+    obj/cef/tests/cefclient/common/cefclient.client_app_delegates_common.o: $
+    cxx ../../cef/tests/cefclient/common/client_app_delegates_common.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/common/cefclient.client_app_other.o: cxx $
+    ../../cef/tests/cefclient/common/client_app_other.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/common/cefclient.client_switches.o: cxx $
+    ../../cef/tests/cefclient/common/client_switches.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/common/cefclient.scheme_test_common.o: cxx $
+    ../../cef/tests/cefclient/common/scheme_test_common.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build $
+    obj/cef/tests/cefclient/renderer/cefclient.client_app_delegates_renderer.o: $
+    cxx ../../cef/tests/cefclient/renderer/client_app_delegates_renderer.cc $
+    || obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/renderer/cefclient.client_app_renderer.o: cxx $
+    ../../cef/tests/cefclient/renderer/client_app_renderer.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/renderer/cefclient.client_renderer.o: cxx $
+    ../../cef/tests/cefclient/renderer/client_renderer.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/renderer/cefclient.performance_test.o: cxx $
+    ../../cef/tests/cefclient/renderer/performance_test.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+build obj/cef/tests/cefclient/renderer/cefclient.performance_test_tests.o: $
+    cxx ../../cef/tests/cefclient/renderer/performance_test_tests.cc || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+
+ldflags = -L/work/bsp/sc1400/usr/local/lib -L/work/bsp/sc1400/lib $
+    -L/work/bsp/sc1400/usr/lib -Wl,-z,now -Wl,-z,relro -Wl,-z,defs -pthread $
+    -Wl,-z,noexecstack -fPIC -Wl,--disable-new-dtags $
+    --sysroot=/work/bsp/sc1400 -L/work/bsp/sc1400/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/lib/ -L/work/bsp/sc1400/usr/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/lib/ $
+    -L/work/bsp/sc1400/usr/dtvrec/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/dtvrec/lib/ $
+    -L/work/bsp/sc1400/usr/local/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/local/lib/ $
+    -L/work/bsp/sc1400/usr/local/netfrontbe/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/local/netfrontbe/lib/ -Wl,-O1 $
+    -Wl,--as-needed -Wl,--gc-sections -Wl,-rpath=\$$ORIGIN/lib/ $
+    -Wl,-rpath-link=lib/
+libs = 
+build cefclient: link $
+    obj/cef/tests/cefclient/browser/cefclient.browser_window_osr_gtk.o $
+    obj/cef/tests/cefclient/browser/cefclient.browser_window_std_gtk.o $
+    obj/cef/tests/cefclient/browser/cefclient.dialog_handler_gtk.o $
+    obj/cef/tests/cefclient/browser/cefclient.main_context_impl_posix.o $
+    obj/cef/tests/cefclient/browser/cefclient.print_handler_gtk.o $
+    obj/cef/tests/cefclient/browser/cefclient.resource_util_linux.o $
+    obj/cef/tests/cefclient/browser/cefclient.resource_util_posix.o $
+    obj/cef/tests/cefclient/browser/cefclient.root_window_gtk.o $
+    obj/cef/tests/cefclient/browser/cefclient.views_window.o $
+    obj/cef/tests/cefclient/browser/cefclient.window_test_runner_gtk.o $
+    obj/cef/tests/cefclient/cefclient.cefclient_gtk.o $
+    obj/cef/tests/cefclient/browser/cefclient.binding_test.o $
+    obj/cef/tests/cefclient/browser/cefclient.browser_window.o $
+    obj/cef/tests/cefclient/browser/cefclient.bytes_write_handler.o $
+    obj/cef/tests/cefclient/browser/cefclient.client_app_browser.o $
+    obj/cef/tests/cefclient/browser/cefclient.client_app_delegates_browser.o $
+    obj/cef/tests/cefclient/browser/cefclient.client_handler.o $
+    obj/cef/tests/cefclient/browser/cefclient.client_handler_osr.o $
+    obj/cef/tests/cefclient/browser/cefclient.client_handler_std.o $
+    obj/cef/tests/cefclient/browser/cefclient.dialog_test.o $
+    obj/cef/tests/cefclient/browser/cefclient.geometry_util.o $
+    obj/cef/tests/cefclient/browser/cefclient.main_context.o $
+    obj/cef/tests/cefclient/browser/cefclient.main_context_impl.o $
+    obj/cef/tests/cefclient/browser/cefclient.main_message_loop.o $
+    obj/cef/tests/cefclient/browser/cefclient.main_message_loop_std.o $
+    obj/cef/tests/cefclient/browser/cefclient.osr_renderer.o $
+    obj/cef/tests/cefclient/browser/cefclient.preferences_test.o $
+    obj/cef/tests/cefclient/browser/cefclient.resource_util.o $
+    obj/cef/tests/cefclient/browser/cefclient.response_filter_test.o $
+    obj/cef/tests/cefclient/browser/cefclient.root_window.o $
+    obj/cef/tests/cefclient/browser/cefclient.root_window_create.o $
+    obj/cef/tests/cefclient/browser/cefclient.root_window_manager.o $
+    obj/cef/tests/cefclient/browser/cefclient.scheme_test.o $
+    obj/cef/tests/cefclient/browser/cefclient.test_runner.o $
+    obj/cef/tests/cefclient/browser/cefclient.urlrequest_test.o $
+    obj/cef/tests/cefclient/browser/cefclient.window_test.o $
+    obj/cef/tests/cefclient/browser/cefclient.window_test_runner.o $
+    obj/cef/tests/cefclient/common/cefclient.client_app.o $
+    obj/cef/tests/cefclient/common/cefclient.client_app_delegates_common.o $
+    obj/cef/tests/cefclient/common/cefclient.client_app_other.o $
+    obj/cef/tests/cefclient/common/cefclient.client_switches.o $
+    obj/cef/tests/cefclient/common/cefclient.scheme_test_common.o $
+    obj/cef/tests/cefclient/renderer/cefclient.client_app_delegates_renderer.o $
+    obj/cef/tests/cefclient/renderer/cefclient.client_app_renderer.o $
+    obj/cef/tests/cefclient/renderer/cefclient.client_renderer.o $
+    obj/cef/tests/cefclient/renderer/cefclient.performance_test.o $
+    obj/cef/tests/cefclient/renderer/cefclient.performance_test_tests.o $
+    obj/cef/libcef_dll_wrapper.a | lib/libcef.so.TOC || $
+    obj/cef/cefclient.actions_rules_copies.stamp
+  ld = $ldxx
+  solibs = lib/libcef.so

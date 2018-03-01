@@ -1,0 +1,390 @@
+build $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.actions_depends.stamp: $
+    stamp $
+    obj/third_party/WebKit/Source/bindings/core/core_global_constructors_idls.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/modules_global_constructors_idls.actions_rules_copies.stamp $
+    gen/blink/bindings/modules/InterfacesInfoOverall.pickle $
+    gen/blink/bindings/scripts/cached_jinja_templates.stamp $
+    obj/third_party/WebKit/Source/bindings/scripts/cached_lex_yacc_tables.actions_rules_copies.stamp
+
+build $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.compile_depends.stamp: $
+    stamp $
+    obj/third_party/WebKit/Source/bindings/core/core_global_constructors_idls.actions_rules_copies.stamp $
+    obj/third_party/WebKit/Source/bindings/modules/modules_global_constructors_idls.actions_rules_copies.stamp $
+    gen/blink/bindings/modules/InterfacesInfoOverall.pickle $
+    gen/blink/bindings/scripts/cached_jinja_templates.stamp $
+    obj/third_party/WebKit/Source/bindings/scripts/cached_lex_yacc_tables.actions_rules_copies.stamp
+
+rule $
+    bindings_modules_v8_generated_partial_individual_target_partial_binding_9ce1329a6580bfcc5e4189854380cd08
+  command = cd ../../third_party/WebKit/Source/bindings/modules/v8; python $
+      ../../scripts/idl_compiler.py --cache-dir $
+      ../../../../../../out.cef/Release/gen/blink/bindings/scripts $
+      --output-dir $
+      ../../../../../../out.cef/Release/gen/blink/bindings/modules/v8 $
+      --info-dir ../../../../../../out.cef/Release/gen/blink/bindings/ $
+      --target-component modules --write-file-only-if-changed 1 "${source}"
+  description = RULE Generating partial binding from ${source}
+  restat = 1
+
+build $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.partial_binding.stamp: $
+    stamp ../../third_party/ply/lex.py ../../third_party/ply/yacc.py $
+    ../../tools/idl_parser/idl_lexer.py ../../tools/idl_parser/idl_node.py $
+    ../../tools/idl_parser/idl_parser.py $
+    ../../third_party/WebKit/Source/bindings/scripts/blink_idl_lexer.py $
+    ../../third_party/WebKit/Source/bindings/scripts/blink_idl_parser.py $
+    ../../third_party/WebKit/Source/bindings/scripts/idl_compiler.py $
+    ../../third_party/WebKit/Source/bindings/scripts/idl_definitions.py $
+    ../../third_party/WebKit/Source/bindings/scripts/idl_reader.py $
+    ../../third_party/WebKit/Source/bindings/scripts/idl_types.py $
+    ../../third_party/WebKit/Source/bindings/scripts/idl_validator.py $
+    ../../third_party/WebKit/Source/bindings/scripts/interface_dependency_resolver.py $
+    ../../third_party/WebKit/Source/bindings/scripts/code_generator_v8.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_attributes.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_callback_interface.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_dictionary.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_globals.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_interface.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_methods.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_types.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_union.py $
+    ../../third_party/WebKit/Source/bindings/scripts/v8_utilities.py $
+    gen/blink/bindings/scripts/lextab.py $
+    gen/blink/bindings/scripts/parsetab.pickle $
+    gen/blink/bindings/scripts/cached_jinja_templates.stamp $
+    ../../third_party/WebKit/Source/bindings/IDLExtendedAttributes.txt $
+    gen/blink/bindings/modules/InterfacesInfoOverall.pickle $
+    gen/blink/bindings/modules/ComponentInfoModules.pickle $
+    ../../third_party/WebKit/Source/core/animation/DocumentAnimation.idl $
+    ../../third_party/WebKit/Source/core/animation/ElementAnimation.idl $
+    ../../third_party/WebKit/Source/core/css/DocumentFontFaceSet.idl $
+    ../../third_party/WebKit/Source/core/dom/ChildNode.idl $
+    ../../third_party/WebKit/Source/core/dom/DocumentFullscreen.idl $
+    ../../third_party/WebKit/Source/core/dom/DocumentOrShadowRoot.idl $
+    ../../third_party/WebKit/Source/core/dom/ElementFullscreen.idl $
+    ../../third_party/WebKit/Source/core/dom/GlobalEventHandlers.idl $
+    ../../third_party/WebKit/Source/core/dom/NonDocumentTypeChildNode.idl $
+    ../../third_party/WebKit/Source/core/dom/NonElementParentNode.idl $
+    ../../third_party/WebKit/Source/core/dom/ParentNode.idl $
+    ../../third_party/WebKit/Source/core/dom/URLUtils.idl $
+    ../../third_party/WebKit/Source/core/dom/URLUtilsReadOnly.idl $
+    ../../third_party/WebKit/Source/core/events/EventListener.idl $
+    ../../third_party/WebKit/Source/core/events/NavigatorEvents.idl $
+    ../../third_party/WebKit/Source/core/frame/NavigatorCPU.idl $
+    ../../third_party/WebKit/Source/core/frame/NavigatorID.idl $
+    ../../third_party/WebKit/Source/core/frame/NavigatorLanguage.idl $
+    ../../third_party/WebKit/Source/core/frame/NavigatorOnLine.idl $
+    ../../third_party/WebKit/Source/core/frame/NavigatorStorageUtils.idl $
+    ../../third_party/WebKit/Source/core/frame/WindowBase64.idl $
+    ../../third_party/WebKit/Source/core/frame/WindowEventHandlers.idl $
+    ../../third_party/WebKit/Source/core/frame/WindowTimers.idl $
+    ../../third_party/WebKit/Source/core/imagebitmap/ImageBitmapFactories.idl $
+    ../../third_party/WebKit/Source/core/svg/SVGDocument.idl $
+    ../../third_party/WebKit/Source/core/svg/SVGFilterPrimitiveStandardAttributes.idl $
+    ../../third_party/WebKit/Source/core/svg/SVGFitToViewBox.idl $
+    ../../third_party/WebKit/Source/core/svg/SVGTests.idl $
+    ../../third_party/WebKit/Source/core/svg/SVGURIReference.idl $
+    ../../third_party/WebKit/Source/core/svg/SVGZoomAndPan.idl $
+    ../../third_party/WebKit/Source/core/timing/ConsoleMemory.idl $
+    ../../third_party/WebKit/Source/core/timing/SharedWorkerPerformance.idl $
+    ../../third_party/WebKit/Source/core/timing/WindowPerformance.idl $
+    ../../third_party/WebKit/Source/core/timing/WorkerGlobalScopePerformance.idl $
+    ../../third_party/WebKit/Source/core/workers/AbstractWorker.idl $
+    ../../third_party/WebKit/Source/core/xml/DocumentXMLTreeViewer.idl $
+    ../../third_party/WebKit/Source/core/xml/DocumentXPathEvaluator.idl $
+    ../../third_party/WebKit/Source/core/origin_trials/testing/InternalsFrobulate.idl $
+    ../../third_party/WebKit/Source/core/testing/PartialPrivateScriptTest.idl $
+    gen/blink/core/WindowCoreConstructors.idl $
+    gen/blink/core/SharedWorkerGlobalScopeCoreConstructors.idl $
+    gen/blink/core/DedicatedWorkerGlobalScopeCoreConstructors.idl $
+    ../../third_party/WebKit/Source/modules/audio_output_devices/HTMLMediaElementAudioOutputDevice.idl $
+    ../../third_party/WebKit/Source/modules/background_sync/ServiceWorkerGlobalScopeSync.idl $
+    ../../third_party/WebKit/Source/modules/background_sync/ServiceWorkerRegistrationSync.idl $
+    ../../third_party/WebKit/Source/modules/battery/NavigatorBattery.idl $
+    ../../third_party/WebKit/Source/modules/beacon/NavigatorBeacon.idl $
+    ../../third_party/WebKit/Source/modules/bluetooth/NavigatorBluetooth.idl $
+    ../../third_party/WebKit/Source/modules/cachestorage/WindowCacheStorage.idl $
+    ../../third_party/WebKit/Source/modules/cachestorage/WorkerCacheStorage.idl $
+    ../../third_party/WebKit/Source/modules/canvas/HTMLCanvasElementModule.idl $
+    ../../third_party/WebKit/Source/modules/canvas2d/CanvasPathMethods.idl $
+    ../../third_party/WebKit/Source/modules/credentialmanager/NavigatorCredentials.idl $
+    ../../third_party/WebKit/Source/modules/crypto/WindowCrypto.idl $
+    ../../third_party/WebKit/Source/modules/crypto/WorkerGlobalScopeCrypto.idl $
+    ../../third_party/WebKit/Source/modules/csspaint/WindowPaintWorklet.idl $
+    ../../third_party/WebKit/Source/modules/device_light/WindowDeviceLight.idl $
+    ../../third_party/WebKit/Source/modules/device_orientation/WindowDeviceMotion.idl $
+    ../../third_party/WebKit/Source/modules/device_orientation/WindowDeviceOrientation.idl $
+    ../../third_party/WebKit/Source/modules/donottrack/NavigatorDoNotTrack.idl $
+    ../../third_party/WebKit/Source/modules/encryptedmedia/HTMLMediaElementEncryptedMedia.idl $
+    ../../third_party/WebKit/Source/modules/encryptedmedia/NavigatorRequestMediaKeySystemAccess.idl $
+    ../../third_party/WebKit/Source/modules/fetch/WindowFetch.idl $
+    ../../third_party/WebKit/Source/modules/fetch/WorkerFetch.idl $
+    ../../third_party/WebKit/Source/modules/filesystem/DataTransferItemFileSystem.idl $
+    ../../third_party/WebKit/Source/modules/filesystem/DedicatedWorkerGlobalScopeFileSystem.idl $
+    ../../third_party/WebKit/Source/modules/filesystem/DevToolsHostFileSystem.idl $
+    ../../third_party/WebKit/Source/modules/filesystem/HTMLInputElementFileSystem.idl $
+    ../../third_party/WebKit/Source/modules/filesystem/SharedWorkerGlobalScopeFileSystem.idl $
+    ../../third_party/WebKit/Source/modules/filesystem/WindowFileSystem.idl $
+    ../../third_party/WebKit/Source/modules/gamepad/NavigatorGamepad.idl $
+    ../../third_party/WebKit/Source/modules/geofencing/ServiceWorkerGlobalScopeGeofencing.idl $
+    ../../third_party/WebKit/Source/modules/geofencing/ServiceWorkerRegistrationGeofencing.idl $
+    ../../third_party/WebKit/Source/modules/geofencing/WorkerNavigatorGeofencing.idl $
+    ../../third_party/WebKit/Source/modules/geolocation/NavigatorGeolocation.idl $
+    ../../third_party/WebKit/Source/modules/indexeddb/WindowIndexedDatabase.idl $
+    ../../third_party/WebKit/Source/modules/indexeddb/WorkerGlobalScopeIndexedDatabase.idl $
+    ../../third_party/WebKit/Source/modules/installedapp/NavigatorInstalledApp.idl $
+    ../../third_party/WebKit/Source/modules/mediacapturefromelement/HTMLCanvasElementCapture.idl $
+    ../../third_party/WebKit/Source/modules/mediacapturefromelement/HTMLMediaElementCapture.idl $
+    ../../third_party/WebKit/Source/modules/mediasession/HTMLMediaElementMediaSession.idl $
+    ../../third_party/WebKit/Source/modules/mediasource/AudioTrackSourceBuffer.idl $
+    ../../third_party/WebKit/Source/modules/mediasource/VideoTrackSourceBuffer.idl $
+    ../../third_party/WebKit/Source/modules/mediasource/HTMLVideoElementMediaSource.idl $
+    ../../third_party/WebKit/Source/modules/mediasource/URLMediaSource.idl $
+    ../../third_party/WebKit/Source/modules/mediastream/NavigatorMediaStream.idl $
+    ../../third_party/WebKit/Source/modules/mediastream/NavigatorUserMedia.idl $
+    ../../third_party/WebKit/Source/modules/mediastream/URLMediaStream.idl $
+    ../../third_party/WebKit/Source/modules/mediastream/WindowMediaStream.idl $
+    ../../third_party/WebKit/Source/modules/navigatorcontentutils/NavigatorContentUtils.idl $
+    ../../third_party/WebKit/Source/modules/nfc/NavigatorNFC.idl $
+    ../../third_party/WebKit/Source/modules/netinfo/NavigatorNetworkInformation.idl $
+    ../../third_party/WebKit/Source/modules/netinfo/WorkerNavigatorNetworkInformation.idl $
+    ../../third_party/WebKit/Source/modules/notifications/ServiceWorkerGlobalScopeNotifications.idl $
+    ../../third_party/WebKit/Source/modules/notifications/ServiceWorkerRegistrationNotifications.idl $
+    ../../third_party/WebKit/Source/modules/permissions/NavigatorPermissions.idl $
+    ../../third_party/WebKit/Source/modules/permissions/WorkerNavigatorPermissions.idl $
+    ../../third_party/WebKit/Source/modules/plugins/NavigatorPlugins.idl $
+    ../../third_party/WebKit/Source/modules/presentation/NavigatorPresentation.idl $
+    ../../third_party/WebKit/Source/modules/push_messaging/ServiceWorkerGlobalScopePush.idl $
+    ../../third_party/WebKit/Source/modules/push_messaging/ServiceWorkerRegistrationPush.idl $
+    ../../third_party/WebKit/Source/modules/quota/NavigatorStorageQuota.idl $
+    ../../third_party/WebKit/Source/modules/quota/WindowQuota.idl $
+    ../../third_party/WebKit/Source/modules/quota/WorkerNavigatorStorageQuota.idl $
+    ../../third_party/WebKit/Source/modules/remoteplayback/HTMLMediaElementRemotePlayback.idl $
+    ../../third_party/WebKit/Source/modules/screen_orientation/ScreenScreenOrientation.idl $
+    ../../third_party/WebKit/Source/modules/serviceworkers/NavigatorServiceWorker.idl $
+    ../../third_party/WebKit/Source/modules/speech/WindowSpeech.idl $
+    ../../third_party/WebKit/Source/modules/speech/WindowSpeechSynthesis.idl $
+    ../../third_party/WebKit/Source/modules/storage/WindowStorage.idl $
+    ../../third_party/WebKit/Source/modules/vibration/NavigatorVibration.idl $
+    ../../third_party/WebKit/Source/modules/vr/NavigatorVRDevice.idl $
+    ../../third_party/WebKit/Source/modules/wake_lock/ScreenWakeLock.idl $
+    ../../third_party/WebKit/Source/modules/webaudio/WindowWebAudio.idl $
+    ../../third_party/WebKit/Source/modules/webdatabase/WindowWebDatabase.idl $
+    ../../third_party/WebKit/Source/modules/webgl/WebGL2RenderingContextBase.idl $
+    ../../third_party/WebKit/Source/modules/webgl/WebGLRenderingContextBase.idl $
+    ../../third_party/WebKit/Source/modules/webmidi/NavigatorWebMIDI.idl $
+    ../../third_party/WebKit/Source/modules/webusb/NavigatorUSB.idl $
+    ../../third_party/WebKit/Source/modules/accessibility/testing/InternalsAccessibility.idl $
+    ../../third_party/WebKit/Source/modules/geolocation/testing/InternalsGeolocation.idl $
+    ../../third_party/WebKit/Source/modules/navigatorcontentutils/testing/InternalsNavigatorContentUtils.idl $
+    ../../third_party/WebKit/Source/modules/serviceworkers/testing/InternalsServiceWorker.idl $
+    ../../third_party/WebKit/Source/modules/speech/testing/InternalsSpeechSynthesis.idl $
+    ../../third_party/WebKit/Source/modules/vibration/testing/InternalsVibration.idl $
+    ../../third_party/WebKit/Source/modules/webaudio/testing/InternalsWebAudio.idl $
+    gen/blink/modules/CompositorWorkerGlobalScopeCoreConstructors.idl $
+    gen/blink/modules/PaintWorkletGlobalScopeCoreConstructors.idl $
+    gen/blink/modules/ServiceWorkerGlobalScopeCoreConstructors.idl $
+    gen/blink/modules/WindowModulesConstructors.idl $
+    gen/blink/modules/CompositorWorkerGlobalScopeModulesConstructors.idl $
+    gen/blink/modules/PaintWorkletGlobalScopeModulesConstructors.idl $
+    gen/blink/modules/SharedWorkerGlobalScopeModulesConstructors.idl $
+    gen/blink/modules/DedicatedWorkerGlobalScopeModulesConstructors.idl $
+    gen/blink/modules/ServiceWorkerGlobalScopeModulesConstructors.idl $
+    ../../third_party/WebKit/Source/core/testing/DictionaryTest.idl $
+    ../../third_party/WebKit/Source/core/testing/GCObservation.idl $
+    ../../third_party/WebKit/Source/core/testing/GarbageCollectedScriptWrappable.idl $
+    ../../third_party/WebKit/Source/core/testing/InternalSettings.idl $
+    ../../third_party/WebKit/Source/core/testing/LayerRect.idl $
+    ../../third_party/WebKit/Source/core/testing/LayerRectList.idl $
+    ../../third_party/WebKit/Source/core/testing/PrivateScriptTest.idl $
+    ../../third_party/WebKit/Source/core/testing/RefCountedScriptWrappable.idl $
+    ../../third_party/WebKit/Source/core/testing/TypeConversions.idl $
+    ../../third_party/WebKit/Source/core/testing/UnionTypesTest.idl || $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.actions_depends.stamp
+
+build gen/blink/bindings/modules/v8/V8DataTransferItemPartial.cpp $
+    gen/blink/bindings/modules/v8/V8DataTransferItemPartial.h: $
+    bindings_modules_v8_generated_partial_individual_target_partial_binding_9ce1329a6580bfcc5e4189854380cd08 $
+    ../../third_party/WebKit/Source/core/clipboard/DataTransferItem.idl | $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.partial_binding.stamp
+  source = ../../../core/clipboard/DataTransferItem.idl
+build gen/blink/bindings/modules/v8/V8URLPartial.cpp $
+    gen/blink/bindings/modules/v8/V8URLPartial.h: $
+    bindings_modules_v8_generated_partial_individual_target_partial_binding_9ce1329a6580bfcc5e4189854380cd08 $
+    ../../third_party/WebKit/Source/core/dom/URL.idl | $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.partial_binding.stamp
+  source = ../../../core/dom/URL.idl
+build gen/blink/bindings/modules/v8/V8NavigatorPartial.cpp $
+    gen/blink/bindings/modules/v8/V8NavigatorPartial.h: $
+    bindings_modules_v8_generated_partial_individual_target_partial_binding_9ce1329a6580bfcc5e4189854380cd08 $
+    ../../third_party/WebKit/Source/core/frame/Navigator.idl | $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.partial_binding.stamp
+  source = ../../../core/frame/Navigator.idl
+build gen/blink/bindings/modules/v8/V8ScreenPartial.cpp $
+    gen/blink/bindings/modules/v8/V8ScreenPartial.h: $
+    bindings_modules_v8_generated_partial_individual_target_partial_binding_9ce1329a6580bfcc5e4189854380cd08 $
+    ../../third_party/WebKit/Source/core/frame/Screen.idl | $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.partial_binding.stamp
+  source = ../../../core/frame/Screen.idl
+build gen/blink/bindings/modules/v8/V8WindowPartial.cpp $
+    gen/blink/bindings/modules/v8/V8WindowPartial.h: $
+    bindings_modules_v8_generated_partial_individual_target_partial_binding_9ce1329a6580bfcc5e4189854380cd08 $
+    ../../third_party/WebKit/Source/core/frame/Window.idl | $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.partial_binding.stamp
+  source = ../../../core/frame/Window.idl
+build gen/blink/bindings/modules/v8/V8HTMLCanvasElementPartial.cpp $
+    gen/blink/bindings/modules/v8/V8HTMLCanvasElementPartial.h: $
+    bindings_modules_v8_generated_partial_individual_target_partial_binding_9ce1329a6580bfcc5e4189854380cd08 $
+    ../../third_party/WebKit/Source/core/html/HTMLCanvasElement.idl | $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.partial_binding.stamp
+  source = ../../../core/html/HTMLCanvasElement.idl
+build gen/blink/bindings/modules/v8/V8HTMLInputElementPartial.cpp $
+    gen/blink/bindings/modules/v8/V8HTMLInputElementPartial.h: $
+    bindings_modules_v8_generated_partial_individual_target_partial_binding_9ce1329a6580bfcc5e4189854380cd08 $
+    ../../third_party/WebKit/Source/core/html/HTMLInputElement.idl | $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.partial_binding.stamp
+  source = ../../../core/html/HTMLInputElement.idl
+build gen/blink/bindings/modules/v8/V8HTMLMediaElementPartial.cpp $
+    gen/blink/bindings/modules/v8/V8HTMLMediaElementPartial.h: $
+    bindings_modules_v8_generated_partial_individual_target_partial_binding_9ce1329a6580bfcc5e4189854380cd08 $
+    ../../third_party/WebKit/Source/core/html/HTMLMediaElement.idl | $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.partial_binding.stamp
+  source = ../../../core/html/HTMLMediaElement.idl
+build gen/blink/bindings/modules/v8/V8HTMLVideoElementPartial.cpp $
+    gen/blink/bindings/modules/v8/V8HTMLVideoElementPartial.h: $
+    bindings_modules_v8_generated_partial_individual_target_partial_binding_9ce1329a6580bfcc5e4189854380cd08 $
+    ../../third_party/WebKit/Source/core/html/HTMLVideoElement.idl | $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.partial_binding.stamp
+  source = ../../../core/html/HTMLVideoElement.idl
+build gen/blink/bindings/modules/v8/V8AudioTrackPartial.cpp $
+    gen/blink/bindings/modules/v8/V8AudioTrackPartial.h: $
+    bindings_modules_v8_generated_partial_individual_target_partial_binding_9ce1329a6580bfcc5e4189854380cd08 $
+    ../../third_party/WebKit/Source/core/html/track/AudioTrack.idl | $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.partial_binding.stamp
+  source = ../../../core/html/track/AudioTrack.idl
+build gen/blink/bindings/modules/v8/V8VideoTrackPartial.cpp $
+    gen/blink/bindings/modules/v8/V8VideoTrackPartial.h: $
+    bindings_modules_v8_generated_partial_individual_target_partial_binding_9ce1329a6580bfcc5e4189854380cd08 $
+    ../../third_party/WebKit/Source/core/html/track/VideoTrack.idl | $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.partial_binding.stamp
+  source = ../../../core/html/track/VideoTrack.idl
+build gen/blink/bindings/modules/v8/V8DevToolsHostPartial.cpp $
+    gen/blink/bindings/modules/v8/V8DevToolsHostPartial.h: $
+    bindings_modules_v8_generated_partial_individual_target_partial_binding_9ce1329a6580bfcc5e4189854380cd08 $
+    ../../third_party/WebKit/Source/core/inspector/DevToolsHost.idl | $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.partial_binding.stamp
+  source = ../../../core/inspector/DevToolsHost.idl
+build gen/blink/bindings/modules/v8/V8DedicatedWorkerGlobalScopePartial.cpp $
+    gen/blink/bindings/modules/v8/V8DedicatedWorkerGlobalScopePartial.h: $
+    bindings_modules_v8_generated_partial_individual_target_partial_binding_9ce1329a6580bfcc5e4189854380cd08 $
+    ../../third_party/WebKit/Source/core/workers/DedicatedWorkerGlobalScope.idl $
+    | $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.partial_binding.stamp
+  source = ../../../core/workers/DedicatedWorkerGlobalScope.idl
+build gen/blink/bindings/modules/v8/V8SharedWorkerGlobalScopePartial.cpp $
+    gen/blink/bindings/modules/v8/V8SharedWorkerGlobalScopePartial.h: $
+    bindings_modules_v8_generated_partial_individual_target_partial_binding_9ce1329a6580bfcc5e4189854380cd08 $
+    ../../third_party/WebKit/Source/core/workers/SharedWorkerGlobalScope.idl $
+    | $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.partial_binding.stamp
+  source = ../../../core/workers/SharedWorkerGlobalScope.idl
+build gen/blink/bindings/modules/v8/V8WorkerGlobalScopePartial.cpp $
+    gen/blink/bindings/modules/v8/V8WorkerGlobalScopePartial.h: $
+    bindings_modules_v8_generated_partial_individual_target_partial_binding_9ce1329a6580bfcc5e4189854380cd08 $
+    ../../third_party/WebKit/Source/core/workers/WorkerGlobalScope.idl | $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.partial_binding.stamp
+  source = ../../../core/workers/WorkerGlobalScope.idl
+build gen/blink/bindings/modules/v8/V8WorkerNavigatorPartial.cpp $
+    gen/blink/bindings/modules/v8/V8WorkerNavigatorPartial.h: $
+    bindings_modules_v8_generated_partial_individual_target_partial_binding_9ce1329a6580bfcc5e4189854380cd08 $
+    ../../third_party/WebKit/Source/core/workers/WorkerNavigator.idl | $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.partial_binding.stamp
+  source = ../../../core/workers/WorkerNavigator.idl
+build gen/blink/bindings/modules/v8/V8InternalsPartial.cpp $
+    gen/blink/bindings/modules/v8/V8InternalsPartial.h: $
+    bindings_modules_v8_generated_partial_individual_target_partial_binding_9ce1329a6580bfcc5e4189854380cd08 $
+    ../../third_party/WebKit/Source/core/testing/Internals.idl | $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.partial_binding.stamp
+  source = ../../../core/testing/Internals.idl
+build $
+    obj/third_party/WebKit/Source/bindings/modules/v8/bindings_modules_v8_generated_partial_individual.actions_rules_copies.stamp: $
+    stamp gen/blink/bindings/modules/v8/V8DataTransferItemPartial.cpp $
+    gen/blink/bindings/modules/v8/V8DataTransferItemPartial.h $
+    gen/blink/bindings/modules/v8/V8URLPartial.cpp $
+    gen/blink/bindings/modules/v8/V8URLPartial.h $
+    gen/blink/bindings/modules/v8/V8NavigatorPartial.cpp $
+    gen/blink/bindings/modules/v8/V8NavigatorPartial.h $
+    gen/blink/bindings/modules/v8/V8ScreenPartial.cpp $
+    gen/blink/bindings/modules/v8/V8ScreenPartial.h $
+    gen/blink/bindings/modules/v8/V8WindowPartial.cpp $
+    gen/blink/bindings/modules/v8/V8WindowPartial.h $
+    gen/blink/bindings/modules/v8/V8HTMLCanvasElementPartial.cpp $
+    gen/blink/bindings/modules/v8/V8HTMLCanvasElementPartial.h $
+    gen/blink/bindings/modules/v8/V8HTMLInputElementPartial.cpp $
+    gen/blink/bindings/modules/v8/V8HTMLInputElementPartial.h $
+    gen/blink/bindings/modules/v8/V8HTMLMediaElementPartial.cpp $
+    gen/blink/bindings/modules/v8/V8HTMLMediaElementPartial.h $
+    gen/blink/bindings/modules/v8/V8HTMLVideoElementPartial.cpp $
+    gen/blink/bindings/modules/v8/V8HTMLVideoElementPartial.h $
+    gen/blink/bindings/modules/v8/V8AudioTrackPartial.cpp $
+    gen/blink/bindings/modules/v8/V8AudioTrackPartial.h $
+    gen/blink/bindings/modules/v8/V8VideoTrackPartial.cpp $
+    gen/blink/bindings/modules/v8/V8VideoTrackPartial.h $
+    gen/blink/bindings/modules/v8/V8DevToolsHostPartial.cpp $
+    gen/blink/bindings/modules/v8/V8DevToolsHostPartial.h $
+    gen/blink/bindings/modules/v8/V8DedicatedWorkerGlobalScopePartial.cpp $
+    gen/blink/bindings/modules/v8/V8DedicatedWorkerGlobalScopePartial.h $
+    gen/blink/bindings/modules/v8/V8SharedWorkerGlobalScopePartial.cpp $
+    gen/blink/bindings/modules/v8/V8SharedWorkerGlobalScopePartial.h $
+    gen/blink/bindings/modules/v8/V8WorkerGlobalScopePartial.cpp $
+    gen/blink/bindings/modules/v8/V8WorkerGlobalScopePartial.h $
+    gen/blink/bindings/modules/v8/V8WorkerNavigatorPartial.cpp $
+    gen/blink/bindings/modules/v8/V8WorkerNavigatorPartial.h $
+    gen/blink/bindings/modules/v8/V8InternalsPartial.cpp $
+    gen/blink/bindings/modules/v8/V8InternalsPartial.h
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -Igen
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-abi $
+    -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+

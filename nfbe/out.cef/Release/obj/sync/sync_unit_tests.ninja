@@ -1,0 +1,520 @@
+build obj/sync/sync_unit_tests.actions_depends.stamp: stamp $
+    lib/libbase.so.TOC obj/base/librun_all_unittests.a $
+    obj/google_apis/libgoogle_apis.a $
+    obj/google_apis/libgoogle_apis_test_support.a lib/libnet.so.TOC $
+    obj/net/libnet_test_support.a obj/sql/libsql.a $
+    obj/sql/libtest_support_sql.a obj/testing/libgmock.a $
+    obj/testing/libgtest.a obj/third_party/leveldatabase/libleveldatabase.a $
+    obj/third_party/protobuf/libprotobuf_lite.a $
+    obj/sync/sync.actions_depends.stamp $
+    obj/sync/libtest_support_sync_core.a $
+    obj/sync/libtest_support_sync_internal_api.a $
+    obj/base/libtest_support_base.a obj/base/libbase_static.a $
+    obj/base/libbase_i18n.a $
+    obj/base/third_party/dynamic_annotations/libdynamic_annotations.a $
+    obj/third_party/icu/libicui18n.a obj/third_party/icu/libicuuc.a $
+    icudtl.dat icudtl.dat obj/third_party/libxml/libxml2.a $
+    obj/third_party/zlib/libchrome_zlib.a $
+    obj/third_party/zlib/libzlib_x86_simd.a obj/crypto/libcrcrypto.a $
+    obj/third_party/boringssl/libboringssl.a $
+    obj/third_party/boringssl/libboringssl.a $
+    obj/third_party/boringssl/libboringssl_asm.a lib/liburl_lib.so.TOC $
+    obj/net/tools/tld_cleanup/libtld_cleanup_util.a $
+    obj/third_party/protobuf/py_proto.actions_rules_copies.stamp $
+    obj/net/libnet_with_v8.a obj/gin/libgin.a $
+    obj/v8/tools/gyp/v8_maybe_snapshot.actions_depends.stamp $
+    obj/v8/tools/gyp/v8_maybe_snapshot.actions_depends.stamp $
+    obj/v8/tools/gyp/libv8_base.a obj/v8/tools/gyp/libv8_libbase.a $
+    obj/v8/tools/gyp/libv8_external_snapshot.a $
+    obj.host/v8/tools/gyp/js2c.actions_rules_copies.stamp natives_blob.bin $
+    obj/third_party/sqlite/libchromium_sqlite3.a $
+    obj/third_party/re2/libre2.a obj/third_party/snappy/libsnappy.a $
+    obj/sync/libsync_core.a obj/sync/libattachment_store_proto.a $
+    obj/sync/libsync_proto.a
+
+build obj/sync/sync_unit_tests.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/google_apis/google_apis.compile_depends.stamp $
+    obj/google_apis/google_apis_test_support.compile_depends.stamp $
+    obj/net/net.compile_depends.stamp $
+    obj/net/net_test_support.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/sync/sync.compile_depends.stamp $
+    obj/sync/test_support_sync_core.compile_depends.stamp $
+    obj/sync/test_support_sync_internal_api.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    icudtl.dat icudtl.dat icudtl.dat obj/base/base.compile_depends.stamp $
+    obj/url/url_lib.compile_depends.stamp $
+    obj/net/tools/tld_cleanup/tld_cleanup_util.compile_depends.stamp $
+    obj/third_party/protobuf/py_proto.actions_rules_copies.stamp $
+    obj/net/net_with_v8.compile_depends.stamp $
+    obj/gin/gin.compile_depends.stamp snapshot_blob.bin snapshot_blob.bin $
+    snapshot_blob.bin obj.host/v8/tools/gyp/js2c.actions_rules_copies.stamp $
+    natives_blob.bin obj/sync/sync_core.compile_depends.stamp $
+    obj/sync/attachment_store_proto.actions_rules_copies.stamp $
+    obj/sync/sync_proto.actions_rules_copies.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DSYNC_TEST -DGTEST_HAS_POSIX_RE=0 $
+    -DGTEST_LANG_CXX11=0 -DUNIT_TEST -DGTEST_HAS_RTTI=0 -DPROTOBUF_USE_DLLS $
+    -DGOOGLE_PROTOBUF_NO_RTTI -DGOOGLE_PROTOBUF_NO_STATIC_INITIALIZER $
+    -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 $
+    -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../testing/gmock/include $
+    -I../../testing/gtest/include $
+    -I../../third_party/leveldatabase/src/include $
+    -I../../third_party/leveldatabase/src -I../../third_party/leveldatabase $
+    -I../../third_party/protobuf -I../../third_party/protobuf/src $
+    -Igen/protoc_out
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -I/work/bsp/sc1400/usr/include/nss3 $
+    -I/work/bsp/sc1400/usr/include/nspr -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/sync/api/attachments/sync_unit_tests.attachment_id_unittest.o: $
+    cxx ../../sync/api/attachments/attachment_id_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/api/attachments/sync_unit_tests.attachment_metadata_unittest.o: $
+    cxx ../../sync/api/attachments/attachment_metadata_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/api/attachments/sync_unit_tests.attachment_unittest.o: cxx $
+    ../../sync/api/attachments/attachment_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/api/sync_unit_tests.entity_data_unittest.o: cxx $
+    ../../sync/api/entity_data_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/api/sync_unit_tests.sync_change_unittest.o: cxx $
+    ../../sync/api/sync_change_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/api/sync_unit_tests.sync_data_unittest.o: cxx $
+    ../../sync/api/sync_data_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/api/sync_unit_tests.sync_error_unittest.o: cxx $
+    ../../sync/api/sync_error_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/api/sync_unit_tests.sync_merge_result_unittest.o: cxx $
+    ../../sync/api/sync_merge_result_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/engine/sync_unit_tests.apply_control_data_updates_unittest.o: $
+    cxx ../../sync/engine/apply_control_data_updates_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/engine/sync_unit_tests.backoff_delay_provider_unittest.o: $
+    cxx ../../sync/engine/backoff_delay_provider_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/engine/sync_unit_tests.directory_commit_contribution_unittest.o: $
+    cxx ../../sync/engine/directory_commit_contribution_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/engine/sync_unit_tests.directory_update_handler_unittest.o: $
+    cxx ../../sync/engine/directory_update_handler_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/engine/sync_unit_tests.get_updates_processor_unittest.o: cxx $
+    ../../sync/engine/get_updates_processor_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/engine/sync_unit_tests.model_type_worker_unittest.o: cxx $
+    ../../sync/engine/model_type_worker_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/engine/sync_unit_tests.sync_scheduler_unittest.o: cxx $
+    ../../sync/engine/sync_scheduler_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/engine/sync_unit_tests.syncer_proto_util_unittest.o: cxx $
+    ../../sync/engine/syncer_proto_util_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/engine/sync_unit_tests.syncer_unittest.o: cxx $
+    ../../sync/engine/syncer_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/engine/sync_unit_tests.syncer_util_unittest.o: cxx $
+    ../../sync/engine/syncer_util_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/engine/sync_unit_tests.worker_entity_tracker_unittest.o: cxx $
+    ../../sync/engine/worker_entity_tracker_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/attachments/sync_unit_tests.attachment_downloader_impl_unittest.o: $
+    cxx $
+    ../../sync/internal_api/attachments/attachment_downloader_impl_unittest.cc $
+    || obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/attachments/sync_unit_tests.attachment_service_impl_unittest.o: $
+    cxx $
+    ../../sync/internal_api/attachments/attachment_service_impl_unittest.cc $
+    || obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/attachments/sync_unit_tests.attachment_service_proxy_unittest.o: $
+    cxx $
+    ../../sync/internal_api/attachments/attachment_service_proxy_unittest.cc $
+    || obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/attachments/sync_unit_tests.attachment_store_frontend_unittest.o: $
+    cxx $
+    ../../sync/internal_api/attachments/attachment_store_frontend_unittest.cc $
+    || obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/attachments/sync_unit_tests.attachment_uploader_impl_unittest.o: $
+    cxx $
+    ../../sync/internal_api/attachments/attachment_uploader_impl_unittest.cc $
+    || obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/attachments/sync_unit_tests.fake_attachment_downloader_unittest.o: $
+    cxx $
+    ../../sync/internal_api/attachments/fake_attachment_downloader_unittest.cc $
+    || obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/attachments/sync_unit_tests.fake_attachment_uploader_unittest.o: $
+    cxx $
+    ../../sync/internal_api/attachments/fake_attachment_uploader_unittest.cc $
+    || obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/attachments/sync_unit_tests.in_memory_attachment_store_unittest.o: $
+    cxx $
+    ../../sync/internal_api/attachments/in_memory_attachment_store_unittest.cc $
+    || obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/attachments/sync_unit_tests.on_disk_attachment_store_unittest.o: $
+    cxx $
+    ../../sync/internal_api/attachments/on_disk_attachment_store_unittest.cc $
+    || obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/attachments/sync_unit_tests.task_queue_unittest.o: $
+    cxx ../../sync/internal_api/attachments/task_queue_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/sync_unit_tests.debug_info_event_listener_unittest.o: $
+    cxx ../../sync/internal_api/debug_info_event_listener_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/internal_api/sync_unit_tests.http_bridge_unittest.o: cxx $
+    ../../sync/internal_api/http_bridge_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/sync_unit_tests.js_mutation_event_observer_unittest.o: $
+    cxx ../../sync/internal_api/js_mutation_event_observer_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/sync_unit_tests.js_sync_encryption_handler_observer_unittest.o: $
+    cxx $
+    ../../sync/internal_api/js_sync_encryption_handler_observer_unittest.cc $
+    || obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/sync_unit_tests.js_sync_manager_observer_unittest.o: $
+    cxx ../../sync/internal_api/js_sync_manager_observer_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/sync_unit_tests.model_type_store_backend_unittest.o: $
+    cxx ../../sync/internal_api/model_type_store_backend_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/sync_unit_tests.model_type_store_impl_unittest.o: $
+    cxx ../../sync/internal_api/model_type_store_impl_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/sync_unit_tests.processor_entity_tracker_unittest.o: $
+    cxx ../../sync/internal_api/processor_entity_tracker_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/sync_unit_tests.protocol_event_buffer_unittest.o: $
+    cxx ../../sync/internal_api/protocol_event_buffer_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/public/base/sync_unit_tests.attachment_id_proto_unittest.o: $
+    cxx ../../sync/internal_api/public/base/attachment_id_proto_unittest.cc $
+    || obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/public/base/sync_unit_tests.cancelation_signal_unittest.o: $
+    cxx ../../sync/internal_api/public/base/cancelation_signal_unittest.cc $
+    || obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/public/base/sync_unit_tests.enum_set_unittest.o: $
+    cxx ../../sync/internal_api/public/base/enum_set_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/public/base/sync_unit_tests.node_ordinal_unittest.o: $
+    cxx ../../sync/internal_api/public/base/node_ordinal_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/internal_api/public/base/sync_unit_tests.ordinal_unittest.o: $
+    cxx ../../sync/internal_api/public/base/ordinal_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/public/base/sync_unit_tests.unique_position_unittest.o: $
+    cxx ../../sync/internal_api/public/base/unique_position_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/public/sync_unit_tests.change_record_unittest.o: $
+    cxx ../../sync/internal_api/public/change_record_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/public/sync_unit_tests.data_batch_impl_unittest.o: $
+    cxx ../../sync/internal_api/public/data_batch_impl_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/public/engine/sync_unit_tests.model_safe_worker_unittest.o: $
+    cxx ../../sync/internal_api/public/engine/model_safe_worker_unittest.cc $
+    || obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/public/sessions/sync_unit_tests.sync_session_snapshot_unittest.o: $
+    cxx $
+    ../../sync/internal_api/public/sessions/sync_session_snapshot_unittest.cc $
+    || obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/public/util/sync_unit_tests.immutable_unittest.o: $
+    cxx ../../sync/internal_api/public/util/immutable_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/public/util/sync_unit_tests.proto_value_ptr_unittest.o: $
+    cxx ../../sync/internal_api/public/util/proto_value_ptr_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/public/util/sync_unit_tests.weak_handle_unittest.o: $
+    cxx ../../sync/internal_api/public/util/weak_handle_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/sync_unit_tests.shared_model_type_processor_unittest.o: $
+    cxx ../../sync/internal_api/shared_model_type_processor_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/internal_api/sync_unit_tests.sync_context_proxy_unittest.o: $
+    cxx ../../sync/internal_api/sync_context_proxy_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/sync_unit_tests.sync_encryption_handler_impl_unittest.o: $
+    cxx ../../sync/internal_api/sync_encryption_handler_impl_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/internal_api/sync_unit_tests.sync_manager_impl_unittest.o: $
+    cxx ../../sync/internal_api/sync_manager_impl_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/internal_api/sync_unit_tests.syncapi_server_connection_manager_unittest.o: $
+    cxx $
+    ../../sync/internal_api/syncapi_server_connection_manager_unittest.cc $
+    || obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/js/sync_unit_tests.js_event_details_unittest.o: cxx $
+    ../../sync/js/js_event_details_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/js/sync_unit_tests.sync_js_controller_unittest.o: cxx $
+    ../../sync/js/sync_js_controller_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/protocol/sync_unit_tests.proto_enum_conversions_unittest.o: $
+    cxx ../../sync/protocol/proto_enum_conversions_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/protocol/sync_unit_tests.proto_value_conversions_unittest.o: $
+    cxx ../../sync/protocol/proto_value_conversions_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/sessions/sync_unit_tests.model_type_registry_unittest.o: cxx $
+    ../../sync/sessions/model_type_registry_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/sessions/sync_unit_tests.nudge_tracker_unittest.o: cxx $
+    ../../sync/sessions/nudge_tracker_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/sessions/sync_unit_tests.status_controller_unittest.o: cxx $
+    ../../sync/sessions/status_controller_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/syncable/sync_unit_tests.directory_backing_store_unittest.o: $
+    cxx ../../sync/syncable/directory_backing_store_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/syncable/sync_unit_tests.directory_unittest.o: cxx $
+    ../../sync/syncable/directory_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/syncable/sync_unit_tests.entry_kernel_unittest.o: cxx $
+    ../../sync/syncable/entry_kernel_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/syncable/sync_unit_tests.model_type_unittest.o: cxx $
+    ../../sync/syncable/model_type_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/syncable/sync_unit_tests.nigori_util_unittest.o: cxx $
+    ../../sync/syncable/nigori_util_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/syncable/sync_unit_tests.parent_child_index_unittest.o: cxx $
+    ../../sync/syncable/parent_child_index_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build $
+    obj/sync/syncable/sync_unit_tests.syncable_enum_conversions_unittest.o: $
+    cxx ../../sync/syncable/syncable_enum_conversions_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/syncable/sync_unit_tests.syncable_id_unittest.o: cxx $
+    ../../sync/syncable/syncable_id_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/syncable/sync_unit_tests.syncable_unittest.o: cxx $
+    ../../sync/syncable/syncable_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/syncable/sync_unit_tests.syncable_util_unittest.o: cxx $
+    ../../sync/syncable/syncable_util_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/util/sync_unit_tests.cryptographer_unittest.o: cxx $
+    ../../sync/util/cryptographer_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/util/sync_unit_tests.data_type_histogram_unittest.o: cxx $
+    ../../sync/util/data_type_histogram_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/util/sync_unit_tests.get_session_name_unittest.o: cxx $
+    ../../sync/util/get_session_name_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/util/sync_unit_tests.nigori_unittest.o: cxx $
+    ../../sync/util/nigori_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+build obj/sync/util/sync_unit_tests.protobuf_unittest.o: cxx $
+    ../../sync/util/protobuf_unittest.cc || $
+    obj/sync/sync_unit_tests.compile_depends.stamp
+
+ldflags = -L/work/bsp/sc1400/usr/local/lib -L/work/bsp/sc1400/lib $
+    -L/work/bsp/sc1400/usr/lib -Wl,-z,now -Wl,-z,relro -Wl,-z,defs -pthread $
+    -Wl,-z,noexecstack -fPIC -Wl,--disable-new-dtags $
+    -L/work/bsp/sc1400/usr/lib --sysroot=/work/bsp/sc1400 $
+    -L/work/bsp/sc1400/lib/ -Wl,-rpath-link=/work/bsp/sc1400/lib/ $
+    -L/work/bsp/sc1400/usr/lib/ -Wl,-rpath-link=/work/bsp/sc1400/usr/lib/ $
+    -L/work/bsp/sc1400/usr/dtvrec/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/dtvrec/lib/ $
+    -L/work/bsp/sc1400/usr/local/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/local/lib/ $
+    -L/work/bsp/sc1400/usr/local/netfrontbe/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/local/netfrontbe/lib/ -Wl,-O1 $
+    -Wl,--as-needed -Wl,--gc-sections -Wl,-rpath=\$$ORIGIN/lib/ $
+    -Wl,-rpath-link=lib/
+libs =  -lrt -ldl -latomic -lm -lnss3 -lnssutil3 -lsmime3 -lplds4 -lplc4 $
+    -lnspr4
+build sync_unit_tests: link $
+    obj/sync/api/attachments/sync_unit_tests.attachment_id_unittest.o $
+    obj/sync/api/attachments/sync_unit_tests.attachment_metadata_unittest.o $
+    obj/sync/api/attachments/sync_unit_tests.attachment_unittest.o $
+    obj/sync/api/sync_unit_tests.entity_data_unittest.o $
+    obj/sync/api/sync_unit_tests.sync_change_unittest.o $
+    obj/sync/api/sync_unit_tests.sync_data_unittest.o $
+    obj/sync/api/sync_unit_tests.sync_error_unittest.o $
+    obj/sync/api/sync_unit_tests.sync_merge_result_unittest.o $
+    obj/sync/engine/sync_unit_tests.apply_control_data_updates_unittest.o $
+    obj/sync/engine/sync_unit_tests.backoff_delay_provider_unittest.o $
+    obj/sync/engine/sync_unit_tests.directory_commit_contribution_unittest.o $
+    obj/sync/engine/sync_unit_tests.directory_update_handler_unittest.o $
+    obj/sync/engine/sync_unit_tests.get_updates_processor_unittest.o $
+    obj/sync/engine/sync_unit_tests.model_type_worker_unittest.o $
+    obj/sync/engine/sync_unit_tests.sync_scheduler_unittest.o $
+    obj/sync/engine/sync_unit_tests.syncer_proto_util_unittest.o $
+    obj/sync/engine/sync_unit_tests.syncer_unittest.o $
+    obj/sync/engine/sync_unit_tests.syncer_util_unittest.o $
+    obj/sync/engine/sync_unit_tests.worker_entity_tracker_unittest.o $
+    obj/sync/internal_api/attachments/sync_unit_tests.attachment_downloader_impl_unittest.o $
+    obj/sync/internal_api/attachments/sync_unit_tests.attachment_service_impl_unittest.o $
+    obj/sync/internal_api/attachments/sync_unit_tests.attachment_service_proxy_unittest.o $
+    obj/sync/internal_api/attachments/sync_unit_tests.attachment_store_frontend_unittest.o $
+    obj/sync/internal_api/attachments/sync_unit_tests.attachment_uploader_impl_unittest.o $
+    obj/sync/internal_api/attachments/sync_unit_tests.fake_attachment_downloader_unittest.o $
+    obj/sync/internal_api/attachments/sync_unit_tests.fake_attachment_uploader_unittest.o $
+    obj/sync/internal_api/attachments/sync_unit_tests.in_memory_attachment_store_unittest.o $
+    obj/sync/internal_api/attachments/sync_unit_tests.on_disk_attachment_store_unittest.o $
+    obj/sync/internal_api/attachments/sync_unit_tests.task_queue_unittest.o $
+    obj/sync/internal_api/sync_unit_tests.debug_info_event_listener_unittest.o $
+    obj/sync/internal_api/sync_unit_tests.http_bridge_unittest.o $
+    obj/sync/internal_api/sync_unit_tests.js_mutation_event_observer_unittest.o $
+    obj/sync/internal_api/sync_unit_tests.js_sync_encryption_handler_observer_unittest.o $
+    obj/sync/internal_api/sync_unit_tests.js_sync_manager_observer_unittest.o $
+    obj/sync/internal_api/sync_unit_tests.model_type_store_backend_unittest.o $
+    obj/sync/internal_api/sync_unit_tests.model_type_store_impl_unittest.o $
+    obj/sync/internal_api/sync_unit_tests.processor_entity_tracker_unittest.o $
+    obj/sync/internal_api/sync_unit_tests.protocol_event_buffer_unittest.o $
+    obj/sync/internal_api/public/base/sync_unit_tests.attachment_id_proto_unittest.o $
+    obj/sync/internal_api/public/base/sync_unit_tests.cancelation_signal_unittest.o $
+    obj/sync/internal_api/public/base/sync_unit_tests.enum_set_unittest.o $
+    obj/sync/internal_api/public/base/sync_unit_tests.node_ordinal_unittest.o $
+    obj/sync/internal_api/public/base/sync_unit_tests.ordinal_unittest.o $
+    obj/sync/internal_api/public/base/sync_unit_tests.unique_position_unittest.o $
+    obj/sync/internal_api/public/sync_unit_tests.change_record_unittest.o $
+    obj/sync/internal_api/public/sync_unit_tests.data_batch_impl_unittest.o $
+    obj/sync/internal_api/public/engine/sync_unit_tests.model_safe_worker_unittest.o $
+    obj/sync/internal_api/public/sessions/sync_unit_tests.sync_session_snapshot_unittest.o $
+    obj/sync/internal_api/public/util/sync_unit_tests.immutable_unittest.o $
+    obj/sync/internal_api/public/util/sync_unit_tests.proto_value_ptr_unittest.o $
+    obj/sync/internal_api/public/util/sync_unit_tests.weak_handle_unittest.o $
+    obj/sync/internal_api/sync_unit_tests.shared_model_type_processor_unittest.o $
+    obj/sync/internal_api/sync_unit_tests.sync_context_proxy_unittest.o $
+    obj/sync/internal_api/sync_unit_tests.sync_encryption_handler_impl_unittest.o $
+    obj/sync/internal_api/sync_unit_tests.sync_manager_impl_unittest.o $
+    obj/sync/internal_api/sync_unit_tests.syncapi_server_connection_manager_unittest.o $
+    obj/sync/js/sync_unit_tests.js_event_details_unittest.o $
+    obj/sync/js/sync_unit_tests.sync_js_controller_unittest.o $
+    obj/sync/protocol/sync_unit_tests.proto_enum_conversions_unittest.o $
+    obj/sync/protocol/sync_unit_tests.proto_value_conversions_unittest.o $
+    obj/sync/sessions/sync_unit_tests.model_type_registry_unittest.o $
+    obj/sync/sessions/sync_unit_tests.nudge_tracker_unittest.o $
+    obj/sync/sessions/sync_unit_tests.status_controller_unittest.o $
+    obj/sync/syncable/sync_unit_tests.directory_backing_store_unittest.o $
+    obj/sync/syncable/sync_unit_tests.directory_unittest.o $
+    obj/sync/syncable/sync_unit_tests.entry_kernel_unittest.o $
+    obj/sync/syncable/sync_unit_tests.model_type_unittest.o $
+    obj/sync/syncable/sync_unit_tests.nigori_util_unittest.o $
+    obj/sync/syncable/sync_unit_tests.parent_child_index_unittest.o $
+    obj/sync/syncable/sync_unit_tests.syncable_enum_conversions_unittest.o $
+    obj/sync/syncable/sync_unit_tests.syncable_id_unittest.o $
+    obj/sync/syncable/sync_unit_tests.syncable_unittest.o $
+    obj/sync/syncable/sync_unit_tests.syncable_util_unittest.o $
+    obj/sync/util/sync_unit_tests.cryptographer_unittest.o $
+    obj/sync/util/sync_unit_tests.data_type_histogram_unittest.o $
+    obj/sync/util/sync_unit_tests.get_session_name_unittest.o $
+    obj/sync/util/sync_unit_tests.nigori_unittest.o $
+    obj/sync/util/sync_unit_tests.protobuf_unittest.o $
+    obj/base/librun_all_unittests.a obj/google_apis/libgoogle_apis.a $
+    obj/google_apis/libgoogle_apis_test_support.a $
+    obj/net/libnet_test_support.a obj/sql/libsql.a $
+    obj/sql/libtest_support_sql.a obj/testing/libgmock.a $
+    obj/testing/libgtest.a obj/third_party/leveldatabase/libleveldatabase.a $
+    obj/third_party/protobuf/libprotobuf_lite.a $
+    obj/sync/libtest_support_sync_core.a $
+    obj/sync/libtest_support_sync_internal_api.a $
+    obj/base/libtest_support_base.a obj/base/libbase_static.a $
+    obj/base/libbase_i18n.a $
+    obj/base/third_party/dynamic_annotations/libdynamic_annotations.a $
+    obj/third_party/icu/libicui18n.a obj/third_party/icu/libicuuc.a $
+    obj/third_party/libxml/libxml2.a obj/third_party/zlib/libchrome_zlib.a $
+    obj/third_party/zlib/libzlib_x86_simd.a obj/crypto/libcrcrypto.a $
+    obj/third_party/boringssl/libboringssl.a $
+    obj/third_party/boringssl/libboringssl_asm.a $
+    obj/net/tools/tld_cleanup/libtld_cleanup_util.a $
+    obj/net/libnet_with_v8.a obj/gin/libgin.a obj/v8/tools/gyp/libv8_base.a $
+    obj/v8/tools/gyp/libv8_libbase.a $
+    obj/v8/tools/gyp/libv8_external_snapshot.a $
+    obj/third_party/sqlite/libchromium_sqlite3.a $
+    obj/third_party/re2/libre2.a obj/third_party/snappy/libsnappy.a $
+    obj/sync/libsync_core.a obj/sync/libattachment_store_proto.a $
+    obj/sync/libsync_proto.a | icudtl.dat lib/libbase.so.TOC $
+    lib/libnet.so.TOC lib/liburl_lib.so.TOC natives_blob.bin $
+    obj.host/v8/tools/gyp/js2c.actions_rules_copies.stamp $
+    obj/sync/sync.actions_depends.stamp $
+    obj/third_party/boringssl/libboringssl.a $
+    obj/third_party/protobuf/py_proto.actions_rules_copies.stamp $
+    obj/v8/tools/gyp/v8_maybe_snapshot.actions_depends.stamp || $
+    obj/sync/sync_unit_tests.actions_depends.stamp
+  ld = $ldxx
+  solibs = lib/libbase.so lib/libnet.so lib/liburl_lib.so

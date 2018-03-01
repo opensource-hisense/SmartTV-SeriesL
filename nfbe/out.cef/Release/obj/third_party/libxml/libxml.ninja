@@ -1,0 +1,178 @@
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DLIBXML_STATIC= $
+    -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= $
+    -DU_STATIC_IMPLEMENTATION -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -Igen -I../../third_party/libxml/linux $
+    -I../../third_party/libxml/linux/include $
+    -I../../third_party/libxml/src/include $
+    -I../../third_party/icu/source/common -I../../third_party/zlib
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-abi $
+    -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+build obj/third_party/libxml/chromium/libxml.libxml_utils.o: cxx $
+    ../../third_party/libxml/chromium/libxml_utils.cc
+build obj/third_party/libxml/src/libxml.buf.o: cc $
+    ../../third_party/libxml/src/buf.c
+build obj/third_party/libxml/src/libxml.c14n.o: cc $
+    ../../third_party/libxml/src/c14n.c
+build obj/third_party/libxml/src/libxml.catalog.o: cc $
+    ../../third_party/libxml/src/catalog.c
+build obj/third_party/libxml/src/libxml.chvalid.o: cc $
+    ../../third_party/libxml/src/chvalid.c
+build obj/third_party/libxml/src/libxml.debugXML.o: cc $
+    ../../third_party/libxml/src/debugXML.c
+build obj/third_party/libxml/src/libxml.dict.o: cc $
+    ../../third_party/libxml/src/dict.c
+build obj/third_party/libxml/src/libxml.DOCBparser.o: cc $
+    ../../third_party/libxml/src/DOCBparser.c
+build obj/third_party/libxml/src/libxml.encoding.o: cc $
+    ../../third_party/libxml/src/encoding.c
+build obj/third_party/libxml/src/libxml.entities.o: cc $
+    ../../third_party/libxml/src/entities.c
+build obj/third_party/libxml/src/libxml.error.o: cc $
+    ../../third_party/libxml/src/error.c
+build obj/third_party/libxml/src/libxml.globals.o: cc $
+    ../../third_party/libxml/src/globals.c
+build obj/third_party/libxml/src/libxml.hash.o: cc $
+    ../../third_party/libxml/src/hash.c
+build obj/third_party/libxml/src/libxml.HTMLparser.o: cc $
+    ../../third_party/libxml/src/HTMLparser.c
+build obj/third_party/libxml/src/libxml.HTMLtree.o: cc $
+    ../../third_party/libxml/src/HTMLtree.c
+build obj/third_party/libxml/src/libxml.legacy.o: cc $
+    ../../third_party/libxml/src/legacy.c
+build obj/third_party/libxml/src/libxml.list.o: cc $
+    ../../third_party/libxml/src/list.c
+build obj/third_party/libxml/src/libxml.parser.o: cc $
+    ../../third_party/libxml/src/parser.c
+build obj/third_party/libxml/src/libxml.parserInternals.o: cc $
+    ../../third_party/libxml/src/parserInternals.c
+build obj/third_party/libxml/src/libxml.pattern.o: cc $
+    ../../third_party/libxml/src/pattern.c
+build obj/third_party/libxml/src/libxml.relaxng.o: cc $
+    ../../third_party/libxml/src/relaxng.c
+build obj/third_party/libxml/src/libxml.SAX.o: cc $
+    ../../third_party/libxml/src/SAX.c
+build obj/third_party/libxml/src/libxml.SAX2.o: cc $
+    ../../third_party/libxml/src/SAX2.c
+build obj/third_party/libxml/src/libxml.schematron.o: cc $
+    ../../third_party/libxml/src/schematron.c
+build obj/third_party/libxml/src/libxml.threads.o: cc $
+    ../../third_party/libxml/src/threads.c
+build obj/third_party/libxml/src/libxml.tree.o: cc $
+    ../../third_party/libxml/src/tree.c
+build obj/third_party/libxml/src/libxml.uri.o: cc $
+    ../../third_party/libxml/src/uri.c
+build obj/third_party/libxml/src/libxml.valid.o: cc $
+    ../../third_party/libxml/src/valid.c
+build obj/third_party/libxml/src/libxml.xinclude.o: cc $
+    ../../third_party/libxml/src/xinclude.c
+build obj/third_party/libxml/src/libxml.xlink.o: cc $
+    ../../third_party/libxml/src/xlink.c
+build obj/third_party/libxml/src/libxml.xmlIO.o: cc $
+    ../../third_party/libxml/src/xmlIO.c
+build obj/third_party/libxml/src/libxml.xmlmemory.o: cc $
+    ../../third_party/libxml/src/xmlmemory.c
+build obj/third_party/libxml/src/libxml.xmlmodule.o: cc $
+    ../../third_party/libxml/src/xmlmodule.c
+build obj/third_party/libxml/src/libxml.xmlreader.o: cc $
+    ../../third_party/libxml/src/xmlreader.c
+build obj/third_party/libxml/src/libxml.xmlregexp.o: cc $
+    ../../third_party/libxml/src/xmlregexp.c
+build obj/third_party/libxml/src/libxml.xmlsave.o: cc $
+    ../../third_party/libxml/src/xmlsave.c
+build obj/third_party/libxml/src/libxml.xmlschemas.o: cc $
+    ../../third_party/libxml/src/xmlschemas.c
+build obj/third_party/libxml/src/libxml.xmlschemastypes.o: cc $
+    ../../third_party/libxml/src/xmlschemastypes.c
+build obj/third_party/libxml/src/libxml.xmlstring.o: cc $
+    ../../third_party/libxml/src/xmlstring.c
+build obj/third_party/libxml/src/libxml.xmlunicode.o: cc $
+    ../../third_party/libxml/src/xmlunicode.c
+build obj/third_party/libxml/src/libxml.xmlwriter.o: cc $
+    ../../third_party/libxml/src/xmlwriter.c
+build obj/third_party/libxml/src/libxml.xpath.o: cc $
+    ../../third_party/libxml/src/xpath.c
+build obj/third_party/libxml/src/libxml.xpointer.o: cc $
+    ../../third_party/libxml/src/xpointer.c
+
+build obj/third_party/libxml/libxml2.a: alink_thin $
+    obj/third_party/libxml/chromium/libxml.libxml_utils.o $
+    obj/third_party/libxml/src/libxml.buf.o $
+    obj/third_party/libxml/src/libxml.c14n.o $
+    obj/third_party/libxml/src/libxml.catalog.o $
+    obj/third_party/libxml/src/libxml.chvalid.o $
+    obj/third_party/libxml/src/libxml.debugXML.o $
+    obj/third_party/libxml/src/libxml.dict.o $
+    obj/third_party/libxml/src/libxml.DOCBparser.o $
+    obj/third_party/libxml/src/libxml.encoding.o $
+    obj/third_party/libxml/src/libxml.entities.o $
+    obj/third_party/libxml/src/libxml.error.o $
+    obj/third_party/libxml/src/libxml.globals.o $
+    obj/third_party/libxml/src/libxml.hash.o $
+    obj/third_party/libxml/src/libxml.HTMLparser.o $
+    obj/third_party/libxml/src/libxml.HTMLtree.o $
+    obj/third_party/libxml/src/libxml.legacy.o $
+    obj/third_party/libxml/src/libxml.list.o $
+    obj/third_party/libxml/src/libxml.parser.o $
+    obj/third_party/libxml/src/libxml.parserInternals.o $
+    obj/third_party/libxml/src/libxml.pattern.o $
+    obj/third_party/libxml/src/libxml.relaxng.o $
+    obj/third_party/libxml/src/libxml.SAX.o $
+    obj/third_party/libxml/src/libxml.SAX2.o $
+    obj/third_party/libxml/src/libxml.schematron.o $
+    obj/third_party/libxml/src/libxml.threads.o $
+    obj/third_party/libxml/src/libxml.tree.o $
+    obj/third_party/libxml/src/libxml.uri.o $
+    obj/third_party/libxml/src/libxml.valid.o $
+    obj/third_party/libxml/src/libxml.xinclude.o $
+    obj/third_party/libxml/src/libxml.xlink.o $
+    obj/third_party/libxml/src/libxml.xmlIO.o $
+    obj/third_party/libxml/src/libxml.xmlmemory.o $
+    obj/third_party/libxml/src/libxml.xmlmodule.o $
+    obj/third_party/libxml/src/libxml.xmlreader.o $
+    obj/third_party/libxml/src/libxml.xmlregexp.o $
+    obj/third_party/libxml/src/libxml.xmlsave.o $
+    obj/third_party/libxml/src/libxml.xmlschemas.o $
+    obj/third_party/libxml/src/libxml.xmlschemastypes.o $
+    obj/third_party/libxml/src/libxml.xmlstring.o $
+    obj/third_party/libxml/src/libxml.xmlunicode.o $
+    obj/third_party/libxml/src/libxml.xmlwriter.o $
+    obj/third_party/libxml/src/libxml.xpath.o $
+    obj/third_party/libxml/src/libxml.xpointer.o

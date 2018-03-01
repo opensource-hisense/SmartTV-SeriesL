@@ -1,0 +1,32 @@
+build obj/cef/cef_locales.actions_depends.stamp: stamp $
+    obj/chrome/platform_locale_settings.actions_rules_copies.stamp $
+    obj/components/components_strings.actions_rules_copies.stamp $
+    obj/content/app/strings/content_strings.actions_rules_copies.stamp $
+    obj/extensions/extensions_strings.actions_rules_copies.stamp $
+    obj/ui/strings/ui_strings.actions_rules_copies.stamp $
+    obj/cef/cef_strings.actions_rules_copies.stamp
+
+build obj/cef/cef_locales.compile_depends.stamp: stamp $
+    obj/chrome/platform_locale_settings.actions_rules_copies.stamp $
+    obj/components/components_strings.actions_rules_copies.stamp $
+    obj/content/app/strings/content_strings.actions_rules_copies.stamp $
+    obj/extensions/extensions_strings.actions_rules_copies.stamp $
+    obj/ui/strings/ui_strings.actions_rules_copies.stamp $
+    obj/cef/cef_strings.actions_rules_copies.stamp
+
+rule cef_locales_target_repack_locales_a4555f22cf1fa97c7b2ea1dc9b1c5d10
+  command = cd ../../cef; python tools/repack_locales.py -g $
+      ../out.cef/Release/gen/cef -s ../out.cef/Release/gen -x $
+      ../out.cef/Release/locales am ar bg bn ca cs da de el en-GB en-US $
+      es-419 es et fa fi fil fr gu he hi hr hu id it ja kn ko lt lv ml mr $
+      ms nb nl pl pt-BR pt-PT ro ru sk sl sr sv sw ta te th tr uk vi zh-CN $
+      zh-TW
+  description = ACTION cef_locales: $
+      repack_locales_a4555f22cf1fa97c7b2ea1dc9b1c5d10
+  restat = 1
+
+build cef_repack_locales.stamp: $
+    cef_locales_target_repack_locales_a4555f22cf1fa97c7b2ea1dc9b1c5d10 $
+    ../../cef/tools/repack_locales.py || $
+    obj/cef/cef_locales.actions_depends.stamp
+

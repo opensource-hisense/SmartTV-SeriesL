@@ -1,0 +1,197 @@
+diff --git base/base.gyp base/base.gyp
+index fb4c91b..e85065f 100644
+--- base/base.gyp
++++ base/base.gyp
+@@ -5,6 +5,15 @@
+ {
+   'variables': {
+     'chromium_code': 1,
++    # split LGPL component
++    'base_i18_component': "<(component)",
++    'conditions': [
++      # split LGPL component
++      ['split_lgpl_component == 1', {
++        'component': 'shared_library',
++        'base_i18_component': "static_library",
++      }],
++    ],
+   },
+   'includes': [
+     '../build/win_precompile.gypi',
+@@ -271,7 +280,7 @@
+     },
+     {
+       'target_name': 'base_i18n',
+-      'type': '<(component)',
++      'type': '<(base_i18_component)',
+       'variables': {
+         'enable_wexit_time_destructors': 1,
+         'optimize': 'max',
+diff --git build/common.gypi build/common.gypi
+index 82e1fdb..2bf229d 100644
+--- build/common.gypi
++++ build/common.gypi
+@@ -739,6 +739,9 @@
+       # Disable External MediaSource.isTypeSupported() by default
+       'enable_external_istypesupported%': 0,
+ 
++      # split LGPL component
++      'split_lgpl_component%': 0,
++
+       'conditions': [
+         # A flag for POSIX platforms
+         ['OS=="win"', {
+@@ -1327,6 +1330,9 @@
+     'enable_youtube_istypesupported_extensions%': '<(enable_youtube_istypesupported_extensions)',
+     'enable_external_istypesupported%': '<(enable_external_istypesupported)',
+ 
++    # split LGPL component
++    'split_lgpl_component%': '<(split_lgpl_component)',
++
+     # Turns on compiler optimizations in V8 in Debug build.
+     'v8_optimized_debug%': 1,
+ 
+diff --git net/net.gyp net/net.gyp
+index 8c51208..e08a86c 100644
+--- net/net.gyp
++++ net/net.gyp
+@@ -6,6 +6,8 @@
+   'variables': {
+     'chromium_code': 1,
+     'linux_link_kerberos%': 0,
++    # split LGPL component
++    'net_with_v8_component': "<(component)",
+     'conditions': [
+       ['chromeos==1 or embedded==1 or OS=="ios"', {
+         # Disable Kerberos on ChromeOS and iOS, at least for now.
+@@ -35,6 +37,11 @@
+         'use_v8_in_net%': 1,
+         'enable_built_in_dns%': 1,
+       }],
++      # split LGPL component
++      ['split_lgpl_component == 1', {
++        'component': 'shared_library',
++        'net_with_v8_component': "static_library",
++      }],
+     ],
+   },
+   'includes': [
+@@ -836,7 +843,7 @@
+       'targets': [
+         {
+           'target_name': 'net_with_v8',
+-          'type': '<(component)',
++          'type': '<(net_with_v8_component)',
+           'variables': { 'enable_wexit_time_destructors': 1, },
+           'dependencies': [
+             '../base/base.gyp:base',
+diff --git third_party/WebKit/Source/core/core.gyp third_party/WebKit/Source/core/core.gyp
+index ba194f4..445beb7 100644
+--- third_party/WebKit/Source/core/core.gyp
++++ third_party/WebKit/Source/core/core.gyp
+@@ -51,6 +51,10 @@
+           '<(DEPTH)/third_party/openmax_dl'
+         ]
+       }],
++      # split LGPL component
++      ['split_lgpl_component == 1', {
++        'component': 'shared_library',
++      }],
+     ],
+   },  # variables
+ 
+diff --git third_party/hunspell/hunspell.gyp third_party/hunspell/hunspell.gyp
+index 2634b00..290cc36 100644
+--- third_party/hunspell/hunspell.gyp
++++ third_party/hunspell/hunspell.gyp
+@@ -3,6 +3,14 @@
+ # found in the LICENSE file.
+ 
+ {
++  'variables': {
++    'conditions': [
++      # split LGPL component
++      ['split_lgpl_component == 1', {
++        'component': 'shared_library',
++      }],
++    ],
++  },
+   'targets': [
+     {
+       'target_name': 'hunspell',
+diff --git third_party/libusb/libusb.gyp third_party/libusb/libusb.gyp
+index 8e55463..91de0b7 100644
+--- third_party/libusb/libusb.gyp
++++ third_party/libusb/libusb.gyp
+@@ -3,6 +3,14 @@
+ # found in the LICENSE file.
+ 
+ {
++  'variables': {
++    'conditions': [
++      # split LGPL component
++      ['split_lgpl_component == 1', {
++        'component': 'shared_library',
++      }],
++    ],
++  },
+   'targets': [
+     {
+       'target_name': 'libusb',
+diff --git cef/cef.gyp cef/cef.gyp
+index a105e40..7c604d4 100644
+--- cef/cef.gyp
++++ cef/cef.gyp
+@@ -365,6 +365,13 @@
+             '../base/base.gyp:base',
+           ],
+         }],
++        # split LGPL component
++        [ 'split_lgpl_component==1 and OS!="mac"', {
++          'dependencies': [
++            # required to dispatch shim memory to tcmalloc memory, only for shared lib type
++            '../base/base.gyp:base',
++          ],
++        }],
+       ],
+     },
+     {
+@@ -1527,6 +1534,19 @@
+             '<(DEPTH)/third_party/WebKit/Source/core/core.gyp:webcore',
+           ],
+         }],
++        # split LGPL component
++        ['split_lgpl_component==1', {
++          'conditions': [
++            ['component!="shared_library"', {
++              'dependencies!': [
++                '<(DEPTH)/third_party/WebKit/Source/core/core.gyp:webcore',
++              ],
++              'dependencies': [
++                '<(DEPTH)/third_party/WebKit/Source/core/core.gyp:webcore_shared',
++              ],
++            }],
++          ],
++        }],
+         ['OS=="win"', {
+           'sources': [
+             '<@(includes_win)',
+diff --git third_party/ffmpeg/ffmpeg.gyp third_party/ffmpeg/ffmpeg.gyp
+old mode 100755
+new mode 100644
+index dfda4b8..feb6384
+--- third_party/ffmpeg/ffmpeg.gyp
++++ third_party/ffmpeg/ffmpeg.gyp
+@@ -82,6 +82,12 @@
+       }, {  # otherwise, assume Chrome/Chromium.
+         'ffmpeg_branding%': '<(branding)',
+       }],
++      # split LGPL component
++      ['split_lgpl_component == 1', {
++        'ffmpeg_component%': 'shared_library',
++      }, {
++        'ffmpeg_component%': '<(component)',
++      }],
+     ],
+ 
+     'ffmpeg_component%': '<(component)',

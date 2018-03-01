@@ -1,0 +1,16 @@
+diff --git ThreadState.cpp ThreadState.cpp
+index 2e3bd22..c490477 100644
+--- ThreadState.cpp
++++ ThreadState.cpp
+@@ -582,7 +582,11 @@ bool ThreadState::shouldScheduleIdleGC()
+ 
+ bool ThreadState::shouldScheduleV8FollowupGC()
+ {
++#if defined(NFBE_DTV_SOCIO) // run blink gc after v8 gc.
++    return true;
++#else
+     return judgeGCThreshold(32 * 1024 * 1024, 1.5);
++#endif
+ }
+ 
+ bool ThreadState::shouldSchedulePageNavigationGC(float estimatedRemovalRatio)

@@ -1,0 +1,6 @@
+build gen/angle/copy_compiler_dll.bat: copy $
+    ../../third_party/angle/src/copy_compiler_dll.bat
+build gen/angle/commit_id.py: copy ../../third_party/angle/src/commit_id.py
+build obj/third_party/angle/src/copy_scripts.actions_rules_copies.stamp: $
+    stamp gen/angle/copy_compiler_dll.bat gen/angle/commit_id.py
+

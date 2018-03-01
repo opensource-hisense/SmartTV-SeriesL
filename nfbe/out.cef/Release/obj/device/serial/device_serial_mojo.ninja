@@ -1,0 +1,181 @@
+build obj/device/serial/device_serial_mojo.actions_depends.stamp: stamp $
+    lib/libbase.so.TOC $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp
+
+build obj/device/serial/device_serial_mojo.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp
+
+rule $
+    device_serial_mojo_target_device_serial_mojo_mojom_bindings_stamp_fdfc57cdd14c3304ee4ca9f577b33a17
+  command = cd ../../device/serial; python ../../build/rmdir_and_stamp.py $
+      ../../out.cef/Release/java_mojo/device_serial_mojo/src $
+      ../../out.cef/Release/java_mojo/device_serial_mojo/device_serial_mojo.stamp
+  description = ACTION device_serial_mojo: $
+      device_serial_mojo_mojom_bindings_stamp_fdfc57cdd14c3304ee4ca9f577b33a17
+  restat = 1
+
+build java_mojo/device_serial_mojo/device_serial_mojo.stamp: $
+    device_serial_mojo_target_device_serial_mojo_mojom_bindings_stamp_fdfc57cdd14c3304ee4ca9f577b33a17 $
+    ../../device/serial/data_stream.mojom $
+    ../../device/serial/data_stream_serialization.mojom $
+    ../../device/serial/serial.mojom $
+    ../../device/serial/serial_serialization.mojom || $
+    obj/device/serial/device_serial_mojo.actions_depends.stamp
+
+rule $
+    device_serial_mojo_target_device_serial_mojo_mojom_bindings_generator_fdfc57cdd14c3304ee4ca9f577b33a17
+  command = cd ../../device/serial; python $
+      ../../mojo/public/tools/bindings/mojom_bindings_generator.py $
+      --use_bundled_pylibs generate "./${dirname}/${root}.mojom" -d ../.. $
+      -I../.. -I../../mojo/services -o ../../out.cef/Release/gen $
+      "--java_output_directory=../../out.cef/Release/java_mojo/device_serial_mojo/src" $
+      --variant none -g c++,javascript,java --bytecode_path $
+      ../../out.cef/Release/gen/mojo/public/tools/bindings
+  description = RULE Generating Mojo bindings from ${dirname}/${root}.mojom
+  restat = 1
+
+build $
+    obj/device/serial/device_serial_mojo.device_serial_mojo_mojom_bindings_generator.stamp: $
+    stamp ../../mojo/public/tools/bindings/mojom_bindings_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_cpp_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_java_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_js_generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/error.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/data.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/module.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/pack.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/template_expander.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/ast.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/lexer.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/parser.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/translate.py $
+    java_mojo/device_serial_mojo/device_serial_mojo.stamp $
+    gen/mojo/public/tools/bindings/cpp_templates.zip $
+    gen/mojo/public/tools/bindings/java_templates.zip $
+    gen/mojo/public/tools/bindings/js_templates.zip || $
+    obj/device/serial/device_serial_mojo.actions_depends.stamp
+
+build gen/device/serial//data_stream.mojom.cc $
+    gen/device/serial//data_stream.mojom.h $
+    gen/device/serial//data_stream.mojom.js $
+    gen/device/serial//data_stream.mojom-internal.h: $
+    device_serial_mojo_target_device_serial_mojo_mojom_bindings_generator_fdfc57cdd14c3304ee4ca9f577b33a17 $
+    ../../device/serial/data_stream.mojom | $
+    obj/device/serial/device_serial_mojo.device_serial_mojo_mojom_bindings_generator.stamp
+  dirname = 
+  root = data_stream
+  source = data_stream.mojom
+build gen/device/serial//data_stream_serialization.mojom.cc $
+    gen/device/serial//data_stream_serialization.mojom.h $
+    gen/device/serial//data_stream_serialization.mojom.js $
+    gen/device/serial//data_stream_serialization.mojom-internal.h: $
+    device_serial_mojo_target_device_serial_mojo_mojom_bindings_generator_fdfc57cdd14c3304ee4ca9f577b33a17 $
+    ../../device/serial/data_stream_serialization.mojom | $
+    obj/device/serial/device_serial_mojo.device_serial_mojo_mojom_bindings_generator.stamp
+  dirname = 
+  root = data_stream_serialization
+  source = data_stream_serialization.mojom
+build gen/device/serial//serial.mojom.cc gen/device/serial//serial.mojom.h $
+    gen/device/serial//serial.mojom.js $
+    gen/device/serial//serial.mojom-internal.h: $
+    device_serial_mojo_target_device_serial_mojo_mojom_bindings_generator_fdfc57cdd14c3304ee4ca9f577b33a17 $
+    ../../device/serial/serial.mojom | $
+    obj/device/serial/device_serial_mojo.device_serial_mojo_mojom_bindings_generator.stamp
+  dirname = 
+  root = serial
+  source = serial.mojom
+build gen/device/serial//serial_serialization.mojom.cc $
+    gen/device/serial//serial_serialization.mojom.h $
+    gen/device/serial//serial_serialization.mojom.js $
+    gen/device/serial//serial_serialization.mojom-internal.h: $
+    device_serial_mojo_target_device_serial_mojo_mojom_bindings_generator_fdfc57cdd14c3304ee4ca9f577b33a17 $
+    ../../device/serial/serial_serialization.mojom | $
+    obj/device/serial/device_serial_mojo.device_serial_mojo_mojom_bindings_generator.stamp
+  dirname = 
+  root = serial_serialization
+  source = serial_serialization.mojom
+build obj/device/serial/device_serial_mojo.actions_rules_copies.stamp: $
+    stamp java_mojo/device_serial_mojo/device_serial_mojo.stamp $
+    gen/device/serial//data_stream.mojom.cc $
+    gen/device/serial//data_stream.mojom.h $
+    gen/device/serial//data_stream.mojom.js $
+    gen/device/serial//data_stream.mojom-internal.h $
+    gen/device/serial//data_stream_serialization.mojom.cc $
+    gen/device/serial//data_stream_serialization.mojom.h $
+    gen/device/serial//data_stream_serialization.mojom.js $
+    gen/device/serial//data_stream_serialization.mojom-internal.h $
+    gen/device/serial//serial.mojom.cc gen/device/serial//serial.mojom.h $
+    gen/device/serial//serial.mojom.js $
+    gen/device/serial//serial.mojom-internal.h $
+    gen/device/serial//serial_serialization.mojom.cc $
+    gen/device/serial//serial_serialization.mojom.h $
+    gen/device/serial//serial_serialization.mojom.js $
+    gen/device/serial//serial_serialization.mojom-internal.h
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS $
+    -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../..
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/device/serial/gen/device/serial/device_serial_mojo.data_stream.mojom.o: $
+    cxx gen/device/serial//data_stream.mojom.cc || $
+    obj/device/serial/device_serial_mojo.actions_rules_copies.stamp
+build $
+    obj/device/serial/gen/device/serial/device_serial_mojo.data_stream_serialization.mojom.o: $
+    cxx gen/device/serial//data_stream_serialization.mojom.cc || $
+    obj/device/serial/device_serial_mojo.actions_rules_copies.stamp
+build $
+    obj/device/serial/gen/device/serial/device_serial_mojo.serial.mojom.o: $
+    cxx gen/device/serial//serial.mojom.cc || $
+    obj/device/serial/device_serial_mojo.actions_rules_copies.stamp
+build $
+    obj/device/serial/gen/device/serial/device_serial_mojo.serial_serialization.mojom.o: $
+    cxx gen/device/serial//serial_serialization.mojom.cc || $
+    obj/device/serial/device_serial_mojo.actions_rules_copies.stamp
+

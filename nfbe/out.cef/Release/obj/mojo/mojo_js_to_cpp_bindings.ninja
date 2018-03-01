@@ -1,0 +1,73 @@
+build obj/mojo/mojo_js_to_cpp_bindings.actions_depends.stamp: stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    lib/libbase.so.TOC $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp
+
+build obj/mojo/mojo_js_to_cpp_bindings.compile_depends.stamp: stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp
+
+rule $
+    mojo_js_to_cpp_bindings_target_mojo_js_to_cpp_bindings_mojom_bindings_stamp_e4db48450b412e76fdfd31b79190e473
+  command = cd ../../mojo; python ../build/rmdir_and_stamp.py $
+      ../out.cef/Release/java_mojo/mojo_js_to_cpp_bindings/src $
+      ../out.cef/Release/java_mojo/mojo_js_to_cpp_bindings/mojo_js_to_cpp_bindings.stamp
+  description = ACTION mojo_js_to_cpp_bindings: $
+      mojo_js_to_cpp_bindings_mojom_bindings_stamp_e4db48450b412e76fdfd31b79190e473
+  restat = 1
+
+build java_mojo/mojo_js_to_cpp_bindings/mojo_js_to_cpp_bindings.stamp: $
+    mojo_js_to_cpp_bindings_target_mojo_js_to_cpp_bindings_mojom_bindings_stamp_e4db48450b412e76fdfd31b79190e473 $
+    ../../mojo/edk/js/tests/js_to_cpp.mojom || $
+    obj/mojo/mojo_js_to_cpp_bindings.actions_depends.stamp
+
+rule $
+    mojo_js_to_cpp_bindings_target_mojo_js_to_cpp_bindings_mojom_bindings_generator_e4db48450b412e76fdfd31b79190e473
+  command = cd ../../mojo; python $
+      ../mojo/public/tools/bindings/mojom_bindings_generator.py $
+      --use_bundled_pylibs generate edk/js/tests/js_to_cpp.mojom -d .. -I.. $
+      -I../mojo/services -I.. -o ../out.cef/Release/gen $
+      "--java_output_directory=../out.cef/Release/java_mojo/mojo_js_to_cpp_bindings/src" $
+      --variant none -g c++,javascript,java --bytecode_path $
+      ../out.cef/Release/gen/mojo/public/tools/bindings
+  description = ACTION Generating Mojo bindings from $
+      edk/js/tests/js_to_cpp.mojom
+  restat = 1
+
+build gen/mojo/edk/js/tests/js_to_cpp.mojom.cc $
+    gen/mojo/edk/js/tests/js_to_cpp.mojom.h $
+    gen/mojo/edk/js/tests/js_to_cpp.mojom-internal.h $
+    gen/mojo/edk/js/tests/js_to_cpp.mojom.js: $
+    mojo_js_to_cpp_bindings_target_mojo_js_to_cpp_bindings_mojom_bindings_generator_e4db48450b412e76fdfd31b79190e473 $
+    ../../mojo/public/tools/bindings/mojom_bindings_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_cpp_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_java_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_js_generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/error.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/data.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/module.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/pack.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/template_expander.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/ast.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/lexer.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/parser.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/translate.py $
+    ../../mojo/edk/js/tests/js_to_cpp.mojom $
+    java_mojo/mojo_js_to_cpp_bindings/mojo_js_to_cpp_bindings.stamp $
+    gen/mojo/public/tools/bindings/cpp_templates.zip $
+    gen/mojo/public/tools/bindings/java_templates.zip $
+    gen/mojo/public/tools/bindings/js_templates.zip || $
+    obj/mojo/mojo_js_to_cpp_bindings.actions_depends.stamp
+
+build obj/mojo/mojo_js_to_cpp_bindings.actions_rules_copies.stamp: stamp $
+    java_mojo/mojo_js_to_cpp_bindings/mojo_js_to_cpp_bindings.stamp $
+    gen/mojo/edk/js/tests/js_to_cpp.mojom.cc $
+    gen/mojo/edk/js/tests/js_to_cpp.mojom.h $
+    gen/mojo/edk/js/tests/js_to_cpp.mojom-internal.h $
+    gen/mojo/edk/js/tests/js_to_cpp.mojom.js
+

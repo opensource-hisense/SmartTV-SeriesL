@@ -1,0 +1,2 @@
+build obj/ui/display/libdisplay_test_support.a: alink_thin || $
+    lib/libbase.so.TOC

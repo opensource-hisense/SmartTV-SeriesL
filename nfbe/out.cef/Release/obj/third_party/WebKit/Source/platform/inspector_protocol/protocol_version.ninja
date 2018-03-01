@@ -1,0 +1,15 @@
+rule $
+    protocol_version_target_generateInspectorProtocolVersion_ffe1e8a9d0545c7614b303fd17d78e0a
+  command = cd ../../third_party/WebKit/Source/platform/inspector_protocol; $
+      python generate-inspector-protocol-version -o $
+      ../../../../../out.cef/Release/gen/blink/platform/inspector_protocol/InspectorProtocolVersion.h $
+      ../../devtools/protocol.json
+  description = ACTION Validate inspector protocol for backwards $
+      compatibility and generate version file
+  restat = 1
+
+build gen/blink/platform/inspector_protocol/InspectorProtocolVersion.h: $
+    protocol_version_target_generateInspectorProtocolVersion_ffe1e8a9d0545c7614b303fd17d78e0a $
+    ../../third_party/WebKit/Source/platform/inspector_protocol/generate-inspector-protocol-version $
+    ../../third_party/WebKit/Source/devtools/protocol.json
+

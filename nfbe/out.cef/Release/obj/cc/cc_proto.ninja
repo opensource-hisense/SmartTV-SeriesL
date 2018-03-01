@@ -1,0 +1,545 @@
+rule cc_proto_target_genproto_90d86b3d112df358386817327af52fa6
+  command = cd ../../cc; python ../tools/protoc_wrapper/protoc_wrapper.py $
+      --include cc/proto/cc_proto_export.h --protobuf $
+      "../out.cef/Release/gen/protoc_out/cc/proto/${root}.pb.h" $
+      --proto-in-dir proto --proto-in-file "${root}${ext}" $
+      "--use-system-protobuf=0" -- ../out.cef/Release/protoc --cpp_out $
+      "dllexport_decl=CC_PROTO_EXPORT:../out.cef/Release/gen/protoc_out/cc/proto" $
+      --python_out ../out.cef/Release/pyproto/cc/proto
+  description = RULE Generating C++ and Python code from ${source}
+  restat = 1
+
+build obj/cc/cc_proto.genproto.stamp: stamp $
+    ../../tools/protoc_wrapper/protoc_wrapper.py protoc || protoc
+
+build pyproto/cc/proto/begin_main_frame_and_commit_state_pb2.py $
+    gen/protoc_out/cc/proto/begin_main_frame_and_commit_state.pb.cc $
+    gen/protoc_out/cc/proto/begin_main_frame_and_commit_state.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/begin_main_frame_and_commit_state.proto | $
+    obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = begin_main_frame_and_commit_state
+  source = proto/begin_main_frame_and_commit_state.proto
+build pyproto/cc/proto/commit_earlyout_reason_pb2.py $
+    gen/protoc_out/cc/proto/commit_earlyout_reason.pb.cc $
+    gen/protoc_out/cc/proto/commit_earlyout_reason.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/commit_earlyout_reason.proto | $
+    obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = commit_earlyout_reason
+  source = proto/commit_earlyout_reason.proto
+build pyproto/cc/proto/compositor_message_pb2.py $
+    gen/protoc_out/cc/proto/compositor_message.pb.cc $
+    gen/protoc_out/cc/proto/compositor_message.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/compositor_message.proto | obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = compositor_message
+  source = proto/compositor_message.proto
+build pyproto/cc/proto/compositor_message_to_impl_pb2.py $
+    gen/protoc_out/cc/proto/compositor_message_to_impl.pb.cc $
+    gen/protoc_out/cc/proto/compositor_message_to_impl.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/compositor_message_to_impl.proto | $
+    obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = compositor_message_to_impl
+  source = proto/compositor_message_to_impl.proto
+build pyproto/cc/proto/compositor_message_to_main_pb2.py $
+    gen/protoc_out/cc/proto/compositor_message_to_main.pb.cc $
+    gen/protoc_out/cc/proto/compositor_message_to_main.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/compositor_message_to_main.proto | $
+    obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = compositor_message_to_main
+  source = proto/compositor_message_to_main.proto
+build pyproto/cc/proto/display_item_pb2.py $
+    gen/protoc_out/cc/proto/display_item.pb.cc $
+    gen/protoc_out/cc/proto/display_item.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/display_item.proto | obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = display_item
+  source = proto/display_item.proto
+build pyproto/cc/proto/layer_pb2.py gen/protoc_out/cc/proto/layer.pb.cc $
+    gen/protoc_out/cc/proto/layer.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/layer.proto | obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = layer
+  source = proto/layer.proto
+build pyproto/cc/proto/layer_position_constraint_pb2.py $
+    gen/protoc_out/cc/proto/layer_position_constraint.pb.cc $
+    gen/protoc_out/cc/proto/layer_position_constraint.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/layer_position_constraint.proto | $
+    obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = layer_position_constraint
+  source = proto/layer_position_constraint.proto
+build pyproto/cc/proto/layer_tree_debug_state_pb2.py $
+    gen/protoc_out/cc/proto/layer_tree_debug_state.pb.cc $
+    gen/protoc_out/cc/proto/layer_tree_debug_state.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/layer_tree_debug_state.proto | $
+    obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = layer_tree_debug_state
+  source = proto/layer_tree_debug_state.proto
+build pyproto/cc/proto/layer_tree_host_pb2.py $
+    gen/protoc_out/cc/proto/layer_tree_host.pb.cc $
+    gen/protoc_out/cc/proto/layer_tree_host.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/layer_tree_host.proto | obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = layer_tree_host
+  source = proto/layer_tree_host.proto
+build pyproto/cc/proto/layer_tree_settings_pb2.py $
+    gen/protoc_out/cc/proto/layer_tree_settings.pb.cc $
+    gen/protoc_out/cc/proto/layer_tree_settings.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/layer_tree_settings.proto | obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = layer_tree_settings
+  source = proto/layer_tree_settings.proto
+build pyproto/cc/proto/layer_selection_bound_pb2.py $
+    gen/protoc_out/cc/proto/layer_selection_bound.pb.cc $
+    gen/protoc_out/cc/proto/layer_selection_bound.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/layer_selection_bound.proto | $
+    obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = layer_selection_bound
+  source = proto/layer_selection_bound.proto
+build pyproto/cc/proto/managed_memory_policy_pb2.py $
+    gen/protoc_out/cc/proto/managed_memory_policy.pb.cc $
+    gen/protoc_out/cc/proto/managed_memory_policy.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/managed_memory_policy.proto | $
+    obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = managed_memory_policy
+  source = proto/managed_memory_policy.proto
+build pyproto/cc/proto/memory_allocation_pb2.py $
+    gen/protoc_out/cc/proto/memory_allocation.pb.cc $
+    gen/protoc_out/cc/proto/memory_allocation.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/memory_allocation.proto | obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = memory_allocation
+  source = proto/memory_allocation.proto
+build pyproto/cc/proto/point_pb2.py gen/protoc_out/cc/proto/point.pb.cc $
+    gen/protoc_out/cc/proto/point.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/point.proto | obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = point
+  source = proto/point.proto
+build pyproto/cc/proto/point3f_pb2.py gen/protoc_out/cc/proto/point3f.pb.cc $
+    gen/protoc_out/cc/proto/point3f.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/point3f.proto | obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = point3f
+  source = proto/point3f.proto
+build pyproto/cc/proto/pointf_pb2.py gen/protoc_out/cc/proto/pointf.pb.cc $
+    gen/protoc_out/cc/proto/pointf.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/pointf.proto | obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = pointf
+  source = proto/pointf.proto
+build pyproto/cc/proto/property_tree_pb2.py $
+    gen/protoc_out/cc/proto/property_tree.pb.cc $
+    gen/protoc_out/cc/proto/property_tree.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/property_tree.proto | obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = property_tree
+  source = proto/property_tree.proto
+build pyproto/cc/proto/recording_source_pb2.py $
+    gen/protoc_out/cc/proto/recording_source.pb.cc $
+    gen/protoc_out/cc/proto/recording_source.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/recording_source.proto | obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = recording_source
+  source = proto/recording_source.proto
+build pyproto/cc/proto/rect_pb2.py gen/protoc_out/cc/proto/rect.pb.cc $
+    gen/protoc_out/cc/proto/rect.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/rect.proto | obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = rect
+  source = proto/rect.proto
+build pyproto/cc/proto/rectf_pb2.py gen/protoc_out/cc/proto/rectf.pb.cc $
+    gen/protoc_out/cc/proto/rectf.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/rectf.proto | obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = rectf
+  source = proto/rectf.proto
+build pyproto/cc/proto/region_pb2.py gen/protoc_out/cc/proto/region.pb.cc $
+    gen/protoc_out/cc/proto/region.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/region.proto | obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = region
+  source = proto/region.proto
+build pyproto/cc/proto/renderer_settings_pb2.py $
+    gen/protoc_out/cc/proto/renderer_settings.pb.cc $
+    gen/protoc_out/cc/proto/renderer_settings.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/renderer_settings.proto | obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = renderer_settings
+  source = proto/renderer_settings.proto
+build pyproto/cc/proto/scroll_offset_pb2.py $
+    gen/protoc_out/cc/proto/scroll_offset.pb.cc $
+    gen/protoc_out/cc/proto/scroll_offset.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/scroll_offset.proto | obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = scroll_offset
+  source = proto/scroll_offset.proto
+build pyproto/cc/proto/size_pb2.py gen/protoc_out/cc/proto/size.pb.cc $
+    gen/protoc_out/cc/proto/size.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/size.proto | obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = size
+  source = proto/size.proto
+build pyproto/cc/proto/sizef_pb2.py gen/protoc_out/cc/proto/sizef.pb.cc $
+    gen/protoc_out/cc/proto/sizef.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/sizef.proto | obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = sizef
+  source = proto/sizef.proto
+build pyproto/cc/proto/skregion_pb2.py $
+    gen/protoc_out/cc/proto/skregion.pb.cc $
+    gen/protoc_out/cc/proto/skregion.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/skregion.proto | obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = skregion
+  source = proto/skregion.proto
+build pyproto/cc/proto/skrrect_pb2.py gen/protoc_out/cc/proto/skrrect.pb.cc $
+    gen/protoc_out/cc/proto/skrrect.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/skrrect.proto | obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = skrrect
+  source = proto/skrrect.proto
+build pyproto/cc/proto/skxfermode_pb2.py $
+    gen/protoc_out/cc/proto/skxfermode.pb.cc $
+    gen/protoc_out/cc/proto/skxfermode.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/skxfermode.proto | obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = skxfermode
+  source = proto/skxfermode.proto
+build pyproto/cc/proto/synced_property_pb2.py $
+    gen/protoc_out/cc/proto/synced_property.pb.cc $
+    gen/protoc_out/cc/proto/synced_property.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/synced_property.proto | obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = synced_property
+  source = proto/synced_property.proto
+build pyproto/cc/proto/transform_pb2.py $
+    gen/protoc_out/cc/proto/transform.pb.cc $
+    gen/protoc_out/cc/proto/transform.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/transform.proto | obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = transform
+  source = proto/transform.proto
+build pyproto/cc/proto/vector2d_pb2.py $
+    gen/protoc_out/cc/proto/vector2d.pb.cc $
+    gen/protoc_out/cc/proto/vector2d.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/vector2d.proto | obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = vector2d
+  source = proto/vector2d.proto
+build pyproto/cc/proto/vector2df_pb2.py $
+    gen/protoc_out/cc/proto/vector2df.pb.cc $
+    gen/protoc_out/cc/proto/vector2df.pb.h: $
+    cc_proto_target_genproto_90d86b3d112df358386817327af52fa6 $
+    ../../cc/proto/vector2df.proto | obj/cc/cc_proto.genproto.stamp
+  ext = .proto
+  root = vector2df
+  source = proto/vector2df.proto
+build obj/cc/cc_proto.actions_rules_copies.stamp: stamp $
+    pyproto/cc/proto/begin_main_frame_and_commit_state_pb2.py $
+    gen/protoc_out/cc/proto/begin_main_frame_and_commit_state.pb.cc $
+    gen/protoc_out/cc/proto/begin_main_frame_and_commit_state.pb.h $
+    pyproto/cc/proto/commit_earlyout_reason_pb2.py $
+    gen/protoc_out/cc/proto/commit_earlyout_reason.pb.cc $
+    gen/protoc_out/cc/proto/commit_earlyout_reason.pb.h $
+    pyproto/cc/proto/compositor_message_pb2.py $
+    gen/protoc_out/cc/proto/compositor_message.pb.cc $
+    gen/protoc_out/cc/proto/compositor_message.pb.h $
+    pyproto/cc/proto/compositor_message_to_impl_pb2.py $
+    gen/protoc_out/cc/proto/compositor_message_to_impl.pb.cc $
+    gen/protoc_out/cc/proto/compositor_message_to_impl.pb.h $
+    pyproto/cc/proto/compositor_message_to_main_pb2.py $
+    gen/protoc_out/cc/proto/compositor_message_to_main.pb.cc $
+    gen/protoc_out/cc/proto/compositor_message_to_main.pb.h $
+    pyproto/cc/proto/display_item_pb2.py $
+    gen/protoc_out/cc/proto/display_item.pb.cc $
+    gen/protoc_out/cc/proto/display_item.pb.h pyproto/cc/proto/layer_pb2.py $
+    gen/protoc_out/cc/proto/layer.pb.cc gen/protoc_out/cc/proto/layer.pb.h $
+    pyproto/cc/proto/layer_position_constraint_pb2.py $
+    gen/protoc_out/cc/proto/layer_position_constraint.pb.cc $
+    gen/protoc_out/cc/proto/layer_position_constraint.pb.h $
+    pyproto/cc/proto/layer_tree_debug_state_pb2.py $
+    gen/protoc_out/cc/proto/layer_tree_debug_state.pb.cc $
+    gen/protoc_out/cc/proto/layer_tree_debug_state.pb.h $
+    pyproto/cc/proto/layer_tree_host_pb2.py $
+    gen/protoc_out/cc/proto/layer_tree_host.pb.cc $
+    gen/protoc_out/cc/proto/layer_tree_host.pb.h $
+    pyproto/cc/proto/layer_tree_settings_pb2.py $
+    gen/protoc_out/cc/proto/layer_tree_settings.pb.cc $
+    gen/protoc_out/cc/proto/layer_tree_settings.pb.h $
+    pyproto/cc/proto/layer_selection_bound_pb2.py $
+    gen/protoc_out/cc/proto/layer_selection_bound.pb.cc $
+    gen/protoc_out/cc/proto/layer_selection_bound.pb.h $
+    pyproto/cc/proto/managed_memory_policy_pb2.py $
+    gen/protoc_out/cc/proto/managed_memory_policy.pb.cc $
+    gen/protoc_out/cc/proto/managed_memory_policy.pb.h $
+    pyproto/cc/proto/memory_allocation_pb2.py $
+    gen/protoc_out/cc/proto/memory_allocation.pb.cc $
+    gen/protoc_out/cc/proto/memory_allocation.pb.h $
+    pyproto/cc/proto/point_pb2.py gen/protoc_out/cc/proto/point.pb.cc $
+    gen/protoc_out/cc/proto/point.pb.h pyproto/cc/proto/point3f_pb2.py $
+    gen/protoc_out/cc/proto/point3f.pb.cc $
+    gen/protoc_out/cc/proto/point3f.pb.h pyproto/cc/proto/pointf_pb2.py $
+    gen/protoc_out/cc/proto/pointf.pb.cc $
+    gen/protoc_out/cc/proto/pointf.pb.h $
+    pyproto/cc/proto/property_tree_pb2.py $
+    gen/protoc_out/cc/proto/property_tree.pb.cc $
+    gen/protoc_out/cc/proto/property_tree.pb.h $
+    pyproto/cc/proto/recording_source_pb2.py $
+    gen/protoc_out/cc/proto/recording_source.pb.cc $
+    gen/protoc_out/cc/proto/recording_source.pb.h $
+    pyproto/cc/proto/rect_pb2.py gen/protoc_out/cc/proto/rect.pb.cc $
+    gen/protoc_out/cc/proto/rect.pb.h pyproto/cc/proto/rectf_pb2.py $
+    gen/protoc_out/cc/proto/rectf.pb.cc gen/protoc_out/cc/proto/rectf.pb.h $
+    pyproto/cc/proto/region_pb2.py gen/protoc_out/cc/proto/region.pb.cc $
+    gen/protoc_out/cc/proto/region.pb.h $
+    pyproto/cc/proto/renderer_settings_pb2.py $
+    gen/protoc_out/cc/proto/renderer_settings.pb.cc $
+    gen/protoc_out/cc/proto/renderer_settings.pb.h $
+    pyproto/cc/proto/scroll_offset_pb2.py $
+    gen/protoc_out/cc/proto/scroll_offset.pb.cc $
+    gen/protoc_out/cc/proto/scroll_offset.pb.h pyproto/cc/proto/size_pb2.py $
+    gen/protoc_out/cc/proto/size.pb.cc gen/protoc_out/cc/proto/size.pb.h $
+    pyproto/cc/proto/sizef_pb2.py gen/protoc_out/cc/proto/sizef.pb.cc $
+    gen/protoc_out/cc/proto/sizef.pb.h pyproto/cc/proto/skregion_pb2.py $
+    gen/protoc_out/cc/proto/skregion.pb.cc $
+    gen/protoc_out/cc/proto/skregion.pb.h pyproto/cc/proto/skrrect_pb2.py $
+    gen/protoc_out/cc/proto/skrrect.pb.cc $
+    gen/protoc_out/cc/proto/skrrect.pb.h pyproto/cc/proto/skxfermode_pb2.py $
+    gen/protoc_out/cc/proto/skxfermode.pb.cc $
+    gen/protoc_out/cc/proto/skxfermode.pb.h $
+    pyproto/cc/proto/synced_property_pb2.py $
+    gen/protoc_out/cc/proto/synced_property.pb.cc $
+    gen/protoc_out/cc/proto/synced_property.pb.h $
+    pyproto/cc/proto/transform_pb2.py $
+    gen/protoc_out/cc/proto/transform.pb.cc $
+    gen/protoc_out/cc/proto/transform.pb.h pyproto/cc/proto/vector2d_pb2.py $
+    gen/protoc_out/cc/proto/vector2d.pb.cc $
+    gen/protoc_out/cc/proto/vector2d.pb.h pyproto/cc/proto/vector2df_pb2.py $
+    gen/protoc_out/cc/proto/vector2df.pb.cc $
+    gen/protoc_out/cc/proto/vector2df.pb.h
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DCC_PROTO_IMPLEMENTATION=1 $
+    -DPROTOBUF_USE_DLLS -DGOOGLE_PROTOBUF_NO_RTTI $
+    -DGOOGLE_PROTOBUF_NO_STATIC_INITIALIZER -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS $
+    -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -Igen/protoc_out -I../.. -I../../third_party/protobuf $
+    -I../../third_party/protobuf/src
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.begin_main_frame_and_commit_state.pb.o: $
+    cxx gen/protoc_out/cc/proto/begin_main_frame_and_commit_state.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.commit_earlyout_reason.pb.o: $
+    cxx gen/protoc_out/cc/proto/commit_earlyout_reason.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.compositor_message.pb.o: cxx $
+    gen/protoc_out/cc/proto/compositor_message.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.compositor_message_to_impl.pb.o: $
+    cxx gen/protoc_out/cc/proto/compositor_message_to_impl.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.compositor_message_to_main.pb.o: $
+    cxx gen/protoc_out/cc/proto/compositor_message_to_main.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.display_item.pb.o: cxx $
+    gen/protoc_out/cc/proto/display_item.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.layer.pb.o: cxx $
+    gen/protoc_out/cc/proto/layer.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.layer_position_constraint.pb.o: $
+    cxx gen/protoc_out/cc/proto/layer_position_constraint.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.layer_tree_debug_state.pb.o: $
+    cxx gen/protoc_out/cc/proto/layer_tree_debug_state.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.layer_tree_host.pb.o: cxx $
+    gen/protoc_out/cc/proto/layer_tree_host.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.layer_tree_settings.pb.o: cxx $
+    gen/protoc_out/cc/proto/layer_tree_settings.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.layer_selection_bound.pb.o: $
+    cxx gen/protoc_out/cc/proto/layer_selection_bound.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.managed_memory_policy.pb.o: $
+    cxx gen/protoc_out/cc/proto/managed_memory_policy.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.memory_allocation.pb.o: cxx $
+    gen/protoc_out/cc/proto/memory_allocation.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.point.pb.o: cxx $
+    gen/protoc_out/cc/proto/point.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.point3f.pb.o: cxx $
+    gen/protoc_out/cc/proto/point3f.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.pointf.pb.o: cxx $
+    gen/protoc_out/cc/proto/pointf.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.property_tree.pb.o: cxx $
+    gen/protoc_out/cc/proto/property_tree.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.recording_source.pb.o: cxx $
+    gen/protoc_out/cc/proto/recording_source.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.rect.pb.o: cxx $
+    gen/protoc_out/cc/proto/rect.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.rectf.pb.o: cxx $
+    gen/protoc_out/cc/proto/rectf.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.region.pb.o: cxx $
+    gen/protoc_out/cc/proto/region.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.renderer_settings.pb.o: cxx $
+    gen/protoc_out/cc/proto/renderer_settings.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.scroll_offset.pb.o: cxx $
+    gen/protoc_out/cc/proto/scroll_offset.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.size.pb.o: cxx $
+    gen/protoc_out/cc/proto/size.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.sizef.pb.o: cxx $
+    gen/protoc_out/cc/proto/sizef.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.skregion.pb.o: cxx $
+    gen/protoc_out/cc/proto/skregion.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.skrrect.pb.o: cxx $
+    gen/protoc_out/cc/proto/skrrect.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.skxfermode.pb.o: cxx $
+    gen/protoc_out/cc/proto/skxfermode.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.synced_property.pb.o: cxx $
+    gen/protoc_out/cc/proto/synced_property.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.transform.pb.o: cxx $
+    gen/protoc_out/cc/proto/transform.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.vector2d.pb.o: cxx $
+    gen/protoc_out/cc/proto/vector2d.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+build obj/cc/gen/protoc_out/cc/proto/cc_proto.vector2df.pb.o: cxx $
+    gen/protoc_out/cc/proto/vector2df.pb.cc || $
+    obj/cc/cc_proto.actions_rules_copies.stamp
+
+build obj/cc/libcc_proto.a: alink_thin $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.begin_main_frame_and_commit_state.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.commit_earlyout_reason.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.compositor_message.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.compositor_message_to_impl.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.compositor_message_to_main.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.display_item.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.layer.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.layer_position_constraint.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.layer_tree_debug_state.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.layer_tree_host.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.layer_tree_settings.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.layer_selection_bound.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.managed_memory_policy.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.memory_allocation.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.point.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.point3f.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.pointf.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.property_tree.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.recording_source.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.rect.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.rectf.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.region.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.renderer_settings.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.scroll_offset.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.size.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.sizef.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.skregion.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.skrrect.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.skxfermode.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.synced_property.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.transform.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.vector2d.pb.o $
+    obj/cc/gen/protoc_out/cc/proto/cc_proto.vector2df.pb.o || $
+    obj/cc/cc_proto.actions_rules_copies.stamp

@@ -1,0 +1,22 @@
+rule $
+    cached_lex_yacc_tables_target_cache_lex_yacc_tables_849bc8523cba189a74b38b3baa5f4004
+  command = cd ../../third_party/WebKit/Source/bindings/scripts; python $
+      blink_idl_parser.py $
+      ../../../../../out.cef/Release/gen/blink/bindings/scripts
+  description = ACTION Caching PLY lex & yacc lex/parse tables
+  restat = 1
+
+build gen/blink/bindings/scripts/lextab.py $
+    gen/blink/bindings/scripts/parsetab.pickle: $
+    cached_lex_yacc_tables_target_cache_lex_yacc_tables_849bc8523cba189a74b38b3baa5f4004 $
+    ../../third_party/ply/lex.py ../../third_party/ply/yacc.py $
+    ../../tools/idl_parser/idl_lexer.py ../../tools/idl_parser/idl_node.py $
+    ../../tools/idl_parser/idl_parser.py $
+    ../../third_party/WebKit/Source/bindings/scripts/blink_idl_lexer.py $
+    ../../third_party/WebKit/Source/bindings/scripts/blink_idl_parser.py
+
+build $
+    obj/third_party/WebKit/Source/bindings/scripts/cached_lex_yacc_tables.actions_rules_copies.stamp: $
+    stamp gen/blink/bindings/scripts/lextab.py $
+    gen/blink/bindings/scripts/parsetab.pickle
+

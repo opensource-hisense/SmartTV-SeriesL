@@ -1,0 +1,101 @@
+ar = $ar_host
+cc = $cc_host
+cxx = $cxx_host
+ld = $ld_host
+ldxx = $ldxx_host
+nm = $nm_host
+readelf = $readelf_host
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DHAVE_A_OUT_H -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -Igen -I../../breakpad/src -I../..
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-char-subscripts -Wno-unneeded-internal-declaration $
+    -Wno-covered-switch-default -Wno-c++11-narrowing $
+    -Wno-deprecated-register -Wno-inconsistent-missing-override $
+    -Wno-shift-negative-value -Wno-unused-variable -O2 -fno-ident $
+    -fdata-sections -ffunction-sections -funwind-tables
+cflags_c = 
+cflags_cc = -fno-exceptions -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-literal-suffix $
+    -std=gnu++11
+arflags = 
+
+build obj.host/breakpad/src/common/dwarf/dump_syms.bytereader.o: cxx $
+    ../../breakpad/src/common/dwarf/bytereader.cc
+build obj.host/breakpad/src/common/dump_syms.dwarf_cfi_to_module.o: cxx $
+    ../../breakpad/src/common/dwarf_cfi_to_module.cc
+build obj.host/breakpad/src/common/dump_syms.dwarf_cu_to_module.o: cxx $
+    ../../breakpad/src/common/dwarf_cu_to_module.cc
+build obj.host/breakpad/src/common/dwarf/dump_syms.dwarf2diehandler.o: cxx $
+    ../../breakpad/src/common/dwarf/dwarf2diehandler.cc
+build obj.host/breakpad/src/common/dwarf/dump_syms.dwarf2reader.o: cxx $
+    ../../breakpad/src/common/dwarf/dwarf2reader.cc
+build obj.host/breakpad/src/common/dump_syms.dwarf_line_to_module.o: cxx $
+    ../../breakpad/src/common/dwarf_line_to_module.cc
+build obj.host/breakpad/src/common/dump_syms.language.o: cxx $
+    ../../breakpad/src/common/language.cc
+build obj.host/breakpad/src/common/linux/dump_syms.crc32.o: cxx $
+    ../../breakpad/src/common/linux/crc32.cc
+build obj.host/breakpad/src/common/linux/dump_syms.dump_symbols.o: cxx $
+    ../../breakpad/src/common/linux/dump_symbols.cc
+build obj.host/breakpad/src/common/linux/dump_syms.elf_symbols_to_module.o: $
+    cxx ../../breakpad/src/common/linux/elf_symbols_to_module.cc
+build obj.host/breakpad/src/common/linux/dump_syms.elfutils.o: cxx $
+    ../../breakpad/src/common/linux/elfutils.cc
+build obj.host/breakpad/src/common/linux/dump_syms.file_id.o: cxx $
+    ../../breakpad/src/common/linux/file_id.cc
+build obj.host/breakpad/src/common/linux/dump_syms.linux_libc_support.o: $
+    cxx ../../breakpad/src/common/linux/linux_libc_support.cc
+build obj.host/breakpad/src/common/linux/dump_syms.memory_mapped_file.o: $
+    cxx ../../breakpad/src/common/linux/memory_mapped_file.cc
+build obj.host/breakpad/src/common/dump_syms.module.o: cxx $
+    ../../breakpad/src/common/module.cc
+build obj.host/breakpad/src/common/dump_syms.stabs_reader.o: cxx $
+    ../../breakpad/src/common/stabs_reader.cc
+build obj.host/breakpad/src/common/dump_syms.stabs_to_module.o: cxx $
+    ../../breakpad/src/common/stabs_to_module.cc
+build obj.host/breakpad/src/tools/linux/dump_syms/dump_syms.dump_syms.o: $
+    cxx ../../breakpad/src/tools/linux/dump_syms/dump_syms.cc
+
+ldflags = -L/work/bsp/sc1400/usr/local/lib -L/work/bsp/sc1400/lib $
+    -L/work/bsp/sc1400/usr/lib -Wl,-z,now -Wl,-z,relro -Wl,-z,defs -pthread $
+    -Wl,-z,noexecstack -fPIC -Wl,--disable-new-dtags -Wl,-O1 $
+    -Wl,--as-needed -Wl,--gc-sections
+libs = 
+build dump_syms: link $
+    obj.host/breakpad/src/common/dwarf/dump_syms.bytereader.o $
+    obj.host/breakpad/src/common/dump_syms.dwarf_cfi_to_module.o $
+    obj.host/breakpad/src/common/dump_syms.dwarf_cu_to_module.o $
+    obj.host/breakpad/src/common/dwarf/dump_syms.dwarf2diehandler.o $
+    obj.host/breakpad/src/common/dwarf/dump_syms.dwarf2reader.o $
+    obj.host/breakpad/src/common/dump_syms.dwarf_line_to_module.o $
+    obj.host/breakpad/src/common/dump_syms.language.o $
+    obj.host/breakpad/src/common/linux/dump_syms.crc32.o $
+    obj.host/breakpad/src/common/linux/dump_syms.dump_symbols.o $
+    obj.host/breakpad/src/common/linux/dump_syms.elf_symbols_to_module.o $
+    obj.host/breakpad/src/common/linux/dump_syms.elfutils.o $
+    obj.host/breakpad/src/common/linux/dump_syms.file_id.o $
+    obj.host/breakpad/src/common/linux/dump_syms.linux_libc_support.o $
+    obj.host/breakpad/src/common/linux/dump_syms.memory_mapped_file.o $
+    obj.host/breakpad/src/common/dump_syms.module.o $
+    obj.host/breakpad/src/common/dump_syms.stabs_reader.o $
+    obj.host/breakpad/src/common/dump_syms.stabs_to_module.o $
+    obj.host/breakpad/src/tools/linux/dump_syms/dump_syms.dump_syms.o
+  ld = $ldxx

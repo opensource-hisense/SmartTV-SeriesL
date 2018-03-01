@@ -1,0 +1,137 @@
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DWEBRTC_RESTRICT_LOGGING $
+    -DEXPAT_RELATIVE_PATH -DWEBRTC_CHROMIUM_BUILD -DLOGGING_INSIDE_WEBRTC $
+    -DWEBRTC_ARCH_ARM -DWEBRTC_ARCH_ARM_V7 -DWEBRTC_HAS_NEON -DWEBRTC_POSIX $
+    -DWEBRTC_LINUX -DOPUS_FIXED_POINT -DFEATURE_ENABLE_SSL $
+    -DFEATURE_ENABLE_VOICEMAIL -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS $
+    -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../third_party/webrtc_overrides $
+    -I../../third_party -I../../third_party/usrsctp/usrsctplib $
+    -I../../third_party/webrtc/modules/audio_coding/include $
+    -I../../third_party/webrtc/modules/include -I../../third_party/webrtc $
+    -I../../third_party/opus/src/src -I../../third_party/opus/src/celt $
+    -I../../third_party/opus/src/include -I../../third_party/libyuv/include $
+    -I../../third_party/libyuv $
+    -I../../third_party/usrsctp/usrsctplib/usrsctplib $
+    -I../../third_party/usrsctp/usrsctplib/usrsctplib/netinet
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -Wno-deprecated-declarations -march=armv8-a $
+    -mtune=cortex-a53 -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/third_party/webrtc/media/base/rtc_media.codec.o: cxx $
+    ../../third_party/webrtc/media/base/codec.cc
+build obj/third_party/webrtc/media/base/rtc_media.cpuid.o: cxx $
+    ../../third_party/webrtc/media/base/cpuid.cc
+build obj/third_party/webrtc/media/base/rtc_media.mediaconstants.o: cxx $
+    ../../third_party/webrtc/media/base/mediaconstants.cc
+build obj/third_party/webrtc/media/base/rtc_media.mediaengine.o: cxx $
+    ../../third_party/webrtc/media/base/mediaengine.cc
+build obj/third_party/webrtc/media/base/rtc_media.rtpdataengine.o: cxx $
+    ../../third_party/webrtc/media/base/rtpdataengine.cc
+build obj/third_party/webrtc/media/base/rtc_media.rtpdump.o: cxx $
+    ../../third_party/webrtc/media/base/rtpdump.cc
+build obj/third_party/webrtc/media/base/rtc_media.rtputils.o: cxx $
+    ../../third_party/webrtc/media/base/rtputils.cc
+build obj/third_party/webrtc/media/base/rtc_media.streamparams.o: cxx $
+    ../../third_party/webrtc/media/base/streamparams.cc
+build obj/third_party/webrtc/media/base/rtc_media.turnutils.o: cxx $
+    ../../third_party/webrtc/media/base/turnutils.cc
+build obj/third_party/webrtc/media/base/rtc_media.videoadapter.o: cxx $
+    ../../third_party/webrtc/media/base/videoadapter.cc
+build obj/third_party/webrtc/media/base/rtc_media.videobroadcaster.o: cxx $
+    ../../third_party/webrtc/media/base/videobroadcaster.cc
+build obj/third_party/webrtc/media/base/rtc_media.videocapturer.o: cxx $
+    ../../third_party/webrtc/media/base/videocapturer.cc
+build obj/third_party/webrtc/media/base/rtc_media.videocommon.o: cxx $
+    ../../third_party/webrtc/media/base/videocommon.cc
+build obj/third_party/webrtc/media/base/rtc_media.videoframe.o: cxx $
+    ../../third_party/webrtc/media/base/videoframe.cc
+build obj/third_party/webrtc/media/base/rtc_media.videoframefactory.o: cxx $
+    ../../third_party/webrtc/media/base/videoframefactory.cc
+build obj/third_party/webrtc/media/base/rtc_media.videosourcebase.o: cxx $
+    ../../third_party/webrtc/media/base/videosourcebase.cc
+build obj/third_party/webrtc/media/base/rtc_media.yuvframegenerator.o: cxx $
+    ../../third_party/webrtc/media/base/yuvframegenerator.cc
+build obj/third_party/webrtc/media/engine/rtc_media.simulcast.o: cxx $
+    ../../third_party/webrtc/media/engine/simulcast.cc
+build obj/third_party/webrtc/media/engine/rtc_media.webrtcmediaengine.o: $
+    cxx ../../third_party/webrtc/media/engine/webrtcmediaengine.cc
+build obj/third_party/webrtc/media/engine/rtc_media.webrtcvideocapturer.o: $
+    cxx ../../third_party/webrtc/media/engine/webrtcvideocapturer.cc
+build $
+    obj/third_party/webrtc/media/engine/rtc_media.webrtcvideocapturerfactory.o: $
+    cxx ../../third_party/webrtc/media/engine/webrtcvideocapturerfactory.cc
+build obj/third_party/webrtc/media/engine/rtc_media.webrtcvideoengine2.o: $
+    cxx ../../third_party/webrtc/media/engine/webrtcvideoengine2.cc
+build obj/third_party/webrtc/media/engine/rtc_media.webrtcvideoframe.o: cxx $
+    ../../third_party/webrtc/media/engine/webrtcvideoframe.cc
+build $
+    obj/third_party/webrtc/media/engine/rtc_media.webrtcvideoframefactory.o: $
+    cxx ../../third_party/webrtc/media/engine/webrtcvideoframefactory.cc
+build obj/third_party/webrtc/media/engine/rtc_media.webrtcvoiceengine.o: $
+    cxx ../../third_party/webrtc/media/engine/webrtcvoiceengine.cc
+build obj/third_party/webrtc/media/sctp/rtc_media.sctpdataengine.o: cxx $
+    ../../third_party/webrtc/media/sctp/sctpdataengine.cc
+
+build obj/third_party/webrtc/media/librtc_media.a: alink_thin $
+    obj/third_party/webrtc/media/base/rtc_media.codec.o $
+    obj/third_party/webrtc/media/base/rtc_media.cpuid.o $
+    obj/third_party/webrtc/media/base/rtc_media.mediaconstants.o $
+    obj/third_party/webrtc/media/base/rtc_media.mediaengine.o $
+    obj/third_party/webrtc/media/base/rtc_media.rtpdataengine.o $
+    obj/third_party/webrtc/media/base/rtc_media.rtpdump.o $
+    obj/third_party/webrtc/media/base/rtc_media.rtputils.o $
+    obj/third_party/webrtc/media/base/rtc_media.streamparams.o $
+    obj/third_party/webrtc/media/base/rtc_media.turnutils.o $
+    obj/third_party/webrtc/media/base/rtc_media.videoadapter.o $
+    obj/third_party/webrtc/media/base/rtc_media.videobroadcaster.o $
+    obj/third_party/webrtc/media/base/rtc_media.videocapturer.o $
+    obj/third_party/webrtc/media/base/rtc_media.videocommon.o $
+    obj/third_party/webrtc/media/base/rtc_media.videoframe.o $
+    obj/third_party/webrtc/media/base/rtc_media.videoframefactory.o $
+    obj/third_party/webrtc/media/base/rtc_media.videosourcebase.o $
+    obj/third_party/webrtc/media/base/rtc_media.yuvframegenerator.o $
+    obj/third_party/webrtc/media/engine/rtc_media.simulcast.o $
+    obj/third_party/webrtc/media/engine/rtc_media.webrtcmediaengine.o $
+    obj/third_party/webrtc/media/engine/rtc_media.webrtcvideocapturer.o $
+    obj/third_party/webrtc/media/engine/rtc_media.webrtcvideocapturerfactory.o $
+    obj/third_party/webrtc/media/engine/rtc_media.webrtcvideoengine2.o $
+    obj/third_party/webrtc/media/engine/rtc_media.webrtcvideoframe.o $
+    obj/third_party/webrtc/media/engine/rtc_media.webrtcvideoframefactory.o $
+    obj/third_party/webrtc/media/engine/rtc_media.webrtcvoiceengine.o $
+    obj/third_party/webrtc/media/sctp/rtc_media.sctpdataengine.o

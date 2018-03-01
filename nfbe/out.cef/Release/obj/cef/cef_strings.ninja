@@ -1,0 +1,267 @@
+rule cef_strings_target_cef_strings_11c16d309f255ba2d2c2b6936ffa57d8
+  command = cd ../../cef; python ../tools/grit/grit.py -i $
+      libcef/resources/cef_strings.grd build -f $
+      ../tools/gritsettings/resource_ids -o ../out.cef/Release/gen/cef $
+      "--write-only-new=1" -D _chromium -E "CHROMIUM_BUILD=chromium" -D $
+      desktop_linux -D use_aura -D use_nss_certs -D use_nss_verifier -D $
+      use_ozone -D enable_extensions -D enable_plugins -D enable_printing $
+      -D enable_themes -D enable_app_list -D enable_settings_app -D $
+      use_concatenated_impulse_responses -D enable_media_router -D $
+      enable_task_manager -D enable_topchrome_md -D enable_service_discovery
+  description = ACTION Generating resources from $
+      libcef/resources/cef_strings.grd
+  restat = 1
+
+build gen/cef/grit/cef_strings.h gen/cef/cef_strings_am.pak $
+    gen/cef/cef_strings_ar.pak gen/cef/cef_strings_bg.pak $
+    gen/cef/cef_strings_bn.pak gen/cef/cef_strings_ca.pak $
+    gen/cef/cef_strings_cs.pak gen/cef/cef_strings_da.pak $
+    gen/cef/cef_strings_de.pak gen/cef/cef_strings_el.pak $
+    gen/cef/cef_strings_en-GB.pak gen/cef/cef_strings_en-US.pak $
+    gen/cef/cef_strings_es.pak gen/cef/cef_strings_es-419.pak $
+    gen/cef/cef_strings_et.pak gen/cef/cef_strings_fa.pak $
+    gen/cef/cef_strings_fake-bidi.pak gen/cef/cef_strings_fi.pak $
+    gen/cef/cef_strings_fil.pak gen/cef/cef_strings_fr.pak $
+    gen/cef/cef_strings_gu.pak gen/cef/cef_strings_he.pak $
+    gen/cef/cef_strings_hi.pak gen/cef/cef_strings_hr.pak $
+    gen/cef/cef_strings_hu.pak gen/cef/cef_strings_id.pak $
+    gen/cef/cef_strings_it.pak gen/cef/cef_strings_ja.pak $
+    gen/cef/cef_strings_kn.pak gen/cef/cef_strings_ko.pak $
+    gen/cef/cef_strings_lt.pak gen/cef/cef_strings_lv.pak $
+    gen/cef/cef_strings_ml.pak gen/cef/cef_strings_mr.pak $
+    gen/cef/cef_strings_ms.pak gen/cef/cef_strings_nl.pak $
+    gen/cef/cef_strings_nb.pak gen/cef/cef_strings_pl.pak $
+    gen/cef/cef_strings_pt-BR.pak gen/cef/cef_strings_pt-PT.pak $
+    gen/cef/cef_strings_ro.pak gen/cef/cef_strings_ru.pak $
+    gen/cef/cef_strings_sk.pak gen/cef/cef_strings_sl.pak $
+    gen/cef/cef_strings_sr.pak gen/cef/cef_strings_sv.pak $
+    gen/cef/cef_strings_sw.pak gen/cef/cef_strings_ta.pak $
+    gen/cef/cef_strings_te.pak gen/cef/cef_strings_th.pak $
+    gen/cef/cef_strings_tr.pak gen/cef/cef_strings_uk.pak $
+    gen/cef/cef_strings_vi.pak gen/cef/cef_strings_zh-CN.pak $
+    gen/cef/cef_strings_zh-TW.pak: $
+    cef_strings_target_cef_strings_11c16d309f255ba2d2c2b6936ffa57d8 $
+    ../../chrome/app/resources/generated_resources_am.xtb $
+    ../../cef/libcef/resources/cef_strings.grd $
+    ../../chrome/app/resources/generated_resources_ar.xtb $
+    ../../chrome/app/resources/generated_resources_bg.xtb $
+    ../../chrome/app/resources/generated_resources_bn.xtb $
+    ../../chrome/app/resources/generated_resources_ca.xtb $
+    ../../chrome/app/resources/generated_resources_cs.xtb $
+    ../../chrome/app/resources/generated_resources_da.xtb $
+    ../../chrome/app/resources/generated_resources_de.xtb $
+    ../../chrome/app/resources/generated_resources_el.xtb $
+    ../../chrome/app/resources/generated_resources_en-GB.xtb $
+    ../../chrome/app/resources/generated_resources_es-419.xtb $
+    ../../chrome/app/resources/generated_resources_es.xtb $
+    ../../chrome/app/resources/generated_resources_et.xtb $
+    ../../chrome/app/resources/generated_resources_fa.xtb $
+    ../../chrome/app/resources/generated_resources_fi.xtb $
+    ../../chrome/app/resources/generated_resources_fil.xtb $
+    ../../chrome/app/resources/generated_resources_fr.xtb $
+    ../../chrome/app/resources/generated_resources_gu.xtb $
+    ../../chrome/app/resources/generated_resources_hi.xtb $
+    ../../chrome/app/resources/generated_resources_hr.xtb $
+    ../../chrome/app/resources/generated_resources_hu.xtb $
+    ../../chrome/app/resources/generated_resources_id.xtb $
+    ../../chrome/app/resources/generated_resources_it.xtb $
+    ../../chrome/app/resources/generated_resources_iw.xtb $
+    ../../chrome/app/resources/generated_resources_ja.xtb $
+    ../../chrome/app/resources/generated_resources_kn.xtb $
+    ../../chrome/app/resources/generated_resources_ko.xtb $
+    ../../chrome/app/resources/generated_resources_lt.xtb $
+    ../../chrome/app/resources/generated_resources_lv.xtb $
+    ../../chrome/app/resources/generated_resources_ml.xtb $
+    ../../chrome/app/resources/generated_resources_mr.xtb $
+    ../../chrome/app/resources/generated_resources_nl.xtb $
+    ../../chrome/app/resources/generated_resources_no.xtb $
+    ../../chrome/app/resources/generated_resources_pl.xtb $
+    ../../chrome/app/resources/generated_resources_pt-BR.xtb $
+    ../../chrome/app/resources/generated_resources_pt-PT.xtb $
+    ../../chrome/app/resources/generated_resources_ro.xtb $
+    ../../chrome/app/resources/generated_resources_ru.xtb $
+    ../../chrome/app/resources/generated_resources_sk.xtb $
+    ../../chrome/app/resources/generated_resources_sl.xtb $
+    ../../chrome/app/resources/generated_resources_sr.xtb $
+    ../../chrome/app/resources/generated_resources_sv.xtb $
+    ../../chrome/app/resources/generated_resources_sw.xtb $
+    ../../chrome/app/resources/generated_resources_ta.xtb $
+    ../../chrome/app/resources/generated_resources_te.xtb $
+    ../../chrome/app/resources/generated_resources_th.xtb $
+    ../../chrome/app/resources/generated_resources_tr.xtb $
+    ../../chrome/app/resources/generated_resources_uk.xtb $
+    ../../chrome/app/resources/generated_resources_vi.xtb $
+    ../../chrome/app/resources/generated_resources_zh-CN.xtb $
+    ../../chrome/app/resources/generated_resources_zh-TW.xtb $
+    ../../chrome/app/resources/locale_settings_am.xtb $
+    ../../chrome/app/resources/locale_settings_ar.xtb $
+    ../../chrome/app/resources/locale_settings_bg.xtb $
+    ../../chrome/app/resources/locale_settings_bn.xtb $
+    ../../chrome/app/resources/locale_settings_ca.xtb $
+    ../../chrome/app/resources/locale_settings_cs.xtb $
+    ../../chrome/app/resources/locale_settings_da.xtb $
+    ../../chrome/app/resources/locale_settings_de.xtb $
+    ../../chrome/app/resources/locale_settings_el.xtb $
+    ../../chrome/app/resources/locale_settings_en-GB.xtb $
+    ../../chrome/app/resources/locale_settings_es-419.xtb $
+    ../../chrome/app/resources/locale_settings_es.xtb $
+    ../../chrome/app/resources/locale_settings_et.xtb $
+    ../../chrome/app/resources/locale_settings_fa.xtb $
+    ../../chrome/app/resources/locale_settings_fi.xtb $
+    ../../chrome/app/resources/locale_settings_fil.xtb $
+    ../../chrome/app/resources/locale_settings_fr.xtb $
+    ../../chrome/app/resources/locale_settings_gu.xtb $
+    ../../chrome/app/resources/locale_settings_he.xtb $
+    ../../chrome/app/resources/locale_settings_hi.xtb $
+    ../../chrome/app/resources/locale_settings_hr.xtb $
+    ../../chrome/app/resources/locale_settings_hu.xtb $
+    ../../chrome/app/resources/locale_settings_id.xtb $
+    ../../chrome/app/resources/locale_settings_it.xtb $
+    ../../chrome/app/resources/locale_settings_ja.xtb $
+    ../../chrome/app/resources/locale_settings_kn.xtb $
+    ../../chrome/app/resources/locale_settings_ko.xtb $
+    ../../chrome/app/resources/locale_settings_lt.xtb $
+    ../../chrome/app/resources/locale_settings_lv.xtb $
+    ../../chrome/app/resources/locale_settings_ml.xtb $
+    ../../chrome/app/resources/locale_settings_mr.xtb $
+    ../../chrome/app/resources/locale_settings_ms.xtb $
+    ../../chrome/app/resources/locale_settings_nb.xtb $
+    ../../chrome/app/resources/locale_settings_nl.xtb $
+    ../../chrome/app/resources/locale_settings_pl.xtb $
+    ../../chrome/app/resources/locale_settings_pt-BR.xtb $
+    ../../chrome/app/resources/locale_settings_pt-PT.xtb $
+    ../../chrome/app/resources/locale_settings_ro.xtb $
+    ../../chrome/app/resources/locale_settings_ru.xtb $
+    ../../chrome/app/resources/locale_settings_sk.xtb $
+    ../../chrome/app/resources/locale_settings_sl.xtb $
+    ../../chrome/app/resources/locale_settings_sr.xtb $
+    ../../chrome/app/resources/locale_settings_sv.xtb $
+    ../../chrome/app/resources/locale_settings_sw.xtb $
+    ../../chrome/app/resources/locale_settings_ta.xtb $
+    ../../chrome/app/resources/locale_settings_te.xtb $
+    ../../chrome/app/resources/locale_settings_th.xtb $
+    ../../chrome/app/resources/locale_settings_tr.xtb $
+    ../../chrome/app/resources/locale_settings_uk.xtb $
+    ../../chrome/app/resources/locale_settings_vi.xtb $
+    ../../chrome/app/resources/locale_settings_zh-CN.xtb $
+    ../../chrome/app/resources/locale_settings_zh-TW.xtb $
+    ../../tools/gritsettings/resource_ids ../../tools/grit/PRESUBMIT.py $
+    ../../tools/grit/grit.py ../../tools/grit/grit/__init__.py $
+    ../../tools/grit/grit/clique.py ../../tools/grit/grit/constants.py $
+    ../../tools/grit/grit/exception.py $
+    ../../tools/grit/grit/extern/BogoFP.py $
+    ../../tools/grit/grit/extern/FP.py $
+    ../../tools/grit/grit/extern/__init__.py $
+    ../../tools/grit/grit/extern/tclib.py $
+    ../../tools/grit/grit/format/__init__.py $
+    ../../tools/grit/grit/format/android_xml.py $
+    ../../tools/grit/grit/format/c_format.py $
+    ../../tools/grit/grit/format/chrome_messages_json.py $
+    ../../tools/grit/grit/format/data_pack.py $
+    ../../tools/grit/grit/format/html_inline.py $
+    ../../tools/grit/grit/format/js_map_format.py $
+    ../../tools/grit/grit/format/policy_templates/PRESUBMIT.py $
+    ../../tools/grit/grit/format/policy_templates/__init__.py $
+    ../../tools/grit/grit/format/policy_templates/policy_template_generator.py $
+    ../../tools/grit/grit/format/policy_templates/template_formatter.py $
+    ../../tools/grit/grit/format/policy_templates/writer_configuration.py $
+    ../../tools/grit/grit/format/policy_templates/writers/__init__.py $
+    ../../tools/grit/grit/format/policy_templates/writers/adm_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/adml_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/admx_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/android_policy_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/doc_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/ios_plist_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/json_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/mock_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/plist_helper.py $
+    ../../tools/grit/grit/format/policy_templates/writers/plist_strings_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/plist_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/reg_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/template_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/writer_unittest_common.py $
+    ../../tools/grit/grit/format/policy_templates/writers/xml_formatted_writer.py $
+    ../../tools/grit/grit/format/rc.py $
+    ../../tools/grit/grit/format/rc_header.py $
+    ../../tools/grit/grit/format/repack.py $
+    ../../tools/grit/grit/format/resource_map.py $
+    ../../tools/grit/grit/gather/__init__.py $
+    ../../tools/grit/grit/gather/admin_template.py $
+    ../../tools/grit/grit/gather/chrome_html.py $
+    ../../tools/grit/grit/gather/chrome_scaled_image.py $
+    ../../tools/grit/grit/gather/igoogle_strings.py $
+    ../../tools/grit/grit/gather/interface.py $
+    ../../tools/grit/grit/gather/json_loader.py $
+    ../../tools/grit/grit/gather/muppet_strings.py $
+    ../../tools/grit/grit/gather/policy_json.py $
+    ../../tools/grit/grit/gather/rc.py $
+    ../../tools/grit/grit/gather/regexp.py $
+    ../../tools/grit/grit/gather/skeleton_gatherer.py $
+    ../../tools/grit/grit/gather/tr_html.py $
+    ../../tools/grit/grit/gather/txt.py ../../tools/grit/grit/grd_reader.py $
+    ../../tools/grit/grit/grit_runner.py ../../tools/grit/grit/lazy_re.py $
+    ../../tools/grit/grit/node/__init__.py $
+    ../../tools/grit/grit/node/base.py $
+    ../../tools/grit/grit/node/custom/__init__.py $
+    ../../tools/grit/grit/node/custom/filename.py $
+    ../../tools/grit/grit/node/empty.py $
+    ../../tools/grit/grit/node/include.py ../../tools/grit/grit/node/io.py $
+    ../../tools/grit/grit/node/mapping.py $
+    ../../tools/grit/grit/node/message.py $
+    ../../tools/grit/grit/node/misc.py $
+    ../../tools/grit/grit/node/structure.py $
+    ../../tools/grit/grit/node/variant.py ../../tools/grit/grit/pseudo.py $
+    ../../tools/grit/grit/pseudo_rtl.py ../../tools/grit/grit/scons.py $
+    ../../tools/grit/grit/shortcuts.py $
+    ../../tools/grit/grit/shortcuts_unittests.py $
+    ../../tools/grit/grit/tclib.py ../../tools/grit/grit/test_suite_all.py $
+    ../../tools/grit/grit/tool/__init__.py $
+    ../../tools/grit/grit/tool/android2grd.py $
+    ../../tools/grit/grit/tool/build.py $
+    ../../tools/grit/grit/tool/buildinfo.py $
+    ../../tools/grit/grit/tool/count.py $
+    ../../tools/grit/grit/tool/diff_structures.py $
+    ../../tools/grit/grit/tool/interface.py $
+    ../../tools/grit/grit/tool/menu_from_parts.py $
+    ../../tools/grit/grit/tool/newgrd.py $
+    ../../tools/grit/grit/tool/postprocess_interface.py $
+    ../../tools/grit/grit/tool/preprocess_interface.py $
+    ../../tools/grit/grit/tool/rc2grd.py $
+    ../../tools/grit/grit/tool/resize.py ../../tools/grit/grit/tool/test.py $
+    ../../tools/grit/grit/tool/toolbar_postprocess.py $
+    ../../tools/grit/grit/tool/toolbar_preprocess.py $
+    ../../tools/grit/grit/tool/transl2tc.py $
+    ../../tools/grit/grit/tool/unit.py ../../tools/grit/grit/tool/xmb.py $
+    ../../tools/grit/grit/util.py ../../tools/grit/grit/xtb_reader.py $
+    ../../tools/grit/grit_info.py ../../tools/grit/stamp_grit_sources.py
+
+build obj/cef/cef_strings.actions_rules_copies.stamp: stamp $
+    gen/cef/grit/cef_strings.h gen/cef/cef_strings_am.pak $
+    gen/cef/cef_strings_ar.pak gen/cef/cef_strings_bg.pak $
+    gen/cef/cef_strings_bn.pak gen/cef/cef_strings_ca.pak $
+    gen/cef/cef_strings_cs.pak gen/cef/cef_strings_da.pak $
+    gen/cef/cef_strings_de.pak gen/cef/cef_strings_el.pak $
+    gen/cef/cef_strings_en-GB.pak gen/cef/cef_strings_en-US.pak $
+    gen/cef/cef_strings_es.pak gen/cef/cef_strings_es-419.pak $
+    gen/cef/cef_strings_et.pak gen/cef/cef_strings_fa.pak $
+    gen/cef/cef_strings_fake-bidi.pak gen/cef/cef_strings_fi.pak $
+    gen/cef/cef_strings_fil.pak gen/cef/cef_strings_fr.pak $
+    gen/cef/cef_strings_gu.pak gen/cef/cef_strings_he.pak $
+    gen/cef/cef_strings_hi.pak gen/cef/cef_strings_hr.pak $
+    gen/cef/cef_strings_hu.pak gen/cef/cef_strings_id.pak $
+    gen/cef/cef_strings_it.pak gen/cef/cef_strings_ja.pak $
+    gen/cef/cef_strings_kn.pak gen/cef/cef_strings_ko.pak $
+    gen/cef/cef_strings_lt.pak gen/cef/cef_strings_lv.pak $
+    gen/cef/cef_strings_ml.pak gen/cef/cef_strings_mr.pak $
+    gen/cef/cef_strings_ms.pak gen/cef/cef_strings_nl.pak $
+    gen/cef/cef_strings_nb.pak gen/cef/cef_strings_pl.pak $
+    gen/cef/cef_strings_pt-BR.pak gen/cef/cef_strings_pt-PT.pak $
+    gen/cef/cef_strings_ro.pak gen/cef/cef_strings_ru.pak $
+    gen/cef/cef_strings_sk.pak gen/cef/cef_strings_sl.pak $
+    gen/cef/cef_strings_sr.pak gen/cef/cef_strings_sv.pak $
+    gen/cef/cef_strings_sw.pak gen/cef/cef_strings_ta.pak $
+    gen/cef/cef_strings_te.pak gen/cef/cef_strings_th.pak $
+    gen/cef/cef_strings_tr.pak gen/cef/cef_strings_uk.pak $
+    gen/cef/cef_strings_vi.pak gen/cef/cef_strings_zh-CN.pak $
+    gen/cef/cef_strings_zh-TW.pak
+

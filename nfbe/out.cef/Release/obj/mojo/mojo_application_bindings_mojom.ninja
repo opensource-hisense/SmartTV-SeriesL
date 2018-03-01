@@ -1,0 +1,172 @@
+build obj/mojo/mojo_application_bindings_mojom.actions_depends.stamp: stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    lib/libbase.so.TOC $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp
+
+build obj/mojo/mojo_application_bindings_mojom.compile_depends.stamp: stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp
+
+rule $
+    mojo_application_bindings_mojom_target_mojo_application_bindings_mojom_mojom_bindings_stamp_fe5d25445312dc590d1226229cdf8cf3
+  command = cd ../../mojo; python ../build/rmdir_and_stamp.py $
+      ../out.cef/Release/java_mojo/mojo_application_bindings_mojom/src $
+      ../out.cef/Release/java_mojo/mojo_application_bindings_mojom/mojo_application_bindings_mojom.stamp
+  description = ACTION mojo_application_bindings_mojom: $
+      mojo_application_bindings_mojom_mojom_bindings_stamp_fe5d25445312dc590d1226229cdf8cf3
+  restat = 1
+
+build $
+    java_mojo/mojo_application_bindings_mojom/mojo_application_bindings_mojom.stamp: $
+    mojo_application_bindings_mojom_target_mojo_application_bindings_mojom_mojom_bindings_stamp_fe5d25445312dc590d1226229cdf8cf3 $
+    ../../mojo/services/catalog/public/interfaces/catalog.mojom $
+    ../../mojo/services/catalog/public/interfaces/resolver.mojom $
+    ../../mojo/shell/public/interfaces/capabilities.mojom $
+    ../../mojo/shell/public/interfaces/connector.mojom $
+    ../../mojo/shell/public/interfaces/interface_provider.mojom $
+    ../../mojo/shell/public/interfaces/shell.mojom $
+    ../../mojo/shell/public/interfaces/shell_client.mojom $
+    ../../mojo/shell/public/interfaces/shell_client_factory.mojom $
+    ../../mojo/shell/public/interfaces/shell_resolver.mojom || $
+    obj/mojo/mojo_application_bindings_mojom.actions_depends.stamp
+
+rule $
+    mojo_application_bindings_mojom_target_mojo_application_bindings_mojom_mojom_bindings_generator_fe5d25445312dc590d1226229cdf8cf3
+  command = cd ../../mojo; python $
+      ../mojo/public/tools/bindings/mojom_bindings_generator.py $
+      --use_bundled_pylibs generate $
+      services/catalog/public/interfaces/catalog.mojom $
+      services/catalog/public/interfaces/resolver.mojom $
+      shell/public/interfaces/capabilities.mojom $
+      shell/public/interfaces/connector.mojom $
+      shell/public/interfaces/interface_provider.mojom $
+      shell/public/interfaces/shell.mojom $
+      shell/public/interfaces/shell_client.mojom $
+      shell/public/interfaces/shell_client_factory.mojom $
+      shell/public/interfaces/shell_resolver.mojom -d .. -I.. $
+      -I../mojo/services -I.. -o ../out.cef/Release/gen $
+      "--java_output_directory=../out.cef/Release/java_mojo/mojo_application_bindings_mojom/src" $
+      --variant none -g c++,javascript,java --bytecode_path $
+      ../out.cef/Release/gen/mojo/public/tools/bindings
+  description = ACTION Generating Mojo bindings from $
+      services/catalog/public/interfaces/catalog.mojom $
+      services/catalog/public/interfaces/resolver.mojom $
+      shell/public/interfaces/capabilities.mojom $
+      shell/public/interfaces/connector.mojom $
+      shell/public/interfaces/interface_provider.mojom $
+      shell/public/interfaces/shell.mojom $
+      shell/public/interfaces/shell_client.mojom $
+      shell/public/interfaces/shell_client_factory.mojom $
+      shell/public/interfaces/shell_resolver.mojom
+  restat = 1
+
+build gen/mojo/services/catalog/public/interfaces/catalog.mojom.cc $
+    gen/mojo/services/catalog/public/interfaces/catalog.mojom.h $
+    gen/mojo/services/catalog/public/interfaces/catalog.mojom-internal.h $
+    gen/mojo/services/catalog/public/interfaces/catalog.mojom.js $
+    gen/mojo/services/catalog/public/interfaces/resolver.mojom.cc $
+    gen/mojo/services/catalog/public/interfaces/resolver.mojom.h $
+    gen/mojo/services/catalog/public/interfaces/resolver.mojom-internal.h $
+    gen/mojo/services/catalog/public/interfaces/resolver.mojom.js $
+    gen/mojo/shell/public/interfaces/capabilities.mojom.cc $
+    gen/mojo/shell/public/interfaces/capabilities.mojom.h $
+    gen/mojo/shell/public/interfaces/capabilities.mojom-internal.h $
+    gen/mojo/shell/public/interfaces/capabilities.mojom.js $
+    gen/mojo/shell/public/interfaces/connector.mojom.cc $
+    gen/mojo/shell/public/interfaces/connector.mojom.h $
+    gen/mojo/shell/public/interfaces/connector.mojom-internal.h $
+    gen/mojo/shell/public/interfaces/connector.mojom.js $
+    gen/mojo/shell/public/interfaces/interface_provider.mojom.cc $
+    gen/mojo/shell/public/interfaces/interface_provider.mojom.h $
+    gen/mojo/shell/public/interfaces/interface_provider.mojom-internal.h $
+    gen/mojo/shell/public/interfaces/interface_provider.mojom.js $
+    gen/mojo/shell/public/interfaces/shell.mojom.cc $
+    gen/mojo/shell/public/interfaces/shell.mojom.h $
+    gen/mojo/shell/public/interfaces/shell.mojom-internal.h $
+    gen/mojo/shell/public/interfaces/shell.mojom.js $
+    gen/mojo/shell/public/interfaces/shell_client.mojom.cc $
+    gen/mojo/shell/public/interfaces/shell_client.mojom.h $
+    gen/mojo/shell/public/interfaces/shell_client.mojom-internal.h $
+    gen/mojo/shell/public/interfaces/shell_client.mojom.js $
+    gen/mojo/shell/public/interfaces/shell_client_factory.mojom.cc $
+    gen/mojo/shell/public/interfaces/shell_client_factory.mojom.h $
+    gen/mojo/shell/public/interfaces/shell_client_factory.mojom-internal.h $
+    gen/mojo/shell/public/interfaces/shell_client_factory.mojom.js $
+    gen/mojo/shell/public/interfaces/shell_resolver.mojom.cc $
+    gen/mojo/shell/public/interfaces/shell_resolver.mojom.h $
+    gen/mojo/shell/public/interfaces/shell_resolver.mojom-internal.h $
+    gen/mojo/shell/public/interfaces/shell_resolver.mojom.js: $
+    mojo_application_bindings_mojom_target_mojo_application_bindings_mojom_mojom_bindings_generator_fe5d25445312dc590d1226229cdf8cf3 $
+    ../../mojo/public/tools/bindings/mojom_bindings_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_cpp_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_java_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_js_generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/error.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/data.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/module.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/pack.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/template_expander.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/ast.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/lexer.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/parser.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/translate.py $
+    ../../mojo/services/catalog/public/interfaces/catalog.mojom $
+    ../../mojo/services/catalog/public/interfaces/resolver.mojom $
+    ../../mojo/shell/public/interfaces/capabilities.mojom $
+    ../../mojo/shell/public/interfaces/connector.mojom $
+    ../../mojo/shell/public/interfaces/interface_provider.mojom $
+    ../../mojo/shell/public/interfaces/shell.mojom $
+    ../../mojo/shell/public/interfaces/shell_client.mojom $
+    ../../mojo/shell/public/interfaces/shell_client_factory.mojom $
+    ../../mojo/shell/public/interfaces/shell_resolver.mojom $
+    java_mojo/mojo_application_bindings_mojom/mojo_application_bindings_mojom.stamp $
+    gen/mojo/public/tools/bindings/cpp_templates.zip $
+    gen/mojo/public/tools/bindings/java_templates.zip $
+    gen/mojo/public/tools/bindings/js_templates.zip || $
+    obj/mojo/mojo_application_bindings_mojom.actions_depends.stamp
+
+build obj/mojo/mojo_application_bindings_mojom.actions_rules_copies.stamp: $
+    stamp $
+    java_mojo/mojo_application_bindings_mojom/mojo_application_bindings_mojom.stamp $
+    gen/mojo/services/catalog/public/interfaces/catalog.mojom.cc $
+    gen/mojo/services/catalog/public/interfaces/catalog.mojom.h $
+    gen/mojo/services/catalog/public/interfaces/catalog.mojom-internal.h $
+    gen/mojo/services/catalog/public/interfaces/catalog.mojom.js $
+    gen/mojo/services/catalog/public/interfaces/resolver.mojom.cc $
+    gen/mojo/services/catalog/public/interfaces/resolver.mojom.h $
+    gen/mojo/services/catalog/public/interfaces/resolver.mojom-internal.h $
+    gen/mojo/services/catalog/public/interfaces/resolver.mojom.js $
+    gen/mojo/shell/public/interfaces/capabilities.mojom.cc $
+    gen/mojo/shell/public/interfaces/capabilities.mojom.h $
+    gen/mojo/shell/public/interfaces/capabilities.mojom-internal.h $
+    gen/mojo/shell/public/interfaces/capabilities.mojom.js $
+    gen/mojo/shell/public/interfaces/connector.mojom.cc $
+    gen/mojo/shell/public/interfaces/connector.mojom.h $
+    gen/mojo/shell/public/interfaces/connector.mojom-internal.h $
+    gen/mojo/shell/public/interfaces/connector.mojom.js $
+    gen/mojo/shell/public/interfaces/interface_provider.mojom.cc $
+    gen/mojo/shell/public/interfaces/interface_provider.mojom.h $
+    gen/mojo/shell/public/interfaces/interface_provider.mojom-internal.h $
+    gen/mojo/shell/public/interfaces/interface_provider.mojom.js $
+    gen/mojo/shell/public/interfaces/shell.mojom.cc $
+    gen/mojo/shell/public/interfaces/shell.mojom.h $
+    gen/mojo/shell/public/interfaces/shell.mojom-internal.h $
+    gen/mojo/shell/public/interfaces/shell.mojom.js $
+    gen/mojo/shell/public/interfaces/shell_client.mojom.cc $
+    gen/mojo/shell/public/interfaces/shell_client.mojom.h $
+    gen/mojo/shell/public/interfaces/shell_client.mojom-internal.h $
+    gen/mojo/shell/public/interfaces/shell_client.mojom.js $
+    gen/mojo/shell/public/interfaces/shell_client_factory.mojom.cc $
+    gen/mojo/shell/public/interfaces/shell_client_factory.mojom.h $
+    gen/mojo/shell/public/interfaces/shell_client_factory.mojom-internal.h $
+    gen/mojo/shell/public/interfaces/shell_client_factory.mojom.js $
+    gen/mojo/shell/public/interfaces/shell_resolver.mojom.cc $
+    gen/mojo/shell/public/interfaces/shell_resolver.mojom.h $
+    gen/mojo/shell/public/interfaces/shell_resolver.mojom-internal.h $
+    gen/mojo/shell/public/interfaces/shell_resolver.mojom.js
+

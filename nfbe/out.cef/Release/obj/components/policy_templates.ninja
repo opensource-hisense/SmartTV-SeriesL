@@ -1,0 +1,270 @@
+rule policy_templates_target_policy_templates_239e8ab26f1886dd2ba22e4fd719dc8f
+  command = cd ../../components; python ../tools/grit/grit.py -i $
+      policy/resources/policy_templates.grd build -f $
+      ../tools/gritsettings/resource_ids -o ../out.cef/Release/gen/chrome $
+      "--write-only-new=1" -D "version=51.0.2704.29" -D _chromium -E $
+      "CHROMIUM_BUILD=chromium" -D desktop_linux -D use_aura -D $
+      use_nss_certs -D use_nss_verifier -D use_ozone -D enable_extensions $
+      -D enable_plugins -D enable_printing -D enable_themes -D $
+      enable_app_list -D enable_settings_app -D $
+      use_concatenated_impulse_responses -D enable_media_router -D $
+      enable_task_manager -D enable_topchrome_md -D enable_service_discovery
+  description = ACTION Generating resources from $
+      policy/resources/policy_templates.grd
+  restat = 1
+
+build gen/chrome/app/policy/common/html/am/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/ar/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/bg/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/bn/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/ca/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/cs/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/da/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/de/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/el/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/en-GB/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/en-US/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/es/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/es-419/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/et/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/fa/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/fi/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/fil/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/fr/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/gu/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/he/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/hi/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/hr/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/hu/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/id/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/it/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/ja/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/kn/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/ko/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/lt/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/lv/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/ml/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/mr/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/ms/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/nl/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/nb/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/pl/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/pt-BR/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/pt-PT/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/ro/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/ru/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/sk/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/sl/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/sr/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/sv/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/sw/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/ta/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/te/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/th/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/tr/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/uk/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/vi/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/zh-CN/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/zh-TW/chrome_policy_list.html $
+    gen/chrome/app/policy/linux/examples/chrome.json: $
+    policy_templates_target_policy_templates_239e8ab26f1886dd2ba22e4fd719dc8f $
+    ../../tools/gritsettings/resource_ids $
+    ../../components/policy/resources/policy_templates.grd $
+    ../../components/policy/resources/policy_templates.json $
+    ../../components/policy/resources/policy_templates_am.xtb $
+    ../../components/policy/resources/policy_templates_ar.xtb $
+    ../../components/policy/resources/policy_templates_bg.xtb $
+    ../../components/policy/resources/policy_templates_bn.xtb $
+    ../../components/policy/resources/policy_templates_ca.xtb $
+    ../../components/policy/resources/policy_templates_cs.xtb $
+    ../../components/policy/resources/policy_templates_da.xtb $
+    ../../components/policy/resources/policy_templates_de.xtb $
+    ../../components/policy/resources/policy_templates_el.xtb $
+    ../../components/policy/resources/policy_templates_en-GB.xtb $
+    ../../components/policy/resources/policy_templates_es-419.xtb $
+    ../../components/policy/resources/policy_templates_es.xtb $
+    ../../components/policy/resources/policy_templates_et.xtb $
+    ../../components/policy/resources/policy_templates_fa.xtb $
+    ../../components/policy/resources/policy_templates_fi.xtb $
+    ../../components/policy/resources/policy_templates_fil.xtb $
+    ../../components/policy/resources/policy_templates_fr.xtb $
+    ../../components/policy/resources/policy_templates_gu.xtb $
+    ../../components/policy/resources/policy_templates_hi.xtb $
+    ../../components/policy/resources/policy_templates_hr.xtb $
+    ../../components/policy/resources/policy_templates_hu.xtb $
+    ../../components/policy/resources/policy_templates_id.xtb $
+    ../../components/policy/resources/policy_templates_it.xtb $
+    ../../components/policy/resources/policy_templates_iw.xtb $
+    ../../components/policy/resources/policy_templates_ja.xtb $
+    ../../components/policy/resources/policy_templates_kn.xtb $
+    ../../components/policy/resources/policy_templates_ko.xtb $
+    ../../components/policy/resources/policy_templates_lt.xtb $
+    ../../components/policy/resources/policy_templates_lv.xtb $
+    ../../components/policy/resources/policy_templates_ml.xtb $
+    ../../components/policy/resources/policy_templates_mr.xtb $
+    ../../components/policy/resources/policy_templates_ms.xtb $
+    ../../components/policy/resources/policy_templates_nl.xtb $
+    ../../components/policy/resources/policy_templates_no.xtb $
+    ../../components/policy/resources/policy_templates_pl.xtb $
+    ../../components/policy/resources/policy_templates_pt-BR.xtb $
+    ../../components/policy/resources/policy_templates_pt-PT.xtb $
+    ../../components/policy/resources/policy_templates_ro.xtb $
+    ../../components/policy/resources/policy_templates_ru.xtb $
+    ../../components/policy/resources/policy_templates_sk.xtb $
+    ../../components/policy/resources/policy_templates_sl.xtb $
+    ../../components/policy/resources/policy_templates_sr.xtb $
+    ../../components/policy/resources/policy_templates_sv.xtb $
+    ../../components/policy/resources/policy_templates_sw.xtb $
+    ../../components/policy/resources/policy_templates_ta.xtb $
+    ../../components/policy/resources/policy_templates_te.xtb $
+    ../../components/policy/resources/policy_templates_th.xtb $
+    ../../components/policy/resources/policy_templates_tr.xtb $
+    ../../components/policy/resources/policy_templates_uk.xtb $
+    ../../components/policy/resources/policy_templates_vi.xtb $
+    ../../components/policy/resources/policy_templates_zh-CN.xtb $
+    ../../components/policy/resources/policy_templates_zh-TW.xtb $
+    ../../tools/grit/PRESUBMIT.py ../../tools/grit/grit.py $
+    ../../tools/grit/grit/__init__.py ../../tools/grit/grit/clique.py $
+    ../../tools/grit/grit/constants.py ../../tools/grit/grit/exception.py $
+    ../../tools/grit/grit/extern/BogoFP.py $
+    ../../tools/grit/grit/extern/FP.py $
+    ../../tools/grit/grit/extern/__init__.py $
+    ../../tools/grit/grit/extern/tclib.py $
+    ../../tools/grit/grit/format/__init__.py $
+    ../../tools/grit/grit/format/android_xml.py $
+    ../../tools/grit/grit/format/c_format.py $
+    ../../tools/grit/grit/format/chrome_messages_json.py $
+    ../../tools/grit/grit/format/data_pack.py $
+    ../../tools/grit/grit/format/html_inline.py $
+    ../../tools/grit/grit/format/js_map_format.py $
+    ../../tools/grit/grit/format/policy_templates/PRESUBMIT.py $
+    ../../tools/grit/grit/format/policy_templates/__init__.py $
+    ../../tools/grit/grit/format/policy_templates/policy_template_generator.py $
+    ../../tools/grit/grit/format/policy_templates/template_formatter.py $
+    ../../tools/grit/grit/format/policy_templates/writer_configuration.py $
+    ../../tools/grit/grit/format/policy_templates/writers/__init__.py $
+    ../../tools/grit/grit/format/policy_templates/writers/adm_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/adml_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/admx_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/android_policy_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/doc_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/ios_plist_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/json_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/mock_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/plist_helper.py $
+    ../../tools/grit/grit/format/policy_templates/writers/plist_strings_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/plist_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/reg_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/template_writer.py $
+    ../../tools/grit/grit/format/policy_templates/writers/writer_unittest_common.py $
+    ../../tools/grit/grit/format/policy_templates/writers/xml_formatted_writer.py $
+    ../../tools/grit/grit/format/rc.py $
+    ../../tools/grit/grit/format/rc_header.py $
+    ../../tools/grit/grit/format/repack.py $
+    ../../tools/grit/grit/format/resource_map.py $
+    ../../tools/grit/grit/gather/__init__.py $
+    ../../tools/grit/grit/gather/admin_template.py $
+    ../../tools/grit/grit/gather/chrome_html.py $
+    ../../tools/grit/grit/gather/chrome_scaled_image.py $
+    ../../tools/grit/grit/gather/igoogle_strings.py $
+    ../../tools/grit/grit/gather/interface.py $
+    ../../tools/grit/grit/gather/json_loader.py $
+    ../../tools/grit/grit/gather/muppet_strings.py $
+    ../../tools/grit/grit/gather/policy_json.py $
+    ../../tools/grit/grit/gather/rc.py $
+    ../../tools/grit/grit/gather/regexp.py $
+    ../../tools/grit/grit/gather/skeleton_gatherer.py $
+    ../../tools/grit/grit/gather/tr_html.py $
+    ../../tools/grit/grit/gather/txt.py ../../tools/grit/grit/grd_reader.py $
+    ../../tools/grit/grit/grit_runner.py ../../tools/grit/grit/lazy_re.py $
+    ../../tools/grit/grit/node/__init__.py $
+    ../../tools/grit/grit/node/base.py $
+    ../../tools/grit/grit/node/custom/__init__.py $
+    ../../tools/grit/grit/node/custom/filename.py $
+    ../../tools/grit/grit/node/empty.py $
+    ../../tools/grit/grit/node/include.py ../../tools/grit/grit/node/io.py $
+    ../../tools/grit/grit/node/mapping.py $
+    ../../tools/grit/grit/node/message.py $
+    ../../tools/grit/grit/node/misc.py $
+    ../../tools/grit/grit/node/structure.py $
+    ../../tools/grit/grit/node/variant.py ../../tools/grit/grit/pseudo.py $
+    ../../tools/grit/grit/pseudo_rtl.py ../../tools/grit/grit/scons.py $
+    ../../tools/grit/grit/shortcuts.py $
+    ../../tools/grit/grit/shortcuts_unittests.py $
+    ../../tools/grit/grit/tclib.py ../../tools/grit/grit/test_suite_all.py $
+    ../../tools/grit/grit/tool/__init__.py $
+    ../../tools/grit/grit/tool/android2grd.py $
+    ../../tools/grit/grit/tool/build.py $
+    ../../tools/grit/grit/tool/buildinfo.py $
+    ../../tools/grit/grit/tool/count.py $
+    ../../tools/grit/grit/tool/diff_structures.py $
+    ../../tools/grit/grit/tool/interface.py $
+    ../../tools/grit/grit/tool/menu_from_parts.py $
+    ../../tools/grit/grit/tool/newgrd.py $
+    ../../tools/grit/grit/tool/postprocess_interface.py $
+    ../../tools/grit/grit/tool/preprocess_interface.py $
+    ../../tools/grit/grit/tool/rc2grd.py $
+    ../../tools/grit/grit/tool/resize.py ../../tools/grit/grit/tool/test.py $
+    ../../tools/grit/grit/tool/toolbar_postprocess.py $
+    ../../tools/grit/grit/tool/toolbar_preprocess.py $
+    ../../tools/grit/grit/tool/transl2tc.py $
+    ../../tools/grit/grit/tool/unit.py ../../tools/grit/grit/tool/xmb.py $
+    ../../tools/grit/grit/util.py ../../tools/grit/grit/xtb_reader.py $
+    ../../tools/grit/grit_info.py ../../tools/grit/stamp_grit_sources.py
+
+build obj/components/policy_templates.actions_rules_copies.stamp: stamp $
+    gen/chrome/app/policy/common/html/am/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/ar/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/bg/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/bn/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/ca/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/cs/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/da/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/de/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/el/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/en-GB/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/en-US/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/es/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/es-419/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/et/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/fa/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/fi/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/fil/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/fr/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/gu/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/he/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/hi/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/hr/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/hu/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/id/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/it/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/ja/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/kn/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/ko/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/lt/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/lv/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/ml/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/mr/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/ms/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/nl/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/nb/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/pl/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/pt-BR/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/pt-PT/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/ro/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/ru/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/sk/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/sl/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/sr/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/sv/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/sw/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/ta/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/te/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/th/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/tr/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/uk/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/vi/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/zh-CN/chrome_policy_list.html $
+    gen/chrome/app/policy/common/html/zh-TW/chrome_policy_list.html $
+    gen/chrome/app/policy/linux/examples/chrome.json
+

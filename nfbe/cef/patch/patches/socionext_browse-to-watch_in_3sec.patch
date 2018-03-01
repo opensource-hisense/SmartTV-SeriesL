@@ -1,0 +1,57 @@
+--- media/blink/video_frame_compositor.cc
++++ media/blink/video_frame_compositor.cc
+@@ -193,7 +193,7 @@ bool VideoFrameCompositor::ProcessNewFrame(
+   // subsequent PutCurrentFrame() call it will mark it as rendered.
+   rendered_last_frame_ = false;
+ 
+-  if (current_frame_ &&
++  if (!current_frame_ ||
+       current_frame_->natural_size() != frame->natural_size()) {
+     natural_size_changed_cb_.Run(frame->natural_size());
+   }
+--- third_party/WebKit/Source/core/html/HTMLMediaElement.cpp
++++ third_party/WebKit/Source/core/html/HTMLMediaElement.cpp
+@@ -3621,6 +3621,7 @@ void HTMLMediaElement::setWebLayer(WebLayer* webLayer)
+ 
+ void HTMLMediaElement::mediaSourceOpened(WebMediaSource* webMediaSource)
+ {
++    setShouldDelayLoadEvent(false);
+     m_mediaSource->setWebMediaSourceAndOpen(adoptPtr(webMediaSource));
+ }
+ 
+--- cc/layers/video_layer.h
++++ cc/layers/video_layer.h
+@@ -26,6 +26,7 @@ class CC_EXPORT VideoLayer : public Layer {
+ 
+   scoped_ptr<LayerImpl> CreateLayerImpl(LayerTreeImpl* tree_impl) override;
+ 
++  void SetLayerTreeHost(LayerTreeHost* layer_tree_host) override;
+   bool Update() override;
+ 
+  private:
+--- cc/layers/video_layer.cc
++++ cc/layers/video_layer.cc
+@@ -26,6 +27,12 @@ scoped_ptr<LayerImpl> VideoLayer::CreateLayerImpl(LayerTreeImpl* tree_impl) {
+   return VideoLayerImpl::Create(tree_impl, id(), provider_, video_rotation_);
+ }
+ 
++void VideoLayer::SetLayerTreeHost(LayerTreeHost* host) {
++  Layer::SetLayerTreeHost(host);
++  SetNeedsCommitNoRebuild();
++  return;
++}
++
+ bool VideoLayer::Update() {
+   bool updated = Layer::Update();
+ 
+--- cc/scheduler/scheduler.cc
++++ cc/scheduler/scheduler.cc
+@@ -23,7 +23,7 @@ namespace {
+ // This is a fudge factor we subtract from the deadline to account
+ // for message latency and kernel scheduling variability.
+ const base::TimeDelta kDeadlineFudgeFactor =
+-    base::TimeDelta::FromMicroseconds(1000);
++    base::TimeDelta::FromMicroseconds(500);
+ }
+ 
+ scoped_ptr<Scheduler> Scheduler::Create(

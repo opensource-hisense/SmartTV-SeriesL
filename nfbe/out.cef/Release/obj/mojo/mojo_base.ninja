@@ -1,0 +1,7 @@
+build obj/mojo/mojo_base.actions_depends.stamp: stamp $
+    obj/mojo/libmojo_common_lib.a mojo_common_unittests
+
+build obj/mojo/mojo_base.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/mojo/mojo_common_unittests.compile_depends.stamp
+

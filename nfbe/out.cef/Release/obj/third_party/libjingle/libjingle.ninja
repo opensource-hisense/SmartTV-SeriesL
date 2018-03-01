@@ -1,0 +1,213 @@
+build obj/third_party/libjingle/libjingle.actions_depends.stamp: stamp $
+    lib/libbase.so.TOC lib/libnet.so.TOC
+
+build obj/third_party/libjingle/libjingle.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp obj/net/net.compile_depends.stamp
+
+defines = -DENABLE_EXTERNAL_AUTH -DEXPAT_RELATIVE_PATH -DFEATURE_ENABLE_SSL $
+    -DGTEST_RELATIVE_PATH -DHAVE_OPENSSL_SSL_H -DHAVE_SCTP -DHAVE_SRTP $
+    -DHAVE_WEBRTC_VIDEO -DHAVE_WEBRTC_VOICE -DLOGGING_INSIDE_WEBRTC $
+    -DNO_MAIN_THREAD_WRAPPING -DNO_SOUND_SYSTEM -DSRTP_RELATIVE_PATH $
+    -DSSL_USE_OPENSSL -DUSE_WEBRTC_DEV_BRANCH -DWEBRTC_CHROMIUM_BUILD $
+    -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DLINUX -DWEBRTC_LINUX -DWEBRTC_POSIX -DCHROMIUM_BUILD $
+    -DCR_CLANG_REVISION=264915-1 -DUI_COMPOSITOR_IMAGE_TRANSPORT $
+    -DUSE_AURA=1 -DUSE_OZONE=1 -DUSE_DEFAULT_RENDER_THEME=1 $
+    -DUSE_LIBJPEG_TURBO=1 -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS $
+    -DENABLE_BROWSER_CDMS -DENABLE_TOPCHROME_MD=1 $
+    -DFIELDTRIAL_TESTING_ENABLED -DENABLE_TASK_MANAGER=1 $
+    -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 -DENABLE_SESSION_SERVICE=1 $
+    -DENABLE_AUTOFILL_DIALOG=1 -DENABLE_PRINTING=1 $
+    -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -I../../third_party/libjingle/overrides $
+    -I../../third_party/webrtc_overrides $
+    -I../../third_party/libjingle/source -I../.. $
+    -I../../testing/gtest/include -I../../third_party $
+    -I../../third_party/libyuv/include $
+    -I../../third_party/usrsctp/usrsctplib -Igen $
+    -I../../third_party/boringssl/src/include $
+    -I../../third_party/webrtc_overrides -I../../third_party
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-abi $
+    -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+build obj/third_party/libjingle/overrides/libjingle.field_trial.o: cxx $
+    ../../third_party/libjingle/overrides/field_trial.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/p2p/base/libjingle.asyncstuntcpsocket.o: cxx $
+    ../../third_party/webrtc/p2p/base/asyncstuntcpsocket.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/p2p/base/libjingle.basicpacketsocketfactory.o: $
+    cxx ../../third_party/webrtc/p2p/base/basicpacketsocketfactory.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/p2p/base/libjingle.dtlstransportchannel.o: cxx $
+    ../../third_party/webrtc/p2p/base/dtlstransportchannel.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/p2p/base/libjingle.p2pconstants.o: cxx $
+    ../../third_party/webrtc/p2p/base/p2pconstants.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/p2p/base/libjingle.p2ptransport.o: cxx $
+    ../../third_party/webrtc/p2p/base/p2ptransport.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/p2p/base/libjingle.p2ptransportchannel.o: cxx $
+    ../../third_party/webrtc/p2p/base/p2ptransportchannel.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/p2p/base/libjingle.port.o: cxx $
+    ../../third_party/webrtc/p2p/base/port.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/p2p/base/libjingle.portallocator.o: cxx $
+    ../../third_party/webrtc/p2p/base/portallocator.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/p2p/base/libjingle.pseudotcp.o: cxx $
+    ../../third_party/webrtc/p2p/base/pseudotcp.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/p2p/base/libjingle.rawtransport.o: cxx $
+    ../../third_party/webrtc/p2p/base/rawtransport.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/p2p/base/libjingle.rawtransportchannel.o: cxx $
+    ../../third_party/webrtc/p2p/base/rawtransportchannel.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/p2p/base/libjingle.relayport.o: cxx $
+    ../../third_party/webrtc/p2p/base/relayport.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/p2p/base/libjingle.session.o: cxx $
+    ../../third_party/webrtc/p2p/base/session.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/p2p/base/libjingle.sessiondescription.o: cxx $
+    ../../third_party/webrtc/p2p/base/sessiondescription.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/p2p/base/libjingle.stun.o: cxx $
+    ../../third_party/webrtc/p2p/base/stun.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/p2p/base/libjingle.stunport.o: cxx $
+    ../../third_party/webrtc/p2p/base/stunport.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/p2p/base/libjingle.stunrequest.o: cxx $
+    ../../third_party/webrtc/p2p/base/stunrequest.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/p2p/base/libjingle.tcpport.o: cxx $
+    ../../third_party/webrtc/p2p/base/tcpport.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/p2p/base/libjingle.transport.o: cxx $
+    ../../third_party/webrtc/p2p/base/transport.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/p2p/base/libjingle.transportchannel.o: cxx $
+    ../../third_party/webrtc/p2p/base/transportchannel.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/p2p/base/libjingle.transportcontroller.o: cxx $
+    ../../third_party/webrtc/p2p/base/transportcontroller.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/p2p/base/libjingle.transportdescription.o: cxx $
+    ../../third_party/webrtc/p2p/base/transportdescription.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build $
+    obj/third_party/webrtc/p2p/base/libjingle.transportdescriptionfactory.o: $
+    cxx ../../third_party/webrtc/p2p/base/transportdescriptionfactory.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/p2p/base/libjingle.turnport.o: cxx $
+    ../../third_party/webrtc/p2p/base/turnport.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/p2p/client/libjingle.basicportallocator.o: cxx $
+    ../../third_party/webrtc/p2p/client/basicportallocator.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/p2p/client/libjingle.httpportallocator.o: cxx $
+    ../../third_party/webrtc/p2p/client/httpportallocator.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/p2p/client/libjingle.socketmonitor.o: cxx $
+    ../../third_party/webrtc/p2p/client/socketmonitor.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/libjingle/xmpp/libjingle.constants.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/constants.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/libjingle/xmpp/libjingle.jid.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/jid.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/libjingle/xmpp/libjingle.saslmechanism.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/saslmechanism.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/libjingle/xmpp/libjingle.xmppclient.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/xmppclient.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/libjingle/xmpp/libjingle.xmppengineimpl.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/xmppengineimpl.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/libjingle/xmpp/libjingle.xmppengineimpl_iq.o: $
+    cxx ../../third_party/webrtc/libjingle/xmpp/xmppengineimpl_iq.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/libjingle/xmpp/libjingle.xmpplogintask.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/xmpplogintask.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/libjingle/xmpp/libjingle.xmppstanzaparser.o: $
+    cxx ../../third_party/webrtc/libjingle/xmpp/xmppstanzaparser.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+build obj/third_party/webrtc/libjingle/xmpp/libjingle.xmpptask.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/xmpptask.cc || $
+    obj/third_party/libjingle/libjingle.compile_depends.stamp
+
+build obj/third_party/libjingle/libjingle.a: alink_thin $
+    obj/third_party/libjingle/overrides/libjingle.field_trial.o $
+    obj/third_party/webrtc/p2p/base/libjingle.asyncstuntcpsocket.o $
+    obj/third_party/webrtc/p2p/base/libjingle.basicpacketsocketfactory.o $
+    obj/third_party/webrtc/p2p/base/libjingle.dtlstransportchannel.o $
+    obj/third_party/webrtc/p2p/base/libjingle.p2pconstants.o $
+    obj/third_party/webrtc/p2p/base/libjingle.p2ptransport.o $
+    obj/third_party/webrtc/p2p/base/libjingle.p2ptransportchannel.o $
+    obj/third_party/webrtc/p2p/base/libjingle.port.o $
+    obj/third_party/webrtc/p2p/base/libjingle.portallocator.o $
+    obj/third_party/webrtc/p2p/base/libjingle.pseudotcp.o $
+    obj/third_party/webrtc/p2p/base/libjingle.rawtransport.o $
+    obj/third_party/webrtc/p2p/base/libjingle.rawtransportchannel.o $
+    obj/third_party/webrtc/p2p/base/libjingle.relayport.o $
+    obj/third_party/webrtc/p2p/base/libjingle.session.o $
+    obj/third_party/webrtc/p2p/base/libjingle.sessiondescription.o $
+    obj/third_party/webrtc/p2p/base/libjingle.stun.o $
+    obj/third_party/webrtc/p2p/base/libjingle.stunport.o $
+    obj/third_party/webrtc/p2p/base/libjingle.stunrequest.o $
+    obj/third_party/webrtc/p2p/base/libjingle.tcpport.o $
+    obj/third_party/webrtc/p2p/base/libjingle.transport.o $
+    obj/third_party/webrtc/p2p/base/libjingle.transportchannel.o $
+    obj/third_party/webrtc/p2p/base/libjingle.transportcontroller.o $
+    obj/third_party/webrtc/p2p/base/libjingle.transportdescription.o $
+    obj/third_party/webrtc/p2p/base/libjingle.transportdescriptionfactory.o $
+    obj/third_party/webrtc/p2p/base/libjingle.turnport.o $
+    obj/third_party/webrtc/p2p/client/libjingle.basicportallocator.o $
+    obj/third_party/webrtc/p2p/client/libjingle.httpportallocator.o $
+    obj/third_party/webrtc/p2p/client/libjingle.socketmonitor.o $
+    obj/third_party/webrtc/libjingle/xmpp/libjingle.constants.o $
+    obj/third_party/webrtc/libjingle/xmpp/libjingle.jid.o $
+    obj/third_party/webrtc/libjingle/xmpp/libjingle.saslmechanism.o $
+    obj/third_party/webrtc/libjingle/xmpp/libjingle.xmppclient.o $
+    obj/third_party/webrtc/libjingle/xmpp/libjingle.xmppengineimpl.o $
+    obj/third_party/webrtc/libjingle/xmpp/libjingle.xmppengineimpl_iq.o $
+    obj/third_party/webrtc/libjingle/xmpp/libjingle.xmpplogintask.o $
+    obj/third_party/webrtc/libjingle/xmpp/libjingle.xmppstanzaparser.o $
+    obj/third_party/webrtc/libjingle/xmpp/libjingle.xmpptask.o || $
+    obj/third_party/libjingle/libjingle.actions_depends.stamp

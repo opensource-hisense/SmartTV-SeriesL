@@ -1,0 +1,299 @@
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DANGLE_TRANSLATOR_STATIC $
+    -DANGLE_ENABLE_ESSL -DANGLE_ENABLE_GLSL -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -Igen -I../../third_party/angle/src $
+    -I../../third_party/angle/include -I../../third_party/angle/src $
+    -I../../third_party/angle/include
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-abi $
+    -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.BuiltInFunctionEmulator.o: $
+    cxx $
+    ../../third_party/angle/src/compiler/translator/BuiltInFunctionEmulator.cpp
+build obj/third_party/angle/src/compiler/translator/translator_lib.Cache.o: $
+    cxx ../../third_party/angle/src/compiler/translator/Cache.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.CallDAG.o: $
+    cxx ../../third_party/angle/src/compiler/translator/CallDAG.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.CodeGen.o: $
+    cxx ../../third_party/angle/src/compiler/translator/CodeGen.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.Compiler.o: $
+    cxx ../../third_party/angle/src/compiler/translator/Compiler.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.Diagnostics.o: $
+    cxx ../../third_party/angle/src/compiler/translator/Diagnostics.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.DirectiveHandler.o: $
+    cxx ../../third_party/angle/src/compiler/translator/DirectiveHandler.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.EmulatePrecision.o: $
+    cxx ../../third_party/angle/src/compiler/translator/EmulatePrecision.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.FlagStd140Structs.o: $
+    cxx ../../third_party/angle/src/compiler/translator/FlagStd140Structs.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.ForLoopUnroll.o: $
+    cxx ../../third_party/angle/src/compiler/translator/ForLoopUnroll.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.InfoSink.o: $
+    cxx ../../third_party/angle/src/compiler/translator/InfoSink.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.Initialize.o: $
+    cxx ../../third_party/angle/src/compiler/translator/Initialize.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.InitializeDll.o: $
+    cxx ../../third_party/angle/src/compiler/translator/InitializeDll.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.InitializeParseContext.o: $
+    cxx $
+    ../../third_party/angle/src/compiler/translator/InitializeParseContext.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.InitializeVariables.o: $
+    cxx $
+    ../../third_party/angle/src/compiler/translator/InitializeVariables.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.IntermNode.o: $
+    cxx ../../third_party/angle/src/compiler/translator/IntermNode.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.IntermTraverse.o: $
+    cxx ../../third_party/angle/src/compiler/translator/IntermTraverse.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.Intermediate.o: $
+    cxx ../../third_party/angle/src/compiler/translator/Intermediate.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.LoopInfo.o: $
+    cxx ../../third_party/angle/src/compiler/translator/LoopInfo.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.Operator.o: $
+    cxx ../../third_party/angle/src/compiler/translator/Operator.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.ParseContext.o: $
+    cxx ../../third_party/angle/src/compiler/translator/ParseContext.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.PoolAlloc.o: $
+    cxx ../../third_party/angle/src/compiler/translator/PoolAlloc.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.PruneEmptyDeclarations.o: $
+    cxx $
+    ../../third_party/angle/src/compiler/translator/PruneEmptyDeclarations.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.RecordConstantPrecision.o: $
+    cxx $
+    ../../third_party/angle/src/compiler/translator/RecordConstantPrecision.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.RegenerateStructNames.o: $
+    cxx $
+    ../../third_party/angle/src/compiler/translator/RegenerateStructNames.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.RemovePow.o: $
+    cxx ../../third_party/angle/src/compiler/translator/RemovePow.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.RewriteDoWhile.o: $
+    cxx ../../third_party/angle/src/compiler/translator/RewriteDoWhile.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.ScalarizeVecAndMatConstructorArgs.o: $
+    cxx $
+    ../../third_party/angle/src/compiler/translator/ScalarizeVecAndMatConstructorArgs.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.SearchSymbol.o: $
+    cxx ../../third_party/angle/src/compiler/translator/SearchSymbol.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.SymbolTable.o: $
+    cxx ../../third_party/angle/src/compiler/translator/SymbolTable.cpp
+build obj/third_party/angle/src/compiler/translator/translator_lib.Types.o: $
+    cxx ../../third_party/angle/src/compiler/translator/Types.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.UnfoldShortCircuitAST.o: $
+    cxx $
+    ../../third_party/angle/src/compiler/translator/UnfoldShortCircuitAST.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.ValidateGlobalInitializer.o: $
+    cxx $
+    ../../third_party/angle/src/compiler/translator/ValidateGlobalInitializer.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.ValidateLimitations.o: $
+    cxx $
+    ../../third_party/angle/src/compiler/translator/ValidateLimitations.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.ValidateMaxParameters.o: $
+    cxx $
+    ../../third_party/angle/src/compiler/translator/ValidateMaxParameters.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.ValidateOutputs.o: $
+    cxx ../../third_party/angle/src/compiler/translator/ValidateOutputs.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.ValidateSwitch.o: $
+    cxx ../../third_party/angle/src/compiler/translator/ValidateSwitch.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.VariableInfo.o: $
+    cxx ../../third_party/angle/src/compiler/translator/VariableInfo.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.VariablePacker.o: $
+    cxx ../../third_party/angle/src/compiler/translator/VariablePacker.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.blocklayout.o: $
+    cxx ../../third_party/angle/src/compiler/translator/blocklayout.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/depgraph/translator_lib.DependencyGraph.o: $
+    cxx $
+    ../../third_party/angle/src/compiler/translator/depgraph/DependencyGraph.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/depgraph/translator_lib.DependencyGraphBuilder.o: $
+    cxx $
+    ../../third_party/angle/src/compiler/translator/depgraph/DependencyGraphBuilder.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/depgraph/translator_lib.DependencyGraphOutput.o: $
+    cxx $
+    ../../third_party/angle/src/compiler/translator/depgraph/DependencyGraphOutput.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/depgraph/translator_lib.DependencyGraphTraverse.o: $
+    cxx $
+    ../../third_party/angle/src/compiler/translator/depgraph/DependencyGraphTraverse.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.glslang_lex.o: $
+    cxx ../../third_party/angle/src/compiler/translator/glslang_lex.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.glslang_tab.o: $
+    cxx ../../third_party/angle/src/compiler/translator/glslang_tab.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.intermOut.o: $
+    cxx ../../third_party/angle/src/compiler/translator/intermOut.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/timing/translator_lib.RestrictFragmentShaderTiming.o: $
+    cxx $
+    ../../third_party/angle/src/compiler/translator/timing/RestrictFragmentShaderTiming.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/timing/translator_lib.RestrictVertexShaderTiming.o: $
+    cxx $
+    ../../third_party/angle/src/compiler/translator/timing/RestrictVertexShaderTiming.cpp
+build obj/third_party/angle/src/compiler/translator/translator_lib.util.o: $
+    cxx ../../third_party/angle/src/compiler/translator/util.cpp
+build $
+    obj/third_party/angle/src/third_party/compiler/translator_lib.ArrayBoundsClamper.o: $
+    cxx $
+    ../../third_party/angle/src/third_party/compiler/ArrayBoundsClamper.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.OutputESSL.o: $
+    cxx ../../third_party/angle/src/compiler/translator/OutputESSL.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.TranslatorESSL.o: $
+    cxx ../../third_party/angle/src/compiler/translator/TranslatorESSL.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.BuiltInFunctionEmulatorGLSL.o: $
+    cxx $
+    ../../third_party/angle/src/compiler/translator/BuiltInFunctionEmulatorGLSL.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.ExtensionGLSL.o: $
+    cxx ../../third_party/angle/src/compiler/translator/ExtensionGLSL.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.OutputGLSL.o: $
+    cxx ../../third_party/angle/src/compiler/translator/OutputGLSL.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.OutputGLSLBase.o: $
+    cxx ../../third_party/angle/src/compiler/translator/OutputGLSLBase.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.TranslatorGLSL.o: $
+    cxx ../../third_party/angle/src/compiler/translator/TranslatorGLSL.cpp
+build $
+    obj/third_party/angle/src/compiler/translator/translator_lib.VersionGLSL.o: $
+    cxx ../../third_party/angle/src/compiler/translator/VersionGLSL.cpp
+
+build obj/third_party/angle/src/libtranslator_lib.a: alink_thin $
+    obj/third_party/angle/src/compiler/translator/translator_lib.BuiltInFunctionEmulator.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.Cache.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.CallDAG.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.CodeGen.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.Compiler.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.Diagnostics.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.DirectiveHandler.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.EmulatePrecision.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.FlagStd140Structs.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.ForLoopUnroll.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.InfoSink.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.Initialize.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.InitializeDll.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.InitializeParseContext.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.InitializeVariables.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.IntermNode.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.IntermTraverse.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.Intermediate.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.LoopInfo.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.Operator.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.ParseContext.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.PoolAlloc.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.PruneEmptyDeclarations.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.RecordConstantPrecision.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.RegenerateStructNames.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.RemovePow.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.RewriteDoWhile.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.ScalarizeVecAndMatConstructorArgs.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.SearchSymbol.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.SymbolTable.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.Types.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.UnfoldShortCircuitAST.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.ValidateGlobalInitializer.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.ValidateLimitations.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.ValidateMaxParameters.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.ValidateOutputs.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.ValidateSwitch.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.VariableInfo.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.VariablePacker.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.blocklayout.o $
+    obj/third_party/angle/src/compiler/translator/depgraph/translator_lib.DependencyGraph.o $
+    obj/third_party/angle/src/compiler/translator/depgraph/translator_lib.DependencyGraphBuilder.o $
+    obj/third_party/angle/src/compiler/translator/depgraph/translator_lib.DependencyGraphOutput.o $
+    obj/third_party/angle/src/compiler/translator/depgraph/translator_lib.DependencyGraphTraverse.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.glslang_lex.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.glslang_tab.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.intermOut.o $
+    obj/third_party/angle/src/compiler/translator/timing/translator_lib.RestrictFragmentShaderTiming.o $
+    obj/third_party/angle/src/compiler/translator/timing/translator_lib.RestrictVertexShaderTiming.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.util.o $
+    obj/third_party/angle/src/third_party/compiler/translator_lib.ArrayBoundsClamper.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.OutputESSL.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.TranslatorESSL.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.BuiltInFunctionEmulatorGLSL.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.ExtensionGLSL.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.OutputGLSL.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.OutputGLSLBase.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.TranslatorGLSL.o $
+    obj/third_party/angle/src/compiler/translator/translator_lib.VersionGLSL.o

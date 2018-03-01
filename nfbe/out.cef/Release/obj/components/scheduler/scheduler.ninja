@@ -1,0 +1,242 @@
+build obj/components/scheduler/scheduler.actions_depends.stamp: stamp $
+    lib/libbase.so.TOC $
+    obj/third_party/WebKit/public/blink.actions_depends.stamp $
+    obj/third_party/WebKit/Source/platform/libblink_platform.a
+
+build obj/components/scheduler/scheduler.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/third_party/WebKit/public/blink.compile_depends.stamp $
+    obj/third_party/WebKit/Source/platform/blink_platform.compile_depends.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DSCHEDULER_IMPLEMENTATION $
+    -DMOJO_USE_SYSTEM_IMPL -DSK_SUPPORT_GPU=1 $
+    -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS -DU_USING_ICU_NAMESPACE=0 $
+    -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= -DU_STATIC_IMPLEMENTATION $
+    -DCHROME_PNG_WRITE_SUPPORT -DPNG_USER_CONFIG -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS $
+    -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../third_party/khronos -I../../gpu $
+    -I../../skia/config -Igen/angle -I../../third_party/WebKit/Source $
+    -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../third_party/WebKit -I../../third_party/icu/source/common $
+    -I../../v8/include -I../../third_party/libpng -I../../third_party/zlib $
+    -I../../third_party/libwebp -I../../third_party/ots/include $
+    -I../../third_party/qcms/src -I../../third_party/iccjpeg $
+    -I../../third_party/libjpeg_turbo -I../../third_party/icu/source/i18n
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/components/scheduler/base/scheduler.cancelable_closure_holder.o: $
+    cxx ../../components/scheduler/base/cancelable_closure_holder.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build obj/components/scheduler/base/scheduler.lazy_now.o: cxx $
+    ../../components/scheduler/base/lazy_now.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build obj/components/scheduler/base/scheduler.real_time_domain.o: cxx $
+    ../../components/scheduler/base/real_time_domain.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build obj/components/scheduler/base/scheduler.task_queue_impl.o: cxx $
+    ../../components/scheduler/base/task_queue_impl.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build obj/components/scheduler/base/scheduler.task_queue_manager.o: cxx $
+    ../../components/scheduler/base/task_queue_manager.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build obj/components/scheduler/base/scheduler.task_queue_selector.o: cxx $
+    ../../components/scheduler/base/task_queue_selector.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build obj/components/scheduler/base/scheduler.time_domain.o: cxx $
+    ../../components/scheduler/base/time_domain.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build obj/components/scheduler/base/scheduler.work_queue.o: cxx $
+    ../../components/scheduler/base/work_queue.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build obj/components/scheduler/base/scheduler.work_queue_sets.o: cxx $
+    ../../components/scheduler/base/work_queue_sets.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build obj/components/scheduler/base/scheduler.pollable_thread_safe_flag.o: $
+    cxx ../../components/scheduler/base/pollable_thread_safe_flag.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build obj/components/scheduler/base/scheduler.virtual_time_domain.o: cxx $
+    ../../components/scheduler/base/virtual_time_domain.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build obj/components/scheduler/base/scheduler.enqueue_order.o: cxx $
+    ../../components/scheduler/base/enqueue_order.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build $
+    obj/components/scheduler/child/scheduler.compositor_worker_scheduler.o: $
+    cxx ../../components/scheduler/child/compositor_worker_scheduler.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build obj/components/scheduler/child/scheduler.idle_helper.o: cxx $
+    ../../components/scheduler/child/idle_helper.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build obj/components/scheduler/child/scheduler.scheduler_helper.o: cxx $
+    ../../components/scheduler/child/scheduler_helper.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build $
+    obj/components/scheduler/child/scheduler.scheduler_tqm_delegate_impl.o: $
+    cxx ../../components/scheduler/child/scheduler_tqm_delegate_impl.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build $
+    obj/components/scheduler/child/scheduler.single_thread_idle_task_runner.o: $
+    cxx ../../components/scheduler/child/single_thread_idle_task_runner.cc $
+    || obj/components/scheduler/scheduler.compile_depends.stamp
+build obj/components/scheduler/child/scheduler.web_scheduler_impl.o: cxx $
+    ../../components/scheduler/child/web_scheduler_impl.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build obj/components/scheduler/child/scheduler.web_task_runner_impl.o: cxx $
+    ../../components/scheduler/child/web_task_runner_impl.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build obj/components/scheduler/child/scheduler.webthread_base.o: cxx $
+    ../../components/scheduler/child/webthread_base.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build $
+    obj/components/scheduler/child/scheduler.webthread_impl_for_worker_scheduler.o: $
+    cxx $
+    ../../components/scheduler/child/webthread_impl_for_worker_scheduler.cc $
+    || obj/components/scheduler/scheduler.compile_depends.stamp
+build obj/components/scheduler/child/scheduler.worker_scheduler.o: cxx $
+    ../../components/scheduler/child/worker_scheduler.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build obj/components/scheduler/child/scheduler.worker_scheduler_impl.o: cxx $
+    ../../components/scheduler/child/worker_scheduler_impl.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build $
+    obj/components/scheduler/renderer/scheduler.auto_advancing_virtual_time_domain.o: $
+    cxx $
+    ../../components/scheduler/renderer/auto_advancing_virtual_time_domain.cc $
+    || obj/components/scheduler/scheduler.compile_depends.stamp
+build obj/components/scheduler/renderer/scheduler.deadline_task_runner.o: $
+    cxx ../../components/scheduler/renderer/deadline_task_runner.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build obj/components/scheduler/renderer/scheduler.idle_time_estimator.o: $
+    cxx ../../components/scheduler/renderer/idle_time_estimator.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build obj/components/scheduler/renderer/scheduler.renderer_scheduler.o: cxx $
+    ../../components/scheduler/renderer/renderer_scheduler.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build $
+    obj/components/scheduler/renderer/scheduler.renderer_scheduler_impl.o: $
+    cxx ../../components/scheduler/renderer/renderer_scheduler_impl.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build $
+    obj/components/scheduler/renderer/scheduler.renderer_web_scheduler_impl.o: $
+    cxx ../../components/scheduler/renderer/renderer_web_scheduler_impl.cc $
+    || obj/components/scheduler/scheduler.compile_depends.stamp
+build $
+    obj/components/scheduler/renderer/scheduler.render_widget_scheduling_state.o: $
+    cxx $
+    ../../components/scheduler/renderer/render_widget_scheduling_state.cc $
+    || obj/components/scheduler/scheduler.compile_depends.stamp
+build obj/components/scheduler/renderer/scheduler.render_widget_signals.o: $
+    cxx ../../components/scheduler/renderer/render_widget_signals.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build obj/components/scheduler/renderer/scheduler.task_cost_estimator.o: $
+    cxx ../../components/scheduler/renderer/task_cost_estimator.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build obj/components/scheduler/renderer/scheduler.throttled_time_domain.o: $
+    cxx ../../components/scheduler/renderer/throttled_time_domain.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build obj/components/scheduler/renderer/scheduler.throttling_helper.o: cxx $
+    ../../components/scheduler/renderer/throttling_helper.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build $
+    obj/components/scheduler/renderer/scheduler.web_frame_scheduler_impl.o: $
+    cxx ../../components/scheduler/renderer/web_frame_scheduler_impl.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build $
+    obj/components/scheduler/renderer/scheduler.web_view_scheduler_impl.o: $
+    cxx ../../components/scheduler/renderer/web_view_scheduler_impl.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build obj/components/scheduler/renderer/scheduler.user_model.o: cxx $
+    ../../components/scheduler/renderer/user_model.cc || $
+    obj/components/scheduler/scheduler.compile_depends.stamp
+build $
+    obj/components/scheduler/renderer/scheduler.webthread_impl_for_renderer_scheduler.o: $
+    cxx $
+    ../../components/scheduler/renderer/webthread_impl_for_renderer_scheduler.cc $
+    || obj/components/scheduler/scheduler.compile_depends.stamp
+
+build obj/components/scheduler/libscheduler.a: alink_thin $
+    obj/components/scheduler/base/scheduler.cancelable_closure_holder.o $
+    obj/components/scheduler/base/scheduler.lazy_now.o $
+    obj/components/scheduler/base/scheduler.real_time_domain.o $
+    obj/components/scheduler/base/scheduler.task_queue_impl.o $
+    obj/components/scheduler/base/scheduler.task_queue_manager.o $
+    obj/components/scheduler/base/scheduler.task_queue_selector.o $
+    obj/components/scheduler/base/scheduler.time_domain.o $
+    obj/components/scheduler/base/scheduler.work_queue.o $
+    obj/components/scheduler/base/scheduler.work_queue_sets.o $
+    obj/components/scheduler/base/scheduler.pollable_thread_safe_flag.o $
+    obj/components/scheduler/base/scheduler.virtual_time_domain.o $
+    obj/components/scheduler/base/scheduler.enqueue_order.o $
+    obj/components/scheduler/child/scheduler.compositor_worker_scheduler.o $
+    obj/components/scheduler/child/scheduler.idle_helper.o $
+    obj/components/scheduler/child/scheduler.scheduler_helper.o $
+    obj/components/scheduler/child/scheduler.scheduler_tqm_delegate_impl.o $
+    obj/components/scheduler/child/scheduler.single_thread_idle_task_runner.o $
+    obj/components/scheduler/child/scheduler.web_scheduler_impl.o $
+    obj/components/scheduler/child/scheduler.web_task_runner_impl.o $
+    obj/components/scheduler/child/scheduler.webthread_base.o $
+    obj/components/scheduler/child/scheduler.webthread_impl_for_worker_scheduler.o $
+    obj/components/scheduler/child/scheduler.worker_scheduler.o $
+    obj/components/scheduler/child/scheduler.worker_scheduler_impl.o $
+    obj/components/scheduler/renderer/scheduler.auto_advancing_virtual_time_domain.o $
+    obj/components/scheduler/renderer/scheduler.deadline_task_runner.o $
+    obj/components/scheduler/renderer/scheduler.idle_time_estimator.o $
+    obj/components/scheduler/renderer/scheduler.renderer_scheduler.o $
+    obj/components/scheduler/renderer/scheduler.renderer_scheduler_impl.o $
+    obj/components/scheduler/renderer/scheduler.renderer_web_scheduler_impl.o $
+    obj/components/scheduler/renderer/scheduler.render_widget_scheduling_state.o $
+    obj/components/scheduler/renderer/scheduler.render_widget_signals.o $
+    obj/components/scheduler/renderer/scheduler.task_cost_estimator.o $
+    obj/components/scheduler/renderer/scheduler.throttled_time_domain.o $
+    obj/components/scheduler/renderer/scheduler.throttling_helper.o $
+    obj/components/scheduler/renderer/scheduler.web_frame_scheduler_impl.o $
+    obj/components/scheduler/renderer/scheduler.web_view_scheduler_impl.o $
+    obj/components/scheduler/renderer/scheduler.user_model.o $
+    obj/components/scheduler/renderer/scheduler.webthread_impl_for_renderer_scheduler.o $
+    || obj/components/scheduler/scheduler.actions_depends.stamp

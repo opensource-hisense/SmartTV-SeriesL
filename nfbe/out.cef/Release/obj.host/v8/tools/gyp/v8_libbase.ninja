@@ -1,0 +1,89 @@
+ar = $ar_host
+cc = $cc_host
+cxx = $cxx_host
+ld = $ld_host
+ldxx = $ldxx_host
+nm = $nm_host
+readelf = $readelf_host
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DV8_TARGET_ARCH_ARM $
+    -DCAN_USE_ARMV7_INSTRUCTIONS -DV8_I18N_SUPPORT -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DUSE_EABI_HARDFLOAT=1 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -I../../v8 -Igen
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-char-subscripts -Wno-unneeded-internal-declaration $
+    -Wno-covered-switch-default -Wno-c++11-narrowing $
+    -Wno-deprecated-register -Wno-inconsistent-missing-override $
+    -Wno-shift-negative-value -Wno-unused-variable -m32 -fno-ident $
+    -fdata-sections -ffunction-sections -funwind-tables -fdata-sections $
+    -ffunction-sections  -O3
+cflags_c = 
+cflags_cc = -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-literal-suffix $
+    -std=gnu++11
+arflags = 
+
+build obj.host/v8/src/base/v8_libbase.accounting-allocator.o: cxx $
+    ../../v8/src/base/accounting-allocator.cc
+build obj.host/v8/src/base/v8_libbase.atomicops_internals_x86_gcc.o: cxx $
+    ../../v8/src/base/atomicops_internals_x86_gcc.cc
+build obj.host/v8/src/base/v8_libbase.bits.o: cxx ../../v8/src/base/bits.cc
+build obj.host/v8/src/base/v8_libbase.cpu.o: cxx ../../v8/src/base/cpu.cc
+build obj.host/v8/src/base/v8_libbase.division-by-constant.o: cxx $
+    ../../v8/src/base/division-by-constant.cc
+build obj.host/v8/src/base/v8_libbase.functional.o: cxx $
+    ../../v8/src/base/functional.cc
+build obj.host/v8/src/base/v8_libbase.logging.o: cxx $
+    ../../v8/src/base/logging.cc
+build obj.host/v8/src/base/v8_libbase.once.o: cxx ../../v8/src/base/once.cc
+build obj.host/v8/src/base/platform/v8_libbase.time.o: cxx $
+    ../../v8/src/base/platform/time.cc
+build obj.host/v8/src/base/platform/v8_libbase.condition-variable.o: cxx $
+    ../../v8/src/base/platform/condition-variable.cc
+build obj.host/v8/src/base/platform/v8_libbase.mutex.o: cxx $
+    ../../v8/src/base/platform/mutex.cc
+build obj.host/v8/src/base/platform/v8_libbase.semaphore.o: cxx $
+    ../../v8/src/base/platform/semaphore.cc
+build obj.host/v8/src/base/v8_libbase.sys-info.o: cxx $
+    ../../v8/src/base/sys-info.cc
+build obj.host/v8/src/base/utils/v8_libbase.random-number-generator.o: cxx $
+    ../../v8/src/base/utils/random-number-generator.cc
+build obj.host/v8/src/base/platform/v8_libbase.platform-linux.o: cxx $
+    ../../v8/src/base/platform/platform-linux.cc
+build obj.host/v8/src/base/platform/v8_libbase.platform-posix.o: cxx $
+    ../../v8/src/base/platform/platform-posix.cc
+
+build obj.host/v8/tools/gyp/libv8_libbase.a: alink_thin $
+    obj.host/v8/src/base/v8_libbase.accounting-allocator.o $
+    obj.host/v8/src/base/v8_libbase.atomicops_internals_x86_gcc.o $
+    obj.host/v8/src/base/v8_libbase.bits.o $
+    obj.host/v8/src/base/v8_libbase.cpu.o $
+    obj.host/v8/src/base/v8_libbase.division-by-constant.o $
+    obj.host/v8/src/base/v8_libbase.functional.o $
+    obj.host/v8/src/base/v8_libbase.logging.o $
+    obj.host/v8/src/base/v8_libbase.once.o $
+    obj.host/v8/src/base/platform/v8_libbase.time.o $
+    obj.host/v8/src/base/platform/v8_libbase.condition-variable.o $
+    obj.host/v8/src/base/platform/v8_libbase.mutex.o $
+    obj.host/v8/src/base/platform/v8_libbase.semaphore.o $
+    obj.host/v8/src/base/v8_libbase.sys-info.o $
+    obj.host/v8/src/base/utils/v8_libbase.random-number-generator.o $
+    obj.host/v8/src/base/platform/v8_libbase.platform-linux.o $
+    obj.host/v8/src/base/platform/v8_libbase.platform-posix.o

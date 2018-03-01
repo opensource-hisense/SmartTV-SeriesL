@@ -1,0 +1,48 @@
+diff --git aura/env.cc aura/env.cc
+index 7e82d4e..0f4ba4a
+--- aura/env.cc
++++ aura/env.cc
+@@ -90,6 +90,9 @@ Env::~Env() {
+   FOR_EACH_OBSERVER(EnvObserver, observers_, OnWillDestroyEnv());
+   DCHECK_EQ(this, lazy_tls_ptr.Pointer()->Get());
+   lazy_tls_ptr.Pointer()->Set(NULL);
++#if defined(NFBE_DTV_SOCIO)
++  ui::OzonePlatform::Finalize();
++#endif
+ }
+ 
+ void Env::Init(bool create_event_source) {
+diff --git ozone/public/ozone_platform.cc ozone/public/ozone_platform.cc
+index b69bc28..160d8e7
+--- ozone/public/ozone_platform.cc
++++ ozone/public/ozone_platform.cc
+@@ -59,6 +59,15 @@ OzonePlatform* OzonePlatform::GetInstance() {
+   return instance_;
+ }
+ 
++#if defined(NFBE_DTV_SOCIO)
++void OzonePlatform::Finalize() {
++  if (instance_) {
++    delete instance_;
++    instance_ = NULL;
++  }
++}
++#endif
++
+ // static
+ void OzonePlatform::CreateInstance() {
+   if (!instance_) {
+diff --git ozone/public/ozone_platform.h ozone/public/ozone_platform.h
+index efa03a6..315c5fe
+--- ozone/public/ozone_platform.h
++++ ozone/public/ozone_platform.h
+@@ -54,6 +54,9 @@ class OZONE_EXPORT OzonePlatform {
+ 
+   static OzonePlatform* GetInstance();
+ 
++#if defined(NFBE_DTV_SOCIO)
++  static void Finalize();
++#endif
+   // Factory getters to override in subclasses. The returned objects will be
+   // injected into the appropriate layer at startup. Subclasses should not
+   // inject these objects themselves. Ownership is retained by OzonePlatform.

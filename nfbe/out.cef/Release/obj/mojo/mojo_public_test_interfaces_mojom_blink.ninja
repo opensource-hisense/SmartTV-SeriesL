@@ -1,0 +1,382 @@
+build $
+    obj/mojo/mojo_public_test_interfaces_mojom_blink.actions_depends.stamp: $
+    stamp $
+    obj/mojo/mojo_public_test_interfaces_mojom.actions_rules_copies.stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    lib/libbase.so.TOC $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp
+
+build $
+    obj/mojo/mojo_public_test_interfaces_mojom_blink.compile_depends.stamp: $
+    stamp $
+    obj/mojo/mojo_public_test_interfaces_mojom.actions_rules_copies.stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp
+
+rule $
+    mojo_public_test_interfaces_mojom_blink_target_mojo_public_test_interfaces_mojom_blink_mojom_bindings_stamp_902be90bafece7e281b4c7083d4a1eef
+  command = cd ../../mojo; python ../build/rmdir_and_stamp.py $
+      ../out.cef/Release/java_mojo/mojo_public_test_interfaces_mojom_blink/src $
+      ../out.cef/Release/java_mojo/mojo_public_test_interfaces_mojom_blink/mojo_public_test_interfaces_mojom_blink.stamp
+  description = ACTION mojo_public_test_interfaces_mojom_blink: $
+      mojo_public_test_interfaces_mojom_blink_mojom_bindings_stamp_902be90bafece7e281b4c7083d4a1eef
+  restat = 1
+
+build $
+    java_mojo/mojo_public_test_interfaces_mojom_blink/mojo_public_test_interfaces_mojom_blink.stamp: $
+    mojo_public_test_interfaces_mojom_blink_target_mojo_public_test_interfaces_mojom_blink_mojom_bindings_stamp_902be90bafece7e281b4c7083d4a1eef $
+    ../../mojo/public/interfaces/bindings/tests/math_calculator.mojom $
+    ../../mojo/public/interfaces/bindings/tests/no_module.mojom $
+    ../../mojo/public/interfaces/bindings/tests/ping_service.mojom $
+    ../../mojo/public/interfaces/bindings/tests/rect.mojom $
+    ../../mojo/public/interfaces/bindings/tests/regression_tests.mojom $
+    ../../mojo/public/interfaces/bindings/tests/sample_factory.mojom $
+    ../../mojo/public/interfaces/bindings/tests/sample_import.mojom $
+    ../../mojo/public/interfaces/bindings/tests/sample_import2.mojom $
+    ../../mojo/public/interfaces/bindings/tests/sample_interfaces.mojom $
+    ../../mojo/public/interfaces/bindings/tests/sample_service.mojom $
+    ../../mojo/public/interfaces/bindings/tests/scoping.mojom $
+    ../../mojo/public/interfaces/bindings/tests/serialization_test_structs.mojom $
+    ../../mojo/public/interfaces/bindings/tests/test_constants.mojom $
+    ../../mojo/public/interfaces/bindings/tests/test_native_types.mojom $
+    ../../mojo/public/interfaces/bindings/tests/test_structs.mojom $
+    ../../mojo/public/interfaces/bindings/tests/test_sync_methods.mojom $
+    ../../mojo/public/interfaces/bindings/tests/test_unions.mojom $
+    ../../mojo/public/interfaces/bindings/tests/validation_test_interfaces.mojom $
+    || obj/mojo/mojo_public_test_interfaces_mojom_blink.actions_depends.stamp
+
+rule $
+    mojo_public_test_interfaces_mojom_blink_target_mojo_public_test_interfaces_mojom_blink_mojom_bindings_generator_902be90bafece7e281b4c7083d4a1eef
+  command = cd ../../mojo; python $
+      ../mojo/public/tools/bindings/mojom_bindings_generator.py $
+      --use_bundled_pylibs generate $
+      public/interfaces/bindings/tests/math_calculator.mojom $
+      public/interfaces/bindings/tests/no_module.mojom $
+      public/interfaces/bindings/tests/ping_service.mojom $
+      public/interfaces/bindings/tests/rect.mojom $
+      public/interfaces/bindings/tests/regression_tests.mojom $
+      public/interfaces/bindings/tests/sample_factory.mojom $
+      public/interfaces/bindings/tests/sample_import.mojom $
+      public/interfaces/bindings/tests/sample_import2.mojom $
+      public/interfaces/bindings/tests/sample_interfaces.mojom $
+      public/interfaces/bindings/tests/sample_service.mojom $
+      public/interfaces/bindings/tests/scoping.mojom $
+      public/interfaces/bindings/tests/serialization_test_structs.mojom $
+      public/interfaces/bindings/tests/test_constants.mojom $
+      public/interfaces/bindings/tests/test_native_types.mojom $
+      public/interfaces/bindings/tests/test_structs.mojom $
+      public/interfaces/bindings/tests/test_sync_methods.mojom $
+      public/interfaces/bindings/tests/test_unions.mojom $
+      public/interfaces/bindings/tests/validation_test_interfaces.mojom -d $
+      .. -I.. -I../mojo/services -I.. -o ../out.cef/Release/gen $
+      "--java_output_directory=../out.cef/Release/java_mojo/mojo_public_test_interfaces_mojom_blink/src" $
+      --variant blink -g c++ --typemap $
+      ../mojo/public/interfaces/bindings/tests/blink_test.typemap $
+      --bytecode_path ../out.cef/Release/gen/mojo/public/tools/bindings
+  description = ACTION Generating Mojo bindings from $
+      public/interfaces/bindings/tests/math_calculator.mojom $
+      public/interfaces/bindings/tests/no_module.mojom $
+      public/interfaces/bindings/tests/ping_service.mojom $
+      public/interfaces/bindings/tests/rect.mojom $
+      public/interfaces/bindings/tests/regression_tests.mojom $
+      public/interfaces/bindings/tests/sample_factory.mojom $
+      public/interfaces/bindings/tests/sample_import.mojom $
+      public/interfaces/bindings/tests/sample_import2.mojom $
+      public/interfaces/bindings/tests/sample_interfaces.mojom $
+      public/interfaces/bindings/tests/sample_service.mojom $
+      public/interfaces/bindings/tests/scoping.mojom $
+      public/interfaces/bindings/tests/serialization_test_structs.mojom $
+      public/interfaces/bindings/tests/test_constants.mojom $
+      public/interfaces/bindings/tests/test_native_types.mojom $
+      public/interfaces/bindings/tests/test_structs.mojom $
+      public/interfaces/bindings/tests/test_sync_methods.mojom $
+      public/interfaces/bindings/tests/test_unions.mojom $
+      public/interfaces/bindings/tests/validation_test_interfaces.mojom
+  restat = 1
+
+build $
+    gen/mojo/public/interfaces/bindings/tests/math_calculator.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/math_calculator.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/math_calculator.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/no_module.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/no_module.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/no_module.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/ping_service.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/ping_service.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/ping_service.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/rect.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/rect.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/rect.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/regression_tests.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/regression_tests.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/regression_tests.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_factory.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/sample_factory.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_factory.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_import.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/sample_import.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_import.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_import2.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/sample_import2.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_import2.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_interfaces.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/sample_interfaces.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_interfaces.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_service.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/sample_service.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_service.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/scoping.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/scoping.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/scoping.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/serialization_test_structs.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/serialization_test_structs.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/serialization_test_structs.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/test_constants.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/test_constants.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/test_constants.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/test_native_types.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/test_native_types.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/test_native_types.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/test_structs.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/test_structs.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/test_structs.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/test_sync_methods.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/test_sync_methods.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/test_sync_methods.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/test_unions.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/test_unions.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/test_unions.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/validation_test_interfaces.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/validation_test_interfaces.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/validation_test_interfaces.mojom-blink-internal.h: $
+    mojo_public_test_interfaces_mojom_blink_target_mojo_public_test_interfaces_mojom_blink_mojom_bindings_generator_902be90bafece7e281b4c7083d4a1eef $
+    ../../mojo/public/tools/bindings/mojom_bindings_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_cpp_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_java_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_js_generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/error.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/data.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/module.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/pack.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/template_expander.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/ast.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/lexer.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/parser.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/translate.py $
+    ../../mojo/public/interfaces/bindings/tests/math_calculator.mojom $
+    ../../mojo/public/interfaces/bindings/tests/no_module.mojom $
+    ../../mojo/public/interfaces/bindings/tests/ping_service.mojom $
+    ../../mojo/public/interfaces/bindings/tests/rect.mojom $
+    ../../mojo/public/interfaces/bindings/tests/regression_tests.mojom $
+    ../../mojo/public/interfaces/bindings/tests/sample_factory.mojom $
+    ../../mojo/public/interfaces/bindings/tests/sample_import.mojom $
+    ../../mojo/public/interfaces/bindings/tests/sample_import2.mojom $
+    ../../mojo/public/interfaces/bindings/tests/sample_interfaces.mojom $
+    ../../mojo/public/interfaces/bindings/tests/sample_service.mojom $
+    ../../mojo/public/interfaces/bindings/tests/scoping.mojom $
+    ../../mojo/public/interfaces/bindings/tests/serialization_test_structs.mojom $
+    ../../mojo/public/interfaces/bindings/tests/test_constants.mojom $
+    ../../mojo/public/interfaces/bindings/tests/test_native_types.mojom $
+    ../../mojo/public/interfaces/bindings/tests/test_structs.mojom $
+    ../../mojo/public/interfaces/bindings/tests/test_sync_methods.mojom $
+    ../../mojo/public/interfaces/bindings/tests/test_unions.mojom $
+    ../../mojo/public/interfaces/bindings/tests/validation_test_interfaces.mojom $
+    java_mojo/mojo_public_test_interfaces_mojom_blink/mojo_public_test_interfaces_mojom_blink.stamp $
+    gen/mojo/public/tools/bindings/cpp_templates.zip $
+    gen/mojo/public/tools/bindings/java_templates.zip $
+    gen/mojo/public/tools/bindings/js_templates.zip || $
+    obj/mojo/mojo_public_test_interfaces_mojom_blink.actions_depends.stamp
+
+build $
+    obj/mojo/mojo_public_test_interfaces_mojom_blink.actions_rules_copies.stamp: $
+    stamp $
+    java_mojo/mojo_public_test_interfaces_mojom_blink/mojo_public_test_interfaces_mojom_blink.stamp $
+    gen/mojo/public/interfaces/bindings/tests/math_calculator.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/math_calculator.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/math_calculator.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/no_module.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/no_module.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/no_module.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/ping_service.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/ping_service.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/ping_service.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/rect.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/rect.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/rect.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/regression_tests.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/regression_tests.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/regression_tests.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_factory.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/sample_factory.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_factory.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_import.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/sample_import.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_import.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_import2.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/sample_import2.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_import2.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_interfaces.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/sample_interfaces.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_interfaces.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_service.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/sample_service.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/sample_service.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/scoping.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/scoping.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/scoping.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/serialization_test_structs.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/serialization_test_structs.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/serialization_test_structs.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/test_constants.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/test_constants.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/test_constants.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/test_native_types.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/test_native_types.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/test_native_types.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/test_structs.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/test_structs.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/test_structs.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/test_sync_methods.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/test_sync_methods.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/test_sync_methods.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/test_unions.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/test_unions.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/test_unions.mojom-blink-internal.h $
+    gen/mojo/public/interfaces/bindings/tests/validation_test_interfaces.mojom-blink.cc $
+    gen/mojo/public/interfaces/bindings/tests/validation_test_interfaces.mojom-blink.h $
+    gen/mojo/public/interfaces/bindings/tests/validation_test_interfaces.mojom-blink-internal.h
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS $
+    -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -I../.. -Igen
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/mojo/gen/mojo/public/interfaces/bindings/tests/mojo_public_test_interfaces_mojom_blink.math_calculator.mojom.o: $
+    cxx gen/mojo/public/interfaces/bindings/tests/math_calculator.mojom.cc $
+    || $
+    obj/mojo/mojo_public_test_interfaces_mojom_blink.actions_rules_copies.stamp
+build $
+    obj/mojo/gen/mojo/public/interfaces/bindings/tests/mojo_public_test_interfaces_mojom_blink.no_module.mojom.o: $
+    cxx gen/mojo/public/interfaces/bindings/tests/no_module.mojom.cc || $
+    obj/mojo/mojo_public_test_interfaces_mojom_blink.actions_rules_copies.stamp
+build $
+    obj/mojo/gen/mojo/public/interfaces/bindings/tests/mojo_public_test_interfaces_mojom_blink.ping_service.mojom.o: $
+    cxx gen/mojo/public/interfaces/bindings/tests/ping_service.mojom.cc || $
+    obj/mojo/mojo_public_test_interfaces_mojom_blink.actions_rules_copies.stamp
+build $
+    obj/mojo/gen/mojo/public/interfaces/bindings/tests/mojo_public_test_interfaces_mojom_blink.rect.mojom.o: $
+    cxx gen/mojo/public/interfaces/bindings/tests/rect.mojom.cc || $
+    obj/mojo/mojo_public_test_interfaces_mojom_blink.actions_rules_copies.stamp
+build $
+    obj/mojo/gen/mojo/public/interfaces/bindings/tests/mojo_public_test_interfaces_mojom_blink.regression_tests.mojom.o: $
+    cxx gen/mojo/public/interfaces/bindings/tests/regression_tests.mojom.cc $
+    || $
+    obj/mojo/mojo_public_test_interfaces_mojom_blink.actions_rules_copies.stamp
+build $
+    obj/mojo/gen/mojo/public/interfaces/bindings/tests/mojo_public_test_interfaces_mojom_blink.sample_factory.mojom.o: $
+    cxx gen/mojo/public/interfaces/bindings/tests/sample_factory.mojom.cc $
+    || $
+    obj/mojo/mojo_public_test_interfaces_mojom_blink.actions_rules_copies.stamp
+build $
+    obj/mojo/gen/mojo/public/interfaces/bindings/tests/mojo_public_test_interfaces_mojom_blink.sample_import.mojom.o: $
+    cxx gen/mojo/public/interfaces/bindings/tests/sample_import.mojom.cc || $
+    obj/mojo/mojo_public_test_interfaces_mojom_blink.actions_rules_copies.stamp
+build $
+    obj/mojo/gen/mojo/public/interfaces/bindings/tests/mojo_public_test_interfaces_mojom_blink.sample_import2.mojom.o: $
+    cxx gen/mojo/public/interfaces/bindings/tests/sample_import2.mojom.cc $
+    || $
+    obj/mojo/mojo_public_test_interfaces_mojom_blink.actions_rules_copies.stamp
+build $
+    obj/mojo/gen/mojo/public/interfaces/bindings/tests/mojo_public_test_interfaces_mojom_blink.sample_interfaces.mojom.o: $
+    cxx $
+    gen/mojo/public/interfaces/bindings/tests/sample_interfaces.mojom.cc || $
+    obj/mojo/mojo_public_test_interfaces_mojom_blink.actions_rules_copies.stamp
+build $
+    obj/mojo/gen/mojo/public/interfaces/bindings/tests/mojo_public_test_interfaces_mojom_blink.sample_service.mojom.o: $
+    cxx gen/mojo/public/interfaces/bindings/tests/sample_service.mojom.cc $
+    || $
+    obj/mojo/mojo_public_test_interfaces_mojom_blink.actions_rules_copies.stamp
+build $
+    obj/mojo/gen/mojo/public/interfaces/bindings/tests/mojo_public_test_interfaces_mojom_blink.scoping.mojom.o: $
+    cxx gen/mojo/public/interfaces/bindings/tests/scoping.mojom.cc || $
+    obj/mojo/mojo_public_test_interfaces_mojom_blink.actions_rules_copies.stamp
+build $
+    obj/mojo/gen/mojo/public/interfaces/bindings/tests/mojo_public_test_interfaces_mojom_blink.serialization_test_structs.mojom.o: $
+    cxx $
+    gen/mojo/public/interfaces/bindings/tests/serialization_test_structs.mojom.cc $
+    || $
+    obj/mojo/mojo_public_test_interfaces_mojom_blink.actions_rules_copies.stamp
+build $
+    obj/mojo/gen/mojo/public/interfaces/bindings/tests/mojo_public_test_interfaces_mojom_blink.test_constants.mojom.o: $
+    cxx gen/mojo/public/interfaces/bindings/tests/test_constants.mojom.cc $
+    || $
+    obj/mojo/mojo_public_test_interfaces_mojom_blink.actions_rules_copies.stamp
+build $
+    obj/mojo/gen/mojo/public/interfaces/bindings/tests/mojo_public_test_interfaces_mojom_blink.test_native_types.mojom.o: $
+    cxx $
+    gen/mojo/public/interfaces/bindings/tests/test_native_types.mojom.cc || $
+    obj/mojo/mojo_public_test_interfaces_mojom_blink.actions_rules_copies.stamp
+build $
+    obj/mojo/gen/mojo/public/interfaces/bindings/tests/mojo_public_test_interfaces_mojom_blink.test_structs.mojom.o: $
+    cxx gen/mojo/public/interfaces/bindings/tests/test_structs.mojom.cc || $
+    obj/mojo/mojo_public_test_interfaces_mojom_blink.actions_rules_copies.stamp
+build $
+    obj/mojo/gen/mojo/public/interfaces/bindings/tests/mojo_public_test_interfaces_mojom_blink.test_sync_methods.mojom.o: $
+    cxx $
+    gen/mojo/public/interfaces/bindings/tests/test_sync_methods.mojom.cc || $
+    obj/mojo/mojo_public_test_interfaces_mojom_blink.actions_rules_copies.stamp
+build $
+    obj/mojo/gen/mojo/public/interfaces/bindings/tests/mojo_public_test_interfaces_mojom_blink.test_unions.mojom.o: $
+    cxx gen/mojo/public/interfaces/bindings/tests/test_unions.mojom.cc || $
+    obj/mojo/mojo_public_test_interfaces_mojom_blink.actions_rules_copies.stamp
+build $
+    obj/mojo/gen/mojo/public/interfaces/bindings/tests/mojo_public_test_interfaces_mojom_blink.validation_test_interfaces.mojom.o: $
+    cxx $
+    gen/mojo/public/interfaces/bindings/tests/validation_test_interfaces.mojom.cc $
+    || $
+    obj/mojo/mojo_public_test_interfaces_mojom_blink.actions_rules_copies.stamp
+

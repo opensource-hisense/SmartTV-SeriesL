@@ -1,0 +1,261 @@
+build obj/chrome/debugger.actions_depends.stamp: stamp lib/libbase.so.TOC $
+    obj/mojo/libmojo_application_bindings.a $
+    obj/ui/accessibility/libax_gen.a $
+    obj/content/libcontent_common_mojo_bindings.a lib/libnet.so.TOC $
+    obj/chrome/browser/devtools/devtools_protocol_constants.actions_rules_copies.stamp $
+    gen/chrome/common/features.h obj/skia/skia.actions_depends.stamp $
+    obj/chrome/chrome_extra_resources.actions_rules_copies.stamp $
+    obj/chrome/chrome_resources.actions_rules_copies.stamp $
+    obj/chrome/chrome_strings.actions_rules_copies.stamp $
+    obj/chrome/theme_resources.actions_rules_copies.stamp $
+    obj/chrome/common/extensions/api/libchrome_api.a
+
+build obj/chrome/debugger.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/mojo/mojo_application_bindings_mojom.actions_rules_copies.stamp $
+    obj/ui/accessibility/ax_gen.actions_rules_copies.stamp $
+    obj/content/content_common_mojo_bindings_mojom.actions_rules_copies.stamp $
+    obj/net/net.compile_depends.stamp $
+    obj/chrome/browser/devtools/devtools_protocol_constants.actions_rules_copies.stamp $
+    gen/chrome/common/features.h obj/base/base.compile_depends.stamp $
+    obj/chrome/chrome_extra_resources.actions_rules_copies.stamp $
+    obj/chrome/chrome_resources.actions_rules_copies.stamp $
+    obj/chrome/chrome_strings.actions_rules_copies.stamp $
+    obj/chrome/theme_resources.actions_rules_copies.stamp $
+    obj/chrome/common/extensions/api/chrome_api.actions_rules_copies.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DMOJO_USE_SYSTEM_IMPL $
+    -DSK_SUPPORT_GPU=1 -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS $
+    -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= $
+    -DU_STATIC_IMPLEMENTATION -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS $
+    -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../third_party/khronos -I../../gpu $
+    -I../../skia/config -Igen/angle -I../../third_party/WebKit/Source $
+    -I../../third_party/WebKit -Igen/third_party/WebKit $
+    -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../third_party/icu/source/i18n $
+    -I../../third_party/icu/source/common $
+    -I../../third_party/leveldatabase/src/include $
+    -I../../third_party/leveldatabase/src -I../../third_party/leveldatabase $
+    -Igen/chrome
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/chrome/gen/chrome/browser/devtools/debugger.devtools_protocol_constants.o: $
+    cxx gen/chrome/browser/devtools/devtools_protocol_constants.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build $
+    obj/chrome/browser/devtools/debugger.chrome_devtools_manager_delegate.o: $
+    cxx ../../chrome/browser/devtools/chrome_devtools_manager_delegate.cc $
+    || obj/chrome/debugger.compile_depends.stamp
+build obj/chrome/browser/devtools/debugger.devtools_network_conditions.o: $
+    cxx ../../chrome/browser/devtools/devtools_network_conditions.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build obj/chrome/browser/devtools/debugger.devtools_network_controller.o: $
+    cxx ../../chrome/browser/devtools/devtools_network_controller.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build $
+    obj/chrome/browser/devtools/debugger.devtools_network_controller_handle.o: $
+    cxx ../../chrome/browser/devtools/devtools_network_controller_handle.cc $
+    || obj/chrome/debugger.compile_depends.stamp
+build obj/chrome/browser/devtools/debugger.devtools_network_interceptor.o: $
+    cxx ../../chrome/browser/devtools/devtools_network_interceptor.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build $
+    obj/chrome/browser/devtools/debugger.devtools_network_protocol_handler.o: $
+    cxx ../../chrome/browser/devtools/devtools_network_protocol_handler.cc $
+    || obj/chrome/debugger.compile_depends.stamp
+build obj/chrome/browser/devtools/debugger.devtools_network_transaction.o: $
+    cxx ../../chrome/browser/devtools/devtools_network_transaction.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build $
+    obj/chrome/browser/devtools/debugger.devtools_network_transaction_factory.o: $
+    cxx $
+    ../../chrome/browser/devtools/devtools_network_transaction_factory.cc $
+    || obj/chrome/debugger.compile_depends.stamp
+build $
+    obj/chrome/browser/devtools/debugger.devtools_network_upload_data_stream.o: $
+    cxx $
+    ../../chrome/browser/devtools/devtools_network_upload_data_stream.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build obj/chrome/browser/devtools/debugger.devtools_protocol.o: cxx $
+    ../../chrome/browser/devtools/devtools_protocol.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build $
+    obj/chrome/browser/devtools/debugger.chrome_devtools_discovery_provider.o: $
+    cxx ../../chrome/browser/devtools/chrome_devtools_discovery_provider.cc $
+    || obj/chrome/debugger.compile_depends.stamp
+build obj/chrome/browser/devtools/device/adb/debugger.adb_client_socket.o: $
+    cxx ../../chrome/browser/devtools/device/adb/adb_client_socket.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build $
+    obj/chrome/browser/devtools/device/adb/debugger.adb_device_provider.o: $
+    cxx ../../chrome/browser/devtools/device/adb/adb_device_provider.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build $
+    obj/chrome/browser/devtools/device/debugger.android_device_info_query.o: $
+    cxx ../../chrome/browser/devtools/device/android_device_info_query.cc $
+    || obj/chrome/debugger.compile_depends.stamp
+build obj/chrome/browser/devtools/device/debugger.android_device_manager.o: $
+    cxx ../../chrome/browser/devtools/device/android_device_manager.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build obj/chrome/browser/devtools/device/debugger.android_web_socket.o: cxx $
+    ../../chrome/browser/devtools/device/android_web_socket.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build $
+    obj/chrome/browser/devtools/device/debugger.devtools_android_bridge.o: $
+    cxx ../../chrome/browser/devtools/device/devtools_android_bridge.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build $
+    obj/chrome/browser/devtools/device/debugger.port_forwarding_controller.o: $
+    cxx ../../chrome/browser/devtools/device/port_forwarding_controller.cc $
+    || obj/chrome/debugger.compile_depends.stamp
+build obj/chrome/browser/devtools/device/debugger.tcp_device_provider.o: $
+    cxx ../../chrome/browser/devtools/device/tcp_device_provider.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build obj/chrome/browser/devtools/device/usb/debugger.android_rsa.o: cxx $
+    ../../chrome/browser/devtools/device/usb/android_rsa.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build obj/chrome/browser/devtools/device/usb/debugger.android_usb_device.o: $
+    cxx ../../chrome/browser/devtools/device/usb/android_usb_device.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build obj/chrome/browser/devtools/device/usb/debugger.android_usb_socket.o: $
+    cxx ../../chrome/browser/devtools/device/usb/android_usb_socket.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build $
+    obj/chrome/browser/devtools/device/usb/debugger.usb_device_provider.o: $
+    cxx ../../chrome/browser/devtools/device/usb/usb_device_provider.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build obj/chrome/browser/devtools/debugger.devtools_auto_opener.o: cxx $
+    ../../chrome/browser/devtools/devtools_auto_opener.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build $
+    obj/chrome/browser/devtools/debugger.devtools_contents_resizing_strategy.o: $
+    cxx $
+    ../../chrome/browser/devtools/devtools_contents_resizing_strategy.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build $
+    obj/chrome/browser/devtools/debugger.devtools_embedder_message_dispatcher.o: $
+    cxx $
+    ../../chrome/browser/devtools/devtools_embedder_message_dispatcher.cc $
+    || obj/chrome/debugger.compile_depends.stamp
+build obj/chrome/browser/devtools/debugger.devtools_file_helper.o: cxx $
+    ../../chrome/browser/devtools/devtools_file_helper.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build obj/chrome/browser/devtools/debugger.devtools_file_system_indexer.o: $
+    cxx ../../chrome/browser/devtools/devtools_file_system_indexer.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build obj/chrome/browser/devtools/debugger.devtools_file_watcher.o: cxx $
+    ../../chrome/browser/devtools/devtools_file_watcher.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build obj/chrome/browser/devtools/debugger.devtools_target_impl.o: cxx $
+    ../../chrome/browser/devtools/devtools_target_impl.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build obj/chrome/browser/devtools/debugger.devtools_targets_ui.o: cxx $
+    ../../chrome/browser/devtools/devtools_targets_ui.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build obj/chrome/browser/devtools/debugger.devtools_toggle_action.o: cxx $
+    ../../chrome/browser/devtools/devtools_toggle_action.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build obj/chrome/browser/devtools/debugger.devtools_ui_bindings.o: cxx $
+    ../../chrome/browser/devtools/devtools_ui_bindings.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build obj/chrome/browser/devtools/debugger.devtools_window.o: cxx $
+    ../../chrome/browser/devtools/devtools_window.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build obj/chrome/browser/devtools/debugger.global_confirm_info_bar.o: cxx $
+    ../../chrome/browser/devtools/global_confirm_info_bar.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build obj/chrome/browser/devtools/debugger.remote_debugging_server.o: cxx $
+    ../../chrome/browser/devtools/remote_debugging_server.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+build obj/chrome/browser/devtools/device/debugger.cast_device_provider.o: $
+    cxx ../../chrome/browser/devtools/device/cast_device_provider.cc || $
+    obj/chrome/debugger.compile_depends.stamp
+
+build obj/chrome/libdebugger.a: alink_thin $
+    obj/chrome/gen/chrome/browser/devtools/debugger.devtools_protocol_constants.o $
+    obj/chrome/browser/devtools/debugger.chrome_devtools_manager_delegate.o $
+    obj/chrome/browser/devtools/debugger.devtools_network_conditions.o $
+    obj/chrome/browser/devtools/debugger.devtools_network_controller.o $
+    obj/chrome/browser/devtools/debugger.devtools_network_controller_handle.o $
+    obj/chrome/browser/devtools/debugger.devtools_network_interceptor.o $
+    obj/chrome/browser/devtools/debugger.devtools_network_protocol_handler.o $
+    obj/chrome/browser/devtools/debugger.devtools_network_transaction.o $
+    obj/chrome/browser/devtools/debugger.devtools_network_transaction_factory.o $
+    obj/chrome/browser/devtools/debugger.devtools_network_upload_data_stream.o $
+    obj/chrome/browser/devtools/debugger.devtools_protocol.o $
+    obj/chrome/browser/devtools/debugger.chrome_devtools_discovery_provider.o $
+    obj/chrome/browser/devtools/device/adb/debugger.adb_client_socket.o $
+    obj/chrome/browser/devtools/device/adb/debugger.adb_device_provider.o $
+    obj/chrome/browser/devtools/device/debugger.android_device_info_query.o $
+    obj/chrome/browser/devtools/device/debugger.android_device_manager.o $
+    obj/chrome/browser/devtools/device/debugger.android_web_socket.o $
+    obj/chrome/browser/devtools/device/debugger.devtools_android_bridge.o $
+    obj/chrome/browser/devtools/device/debugger.port_forwarding_controller.o $
+    obj/chrome/browser/devtools/device/debugger.tcp_device_provider.o $
+    obj/chrome/browser/devtools/device/usb/debugger.android_rsa.o $
+    obj/chrome/browser/devtools/device/usb/debugger.android_usb_device.o $
+    obj/chrome/browser/devtools/device/usb/debugger.android_usb_socket.o $
+    obj/chrome/browser/devtools/device/usb/debugger.usb_device_provider.o $
+    obj/chrome/browser/devtools/debugger.devtools_auto_opener.o $
+    obj/chrome/browser/devtools/debugger.devtools_contents_resizing_strategy.o $
+    obj/chrome/browser/devtools/debugger.devtools_embedder_message_dispatcher.o $
+    obj/chrome/browser/devtools/debugger.devtools_file_helper.o $
+    obj/chrome/browser/devtools/debugger.devtools_file_system_indexer.o $
+    obj/chrome/browser/devtools/debugger.devtools_file_watcher.o $
+    obj/chrome/browser/devtools/debugger.devtools_target_impl.o $
+    obj/chrome/browser/devtools/debugger.devtools_targets_ui.o $
+    obj/chrome/browser/devtools/debugger.devtools_toggle_action.o $
+    obj/chrome/browser/devtools/debugger.devtools_ui_bindings.o $
+    obj/chrome/browser/devtools/debugger.devtools_window.o $
+    obj/chrome/browser/devtools/debugger.global_confirm_info_bar.o $
+    obj/chrome/browser/devtools/debugger.remote_debugging_server.o $
+    obj/chrome/browser/devtools/device/debugger.cast_device_provider.o || $
+    obj/chrome/debugger.actions_depends.stamp

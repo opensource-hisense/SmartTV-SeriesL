@@ -1,0 +1,212 @@
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DLIBANGLE_IMPLEMENTATION $
+    -DANGLE_TRANSLATOR_STATIC -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -Igen -I../../third_party/angle/src $
+    -I../../third_party/angle/include $
+    -I../../third_party/angle/src/third_party/khronos -Igen/angle $
+    -I../../third_party/angle/src -I../../third_party/angle/include
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-abi $
+    -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+build obj/third_party/angle/src/common/libANGLE.event_tracer.o: cxx $
+    ../../third_party/angle/src/common/event_tracer.cpp || $
+    gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.AttributeMap.o: cxx $
+    ../../third_party/angle/src/libANGLE/AttributeMap.cpp || $
+    gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.Buffer.o: cxx $
+    ../../third_party/angle/src/libANGLE/Buffer.cpp || gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.Caps.o: cxx $
+    ../../third_party/angle/src/libANGLE/Caps.cpp || gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.Compiler.o: cxx $
+    ../../third_party/angle/src/libANGLE/Compiler.cpp || gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.Config.o: cxx $
+    ../../third_party/angle/src/libANGLE/Config.cpp || gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.Context.o: cxx $
+    ../../third_party/angle/src/libANGLE/Context.cpp || gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.Data.o: cxx $
+    ../../third_party/angle/src/libANGLE/Data.cpp || gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.Debug.o: cxx $
+    ../../third_party/angle/src/libANGLE/Debug.cpp || gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.Device.o: cxx $
+    ../../third_party/angle/src/libANGLE/Device.cpp || gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.Display.o: cxx $
+    ../../third_party/angle/src/libANGLE/Display.cpp || gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.Error.o: cxx $
+    ../../third_party/angle/src/libANGLE/Error.cpp || gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.Fence.o: cxx $
+    ../../third_party/angle/src/libANGLE/Fence.cpp || gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.Framebuffer.o: cxx $
+    ../../third_party/angle/src/libANGLE/Framebuffer.cpp || $
+    gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.FramebufferAttachment.o: $
+    cxx ../../third_party/angle/src/libANGLE/FramebufferAttachment.cpp || $
+    gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.HandleAllocator.o: cxx $
+    ../../third_party/angle/src/libANGLE/HandleAllocator.cpp || $
+    gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.Image.o: cxx $
+    ../../third_party/angle/src/libANGLE/Image.cpp || gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.ImageIndex.o: cxx $
+    ../../third_party/angle/src/libANGLE/ImageIndex.cpp || $
+    gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.IndexRangeCache.o: cxx $
+    ../../third_party/angle/src/libANGLE/IndexRangeCache.cpp || $
+    gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.Platform.o: cxx $
+    ../../third_party/angle/src/libANGLE/Platform.cpp || gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.Program.o: cxx $
+    ../../third_party/angle/src/libANGLE/Program.cpp || gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.Query.o: cxx $
+    ../../third_party/angle/src/libANGLE/Query.cpp || gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.Renderbuffer.o: cxx $
+    ../../third_party/angle/src/libANGLE/Renderbuffer.cpp || $
+    gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.ResourceManager.o: cxx $
+    ../../third_party/angle/src/libANGLE/ResourceManager.cpp || $
+    gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.Sampler.o: cxx $
+    ../../third_party/angle/src/libANGLE/Sampler.cpp || gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.Shader.o: cxx $
+    ../../third_party/angle/src/libANGLE/Shader.cpp || gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.State.o: cxx $
+    ../../third_party/angle/src/libANGLE/State.cpp || gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.Stream.o: cxx $
+    ../../third_party/angle/src/libANGLE/Stream.cpp || gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.Surface.o: cxx $
+    ../../third_party/angle/src/libANGLE/Surface.cpp || gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.Texture.o: cxx $
+    ../../third_party/angle/src/libANGLE/Texture.cpp || gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.TransformFeedback.o: cxx $
+    ../../third_party/angle/src/libANGLE/TransformFeedback.cpp || $
+    gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.Uniform.o: cxx $
+    ../../third_party/angle/src/libANGLE/Uniform.cpp || gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.VertexArray.o: cxx $
+    ../../third_party/angle/src/libANGLE/VertexArray.cpp || $
+    gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.VertexAttribute.o: cxx $
+    ../../third_party/angle/src/libANGLE/VertexAttribute.cpp || $
+    gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.angletypes.o: cxx $
+    ../../third_party/angle/src/libANGLE/angletypes.cpp || $
+    gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.formatutils.o: cxx $
+    ../../third_party/angle/src/libANGLE/formatutils.cpp || $
+    gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.queryconversions.o: cxx $
+    ../../third_party/angle/src/libANGLE/queryconversions.cpp || $
+    gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/renderer/libANGLE.DeviceImpl.o: $
+    cxx ../../third_party/angle/src/libANGLE/renderer/DeviceImpl.cpp || $
+    gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/renderer/libANGLE.DisplayImpl.o: $
+    cxx ../../third_party/angle/src/libANGLE/renderer/DisplayImpl.cpp || $
+    gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/renderer/libANGLE.Renderer.o: cxx $
+    ../../third_party/angle/src/libANGLE/renderer/Renderer.cpp || $
+    gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/renderer/libANGLE.SurfaceImpl.o: $
+    cxx ../../third_party/angle/src/libANGLE/renderer/SurfaceImpl.cpp || $
+    gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.validationEGL.o: cxx $
+    ../../third_party/angle/src/libANGLE/validationEGL.cpp || $
+    gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.validationES.o: cxx $
+    ../../third_party/angle/src/libANGLE/validationES.cpp || $
+    gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.validationES2.o: cxx $
+    ../../third_party/angle/src/libANGLE/validationES2.cpp || $
+    gen/angle/id/commit.h
+build obj/third_party/angle/src/libANGLE/libANGLE.validationES3.o: cxx $
+    ../../third_party/angle/src/libANGLE/validationES3.cpp || $
+    gen/angle/id/commit.h
+build $
+    obj/third_party/angle/src/third_party/murmurhash/libANGLE.MurmurHash3.o: $
+    cxx ../../third_party/angle/src/third_party/murmurhash/MurmurHash3.cpp $
+    || gen/angle/id/commit.h
+
+build obj/third_party/angle/src/libANGLE.a: alink_thin $
+    obj/third_party/angle/src/common/libANGLE.event_tracer.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.AttributeMap.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.Buffer.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.Caps.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.Compiler.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.Config.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.Context.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.Data.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.Debug.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.Device.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.Display.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.Error.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.Fence.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.Framebuffer.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.FramebufferAttachment.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.HandleAllocator.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.Image.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.ImageIndex.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.IndexRangeCache.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.Platform.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.Program.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.Query.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.Renderbuffer.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.ResourceManager.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.Sampler.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.Shader.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.State.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.Stream.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.Surface.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.Texture.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.TransformFeedback.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.Uniform.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.VertexArray.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.VertexAttribute.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.angletypes.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.formatutils.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.queryconversions.o $
+    obj/third_party/angle/src/libANGLE/renderer/libANGLE.DeviceImpl.o $
+    obj/third_party/angle/src/libANGLE/renderer/libANGLE.DisplayImpl.o $
+    obj/third_party/angle/src/libANGLE/renderer/libANGLE.Renderer.o $
+    obj/third_party/angle/src/libANGLE/renderer/libANGLE.SurfaceImpl.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.validationEGL.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.validationES.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.validationES2.o $
+    obj/third_party/angle/src/libANGLE/libANGLE.validationES3.o $
+    obj/third_party/angle/src/third_party/murmurhash/libANGLE.MurmurHash3.o $
+    || gen/angle/id/commit.h

@@ -1,0 +1,664 @@
+defines = -DOPJ_STATIC -DPNG_PREFIX -DPNG_USE_READ_MACROS $
+    -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -I../.. -I../../third_party/pdfium $
+    -I../../third_party/pdfium/third_party/freetype/include $
+    -I../../third_party/pdfium/third_party/freetype/include/freetype -Igen
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-abi $
+    -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+build obj/third_party/pdfium/core/fpdfapi/fpdfapi.fpdf_basic_module.o: cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_basic_module.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.Adobe-CNS1-UCS2_5.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/Adobe-CNS1-UCS2_5.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.B5pc-H_0.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/B5pc-H_0.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.B5pc-V_0.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/B5pc-V_0.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.cmaps_cns1.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/cmaps_cns1.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.CNS-EUC-H_0.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/CNS-EUC-H_0.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.CNS-EUC-V_0.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/CNS-EUC-V_0.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.ETen-B5-H_0.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/ETen-B5-H_0.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.ETen-B5-V_0.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/ETen-B5-V_0.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.ETenms-B5-H_0.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/ETenms-B5-H_0.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.ETenms-B5-V_0.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/ETenms-B5-V_0.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.HKscs-B5-H_5.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/HKscs-B5-H_5.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.HKscs-B5-V_5.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/HKscs-B5-V_5.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.UniCNS-UCS2-H_3.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/UniCNS-UCS2-H_3.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.UniCNS-UCS2-V_3.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/UniCNS-UCS2-V_3.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.UniCNS-UTF16-H_0.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/UniCNS-UTF16-H_0.cpp
+build obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/fpdfapi.fpdf_cmaps.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/fpdf_cmaps.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.Adobe-GB1-UCS2_5.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/Adobe-GB1-UCS2_5.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.cmaps_gb1.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/cmaps_gb1.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.GB-EUC-H_0.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/GB-EUC-H_0.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.GB-EUC-V_0.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/GB-EUC-V_0.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.GBK-EUC-H_2.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/GBK-EUC-H_2.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.GBK-EUC-V_2.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/GBK-EUC-V_2.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.GBK2K-H_5.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/GBK2K-H_5.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.GBK2K-V_5.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/GBK2K-V_5.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.GBKp-EUC-H_2.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/GBKp-EUC-H_2.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.GBKp-EUC-V_2.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/GBKp-EUC-V_2.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.GBpc-EUC-H_0.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/GBpc-EUC-H_0.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.GBpc-EUC-V_0.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/GBpc-EUC-V_0.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.UniGB-UCS2-H_4.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/UniGB-UCS2-H_4.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.UniGB-UCS2-V_4.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/UniGB-UCS2-V_4.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.83pv-RKSJ-H_1.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/83pv-RKSJ-H_1.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.90ms-RKSJ-H_2.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/90ms-RKSJ-H_2.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.90ms-RKSJ-V_2.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/90ms-RKSJ-V_2.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.90msp-RKSJ-H_2.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/90msp-RKSJ-H_2.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.90msp-RKSJ-V_2.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/90msp-RKSJ-V_2.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.90pv-RKSJ-H_1.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/90pv-RKSJ-H_1.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.Add-RKSJ-H_1.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/Add-RKSJ-H_1.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.Add-RKSJ-V_1.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/Add-RKSJ-V_1.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.Adobe-Japan1-UCS2_4.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/Adobe-Japan1-UCS2_4.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.cmaps_japan1.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/cmaps_japan1.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.EUC-H_1.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/EUC-H_1.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.EUC-V_1.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/EUC-V_1.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.Ext-RKSJ-H_2.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/Ext-RKSJ-H_2.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.Ext-RKSJ-V_2.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/Ext-RKSJ-V_2.cpp
+build obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.H_1.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/H_1.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.UniJIS-UCS2-HW-H_4.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/UniJIS-UCS2-HW-H_4.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.UniJIS-UCS2-HW-V_4.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/UniJIS-UCS2-HW-V_4.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.UniJIS-UCS2-H_4.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/UniJIS-UCS2-H_4.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.UniJIS-UCS2-V_4.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/UniJIS-UCS2-V_4.cpp
+build obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.V_1.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/V_1.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/fpdfapi.Adobe-Korea1-UCS2_2.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/Adobe-Korea1-UCS2_2.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/fpdfapi.cmaps_korea1.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/cmaps_korea1.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/fpdfapi.KSC-EUC-H_0.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/KSC-EUC-H_0.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/fpdfapi.KSC-EUC-V_0.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/KSC-EUC-V_0.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/fpdfapi.KSCms-UHC-HW-H_1.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/KSCms-UHC-HW-H_1.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/fpdfapi.KSCms-UHC-HW-V_1.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/KSCms-UHC-HW-V_1.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/fpdfapi.KSCms-UHC-H_1.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/KSCms-UHC-H_1.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/fpdfapi.KSCms-UHC-V_1.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/KSCms-UHC-V_1.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/fpdfapi.KSCpc-EUC-H_0.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/KSCpc-EUC-H_0.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/fpdfapi.UniKS-UCS2-H_1.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/UniKS-UCS2-H_1.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/fpdfapi.UniKS-UCS2-V_1.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/UniKS-UCS2-V_1.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/fpdfapi.UniKS-UTF16-H_0.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/UniKS-UTF16-H_0.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_edit/fpdfapi.cpdf_pagecontentgenerator.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_edit/cpdf_pagecontentgenerator.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_edit/fpdfapi.fpdf_edit_create.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_edit/fpdf_edit_create.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_edit/fpdfapi.fpdf_edit_doc.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_edit/fpdf_edit_doc.cpp
+build obj/third_party/pdfium/core/fpdfapi/fpdf_font/fpdfapi.cpdf_cidfont.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_font/cpdf_cidfont.cpp
+build obj/third_party/pdfium/core/fpdfapi/fpdf_font/fpdfapi.cpdf_font.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_font/cpdf_font.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_font/fpdfapi.cpdf_fontencoding.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_font/cpdf_fontencoding.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_font/fpdfapi.cpdf_simplefont.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_font/cpdf_simplefont.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_font/fpdfapi.cpdf_truetypefont.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_font/cpdf_truetypefont.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_font/fpdfapi.cpdf_type1font.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_font/cpdf_type1font.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_font/fpdfapi.cpdf_type3char.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_font/cpdf_type3char.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_font/fpdfapi.cpdf_type3font.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_font/cpdf_type3font.cpp
+build obj/third_party/pdfium/core/fpdfapi/fpdf_font/fpdfapi.fpdf_font.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_font/fpdf_font.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_font/fpdfapi.fpdf_font_cid.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_font/fpdf_font_cid.cpp
+build obj/third_party/pdfium/core/fpdfapi/fpdf_font/fpdfapi.ttgsubtable.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_font/ttgsubtable.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_allstates.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_allstates.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_clippath.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_clippath.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_clippathdata.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_clippathdata.cpp
+build obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_color.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_color.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_colorspace.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_colorspace.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_colorstate.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_colorstate.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_colorstatedata.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_colorstatedata.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_contentmark.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_contentmark.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_contentmarkdata.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_contentmarkdata.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_contentmarkitem.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_contentmarkitem.cpp
+build obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_form.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_form.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_formobject.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_formobject.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_generalstate.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_generalstate.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_generalstatedata.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_generalstatedata.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_graphicstates.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_graphicstates.cpp
+build obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_image.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_image.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_imageobject.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_imageobject.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_meshstream.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_meshstream.cpp
+build obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_page.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_page.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_pageobject.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_pageobject.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_pageobjectholder.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_pageobjectholder.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_pageobjectlist.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_pageobjectlist.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_parseoptions.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_parseoptions.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_pathobject.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_pathobject.cpp
+build obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_pattern.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_pattern.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_shadingobject.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_shadingobject.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_shadingpattern.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_shadingpattern.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_textobject.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_textobject.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_textstate.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_textstate.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_textstatedata.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_textstatedata.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_tilingpattern.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/cpdf_tilingpattern.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.fpdf_page_colors.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/fpdf_page_colors.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.fpdf_page_doc.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/fpdf_page_doc.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.fpdf_page_func.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/fpdf_page_func.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.fpdf_page_parser.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/fpdf_page_parser.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.fpdf_page_parser_old.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_page/fpdf_page_parser_old.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.fpdf_page_pattern.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_page/fpdf_page_pattern.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cfdf_document.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_parser/cfdf_document.cpp
+build obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_array.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_parser/cpdf_array.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_boolean.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_parser/cpdf_boolean.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_data_avail.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_parser/cpdf_data_avail.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_dictionary.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_parser/cpdf_dictionary.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_document.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_parser/cpdf_document.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_hint_tables.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_parser/cpdf_hint_tables.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_indirect_object_holder.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_parser/cpdf_indirect_object_holder.cpp
+build obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_name.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_parser/cpdf_name.cpp
+build obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_null.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_parser/cpdf_null.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_number.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_parser/cpdf_number.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_object.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_parser/cpdf_object.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_parser.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_parser/cpdf_parser.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_reference.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_parser/cpdf_reference.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_simple_parser.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_parser/cpdf_simple_parser.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_standard_crypto_handler.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_parser/cpdf_standard_crypto_handler.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_standard_security_handler.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_parser/cpdf_standard_security_handler.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_stream.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_parser/cpdf_stream.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_stream_acc.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_parser/cpdf_stream_acc.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_string.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_parser/cpdf_string.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_syntax_parser.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_parser/cpdf_syntax_parser.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.fpdf_parser_decode.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_parser/fpdf_parser_decode.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.fpdf_parser_utility.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_parser/fpdf_parser_utility.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.ipdf_occontext.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_parser/ipdf_occontext.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_render/fpdfapi.fpdf_render.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_render/fpdf_render.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_render/fpdfapi.fpdf_render_cache.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_render/fpdf_render_cache.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_render/fpdfapi.fpdf_render_image.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_render/fpdf_render_image.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_render/fpdfapi.fpdf_render_loadimage.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_render/fpdf_render_loadimage.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_render/fpdfapi.fpdf_render_pattern.o: $
+    cxx $
+    ../../third_party/pdfium/core/fpdfapi/fpdf_render/fpdf_render_pattern.cpp
+build $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_render/fpdfapi.fpdf_render_text.o: $
+    cxx ../../third_party/pdfium/core/fpdfapi/fpdf_render/fpdf_render_text.cpp
+
+build obj/third_party/pdfium/libfpdfapi.a: alink_thin $
+    obj/third_party/pdfium/core/fpdfapi/fpdfapi.fpdf_basic_module.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.Adobe-CNS1-UCS2_5.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.B5pc-H_0.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.B5pc-V_0.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.cmaps_cns1.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.CNS-EUC-H_0.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.CNS-EUC-V_0.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.ETen-B5-H_0.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.ETen-B5-V_0.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.ETenms-B5-H_0.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.ETenms-B5-V_0.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.HKscs-B5-H_5.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.HKscs-B5-V_5.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.UniCNS-UCS2-H_3.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.UniCNS-UCS2-V_3.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/CNS1/fpdfapi.UniCNS-UTF16-H_0.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/fpdfapi.fpdf_cmaps.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.Adobe-GB1-UCS2_5.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.cmaps_gb1.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.GB-EUC-H_0.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.GB-EUC-V_0.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.GBK-EUC-H_2.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.GBK-EUC-V_2.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.GBK2K-H_5.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.GBK2K-V_5.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.GBKp-EUC-H_2.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.GBKp-EUC-V_2.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.GBpc-EUC-H_0.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.GBpc-EUC-V_0.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.UniGB-UCS2-H_4.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/GB1/fpdfapi.UniGB-UCS2-V_4.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.83pv-RKSJ-H_1.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.90ms-RKSJ-H_2.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.90ms-RKSJ-V_2.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.90msp-RKSJ-H_2.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.90msp-RKSJ-V_2.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.90pv-RKSJ-H_1.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.Add-RKSJ-H_1.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.Add-RKSJ-V_1.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.Adobe-Japan1-UCS2_4.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.cmaps_japan1.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.EUC-H_1.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.EUC-V_1.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.Ext-RKSJ-H_2.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.Ext-RKSJ-V_2.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.H_1.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.UniJIS-UCS2-HW-H_4.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.UniJIS-UCS2-HW-V_4.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.UniJIS-UCS2-H_4.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.UniJIS-UCS2-V_4.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Japan1/fpdfapi.V_1.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/fpdfapi.Adobe-Korea1-UCS2_2.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/fpdfapi.cmaps_korea1.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/fpdfapi.KSC-EUC-H_0.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/fpdfapi.KSC-EUC-V_0.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/fpdfapi.KSCms-UHC-HW-H_1.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/fpdfapi.KSCms-UHC-HW-V_1.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/fpdfapi.KSCms-UHC-H_1.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/fpdfapi.KSCms-UHC-V_1.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/fpdfapi.KSCpc-EUC-H_0.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/fpdfapi.UniKS-UCS2-H_1.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/fpdfapi.UniKS-UCS2-V_1.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_cmaps/Korea1/fpdfapi.UniKS-UTF16-H_0.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_edit/fpdfapi.cpdf_pagecontentgenerator.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_edit/fpdfapi.fpdf_edit_create.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_edit/fpdfapi.fpdf_edit_doc.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_font/fpdfapi.cpdf_cidfont.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_font/fpdfapi.cpdf_font.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_font/fpdfapi.cpdf_fontencoding.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_font/fpdfapi.cpdf_simplefont.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_font/fpdfapi.cpdf_truetypefont.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_font/fpdfapi.cpdf_type1font.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_font/fpdfapi.cpdf_type3char.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_font/fpdfapi.cpdf_type3font.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_font/fpdfapi.fpdf_font.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_font/fpdfapi.fpdf_font_cid.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_font/fpdfapi.ttgsubtable.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_allstates.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_clippath.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_clippathdata.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_color.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_colorspace.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_colorstate.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_colorstatedata.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_contentmark.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_contentmarkdata.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_contentmarkitem.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_form.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_formobject.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_generalstate.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_generalstatedata.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_graphicstates.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_image.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_imageobject.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_meshstream.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_page.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_pageobject.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_pageobjectholder.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_pageobjectlist.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_parseoptions.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_pathobject.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_pattern.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_shadingobject.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_shadingpattern.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_textobject.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_textstate.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_textstatedata.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.cpdf_tilingpattern.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.fpdf_page_colors.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.fpdf_page_doc.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.fpdf_page_func.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.fpdf_page_parser.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.fpdf_page_parser_old.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_page/fpdfapi.fpdf_page_pattern.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cfdf_document.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_array.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_boolean.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_data_avail.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_dictionary.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_document.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_hint_tables.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_indirect_object_holder.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_name.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_null.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_number.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_object.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_parser.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_reference.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_simple_parser.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_standard_crypto_handler.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_standard_security_handler.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_stream.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_stream_acc.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_string.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.cpdf_syntax_parser.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.fpdf_parser_decode.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.fpdf_parser_utility.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_parser/fpdfapi.ipdf_occontext.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_render/fpdfapi.fpdf_render.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_render/fpdfapi.fpdf_render_cache.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_render/fpdfapi.fpdf_render_image.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_render/fpdfapi.fpdf_render_loadimage.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_render/fpdfapi.fpdf_render_pattern.o $
+    obj/third_party/pdfium/core/fpdfapi/fpdf_render/fpdfapi.fpdf_render_text.o

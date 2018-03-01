@@ -1,0 +1,87 @@
+diff --git serial.gyp serial.gyp
+index 98635cb..79a2000 100644
+--- serial.gyp
++++ serial.gyp
+@@ -44,6 +44,10 @@
+             'serial_device_enumerator_linux.cc',
+             'serial_device_enumerator_linux.h',
+           ],
++          'sources': [
++            'serial_device_enumerator_aura.cc',
++            'serial_device_enumerator_aura.h',
++          ],
+         }],
+         ['OS=="win"', {
+           'link_settings': {
+diff --git serial_device_enumerator_aura.cc serial_device_enumerator_aura.cc
+new file mode 100644
+index 0000000..7908e82
+--- serial_device_enumerator_aura.cc
++++ serial_device_enumerator_aura.cc
+@@ -0,0 +1,29 @@
++// Copyright 2014 The Chromium Authors. All rights reserved.
++// Use of this source code is governed by a BSD-style license that can be
++// found in the LICENSE file.
++
++#include "device/serial/serial_device_enumerator_aura.h"
++
++#include <stdint.h>
++#include <utility>
++
++#include "base/logging.h"
++
++namespace device {
++
++// static
++scoped_ptr<SerialDeviceEnumerator> SerialDeviceEnumerator::Create() {
++  return scoped_ptr<SerialDeviceEnumerator>(new SerialDeviceEnumeratorAura());
++}
++
++SerialDeviceEnumeratorAura::SerialDeviceEnumeratorAura() {
++}
++
++SerialDeviceEnumeratorAura::~SerialDeviceEnumeratorAura() {}
++
++mojo::Array<serial::DeviceInfoPtr> SerialDeviceEnumeratorAura::GetDevices() {
++  mojo::Array<serial::DeviceInfoPtr> devices((size_t)0);
++  return devices;
++}
++
++}  // namespace device
+diff --git serial_device_enumerator_aura.h serial_device_enumerator_aura.h
+new file mode 100644
+index 0000000..7e6e4cf
+--- serial_device_enumerator_aura.h
++++ serial_device_enumerator_aura.h
+@@ -0,0 +1,31 @@
++// Copyright 2014 The Chromium Authors. All rights reserved.
++// Use of this source code is governed by a BSD-style license that can be
++// found in the LICENSE file.
++
++#ifndef DEVICE_SERIAL_SERIAL_DEVICE_ENUMERATOR_AURA_H_
++#define DEVICE_SERIAL_SERIAL_DEVICE_ENUMERATOR_AURA_H_
++
++#include "base/macros.h"
++#include "device/serial/serial_device_enumerator.h"
++
++namespace device {
++
++// Discovers and enumerates serial devices available to the host.
++// This is only a stub class for Aura to be able to build with use_udev=0
++// TODO: Implement proper enumeration without UDEV
++class SerialDeviceEnumeratorAura : public SerialDeviceEnumerator {
++ public:
++  SerialDeviceEnumeratorAura();
++  ~SerialDeviceEnumeratorAura() override;
++
++  // Implementation for SerialDeviceEnumerator.
++  mojo::Array<serial::DeviceInfoPtr> GetDevices() override;
++
++ private:
++
++  DISALLOW_COPY_AND_ASSIGN(SerialDeviceEnumeratorAura);
++};
++
++}  // namespace device
++
++#endif  // DEVICE_SERIAL_SERIAL_DEVICE_ENUMERATOR_AURA_H_

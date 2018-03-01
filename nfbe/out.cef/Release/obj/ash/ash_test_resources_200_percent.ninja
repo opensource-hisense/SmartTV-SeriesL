@@ -1,0 +1,27 @@
+build obj/ash/ash_test_resources_200_percent.actions_depends.stamp: stamp $
+    obj/ui/resources/ui_resources.actions_rules_copies.stamp $
+    obj/ash/ash_resources.actions_rules_copies.stamp
+
+build obj/ash/ash_test_resources_200_percent.compile_depends.stamp: stamp $
+    obj/ui/resources/ui_resources.actions_rules_copies.stamp $
+    obj/ash/ash_resources.actions_rules_copies.stamp
+
+rule $
+    ash_test_resources_200_percent_target_repack_ash_test_resources_8cf29f3098a7defb4e1fa7f40d0518c6
+  command = cd ../../ash; python ../tools/grit/grit/format/repack.py $
+      ../out.cef/Release/ash_test_resources_200_percent.pak $
+      ../out.cef/Release/gen/ash/resources/ash_resources_200_percent.pak $
+      ../out.cef/Release/gen/ui/resources/ui_resources_200_percent.pak $
+      ../out.cef/Release/gen/ui/app_list/resources/app_list_resources_200_percent.pak
+  description = ACTION ash_test_resources_200_percent: $
+      repack_ash_test_resources_8cf29f3098a7defb4e1fa7f40d0518c6
+  restat = 1
+
+build ash_test_resources_200_percent.pak: $
+    ash_test_resources_200_percent_target_repack_ash_test_resources_8cf29f3098a7defb4e1fa7f40d0518c6 $
+    ../../tools/grit/grit/format/repack.py $
+    gen/ash/resources/ash_resources_200_percent.pak $
+    gen/ui/resources/ui_resources_200_percent.pak $
+    gen/ui/app_list/resources/app_list_resources_200_percent.pak || $
+    obj/ash/ash_test_resources_200_percent.actions_depends.stamp
+

@@ -1,0 +1,50 @@
+build $
+    obj/chrome/make_chrome_ui_string_overrider_factory.actions_depends.stamp: $
+    stamp obj/chrome/chrome_strings.actions_rules_copies.stamp $
+    obj/components/components_strings.actions_rules_copies.stamp
+
+build $
+    obj/chrome/make_chrome_ui_string_overrider_factory.compile_depends.stamp: $
+    stamp obj/chrome/chrome_strings.actions_rules_copies.stamp $
+    obj/components/components_strings.actions_rules_copies.stamp
+
+rule $
+    make_chrome_ui_string_overrider_factory_target_generate_ui_string_overrider_515ab74a4e1416d904eb3c24699748f0
+  command = cd ../../chrome; python $
+      ../components/variations/service/generate_ui_string_overrider.py -N $
+      chrome_variations -o ../out.cef/Release/gen -S $
+      chrome/browser/metrics/variations/ui_string_overrider_factory.cc -H $
+      chrome/browser/metrics/variations/ui_string_overrider_factory.h $
+      ../out.cef/Release/gen/chrome/grit/chromium_strings.h $
+      ../out.cef/Release/gen/chrome/grit/generated_resources.h $
+      ../out.cef/Release/gen/chrome/grit/google_chrome_strings.h $
+      ../out.cef/Release/gen/chrome/grit/settings_chromium_strings.h $
+      ../out.cef/Release/gen/chrome/grit/settings_google_chrome_strings.h $
+      ../out.cef/Release/gen/chrome/grit/settings_strings.h $
+      ../out.cef/Release/gen/components/strings/grit/components_chromium_strings.h $
+      ../out.cef/Release/gen/components/strings/grit/components_google_chrome_strings.h $
+      ../out.cef/Release/gen/components/strings/grit/components_strings.h
+  description = ACTION Generating generated resources map.
+  restat = 1
+
+build gen/chrome/browser/metrics/variations/ui_string_overrider_factory.cc $
+    gen/chrome/browser/metrics/variations/ui_string_overrider_factory.h: $
+    make_chrome_ui_string_overrider_factory_target_generate_ui_string_overrider_515ab74a4e1416d904eb3c24699748f0 $
+    ../../components/variations/service/generate_ui_string_overrider.py $
+    gen/chrome/grit/chromium_strings.h $
+    gen/chrome/grit/generated_resources.h $
+    gen/chrome/grit/google_chrome_strings.h $
+    gen/chrome/grit/settings_chromium_strings.h $
+    gen/chrome/grit/settings_google_chrome_strings.h $
+    gen/chrome/grit/settings_strings.h $
+    gen/components/strings/grit/components_chromium_strings.h $
+    gen/components/strings/grit/components_google_chrome_strings.h $
+    gen/components/strings/grit/components_strings.h || $
+    obj/chrome/make_chrome_ui_string_overrider_factory.actions_depends.stamp
+
+build $
+    obj/chrome/make_chrome_ui_string_overrider_factory.actions_rules_copies.stamp: $
+    stamp $
+    gen/chrome/browser/metrics/variations/ui_string_overrider_factory.cc $
+    gen/chrome/browser/metrics/variations/ui_string_overrider_factory.h
+

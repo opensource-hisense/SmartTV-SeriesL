@@ -1,0 +1,76 @@
+build obj/mojo/tracing_service_bindings_mojom.actions_depends.stamp: stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    lib/libbase.so.TOC $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp
+
+build obj/mojo/tracing_service_bindings_mojom.compile_depends.stamp: stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp
+
+rule $
+    tracing_service_bindings_mojom_target_tracing_service_bindings_mojom_mojom_bindings_stamp_553feec5dd77af59449220638ce9c85a
+  command = cd ../../mojo; python ../build/rmdir_and_stamp.py $
+      ../out.cef/Release/java_mojo/tracing_service_bindings_mojom/src $
+      ../out.cef/Release/java_mojo/tracing_service_bindings_mojom/tracing_service_bindings_mojom.stamp
+  description = ACTION tracing_service_bindings_mojom: $
+      tracing_service_bindings_mojom_mojom_bindings_stamp_553feec5dd77af59449220638ce9c85a
+  restat = 1
+
+build $
+    java_mojo/tracing_service_bindings_mojom/tracing_service_bindings_mojom.stamp: $
+    tracing_service_bindings_mojom_target_tracing_service_bindings_mojom_mojom_bindings_stamp_553feec5dd77af59449220638ce9c85a $
+    ../../mojo/services/tracing/public/interfaces/tracing.mojom || $
+    obj/mojo/tracing_service_bindings_mojom.actions_depends.stamp
+
+rule $
+    tracing_service_bindings_mojom_target_tracing_service_bindings_mojom_mojom_bindings_generator_553feec5dd77af59449220638ce9c85a
+  command = cd ../../mojo; python $
+      ../mojo/public/tools/bindings/mojom_bindings_generator.py $
+      --use_bundled_pylibs generate $
+      services/tracing/public/interfaces/tracing.mojom -d .. -I.. $
+      -I../mojo/services -I../mojo/services -o ../out.cef/Release/gen $
+      "--java_output_directory=../out.cef/Release/java_mojo/tracing_service_bindings_mojom/src" $
+      --variant none -g c++,javascript,java --bytecode_path $
+      ../out.cef/Release/gen/mojo/public/tools/bindings
+  description = ACTION Generating Mojo bindings from $
+      services/tracing/public/interfaces/tracing.mojom
+  restat = 1
+
+build gen/mojo/services/tracing/public/interfaces/tracing.mojom.cc $
+    gen/mojo/services/tracing/public/interfaces/tracing.mojom.h $
+    gen/mojo/services/tracing/public/interfaces/tracing.mojom-internal.h $
+    gen/mojo/services/tracing/public/interfaces/tracing.mojom.js: $
+    tracing_service_bindings_mojom_target_tracing_service_bindings_mojom_mojom_bindings_generator_553feec5dd77af59449220638ce9c85a $
+    ../../mojo/public/tools/bindings/mojom_bindings_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_cpp_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_java_generator.py $
+    ../../mojo/public/tools/bindings/generators/mojom_js_generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/error.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/data.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/generator.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/module.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/pack.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/generate/template_expander.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/__init__.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/ast.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/lexer.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/parser.py $
+    ../../mojo/public/tools/bindings/pylib/mojom/parse/translate.py $
+    ../../mojo/services/tracing/public/interfaces/tracing.mojom $
+    java_mojo/tracing_service_bindings_mojom/tracing_service_bindings_mojom.stamp $
+    gen/mojo/public/tools/bindings/cpp_templates.zip $
+    gen/mojo/public/tools/bindings/java_templates.zip $
+    gen/mojo/public/tools/bindings/js_templates.zip || $
+    obj/mojo/tracing_service_bindings_mojom.actions_depends.stamp
+
+build obj/mojo/tracing_service_bindings_mojom.actions_rules_copies.stamp: $
+    stamp $
+    java_mojo/tracing_service_bindings_mojom/tracing_service_bindings_mojom.stamp $
+    gen/mojo/services/tracing/public/interfaces/tracing.mojom.cc $
+    gen/mojo/services/tracing/public/interfaces/tracing.mojom.h $
+    gen/mojo/services/tracing/public/interfaces/tracing.mojom-internal.h $
+    gen/mojo/services/tracing/public/interfaces/tracing.mojom.js
+

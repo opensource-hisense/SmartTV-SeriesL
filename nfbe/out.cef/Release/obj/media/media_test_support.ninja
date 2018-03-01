@@ -1,0 +1,145 @@
+build obj/media/media_test_support.actions_depends.stamp: stamp $
+    lib/libbase.so.TOC obj/skia/skia.actions_depends.stamp
+
+build obj/media/media_test_support.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DGTEST_HAS_POSIX_RE=0 $
+    -DGTEST_LANG_CXX11=0 -DOPUS_FIXED_POINT -DSK_SUPPORT_GPU=1 $
+    -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS -DUNIT_TEST -DGTEST_HAS_RTTI=0 $
+    -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 $
+    -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../../third_party/khronos -I../../gpu -I../.. $
+    -I../../skia/config -I../../third_party/opus/src/include $
+    -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../testing/gmock/include -I../../testing/gtest/include
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/media/audio/media_test_support.audio_unittest_util.o: cxx $
+    ../../media/audio/audio_unittest_util.cc || $
+    obj/media/media_test_support.compile_depends.stamp
+build obj/media/audio/media_test_support.mock_audio_manager.o: cxx $
+    ../../media/audio/mock_audio_manager.cc || $
+    obj/media/media_test_support.compile_depends.stamp
+build obj/media/audio/media_test_support.mock_audio_source_callback.o: cxx $
+    ../../media/audio/mock_audio_source_callback.cc || $
+    obj/media/media_test_support.compile_depends.stamp
+build $
+    obj/media/audio/media_test_support.test_audio_input_controller_factory.o: $
+    cxx ../../media/audio/test_audio_input_controller_factory.cc || $
+    obj/media/media_test_support.compile_depends.stamp
+build obj/media/base/media_test_support.fake_audio_render_callback.o: cxx $
+    ../../media/base/fake_audio_render_callback.cc || $
+    obj/media/media_test_support.compile_depends.stamp
+build obj/media/base/media_test_support.fake_audio_renderer_sink.o: cxx $
+    ../../media/base/fake_audio_renderer_sink.cc || $
+    obj/media/media_test_support.compile_depends.stamp
+build obj/media/base/media_test_support.fake_demuxer_stream.o: cxx $
+    ../../media/base/fake_demuxer_stream.cc || $
+    obj/media/media_test_support.compile_depends.stamp
+build obj/media/base/media_test_support.fake_media_resources.o: cxx $
+    ../../media/base/fake_media_resources.cc || $
+    obj/media/media_test_support.compile_depends.stamp
+build obj/media/base/media_test_support.fake_single_thread_task_runner.o: $
+    cxx ../../media/base/fake_single_thread_task_runner.cc || $
+    obj/media/media_test_support.compile_depends.stamp
+build obj/media/base/media_test_support.fake_text_track_stream.o: cxx $
+    ../../media/base/fake_text_track_stream.cc || $
+    obj/media/media_test_support.compile_depends.stamp
+build obj/media/base/media_test_support.mock_audio_renderer_sink.o: cxx $
+    ../../media/base/mock_audio_renderer_sink.cc || $
+    obj/media/media_test_support.compile_depends.stamp
+build obj/media/base/media_test_support.mock_demuxer_host.o: cxx $
+    ../../media/base/mock_demuxer_host.cc || $
+    obj/media/media_test_support.compile_depends.stamp
+build obj/media/base/media_test_support.mock_filters.o: cxx $
+    ../../media/base/mock_filters.cc || $
+    obj/media/media_test_support.compile_depends.stamp
+build obj/media/base/media_test_support.mock_media_log.o: cxx $
+    ../../media/base/mock_media_log.cc || $
+    obj/media/media_test_support.compile_depends.stamp
+build obj/media/base/media_test_support.test_data_util.o: cxx $
+    ../../media/base/test_data_util.cc || $
+    obj/media/media_test_support.compile_depends.stamp
+build obj/media/base/media_test_support.test_helpers.o: cxx $
+    ../../media/base/test_helpers.cc || $
+    obj/media/media_test_support.compile_depends.stamp
+build $
+    obj/media/renderers/media_test_support.mock_gpu_memory_buffer_video_frame_pool.o: $
+    cxx ../../media/renderers/mock_gpu_memory_buffer_video_frame_pool.cc || $
+    obj/media/media_test_support.compile_depends.stamp
+build $
+    obj/media/renderers/media_test_support.mock_gpu_video_accelerator_factories.o: $
+    cxx ../../media/renderers/mock_gpu_video_accelerator_factories.cc || $
+    obj/media/media_test_support.compile_depends.stamp
+build obj/media/video/media_test_support.mock_video_decode_accelerator.o: $
+    cxx ../../media/video/mock_video_decode_accelerator.cc || $
+    obj/media/media_test_support.compile_depends.stamp
+
+build obj/media/libmedia_test_support.a: alink_thin $
+    obj/media/audio/media_test_support.audio_unittest_util.o $
+    obj/media/audio/media_test_support.mock_audio_manager.o $
+    obj/media/audio/media_test_support.mock_audio_source_callback.o $
+    obj/media/audio/media_test_support.test_audio_input_controller_factory.o $
+    obj/media/base/media_test_support.fake_audio_render_callback.o $
+    obj/media/base/media_test_support.fake_audio_renderer_sink.o $
+    obj/media/base/media_test_support.fake_demuxer_stream.o $
+    obj/media/base/media_test_support.fake_media_resources.o $
+    obj/media/base/media_test_support.fake_single_thread_task_runner.o $
+    obj/media/base/media_test_support.fake_text_track_stream.o $
+    obj/media/base/media_test_support.mock_audio_renderer_sink.o $
+    obj/media/base/media_test_support.mock_demuxer_host.o $
+    obj/media/base/media_test_support.mock_filters.o $
+    obj/media/base/media_test_support.mock_media_log.o $
+    obj/media/base/media_test_support.test_data_util.o $
+    obj/media/base/media_test_support.test_helpers.o $
+    obj/media/renderers/media_test_support.mock_gpu_memory_buffer_video_frame_pool.o $
+    obj/media/renderers/media_test_support.mock_gpu_video_accelerator_factories.o $
+    obj/media/video/media_test_support.mock_video_decode_accelerator.o || $
+    obj/media/media_test_support.actions_depends.stamp

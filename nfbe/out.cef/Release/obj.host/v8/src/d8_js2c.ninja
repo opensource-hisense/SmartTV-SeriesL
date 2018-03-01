@@ -1,0 +1,9 @@
+rule d8_js2c_d8_js2c_a25cc4f7d4dc6625cb1cb5122cb77a2e
+  command = cd ../../v8/src; python ../tools/js2c.py $
+      ../../out.cef/Release/gen/d8-js.cc D8 d8.js js/macros.py
+  description = ACTION(host) d8_js2c: d8_js2c_a25cc4f7d4dc6625cb1cb5122cb77a2e
+  restat = 1
+
+build gen/d8-js.cc: d8_js2c_d8_js2c_a25cc4f7d4dc6625cb1cb5122cb77a2e $
+    ../../v8/tools/js2c.py ../../v8/src/d8.js ../../v8/src/js/macros.py
+

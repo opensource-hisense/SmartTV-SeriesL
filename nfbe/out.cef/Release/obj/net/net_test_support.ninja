@@ -1,0 +1,249 @@
+build obj/net/net_test_support.actions_depends.stamp: stamp $
+    lib/libbase.so.TOC lib/liburl_lib.so.TOC lib/libnet.so.TOC $
+    obj/third_party/protobuf/py_proto.actions_rules_copies.stamp $
+    obj/third_party/boringssl/libboringssl.a
+
+build obj/net/net_test_support.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/url/url_lib.compile_depends.stamp obj/net/net.compile_depends.stamp $
+    obj/third_party/protobuf/py_proto.actions_rules_copies.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DCOMPONENT_BUILD -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 $
+    -DUSE_OZONE=1 -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DGTEST_HAS_POSIX_RE=0 $
+    -DGTEST_LANG_CXX11=0 -DUNIT_TEST -DGTEST_HAS_RTTI=0 -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS $
+    -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../testing/gtest/include $
+    -I../../testing/gmock/include
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -I/work/bsp/sc1400/usr/include/nss3 $
+    -I/work/bsp/sc1400/usr/include/nspr -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/net/base/net_test_support.load_timing_info_test_util.o: cxx $
+    ../../net/base/load_timing_info_test_util.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/base/net_test_support.mock_file_stream.o: cxx $
+    ../../net/base/mock_file_stream.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/base/net_test_support.test_completion_callback.o: cxx $
+    ../../net/base/test_completion_callback.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/base/net_test_support.test_data_directory.o: cxx $
+    ../../net/base/test_data_directory.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/cert/net_test_support.mock_cert_verifier.o: cxx $
+    ../../net/cert/mock_cert_verifier.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/cert/net_test_support.mock_client_cert_verifier.o: cxx $
+    ../../net/cert/mock_client_cert_verifier.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/cookies/net_test_support.cookie_monster_store_test.o: cxx $
+    ../../net/cookies/cookie_monster_store_test.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/cookies/net_test_support.cookie_store_test_callbacks.o: cxx $
+    ../../net/cookies/cookie_store_test_callbacks.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/cookies/net_test_support.cookie_store_test_helpers.o: cxx $
+    ../../net/cookies/cookie_store_test_helpers.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/disk_cache/net_test_support.disk_cache_test_base.o: cxx $
+    ../../net/disk_cache/disk_cache_test_base.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/disk_cache/net_test_support.disk_cache_test_util.o: cxx $
+    ../../net/disk_cache/disk_cache_test_util.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/dns/net_test_support.dns_test_util.o: cxx $
+    ../../net/dns/dns_test_util.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/dns/net_test_support.mock_host_resolver.o: cxx $
+    ../../net/dns/mock_host_resolver.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/dns/net_test_support.mock_mdns_socket_factory.o: cxx $
+    ../../net/dns/mock_mdns_socket_factory.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/http/net_test_support.http_transaction_test_util.o: cxx $
+    ../../net/http/http_transaction_test_util.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/log/net_test_support.test_net_log.o: cxx $
+    ../../net/log/test_net_log.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/log/net_test_support.test_net_log_entry.o: cxx $
+    ../../net/log/test_net_log_entry.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/log/net_test_support.test_net_log_util.o: cxx $
+    ../../net/log/test_net_log_util.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/proxy/net_test_support.mock_proxy_resolver.o: cxx $
+    ../../net/proxy/mock_proxy_resolver.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/proxy/net_test_support.mock_proxy_script_fetcher.o: cxx $
+    ../../net/proxy/mock_proxy_script_fetcher.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build $
+    obj/net/proxy/net_test_support.proxy_config_service_common_unittest.o: $
+    cxx ../../net/proxy/proxy_config_service_common_unittest.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/socket/net_test_support.socket_test_util.o: cxx $
+    ../../net/socket/socket_test_util.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/test/net_test_support.cert_test_util.o: cxx $
+    ../../net/test/cert_test_util.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/test/net_test_support.cert_test_util_nss.o: cxx $
+    ../../net/test/cert_test_util_nss.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/test/net_test_support.channel_id_test_util.o: cxx $
+    ../../net/test/channel_id_test_util.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/test/net_test_support.ct_test_util.o: cxx $
+    ../../net/test/ct_test_util.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build $
+    obj/net/test/embedded_test_server/net_test_support.default_handlers.o: $
+    cxx ../../net/test/embedded_test_server/default_handlers.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build $
+    obj/net/test/embedded_test_server/net_test_support.embedded_test_server.o: $
+    cxx ../../net/test/embedded_test_server/embedded_test_server.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/test/embedded_test_server/net_test_support.http_connection.o: $
+    cxx ../../net/test/embedded_test_server/http_connection.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/test/embedded_test_server/net_test_support.http_request.o: $
+    cxx ../../net/test/embedded_test_server/http_request.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/test/embedded_test_server/net_test_support.http_response.o: $
+    cxx ../../net/test/embedded_test_server/http_response.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build $
+    obj/net/test/embedded_test_server/net_test_support.request_handler_util.o: $
+    cxx ../../net/test/embedded_test_server/request_handler_util.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/test/net_test_support.net_test_suite.o: cxx $
+    ../../net/test/net_test_suite.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/test/net_test_support.python_utils.o: cxx $
+    ../../net/test/python_utils.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/test/spawned_test_server/net_test_support.base_test_server.o: $
+    cxx ../../net/test/spawned_test_server/base_test_server.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build $
+    obj/net/test/spawned_test_server/net_test_support.local_test_server.o: $
+    cxx ../../net/test/spawned_test_server/local_test_server.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build $
+    obj/net/test/spawned_test_server/net_test_support.local_test_server_posix.o: $
+    cxx ../../net/test/spawned_test_server/local_test_server_posix.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build $
+    obj/net/test/url_request/net_test_support.ssl_certificate_error_job.o: $
+    cxx ../../net/test/url_request/ssl_certificate_error_job.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/test/url_request/net_test_support.url_request_failed_job.o: $
+    cxx ../../net/test/url_request/url_request_failed_job.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build $
+    obj/net/test/url_request/net_test_support.url_request_mock_data_job.o: $
+    cxx ../../net/test/url_request/url_request_mock_data_job.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build $
+    obj/net/test/url_request/net_test_support.url_request_slow_download_job.o: $
+    cxx ../../net/test/url_request/url_request_slow_download_job.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/url_request/net_test_support.test_url_fetcher_factory.o: cxx $
+    ../../net/url_request/test_url_fetcher_factory.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/url_request/net_test_support.url_request_test_util.o: cxx $
+    ../../net/url_request/url_request_test_util.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build $
+    obj/net/test/url_request/net_test_support.url_request_mock_http_job.o: $
+    cxx ../../net/test/url_request/url_request_mock_http_job.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+build obj/net/url_request/net_test_support.test_url_request_interceptor.o: $
+    cxx ../../net/url_request/test_url_request_interceptor.cc || $
+    obj/net/net_test_support.compile_depends.stamp
+
+build obj/net/libnet_test_support.a: alink_thin $
+    obj/net/base/net_test_support.load_timing_info_test_util.o $
+    obj/net/base/net_test_support.mock_file_stream.o $
+    obj/net/base/net_test_support.test_completion_callback.o $
+    obj/net/base/net_test_support.test_data_directory.o $
+    obj/net/cert/net_test_support.mock_cert_verifier.o $
+    obj/net/cert/net_test_support.mock_client_cert_verifier.o $
+    obj/net/cookies/net_test_support.cookie_monster_store_test.o $
+    obj/net/cookies/net_test_support.cookie_store_test_callbacks.o $
+    obj/net/cookies/net_test_support.cookie_store_test_helpers.o $
+    obj/net/disk_cache/net_test_support.disk_cache_test_base.o $
+    obj/net/disk_cache/net_test_support.disk_cache_test_util.o $
+    obj/net/dns/net_test_support.dns_test_util.o $
+    obj/net/dns/net_test_support.mock_host_resolver.o $
+    obj/net/dns/net_test_support.mock_mdns_socket_factory.o $
+    obj/net/http/net_test_support.http_transaction_test_util.o $
+    obj/net/log/net_test_support.test_net_log.o $
+    obj/net/log/net_test_support.test_net_log_entry.o $
+    obj/net/log/net_test_support.test_net_log_util.o $
+    obj/net/proxy/net_test_support.mock_proxy_resolver.o $
+    obj/net/proxy/net_test_support.mock_proxy_script_fetcher.o $
+    obj/net/proxy/net_test_support.proxy_config_service_common_unittest.o $
+    obj/net/socket/net_test_support.socket_test_util.o $
+    obj/net/test/net_test_support.cert_test_util.o $
+    obj/net/test/net_test_support.cert_test_util_nss.o $
+    obj/net/test/net_test_support.channel_id_test_util.o $
+    obj/net/test/net_test_support.ct_test_util.o $
+    obj/net/test/embedded_test_server/net_test_support.default_handlers.o $
+    obj/net/test/embedded_test_server/net_test_support.embedded_test_server.o $
+    obj/net/test/embedded_test_server/net_test_support.http_connection.o $
+    obj/net/test/embedded_test_server/net_test_support.http_request.o $
+    obj/net/test/embedded_test_server/net_test_support.http_response.o $
+    obj/net/test/embedded_test_server/net_test_support.request_handler_util.o $
+    obj/net/test/net_test_support.net_test_suite.o $
+    obj/net/test/net_test_support.python_utils.o $
+    obj/net/test/spawned_test_server/net_test_support.base_test_server.o $
+    obj/net/test/spawned_test_server/net_test_support.local_test_server.o $
+    obj/net/test/spawned_test_server/net_test_support.local_test_server_posix.o $
+    obj/net/test/url_request/net_test_support.ssl_certificate_error_job.o $
+    obj/net/test/url_request/net_test_support.url_request_failed_job.o $
+    obj/net/test/url_request/net_test_support.url_request_mock_data_job.o $
+    obj/net/test/url_request/net_test_support.url_request_slow_download_job.o $
+    obj/net/url_request/net_test_support.test_url_fetcher_factory.o $
+    obj/net/url_request/net_test_support.url_request_test_util.o $
+    obj/net/test/url_request/net_test_support.url_request_mock_http_job.o $
+    obj/net/url_request/net_test_support.test_url_request_interceptor.o || $
+    obj/net/net_test_support.actions_depends.stamp

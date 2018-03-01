@@ -1,0 +1,54 @@
+rule $
+    core_event_interfaces_target_make_core_event_interfaces_512cdc56357f9619ec04ec6cc5b5b1b4
+  command = cd ../../third_party/WebKit/Source/core; python $
+      ../bindings/scripts/generate_event_interfaces.py $
+      --event-idl-files-list $
+      ../../../../out.cef/third_party/WebKit/Source/core/event_idl_files_list.tmp $
+      --event-interfaces-file $
+      ../../../../out.cef/Release/gen/blink/core/EventInterfaces.in $
+      --write-file-only-if-changed 1
+  description = ACTION core_event_interfaces: $
+      make_core_event_interfaces_512cdc56357f9619ec04ec6cc5b5b1b4
+  restat = 1
+
+build gen/blink/core/EventInterfaces.in: $
+    core_event_interfaces_target_make_core_event_interfaces_512cdc56357f9619ec04ec6cc5b5b1b4 $
+    ../../third_party/WebKit/Source/bindings/scripts/generate_event_interfaces.py $
+    ../../third_party/WebKit/Source/bindings/scripts/utilities.py $
+    ../../out.cef/third_party/WebKit/Source/core/event_idl_files_list.tmp $
+    ../../third_party/WebKit/Source/core/css/FontFaceSetLoadEvent.idl $
+    ../../third_party/WebKit/Source/core/css/MediaQueryListEvent.idl $
+    ../../third_party/WebKit/Source/core/events/AnimationEvent.idl $
+    ../../third_party/WebKit/Source/core/events/AnimationPlayerEvent.idl $
+    ../../third_party/WebKit/Source/core/events/ApplicationCacheErrorEvent.idl $
+    ../../third_party/WebKit/Source/core/events/AutocompleteErrorEvent.idl $
+    ../../third_party/WebKit/Source/core/events/BeforeUnloadEvent.idl $
+    ../../third_party/WebKit/Source/core/events/ClipboardEvent.idl $
+    ../../third_party/WebKit/Source/core/events/CompositionEvent.idl $
+    ../../third_party/WebKit/Source/core/events/CustomEvent.idl $
+    ../../third_party/WebKit/Source/core/events/DragEvent.idl $
+    ../../third_party/WebKit/Source/core/events/ErrorEvent.idl $
+    ../../third_party/WebKit/Source/core/events/Event.idl $
+    ../../third_party/WebKit/Source/core/events/FocusEvent.idl $
+    ../../third_party/WebKit/Source/core/events/HashChangeEvent.idl $
+    ../../third_party/WebKit/Source/core/events/InputEvent.idl $
+    ../../third_party/WebKit/Source/core/events/KeyboardEvent.idl $
+    ../../third_party/WebKit/Source/core/events/MessageEvent.idl $
+    ../../third_party/WebKit/Source/core/events/MouseEvent.idl $
+    ../../third_party/WebKit/Source/core/events/MutationEvent.idl $
+    ../../third_party/WebKit/Source/core/events/PageTransitionEvent.idl $
+    ../../third_party/WebKit/Source/core/events/PointerEvent.idl $
+    ../../third_party/WebKit/Source/core/events/PopStateEvent.idl $
+    ../../third_party/WebKit/Source/core/events/ProgressEvent.idl $
+    ../../third_party/WebKit/Source/core/events/PromiseRejectionEvent.idl $
+    ../../third_party/WebKit/Source/core/events/RelatedEvent.idl $
+    ../../third_party/WebKit/Source/core/events/ResourceProgressEvent.idl $
+    ../../third_party/WebKit/Source/core/events/SecurityPolicyViolationEvent.idl $
+    ../../third_party/WebKit/Source/core/events/TextEvent.idl $
+    ../../third_party/WebKit/Source/core/events/TouchEvent.idl $
+    ../../third_party/WebKit/Source/core/events/TransitionEvent.idl $
+    ../../third_party/WebKit/Source/core/events/UIEvent.idl $
+    ../../third_party/WebKit/Source/core/events/WheelEvent.idl $
+    ../../third_party/WebKit/Source/core/html/track/TrackEvent.idl $
+    ../../third_party/WebKit/Source/core/svg/SVGZoomEvent.idl
+

@@ -1,0 +1,343 @@
+rule json_schema_compiler_tests_target_genapi_c66eb5a7379f3f041fbc3d713659288c
+  command = cd ../../tools/json_schema_compiler/test; python $
+      ../../../tools/json_schema_compiler/compiler.py "${source}" $
+      "--root=../../.." "--destdir=../../../out.cef/Release/gen" $
+      "--namespace=test::api::%(namespace)s" "--generator=cpp" $
+      "--include-rules="
+  description = RULE Generating C++ code from ${source} json files
+  restat = 1
+
+build $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.genapi.stamp: $
+    stamp ../../tools/json_schema_compiler/cc_generator.py $
+    ../../tools/json_schema_compiler/code.py $
+    ../../tools/json_schema_compiler/compiler.py $
+    ../../tools/json_schema_compiler/cpp_generator.py $
+    ../../tools/json_schema_compiler/cpp_type_generator.py $
+    ../../tools/json_schema_compiler/cpp_util.py $
+    ../../tools/json_schema_compiler/h_generator.py $
+    ../../tools/json_schema_compiler/json_schema.py $
+    ../../tools/json_schema_compiler/model.py $
+    ../../tools/json_schema_compiler/util.cc $
+    ../../tools/json_schema_compiler/util.h $
+    ../../tools/json_schema_compiler/util_cc_helper.py
+
+build gen/tools/json_schema_compiler/test//additional_properties.cc $
+    gen/tools/json_schema_compiler/test//additional_properties.h: $
+    json_schema_compiler_tests_target_genapi_c66eb5a7379f3f041fbc3d713659288c $
+    ../../tools/json_schema_compiler/test/additional_properties.json | $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.genapi.stamp
+  source = additional_properties.json
+build gen/tools/json_schema_compiler/test//any.cc $
+    gen/tools/json_schema_compiler/test//any.h: $
+    json_schema_compiler_tests_target_genapi_c66eb5a7379f3f041fbc3d713659288c $
+    ../../tools/json_schema_compiler/test/any.json | $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.genapi.stamp
+  source = any.json
+build gen/tools/json_schema_compiler/test//arrays.cc $
+    gen/tools/json_schema_compiler/test//arrays.h: $
+    json_schema_compiler_tests_target_genapi_c66eb5a7379f3f041fbc3d713659288c $
+    ../../tools/json_schema_compiler/test/arrays.json | $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.genapi.stamp
+  source = arrays.json
+build gen/tools/json_schema_compiler/test//callbacks.cc $
+    gen/tools/json_schema_compiler/test//callbacks.h: $
+    json_schema_compiler_tests_target_genapi_c66eb5a7379f3f041fbc3d713659288c $
+    ../../tools/json_schema_compiler/test/callbacks.json | $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.genapi.stamp
+  source = callbacks.json
+build gen/tools/json_schema_compiler/test//choices.cc $
+    gen/tools/json_schema_compiler/test//choices.h: $
+    json_schema_compiler_tests_target_genapi_c66eb5a7379f3f041fbc3d713659288c $
+    ../../tools/json_schema_compiler/test/choices.json | $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.genapi.stamp
+  source = choices.json
+build gen/tools/json_schema_compiler/test//crossref.cc $
+    gen/tools/json_schema_compiler/test//crossref.h: $
+    json_schema_compiler_tests_target_genapi_c66eb5a7379f3f041fbc3d713659288c $
+    ../../tools/json_schema_compiler/test/crossref.json | $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.genapi.stamp
+  source = crossref.json
+build gen/tools/json_schema_compiler/test//enums.cc $
+    gen/tools/json_schema_compiler/test//enums.h: $
+    json_schema_compiler_tests_target_genapi_c66eb5a7379f3f041fbc3d713659288c $
+    ../../tools/json_schema_compiler/test/enums.json | $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.genapi.stamp
+  source = enums.json
+build gen/tools/json_schema_compiler/test//functions_as_parameters.cc $
+    gen/tools/json_schema_compiler/test//functions_as_parameters.h: $
+    json_schema_compiler_tests_target_genapi_c66eb5a7379f3f041fbc3d713659288c $
+    ../../tools/json_schema_compiler/test/functions_as_parameters.json | $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.genapi.stamp
+  source = functions_as_parameters.json
+build gen/tools/json_schema_compiler/test//functions_on_types.cc $
+    gen/tools/json_schema_compiler/test//functions_on_types.h: $
+    json_schema_compiler_tests_target_genapi_c66eb5a7379f3f041fbc3d713659288c $
+    ../../tools/json_schema_compiler/test/functions_on_types.json | $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.genapi.stamp
+  source = functions_on_types.json
+build gen/tools/json_schema_compiler/test//objects.cc $
+    gen/tools/json_schema_compiler/test//objects.h: $
+    json_schema_compiler_tests_target_genapi_c66eb5a7379f3f041fbc3d713659288c $
+    ../../tools/json_schema_compiler/test/objects.json | $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.genapi.stamp
+  source = objects.json
+build gen/tools/json_schema_compiler/test//objects_movable_json.cc $
+    gen/tools/json_schema_compiler/test//objects_movable_json.h: $
+    json_schema_compiler_tests_target_genapi_c66eb5a7379f3f041fbc3d713659288c $
+    ../../tools/json_schema_compiler/test/objects_movable_json.json | $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.genapi.stamp
+  source = objects_movable_json.json
+build gen/tools/json_schema_compiler/test//simple_api.cc $
+    gen/tools/json_schema_compiler/test//simple_api.h: $
+    json_schema_compiler_tests_target_genapi_c66eb5a7379f3f041fbc3d713659288c $
+    ../../tools/json_schema_compiler/test/simple_api.json | $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.genapi.stamp
+  source = simple_api.json
+build gen/tools/json_schema_compiler/test//error_generation.cc $
+    gen/tools/json_schema_compiler/test//error_generation.h: $
+    json_schema_compiler_tests_target_genapi_c66eb5a7379f3f041fbc3d713659288c $
+    ../../tools/json_schema_compiler/test/error_generation.json | $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.genapi.stamp
+  source = error_generation.json
+rule $
+    json_schema_compiler_tests_target_genapi_idl_c66eb5a7379f3f041fbc3d713659288c
+  command = cd ../../tools/json_schema_compiler/test; python $
+      ../../../tools/json_schema_compiler/compiler.py "${source}" $
+      "--root=../../.." "--destdir=../../../out.cef/Release/gen" $
+      "--namespace=test::api::%(namespace)s" "--generator=cpp" $
+      "--include-rules="
+  description = RULE Generating C++ code from ${source} IDL files
+  restat = 1
+
+build $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.genapi_idl.stamp: $
+    stamp ../../tools/json_schema_compiler/cc_generator.py $
+    ../../tools/json_schema_compiler/code.py $
+    ../../tools/json_schema_compiler/compiler.py $
+    ../../tools/json_schema_compiler/cpp_generator.py $
+    ../../tools/json_schema_compiler/cpp_type_generator.py $
+    ../../tools/json_schema_compiler/cpp_util.py $
+    ../../tools/json_schema_compiler/h_generator.py $
+    ../../tools/json_schema_compiler/idl_schema.py $
+    ../../tools/json_schema_compiler/model.py $
+    ../../tools/json_schema_compiler/util.cc $
+    ../../tools/json_schema_compiler/util.h $
+    ../../tools/json_schema_compiler/util_cc_helper.py
+
+build gen/tools/json_schema_compiler/test//idl_basics.cc $
+    gen/tools/json_schema_compiler/test//idl_basics.h: $
+    json_schema_compiler_tests_target_genapi_idl_c66eb5a7379f3f041fbc3d713659288c $
+    ../../tools/json_schema_compiler/test/idl_basics.idl | $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.genapi_idl.stamp
+  source = idl_basics.idl
+build gen/tools/json_schema_compiler/test//idl_other_namespace.cc $
+    gen/tools/json_schema_compiler/test//idl_other_namespace.h: $
+    json_schema_compiler_tests_target_genapi_idl_c66eb5a7379f3f041fbc3d713659288c $
+    ../../tools/json_schema_compiler/test/idl_other_namespace.idl | $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.genapi_idl.stamp
+  source = idl_other_namespace.idl
+build $
+    gen/tools/json_schema_compiler/test//idl_other_namespace_sub_namespace.cc $
+    gen/tools/json_schema_compiler/test//idl_other_namespace_sub_namespace.h: $
+    json_schema_compiler_tests_target_genapi_idl_c66eb5a7379f3f041fbc3d713659288c $
+    ../../tools/json_schema_compiler/test/idl_other_namespace_sub_namespace.idl $
+    | $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.genapi_idl.stamp
+  source = idl_other_namespace_sub_namespace.idl
+build gen/tools/json_schema_compiler/test//idl_object_types.cc $
+    gen/tools/json_schema_compiler/test//idl_object_types.h: $
+    json_schema_compiler_tests_target_genapi_idl_c66eb5a7379f3f041fbc3d713659288c $
+    ../../tools/json_schema_compiler/test/idl_object_types.idl | $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.genapi_idl.stamp
+  source = idl_object_types.idl
+build gen/tools/json_schema_compiler/test//objects_movable.cc $
+    gen/tools/json_schema_compiler/test//objects_movable.h: $
+    json_schema_compiler_tests_target_genapi_idl_c66eb5a7379f3f041fbc3d713659288c $
+    ../../tools/json_schema_compiler/test/objects_movable.idl | $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.genapi_idl.stamp
+  source = objects_movable.idl
+build $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.actions_rules_copies.stamp: $
+    stamp gen/tools/json_schema_compiler/test//additional_properties.cc $
+    gen/tools/json_schema_compiler/test//additional_properties.h $
+    gen/tools/json_schema_compiler/test//any.cc $
+    gen/tools/json_schema_compiler/test//any.h $
+    gen/tools/json_schema_compiler/test//arrays.cc $
+    gen/tools/json_schema_compiler/test//arrays.h $
+    gen/tools/json_schema_compiler/test//callbacks.cc $
+    gen/tools/json_schema_compiler/test//callbacks.h $
+    gen/tools/json_schema_compiler/test//choices.cc $
+    gen/tools/json_schema_compiler/test//choices.h $
+    gen/tools/json_schema_compiler/test//crossref.cc $
+    gen/tools/json_schema_compiler/test//crossref.h $
+    gen/tools/json_schema_compiler/test//enums.cc $
+    gen/tools/json_schema_compiler/test//enums.h $
+    gen/tools/json_schema_compiler/test//functions_as_parameters.cc $
+    gen/tools/json_schema_compiler/test//functions_as_parameters.h $
+    gen/tools/json_schema_compiler/test//functions_on_types.cc $
+    gen/tools/json_schema_compiler/test//functions_on_types.h $
+    gen/tools/json_schema_compiler/test//objects.cc $
+    gen/tools/json_schema_compiler/test//objects.h $
+    gen/tools/json_schema_compiler/test//objects_movable_json.cc $
+    gen/tools/json_schema_compiler/test//objects_movable_json.h $
+    gen/tools/json_schema_compiler/test//simple_api.cc $
+    gen/tools/json_schema_compiler/test//simple_api.h $
+    gen/tools/json_schema_compiler/test//error_generation.cc $
+    gen/tools/json_schema_compiler/test//error_generation.h $
+    gen/tools/json_schema_compiler/test//idl_basics.cc $
+    gen/tools/json_schema_compiler/test//idl_basics.h $
+    gen/tools/json_schema_compiler/test//idl_other_namespace.cc $
+    gen/tools/json_schema_compiler/test//idl_other_namespace.h $
+    gen/tools/json_schema_compiler/test//idl_other_namespace_sub_namespace.cc $
+    gen/tools/json_schema_compiler/test//idl_other_namespace_sub_namespace.h $
+    gen/tools/json_schema_compiler/test//idl_object_types.cc $
+    gen/tools/json_schema_compiler/test//idl_object_types.h $
+    gen/tools/json_schema_compiler/test//objects_movable.cc $
+    gen/tools/json_schema_compiler/test//objects_movable.h
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS $
+    -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../..
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.additional_properties.o: $
+    cxx gen/tools/json_schema_compiler/test//additional_properties.cc || $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.actions_rules_copies.stamp
+build $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.any.o: $
+    cxx gen/tools/json_schema_compiler/test//any.cc || $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.actions_rules_copies.stamp
+build $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.arrays.o: $
+    cxx gen/tools/json_schema_compiler/test//arrays.cc || $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.actions_rules_copies.stamp
+build $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.callbacks.o: $
+    cxx gen/tools/json_schema_compiler/test//callbacks.cc || $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.actions_rules_copies.stamp
+build $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.choices.o: $
+    cxx gen/tools/json_schema_compiler/test//choices.cc || $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.actions_rules_copies.stamp
+build $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.crossref.o: $
+    cxx gen/tools/json_schema_compiler/test//crossref.cc || $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.actions_rules_copies.stamp
+build $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.enums.o: $
+    cxx gen/tools/json_schema_compiler/test//enums.cc || $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.actions_rules_copies.stamp
+build $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.functions_as_parameters.o: $
+    cxx gen/tools/json_schema_compiler/test//functions_as_parameters.cc || $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.actions_rules_copies.stamp
+build $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.functions_on_types.o: $
+    cxx gen/tools/json_schema_compiler/test//functions_on_types.cc || $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.actions_rules_copies.stamp
+build $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.objects.o: $
+    cxx gen/tools/json_schema_compiler/test//objects.cc || $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.actions_rules_copies.stamp
+build $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.objects_movable_json.o: $
+    cxx gen/tools/json_schema_compiler/test//objects_movable_json.cc || $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.actions_rules_copies.stamp
+build $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.simple_api.o: $
+    cxx gen/tools/json_schema_compiler/test//simple_api.cc || $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.actions_rules_copies.stamp
+build $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.error_generation.o: $
+    cxx gen/tools/json_schema_compiler/test//error_generation.cc || $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.actions_rules_copies.stamp
+build $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.idl_basics.o: $
+    cxx gen/tools/json_schema_compiler/test//idl_basics.cc || $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.actions_rules_copies.stamp
+build $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.idl_other_namespace.o: $
+    cxx gen/tools/json_schema_compiler/test//idl_other_namespace.cc || $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.actions_rules_copies.stamp
+build $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.idl_other_namespace_sub_namespace.o: $
+    cxx $
+    gen/tools/json_schema_compiler/test//idl_other_namespace_sub_namespace.cc $
+    || $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.actions_rules_copies.stamp
+build $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.idl_object_types.o: $
+    cxx gen/tools/json_schema_compiler/test//idl_object_types.cc || $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.actions_rules_copies.stamp
+build $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.objects_movable.o: $
+    cxx gen/tools/json_schema_compiler/test//objects_movable.cc || $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.actions_rules_copies.stamp
+build $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.test_util.o: $
+    cxx ../../tools/json_schema_compiler/test/test_util.cc || $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.actions_rules_copies.stamp
+
+build obj/tools/json_schema_compiler/test/libjson_schema_compiler_tests.a: $
+    alink_thin $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.additional_properties.o $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.any.o $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.arrays.o $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.callbacks.o $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.choices.o $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.crossref.o $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.enums.o $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.functions_as_parameters.o $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.functions_on_types.o $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.objects.o $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.objects_movable_json.o $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.simple_api.o $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.error_generation.o $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.idl_basics.o $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.idl_other_namespace.o $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.idl_other_namespace_sub_namespace.o $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.idl_object_types.o $
+    obj/tools/json_schema_compiler/test/gen/tools/json_schema_compiler/test/json_schema_compiler_tests.objects_movable.o $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.test_util.o $
+    || $
+    obj/tools/json_schema_compiler/test/json_schema_compiler_tests.actions_rules_copies.stamp

@@ -1,0 +1,83 @@
+rule rtc_event_log_proto_target_genproto_9dcda1940c338d120daee636a86d1f5c
+  command = cd ../../third_party/webrtc; python $
+      ../../tools/protoc_wrapper/protoc_wrapper.py --include "" --protobuf $
+      "../../out.cef/Release/gen/protoc_out/webrtc/call/${root}.pb.h" $
+      --proto-in-dir call --proto-in-file "${root}${ext}" $
+      "--use-system-protobuf=0" -- ../../out.cef/Release/protoc --cpp_out $
+      ../../out.cef/Release/gen/protoc_out/webrtc/call --python_out $
+      ../../out.cef/Release/pyproto/webrtc/call
+  description = RULE Generating C++ and Python code from ${source}
+  restat = 1
+
+build pyproto/webrtc/call/rtc_event_log_pb2.py $
+    gen/protoc_out/webrtc/call/rtc_event_log.pb.cc $
+    gen/protoc_out/webrtc/call/rtc_event_log.pb.h: $
+    rtc_event_log_proto_target_genproto_9dcda1940c338d120daee636a86d1f5c $
+    ../../third_party/webrtc/call/rtc_event_log.proto | $
+    ../../tools/protoc_wrapper/protoc_wrapper.py protoc || protoc
+  ext = .proto
+  root = rtc_event_log
+  source = call/rtc_event_log.proto
+build $
+    obj/third_party/webrtc/rtc_event_log_proto.actions_rules_copies.stamp: $
+    stamp pyproto/webrtc/call/rtc_event_log_pb2.py $
+    gen/protoc_out/webrtc/call/rtc_event_log.pb.cc $
+    gen/protoc_out/webrtc/call/rtc_event_log.pb.h
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DWEBRTC_RESTRICT_LOGGING $
+    -DEXPAT_RELATIVE_PATH -DWEBRTC_CHROMIUM_BUILD -DLOGGING_INSIDE_WEBRTC $
+    -DWEBRTC_ARCH_ARM -DWEBRTC_ARCH_ARM_V7 -DWEBRTC_HAS_NEON -DWEBRTC_POSIX $
+    -DWEBRTC_LINUX -DPROTOBUF_USE_DLLS -DGOOGLE_PROTOBUF_NO_RTTI $
+    -DGOOGLE_PROTOBUF_NO_STATIC_INITIALIZER -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS $
+    -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../third_party/webrtc_overrides $
+    -I../../third_party -Igen/protoc_out -I../../third_party/protobuf $
+    -I../../third_party/protobuf/src
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/third_party/webrtc/gen/protoc_out/webrtc/call/rtc_event_log_proto.rtc_event_log.pb.o: $
+    cxx gen/protoc_out/webrtc/call/rtc_event_log.pb.cc || $
+    obj/third_party/webrtc/rtc_event_log_proto.actions_rules_copies.stamp
+
+build obj/third_party/webrtc/librtc_event_log_proto.a: alink_thin $
+    obj/third_party/webrtc/gen/protoc_out/webrtc/call/rtc_event_log_proto.rtc_event_log.pb.o $
+    || obj/third_party/webrtc/rtc_event_log_proto.actions_rules_copies.stamp

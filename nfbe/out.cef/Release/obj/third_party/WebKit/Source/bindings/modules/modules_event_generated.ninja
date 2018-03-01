@@ -1,0 +1,144 @@
+rule $
+    modules_event_generated_target_event_interfaces_6887b6b8d4891cf61a086c2021b1aced
+  command = cd ../../third_party/WebKit/Source/bindings/modules; python $
+      ../scripts/generate_event_interfaces.py --event-idl-files-list $
+      ../../../../../out.cef/third_party/WebKit/Source/bindings/modules/event_idl_files_list.tmp $
+      --event-interfaces-file $
+      ../../../../../out.cef/Release/gen/blink/modules/EventModulesInterfaces.in $
+      --write-file-only-if-changed 1 --suffix Modules
+  description = ACTION modules_event_generated: $
+      event_interfaces_6887b6b8d4891cf61a086c2021b1aced
+  restat = 1
+
+build gen/blink/modules/EventModulesInterfaces.in: $
+    modules_event_generated_target_event_interfaces_6887b6b8d4891cf61a086c2021b1aced $
+    ../../third_party/WebKit/Source/bindings/scripts/generate_event_interfaces.py $
+    ../../third_party/WebKit/Source/bindings/scripts/utilities.py $
+    ../../out.cef/third_party/WebKit/Source/bindings/modules/event_idl_files_list.tmp $
+    ../../third_party/WebKit/Source/modules/app_banner/BeforeInstallPromptEvent.idl $
+    ../../third_party/WebKit/Source/modules/background_sync/SyncEvent.idl $
+    ../../third_party/WebKit/Source/modules/device_light/DeviceLightEvent.idl $
+    ../../third_party/WebKit/Source/modules/device_orientation/DeviceMotionEvent.idl $
+    ../../third_party/WebKit/Source/modules/device_orientation/DeviceOrientationEvent.idl $
+    ../../third_party/WebKit/Source/modules/encryptedmedia/MediaEncryptedEvent.idl $
+    ../../third_party/WebKit/Source/modules/encryptedmedia/MediaKeyMessageEvent.idl $
+    ../../third_party/WebKit/Source/modules/gamepad/GamepadEvent.idl $
+    ../../third_party/WebKit/Source/modules/geofencing/GeofencingEvent.idl $
+    ../../third_party/WebKit/Source/modules/indexeddb/IDBVersionChangeEvent.idl $
+    ../../third_party/WebKit/Source/modules/mediarecorder/BlobEvent.idl $
+    ../../third_party/WebKit/Source/modules/mediastream/MediaStreamEvent.idl $
+    ../../third_party/WebKit/Source/modules/mediastream/MediaStreamTrackEvent.idl $
+    ../../third_party/WebKit/Source/modules/mediastream/RTCDTMFToneChangeEvent.idl $
+    ../../third_party/WebKit/Source/modules/mediastream/RTCDataChannelEvent.idl $
+    ../../third_party/WebKit/Source/modules/mediastream/RTCIceCandidateEvent.idl $
+    ../../third_party/WebKit/Source/modules/notifications/NotificationEvent.idl $
+    ../../third_party/WebKit/Source/modules/presentation/PresentationConnectionAvailableEvent.idl $
+    ../../third_party/WebKit/Source/modules/presentation/PresentationConnectionCloseEvent.idl $
+    ../../third_party/WebKit/Source/modules/push_messaging/PushEvent.idl $
+    ../../third_party/WebKit/Source/modules/serviceworkers/ExtendableEvent.idl $
+    ../../third_party/WebKit/Source/modules/serviceworkers/ExtendableMessageEvent.idl $
+    ../../third_party/WebKit/Source/modules/serviceworkers/FetchEvent.idl $
+    ../../third_party/WebKit/Source/modules/serviceworkers/ForeignFetchEvent.idl $
+    ../../third_party/WebKit/Source/modules/serviceworkers/InstallEvent.idl $
+    ../../third_party/WebKit/Source/modules/serviceworkers/ServiceWorkerMessageEvent.idl $
+    ../../third_party/WebKit/Source/modules/speech/SpeechRecognitionError.idl $
+    ../../third_party/WebKit/Source/modules/speech/SpeechRecognitionEvent.idl $
+    ../../third_party/WebKit/Source/modules/speech/SpeechSynthesisEvent.idl $
+    ../../third_party/WebKit/Source/modules/storage/StorageEvent.idl $
+    ../../third_party/WebKit/Source/modules/webaudio/AudioProcessingEvent.idl $
+    ../../third_party/WebKit/Source/modules/webaudio/OfflineAudioCompletionEvent.idl $
+    ../../third_party/WebKit/Source/modules/webgl/WebGLContextEvent.idl $
+    ../../third_party/WebKit/Source/modules/webmidi/MIDIConnectionEvent.idl $
+    ../../third_party/WebKit/Source/modules/webmidi/MIDIMessageEvent.idl $
+    ../../third_party/WebKit/Source/modules/websockets/CloseEvent.idl
+
+rule $
+    modules_event_generated_target_EventModulesFactory_6887b6b8d4891cf61a086c2021b1aced
+  command = cd ../../third_party/WebKit/Source/bindings/modules; python $
+      ../../build/scripts/make_event_factory.py $
+      ../../../../../out.cef/Release/gen/blink/modules/EventModulesInterfaces.in $
+      --output_dir ../../../../../out.cef/Release/gen/blink/modules
+  description = ACTION modules_event_generated: $
+      EventModulesFactory_6887b6b8d4891cf61a086c2021b1aced
+  restat = 1
+
+build gen/blink/modules/EventModules.cpp $
+    gen/blink/modules/EventModulesHeaders.h: $
+    modules_event_generated_target_EventModulesFactory_6887b6b8d4891cf61a086c2021b1aced $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_event_factory.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/EventFactory.cpp.tmpl $
+    gen/blink/modules/EventModulesInterfaces.in
+
+rule $
+    modules_event_generated_target_EventModulesNames_6887b6b8d4891cf61a086c2021b1aced
+  command = cd ../../third_party/WebKit/Source/bindings/modules; python $
+      ../../build/scripts/make_names.py $
+      ../../../../../out.cef/Release/gen/blink/modules/EventModulesInterfaces.in $
+      --output_dir ../../../../../out.cef/Release/gen/blink/modules
+  description = ACTION modules_event_generated: $
+      EventModulesNames_6887b6b8d4891cf61a086c2021b1aced
+  restat = 1
+
+build gen/blink/modules/EventModulesNames.cpp $
+    gen/blink/modules/EventModulesNames.h: $
+    modules_event_generated_target_EventModulesNames_6887b6b8d4891cf61a086c2021b1aced $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_names.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeNames.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeNames.h.tmpl $
+    gen/blink/modules/EventModulesInterfaces.in
+
+rule $
+    modules_event_generated_target_EventTargetModulesNames_6887b6b8d4891cf61a086c2021b1aced
+  command = cd ../../third_party/WebKit/Source/bindings/modules; python $
+      ../../build/scripts/make_names.py $
+      ../../modules/EventTargetModulesFactory.in --output_dir $
+      ../../../../../out.cef/Release/gen/blink/modules
+  description = ACTION modules_event_generated: $
+      EventTargetModulesNames_6887b6b8d4891cf61a086c2021b1aced
+  restat = 1
+
+build gen/blink/modules/EventTargetModulesNames.cpp $
+    gen/blink/modules/EventTargetModulesNames.h: $
+    modules_event_generated_target_EventTargetModulesNames_6887b6b8d4891cf61a086c2021b1aced $
+    ../../third_party/jinja2/__init__.py $
+    ../../third_party/markupsafe/__init__.py $
+    ../../third_party/WebKit/Source/build/scripts/hasher.py $
+    ../../third_party/WebKit/Source/build/scripts/in_file.py $
+    ../../third_party/WebKit/Source/build/scripts/in_generator.py $
+    ../../third_party/WebKit/Source/build/scripts/license.py $
+    ../../third_party/WebKit/Source/build/scripts/name_utilities.py $
+    ../../third_party/WebKit/Source/build/scripts/template_expander.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/macros.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/make_names.py $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeNames.cpp.tmpl $
+    ../../third_party/WebKit/Source/build/scripts/templates/MakeNames.h.tmpl $
+    ../../third_party/WebKit/Source/modules/EventTargetModulesFactory.in
+
+build $
+    obj/third_party/WebKit/Source/bindings/modules/modules_event_generated.actions_rules_copies.stamp: $
+    stamp gen/blink/modules/EventModulesInterfaces.in $
+    gen/blink/modules/EventModules.cpp $
+    gen/blink/modules/EventModulesHeaders.h $
+    gen/blink/modules/EventModulesNames.cpp $
+    gen/blink/modules/EventModulesNames.h $
+    gen/blink/modules/EventTargetModulesNames.cpp $
+    gen/blink/modules/EventTargetModulesNames.h
+

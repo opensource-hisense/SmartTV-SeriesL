@@ -1,0 +1,176 @@
+build obj/chrome/chromedriver_lib.actions_depends.stamp: stamp $
+    obj/chrome/libautomation_client_lib.a $
+    gen/chrome/common/chrome_version.h lib/libbase.so.TOC lib/libnet.so.TOC
+
+build obj/chrome/chromedriver_lib.compile_depends.stamp: stamp $
+    obj/chrome/automation_client_lib.actions_rules_copies.stamp $
+    gen/chrome/common/chrome_version.h obj/base/base.compile_depends.stamp $
+    obj/net/net.compile_depends.stamp
+
+rule $
+    chromedriver_lib_target_embed_version_in_cpp_01aa5a5ce1612fff9b8ceb6329e381da
+  command = cd ../../chrome; python $
+      test/chromedriver/embed_version_in_cpp.py --version-file $
+      test/chromedriver/VERSION --directory $
+      ../out.cef/Release/gen/chrome/test/chromedriver
+  description = ACTION Generating version info
+  restat = 1
+
+build gen/chrome/test/chromedriver/version.cc $
+    gen/chrome/test/chromedriver/version.h: $
+    chromedriver_lib_target_embed_version_in_cpp_01aa5a5ce1612fff9b8ceb6329e381da $
+    ../../chrome/test/chromedriver/cpp_source.py $
+    ../../chrome/test/chromedriver/embed_version_in_cpp.py $
+    ../../chrome/test/chromedriver/VERSION || $
+    obj/chrome/chromedriver_lib.actions_depends.stamp
+
+build obj/chrome/chromedriver_lib.actions_rules_copies.stamp: stamp $
+    gen/chrome/test/chromedriver/version.cc $
+    gen/chrome/test/chromedriver/version.h
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DSK_SUPPORT_GPU=1 $
+    -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS -DU_USING_ICU_NAMESPACE=0 $
+    -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= -DU_STATIC_IMPLEMENTATION $
+    -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 $
+    -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../skia/config $
+    -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../third_party/icu/source/i18n -I../../third_party/icu/source/common
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -I/work/bsp/sc1400/usr/include/nss3 $
+    -I/work/bsp/sc1400/usr/include/nspr -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/third_party/webdriver/chromedriver_lib.atoms.o: cxx $
+    ../../third_party/webdriver/atoms.cc || $
+    obj/chrome/chromedriver_lib.actions_rules_copies.stamp
+build obj/chrome/common/chromedriver_lib.chrome_constants.o: cxx $
+    ../../chrome/common/chrome_constants.cc || $
+    obj/chrome/chromedriver_lib.actions_rules_copies.stamp
+build obj/chrome/test/chromedriver/chromedriver_lib.alert_commands.o: cxx $
+    ../../chrome/test/chromedriver/alert_commands.cc || $
+    obj/chrome/chromedriver_lib.actions_rules_copies.stamp
+build obj/chrome/test/chromedriver/chromedriver_lib.basic_types.o: cxx $
+    ../../chrome/test/chromedriver/basic_types.cc || $
+    obj/chrome/chromedriver_lib.actions_rules_copies.stamp
+build obj/chrome/test/chromedriver/chromedriver_lib.capabilities.o: cxx $
+    ../../chrome/test/chromedriver/capabilities.cc || $
+    obj/chrome/chromedriver_lib.actions_rules_copies.stamp
+build obj/chrome/test/chromedriver/chrome/chromedriver_lib.browser_info.o: $
+    cxx ../../chrome/test/chromedriver/chrome/browser_info.cc || $
+    obj/chrome/chromedriver_lib.actions_rules_copies.stamp
+build obj/chrome/test/chromedriver/chromedriver_lib.chrome_launcher.o: cxx $
+    ../../chrome/test/chromedriver/chrome_launcher.cc || $
+    obj/chrome/chromedriver_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chromedriver_lib.command_listener_proxy.o: $
+    cxx ../../chrome/test/chromedriver/command_listener_proxy.cc || $
+    obj/chrome/chromedriver_lib.actions_rules_copies.stamp
+build obj/chrome/test/chromedriver/chromedriver_lib.commands.o: cxx $
+    ../../chrome/test/chromedriver/commands.cc || $
+    obj/chrome/chromedriver_lib.actions_rules_copies.stamp
+build obj/chrome/test/chromedriver/chromedriver_lib.element_commands.o: cxx $
+    ../../chrome/test/chromedriver/element_commands.cc || $
+    obj/chrome/chromedriver_lib.actions_rules_copies.stamp
+build obj/chrome/test/chromedriver/chromedriver_lib.element_util.o: cxx $
+    ../../chrome/test/chromedriver/element_util.cc || $
+    obj/chrome/chromedriver_lib.actions_rules_copies.stamp
+build obj/chrome/test/chromedriver/chromedriver_lib.key_converter.o: cxx $
+    ../../chrome/test/chromedriver/key_converter.cc || $
+    obj/chrome/chromedriver_lib.actions_rules_copies.stamp
+build $
+    obj/chrome/test/chromedriver/chromedriver_lib.keycode_text_conversion_ozone.o: $
+    cxx ../../chrome/test/chromedriver/keycode_text_conversion_ozone.cc || $
+    obj/chrome/chromedriver_lib.actions_rules_copies.stamp
+build obj/chrome/test/chromedriver/chromedriver_lib.logging.o: cxx $
+    ../../chrome/test/chromedriver/logging.cc || $
+    obj/chrome/chromedriver_lib.actions_rules_copies.stamp
+build obj/chrome/test/chromedriver/chromedriver_lib.performance_logger.o: $
+    cxx ../../chrome/test/chromedriver/performance_logger.cc || $
+    obj/chrome/chromedriver_lib.actions_rules_copies.stamp
+build obj/chrome/test/chromedriver/server/chromedriver_lib.http_handler.o: $
+    cxx ../../chrome/test/chromedriver/server/http_handler.cc || $
+    obj/chrome/chromedriver_lib.actions_rules_copies.stamp
+build obj/chrome/test/chromedriver/chromedriver_lib.session.o: cxx $
+    ../../chrome/test/chromedriver/session.cc || $
+    obj/chrome/chromedriver_lib.actions_rules_copies.stamp
+build obj/chrome/test/chromedriver/chromedriver_lib.session_commands.o: cxx $
+    ../../chrome/test/chromedriver/session_commands.cc || $
+    obj/chrome/chromedriver_lib.actions_rules_copies.stamp
+build obj/chrome/test/chromedriver/chromedriver_lib.util.o: cxx $
+    ../../chrome/test/chromedriver/util.cc || $
+    obj/chrome/chromedriver_lib.actions_rules_copies.stamp
+build obj/chrome/test/chromedriver/chromedriver_lib.window_commands.o: cxx $
+    ../../chrome/test/chromedriver/window_commands.cc || $
+    obj/chrome/chromedriver_lib.actions_rules_copies.stamp
+build obj/chrome/gen/chrome/test/chromedriver/chromedriver_lib.version.o: $
+    cxx gen/chrome/test/chromedriver/version.cc || $
+    obj/chrome/chromedriver_lib.actions_rules_copies.stamp
+
+build obj/chrome/libchromedriver_lib.a: alink_thin $
+    obj/third_party/webdriver/chromedriver_lib.atoms.o $
+    obj/chrome/common/chromedriver_lib.chrome_constants.o $
+    obj/chrome/test/chromedriver/chromedriver_lib.alert_commands.o $
+    obj/chrome/test/chromedriver/chromedriver_lib.basic_types.o $
+    obj/chrome/test/chromedriver/chromedriver_lib.capabilities.o $
+    obj/chrome/test/chromedriver/chrome/chromedriver_lib.browser_info.o $
+    obj/chrome/test/chromedriver/chromedriver_lib.chrome_launcher.o $
+    obj/chrome/test/chromedriver/chromedriver_lib.command_listener_proxy.o $
+    obj/chrome/test/chromedriver/chromedriver_lib.commands.o $
+    obj/chrome/test/chromedriver/chromedriver_lib.element_commands.o $
+    obj/chrome/test/chromedriver/chromedriver_lib.element_util.o $
+    obj/chrome/test/chromedriver/chromedriver_lib.key_converter.o $
+    obj/chrome/test/chromedriver/chromedriver_lib.keycode_text_conversion_ozone.o $
+    obj/chrome/test/chromedriver/chromedriver_lib.logging.o $
+    obj/chrome/test/chromedriver/chromedriver_lib.performance_logger.o $
+    obj/chrome/test/chromedriver/server/chromedriver_lib.http_handler.o $
+    obj/chrome/test/chromedriver/chromedriver_lib.session.o $
+    obj/chrome/test/chromedriver/chromedriver_lib.session_commands.o $
+    obj/chrome/test/chromedriver/chromedriver_lib.util.o $
+    obj/chrome/test/chromedriver/chromedriver_lib.window_commands.o $
+    obj/chrome/gen/chrome/test/chromedriver/chromedriver_lib.version.o || $
+    obj/chrome/chromedriver_lib.actions_rules_copies.stamp

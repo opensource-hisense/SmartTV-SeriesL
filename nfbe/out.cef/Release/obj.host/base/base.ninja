@@ -1,0 +1,989 @@
+build obj.host/base/base.actions_depends.stamp: stamp $
+    obj.host/base/allocator/liballocator.a gen/base/allocator/features.h $
+    gen/base/debug/debugging_flags.h obj.host/base/libbase_static.a $
+    gen/base/generated_build_date.h $
+    obj.host/third_party/modp_b64/libmodp_b64.a $
+    obj.host/base/third_party/dynamic_annotations/libdynamic_annotations.a $
+    obj.host/base/libsymbolize.a obj.host/base/libxdg_mime.a $
+    obj.host/base/third_party/libevent/libevent.a $
+    obj.host/base/allocator/libunified_allocator_shim.a
+
+build obj.host/base/base.compile_depends.stamp: stamp $
+    gen/base/allocator/features.h gen/base/debug/debugging_flags.h $
+    gen/base/generated_build_date.h
+
+ar = $ar_host
+cc = $cc_host
+cxx = $cxx_host
+ld = $ld_host
+ldxx = $ldxx_host
+nm = $nm_host
+readelf = $readelf_host
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DCOMPONENT_BUILD -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 $
+    -DUSE_OZONE=1 -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DUSE_SYMBOLIZE -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS $
+    -D__STDC_FORMAT_MACROS -DBASE_IMPLEMENTATION -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../..
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-char-subscripts -Wno-unneeded-internal-declaration $
+    -Wno-covered-switch-default -Wno-c++11-narrowing $
+    -Wno-deprecated-register -Wno-inconsistent-missing-override $
+    -Wno-shift-negative-value -Wexit-time-destructors -O2 -fno-ident $
+    -fdata-sections -ffunction-sections -funwind-tables
+cflags_c = 
+cflags_cc = -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-literal-suffix -std=gnu++11
+arflags = 
+
+build obj.host/base/base.linux_util.o: cxx ../../base/linux_util.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/message_loop/base.message_pump_libevent.o: cxx $
+    ../../base/message_loop/message_pump_libevent.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/metrics/base.field_trial.o: cxx $
+    ../../base/metrics/field_trial.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/posix/base.file_descriptor_shuffle.o: cxx $
+    ../../base/posix/file_descriptor_shuffle.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.sync_socket_posix.o: cxx $
+    ../../base/sync_socket_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/third_party/xdg_user_dirs/base.xdg_user_dir_lookup.o: $
+    cxx ../../base/third_party/xdg_user_dirs/xdg_user_dir_lookup.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/allocator/base.allocator_check.o: cxx $
+    ../../base/allocator/allocator_check.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/allocator/base.allocator_extension.o: cxx $
+    ../../base/allocator/allocator_extension.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.at_exit.o: cxx ../../base/at_exit.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.barrier_closure.o: cxx $
+    ../../base/barrier_closure.cc || obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.base64.o: cxx ../../base/base64.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.base64url.o: cxx ../../base/base64url.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.base_paths.o: cxx ../../base/base_paths.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.base_paths_posix.o: cxx $
+    ../../base/base_paths_posix.cc || obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.big_endian.o: cxx ../../base/big_endian.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.bind_helpers.o: cxx ../../base/bind_helpers.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.build_time.o: cxx ../../base/build_time.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.callback_helpers.o: cxx $
+    ../../base/callback_helpers.cc || obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.callback_internal.o: cxx $
+    ../../base/callback_internal.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.command_line.o: cxx ../../base/command_line.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.cpu.o: cxx ../../base/cpu.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/debug/base.alias.o: cxx ../../base/debug/alias.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/debug/base.asan_invalid_access.o: cxx $
+    ../../base/debug/asan_invalid_access.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/debug/base.crash_logging.o: cxx $
+    ../../base/debug/crash_logging.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/debug/base.debugger.o: cxx ../../base/debug/debugger.cc $
+    || obj.host/base/base.compile_depends.stamp
+build obj.host/base/debug/base.debugger_posix.o: cxx $
+    ../../base/debug/debugger_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/debug/base.dump_without_crashing.o: cxx $
+    ../../base/debug/dump_without_crashing.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/debug/base.proc_maps_linux.o: cxx $
+    ../../base/debug/proc_maps_linux.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/debug/base.profiler.o: cxx ../../base/debug/profiler.cc $
+    || obj.host/base/base.compile_depends.stamp
+build obj.host/base/debug/base.stack_trace.o: cxx $
+    ../../base/debug/stack_trace.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/debug/base.stack_trace_posix.o: cxx $
+    ../../base/debug/stack_trace_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/debug/base.task_annotator.o: cxx $
+    ../../base/debug/task_annotator.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.deferred_sequenced_task_runner.o: cxx $
+    ../../base/deferred_sequenced_task_runner.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.environment.o: cxx ../../base/environment.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.feature_list.o: cxx ../../base/feature_list.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/files/base.file.o: cxx ../../base/files/file.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/files/base.file_enumerator.o: cxx $
+    ../../base/files/file_enumerator.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/files/base.file_enumerator_posix.o: cxx $
+    ../../base/files/file_enumerator_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/files/base.file_path.o: cxx $
+    ../../base/files/file_path.cc || obj.host/base/base.compile_depends.stamp
+build obj.host/base/files/base.file_path_constants.o: cxx $
+    ../../base/files/file_path_constants.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/files/base.file_path_watcher.o: cxx $
+    ../../base/files/file_path_watcher.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/files/base.file_path_watcher_linux.o: cxx $
+    ../../base/files/file_path_watcher_linux.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/files/base.file_posix.o: cxx $
+    ../../base/files/file_posix.cc || obj.host/base/base.compile_depends.stamp
+build obj.host/base/files/base.file_proxy.o: cxx $
+    ../../base/files/file_proxy.cc || obj.host/base/base.compile_depends.stamp
+build obj.host/base/files/base.file_tracing.o: cxx $
+    ../../base/files/file_tracing.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/files/base.file_util.o: cxx $
+    ../../base/files/file_util.cc || obj.host/base/base.compile_depends.stamp
+build obj.host/base/files/base.file_util_linux.o: cxx $
+    ../../base/files/file_util_linux.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/files/base.file_util_posix.o: cxx $
+    ../../base/files/file_util_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/files/base.file_util_proxy.o: cxx $
+    ../../base/files/file_util_proxy.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/files/base.important_file_writer.o: cxx $
+    ../../base/files/important_file_writer.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/files/base.memory_mapped_file.o: cxx $
+    ../../base/files/memory_mapped_file.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/files/base.memory_mapped_file_posix.o: cxx $
+    ../../base/files/memory_mapped_file_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/files/base.scoped_file.o: cxx $
+    ../../base/files/scoped_file.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/files/base.scoped_temp_dir.o: cxx $
+    ../../base/files/scoped_temp_dir.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.guid.o: cxx ../../base/guid.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.guid_posix.o: cxx ../../base/guid_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.hash.o: cxx ../../base/hash.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/json/base.json_file_value_serializer.o: cxx $
+    ../../base/json/json_file_value_serializer.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/json/base.json_parser.o: cxx $
+    ../../base/json/json_parser.cc || obj.host/base/base.compile_depends.stamp
+build obj.host/base/json/base.json_reader.o: cxx $
+    ../../base/json/json_reader.cc || obj.host/base/base.compile_depends.stamp
+build obj.host/base/json/base.json_string_value_serializer.o: cxx $
+    ../../base/json/json_string_value_serializer.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/json/base.json_value_converter.o: cxx $
+    ../../base/json/json_value_converter.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/json/base.json_writer.o: cxx $
+    ../../base/json/json_writer.cc || obj.host/base/base.compile_depends.stamp
+build obj.host/base/json/base.string_escape.o: cxx $
+    ../../base/json/string_escape.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.lazy_instance.o: cxx ../../base/lazy_instance.cc $
+    || obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.location.o: cxx ../../base/location.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.logging.o: cxx ../../base/logging.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.md5.o: cxx ../../base/md5.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/memory/base.aligned_memory.o: cxx $
+    ../../base/memory/aligned_memory.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/memory/base.discardable_memory.o: cxx $
+    ../../base/memory/discardable_memory.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/memory/base.discardable_memory_allocator.o: cxx $
+    ../../base/memory/discardable_memory_allocator.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/memory/base.discardable_shared_memory.o: cxx $
+    ../../base/memory/discardable_shared_memory.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/memory/base.memory_pressure_listener.o: cxx $
+    ../../base/memory/memory_pressure_listener.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/memory/base.memory_pressure_monitor.o: cxx $
+    ../../base/memory/memory_pressure_monitor.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/memory/base.ref_counted.o: cxx $
+    ../../base/memory/ref_counted.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/memory/base.ref_counted_memory.o: cxx $
+    ../../base/memory/ref_counted_memory.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/memory/base.shared_memory_posix.o: cxx $
+    ../../base/memory/shared_memory_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/memory/base.singleton.o: cxx $
+    ../../base/memory/singleton.cc || obj.host/base/base.compile_depends.stamp
+build obj.host/base/memory/base.weak_ptr.o: cxx $
+    ../../base/memory/weak_ptr.cc || obj.host/base/base.compile_depends.stamp
+build obj.host/base/message_loop/base.incoming_task_queue.o: cxx $
+    ../../base/message_loop/incoming_task_queue.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/message_loop/base.message_loop.o: cxx $
+    ../../base/message_loop/message_loop.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/message_loop/base.message_loop_task_runner.o: cxx $
+    ../../base/message_loop/message_loop_task_runner.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/message_loop/base.message_pump.o: cxx $
+    ../../base/message_loop/message_pump.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/message_loop/base.message_pump_default.o: cxx $
+    ../../base/message_loop/message_pump_default.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/metrics/base.bucket_ranges.o: cxx $
+    ../../base/metrics/bucket_ranges.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/metrics/base.histogram.o: cxx $
+    ../../base/metrics/histogram.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/metrics/base.histogram_base.o: cxx $
+    ../../base/metrics/histogram_base.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/metrics/base.histogram_delta_serialization.o: cxx $
+    ../../base/metrics/histogram_delta_serialization.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/metrics/base.histogram_samples.o: cxx $
+    ../../base/metrics/histogram_samples.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/metrics/base.histogram_snapshot_manager.o: cxx $
+    ../../base/metrics/histogram_snapshot_manager.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/metrics/base.metrics_hashes.o: cxx $
+    ../../base/metrics/metrics_hashes.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/metrics/base.persistent_histogram_allocator.o: cxx $
+    ../../base/metrics/persistent_histogram_allocator.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/metrics/base.persistent_memory_allocator.o: cxx $
+    ../../base/metrics/persistent_memory_allocator.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/metrics/base.persistent_sample_map.o: cxx $
+    ../../base/metrics/persistent_sample_map.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/metrics/base.sample_map.o: cxx $
+    ../../base/metrics/sample_map.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/metrics/base.sample_vector.o: cxx $
+    ../../base/metrics/sample_vector.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/metrics/base.sparse_histogram.o: cxx $
+    ../../base/metrics/sparse_histogram.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/metrics/base.statistics_recorder.o: cxx $
+    ../../base/metrics/statistics_recorder.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/metrics/base.user_metrics.o: cxx $
+    ../../base/metrics/user_metrics.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.native_library_posix.o: cxx $
+    ../../base/native_library_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/nix/base.mime_util_xdg.o: cxx $
+    ../../base/nix/mime_util_xdg.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/nix/base.xdg_util.o: cxx ../../base/nix/xdg_util.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.path_service.o: cxx ../../base/path_service.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.pending_task.o: cxx ../../base/pending_task.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.pickle.o: cxx ../../base/pickle.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/posix/base.global_descriptors.o: cxx $
+    ../../base/posix/global_descriptors.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/posix/base.safe_strerror.o: cxx $
+    ../../base/posix/safe_strerror.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/posix/base.unix_domain_socket_linux.o: cxx $
+    ../../base/posix/unix_domain_socket_linux.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/power_monitor/base.power_monitor.o: cxx $
+    ../../base/power_monitor/power_monitor.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/power_monitor/base.power_monitor_device_source.o: cxx $
+    ../../base/power_monitor/power_monitor_device_source.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/power_monitor/base.power_monitor_device_source_posix.o: $
+    cxx ../../base/power_monitor/power_monitor_device_source_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/power_monitor/base.power_monitor_source.o: cxx $
+    ../../base/power_monitor/power_monitor_source.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/process/base.internal_linux.o: cxx $
+    ../../base/process/internal_linux.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/process/base.kill.o: cxx ../../base/process/kill.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/process/base.kill_posix.o: cxx $
+    ../../base/process/kill_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/process/base.launch.o: cxx ../../base/process/launch.cc $
+    || obj.host/base/base.compile_depends.stamp
+build obj.host/base/process/base.launch_posix.o: cxx $
+    ../../base/process/launch_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/process/base.memory.o: cxx ../../base/process/memory.cc $
+    || obj.host/base/base.compile_depends.stamp
+build obj.host/base/process/base.memory_linux.o: cxx $
+    ../../base/process/memory_linux.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/process/base.process_handle.o: cxx $
+    ../../base/process/process_handle.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/process/base.process_handle_linux.o: cxx $
+    ../../base/process/process_handle_linux.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/process/base.process_handle_posix.o: cxx $
+    ../../base/process/process_handle_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/process/base.process_info_linux.o: cxx $
+    ../../base/process/process_info_linux.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/process/base.process_iterator.o: cxx $
+    ../../base/process/process_iterator.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/process/base.process_iterator_linux.o: cxx $
+    ../../base/process/process_iterator_linux.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/process/base.process_linux.o: cxx $
+    ../../base/process/process_linux.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/process/base.process_metrics.o: cxx $
+    ../../base/process/process_metrics.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/process/base.process_metrics_linux.o: cxx $
+    ../../base/process/process_metrics_linux.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/process/base.process_metrics_posix.o: cxx $
+    ../../base/process/process_metrics_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/process/base.process_posix.o: cxx $
+    ../../base/process/process_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/profiler/base.native_stack_sampler.o: cxx $
+    ../../base/profiler/native_stack_sampler.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/profiler/base.native_stack_sampler_posix.o: cxx $
+    ../../base/profiler/native_stack_sampler_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/profiler/base.scoped_profile.o: cxx $
+    ../../base/profiler/scoped_profile.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/profiler/base.scoped_tracker.o: cxx $
+    ../../base/profiler/scoped_tracker.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/profiler/base.stack_sampling_profiler.o: cxx $
+    ../../base/profiler/stack_sampling_profiler.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/profiler/base.tracked_time.o: cxx $
+    ../../base/profiler/tracked_time.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.rand_util.o: cxx ../../base/rand_util.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.rand_util_posix.o: cxx $
+    ../../base/rand_util_posix.cc || obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.run_loop.o: cxx ../../base/run_loop.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.scoped_native_library.o: cxx $
+    ../../base/scoped_native_library.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.sequence_checker_impl.o: cxx $
+    ../../base/sequence_checker_impl.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.sequenced_task_runner.o: cxx $
+    ../../base/sequenced_task_runner.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.sha1_portable.o: cxx ../../base/sha1_portable.cc $
+    || obj.host/base/base.compile_depends.stamp
+build obj.host/base/strings/base.latin1_string_conversions.o: cxx $
+    ../../base/strings/latin1_string_conversions.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/strings/base.nullable_string16.o: cxx $
+    ../../base/strings/nullable_string16.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/strings/base.pattern.o: cxx $
+    ../../base/strings/pattern.cc || obj.host/base/base.compile_depends.stamp
+build obj.host/base/strings/base.safe_sprintf.o: cxx $
+    ../../base/strings/safe_sprintf.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/strings/base.string16.o: cxx $
+    ../../base/strings/string16.cc || obj.host/base/base.compile_depends.stamp
+build obj.host/base/strings/base.string_number_conversions.o: cxx $
+    ../../base/strings/string_number_conversions.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/strings/base.string_piece.o: cxx $
+    ../../base/strings/string_piece.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/strings/base.string_split.o: cxx $
+    ../../base/strings/string_split.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/strings/base.string_util.o: cxx $
+    ../../base/strings/string_util.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/strings/base.string_util_constants.o: cxx $
+    ../../base/strings/string_util_constants.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/strings/base.stringprintf.o: cxx $
+    ../../base/strings/stringprintf.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/strings/base.sys_string_conversions_posix.o: cxx $
+    ../../base/strings/sys_string_conversions_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/strings/base.utf_offset_string_conversions.o: cxx $
+    ../../base/strings/utf_offset_string_conversions.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/strings/base.utf_string_conversion_utils.o: cxx $
+    ../../base/strings/utf_string_conversion_utils.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/strings/base.utf_string_conversions.o: cxx $
+    ../../base/strings/utf_string_conversions.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.supports_user_data.o: cxx $
+    ../../base/supports_user_data.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/synchronization/base.cancellation_flag.o: cxx $
+    ../../base/synchronization/cancellation_flag.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/synchronization/base.condition_variable_posix.o: cxx $
+    ../../base/synchronization/condition_variable_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/synchronization/base.lock.o: cxx $
+    ../../base/synchronization/lock.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/synchronization/base.lock_impl_posix.o: cxx $
+    ../../base/synchronization/lock_impl_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/synchronization/base.waitable_event_posix.o: cxx $
+    ../../base/synchronization/waitable_event_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/synchronization/base.waitable_event_watcher_posix.o: $
+    cxx ../../base/synchronization/waitable_event_watcher_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.sys_info.o: cxx ../../base/sys_info.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.sys_info_linux.o: cxx ../../base/sys_info_linux.cc $
+    || obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.sys_info_posix.o: cxx ../../base/sys_info_posix.cc $
+    || obj.host/base/base.compile_depends.stamp
+build obj.host/base/system_monitor/base.system_monitor.o: cxx $
+    ../../base/system_monitor/system_monitor.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/task/base.cancelable_task_tracker.o: cxx $
+    ../../base/task/cancelable_task_tracker.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.task_runner.o: cxx ../../base/task_runner.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/task_scheduler/base.priority_queue.o: cxx $
+    ../../base/task_scheduler/priority_queue.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/task_scheduler/base.scheduler_lock_impl.o: cxx $
+    ../../base/task_scheduler/scheduler_lock_impl.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/task_scheduler/base.scheduler_worker_thread.o: cxx $
+    ../../base/task_scheduler/scheduler_worker_thread.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/task_scheduler/base.sequence.o: cxx $
+    ../../base/task_scheduler/sequence.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/task_scheduler/base.sequence_sort_key.o: cxx $
+    ../../base/task_scheduler/sequence_sort_key.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/task_scheduler/base.task.o: cxx $
+    ../../base/task_scheduler/task.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/task_scheduler/base.task_tracker.o: cxx $
+    ../../base/task_scheduler/task_tracker.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/task_scheduler/base.task_traits.o: cxx $
+    ../../base/task_scheduler/task_traits.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/third_party/dmg_fp/base.dtoa_wrapper.o: cxx $
+    ../../base/third_party/dmg_fp/dtoa_wrapper.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/third_party/dmg_fp/base.g_fmt.o: cxx $
+    ../../base/third_party/dmg_fp/g_fmt.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/third_party/icu/base.icu_utf.o: cxx $
+    ../../base/third_party/icu/icu_utf.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/third_party/nspr/base.prtime.o: cxx $
+    ../../base/third_party/nspr/prtime.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/third_party/superfasthash/base.superfasthash.o: cc $
+    ../../base/third_party/superfasthash/superfasthash.c || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.thread_task_runner_handle.o: cxx $
+    ../../base/thread_task_runner_handle.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/threading/base.non_thread_safe_impl.o: cxx $
+    ../../base/threading/non_thread_safe_impl.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/threading/base.platform_thread_internal_posix.o: cxx $
+    ../../base/threading/platform_thread_internal_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/threading/base.platform_thread_linux.o: cxx $
+    ../../base/threading/platform_thread_linux.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/threading/base.platform_thread_posix.o: cxx $
+    ../../base/threading/platform_thread_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/threading/base.post_task_and_reply_impl.o: cxx $
+    ../../base/threading/post_task_and_reply_impl.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/threading/base.sequenced_task_runner_handle.o: cxx $
+    ../../base/threading/sequenced_task_runner_handle.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/threading/base.sequenced_worker_pool.o: cxx $
+    ../../base/threading/sequenced_worker_pool.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/threading/base.simple_thread.o: cxx $
+    ../../base/threading/simple_thread.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/threading/base.thread.o: cxx $
+    ../../base/threading/thread.cc || obj.host/base/base.compile_depends.stamp
+build obj.host/base/threading/base.thread_checker_impl.o: cxx $
+    ../../base/threading/thread_checker_impl.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/threading/base.thread_collision_warner.o: cxx $
+    ../../base/threading/thread_collision_warner.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/threading/base.thread_id_name_manager.o: cxx $
+    ../../base/threading/thread_id_name_manager.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/threading/base.thread_local_posix.o: cxx $
+    ../../base/threading/thread_local_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/threading/base.thread_local_storage.o: cxx $
+    ../../base/threading/thread_local_storage.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/threading/base.thread_local_storage_posix.o: cxx $
+    ../../base/threading/thread_local_storage_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/threading/base.thread_restrictions.o: cxx $
+    ../../base/threading/thread_restrictions.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/threading/base.watchdog.o: cxx $
+    ../../base/threading/watchdog.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/threading/base.worker_pool.o: cxx $
+    ../../base/threading/worker_pool.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/threading/base.worker_pool_posix.o: cxx $
+    ../../base/threading/worker_pool_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/time/base.clock.o: cxx ../../base/time/clock.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/time/base.default_clock.o: cxx $
+    ../../base/time/default_clock.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/time/base.default_tick_clock.o: cxx $
+    ../../base/time/default_tick_clock.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/time/base.tick_clock.o: cxx $
+    ../../base/time/tick_clock.cc || obj.host/base/base.compile_depends.stamp
+build obj.host/base/time/base.time.o: cxx ../../base/time/time.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/time/base.time_posix.o: cxx $
+    ../../base/time/time_posix.cc || obj.host/base/base.compile_depends.stamp
+build obj.host/base/timer/base.elapsed_timer.o: cxx $
+    ../../base/timer/elapsed_timer.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/timer/base.hi_res_timer_manager_posix.o: cxx $
+    ../../base/timer/hi_res_timer_manager_posix.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/timer/base.mock_timer.o: cxx $
+    ../../base/timer/mock_timer.cc || obj.host/base/base.compile_depends.stamp
+build obj.host/base/timer/base.timer.o: cxx ../../base/timer/timer.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.tracked_objects.o: cxx $
+    ../../base/tracked_objects.cc || obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.tracking_info.o: cxx ../../base/tracking_info.cc $
+    || obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.value_conversions.o: cxx $
+    ../../base/value_conversions.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.values.o: cxx ../../base/values.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.version.o: cxx ../../base/version.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/base.vlog.o: cxx ../../base/vlog.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/trace_event/base.blame_context.o: cxx $
+    ../../base/trace_event/blame_context.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/trace_event/base.heap_profiler_allocation_context.o: $
+    cxx ../../base/trace_event/heap_profiler_allocation_context.cc || $
+    obj.host/base/base.compile_depends.stamp
+build $
+    obj.host/base/trace_event/base.heap_profiler_allocation_context_tracker.o: $
+    cxx ../../base/trace_event/heap_profiler_allocation_context_tracker.cc $
+    || obj.host/base/base.compile_depends.stamp
+build obj.host/base/trace_event/base.heap_profiler_allocation_register.o: $
+    cxx ../../base/trace_event/heap_profiler_allocation_register.cc || $
+    obj.host/base/base.compile_depends.stamp
+build $
+    obj.host/base/trace_event/base.heap_profiler_allocation_register_posix.o: $
+    cxx ../../base/trace_event/heap_profiler_allocation_register_posix.cc $
+    || obj.host/base/base.compile_depends.stamp
+build obj.host/base/trace_event/base.heap_profiler_heap_dump_writer.o: cxx $
+    ../../base/trace_event/heap_profiler_heap_dump_writer.cc || $
+    obj.host/base/base.compile_depends.stamp
+build $
+    obj.host/base/trace_event/base.heap_profiler_stack_frame_deduplicator.o: $
+    cxx ../../base/trace_event/heap_profiler_stack_frame_deduplicator.cc || $
+    obj.host/base/base.compile_depends.stamp
+build $
+    obj.host/base/trace_event/base.heap_profiler_type_name_deduplicator.o: $
+    cxx ../../base/trace_event/heap_profiler_type_name_deduplicator.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/trace_event/base.memory_allocator_dump.o: cxx $
+    ../../base/trace_event/memory_allocator_dump.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/trace_event/base.memory_allocator_dump_guid.o: cxx $
+    ../../base/trace_event/memory_allocator_dump_guid.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/trace_event/base.memory_dump_manager.o: cxx $
+    ../../base/trace_event/memory_dump_manager.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/trace_event/base.memory_dump_request_args.o: cxx $
+    ../../base/trace_event/memory_dump_request_args.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/trace_event/base.memory_dump_session_state.o: cxx $
+    ../../base/trace_event/memory_dump_session_state.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/trace_event/base.process_memory_dump.o: cxx $
+    ../../base/trace_event/process_memory_dump.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/trace_event/base.process_memory_maps.o: cxx $
+    ../../base/trace_event/process_memory_maps.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/trace_event/base.process_memory_totals.o: cxx $
+    ../../base/trace_event/process_memory_totals.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/trace_event/base.trace_buffer.o: cxx $
+    ../../base/trace_event/trace_buffer.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/trace_event/base.trace_config.o: cxx $
+    ../../base/trace_event/trace_config.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/trace_event/base.trace_event_argument.o: cxx $
+    ../../base/trace_event/trace_event_argument.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/trace_event/base.trace_event_impl.o: cxx $
+    ../../base/trace_event/trace_event_impl.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/trace_event/base.trace_event_memory_overhead.o: cxx $
+    ../../base/trace_event/trace_event_memory_overhead.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/trace_event/base.trace_event_synthetic_delay.o: cxx $
+    ../../base/trace_event/trace_event_synthetic_delay.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/trace_event/base.trace_event_system_stats_monitor.o: $
+    cxx ../../base/trace_event/trace_event_system_stats_monitor.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/trace_event/base.trace_log.o: cxx $
+    ../../base/trace_event/trace_log.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/trace_event/base.trace_log_constants.o: cxx $
+    ../../base/trace_event/trace_log_constants.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/trace_event/base.trace_sampling_thread.o: cxx $
+    ../../base/trace_event/trace_sampling_thread.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/trace_event/base.tracing_agent.o: cxx $
+    ../../base/trace_event/tracing_agent.cc || $
+    obj.host/base/base.compile_depends.stamp
+build obj.host/base/trace_event/base.malloc_dump_provider.o: cxx $
+    ../../base/trace_event/malloc_dump_provider.cc || $
+    obj.host/base/base.compile_depends.stamp
+
+ldflags = -L/work/bsp/sc1400/usr/local/lib -L/work/bsp/sc1400/lib $
+    -L/work/bsp/sc1400/usr/lib -Wl,-z,now -Wl,-z,relro -Wl,-z,defs -pthread $
+    -Wl,-z,noexecstack -fPIC -Wl,--disable-new-dtags $
+    -Wl,-uIsHeapProfilerRunning,-uProfilerStart $
+    -Wl,-u_Z21InitialMallocHook_NewPKvj,-u_Z22InitialMallocHook_MMapPKvS0_jiiix,-u_Z22InitialMallocHook_SbrkPKvi $
+    -Wl,-u_Z21InitialMallocHook_NewPKvm,-u_Z22InitialMallocHook_MMapPKvS0_miiil,-u_Z22InitialMallocHook_SbrkPKvl $
+    -Wl,-u_ZN15HeapLeakChecker12IgnoreObjectEPKv,-u_ZN15HeapLeakChecker14UnIgnoreObjectEPKv $
+    -Wl,-O1 -Wl,--as-needed -Wl,--gc-sections
+libs =  -lrt -ldl -latomic
+build lib/host/libbase.so lib/host/libbase.so.TOC: solink $
+    obj.host/base/base.linux_util.o $
+    obj.host/base/message_loop/base.message_pump_libevent.o $
+    obj.host/base/metrics/base.field_trial.o $
+    obj.host/base/posix/base.file_descriptor_shuffle.o $
+    obj.host/base/base.sync_socket_posix.o $
+    obj.host/base/third_party/xdg_user_dirs/base.xdg_user_dir_lookup.o $
+    obj.host/base/allocator/base.allocator_check.o $
+    obj.host/base/allocator/base.allocator_extension.o $
+    obj.host/base/base.at_exit.o obj.host/base/base.barrier_closure.o $
+    obj.host/base/base.base64.o obj.host/base/base.base64url.o $
+    obj.host/base/base.base_paths.o obj.host/base/base.base_paths_posix.o $
+    obj.host/base/base.big_endian.o obj.host/base/base.bind_helpers.o $
+    obj.host/base/base.build_time.o obj.host/base/base.callback_helpers.o $
+    obj.host/base/base.callback_internal.o $
+    obj.host/base/base.command_line.o obj.host/base/base.cpu.o $
+    obj.host/base/debug/base.alias.o $
+    obj.host/base/debug/base.asan_invalid_access.o $
+    obj.host/base/debug/base.crash_logging.o $
+    obj.host/base/debug/base.debugger.o $
+    obj.host/base/debug/base.debugger_posix.o $
+    obj.host/base/debug/base.dump_without_crashing.o $
+    obj.host/base/debug/base.proc_maps_linux.o $
+    obj.host/base/debug/base.profiler.o $
+    obj.host/base/debug/base.stack_trace.o $
+    obj.host/base/debug/base.stack_trace_posix.o $
+    obj.host/base/debug/base.task_annotator.o $
+    obj.host/base/base.deferred_sequenced_task_runner.o $
+    obj.host/base/base.environment.o obj.host/base/base.feature_list.o $
+    obj.host/base/files/base.file.o $
+    obj.host/base/files/base.file_enumerator.o $
+    obj.host/base/files/base.file_enumerator_posix.o $
+    obj.host/base/files/base.file_path.o $
+    obj.host/base/files/base.file_path_constants.o $
+    obj.host/base/files/base.file_path_watcher.o $
+    obj.host/base/files/base.file_path_watcher_linux.o $
+    obj.host/base/files/base.file_posix.o $
+    obj.host/base/files/base.file_proxy.o $
+    obj.host/base/files/base.file_tracing.o $
+    obj.host/base/files/base.file_util.o $
+    obj.host/base/files/base.file_util_linux.o $
+    obj.host/base/files/base.file_util_posix.o $
+    obj.host/base/files/base.file_util_proxy.o $
+    obj.host/base/files/base.important_file_writer.o $
+    obj.host/base/files/base.memory_mapped_file.o $
+    obj.host/base/files/base.memory_mapped_file_posix.o $
+    obj.host/base/files/base.scoped_file.o $
+    obj.host/base/files/base.scoped_temp_dir.o obj.host/base/base.guid.o $
+    obj.host/base/base.guid_posix.o obj.host/base/base.hash.o $
+    obj.host/base/json/base.json_file_value_serializer.o $
+    obj.host/base/json/base.json_parser.o $
+    obj.host/base/json/base.json_reader.o $
+    obj.host/base/json/base.json_string_value_serializer.o $
+    obj.host/base/json/base.json_value_converter.o $
+    obj.host/base/json/base.json_writer.o $
+    obj.host/base/json/base.string_escape.o $
+    obj.host/base/base.lazy_instance.o obj.host/base/base.location.o $
+    obj.host/base/base.logging.o obj.host/base/base.md5.o $
+    obj.host/base/memory/base.aligned_memory.o $
+    obj.host/base/memory/base.discardable_memory.o $
+    obj.host/base/memory/base.discardable_memory_allocator.o $
+    obj.host/base/memory/base.discardable_shared_memory.o $
+    obj.host/base/memory/base.memory_pressure_listener.o $
+    obj.host/base/memory/base.memory_pressure_monitor.o $
+    obj.host/base/memory/base.ref_counted.o $
+    obj.host/base/memory/base.ref_counted_memory.o $
+    obj.host/base/memory/base.shared_memory_posix.o $
+    obj.host/base/memory/base.singleton.o $
+    obj.host/base/memory/base.weak_ptr.o $
+    obj.host/base/message_loop/base.incoming_task_queue.o $
+    obj.host/base/message_loop/base.message_loop.o $
+    obj.host/base/message_loop/base.message_loop_task_runner.o $
+    obj.host/base/message_loop/base.message_pump.o $
+    obj.host/base/message_loop/base.message_pump_default.o $
+    obj.host/base/metrics/base.bucket_ranges.o $
+    obj.host/base/metrics/base.histogram.o $
+    obj.host/base/metrics/base.histogram_base.o $
+    obj.host/base/metrics/base.histogram_delta_serialization.o $
+    obj.host/base/metrics/base.histogram_samples.o $
+    obj.host/base/metrics/base.histogram_snapshot_manager.o $
+    obj.host/base/metrics/base.metrics_hashes.o $
+    obj.host/base/metrics/base.persistent_histogram_allocator.o $
+    obj.host/base/metrics/base.persistent_memory_allocator.o $
+    obj.host/base/metrics/base.persistent_sample_map.o $
+    obj.host/base/metrics/base.sample_map.o $
+    obj.host/base/metrics/base.sample_vector.o $
+    obj.host/base/metrics/base.sparse_histogram.o $
+    obj.host/base/metrics/base.statistics_recorder.o $
+    obj.host/base/metrics/base.user_metrics.o $
+    obj.host/base/base.native_library_posix.o $
+    obj.host/base/nix/base.mime_util_xdg.o $
+    obj.host/base/nix/base.xdg_util.o obj.host/base/base.path_service.o $
+    obj.host/base/base.pending_task.o obj.host/base/base.pickle.o $
+    obj.host/base/posix/base.global_descriptors.o $
+    obj.host/base/posix/base.safe_strerror.o $
+    obj.host/base/posix/base.unix_domain_socket_linux.o $
+    obj.host/base/power_monitor/base.power_monitor.o $
+    obj.host/base/power_monitor/base.power_monitor_device_source.o $
+    obj.host/base/power_monitor/base.power_monitor_device_source_posix.o $
+    obj.host/base/power_monitor/base.power_monitor_source.o $
+    obj.host/base/process/base.internal_linux.o $
+    obj.host/base/process/base.kill.o $
+    obj.host/base/process/base.kill_posix.o $
+    obj.host/base/process/base.launch.o $
+    obj.host/base/process/base.launch_posix.o $
+    obj.host/base/process/base.memory.o $
+    obj.host/base/process/base.memory_linux.o $
+    obj.host/base/process/base.process_handle.o $
+    obj.host/base/process/base.process_handle_linux.o $
+    obj.host/base/process/base.process_handle_posix.o $
+    obj.host/base/process/base.process_info_linux.o $
+    obj.host/base/process/base.process_iterator.o $
+    obj.host/base/process/base.process_iterator_linux.o $
+    obj.host/base/process/base.process_linux.o $
+    obj.host/base/process/base.process_metrics.o $
+    obj.host/base/process/base.process_metrics_linux.o $
+    obj.host/base/process/base.process_metrics_posix.o $
+    obj.host/base/process/base.process_posix.o $
+    obj.host/base/profiler/base.native_stack_sampler.o $
+    obj.host/base/profiler/base.native_stack_sampler_posix.o $
+    obj.host/base/profiler/base.scoped_profile.o $
+    obj.host/base/profiler/base.scoped_tracker.o $
+    obj.host/base/profiler/base.stack_sampling_profiler.o $
+    obj.host/base/profiler/base.tracked_time.o $
+    obj.host/base/base.rand_util.o obj.host/base/base.rand_util_posix.o $
+    obj.host/base/base.run_loop.o $
+    obj.host/base/base.scoped_native_library.o $
+    obj.host/base/base.sequence_checker_impl.o $
+    obj.host/base/base.sequenced_task_runner.o $
+    obj.host/base/base.sha1_portable.o $
+    obj.host/base/strings/base.latin1_string_conversions.o $
+    obj.host/base/strings/base.nullable_string16.o $
+    obj.host/base/strings/base.pattern.o $
+    obj.host/base/strings/base.safe_sprintf.o $
+    obj.host/base/strings/base.string16.o $
+    obj.host/base/strings/base.string_number_conversions.o $
+    obj.host/base/strings/base.string_piece.o $
+    obj.host/base/strings/base.string_split.o $
+    obj.host/base/strings/base.string_util.o $
+    obj.host/base/strings/base.string_util_constants.o $
+    obj.host/base/strings/base.stringprintf.o $
+    obj.host/base/strings/base.sys_string_conversions_posix.o $
+    obj.host/base/strings/base.utf_offset_string_conversions.o $
+    obj.host/base/strings/base.utf_string_conversion_utils.o $
+    obj.host/base/strings/base.utf_string_conversions.o $
+    obj.host/base/base.supports_user_data.o $
+    obj.host/base/synchronization/base.cancellation_flag.o $
+    obj.host/base/synchronization/base.condition_variable_posix.o $
+    obj.host/base/synchronization/base.lock.o $
+    obj.host/base/synchronization/base.lock_impl_posix.o $
+    obj.host/base/synchronization/base.waitable_event_posix.o $
+    obj.host/base/synchronization/base.waitable_event_watcher_posix.o $
+    obj.host/base/base.sys_info.o obj.host/base/base.sys_info_linux.o $
+    obj.host/base/base.sys_info_posix.o $
+    obj.host/base/system_monitor/base.system_monitor.o $
+    obj.host/base/task/base.cancelable_task_tracker.o $
+    obj.host/base/base.task_runner.o $
+    obj.host/base/task_scheduler/base.priority_queue.o $
+    obj.host/base/task_scheduler/base.scheduler_lock_impl.o $
+    obj.host/base/task_scheduler/base.scheduler_worker_thread.o $
+    obj.host/base/task_scheduler/base.sequence.o $
+    obj.host/base/task_scheduler/base.sequence_sort_key.o $
+    obj.host/base/task_scheduler/base.task.o $
+    obj.host/base/task_scheduler/base.task_tracker.o $
+    obj.host/base/task_scheduler/base.task_traits.o $
+    obj.host/base/third_party/dmg_fp/base.dtoa_wrapper.o $
+    obj.host/base/third_party/dmg_fp/base.g_fmt.o $
+    obj.host/base/third_party/icu/base.icu_utf.o $
+    obj.host/base/third_party/nspr/base.prtime.o $
+    obj.host/base/third_party/superfasthash/base.superfasthash.o $
+    obj.host/base/base.thread_task_runner_handle.o $
+    obj.host/base/threading/base.non_thread_safe_impl.o $
+    obj.host/base/threading/base.platform_thread_internal_posix.o $
+    obj.host/base/threading/base.platform_thread_linux.o $
+    obj.host/base/threading/base.platform_thread_posix.o $
+    obj.host/base/threading/base.post_task_and_reply_impl.o $
+    obj.host/base/threading/base.sequenced_task_runner_handle.o $
+    obj.host/base/threading/base.sequenced_worker_pool.o $
+    obj.host/base/threading/base.simple_thread.o $
+    obj.host/base/threading/base.thread.o $
+    obj.host/base/threading/base.thread_checker_impl.o $
+    obj.host/base/threading/base.thread_collision_warner.o $
+    obj.host/base/threading/base.thread_id_name_manager.o $
+    obj.host/base/threading/base.thread_local_posix.o $
+    obj.host/base/threading/base.thread_local_storage.o $
+    obj.host/base/threading/base.thread_local_storage_posix.o $
+    obj.host/base/threading/base.thread_restrictions.o $
+    obj.host/base/threading/base.watchdog.o $
+    obj.host/base/threading/base.worker_pool.o $
+    obj.host/base/threading/base.worker_pool_posix.o $
+    obj.host/base/time/base.clock.o obj.host/base/time/base.default_clock.o $
+    obj.host/base/time/base.default_tick_clock.o $
+    obj.host/base/time/base.tick_clock.o obj.host/base/time/base.time.o $
+    obj.host/base/time/base.time_posix.o $
+    obj.host/base/timer/base.elapsed_timer.o $
+    obj.host/base/timer/base.hi_res_timer_manager_posix.o $
+    obj.host/base/timer/base.mock_timer.o obj.host/base/timer/base.timer.o $
+    obj.host/base/base.tracked_objects.o obj.host/base/base.tracking_info.o $
+    obj.host/base/base.value_conversions.o obj.host/base/base.values.o $
+    obj.host/base/base.version.o obj.host/base/base.vlog.o $
+    obj.host/base/trace_event/base.blame_context.o $
+    obj.host/base/trace_event/base.heap_profiler_allocation_context.o $
+    obj.host/base/trace_event/base.heap_profiler_allocation_context_tracker.o $
+    obj.host/base/trace_event/base.heap_profiler_allocation_register.o $
+    obj.host/base/trace_event/base.heap_profiler_allocation_register_posix.o $
+    obj.host/base/trace_event/base.heap_profiler_heap_dump_writer.o $
+    obj.host/base/trace_event/base.heap_profiler_stack_frame_deduplicator.o $
+    obj.host/base/trace_event/base.heap_profiler_type_name_deduplicator.o $
+    obj.host/base/trace_event/base.memory_allocator_dump.o $
+    obj.host/base/trace_event/base.memory_allocator_dump_guid.o $
+    obj.host/base/trace_event/base.memory_dump_manager.o $
+    obj.host/base/trace_event/base.memory_dump_request_args.o $
+    obj.host/base/trace_event/base.memory_dump_session_state.o $
+    obj.host/base/trace_event/base.process_memory_dump.o $
+    obj.host/base/trace_event/base.process_memory_maps.o $
+    obj.host/base/trace_event/base.process_memory_totals.o $
+    obj.host/base/trace_event/base.trace_buffer.o $
+    obj.host/base/trace_event/base.trace_config.o $
+    obj.host/base/trace_event/base.trace_event_argument.o $
+    obj.host/base/trace_event/base.trace_event_impl.o $
+    obj.host/base/trace_event/base.trace_event_memory_overhead.o $
+    obj.host/base/trace_event/base.trace_event_synthetic_delay.o $
+    obj.host/base/trace_event/base.trace_event_system_stats_monitor.o $
+    obj.host/base/trace_event/base.trace_log.o $
+    obj.host/base/trace_event/base.trace_log_constants.o $
+    obj.host/base/trace_event/base.trace_sampling_thread.o $
+    obj.host/base/trace_event/base.tracing_agent.o $
+    obj.host/base/trace_event/base.malloc_dump_provider.o $
+    obj.host/base/allocator/liballocator.a obj.host/base/libbase_static.a $
+    obj.host/third_party/modp_b64/libmodp_b64.a $
+    obj.host/base/third_party/dynamic_annotations/libdynamic_annotations.a $
+    obj.host/base/libsymbolize.a obj.host/base/libxdg_mime.a $
+    obj.host/base/third_party/libevent/libevent.a $
+    obj.host/base/allocator/libunified_allocator_shim.a | $
+    gen/base/allocator/features.h gen/base/debug/debugging_flags.h $
+    gen/base/generated_build_date.h || $
+    obj.host/base/base.actions_depends.stamp
+  ld = $ldxx
+  soname = libbase.so
+  lib = lib/host/libbase.so
+  link_file_list = lib/host/libbase.so.rsp

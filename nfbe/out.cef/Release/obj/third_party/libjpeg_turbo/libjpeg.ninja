@@ -1,0 +1,229 @@
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DWITH_SIMD $
+    -DMOTION_JPEG_SUPPORTED -DNO_GETENV -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0
+includes = -Igen -I../../third_party/libjpeg_turbo
+cflags = -fstack-protector --param=ssp-buffer-size=4 -pthread $
+    -fno-strict-aliasing -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-deprecated -Wno-abi $
+    -Wno-literal-suffix -std=gnu++11 -Wno-narrowing
+arflags = 
+
+build obj/third_party/libjpeg_turbo/libjpeg.jcapimin.o: cc $
+    ../../third_party/libjpeg_turbo/jcapimin.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jcapistd.o: cc $
+    ../../third_party/libjpeg_turbo/jcapistd.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jccoefct.o: cc $
+    ../../third_party/libjpeg_turbo/jccoefct.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jccolor.o: cc $
+    ../../third_party/libjpeg_turbo/jccolor.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jcdctmgr.o: cc $
+    ../../third_party/libjpeg_turbo/jcdctmgr.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jchuff.o: cc $
+    ../../third_party/libjpeg_turbo/jchuff.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jcinit.o: cc $
+    ../../third_party/libjpeg_turbo/jcinit.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jcmainct.o: cc $
+    ../../third_party/libjpeg_turbo/jcmainct.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jcmarker.o: cc $
+    ../../third_party/libjpeg_turbo/jcmarker.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jcmaster.o: cc $
+    ../../third_party/libjpeg_turbo/jcmaster.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jcomapi.o: cc $
+    ../../third_party/libjpeg_turbo/jcomapi.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jcparam.o: cc $
+    ../../third_party/libjpeg_turbo/jcparam.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jcphuff.o: cc $
+    ../../third_party/libjpeg_turbo/jcphuff.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jcprepct.o: cc $
+    ../../third_party/libjpeg_turbo/jcprepct.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jcsample.o: cc $
+    ../../third_party/libjpeg_turbo/jcsample.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jdapimin.o: cc $
+    ../../third_party/libjpeg_turbo/jdapimin.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jdapistd.o: cc $
+    ../../third_party/libjpeg_turbo/jdapistd.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jdatadst.o: cc $
+    ../../third_party/libjpeg_turbo/jdatadst.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jdatasrc.o: cc $
+    ../../third_party/libjpeg_turbo/jdatasrc.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jdcoefct.o: cc $
+    ../../third_party/libjpeg_turbo/jdcoefct.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jdcolor.o: cc $
+    ../../third_party/libjpeg_turbo/jdcolor.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jddctmgr.o: cc $
+    ../../third_party/libjpeg_turbo/jddctmgr.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jdhuff.o: cc $
+    ../../third_party/libjpeg_turbo/jdhuff.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jdinput.o: cc $
+    ../../third_party/libjpeg_turbo/jdinput.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jdmainct.o: cc $
+    ../../third_party/libjpeg_turbo/jdmainct.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jdmarker.o: cc $
+    ../../third_party/libjpeg_turbo/jdmarker.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jdmaster.o: cc $
+    ../../third_party/libjpeg_turbo/jdmaster.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jdmerge.o: cc $
+    ../../third_party/libjpeg_turbo/jdmerge.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jdphuff.o: cc $
+    ../../third_party/libjpeg_turbo/jdphuff.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jdpostct.o: cc $
+    ../../third_party/libjpeg_turbo/jdpostct.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jdsample.o: cc $
+    ../../third_party/libjpeg_turbo/jdsample.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jerror.o: cc $
+    ../../third_party/libjpeg_turbo/jerror.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jfdctflt.o: cc $
+    ../../third_party/libjpeg_turbo/jfdctflt.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jfdctfst.o: cc $
+    ../../third_party/libjpeg_turbo/jfdctfst.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jfdctint.o: cc $
+    ../../third_party/libjpeg_turbo/jfdctint.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jidctflt.o: cc $
+    ../../third_party/libjpeg_turbo/jidctflt.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jidctfst.o: cc $
+    ../../third_party/libjpeg_turbo/jidctfst.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jidctint.o: cc $
+    ../../third_party/libjpeg_turbo/jidctint.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jidctred.o: cc $
+    ../../third_party/libjpeg_turbo/jidctred.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jmemmgr.o: cc $
+    ../../third_party/libjpeg_turbo/jmemmgr.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jmemnobs.o: cc $
+    ../../third_party/libjpeg_turbo/jmemnobs.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jquant1.o: cc $
+    ../../third_party/libjpeg_turbo/jquant1.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jquant2.o: cc $
+    ../../third_party/libjpeg_turbo/jquant2.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/libjpeg.jutils.o: cc $
+    ../../third_party/libjpeg_turbo/jutils.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/simd/libjpeg.jsimd_arm.o: cc $
+    ../../third_party/libjpeg_turbo/simd/jsimd_arm.c || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+build obj/third_party/libjpeg_turbo/simd/libjpeg.jsimd_arm_neon.o: cc $
+    ../../third_party/libjpeg_turbo/simd/jsimd_arm_neon.S || $
+    obj.host/third_party/yasm/yasm.actions_rules_copies.stamp
+
+build obj/third_party/libjpeg_turbo/libjpeg_turbo.a: alink_thin $
+    obj/third_party/libjpeg_turbo/libjpeg.jcapimin.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jcapistd.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jccoefct.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jccolor.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jcdctmgr.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jchuff.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jcinit.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jcmainct.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jcmarker.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jcmaster.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jcomapi.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jcparam.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jcphuff.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jcprepct.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jcsample.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jdapimin.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jdapistd.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jdatadst.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jdatasrc.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jdcoefct.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jdcolor.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jddctmgr.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jdhuff.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jdinput.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jdmainct.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jdmarker.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jdmaster.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jdmerge.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jdphuff.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jdpostct.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jdsample.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jerror.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jfdctflt.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jfdctfst.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jfdctint.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jidctflt.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jidctfst.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jidctint.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jidctred.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jmemmgr.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jmemnobs.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jquant1.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jquant2.o $
+    obj/third_party/libjpeg_turbo/libjpeg.jutils.o $
+    obj/third_party/libjpeg_turbo/simd/libjpeg.jsimd_arm.o $
+    obj/third_party/libjpeg_turbo/simd/libjpeg.jsimd_arm_neon.o || yasm

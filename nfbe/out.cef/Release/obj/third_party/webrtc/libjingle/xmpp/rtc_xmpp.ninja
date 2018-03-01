@@ -1,0 +1,148 @@
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DWEBRTC_RESTRICT_LOGGING $
+    -DEXPAT_RELATIVE_PATH -DWEBRTC_CHROMIUM_BUILD -DLOGGING_INSIDE_WEBRTC $
+    -DWEBRTC_ARCH_ARM -DWEBRTC_ARCH_ARM_V7 -DWEBRTC_HAS_NEON -DWEBRTC_POSIX $
+    -DWEBRTC_LINUX -DFEATURE_ENABLE_SSL -DSSL_USE_OPENSSL $
+    -DHAVE_OPENSSL_SSL_H -DNO_MAIN_THREAD_WRAPPING -DUSE_OPENSSL=1 $
+    -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS $
+    -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG $
+    -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../third_party/webrtc_overrides $
+    -I../../third_party
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.chatroommoduleimpl.o: $
+    cxx ../../third_party/webrtc/libjingle/xmpp/chatroommoduleimpl.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.constants.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/constants.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.discoitemsquerytask.o: $
+    cxx ../../third_party/webrtc/libjingle/xmpp/discoitemsquerytask.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.hangoutpubsubclient.o: $
+    cxx ../../third_party/webrtc/libjingle/xmpp/hangoutpubsubclient.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.iqtask.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/iqtask.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.jid.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/jid.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.moduleimpl.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/moduleimpl.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.mucroomconfigtask.o: $
+    cxx ../../third_party/webrtc/libjingle/xmpp/mucroomconfigtask.cc
+build $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.mucroomdiscoverytask.o: $
+    cxx ../../third_party/webrtc/libjingle/xmpp/mucroomdiscoverytask.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.mucroomlookuptask.o: $
+    cxx ../../third_party/webrtc/libjingle/xmpp/mucroomlookuptask.cc
+build $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.mucroomuniquehangoutidtask.o: $
+    cxx ../../third_party/webrtc/libjingle/xmpp/mucroomuniquehangoutidtask.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.pingtask.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/pingtask.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.presenceouttask.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/presenceouttask.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.presencereceivetask.o: $
+    cxx ../../third_party/webrtc/libjingle/xmpp/presencereceivetask.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.presencestatus.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/presencestatus.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.pubsub_task.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/pubsub_task.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.pubsubclient.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/pubsubclient.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.pubsubstateclient.o: $
+    cxx ../../third_party/webrtc/libjingle/xmpp/pubsubstateclient.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.pubsubtasks.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/pubsubtasks.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.receivetask.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/receivetask.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.rostermoduleimpl.o: $
+    cxx ../../third_party/webrtc/libjingle/xmpp/rostermoduleimpl.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.saslmechanism.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/saslmechanism.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.xmppauth.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/xmppauth.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.xmppclient.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/xmppclient.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.xmppengineimpl.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/xmppengineimpl.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.xmppengineimpl_iq.o: $
+    cxx ../../third_party/webrtc/libjingle/xmpp/xmppengineimpl_iq.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.xmpplogintask.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/xmpplogintask.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.xmpppump.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/xmpppump.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.xmppsocket.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/xmppsocket.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.xmppstanzaparser.o: $
+    cxx ../../third_party/webrtc/libjingle/xmpp/xmppstanzaparser.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.xmpptask.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/xmpptask.cc
+build obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.xmppthread.o: cxx $
+    ../../third_party/webrtc/libjingle/xmpp/xmppthread.cc
+
+build obj/third_party/webrtc/libjingle/xmpp/librtc_xmpp.a: alink_thin $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.chatroommoduleimpl.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.constants.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.discoitemsquerytask.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.hangoutpubsubclient.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.iqtask.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.jid.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.moduleimpl.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.mucroomconfigtask.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.mucroomdiscoverytask.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.mucroomlookuptask.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.mucroomuniquehangoutidtask.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.pingtask.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.presenceouttask.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.presencereceivetask.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.presencestatus.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.pubsub_task.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.pubsubclient.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.pubsubstateclient.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.pubsubtasks.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.receivetask.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.rostermoduleimpl.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.saslmechanism.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.xmppauth.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.xmppclient.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.xmppengineimpl.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.xmppengineimpl_iq.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.xmpplogintask.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.xmpppump.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.xmppsocket.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.xmppstanzaparser.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.xmpptask.o $
+    obj/third_party/webrtc/libjingle/xmpp/rtc_xmpp.xmppthread.o

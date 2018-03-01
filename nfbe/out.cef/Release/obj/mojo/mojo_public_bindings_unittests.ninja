@@ -1,0 +1,330 @@
+build obj/mojo/mojo_public_bindings_unittests.actions_depends.stamp: stamp $
+    obj/testing/libgtest.a obj/mojo/libmojo_run_all_unittests.a $
+    obj/mojo/libmojo_cpp_bindings.a obj/mojo/libmojo_message_pump_lib.a $
+    obj/mojo/libmojo_public_bindings_test_utils.a $
+    obj/mojo/libmojo_public_test_associated_interfaces.a $
+    obj/mojo/libmojo_public_test_interfaces.a $
+    obj/mojo/libmojo_public_test_interfaces_blink.a $
+    obj/mojo/libmojo_public_test_interfaces_chromium.a $
+    obj/mojo/libmojo_public_test_interfaces_struct_traits.a $
+    obj/mojo/libmojo_public_test_utils.a $
+    obj/mojo/libmojo_public_test_variant.a lib/libbase.so.TOC $
+    obj/base/libtest_support_base.a obj/base/libbase_static.a $
+    obj/base/libbase_i18n.a $
+    obj/base/third_party/dynamic_annotations/libdynamic_annotations.a $
+    obj/third_party/icu/libicui18n.a obj/third_party/icu/libicuuc.a $
+    icudtl.dat icudtl.dat obj/testing/libgmock.a $
+    obj/third_party/libxml/libxml2.a obj/third_party/zlib/libchrome_zlib.a $
+    obj/third_party/zlib/libzlib_x86_simd.a $
+    obj/mojo/libmojo_common_test_support.a obj/mojo/libmojo_system_impl.a $
+    obj/crypto/libcrcrypto.a obj/third_party/boringssl/libboringssl.a $
+    obj/third_party/boringssl/libboringssl.a $
+    obj/third_party/boringssl/libboringssl_asm.a $
+    lib/libmojo_public_test_support.so.TOC $
+    obj/mojo/libmojo_test_support_impl.a obj/mojo/libmojo_cpp_system.a $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    obj/mojo/mojo_public_test_associated_interfaces_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_public_test_interfaces_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_public_test_interfaces_mojom_blink.actions_rules_copies.stamp $
+    obj/mojo/mojo_public_test_interfaces_mojom_chromium.actions_rules_copies.stamp
+
+build obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/mojo/mojo_cpp_bindings.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/mojo/mojo_public_test_associated_interfaces_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_public_test_interfaces_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_public_test_interfaces_mojom_blink.actions_rules_copies.stamp $
+    obj/mojo/mojo_public_test_interfaces_mojom_chromium.actions_rules_copies.stamp $
+    obj/mojo/mojo_public_test_interfaces_struct_traits.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/mojo/mojo_public_test_variant.actions_rules_copies.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp icudtl.dat icudtl.dat icudtl.dat $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp $
+    obj/base/base.compile_depends.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    obj/mojo/mojo_public_test_associated_interfaces_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_public_test_interfaces_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_public_test_interfaces_mojom_blink.actions_rules_copies.stamp $
+    obj/mojo/mojo_public_test_interfaces_mojom_chromium.actions_rules_copies.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DGTEST_HAS_POSIX_RE=0 $
+    -DGTEST_LANG_CXX11=0 -DMOJO_USE_SYSTEM_IMPL -DUNIT_TEST $
+    -DGTEST_HAS_RTTI=0 -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 $
+    -DUSE_NSS_VERIFIER=1 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS $
+    -DNFBE_DTV_SOCIO -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../../testing/gtest/include -I../..
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.array_unittest.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/array_unittest.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.associated_interface_unittest.o: $
+    cxx $
+    ../../mojo/public/cpp/bindings/tests/associated_interface_unittest.cc $
+    || obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.binding_callback_unittest.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/binding_callback_unittest.cc $
+    || obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.binding_unittest.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/binding_unittest.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.bounds_checker_unittest.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/bounds_checker_unittest.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.buffer_unittest.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/buffer_unittest.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.callback_unittest.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/callback_unittest.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.connector_unittest.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/connector_unittest.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.constant_unittest.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/constant_unittest.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.container_test_util.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/container_test_util.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.equals_unittest.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/equals_unittest.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.handle_passing_unittest.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/handle_passing_unittest.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.interface_ptr_unittest.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/interface_ptr_unittest.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.macros_unittest.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/macros_unittest.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.map_unittest.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/map_unittest.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.message_queue.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/message_queue.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.multiplex_router_unittest.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/multiplex_router_unittest.cc $
+    || obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.pickle_unittest.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/pickle_unittest.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.pickled_struct_blink.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/pickled_struct_blink.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.pickled_struct_chromium.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/pickled_struct_chromium.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.request_response_unittest.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/request_response_unittest.cc $
+    || obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.router_test_util.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/router_test_util.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.router_unittest.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/router_unittest.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.sample_service_unittest.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/sample_service_unittest.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.serialization_warning_unittest.o: $
+    cxx $
+    ../../mojo/public/cpp/bindings/tests/serialization_warning_unittest.cc $
+    || obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.stl_converters_unittest.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/stl_converters_unittest.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.string_unittest.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/string_unittest.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.struct_traits_unittest.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/struct_traits_unittest.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.struct_unittest.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/struct_unittest.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.struct_with_traits_impl.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/struct_with_traits_impl.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.struct_with_traits_impl_traits.o: $
+    cxx $
+    ../../mojo/public/cpp/bindings/tests/struct_with_traits_impl_traits.cc $
+    || obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.sync_method_unittest.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/sync_method_unittest.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.type_conversion_unittest.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/type_conversion_unittest.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.union_unittest.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/union_unittest.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+build $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.validation_unittest.o: $
+    cxx ../../mojo/public/cpp/bindings/tests/validation_unittest.cc || $
+    obj/mojo/mojo_public_bindings_unittests.compile_depends.stamp
+
+ldflags = -L/work/bsp/sc1400/usr/local/lib -L/work/bsp/sc1400/lib $
+    -L/work/bsp/sc1400/usr/lib -Wl,-z,now -Wl,-z,relro -Wl,-z,defs -pthread $
+    -Wl,-z,noexecstack -fPIC -Wl,--disable-new-dtags $
+    -L/work/bsp/sc1400/usr/lib --sysroot=/work/bsp/sc1400 $
+    -L/work/bsp/sc1400/lib/ -Wl,-rpath-link=/work/bsp/sc1400/lib/ $
+    -L/work/bsp/sc1400/usr/lib/ -Wl,-rpath-link=/work/bsp/sc1400/usr/lib/ $
+    -L/work/bsp/sc1400/usr/dtvrec/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/dtvrec/lib/ $
+    -L/work/bsp/sc1400/usr/local/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/local/lib/ $
+    -L/work/bsp/sc1400/usr/local/netfrontbe/lib/ $
+    -Wl,-rpath-link=/work/bsp/sc1400/usr/local/netfrontbe/lib/ -Wl,-O1 $
+    -Wl,--as-needed -Wl,--gc-sections -Wl,-rpath=\$$ORIGIN/lib/ $
+    -Wl,-rpath-link=lib/
+libs =  -lrt -ldl -latomic -lm -lnss3 -lnssutil3 -lsmime3 -lplds4 -lplc4 $
+    -lnspr4
+build mojo_public_bindings_unittests: link $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.array_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.associated_interface_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.binding_callback_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.binding_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.bounds_checker_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.buffer_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.callback_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.connector_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.constant_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.container_test_util.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.equals_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.handle_passing_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.interface_ptr_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.macros_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.map_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.message_queue.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.multiplex_router_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.pickle_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.pickled_struct_blink.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.pickled_struct_chromium.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.request_response_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.router_test_util.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.router_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.sample_service_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.serialization_warning_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.stl_converters_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.string_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.struct_traits_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.struct_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.struct_with_traits_impl.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.struct_with_traits_impl_traits.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.sync_method_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.type_conversion_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.union_unittest.o $
+    obj/mojo/public/cpp/bindings/tests/mojo_public_bindings_unittests.validation_unittest.o $
+    obj/testing/libgtest.a obj/mojo/libmojo_run_all_unittests.a $
+    obj/mojo/libmojo_cpp_bindings.a obj/mojo/libmojo_message_pump_lib.a $
+    obj/mojo/libmojo_public_bindings_test_utils.a $
+    obj/mojo/libmojo_public_test_associated_interfaces.a $
+    obj/mojo/libmojo_public_test_interfaces.a $
+    obj/mojo/libmojo_public_test_interfaces_blink.a $
+    obj/mojo/libmojo_public_test_interfaces_chromium.a $
+    obj/mojo/libmojo_public_test_interfaces_struct_traits.a $
+    obj/mojo/libmojo_public_test_utils.a $
+    obj/mojo/libmojo_public_test_variant.a obj/base/libtest_support_base.a $
+    obj/base/libbase_static.a obj/base/libbase_i18n.a $
+    obj/base/third_party/dynamic_annotations/libdynamic_annotations.a $
+    obj/third_party/icu/libicui18n.a obj/third_party/icu/libicuuc.a $
+    obj/testing/libgmock.a obj/third_party/libxml/libxml2.a $
+    obj/third_party/zlib/libchrome_zlib.a $
+    obj/third_party/zlib/libzlib_x86_simd.a $
+    obj/mojo/libmojo_common_test_support.a obj/mojo/libmojo_system_impl.a $
+    obj/crypto/libcrcrypto.a obj/third_party/boringssl/libboringssl.a $
+    obj/third_party/boringssl/libboringssl_asm.a $
+    obj/mojo/libmojo_test_support_impl.a obj/mojo/libmojo_cpp_system.a | $
+    icudtl.dat lib/libbase.so.TOC lib/libmojo_public_test_support.so.TOC $
+    obj/mojo/mojo_interface_bindings_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_public_test_associated_interfaces_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_public_test_interfaces_mojom.actions_rules_copies.stamp $
+    obj/mojo/mojo_public_test_interfaces_mojom_blink.actions_rules_copies.stamp $
+    obj/mojo/mojo_public_test_interfaces_mojom_chromium.actions_rules_copies.stamp $
+    obj/mojo/public/tools/bindings/precompile_mojom_bindings_generator_templates.actions_rules_copies.stamp $
+    obj/third_party/boringssl/libboringssl.a || $
+    obj/mojo/mojo_public_bindings_unittests.actions_depends.stamp
+  ld = $ldxx
+  solibs = lib/libbase.so lib/libmojo_public_test_support.so

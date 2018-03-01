@@ -1,0 +1,17 @@
+This patch is needed for platforms where the GPU driver is returning negative precision values.
+This patch is not mandatory but it can improve the WebGL compatibility on such platforms.
+E.g.: BRCM97252
+
+diff --git gles2_cmd_decoder.cc gles2_cmd_decoder.cc
+index 4bf77ab..8b44b36 100644
+--- gles2_cmd_decoder.cc
++++ gles2_cmd_decoder.cc
+@@ -144,6 +144,8 @@ void GetShaderPrecisionFormatImpl(GLenum shader_type,
+     // aren't expected anyway.
+     range[0] = abs(range[0]);
+     range[1] = abs(range[1]);
++    // some driver report also negative precision
++    *precision = abs(*precision);
+ 
+     // If the driver reports a precision for highp float that isn't actually
+     // highp, don't pretend like it's supported because shader compilation will

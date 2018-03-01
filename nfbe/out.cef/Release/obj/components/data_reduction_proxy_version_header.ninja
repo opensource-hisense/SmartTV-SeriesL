@@ -1,0 +1,15 @@
+rule $
+    data_reduction_proxy_version_header_target_version_header_b9b9d8bc6236d3789e88dedee5a8ffa0
+  command = cd ../../components; python ../build/util/version.py -e $
+      "VERSION_FULL=\"51.0.2704.29\"" $
+      data_reduction_proxy/core/common/version.h.in $
+      ../out.cef/Release/gen/components/data_reduction_proxy/core/common/version.h
+  description = ACTION Generating version header file: $
+      "gen/components/data_reduction_proxy/core/common/version.h"
+  restat = 1
+
+build gen/components/data_reduction_proxy/core/common/version.h: $
+    data_reduction_proxy_version_header_target_version_header_b9b9d8bc6236d3789e88dedee5a8ffa0 $
+    ../../chrome/VERSION $
+    ../../components/data_reduction_proxy/core/common/version.h.in
+

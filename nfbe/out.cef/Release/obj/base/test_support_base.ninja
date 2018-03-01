@@ -1,0 +1,204 @@
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DCOMPONENT_BUILD -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 $
+    -DUSE_OZONE=1 -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DGTEST_HAS_POSIX_RE=0 $
+    -DGTEST_LANG_CXX11=0 -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 $
+    -DU_NOEXCEPT= -DUNIT_TEST -DGTEST_HAS_RTTI=0 -DU_STATIC_IMPLEMENTATION $
+    -DLIBXML_STATIC -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 $
+    -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../.. -I../../third_party/icu/source/i18n $
+    -I../../testing/gmock/include -I../../testing/gtest/include $
+    -I../../third_party/icu/source/common $
+    -I../../third_party/libxml/linux/include $
+    -I../../third_party/libxml/src/include
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/base/test/test_support_base.gtest_util.o: cxx $
+    ../../base/test/gtest_util.cc || obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.gtest_xml_unittest_result_printer.o: $
+    cxx ../../base/test/gtest_xml_unittest_result_printer.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.gtest_xml_util.o: cxx $
+    ../../base/test/gtest_xml_util.cc || obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.histogram_tester.o: cxx $
+    ../../base/test/histogram_tester.cc || obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.icu_test_util.o: cxx $
+    ../../base/test/icu_test_util.cc || obj/base/base.compile_depends.stamp
+build obj/base/test/launcher/test_support_base.test_launcher.o: cxx $
+    ../../base/test/launcher/test_launcher.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/base/test/launcher/test_support_base.test_result.o: cxx $
+    ../../base/test/launcher/test_result.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/base/test/launcher/test_support_base.test_results_tracker.o: cxx $
+    ../../base/test/launcher/test_results_tracker.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/base/test/launcher/test_support_base.unit_test_launcher.o: cxx $
+    ../../base/test/launcher/unit_test_launcher.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.mock_devices_changed_observer.o: cxx $
+    ../../base/test/mock_devices_changed_observer.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.mock_entropy_provider.o: cxx $
+    ../../base/test/mock_entropy_provider.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.mock_log.o: cxx $
+    ../../base/test/mock_log.cc || obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.multiprocess_test.o: cxx $
+    ../../base/test/multiprocess_test.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.null_task_runner.o: cxx $
+    ../../base/test/null_task_runner.cc || obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.opaque_ref_counted.o: cxx $
+    ../../base/test/opaque_ref_counted.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.perf_log.o: cxx $
+    ../../base/test/perf_log.cc || obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.perf_test_suite.o: cxx $
+    ../../base/test/perf_test_suite.cc || obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.perf_time_logger.o: cxx $
+    ../../base/test/perf_time_logger.cc || obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.power_monitor_test_base.o: cxx $
+    ../../base/test/power_monitor_test_base.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.scoped_locale.o: cxx $
+    ../../base/test/scoped_locale.cc || obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.scoped_path_override.o: cxx $
+    ../../base/test/scoped_path_override.cc || $
+    obj/base/base.compile_depends.stamp
+build $
+    obj/base/test/test_support_base.sequenced_task_runner_test_template.o: $
+    cxx ../../base/test/sequenced_task_runner_test_template.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.sequenced_worker_pool_owner.o: cxx $
+    ../../base/test/sequenced_worker_pool_owner.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.simple_test_clock.o: cxx $
+    ../../base/test/simple_test_clock.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.simple_test_tick_clock.o: cxx $
+    ../../base/test/simple_test_tick_clock.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.task_runner_test_template.o: cxx $
+    ../../base/test/task_runner_test_template.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.test_discardable_memory_allocator.o: $
+    cxx ../../base/test/test_discardable_memory_allocator.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.test_file_util.o: cxx $
+    ../../base/test/test_file_util.cc || obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.test_file_util_linux.o: cxx $
+    ../../base/test/test_file_util_linux.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.test_file_util_posix.o: cxx $
+    ../../base/test/test_file_util_posix.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.test_io_thread.o: cxx $
+    ../../base/test/test_io_thread.cc || obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.test_mock_time_task_runner.o: cxx $
+    ../../base/test/test_mock_time_task_runner.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.test_pending_task.o: cxx $
+    ../../base/test/test_pending_task.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.test_simple_task_runner.o: cxx $
+    ../../base/test/test_simple_task_runner.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.test_suite.o: cxx $
+    ../../base/test/test_suite.cc || obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.test_switches.o: cxx $
+    ../../base/test/test_switches.cc || obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.test_timeouts.o: cxx $
+    ../../base/test/test_timeouts.cc || obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.thread_test_helper.o: cxx $
+    ../../base/test/thread_test_helper.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.trace_event_analyzer.o: cxx $
+    ../../base/test/trace_event_analyzer.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.trace_to_file.o: cxx $
+    ../../base/test/trace_to_file.cc || obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.user_action_tester.o: cxx $
+    ../../base/test/user_action_tester.cc || $
+    obj/base/base.compile_depends.stamp
+build obj/base/test/test_support_base.values_test_util.o: cxx $
+    ../../base/test/values_test_util.cc || obj/base/base.compile_depends.stamp
+
+build obj/base/libtest_support_base.a: alink_thin $
+    obj/base/test/test_support_base.gtest_util.o $
+    obj/base/test/test_support_base.gtest_xml_unittest_result_printer.o $
+    obj/base/test/test_support_base.gtest_xml_util.o $
+    obj/base/test/test_support_base.histogram_tester.o $
+    obj/base/test/test_support_base.icu_test_util.o $
+    obj/base/test/launcher/test_support_base.test_launcher.o $
+    obj/base/test/launcher/test_support_base.test_result.o $
+    obj/base/test/launcher/test_support_base.test_results_tracker.o $
+    obj/base/test/launcher/test_support_base.unit_test_launcher.o $
+    obj/base/test/test_support_base.mock_devices_changed_observer.o $
+    obj/base/test/test_support_base.mock_entropy_provider.o $
+    obj/base/test/test_support_base.mock_log.o $
+    obj/base/test/test_support_base.multiprocess_test.o $
+    obj/base/test/test_support_base.null_task_runner.o $
+    obj/base/test/test_support_base.opaque_ref_counted.o $
+    obj/base/test/test_support_base.perf_log.o $
+    obj/base/test/test_support_base.perf_test_suite.o $
+    obj/base/test/test_support_base.perf_time_logger.o $
+    obj/base/test/test_support_base.power_monitor_test_base.o $
+    obj/base/test/test_support_base.scoped_locale.o $
+    obj/base/test/test_support_base.scoped_path_override.o $
+    obj/base/test/test_support_base.sequenced_task_runner_test_template.o $
+    obj/base/test/test_support_base.sequenced_worker_pool_owner.o $
+    obj/base/test/test_support_base.simple_test_clock.o $
+    obj/base/test/test_support_base.simple_test_tick_clock.o $
+    obj/base/test/test_support_base.task_runner_test_template.o $
+    obj/base/test/test_support_base.test_discardable_memory_allocator.o $
+    obj/base/test/test_support_base.test_file_util.o $
+    obj/base/test/test_support_base.test_file_util_linux.o $
+    obj/base/test/test_support_base.test_file_util_posix.o $
+    obj/base/test/test_support_base.test_io_thread.o $
+    obj/base/test/test_support_base.test_mock_time_task_runner.o $
+    obj/base/test/test_support_base.test_pending_task.o $
+    obj/base/test/test_support_base.test_simple_task_runner.o $
+    obj/base/test/test_support_base.test_suite.o $
+    obj/base/test/test_support_base.test_switches.o $
+    obj/base/test/test_support_base.test_timeouts.o $
+    obj/base/test/test_support_base.thread_test_helper.o $
+    obj/base/test/test_support_base.trace_event_analyzer.o $
+    obj/base/test/test_support_base.trace_to_file.o $
+    obj/base/test/test_support_base.user_action_tester.o $
+    obj/base/test/test_support_base.values_test_util.o || lib/libbase.so.TOC

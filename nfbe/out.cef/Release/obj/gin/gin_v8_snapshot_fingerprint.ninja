@@ -1,0 +1,15 @@
+rule $
+    gin_v8_snapshot_fingerprint_target_Generate_V8_snapshot_fingerprint_8671b96bb09c36088d3b1ea4468e9e67
+  command = cd ../../gin; python $
+      ../gin/fingerprint/fingerprint_v8_snapshot.py $
+      "--snapshot_file=../out.cef/Release/snapshot_blob.bin" $
+      "--natives_file=../out.cef/Release/natives_blob.bin" $
+      "--output_file=../out.cef/Release/gen/gin//v8_snapshot_fingerprint.cc"
+  description = ACTION Generating V8 snapshot fingerprint
+  restat = 1
+
+build gen/gin//v8_snapshot_fingerprint.cc: $
+    gin_v8_snapshot_fingerprint_target_Generate_V8_snapshot_fingerprint_8671b96bb09c36088d3b1ea4468e9e67 $
+    ../../gin/fingerprint/fingerprint_v8_snapshot.py snapshot_blob.bin $
+    natives_blob.bin
+

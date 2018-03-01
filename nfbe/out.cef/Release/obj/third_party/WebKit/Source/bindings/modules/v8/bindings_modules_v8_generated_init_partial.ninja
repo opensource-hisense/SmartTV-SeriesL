@@ -1,0 +1,18 @@
+rule $
+    bindings_modules_v8_generated_init_partial_target_generate_bindings_modules_v8_init_partial_c785008baf584ba8c3b9dfa27b20fe4b
+  command = cd ../../third_party/WebKit/Source/bindings/modules/v8; python $
+      ../../scripts/generate_init_partial_interfaces.py --idl-files-list $
+      ../../../../../../out.cef/third_party/WebKit/Source/bindings/modules/v8/core_idl_with_modules_dependency_files_list.tmp $
+      --gyp-format-list --output $
+      ../../../../../../out.cef/Release/gen/blink/bindings/modules/v8/initPartialInterfacesInModules.cpp $
+      --write-file-only-if-changed 1
+  description = ACTION bindings_modules_v8_generated_init_partial: $
+      generate_bindings_modules_v8_init_partial_c785008baf584ba8c3b9dfa27b20fe4b
+  restat = 1
+
+build gen/blink/bindings/modules/v8/initPartialInterfacesInModules.cpp: $
+    bindings_modules_v8_generated_init_partial_target_generate_bindings_modules_v8_init_partial_c785008baf584ba8c3b9dfa27b20fe4b $
+    ../../third_party/WebKit/Source/bindings/scripts/generate_init_partial_interfaces.py $
+    ../../out.cef/third_party/WebKit/Source/bindings/modules/v8/core_idl_with_modules_dependency_files_list.tmp $
+    gen/blink/bindings/modules/InterfacesInfoOverall.pickle
+

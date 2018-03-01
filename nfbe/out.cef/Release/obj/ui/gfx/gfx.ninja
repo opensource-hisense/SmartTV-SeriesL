@@ -1,0 +1,261 @@
+build obj/ui/gfx/gfx.actions_depends.stamp: stamp lib/libbase.so.TOC $
+    obj/skia/skia.actions_depends.stamp $
+    obj/third_party/fontconfig/libfontconfig.a
+
+build obj/ui/gfx/gfx.compile_depends.stamp: stamp $
+    obj/base/base.compile_depends.stamp obj/base/base.compile_depends.stamp
+
+defines = -DV8_DEPRECATION_WARNINGS -DCLD_VERSION=2 -D_FILE_OFFSET_BITS=64 $
+    -DDISABLE_NACL -DCHROMIUM_BUILD -DCR_CLANG_REVISION=264915-1 $
+    -DUI_COMPOSITOR_IMAGE_TRANSPORT -DUSE_AURA=1 -DUSE_OZONE=1 $
+    -DUSE_DEFAULT_RENDER_THEME=1 -DUSE_LIBJPEG_TURBO=1 $
+    -DENABLE_MEDIA_ROUTER=1 -DUSE_PROPRIETARY_CODECS -DENABLE_BROWSER_CDMS $
+    -DENABLE_TOPCHROME_MD=1 -DFIELDTRIAL_TESTING_ENABLED $
+    -DENABLE_TASK_MANAGER=1 -DENABLE_EXTENSIONS=1 -DENABLE_PLUGINS=1 $
+    -DENABLE_SESSION_SERVICE=1 -DENABLE_AUTOFILL_DIALOG=1 $
+    -DENABLE_PRINTING=1 -DENABLE_BASIC_PRINTING=1 -DENABLE_SPELLCHECK=1 $
+    -DENABLE_CAPTIVE_PORTAL_DETECTION=1 -DENABLE_APP_LIST=1 $
+    -DENABLE_SETTINGS_APP=1 -DENABLE_SUPERVISED_USERS=1 -DENABLE_MDNS=1 $
+    -DENABLE_SERVICE_DISCOVERY=1 -DVIDEO_HOLE=1 $
+    -DV8_USE_EXTERNAL_STARTUP_DATA $
+    -DENABLE_YOUTUBE_ISTYPESUPPORTED_EXTENSIONS=1 $
+    -DENABLE_EXTERNAL_ISTYPESUPPORTED==1 -DGFX_IMPLEMENTATION $
+    -DSK_SUPPORT_GPU=1 -DSK_IGNORE_LINEONLY_AA_CONVEX_PATH_OPTS $
+    -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= $
+    -DU_STATIC_IMPLEMENTATION -DCHROME_PNG_WRITE_SUPPORT -DPNG_USER_CONFIG $
+    -DUSE_OPENSSL=1 -DUSE_NSS_CERTS=1 -DUSE_NSS_VERIFIER=1 $
+    -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -DNFBE_DTV_SOCIO $
+    -DNFBE_DTV_SOCIO_DL11 -DNDEBUG -DNVALGRIND $
+    -DDYNAMIC_ANNOTATIONS_ENABLED=0 -D_FORTIFY_SOURCE=2
+includes = -Igen -I../../third_party/icu/source/common -I../.. $
+    -I../../skia/config -I../../third_party/skia/include/core $
+    -I../../third_party/skia/include/effects $
+    -I../../third_party/skia/include/pdf $
+    -I../../third_party/skia/include/gpu $
+    -I../../third_party/skia/include/lazy $
+    -I../../third_party/skia/include/pathops $
+    -I../../third_party/skia/include/pipe $
+    -I../../third_party/skia/include/ports $
+    -I../../third_party/skia/include/utils -I../../skia/ext $
+    -I../../third_party/harfbuzz-ng/src -I../../third_party/icu/source/i18n $
+    -I../../third_party/libpng -I../../third_party/zlib $
+    -I../../third_party/libjpeg_turbo -I../../third_party/fontconfig/src
+cflags = -fstack-protector --param=ssp-buffer-size=4 -Werror -pthread $
+    -fno-strict-aliasing -Wall -Wno-extra -Wno-unused-parameter $
+    -Wno-missing-field-initializers -fvisibility=hidden -pipe -fPIC $
+    -Wno-unused-local-typedefs -march=armv8-a -mtune=cortex-a53 $
+    -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -mthumb $
+    --sysroot=/work/bsp/sc1400 -O2 -fno-ident -fdata-sections $
+    -ffunction-sections -funwind-tables
+cflags_c = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -I/work/bsp/sc1400/usr/local/include -I/work/bsp/sc1400/usr/include $
+    -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr
+cflags_cc = -I/work/bsp/sc1400/usr/local/include $
+    -I/work/bsp/sc1400/usr/include -I/work/bsp/sc1400/usr/include/freetype2 $
+    -I/work/bsp/sc1400/usr/include/dbus-1.0 $
+    -I/work/bsp/sc1400/usr/include/nss -I/work/bsp/sc1400/usr/include/nspr $
+    -fno-exceptions -fno-rtti -fno-threadsafe-statics $
+    -fvisibility-inlines-hidden -Wno-abi -Wno-literal-suffix -std=gnu++11 $
+    -Wno-narrowing
+arflags = 
+
+build obj/ui/gfx/animation/gfx.animation.o: cxx $
+    ../../ui/gfx/animation/animation.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/animation/gfx.animation_container.o: cxx $
+    ../../ui/gfx/animation/animation_container.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/animation/gfx.linear_animation.o: cxx $
+    ../../ui/gfx/animation/linear_animation.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/animation/gfx.multi_animation.o: cxx $
+    ../../ui/gfx/animation/multi_animation.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/animation/gfx.slide_animation.o: cxx $
+    ../../ui/gfx/animation/slide_animation.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/animation/gfx.throb_animation.o: cxx $
+    ../../ui/gfx/animation/throb_animation.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/animation/gfx.tween.o: cxx ../../ui/gfx/animation/tween.cc $
+    || obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.blit.o: cxx ../../ui/gfx/blit.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.buffer_format_util.o: cxx $
+    ../../ui/gfx/buffer_format_util.cc || obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.canvas.o: cxx ../../ui/gfx/canvas.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.canvas_skia.o: cxx ../../ui/gfx/canvas_skia.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/codec/gfx.jpeg_codec.o: cxx $
+    ../../ui/gfx/codec/jpeg_codec.cc || obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/codec/gfx.png_codec.o: cxx ../../ui/gfx/codec/png_codec.cc $
+    || obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.color_analysis.o: cxx ../../ui/gfx/color_analysis.cc $
+    || obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.color_profile.o: cxx ../../ui/gfx/color_profile.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.color_utils.o: cxx ../../ui/gfx/color_utils.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.display.o: cxx ../../ui/gfx/display.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.display_change_notifier.o: cxx $
+    ../../ui/gfx/display_change_notifier.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.display_finder.o: cxx ../../ui/gfx/display_finder.cc $
+    || obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.display_observer.o: cxx $
+    ../../ui/gfx/display_observer.cc || obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.favicon_size.o: cxx ../../ui/gfx/favicon_size.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.font.o: cxx ../../ui/gfx/font.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.font_fallback_linux.o: cxx $
+    ../../ui/gfx/font_fallback_linux.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.font_list.o: cxx ../../ui/gfx/font_list.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.font_list_impl.o: cxx ../../ui/gfx/font_list_impl.cc $
+    || obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.font_render_params.o: cxx $
+    ../../ui/gfx/font_render_params.cc || obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.font_render_params_linux.o: cxx $
+    ../../ui/gfx/font_render_params_linux.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.generic_shared_memory_id.o: cxx $
+    ../../ui/gfx/generic_shared_memory_id.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.gfx_paths.o: cxx ../../ui/gfx/gfx_paths.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.harfbuzz_font_skia.o: cxx $
+    ../../ui/gfx/harfbuzz_font_skia.cc || obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/image/gfx.canvas_image_source.o: cxx $
+    ../../ui/gfx/image/canvas_image_source.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/image/gfx.image.o: cxx ../../ui/gfx/image/image.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/image/gfx.image_family.o: cxx $
+    ../../ui/gfx/image/image_family.cc || obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/image/gfx.image_png_rep.o: cxx $
+    ../../ui/gfx/image/image_png_rep.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/image/gfx.image_skia.o: cxx $
+    ../../ui/gfx/image/image_skia.cc || obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/image/gfx.image_skia_operations.o: cxx $
+    ../../ui/gfx/image/image_skia_operations.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/image/gfx.image_skia_rep.o: cxx $
+    ../../ui/gfx/image/image_skia_rep.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/image/gfx.image_skia_source.o: cxx $
+    ../../ui/gfx/image/image_skia_source.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/image/gfx.image_util.o: cxx $
+    ../../ui/gfx/image/image_util.cc || obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.interpolated_transform.o: cxx $
+    ../../ui/gfx/interpolated_transform.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.linux_font_delegate.o: cxx $
+    ../../ui/gfx/linux_font_delegate.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.nine_image_painter.o: cxx $
+    ../../ui/gfx/nine_image_painter.cc || obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.paint_throbber.o: cxx ../../ui/gfx/paint_throbber.cc $
+    || obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.path.o: cxx ../../ui/gfx/path.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.platform_font_linux.o: cxx $
+    ../../ui/gfx/platform_font_linux.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/range/gfx.range.o: cxx ../../ui/gfx/range/range.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/range/gfx.range_f.o: cxx ../../ui/gfx/range/range_f.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.render_text.o: cxx ../../ui/gfx/render_text.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.render_text_harfbuzz.o: cxx $
+    ../../ui/gfx/render_text_harfbuzz.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.screen.o: cxx ../../ui/gfx/screen.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.screen_aura.o: cxx ../../ui/gfx/screen_aura.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.scrollbar_size.o: cxx ../../ui/gfx/scrollbar_size.cc $
+    || obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.selection_model.o: cxx ../../ui/gfx/selection_model.cc $
+    || obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.sequential_id_generator.o: cxx $
+    ../../ui/gfx/sequential_id_generator.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.shadow_value.o: cxx ../../ui/gfx/shadow_value.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.skbitmap_operations.o: cxx $
+    ../../ui/gfx/skbitmap_operations.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.skia_util.o: cxx ../../ui/gfx/skia_util.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.switches.o: cxx ../../ui/gfx/switches.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.text_elider.o: cxx ../../ui/gfx/text_elider.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.text_utils.o: cxx ../../ui/gfx/text_utils.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.text_utils_skia.o: cxx ../../ui/gfx/text_utils_skia.cc $
+    || obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.transform.o: cxx ../../ui/gfx/transform.cc || $
+    obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.transform_util.o: cxx ../../ui/gfx/transform_util.cc $
+    || obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.ui_gfx_exports.o: cxx ../../ui/gfx/ui_gfx_exports.cc $
+    || obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.utf16_indexing.o: cxx ../../ui/gfx/utf16_indexing.cc $
+    || obj/ui/gfx/gfx.compile_depends.stamp
+build obj/ui/gfx/gfx.gpu_memory_buffer.o: cxx $
+    ../../ui/gfx/gpu_memory_buffer.cc || obj/ui/gfx/gfx.compile_depends.stamp
+
+build obj/ui/gfx/libgfx.a: alink_thin obj/ui/gfx/animation/gfx.animation.o $
+    obj/ui/gfx/animation/gfx.animation_container.o $
+    obj/ui/gfx/animation/gfx.linear_animation.o $
+    obj/ui/gfx/animation/gfx.multi_animation.o $
+    obj/ui/gfx/animation/gfx.slide_animation.o $
+    obj/ui/gfx/animation/gfx.throb_animation.o $
+    obj/ui/gfx/animation/gfx.tween.o obj/ui/gfx/gfx.blit.o $
+    obj/ui/gfx/gfx.buffer_format_util.o obj/ui/gfx/gfx.canvas.o $
+    obj/ui/gfx/gfx.canvas_skia.o obj/ui/gfx/codec/gfx.jpeg_codec.o $
+    obj/ui/gfx/codec/gfx.png_codec.o obj/ui/gfx/gfx.color_analysis.o $
+    obj/ui/gfx/gfx.color_profile.o obj/ui/gfx/gfx.color_utils.o $
+    obj/ui/gfx/gfx.display.o obj/ui/gfx/gfx.display_change_notifier.o $
+    obj/ui/gfx/gfx.display_finder.o obj/ui/gfx/gfx.display_observer.o $
+    obj/ui/gfx/gfx.favicon_size.o obj/ui/gfx/gfx.font.o $
+    obj/ui/gfx/gfx.font_fallback_linux.o obj/ui/gfx/gfx.font_list.o $
+    obj/ui/gfx/gfx.font_list_impl.o obj/ui/gfx/gfx.font_render_params.o $
+    obj/ui/gfx/gfx.font_render_params_linux.o $
+    obj/ui/gfx/gfx.generic_shared_memory_id.o obj/ui/gfx/gfx.gfx_paths.o $
+    obj/ui/gfx/gfx.harfbuzz_font_skia.o $
+    obj/ui/gfx/image/gfx.canvas_image_source.o obj/ui/gfx/image/gfx.image.o $
+    obj/ui/gfx/image/gfx.image_family.o $
+    obj/ui/gfx/image/gfx.image_png_rep.o obj/ui/gfx/image/gfx.image_skia.o $
+    obj/ui/gfx/image/gfx.image_skia_operations.o $
+    obj/ui/gfx/image/gfx.image_skia_rep.o $
+    obj/ui/gfx/image/gfx.image_skia_source.o $
+    obj/ui/gfx/image/gfx.image_util.o $
+    obj/ui/gfx/gfx.interpolated_transform.o $
+    obj/ui/gfx/gfx.linux_font_delegate.o $
+    obj/ui/gfx/gfx.nine_image_painter.o obj/ui/gfx/gfx.paint_throbber.o $
+    obj/ui/gfx/gfx.path.o obj/ui/gfx/gfx.platform_font_linux.o $
+    obj/ui/gfx/range/gfx.range.o obj/ui/gfx/range/gfx.range_f.o $
+    obj/ui/gfx/gfx.render_text.o obj/ui/gfx/gfx.render_text_harfbuzz.o $
+    obj/ui/gfx/gfx.screen.o obj/ui/gfx/gfx.screen_aura.o $
+    obj/ui/gfx/gfx.scrollbar_size.o obj/ui/gfx/gfx.selection_model.o $
+    obj/ui/gfx/gfx.sequential_id_generator.o obj/ui/gfx/gfx.shadow_value.o $
+    obj/ui/gfx/gfx.skbitmap_operations.o obj/ui/gfx/gfx.skia_util.o $
+    obj/ui/gfx/gfx.switches.o obj/ui/gfx/gfx.text_elider.o $
+    obj/ui/gfx/gfx.text_utils.o obj/ui/gfx/gfx.text_utils_skia.o $
+    obj/ui/gfx/gfx.transform.o obj/ui/gfx/gfx.transform_util.o $
+    obj/ui/gfx/gfx.ui_gfx_exports.o obj/ui/gfx/gfx.utf16_indexing.o $
+    obj/ui/gfx/gfx.gpu_memory_buffer.o || obj/ui/gfx/gfx.actions_depends.stamp

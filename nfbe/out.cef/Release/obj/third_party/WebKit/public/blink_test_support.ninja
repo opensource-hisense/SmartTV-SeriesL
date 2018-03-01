@@ -1,0 +1,12 @@
+build $
+    obj/third_party/WebKit/public/blink_test_support.actions_depends.stamp: $
+    stamp $
+    obj/third_party/WebKit/Source/platform/libblink_platform_test_support.a $
+    obj/third_party/WebKit/Source/web/libblink_web_test_support.a
+
+build $
+    obj/third_party/WebKit/public/blink_test_support.compile_depends.stamp: $
+    stamp $
+    obj/third_party/WebKit/Source/platform/blink_platform.compile_depends.stamp $
+    obj/third_party/WebKit/Source/web/blink_web_test_support.compile_depends.stamp
+
