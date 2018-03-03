@@ -1,0 +1,12 @@
+#
+# Socionext Ethernet device configuration
+#
+
+config NET_VENDOR_SOCIONEXT
+        bool "Socionext devices"
+        default y
+
+config AVE
+        tristate "AV-Ether generic Ether fuctions support"
+        help
+          This driver supports the on-chip ethernet device(AV-Ether).

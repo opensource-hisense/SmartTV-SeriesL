@@ -1,0 +1,39 @@
+menuconfig CLK_UNIPHIER
+	bool "Clock drivers for UniPhier SoCs"
+	depends on ARCH_UNIPHIER
+	depends on OF
+	default y
+	help
+	  Supports clock drivers for UniPhier SoCs.
+
+if CLK_UNIPHIER
+
+config CLK_UNIPHIER_PH1_SLD3
+	bool "Clock driver for UniPhier PH1-sLD3 SoC"
+	default y
+
+config CLK_UNIPHIER_PH1_LD4
+	bool "Clock driver for UniPhier PH1-LD4 SoC"
+	default y
+
+config CLK_UNIPHIER_PH1_PRO4
+	bool "Clock driver for UniPhier PH1-Pro4 SoC"
+	default y
+
+config CLK_UNIPHIER_PH1_SLD8
+	bool "Clock driver for UniPhier PH1-sLD8 SoC"
+	default y
+
+config CLK_UNIPHIER_PH1_PRO5
+	bool "Clock driver for UniPhier PH1-Pro5 SoC"
+	default y
+
+config CLK_UNIPHIER_PROXSTREAM2
+	bool "Clock driver for UniPhier ProXstream2/PH1-LD6b SoC"
+	default y
+
+config CLK_UNIPHIER_PH1_LD20
+	bool "Clock driver for UniPhier PH1-LD20 SoC"
+	default y
+
+endif

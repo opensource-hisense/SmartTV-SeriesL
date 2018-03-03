@@ -1,0 +1,696 @@
+menu "Socionext platform type"
+	depends on ARCH_UNIPHIER
+
+choice
+	prompt "Unit type"
+	default MACH_SC1405_REF
+	help
+	  This option specifies board for which the kernel will be
+	  compiled. It affects the external peripherals catered for.
+
+config MACH_SC1401_REF
+	bool "SC1401 reference board"
+
+config MACH_SC1402_REF
+	bool "SC1402 reference board"
+
+config MACH_SC1405_REF
+	bool "SC1405 reference board"
+
+endchoice
+
+
+# Following values must be consistent with arch/arm/tools/mach-types
+config MACH_TYPE_NUM
+#	int
+#	default "4576" if MACH_MN2WS0220_REF
+#	default "4577" if MACH_MN2WS0230_REF
+#	default "4578" if MACH_MN2WS0251_REF
+#	default "4579" if MACH_MN2WS0270_REF
+#	default "4581" if MACH_MN2WS0310_REF
+
+choice
+	prompt "Processor support"
+	default PROC_SC1405
+	help
+	  This option specifies the processor for which the kernel will be
+	  compiled. It affects the on-chip peripherals catered for.
+
+config PROC_SC1401
+	bool "SC1401"
+	depends on MACH_SC1401_REF
+
+config PROC_SC1402
+	bool "SC1402"
+	depends on MACH_SC1401_REF
+
+config PROC_SC1405
+	bool "SC1405"
+	depends on MACH_SC1405_REF
+
+#config PROC_MN2WS0220
+#	bool "MN2WS0220"
+#	depends on MACH_MN2WS0220_REF
+#	select ARM_ERRATA_754322
+#	select ARM_ERRATA_764369 if SMP
+#	select ARM_ERRATA_775420
+#	select ARM_ERRATA_782773
+#	select ARM_GIC
+#	select CPU_V7
+#	select HAVE_ARM_SCU if SMP
+#	select HAVE_ARM_TWD
+#	select HAVE_SMP
+#	select UNIPHIER_GLOBAL_TIMERS
+#	select UNIPHIER_HAS_L2CA
+#
+#config PROC_MN2WS0230
+#	bool "MN2WS0230"
+#	depends on MACH_MN2WS0230_REF
+#	select ARM_ERRATA_754322
+#	select ARM_ERRATA_764369 if SMP
+#	select ARM_ERRATA_775420
+#	select ARM_ERRATA_782773
+#	select ARM_GIC
+#	select CPU_V7
+#	select HAVE_ARM_SCU if SMP
+#	select HAVE_ARM_TWD
+#	select HAVE_SMP
+#	select MN2WS_EXT_MEM_LAYOUT if VMSPLIT_2G
+#	select MODULES_CUSTOM_VADDR if VMSPLIT_2G
+#	select UNIPHIER_GLOBAL_TIMERS
+#	select UNIPHIER_HAS_L2CA
+#
+#config PROC_MN2WS0251
+#	bool "MN2WS0251"
+#	depends on MACH_MN2WS0251_REF
+#	select ARM_ERRATA_754322
+#	select ARM_ERRATA_775420
+#	select ARM_ERRATA_782773
+#	select ARM_GIC
+#	select CPU_V7
+#	select HAVE_ARM_TWD
+#	select UNIPHIER_GLOBAL_TIMERS
+#	select UNIPHIER_HAS_L2CA
+#
+#config PROC_MN2WS0270
+#	bool "MN2WS0270"
+#	depends on MACH_MN2WS0270_REF
+#	select ARM_ERRATA_754322
+#	select ARM_ERRATA_775420
+#	select ARM_ERRATA_782773
+#	select ARM_GIC
+#	select CPU_V7
+#	select HAVE_ARM_TWD
+#	select UNIPHIER_GLOBAL_TIMERS
+#	select UNIPHIER_HAS_L2CA
+#
+#config PROC_MN2WS0310
+#	bool "MN2WS0310"
+#	depends on MACH_MN2WS0310_REF
+#	select ARM_ERRATA_754322
+#	select ARM_ERRATA_764369 if SMP
+#	select ARM_ERRATA_775420
+#	select ARM_ERRATA_782773
+#	select ARM_GIC
+#	select CPU_V7
+#	select HAVE_ARM_SCU if SMP
+#	select HAVE_ARM_TWD
+#	select HAVE_SMP
+#	select MN2WS_EXT_MEM_LAYOUT if VMSPLIT_2G
+#	select MODULES_CUSTOM_VADDR if VMSPLIT_2G
+#	select UNIPHIER_GLOBAL_TIMERS
+#	select UNIPHIER_HAS_L2CA
+#
+#config PROC_MN2WS0320
+#	bool "MN2WS0320"
+#	depends on MACH_MN2WS0310_REF
+#	select ARM_ERRATA_754322
+#	select ARM_ERRATA_764369 if SMP
+#	select ARM_ERRATA_775420
+#	select ARM_ERRATA_782773
+#	select ARM_GIC
+#	select CPU_V7
+#	select HAVE_ARM_SCU if SMP
+#	select HAVE_ARM_TWD
+#	select HAVE_SMP
+#	select MN2WS_EXT_MEM_LAYOUT if VMSPLIT_2G
+#	select MODULES_CUSTOM_VADDR if VMSPLIT_2G
+#	select UNIPHIER_GLOBAL_TIMERS
+#	select UNIPHIER_HAS_L2CA
+
+endchoice
+
+#config MN2WS0220_ES1
+#	bool	"MN2WS0220 ES1"
+#	depends on PROC_MN2WS0220
+#	default n
+#
+#choice
+#	prompt "Processor Subtype"
+#	depends on PROC_MN2WS0270
+#	default PROC_SUBTYPE_MN2WS0270
+#	help
+#	  This option specifies the processor subtype for which the kernel
+#	  will be compiled. It affects the on-chip peripherals catered for.
+#
+#config PROC_SUBTYPE_MN2WS0270
+#	bool "MN2WS0270"
+#	depends on PROC_MN2WS0270
+#
+#config PROC_SUBTYPE_MN2WS0270H
+#	bool "MN2WS0270H"
+#	depends on PROC_MN2WS0270
+#
+#endchoice
+#
+#config PRO4
+#	bool
+#	default y if MACH_MN2WS0230_REF
+#
+#config PRO4_PROTO
+#	bool
+#	default y if MACH_MN2WS0230_REF
+#
+#config DDR8G_REC
+#	bool
+#	default y if PRO4_PROTO
+#
+#config DDR16G_DTV
+#	bool
+#	default y if MACH_MN2WS0310_REF
+
+
+#menu "Memory layout options"
+#
+#config KERNEL_RAM_BASE_ADDRESS
+#	hex "Base address of (1st) kernel RAM (physical address)"
+#	default "0x84000000"
+#
+#config KERNEL_RAM_END_ADDRESS0
+#	hex "End address of 1st kernel RAM"
+#	depends on SPARSEMEM
+#	default "0xa0000000"
+#
+#config KERNEL_RAM_BASE_ADDRESS1
+#	hex "Base address of 2nd kernel RAM (physical address)"
+#	depends on SPARSEMEM
+#	default "0xc0000000"
+#
+#config ZONE_NORMAL_ADDRESS
+#	hex "Base address of ZONE_NORMAL (physical address)"
+#	depends on ZONE_DMA
+#	default "0xa0000000"
+#
+#config MODULES_HIGH_VADDR2
+#	bool
+#	depends on !XIP_KERNEL
+#	default n
+#
+#config MODULES_CUSTOM_VADDR
+#	bool
+#	depends on !XIP_KERNEL
+#	default n
+#
+#config PKMAP_HIGH_VADDR
+#	bool
+#	depends on MODULES_CUSTOM_VADDR
+#	default y
+#
+#config ARM_BOUNCE_ADDR_BUGFIX
+#	bool
+#	depends on ARM && HIGHMEM
+#	default y
+#	help
+#	  Workaround on the version older than v3.13.
+#
+#choice
+#	prompt "User stack layout"
+#	default STACK_LOW_ADDR
+#	help
+#	  This option specifies user stack memory layout.
+#
+#config STACK_LOW_ADDR_NONE
+#	bool "Normal stack addr on all processes"
+#
+#config STACK_LOW_ADDR
+#	bool "Low stack addr on all processes"
+#
+#config STACK_LOW_ADDR_DYNAMIC
+#	bool "Low stack addr on the processes with ADDR_LIMIT_3GB"
+#
+#endchoice
+#
+#config MN2WS_EXT_MEM_LAYOUT
+#	bool
+#	default n
+#
+#endmenu
+#
+#config ARCH_HAS_CACHE_LINE_SIZE
+#	bool
+#	default n
+#
+#config UNIPHIER_HAS_L2CA
+#	bool
+#	default n
+#	select ARCH_HAS_CACHE_LINE_SIZE
+#	select OUTER_CACHE
+#	select OUTER_CACHE_SYNC
+#
+#config UNIPHIER_L2CACHE_ENABLE
+#	bool "Use L2CA (L2 Cache)"
+#	depends on UNIPHIER_HAS_L2CA
+#	default y
+#
+#menu "UART"
+#
+#config UNIPHIER_UART0
+#	bool "Support UART0 on SoC"
+#	depends on PROC_MN2WS0230 || PROC_MN2WS0251 || PROC_MN2WS0270 || PROC_MN2WS0310 || PROC_MN2WS0320
+#	default n
+#
+#config UNIPHIER_UART1
+#	bool "Support UART1 on SoC"
+#	depends on PROC_MN2WS0230 || PROC_MN2WS0251 || PROC_MN2WS0270 || PROC_MN2WS0310 || PROC_MN2WS0320
+#	default n
+#
+#config UNIPHIER_UART2
+#	bool "Support UART2 on SoC"
+#	depends on PROC_MN2WS0230 || PROC_MN2WS0251 || PROC_MN2WS0270 || PROC_MN2WS0310 || PROC_MN2WS0320
+#	default n
+#
+#config UNIPHIER_UART3
+#	bool "Support UART3 on SoC"
+#	depends on PROC_MN2WS0230 || PROC_MN2WS0251 || PROC_MN2WS0270 || PROC_MN2WS0310 || PROC_MN2WS0320
+#	default n
+#
+#config UNIPHIER_UART4
+#	bool "Support UART4 on SoC"
+#	depends on PROC_MN2WS0220
+#	default n
+#
+#config UNIPHIER_UART5
+#	bool "Support UART5 on SoC"
+#	depends on PROC_MN2WS0220
+#	default n
+#
+#config UNIPHIER_UART6
+#	bool "Support UART6 on SoC"
+#	depends on PROC_MN2WS0220
+#	default n
+#
+#config UNIPHIER_UART
+#	bool
+#	depends on UNIPHIER_UART0 || UNIPHIER_UART1 || \
+#		UNIPHIER_UART2 || UNIPHIER_UART3 || \
+#		UNIPHIER_UART4 || UNIPHIER_UART5 || \
+#		UNIPHIER_UART6
+#	default y
+#	select SERIAL_8250
+#
+#config SC_UART
+#	bool "Support UART on support card."
+#	depends on PROC_MN2WS0230 || PROC_MN2WS0310 || PROC_MN2WS0320
+#	default n
+#
+#endmenu
+#
+#config MN2WS_SERIAL
+#	bool "Support Serial on SoC"
+#	depends on PROC_MN2WS0310 || PROC_MN2WS0320
+#	default n
+#
+#config MN2WS_TTYSM_CONSOLE
+#	bool
+#	depends on MN2WS_SERIAL
+#	default y
+#
+#config MN2WS_TTYSM0
+#	bool
+#	depends on MN2WS_TTYSM_CONSOLE
+#	default y
+#
+#config MN2WS_TTYSM0_TIMER8
+#	bool
+#	depends on MN2WS_TTYSM_CONSOLE
+#	default y
+#
+#config I2C_MN2WS_FIFO
+#	bool "Use I2C Interface with FIFO"
+#	depends on (PROC_MN2WS0230 || PROC_MN2WS0310 || PROC_MN2WS0320) && I2C_MN2WS
+#	default y
+#
+#config UNIPHIER_GLOBAL_TIMERS
+#	bool
+#	default n
+#
+#config MN2WS_EXMEM
+#	bool
+#	default y
+#
+#config MN2WS_EXSVC
+#	bool
+#	default y
+#
+#config SSIF_MN2WS
+#	bool "SSIF Controller Driver"
+#	help
+#	  This driver supports the SSIF controller on the MN2WS.
+#	default n
+#
+#config LINUX_CLI_MASK
+#	bool "Use GIC-PRIMASK in kernel critical sections"
+#	default n
+#
+##config LINUX_CLI_MASK_DEBUG
+##	bool
+##	default y
+#
+#config LINUX_CLI_LEVEL
+#	depends on LINUX_CLI_MASK
+#	int "IRQ DISABLE (1-10)"
+#	range 1 10
+#	default 2
+#
+#config LINUX_TASK_LEVEL
+#	depends on LINUX_CLI_MASK
+#	int
+#	default 15
+#
+#config IRQ_PRIO_MASK
+#	bool "Mask the lower-priority IRQs in interrupt handler"
+#	default y
+#
+#menu "RT3 trace options"
+#config MN_EXPORT_RIM_DBGINFO
+#	bool
+#	default y
+#	depends on RT3_TRACE
+#	help
+#	  This option exports the information for RIM debugging.
+#
+#config RT3_TRACE
+#	bool "Use real time task trace (real-time task trace)"
+#	default n
+#	help
+#	  This option enables rt3 trace.
+#
+#config RT3_TRACE_DO_ENABLE
+#	bool "Enable real time task trace at start time"
+#	depends on RT3_TRACE
+#	default y
+#	help
+#	  This option enables real time trace at start time.
+#
+#config RT3_TRACE_LOG_ON_MEM
+#	bool
+#	default y
+#	depends on RT3_TRACE
+#	help
+#	  This option enables trace log on memory.
+#
+#config RT3_TRACE_BUFF_SIZE
+#	int "Trace log buffer size in KB (256 - 8192)"
+#	depends on RT3_TRACE_LOG_ON_MEM
+#	default 1024
+#	range 256 8192
+#
+#config RT3_LOG_ISR
+#	bool "Log interrupt service routine"
+#	depends on RT3_TRACE
+#	default y
+#
+#config RT3_LOG_EXIT_TRACE_LOG
+#	bool "Log exit process"
+#	depends on RT3_TRACE
+#	default y
+#
+#config RT3_EXIT_TRACE_LOG_MAX_NUM
+#	int "Trace process exit log number (32 - 32768)"
+#	depends on RT3_LOG_EXIT_TRACE_LOG
+#	default 4096
+#	range 32 32768
+#
+##config RT3_LOG_LINUX_SYSCALL
+##	bool "Log linux syscall (id: 252, 253)"
+##	depends on RT3_TRACE
+##	default n
+##
+##config RT3_LOG_EXP
+##	bool "Log experimental data (id: ---)"
+##	depends on RT3_TRACE
+##	default n
+#
+#endmenu
+
+menu "AV configuration"
+
+config AVCR
+	tristate "use Audio Visual Core drivers"
+	default m
+
+config UCD
+	tristate "use Use Case drivers"
+	default m
+
+config SCC
+	tristate "use SCC drivers"
+	default m
+
+config DTVREC
+	tristate "use DTVREC driver"
+	default m
+
+config VP9
+	tristate "use VP9 drivers"
+	default m
+endmenu
+
+config DTV
+	bool
+#	depends on PROC_MN2WS0320
+	default y
+
+config SS_SC
+	bool
+	depends on SCC
+	default y
+
+config SS_BDR
+	bool
+	depends on DTVREC
+	default y
+
+config MEI_DTVREC
+	bool
+	depends on DTVREC
+	default y
+
+config MEI_DTV
+        bool
+        depends on DTV
+        default y
+
+config RTSC
+	bool "RTSC"
+	default y
+
+config SCC_RTSC_LIB
+	string "RTSC libraly"
+	depends on RTSC
+	default "rtsc_prv_key_ss_arm.bin"
+
+config SCC_CPCL_LIB
+	string
+	depends on SCC
+	default "cpcl.bin"
+
+menu "ReCS Graphics Drivers configuration"
+
+config GRAPHICS_RECS
+	tristate "Use OpenGL Driver for ReCS"
+	default m
+	help
+	 Choose this option to use OpenGL library on ReCS device.
+
+config GRAPHICS_RECS_RT3
+	bool "Add RT3 Trace Log"
+	default n
+	depends on GRAPHICS_RECS && RT3_TRACE
+	help
+	 Choose this option to add RT3 Trace log for OpenGL library.
+
+endmenu
+
+config COMBINE_MODULES
+	bool "combine fs/dtvrec, drivers/dtvrec and drivers/scc loadable modules"
+	default y
+
+
+## GPIO
+#menu "GPIO configuration"
+#
+#config UNIPHIER_GPIO
+#    bool "Support GPIO driver"
+#    default y
+#    select GPIO_SYSFS
+#    select GENERIC_GPIO
+#    select ARCH_REQUIRE_GPIOLIB
+#
+#endmenu
+
+# Target area
+choice
+	prompt "Target Area configuration"
+#	depends on MACH_MN2WS0310_REF
+	default TARGET_AREA_JP
+
+config TARGET_AREA_US
+	bool "US - ATSC"
+
+config TARGET_AREA_CH
+	bool "CH - DTMB"
+
+config TARGET_AREA_EU
+	bool "EU - DVB"
+
+config TARGET_AREA_JP
+	bool "JP - ISDB-T"
+
+config TARGET_AREA_BR
+	bool "BR - ISDB-TB"
+endchoice
+
+# STM
+config UNIPHIER_STM
+    bool "Use Standby Micon on SoC"
+    default y
+
+# NAND bank switch
+config NANDBOOT_BANKCHOICE
+	bool "Enable NAND bank switch"
+    help
+      On 2ndboot and other boot stage, check SoftwareUpdateFlag
+      and select boot bank.
+
+config NANDBOOT_SWUPFLG_READ
+	bool "Enable SoftwareUpdateFlag read on boot"
+    default n
+    help
+      On 2ndboot and other boot stage, read SoftwareUpdateFlag from NAND
+
+# Secure boot
+config ENABLE_SECURE_BOOT_1STONLY
+	bool "Enable Secure boot only to 2nd boot"
+    default n
+
+config ENABLE_SECURE_BOOT
+	bool "Enable Secure boot"
+    default n
+
+config ENABLE_SECURE_EXEC
+	bool
+    default y
+	depends on ENABLE_SECURE_BOOT
+
+# Record Boot Time
+config RECORD_BOOTTIME
+	bool "Enable to record boot time"
+    default n
+
+config TVSTACK_TARGETBOARD_JAPAN
+	bool "TVStack for JAPAN"
+	default n
+
+config TVSTACK_TARGETBOARD_EU
+	bool "TVStack for EU"
+	default n
+
+config TVSTACK_TARGETBOARD_USA
+	bool "TVStack for USA"
+	default n
+
+config TVSTACK_TARGETBOARD_ASIA
+	bool "TVStack for ASIA"
+	default n
+
+# Pie setting
+config ARC_PAGE_SIZE_4K
+        bool
+        depends on DTV
+        default y
+
+config PRO4_PIE
+	bool "Change functions regarding PiED ($MAKETOP/usr/src/pie)"
+	default n
+
+config PXS2_PIE
+	bool "Change functions regarding PiED ($MAKETOP/usr/src/pie)"
+	default n
+
+config USE_PIE_HSC
+	bool "Use HSC(TSD,MSS) on PiED ( not on Paprika )"
+	default n
+
+# Hardware setting
+config USE_AMP_TAS5707
+	bool "Use audio amp TAS5707"
+	default n
+
+config USE_AMP_TAS5707A
+	bool "Use audio amp TAS5707A"
+	default n
+
+config USE_BERLYS
+	bool "Use berly's"
+	default n
+
+config USE_AMP_TAS5729MD
+	bool "Use audio amp TAS5729MD"
+	default n
+
+config USE_AMP_YDA176
+	bool "Use audio amp YDA176"
+	default n
+
+config USE_MHL
+	bool "Use MHL"
+	default n
+
+# Design setting
+config MODEL_S_1
+	bool "model s1"
+	default n
+
+config FACTORY_A
+	bool "factory A"
+	default n
+
+config FACTORY_B
+	bool "factory B"
+	default n
+
+config MODEL_D_1
+	bool "model d1"
+	default n
+
+config FACTORY_D
+  	bool "factory D" 
+  	default n
+
+# GTKSP (Global Turn Key Solution Platform) Configurations
+config ENABLE_TMP_SETTING_APEPR1
+	bool "model AP EPR1"
+	default n
+	# asia=y others=n
+
+config USE_AMP_BM28720
+	bool "Use audio amp BM28720"
+	default n
+
+endmenu
+
+config ADVANCED_BS
+	bool "Use Advanced BS"
+	default n
+

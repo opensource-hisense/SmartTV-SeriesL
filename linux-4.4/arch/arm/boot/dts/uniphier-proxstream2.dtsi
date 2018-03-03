@@ -1,0 +1,542 @@
+/*
+ * Device Tree Source for UniPhier ProXstream2 SoC
+ *
+ * Copyright (C) 2015 Masahiro Yamada <yamada.masahiro@socionext.com>
+ *
+ * This file is dual-licensed: you can use it either under the terms
+ * of the GPL or the X11 license, at your option. Note that this dual
+ * licensing only applies to this file, and not this project as a
+ * whole.
+ *
+ *  a) This file is free software; you can redistribute it and/or
+ *     modify it under the terms of the GNU General Public License as
+ *     published by the Free Software Foundation; either version 2 of the
+ *     License, or (at your option) any later version.
+ *
+ *     This file is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ * Or, alternatively,
+ *
+ *  b) Permission is hereby granted, free of charge, to any person
+ *     obtaining a copy of this software and associated documentation
+ *     files (the "Software"), to deal in the Software without
+ *     restriction, including without limitation the rights to use,
+ *     copy, modify, merge, publish, distribute, sublicense, and/or
+ *     sell copies of the Software, and to permit persons to whom the
+ *     Software is furnished to do so, subject to the following
+ *     conditions:
+ *
+ *     The above copyright notice and this permission notice shall be
+ *     included in all copies or substantial portions of the Software.
+ *
+ *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ *     OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+/include/ "uniphier-common32.dtsi"
+
+/ {
+	compatible = "socionext,proxstream2";
+
+	cpus {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		enable-method = "socionext,uniphier-smp";
+
+		cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a9";
+			reg = <0>;
+			next-level-cache = <&l2>;
+		};
+
+		cpu@1 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a9";
+			reg = <1>;
+			next-level-cache = <&l2>;
+		};
+
+		cpu@2 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a9";
+			reg = <2>;
+			next-level-cache = <&l2>;
+		};
+
+		cpu@3 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a9";
+			reg = <3>;
+			next-level-cache = <&l2>;
+		};
+	};
+};
+
+&soc {
+	l2: l2-cache@500c0000 {
+		compatible = "socionext,uniphier-system-cache";
+		reg = <0x500c0000 0x2000>, <0x503c0100 0x4>, <0x506c0000 0x400>;
+		interrupts = <0 174 4>, <0 175 4>, <0 190 4>, <0 191 4>;
+		cache-unified;
+		cache-size = <(1280 * 1024)>;
+		cache-sets = <512>;
+		cache-line-size = <128>;
+		cache-level = <2>;
+	};
+
+	port0x: gpio@55000008 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x55000008 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 127 8>;
+	};
+
+	port1x: gpio@55000010 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x55000010 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 135 8>;
+	};
+
+	port2x: gpio@55000018 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x55000018 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 0 8>;
+	};
+
+	port3x: gpio@55000020 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x55000020 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 8 8>;
+	};
+
+	port4: gpio@55000028 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x55000028 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 16 4>,
+			      <&pinctrl 4 21 4>;
+	};
+
+	port5x: gpio@55000030 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x55000030 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 25 1>,
+			      <&pinctrl 1 30 7>;
+	};
+
+	port6x: gpio@55000038 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x55000038 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 37 8>;
+	};
+
+	port7x: gpio@55000040 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x55000040 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 45 8>;
+	};
+
+	port8x: gpio@55000048 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x55000048 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 53 8>;
+	};
+
+	port9x: gpio@55000050 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x55000050 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 61 8>;
+	};
+
+	port10x: gpio@55000058 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x55000058 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 69 3>,
+			      <&pinctrl 3 76 5>;
+	};
+
+	port12x: gpio@55000068 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x55000068 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 81 8>;
+	};
+
+	port13x: gpio@55000070 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x55000070 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 89 2>,
+			      <&pinctrl 2 95 6>;
+	};
+
+	port14x: gpio@55000078 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x55000078 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 101 8>;
+	};
+
+	port15x: gpio@55000080 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x55000080 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 118 8>;
+	};
+
+	port16x: gpio@55000088 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x55000088 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 126 1>,
+			      <&pinctrl 1 72 2>,
+			      <&pinctrl 3 92 1>,
+			      <&pinctrl 4 177 1>,
+			      <&pinctrl 5 93 2>,
+			      <&pinctrl 7 176 1>;
+	};
+
+	port17x: gpio@550000a0 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x550000a0 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 74 1>,
+			      <&pinctrl 1 91 1>,
+			      <&pinctrl 2 27 3>,
+			      <&pinctrl 5 75 1>,
+			      <&pinctrl 6 20 1>,
+			      <&pinctrl 7 26 1>;
+	};
+
+	port18x: gpio@550000a8 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x550000a8 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 109 8>;
+	};
+
+	port19x: gpio@550000b0 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x550000b0 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 117 1>,
+			      <&pinctrl 1 143 7>;
+	};
+
+	port20x: gpio@550000b8 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x550000b8 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 150 8>;
+	};
+
+	port21x: gpio@550000c0 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x550000c0 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 158 8>;
+	};
+
+	port22x: gpio@550000c8 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x550000c8 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 166 1>,
+			      <&pinctrl 1 178 7>;
+	};
+
+	port23x: gpio@550000d0 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x550000d0 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 185 1>,
+			      <&pinctrl 1 187 7>;
+	};
+
+	port24x: gpio@550000d8 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x550000d8 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 194 8>;
+	};
+
+	port25x: gpio@550000e0 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x550000e0 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 202 8>;
+	};
+
+	port26x: gpio@550000e8 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x550000e8 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 210 8>;
+	};
+
+	port27x: gpio@550000f0 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x550000f0 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 218 4>,
+			      <&pinctrl 4 223 4>;
+	};
+
+	port28x: gpio@550000f8 {
+		compatible = "socionext,uniphier-gpio";
+		reg = <0x550000f8 0x8>;
+		gpio-controller;
+		#gpio-cells = <2>;
+		gpio-ranges = <&pinctrl 0 227 8>;
+	};
+
+	i2c0: i2c@58780000 {
+		compatible = "socionext,uniphier-fi2c";
+		status = "disabled";
+		reg = <0x58780000 0x80>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		interrupts = <0 41 4>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_i2c0>;
+		clocks = <&peri 4>;
+		clock-frequency = <100000>;
+	};
+
+	i2c1: i2c@58781000 {
+		compatible = "socionext,uniphier-fi2c";
+		status = "disabled";
+		reg = <0x58781000 0x80>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		interrupts = <0 42 4>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_i2c1>;
+		clocks = <&peri 5>;
+		clock-frequency = <100000>;
+	};
+
+	i2c2: i2c@58782000 {
+		compatible = "socionext,uniphier-fi2c";
+		status = "disabled";
+		reg = <0x58782000 0x80>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_i2c2>;
+		interrupts = <0 43 4>;
+		clocks = <&peri 6>;
+		clock-frequency = <100000>;
+	};
+
+	i2c3: i2c@58783000 {
+		compatible = "socionext,uniphier-fi2c";
+		status = "disabled";
+		reg = <0x58783000 0x80>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		interrupts = <0 44 4>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_i2c3>;
+		clocks = <&peri 7>;
+		clock-frequency = <100000>;
+	};
+
+	/* chip-internal connection for DMD */
+	i2c4: i2c@58784000 {
+		compatible = "socionext,uniphier-fi2c";
+		reg = <0x58784000 0x80>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		interrupts = <0 45 4>;
+		clocks = <&peri 8>;
+		clock-frequency = <400000>;
+	};
+
+	/* chip-internal connection for STM */
+	i2c5: i2c@58785000 {
+		compatible = "socionext,uniphier-fi2c";
+		reg = <0x58785000 0x80>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		interrupts = <0 25 4>;
+		clocks = <&peri 9>;
+		clock-frequency = <400000>;
+	};
+
+	/* chip-internal connection for HDMI */
+	i2c6: i2c@58786000 {
+		compatible = "socionext,uniphier-fi2c";
+		reg = <0x58786000 0x80>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		interrupts = <0 26 4>;
+		clocks = <&peri 10>;
+		clock-frequency = <400000>;
+	};
+
+	emmc: sdhc@5a000000 {
+		compatible = "socionext,uniphier-sdhc";
+		status = "disabled";
+		reg = <0x5a000000 0x800>;
+		interrupts = <0 78 4>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_emmc>;
+		clock-names = "host", "hw-reset";
+		clocks = <&mio 1>, <&mio 3>;
+		bus-width = <8>;
+		non-removable;
+		cap-mmc-highspeed;
+		cap-mmc-hw-reset;
+		no-3-3-v;
+	};
+
+	sd: sdhc@5a400000 {
+		compatible = "socionext,uniphier-sdhc";
+		status = "disabled";
+		reg = <0x5a400000 0x800>;
+		interrupts = <0 76 4>;
+		pinctrl-names = "default", "1.8v";
+		pinctrl-0 = <&pinctrl_sd>;
+		pinctrl-1 = <&pinctrl_sd_1v8>;
+		clock-names = "host";
+		clocks = <&mio 0>;
+		bus-width = <4>;
+		cap-sd-highspeed;
+		sd-uhs-sdr12;
+		sd-uhs-sdr25;
+		sd-uhs-sdr50;
+	};
+
+	usb3_0: usb3_0@65b00000 {
+		compatible = "socionext,proxstream2-dwc3";
+		status = "okay";
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_usb0>, <&pinctrl_usb2>;
+		reg = <0x65b00000 0x1000>;
+		clocks = <&sysctrl 20>,<&sysctrl 22>,<&sysctrl 23>;
+		clock-names = "u3clk0", "u3clk1", "u2clk0";
+		#address-cells = <1>;
+		#size-cells = <1>;
+		vbus-supply;
+		ranges;
+		dwc3@65a00000 {
+			compatible = "snps,dwc3";
+			reg = <0x65a00000 0x14100>;
+			interrupts = <0 134 4>;
+			dr_mode = "host";
+			tx-fifo-resize;
+		};
+	};
+
+	usb3_1: usb3_1@65d00000 {
+		compatible = "socionext,proxstream2-dwc3";
+		status = "okay";
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_usb1>, <&pinctrl_usb3>;
+		reg = <0x65d00000 0x1000>;
+		clocks = <&sysctrl 21>,<&sysctrl 24>;
+		clock-names = "u3clk0", "u2clk0";
+		#address-cells = <1>;
+		#size-cells = <1>;
+		vbus-supply;
+		ranges;
+		dwc3@65c00000 {
+			compatible = "snps,dwc3";
+			reg = <0x65c00000 0x14100>;
+			interrupts = <0 137 4>;
+			dr_mode = "host";
+			tx-fifo-resize;
+		};
+	};
+
+	ahci@65600000 {
+		compatible = "socionext,uniphier-ahci";
+		reg = <0x65600000 0x10000>, /* AHCI */
+		      <0x65700000 0x40>;    /* Glue */
+		interrupts = <0 142 4>;
+		clocks = <&sysctrl 25>;
+	};
+
+	watchdog@61843000 {
+		compatible = "socionext,uniphier-wdt";
+		reg = <0x61843000 0x1000>;
+	};
+
+	pvtctl: pvtctl@6184e000 {
+		compatible = "socionext,proxstream2-thermal";
+		reg = <0x6184e000 0x1000>;
+		interrupts = <0 3 1>;
+		#thermal-sensor-cells = <0>;
+	};
+};
+
+&refclk {
+	clock-frequency = <25000000>;
+};
+
+&mio {
+	compatible = "socionext,ph1-pro5-mioctrl";
+	clock-names = "stdmac";
+	clocks = <&sysctrl 10>;
+};
+
+&peri {
+	compatible = "socionext,proxstream2-perictrl";
+	clock-names = "uart", "fi2c";
+	clocks = <&sysctrl 3>, <&sysctrl 4>;
+};
+
+&pinctrl {
+	compatible = "socionext,uniphier-pxs2-pinctrl";
+};
+
+&sysctrl {
+	compatible = "socionext,proxstream2-sysctrl";
+};

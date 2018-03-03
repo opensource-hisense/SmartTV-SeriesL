@@ -1,0 +1,10 @@
+#include "uniphier-ph1-ld20-global.dts"
+
+/ {
+	model = "UniPhier PH1-LD21 Global Board (REF_LD21_GP)";
+	compatible = "socionext,ph1-ld21-global", "socionext,ph1-ld21";
+
+	memory {
+		reg = <0 0x80000000 0 0x20000000>, <0 0xc0000000 0 0x40000000>;
+	};
+};

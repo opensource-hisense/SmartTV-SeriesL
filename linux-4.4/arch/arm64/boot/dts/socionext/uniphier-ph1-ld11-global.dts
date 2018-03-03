@@ -1,0 +1,496 @@
+/*
+ * Device Tree Source for UniPhier PH1-LD11 Global Board
+ *
+ * Copyright (C) 2016 Masahiro Yamada <yamada.masahiro@socionext.com>
+ *                    Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+ *
+ * This file is dual-licensed: you can use it either under the terms
+ * of the GPL or the X11 license, at your option. Note that this dual
+ * licensing only applies to this file, and not this project as a
+ * whole.
+ *
+ *  a) This file is free software; you can redistribute it and/or
+ *     modify it under the terms of the GNU General Public License as
+ *     published by the Free Software Foundation; either version 2 of the
+ *     License, or (at your option) any later version.
+ *
+ *     This file is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ * Or, alternatively,
+ *
+ *  b) Permission is hereby granted, free of charge, to any person
+ *     obtaining a copy of this software and associated documentation
+ *     files (the "Software"), to deal in the Software without
+ *     restriction, including without limitation the rights to use,
+ *     copy, modify, merge, publish, distribute, sublicense, and/or
+ *     sell copies of the Software, and to permit persons to whom the
+ *     Software is furnished to do so, subject to the following
+ *     conditions:
+ *
+ *     The above copyright notice and this permission notice shall be
+ *     included in all copies or substantial portions of the Software.
+ *
+ *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ *     OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+/dts-v1/;
+/include/ "uniphier-ph1-ld11.dtsi"
+/include/ "uniphier-support-card.dtsi"
+#include <dt-bindings/gpio/gpio.h>
+
+/ {
+	model = "UniPhier PH1-LD11 Global Board (REF_LD11_GP)";
+	compatible = "socionext,ph1-ld11-global", "socionext,ph1-ld11";
+
+	memory {
+		device_type = "memory";
+		reg = <0 0x81000000 0 0x3f000000>;
+	};
+
+	chosen {
+		stdout-path = "serial0:115200n8";
+		bootargs = "earlycon";
+	};
+
+	aliases {
+		serial0 = &serial0;
+		serial1 = &serial1;
+		serial2 = &serialsc;
+		serial3 = &serial3;
+		i2c0 = &i2c0;
+		i2c1 = &i2c1;
+		i2c2 = &i2c2;
+		i2c3 = &i2c3;
+		i2c4 = &i2c4;
+		i2c5 = &i2c5;
+	};
+
+	reserved-memory {
+		#address-cells = <2>;
+		#size-cells = <2>;
+		ranges;
+
+		dsp_boot_reserved: memory@0x80080000 {
+			reg = <0 0x80080000 0 0x00080000>;
+			no-map;
+		};
+		dsp_ucode_reserved: memory@0x80100000 {
+			reg = <0 0x80100000 0 0x00700000>;
+			no-map;
+		};
+		dsp_ucode_aq_reserved: memory@0x80800000 {
+			reg = <0 0x80800000 0 0x00100000>;
+			no-map;
+		};
+		dsp_ucode_sec_reserved: memory@0x80980000 {
+			reg = <0 0x80980000 0 0x00100000>;
+			no-map;
+		};
+		vio_reserved: memory@0x92000000 {
+			reg = <0x0 0x92000000 0 0x02000000>;
+			no-map;
+		};
+		ch0_reserved: memory@0x94000000 {
+			reg = <0x0 0x94000000 0 0x02000000>;
+			no-map;
+		};
+/*add for DTV(start)*/
+		rtsc_reserved: memory@0x99000000 {
+			reg = <0x0 0x99000000 0 0x04000000>;
+			no-map;
+		};
+		hsc_reserved: memory@0x9d000000 {
+			reg = <0x0 0x9d000000 0 0x00500000>;
+			no-map;
+		};
+		pserv_reserved: memory@0x9d500000 {
+			reg = <0x0 0x9d500000 0 0x013e0000>;
+		};
+		psera_reserved: memory@0x9e8e0000 {
+			reg = <0x0 0x9e8e0000 0 0x00020000>;
+			no-map;
+		};
+		iosd_reserved: memory@0x9e900000 {
+			reg = <0x0 0x9e900000 0 0x10f4000>;
+			no-map;
+		};
+/*add for DTV(end)*/
+		media_reserved: memory@0xa0000000 {
+			reg = <0x0 0xa0000000 0 0x08000000>;
+			no-map;
+		};
+		ch1_reserved: memory@0xa8000000 {
+			reg = <0x0 0xa8000000 0 0x02000000>;
+			no-map;
+		};
+		fb_reserved: memory@0xaa000000 {
+			reg = <0x0 0xaa000000 0 0x02000000>;
+			no-map;
+		};
+		gpu_reserved: memory@0xb0000000 {
+			reg = <0x0 0xb0000000 0 0x09000000>;
+			no-map;
+		};
+		vpe_reserved: memory@0xb9000000 {
+			reg = <0x0 0xb9000000 0 0x01000000>;
+			no-map;
+		};
+
+	};
+
+	framebuffer {
+		compatible = "simple-framebuffer";
+		reg = <0 0xaa000000 0 0x02000000>;
+		width = <1920>;
+		height = <1088>;
+		stride = <7680>;
+		format = "a8r8g8b8";
+	};
+};
+
+&ethsc {
+	interrupts = <0 52 4>;
+};
+
+&serialsc {
+	interrupts = <0 52 4>;
+};
+
+&serial0 {
+	status = "okay";
+};
+
+&serial1 {
+	status = "okay";
+};
+
+&port23x {
+	gpio-ranges = <&pinctrl 4 151 2>;
+	status = "okay";
+};
+
+/*add for DTV(start)*/
+&i2c0 {
+	status = "okay";
+};
+&i2c1 {
+	status = "okay";
+	clock-frequency = <400000>;
+};
+&i2c2 {
+	status = "okay";
+};
+&i2c3 {
+	status = "okay";
+};
+&i2c4 {
+	status = "okay";
+};
+&i2c5 {
+	status = "okay";
+};
+/*add for DTV(end)*/
+
+&emmc {
+	status = "okay";
+};
+
+&usb0 {
+	status = "okay";
+};
+
+&usb1 {
+	status = "okay";
+};
+
+&usb2 {
+	status = "okay";
+};
+
+&soc {
+	ion-uniphier {
+		compatible = "socionext,ion-uniphier";
+
+		ion-fb-heap {
+			compatible = "socionext,fb-heap", "linux,ion-heap-carveout";
+			memory-region = <&fb_reserved>;
+		};
+		ion-vio-heap {
+			compatible = "socionext,vio-heap", "linux,ion-heap-carveout";
+			memory-region = <&vio_reserved>;
+		};
+		ion-ch0-heap {
+			compatible = "socionext,ch0-heap", "linux,ion-heap-carveout";
+			memory-region = <&ch0_reserved>;
+		};
+		ion-media-heap {
+			compatible = "socionext,media-heap", "linux,ion-heap-carveout";
+			memory-region = <&media_reserved>;
+		};
+		ion-ch1-heap {
+			compatible = "socionext,ch1-heap", "linux,ion-heap-carveout";
+			memory-region = <&ch1_reserved>;
+		};
+		ion-gpu-heap {
+			compatible = "socionext,gpu-heap", "linux,ion-heap-carveout";
+			memory-region = <&gpu_reserved>;
+		};
+
+	};
+	vioglue: vioglue {
+		compatible = "socionext,uniphier-vioglue";
+		reg-names = "voc_voc", "voc_sg2", "voc_sc", "voc_heap",
+		            "vpe_reg", "vpe_dtrcaiai", "vpe_heap", "exiv_reg", "exiv_voc", "exiv_hdmirx", "exiv_sg", "recs_reg";
+		reg = <0x5F000000 0x800000>,
+		      <0x5F800000 0x200000>,
+		      <0x61840000 0x10000>,
+		      <0x920C0000 0x30000>,
+		      <0x5E000000 0x700>,
+		      <0x6E210000 0x3400>,
+		      <0x92000000 0xA0000>,
+		      <0x57920000 0x1A000>,
+		      <0x5F000000 0x0C000>,
+		      <0x57940000 0x04000>,
+		      <0x5F800000 0x02000>,
+		      <0x6c000000 0x400000>;
+		interrupt-names = "voc_vout7", "voc_vout5", "voc_vout4", "voc_vout3", "vpe", "exiv_vout6", "exiv_hdmi", "recs";
+		interrupts = <0 117 4>,
+					 <0 115 4>,
+					 <0 114 4>,
+					 <0 113 4>,
+					 <0 110 4>,
+					 <0 116 4>,
+					 <0 72 4>,
+					 <0 96 4>;
+	};
+	audio_controller: audio-controller@0x56000000 {
+		#sound-dai-cells = <1>;
+		compatible = "socionext,snd-uniphier-i2s-ld11";
+		reg = <0x56000000 0x80000>;
+		reg-names = "asoc-aud";
+
+		pinctrl-0 = <&pinctrl_aout>;
+		pinctrl-names = "default";
+		status = "okay";
+	};
+
+	audio_codec_evea: audio-codec@0x57900000 {
+		#sound-dai-cells = <1>;
+		compatible = "socionext,evea";
+		reg = <0x57900000 0x1000>;
+		reg-names = "asoc-evea";
+
+		status = "okay";
+	};
+
+	spdif_out: spdif-out {
+		#sound-dai-cells = <0>;
+		compatible = "socionext,spdif-dit-mod";
+
+		status = "okay";
+	};
+
+	thru_out: thru-out {
+		#sound-dai-cells = <0>;
+		compatible = "socionext,thru-out";
+
+		status = "okay";
+	};
+
+	sound {
+		compatible = "simple-audio-card";
+		simple-audio-card,name = "UniPhier LD11";
+		status = "okay";
+
+		simple-audio-card,dai-link@0 {
+			/* Line in 1 */
+			format = "i2s";
+			cpu {
+				sound-dai = <&audio_controller 0>;
+			};
+			codec {
+				sound-dai = <&audio_codec_evea 0>;
+			};
+		};
+
+		simple-audio-card,dai-link@1 {
+			/* SPDIF */
+			format = "i2s";
+			cpu {
+				sound-dai = <&audio_controller 1>;
+			};
+			codec {
+				sound-dai = <&spdif_out>;
+			};
+		};
+
+		simple-audio-card,dai-link@2 {
+			/* Speaker */
+			format = "i2s";
+			cpu {
+				sound-dai = <&audio_controller 2>;
+			};
+			codec {
+				sound-dai = <&thru_out>;
+			};
+		};
+
+		simple-audio-card,dai-link@3 {
+			/* Line out 1 */
+			format = "i2s";
+			cpu {
+				sound-dai = <&audio_controller 3>;
+			};
+			codec {
+				sound-dai = <&audio_codec_evea 1>;
+			};
+		};
+
+		simple-audio-card,dai-link@4 {
+			/* Headphone */
+			format = "i2s";
+			cpu {
+				sound-dai = <&audio_controller 4>;
+			};
+			codec {
+				sound-dai = <&audio_codec_evea 2>;
+			};
+		};
+
+		simple-audio-card,dai-link@5 {
+			/* SRC0 */
+			format = "i2s";
+			cpu {
+				sound-dai = <&audio_controller 5>;
+			};
+			codec {
+				sound-dai = <&thru_out>;
+			};
+		};
+
+		simple-audio-card,dai-link@6 {
+			/* SRC1 */
+			format = "i2s";
+			cpu {
+				sound-dai = <&audio_controller 6>;
+			};
+			codec {
+				sound-dai = <&thru_out>;
+			};
+		};
+	};
+
+	dsp-uniphier {
+		compatible = "socionext,dsp-uniphier-ld11";
+		reg-names = "dsp-hcm", "dsp-intr",
+			"dsp-dsp", "dsp-icr";
+/* change for SDK AQ (common) */
+		reg = <0x80900000 0x16000>, <0x50801000 0x1000>,
+			<0x70080000 0x1000>, <0x70700000 0x200000>;
+		interrupt-names = "dsp-cpueint0", "dsp-cpueint1", "dsp-cpueint2",
+			"dsp-cpueint3", "dsp-cpueint4", "dsp-cpueint5";
+		interrupts = <0 192 4>, <0 193 4>, <0 194 4>,
+			<0 195 4>, <0 196 4>, <0 197 4>;
+		ioreg-names = "dsp-aud", "dsp-sg",
+			"dsp-sc";
+		ioreg = <0x56007000 0x1000>, <0x5f800000 0x1000>,
+			<0x61842000 0x1000>;
+		dsp-boot {
+			compatible = "socionext,ipp_boot";
+			memory-region = <&dsp_boot_reserved>;
+		};
+		dsp-ucode {
+			compatible = "socionext,ipp";
+			memory-region = <&dsp_ucode_reserved>;
+		};
+		dsp-ucode_aq {
+			compatible = "socionext,ipp_aq";
+			memory-region = <&dsp_ucode_aq_reserved>;
+		};
+	};
+	g2dec-uniphier {
+		compatible = "socionext,g2dec-uniphier";
+		reg = <0x5fc1f000 0x1000>;
+		interrupts = <0 36 4>;
+		clkreg = <0x61842114 0x1>;
+		rstreg = <0x61842014 0x1>;
+	};
+	g1dec-uniphier {
+		compatible = "socionext,g1dec-uniphier";
+		reg = <0x6e211000 0x1000>;
+		interrupts = <0 233 4>;
+		clkreg = <0x61842114 0x0>;
+		rstreg = <0x61842014 0x0>;
+	};
+	acodec-uniphier {
+		compatible = "socionext,acodec-uniphier";
+                hcm1 = <0x80900000 0x00002000 0x00000000 0x80901094>;
+/* change for SDK AQ (common) start */
+                hcm2 = <0x80902000 0x00014000 0x00001600 0x80902060>;
+                hcm3 = <0x80902000 0x00014000 0x00001600 0x80903454>;
+                hcm4 = <0x80902000 0x00014000 0x00001600 0x80903250>;
+/* change for SDK AQ (common) end */
+	};
+	devglue {
+		compatible = "socionext,devglue";
+		reg-names = "voc_voc", "voc_sg2", "voc_sc", "voc_heap",
+		            "vpe_reg", "vpe_dtrcaiai", "vpe_heap", "exiv_reg", "exiv_voc", "exiv_hdmirx", "exiv_sg", "recs_reg",
+                    "stm_sg";
+		reg = <0x5F000000 0x800000>,
+		      <0x5F800000 0x200000>,
+		      <0x61840000 0x10000>,
+		      <0x920C0000 0x30000>,
+		      <0x5E000000 0x1000>,
+		      <0x6E210000 0x4000>,
+		      <0x92000000 0xA0000>,
+		      <0x57920000 0x1A000>,
+		      <0x5F000000 0x0C000>,
+		      <0x57940000 0x04000>,
+		      <0x5F800000 0x02000>,
+		      <0x6c000000 0x400000>,
+		      <0x5F800000 0x80>;
+		interrupt-names = "voc_vout7", "voc_vout5", "voc_vout4", "voc_vout3", "voc_vout2", "voc_vout1",
+                          "vpe", "exiv_vout6", "exiv_hdmi", "recs", "icc", "hsc1", "hsc2", "hsc3", "stm", "exiv_vbi", "secbus";
+		interrupts = <0 117 4>,
+					 <0 115 4>,
+					 <0 114 4>,
+					 <0 113 4>,
+					 <0 112 4>,
+					 <0 109 4>,
+					 <0 110 4>,
+					 <0 116 4>,
+					 <0 72 4>,
+					 <0 96 4>,
+					 <0 40 4>,
+					 <0 100 4>,
+					 <0 101 4>,
+					 <0 102 4>,
+					 <0 220 4>,
+					 <0 160 4>,
+					 <0 204 4>;
+	};
+
+	vio_rm {
+		compatible = "socionext,vio_rm";
+		memory-region = <&vio_reserved>;
+		nrip-bufsize = <0x00800000>;
+		vpe-nrip {
+			compatible = "socionext,vpe-nrip";
+			memory-region = <&vpe_reserved>;
+		};
+		vpe-fb {
+			compatible = "socionext,vpe-fb";
+			memory-region = <&fb_reserved>;
+		};
+	};
+};

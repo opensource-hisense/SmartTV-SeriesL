@@ -1,0 +1,8 @@
+#include "uniphier-ph1-ld20-global.dts"
+
+/ {
+	compatible = "socionext,ph1-ld20-global16g", "socionext,ph1-ld20";
+	memory {
+		reg = <0 0x80000000 0 0x80000000>;
+	};
+};
